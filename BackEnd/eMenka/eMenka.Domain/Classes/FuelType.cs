@@ -1,7 +1,8 @@
 ﻿namespace eMenka.Domain.Classes
 {
-    public class FuelType
+    public enum FuelType
     {
-        public string Name { get; set; }
+        Diesel,
+        Benzine
     }
 }

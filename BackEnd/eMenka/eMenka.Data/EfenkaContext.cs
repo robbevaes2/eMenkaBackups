@@ -17,6 +17,7 @@ namespace eMenka.Data
             base.OnModelCreating(builder);
             #region PK
             //TODO: add primary keys
+            builder.Entity<>()
             #endregion
 
             //TODO: Add relations
