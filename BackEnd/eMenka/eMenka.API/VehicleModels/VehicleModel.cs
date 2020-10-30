@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Threading.Tasks;
-using eMenka.Domain.Classes;
+using eMenka.Domain.Enums;
 
 namespace eMenka.API.VehicleModels
 {
-    public class VehicleReturnModel
+    public class VehicleModel
     {
-        public BrandReturnModel Brand { get; set; }
-        public ModelReturnModel Model { get; set; }
+        public int Id { get; set; }
+        public BrandModel Brand { get; set; }
+        public ModelModel Model { get; set; }
         public FuelType FuelType { get; set; }
-        public MotorTypeReturnModel MotorType { get; set; }
-        public DoorTypeReturnModel DoorType { get; set; }
+        public MotorTypeModel MotorType { get; set; }
+        public DoorTypeModel DoorType { get; set; }
         public int Volume { get; set; }
         public int FiscalePk { get; set; }
         public int Emission { get; set; }

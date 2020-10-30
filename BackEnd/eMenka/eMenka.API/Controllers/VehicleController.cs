@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -73,23 +74,56 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(MapVehicleObject));
         }
 
-        public VehicleReturnModel MapVehicleObject(Vehicle vehicle)
+        [HttpPost]
+        public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
         {
-            var brand = new BrandReturnModel
+            _vehicleRepository.Add(MapVehicleModel(vehicleModel));
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
+        {
+            var isUpdated = _vehicleRepository.Update(id, MapVehicleModel(vehicleModel));
+
+            if (!isUpdated)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVehicle(int id)
+        {
+            var vehicle = _vehicleRepository.GetById(id);
+            if (vehicle == null)
+                return BadRequest();
+
+            _vehicleRepository.Remove(vehicle);
+            return Ok();
+        }
+
+        public VehicleModel MapVehicleObject(Vehicle vehicle)
+        {
+            var brand = new BrandModel
             {
-                Name = vehicle.Brand.Name
+                Name = vehicle.Brand.Name,
+                Id = vehicle.Brand.Id
             };
-            return new VehicleReturnModel
+            return new VehicleModel
             {
+                Id = vehicle.Id,
                 Brand = brand,
                 FuelType = vehicle.FuelType,
-                MotorType = new MotorTypeReturnModel
+                MotorType = new MotorTypeModel
                 {
+                    Id = vehicle.MotorType.Id,
                     Name = vehicle.MotorType.Name,
                     Brand = brand
                 },
-                DoorType = new DoorTypeReturnModel
+                DoorType = new DoorTypeModel
                 {
+                    Id = vehicle.DoorType.Id,
                     Name = vehicle.DoorType.Name
                 },
                 Emission = vehicle.Emission,
@@ -98,11 +132,51 @@ namespace eMenka.API.Controllers
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = new ModelReturnModel
+                Model = new ModelModel
                 {
+                    Id = vehicle.Model.Id,
                     Name = vehicle.Model.Name,
                     Brand = brand
                 }
+            };
+        }
+
+        public Vehicle MapVehicleModel(VehicleModel vehicleModel)
+        {
+            var brand = new Brand
+            {
+                Id = vehicleModel.Brand.Id,
+                Name = vehicleModel.Brand.Name
+            };
+
+            return new Vehicle
+            {
+                Id = vehicleModel.Id,
+                MotorType = new MotorType
+                {
+                    Id = vehicleModel.MotorType.Id,
+                    Brand = brand,
+                    Name = vehicleModel.MotorType.Name
+                },
+                Brand = brand,
+                DoorType = new DoorType
+                {
+                    Id = vehicleModel.DoorType.Id,
+                    Name = vehicleModel.DoorType.Name
+                },
+                Emission = vehicleModel.Emission,
+                EndDate = vehicleModel.EndDate,
+                FiscalePk = vehicleModel.FiscalePk,
+                FuelType = vehicleModel.FuelType,
+                IsActive = vehicleModel.IsActive,
+                Model = new Model
+                {
+                    Id = vehicleModel.Model.Id,
+                    Brand = brand,
+                    Name = vehicleModel.Model.Name
+                },
+                Power = vehicleModel.Power,
+                Volume = vehicleModel.Volume
             };
         }
     }

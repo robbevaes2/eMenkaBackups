@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace eMenka.API.VehicleModels
 {
-    public class BrandReturnModel
+    public class BrandModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
