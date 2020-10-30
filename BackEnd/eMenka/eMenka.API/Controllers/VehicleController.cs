@@ -44,20 +44,20 @@ namespace eMenka.API.Controllers
             return Ok(MapVehicleEntity(vehicle));
         }
 
-        [HttpGet("{brand}")]
-        public IActionResult GetVehicleByBrand(string brand)
+        [HttpGet("/brand/{brandId}")]
+        public IActionResult GetVehicleByBrandId(int brandId)
         {
-            var vehicles = _vehicleRepository.Find(vehicle=>vehicle.Brand.Name == brand);
+            var vehicles = _vehicleRepository.Find(vehicle=>vehicle.BrandId == brandId);
             if (vehicles == null)
                 return BadRequest();
             
             return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
-        [HttpGet("{model}")]
-        public IActionResult GetVehicleByModel(string model)
+        [HttpGet("/model/{modelId}")]
+        public IActionResult GetVehicleByModelId(int modelId)
         {
-            var vehicles = _vehicleRepository.Find(vehicle => vehicle.Model.Name == model);
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
             if (vehicles == null)
                 return BadRequest();
             
