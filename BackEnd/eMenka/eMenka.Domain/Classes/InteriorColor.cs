@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace eMenka.API.VehicleModels
+namespace eMenka.Domain.Classes
 {
-    public class MotorTypeModel
+    public class InteriorColor
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Code { get; set; }
         public int BrandId { get; set; }
+        public Brand Brand { get; set; }
     }
 }

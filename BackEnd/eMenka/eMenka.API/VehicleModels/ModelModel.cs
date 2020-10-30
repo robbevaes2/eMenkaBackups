@@ -9,6 +9,6 @@ namespace eMenka.API.VehicleModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public BrandModel Brand { get; set; }
+        public int BrandId { get; set; }
     }
 }

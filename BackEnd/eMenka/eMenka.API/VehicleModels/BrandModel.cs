@@ -9,8 +9,5 @@ namespace eMenka.API.VehicleModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<ModelModel> Models { get; set; }
-        public ICollection<SerieModel> Series { get; set; }
-        public ICollection<MotorTypeModel> MotorTypes { get; set; }
     }
 }
