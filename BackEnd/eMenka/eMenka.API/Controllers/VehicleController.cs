@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
+﻿using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -47,7 +41,7 @@ namespace eMenka.API.Controllers
         [HttpGet("{brand}")]
         public IActionResult GetVehicleByBrand(string brand)
         {
-            var vehicles = _vehicleRepository.Find(vehicle=>vehicle.Brand.Name == brand);
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brand);
             //todo map model
             return Ok(vehicles.ToList());
         }

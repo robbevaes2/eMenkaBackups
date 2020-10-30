@@ -1,10 +1,11 @@
-﻿using System;
-using eMenka.Domain.Enums;
+﻿using eMenka.Domain.Enums;
+using System;
 
 namespace eMenka.Domain.Classes
 {
     public class Record
     {
+        public int Id { get; set; }
         public Vehicle Vehicle { get; set; }
         public Company Company { get; set; }
         public string City { get; set; }

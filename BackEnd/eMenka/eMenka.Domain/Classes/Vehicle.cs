@@ -4,6 +4,7 @@ namespace eMenka.Domain.Classes
 {
     public class Vehicle
     {
+        public int Id { get; set; }
         public Brand Brand { get; set; }
         public Model Model { get; set; }
         public FuelType FuelType { get; set; }
