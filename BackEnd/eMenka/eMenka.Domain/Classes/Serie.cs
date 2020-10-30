@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eMenka.Domain.Classes
 {
-    public class Series
+    public class Serie
     {
         public string Name { get; set; }
     }
