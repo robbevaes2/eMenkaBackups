@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.VehicleModels;
-using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -31,7 +30,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(MapVehicleObject));
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
         [HttpGet("{id}")]
@@ -41,7 +40,7 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            return Ok(MapVehicleObject(vehicle));
+            return Ok(MapVehicleEntity(vehicle));
         }
 
         [HttpGet("{brand}")]
@@ -51,7 +50,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleObject));
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
         [HttpGet("{model}")]
@@ -61,7 +60,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleObject));
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
         [HttpGet("{isActive}")]
@@ -71,7 +70,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleObject));
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
         [HttpPost]
@@ -103,78 +102,39 @@ namespace eMenka.API.Controllers
             return Ok();
         }
 
-        public VehicleModel MapVehicleObject(Vehicle vehicle)
+        public VehicleModel MapVehicleEntity(Vehicle vehicle)
         {
-            var brand = new BrandModel
-            {
-                Name = vehicle.Brand.Name,
-                Id = vehicle.Brand.Id
-            };
             return new VehicleModel
             {
                 Id = vehicle.Id,
-                Brand = brand,
+                BrandId = vehicle.Brand.Id,
                 FuelType = vehicle.FuelType,
-                MotorType = new MotorTypeModel
-                {
-                    Id = vehicle.MotorType.Id,
-                    Name = vehicle.MotorType.Name,
-                    Brand = brand
-                },
-                DoorType = new DoorTypeModel
-                {
-                    Id = vehicle.DoorType.Id,
-                    Name = vehicle.DoorType.Name
-                },
+                MotorTypeId = vehicle.MotorType.Id,
+                DoorTypeId = vehicle.DoorType.Id,
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = new ModelModel
-                {
-                    Id = vehicle.Model.Id,
-                    Name = vehicle.Model.Name,
-                    Brand = brand
-                }
+                ModelId = vehicle.Id
             };
         }
 
         public Vehicle MapVehicleModel(VehicleModel vehicleModel)
         {
-            var brand = new Brand
-            {
-                Id = vehicleModel.Brand.Id,
-                Name = vehicleModel.Brand.Name
-            };
-
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorType = new MotorType
-                {
-                    Id = vehicleModel.MotorType.Id,
-                    Brand = brand,
-                    Name = vehicleModel.MotorType.Name
-                },
-                Brand = brand,
-                DoorType = new DoorType
-                {
-                    Id = vehicleModel.DoorType.Id,
-                    Name = vehicleModel.DoorType.Name
-                },
+                MotorTypeId = vehicleModel.MotorTypeId,
+                BrandId = vehicleModel.BrandId,
+                DoorTypeId = vehicleModel.DoorTypeId,
                 Emission = vehicleModel.Emission,
                 EndDate = vehicleModel.EndDate,
                 FiscalePk = vehicleModel.FiscalePk,
                 FuelType = vehicleModel.FuelType,
                 IsActive = vehicleModel.IsActive,
-                Model = new Model
-                {
-                    Id = vehicleModel.Model.Id,
-                    Brand = brand,
-                    Name = vehicleModel.Model.Name
-                },
+                ModelId = vehicleModel.ModelId,
                 Power = vehicleModel.Power,
                 Volume = vehicleModel.Volume
             };

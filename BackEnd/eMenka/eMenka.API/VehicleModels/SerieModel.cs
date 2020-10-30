@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace eMenka.Domain.Classes
+namespace eMenka.API.VehicleModels
 {
-    public class Serie
+    public class SerieModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
