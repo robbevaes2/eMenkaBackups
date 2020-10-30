@@ -48,6 +48,28 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByBrand(string brand)
         {
             var vehicles = _vehicleRepository.Find(vehicle=>vehicle.Brand.Name == brand);
+            if (vehicles == null)
+                return BadRequest();
+            //todo map model
+            return Ok(vehicles.ToList());
+        }
+
+        [HttpGet("{model}")]
+        public IActionResult GetVehicleByModel(string model)
+        {
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.Model.Name == model);
+            if (vehicles == null)
+                return BadRequest();
+            //todo map model
+            return Ok(vehicles.ToList());
+        }
+
+        [HttpGet("{isActive}")]
+        public IActionResult GetVehicleByStatus(bool isActive)
+        {
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
+            if (vehicles == null)
+                return BadRequest();
             //todo map model
             return Ok(vehicles.ToList());
         }

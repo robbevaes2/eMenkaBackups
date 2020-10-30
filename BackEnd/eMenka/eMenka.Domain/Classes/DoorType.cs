@@ -2,6 +2,6 @@
 {
     public class DoorType
     {
-        public string Name { get; set; }
+        public string Name { get; set; } 
     }
 }
