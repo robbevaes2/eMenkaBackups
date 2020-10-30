@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,8 +30,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            //todo map model
-            return Ok(vehicles.ToList());
+            return Ok(vehicles.ToList().Select(MapVehicleObject));
         }
 
         [HttpGet("{id}")]
@@ -40,8 +40,7 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            //todo map model
-            return Ok(vehicle);
+            return Ok(MapVehicleObject(vehicle));
         }
 
         [HttpGet("{brand}")]
@@ -50,8 +49,8 @@ namespace eMenka.API.Controllers
             var vehicles = _vehicleRepository.Find(vehicle=>vehicle.Brand.Name == brand);
             if (vehicles == null)
                 return BadRequest();
-            //todo map model
-            return Ok(vehicles.ToList());
+            
+            return Ok(vehicles.ToList().Select(MapVehicleObject));
         }
 
         [HttpGet("{model}")]
@@ -60,8 +59,8 @@ namespace eMenka.API.Controllers
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Model.Name == model);
             if (vehicles == null)
                 return BadRequest();
-            //todo map model
-            return Ok(vehicles.ToList());
+            
+            return Ok(vehicles.ToList().Select(MapVehicleObject));
         }
 
         [HttpGet("{isActive}")]
@@ -70,8 +69,41 @@ namespace eMenka.API.Controllers
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
             if (vehicles == null)
                 return BadRequest();
-            //todo map model
-            return Ok(vehicles.ToList());
+            
+            return Ok(vehicles.ToList().Select(MapVehicleObject));
+        }
+
+        public VehicleReturnModel MapVehicleObject(Vehicle vehicle)
+        {
+            var brand = new BrandReturnModel
+            {
+                Name = vehicle.Brand.Name
+            };
+            return new VehicleReturnModel
+            {
+                Brand = brand,
+                FuelType = vehicle.FuelType,
+                MotorType = new MotorTypeReturnModel
+                {
+                    Name = vehicle.MotorType.Name,
+                    Brand = brand
+                },
+                DoorType = new DoorTypeReturnModel
+                {
+                    Name = vehicle.DoorType.Name
+                },
+                Emission = vehicle.Emission,
+                EndDate = vehicle.EndDate,
+                FiscalePk = vehicle.FiscalePk,
+                IsActive = vehicle.IsActive,
+                Power = vehicle.Power,
+                Volume = vehicle.Volume,
+                Model = new ModelReturnModel
+                {
+                    Name = vehicle.Model.Name,
+                    Brand = brand
+                }
+            };
         }
     }
 }
