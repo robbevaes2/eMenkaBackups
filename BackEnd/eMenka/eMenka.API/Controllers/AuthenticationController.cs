@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Stage_API;
 
 namespace eMenka.API.Controllers
 {
@@ -75,15 +76,10 @@ namespace eMenka.API.Controllers
                 new Claim(JwtRegisteredClaimNames.Email, user.Email)
             }.Union(userClaims).ToList();
 
-
-            /*
             var userRoles = await _userManager.GetRolesAsync(user);
-            TODO: Depending on role, add claim.
-            foreach (var role in userRoles)
-            {
-
-            }
-            */
+            
+            //Adds roles to claims
+            allClaims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var keyBytes = Encoding.UTF8.GetBytes(_tokenSettings.Value.Key);
             var symmetricSecurityKey = new SymmetricSecurityKey(keyBytes);

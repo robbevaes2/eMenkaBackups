@@ -4,9 +4,8 @@ namespace eMenka.Domain
 {
     public class Role : IdentityRole<int>
     {
-        /*
-        TODO: Add roles like this:
-        public const string Bedrijf = "bedrijf";
-        */
+        public const string Admin = "admin";
+        public const string Client = "client";
+
     }
 }

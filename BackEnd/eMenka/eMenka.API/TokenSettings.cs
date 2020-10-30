@@ -1,4 +1,4 @@
-﻿namespace eMenka.API
+﻿namespace Stage_API
 {
     public class TokenSettings
     {
