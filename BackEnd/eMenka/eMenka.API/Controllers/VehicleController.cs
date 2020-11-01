@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
             return Ok(MapVehicleEntity(vehicle));
         }
 
-        [HttpGet("/brand/{brandId}")]
+        [HttpGet("{brandId}")]
         public IActionResult GetVehicleByBrandId(int brandId)
         {
             var vehicles = _vehicleRepository.Find(vehicle=>vehicle.BrandId == brandId);
@@ -54,7 +54,7 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
-        [HttpGet("/brand/{brandName}")]
+        [HttpGet("{brandName}")]
         public IActionResult GetVehiclesByBrandName(string brandName)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
@@ -64,7 +64,7 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
-        [HttpGet("/model/{modelId}")]
+        [HttpGet("{modelId}")]
         public IActionResult GetVehicleByModelId(int modelId)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
