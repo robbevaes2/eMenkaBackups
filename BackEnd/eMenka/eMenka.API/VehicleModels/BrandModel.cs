@@ -10,7 +10,10 @@ namespace eMenka.API.VehicleModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<ExteriorColor> ExteriorColors { get; set; }
-        public ICollection<InteriorColor> InteriorColors { get; set; }
+        public ICollection<ModelModel> Models { get; set; }
+        public ICollection<SerieModel> Series { get; set; }
+        public ICollection<MotorTypeModel> MotorTypes { get; set; }
+        public ICollection<ExteriorColorModel> ExteriorColors { get; set; }
+        public ICollection<InteriorColorModel> InteriorColors { get; set; }
     }
 }

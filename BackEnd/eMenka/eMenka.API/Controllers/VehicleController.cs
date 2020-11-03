@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -121,14 +115,15 @@ namespace eMenka.API.Controllers
                 BrandId = vehicle.Brand.Id,
                 FuelType = vehicle.FuelType,
                 MotorTypeId = vehicle.MotorType.Id,
-                DoorTypeId = vehicle.DoorType.Id,
+                DoorType = vehicle.DoorType,
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                ModelId = vehicle.Id
+                ModelId = vehicle.Id,
+                FuelCardId = vehicle.FuelCardId
             };
         }
 
@@ -139,7 +134,7 @@ namespace eMenka.API.Controllers
                 Id = vehicleModel.Id,
                 MotorTypeId = vehicleModel.MotorTypeId,
                 BrandId = vehicleModel.BrandId,
-                DoorTypeId = vehicleModel.DoorTypeId,
+                DoorType = vehicleModel.DoorType,
                 Emission = vehicleModel.Emission,
                 EndDate = vehicleModel.EndDate,
                 FiscalePk = vehicleModel.FiscalePk,
@@ -147,7 +142,8 @@ namespace eMenka.API.Controllers
                 IsActive = vehicleModel.IsActive,
                 ModelId = vehicleModel.ModelId,
                 Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume
+                Volume = vehicleModel.Volume,
+                FuelCardId = vehicleModel.FuelCardId
             };
         }
     }

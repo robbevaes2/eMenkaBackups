@@ -93,9 +93,65 @@ namespace eMenka.API.Controllers
             return new BrandModel
             {
                 Name = brand.Name,
-                Id = brand.Id
+                Id = brand.Id,
+                ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
+                InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList(),
+                Models = brand.Models.Select(MapModelEntity()).ToList(),
+                MotorTypes = brand.MotorTypes.Select(MapMotorTypeEntity()).ToList(),
+                Series = brand.Series.Select(MapSerieEntity()).ToList()
             };
         }
 
+        private static Func<Serie, SerieModel> MapSerieEntity()
+        {
+            return s => new SerieModel
+            {
+                BrandId = s.BrandId,
+                Name = s.Name,
+                Id = s.Id
+            };
+        }
+
+        private static Func<MotorType, MotorTypeModel> MapMotorTypeEntity()
+        {
+            return mt => new MotorTypeModel
+            {
+                BrandId = mt.BrandId,
+                Id = mt.Id,
+                Name = mt.Name
+            };
+        }
+
+        private static Func<Model, ModelModel> MapModelEntity()
+        {
+            return m => new ModelModel
+            {
+                BrandId = m.BrandId,
+                Name = m.Name,
+                Id = m.Id
+            };
+        }
+
+        private static Func<InteriorColor, InteriorColorModel> MapInteriorColorEntity()
+        {
+            return ic => new InteriorColorModel
+            {
+                Id = ic.Id,
+                BrandId = ic.BrandId,
+                Code = ic.Code,
+                Name = ic.Name
+            };
+        }
+
+        private static Func<ExteriorColor, ExteriorColorModel> MapExteriorColorEntity()
+        {
+            return ec => new ExteriorColorModel
+            {
+                BrandId = ec.BrandId,
+                Code = ec.Code,
+                Id = ec.Id,
+                Name = ec.Name
+            };
+        }
     }
 }
