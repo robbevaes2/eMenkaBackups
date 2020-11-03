@@ -381,7 +381,7 @@ namespace eMenka.Data.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("BrandId")
+                    b.Property<int>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<int?>("DoorTypeId")
@@ -639,7 +639,9 @@ namespace eMenka.Data.Migrations
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany()
-                        .HasForeignKey("BrandId");
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("eMenka.Domain.Classes.DoorType", "DoorType")
                         .WithMany()

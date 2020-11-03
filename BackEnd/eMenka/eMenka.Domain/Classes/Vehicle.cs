@@ -6,6 +6,7 @@ namespace eMenka.Domain.Classes
     {
         public int Id { get; set; }
         public Brand Brand { get; set; }
+        public int BrandId { get; set; }
         public Model Model { get; set; }
         public MotorType MotorType { get; set; }
         public FuelCard FuelCard { get; set; }
