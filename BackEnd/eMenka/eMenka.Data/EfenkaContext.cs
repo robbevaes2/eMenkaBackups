@@ -12,7 +12,6 @@ namespace eMenka.Data
     {
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Company> Companies { get; set; }
-        public DbSet<DoorType> DoorTypes { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<DriversLicense> DriversLicenses { get; set; }
         public DbSet<FuelCard> FuelCards { get; set; }
@@ -22,6 +21,8 @@ namespace eMenka.Data
         public DbSet<Serie> Series { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<ExteriorColor> ExteriorColors { get; set; }
+        public DbSet<InteriorColor> InteriorColors { get; set; }
 
         public EfenkaContext(DbContextOptions options) : base(options)
         {
@@ -34,7 +35,6 @@ namespace eMenka.Data
             #region Primary Keys
             builder.Entity<Brand>().HasKey(b => b.Id);
             builder.Entity<Company>().HasKey(c => c.Id);
-            builder.Entity<DoorType>().HasKey(dt => dt.Id);
             builder.Entity<Driver>().HasKey(d=>d.Id);
             builder.Entity<DriversLicense>().HasKey(dl=>dl.Id);
             builder.Entity<FuelCard>().HasKey(fc => fc.Id);
