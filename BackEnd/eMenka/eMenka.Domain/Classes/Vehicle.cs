@@ -17,6 +17,7 @@ namespace eMenka.Domain.Classes
         public DoorType DoorType { get; set; }
         public int DoorTypeId { get; set; }
         public FuelType FuelType { get; set; }
+        public int FuelTypeId { get; set; }
         public int Volume { get; set; }
         public int FiscalePk { get; set; }
         public int Emission { get; set; }
