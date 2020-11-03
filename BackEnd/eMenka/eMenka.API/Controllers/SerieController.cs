@@ -42,9 +42,9 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{serieName}")]
-        public IActionResult GetBrandByName(string serieName)
+        public IActionResult GetSerieByName(string serieName)
         {
-            var series = _serieRepository.Find(seroe => seroe.Name == serieName);
+            var series = _serieRepository.Find(serie => serie.Name == serieName);
             if (series == null)
                 return BadRequest();
 
