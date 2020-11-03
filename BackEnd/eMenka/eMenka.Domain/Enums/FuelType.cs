@@ -1,4 +1,4 @@
-﻿namespace eMenka.Domain.Classes
+﻿namespace eMenka.Domain.Enums
 {
     public enum FuelType
     {
