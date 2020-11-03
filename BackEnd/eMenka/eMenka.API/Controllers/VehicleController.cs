@@ -128,7 +128,8 @@ namespace eMenka.API.Controllers
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                ModelId = vehicle.Id
+                ModelId = vehicle.Id,
+                FuelCardId = vehicle.FuelCardId
             };
         }
 
@@ -147,7 +148,8 @@ namespace eMenka.API.Controllers
                 IsActive = vehicleModel.IsActive,
                 ModelId = vehicleModel.ModelId,
                 Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume
+                Volume = vehicleModel.Volume,
+                FuelCardId = vehicleModel.FuelCardId
             };
         }
     }

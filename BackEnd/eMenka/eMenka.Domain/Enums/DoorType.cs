@@ -5,6 +5,10 @@
         TwoDoors,
         ThreeDoors,
         FourDoors,
-        FiveDoors
+        FiveDoors,
+        Break,
+        Coupe,
+        Moto,
+        Monovolume
     }
 }
