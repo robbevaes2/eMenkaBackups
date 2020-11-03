@@ -1,4 +1,12 @@
-﻿using eMenka.Data.IRepositories;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using eMenka.API.VehicleModels;
+using eMenka.Data.IRepositories;
+using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -23,8 +31,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            //todo map model
-            return Ok(vehicles.ToList());
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
         }
 
         [HttpGet("{id}")]
@@ -34,16 +41,114 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            //todo map model
-            return Ok(vehicle);
+            return Ok(MapVehicleEntity(vehicle));
         }
 
-        [HttpGet("{brand}")]
-        public IActionResult GetVehicleByBrand(string brand)
+        [HttpGet("{brandId}")]
+        public IActionResult GetVehicleByBrandId(int brandId)
         {
-            var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brand);
-            //todo map model
-            return Ok(vehicles.ToList());
+            var vehicles = _vehicleRepository.Find(vehicle=>vehicle.BrandId == brandId);
+            if (vehicles == null)
+                return BadRequest();
+            
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+        }
+
+        [HttpGet("{brandName}")]
+        public IActionResult GetVehiclesByBrandName(string brandName)
+        {
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
+            if (vehicles == null)
+                return BadRequest();
+
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+        }
+
+        [HttpGet("{modelId}")]
+        public IActionResult GetVehicleByModelId(int modelId)
+        {
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
+            if (vehicles == null)
+                return BadRequest();
+            
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+        }
+
+        [HttpGet("{isActive}")]
+        public IActionResult GetVehicleByStatus(bool isActive)
+        {
+            var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
+            if (vehicles == null)
+                return BadRequest();
+            
+            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+        }
+
+        [HttpPost]
+        public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
+        {
+            _vehicleRepository.Add(MapVehicleModel(vehicleModel));
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
+        {
+            var isUpdated = _vehicleRepository.Update(id, MapVehicleModel(vehicleModel));
+
+            if (!isUpdated)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteVehicle(int id)
+        {
+            var vehicle = _vehicleRepository.GetById(id);
+            if (vehicle == null)
+                return BadRequest();
+
+            _vehicleRepository.Remove(vehicle);
+            return Ok();
+        }
+
+        public VehicleModel MapVehicleEntity(Vehicle vehicle)
+        {
+            return new VehicleModel
+            {
+                Id = vehicle.Id,
+                BrandId = vehicle.Brand.Id,
+                FuelType = vehicle.FuelType,
+                MotorTypeId = vehicle.MotorType.Id,
+                DoorTypeId = vehicle.DoorType.Id,
+                Emission = vehicle.Emission,
+                EndDate = vehicle.EndDate,
+                FiscalePk = vehicle.FiscalePk,
+                IsActive = vehicle.IsActive,
+                Power = vehicle.Power,
+                Volume = vehicle.Volume,
+                ModelId = vehicle.Id
+            };
+        }
+
+        public Vehicle MapVehicleModel(VehicleModel vehicleModel)
+        {
+            return new Vehicle
+            {
+                Id = vehicleModel.Id,
+                MotorTypeId = vehicleModel.MotorTypeId,
+                BrandId = vehicleModel.BrandId,
+                DoorTypeId = vehicleModel.DoorTypeId,
+                Emission = vehicleModel.Emission,
+                EndDate = vehicleModel.EndDate,
+                FiscalePk = vehicleModel.FiscalePk,
+                FuelType = vehicleModel.FuelType,
+                IsActive = vehicleModel.IsActive,
+                ModelId = vehicleModel.ModelId,
+                Power = vehicleModel.Power,
+                Volume = vehicleModel.Volume
+            };
         }
     }
 }
