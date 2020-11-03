@@ -57,6 +57,8 @@ namespace eMenka.API
                 });
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<IModelRepository, ModelRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {
