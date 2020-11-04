@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -36,5 +37,17 @@ export const appRoutes: Routes = [
   {
     path: 'suppliers/new',
     component: SupplierCreateComponent
+  },*/
+  {
+    path: 'vehicles',
+    component: VehicleListComponent
+  }/*,
+  {
+    path: 'vehicles/:index',
+    component: VehicleListComponent
+  },
+  {
+    path: 'vehicles/new',
+    component: VehicleListComponent
   }*/
 ];

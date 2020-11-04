@@ -6,11 +6,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { FormsModule } from '@angular/forms';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    VehicleListComponent
   ],
   imports: [
     BrowserModule,
