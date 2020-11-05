@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -28,7 +29,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
         }
 
         [HttpGet("{id}")]
@@ -38,7 +39,7 @@ namespace eMenka.API.Controllers
             if (serie == null)
                 return BadRequest();
 
-            return Ok(MapSerieEntity(serie));
+            return Ok(VehicleMappers.MapSerieEntity(serie));
         }
 
         [HttpGet("{serieName}")]
@@ -48,20 +49,20 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
         }
 
         [HttpPost]
         public IActionResult PostSerie([FromBody] SerieModel serieModel)
         {
-            _serieRepository.Add(MapSerieModel(serieModel));
+            _serieRepository.Add(VehicleMappers.MapSerieModel(serieModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateSerie([FromBody] SerieModel serieModel, int id)
         {
-            var isUpdated = _serieRepository.Update(id, MapSerieModel(serieModel));
+            var isUpdated = _serieRepository.Update(id, VehicleMappers.MapSerieModel(serieModel));
 
             if (!isUpdated)
                 return BadRequest();
@@ -78,25 +79,6 @@ namespace eMenka.API.Controllers
 
             _serieRepository.Remove(serie);
             return Ok();
-        }
-
-        private SerieModel MapSerieEntity(Serie serie)
-        {
-            return new SerieModel
-            {
-                BrandId = serie.BrandId,
-                Name = serie.Name,
-                Id = serie.Id
-            };
-        }
-        private Serie MapSerieModel(SerieModel serieModel)
-        {
-            return new Serie
-            {
-                BrandId = serieModel.BrandId,
-                Id = serieModel.Id,
-                Name = serieModel.Name
-            };
         }
     }
 }

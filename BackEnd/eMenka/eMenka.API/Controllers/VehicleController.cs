@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -25,7 +26,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{id}")]
@@ -35,7 +36,7 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            return Ok(MapVehicleEntity(vehicle));
+            return Ok(VehicleMappers.MapVehicleEntity(vehicle));
         }
 
         [HttpGet("{brandId}")]
@@ -45,7 +46,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{brandName}")]
@@ -55,7 +56,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{modelId}")]
@@ -65,7 +66,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{isActive}")]
@@ -75,20 +76,20 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpPost]
         public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
         {
-            _vehicleRepository.Add(MapVehicleModel(vehicleModel));
+            _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
         {
-            var isUpdated = _vehicleRepository.Update(id, MapVehicleModel(vehicleModel));
+            var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
             if (!isUpdated)
                 return BadRequest();
@@ -105,46 +106,6 @@ namespace eMenka.API.Controllers
 
             _vehicleRepository.Remove(vehicle);
             return Ok();
-        }
-
-        public VehicleModel MapVehicleEntity(Vehicle vehicle)
-        {
-            return new VehicleModel
-            {
-                Id = vehicle.Id,
-                BrandId = vehicle.Brand.Id,
-                FuelTypeId = vehicle.FuelTypeId,
-                MotorTypeId = vehicle.MotorType.Id,
-                DoorTypeId = vehicle.DoorTypeId,
-                Emission = vehicle.Emission,
-                EndDate = vehicle.EndDate,
-                FiscalePk = vehicle.FiscalePk,
-                IsActive = vehicle.IsActive,
-                Power = vehicle.Power,
-                Volume = vehicle.Volume,
-                ModelId = vehicle.Id,
-                FuelCardId = vehicle.FuelCardId
-            };
-        }
-
-        public Vehicle MapVehicleModel(VehicleModel vehicleModel)
-        {
-            return new Vehicle
-            {
-                Id = vehicleModel.Id,
-                MotorTypeId = vehicleModel.MotorTypeId,
-                BrandId = vehicleModel.BrandId,
-                DoorTypeId = vehicleModel.DoorTypeId,
-                Emission = vehicleModel.Emission,
-                EndDate = vehicleModel.EndDate,
-                FiscalePk = vehicleModel.FiscalePk,
-                FuelTypeId = vehicleModel.FuelTypeId,
-                IsActive = vehicleModel.IsActive,
-                ModelId = vehicleModel.ModelId,
-                Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCardId
-            };
         }
     }
 }

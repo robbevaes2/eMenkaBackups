@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -28,7 +29,7 @@ namespace eMenka.API.Controllers
             if (models == null)
                 return BadRequest();
 
-            return Ok(models.ToList().Select(MapModelEntity));
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
         }
 
         [HttpGet("{id}")]
@@ -38,20 +39,20 @@ namespace eMenka.API.Controllers
             if (model == null)
                 return BadRequest();
 
-            return Ok(MapModelEntity(model));
+            return Ok(VehicleMappers.MapModelEntity(model));
         }
 
         [HttpPost]
         public IActionResult PostModel([FromBody] ModelModel modelModel)
         {
-            _modelRepository.Add(MapModelModel(modelModel));
+            _modelRepository.Add(VehicleMappers.MapModelModel(modelModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateModel([FromBody] ModelModel modelModel, int id)
         {
-            var isUpdated = _modelRepository.Update(id, MapModelModel(modelModel));
+            var isUpdated = _modelRepository.Update(id, VehicleMappers.MapModelModel(modelModel));
 
             if (!isUpdated)
                 return BadRequest();
@@ -68,25 +69,6 @@ namespace eMenka.API.Controllers
 
             _modelRepository.Remove(model);
             return Ok();
-        }
-
-        private ModelModel MapModelEntity(Model model)
-        {
-            return new ModelModel
-            {
-                BrandId = model.BrandId,
-                Name = model.Name,
-                Id = model.Id
-            };
-        }
-        private Model MapModelModel(ModelModel modelModel)
-        {
-            return new Model
-            {
-                BrandId = modelModel.BrandId,
-                Id = modelModel.Id,
-                Name = modelModel.Name
-            };
         }
     }
 }
