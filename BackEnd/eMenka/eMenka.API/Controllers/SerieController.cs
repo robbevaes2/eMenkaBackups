@@ -42,6 +42,16 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapSerieEntity(serie));
         }
 
+        [HttpGet("{brandId}")]
+        public IActionResult GetSeriesByBrandId(int brandId)
+        {
+            var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
+            if (series == null)
+                return BadRequest();
+
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+        }
+
         [HttpGet("{serieName}")]
         public IActionResult GetSerieByName(string serieName)
         {

@@ -42,6 +42,16 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapMotorTypeEntity(motorType));
         }
 
+        [HttpGet("{brandId}")]
+        public IActionResult GetMotorTypeByBrandId(int brandId)
+        {
+            var motorTypes = _motorTypeRepository.Find(motorType => motorType.Brand.Id == brandId);
+            if (motorTypes == null)
+                return BadRequest();
+
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
+        }
+
         [HttpGet("{motorTypeName}")]
         public IActionResult GetMotorTypeByName(string motorTypeName)
         {

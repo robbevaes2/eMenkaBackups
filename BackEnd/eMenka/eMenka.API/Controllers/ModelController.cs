@@ -42,6 +42,17 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapModelEntity(model));
         }
 
+        [HttpGet("{brandId}")]
+        public IActionResult GetByBrandId(int brandId)
+        {
+            var models = _modelRepository.Find(model => model.Brand.Id == brandId);
+
+            if (models == null)
+                return BadRequest();
+
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
+        }
+
         [HttpPost]
         public IActionResult PostModel([FromBody] ModelModel modelModel)
         {
