@@ -14,18 +14,18 @@ namespace eMenka.API.Mappers
             return new VehicleModel
             {
                 Id = vehicle.Id,
-                BrandId = vehicle.Brand.Id,
-                FuelTypeId = vehicle.FuelTypeId,
-                MotorTypeId = vehicle.MotorType.Id,
-                DoorTypeId = vehicle.DoorTypeId,
+                Brand = MapBrandEntity(vehicle.Brand),
+                FuelType = vehicle.FuelTypeId,
+                MotorType = MapMotorTypeEntity(vehicle.MotorType),
+                //DoorType = vehicle.DoorTypeId, todo create mapper
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                ModelId = vehicle.Id,
-                FuelCardId = vehicle.FuelCardId
+                Model = MapModelEntity(vehicle.Model)
+                //FuelCard = vehicle.FuelCard todo create mapper
             };
         }
 
@@ -34,18 +34,18 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorTypeId = vehicleModel.MotorTypeId,
-                BrandId = vehicleModel.BrandId,
-                DoorTypeId = vehicleModel.DoorTypeId,
+                MotorTypeId = vehicleModel.MotorType.Id,
+                BrandId = vehicleModel.Brand.Id,
+                DoorTypeId = vehicleModel.DoorType.Id,
                 Emission = vehicleModel.Emission,
                 EndDate = vehicleModel.EndDate,
                 FiscalePk = vehicleModel.FiscalePk,
-                FuelTypeId = vehicleModel.FuelTypeId,
+                FuelTypeId = vehicleModel.FuelType, //todo get ID from model
                 IsActive = vehicleModel.IsActive,
-                ModelId = vehicleModel.ModelId,
+                ModelId = vehicleModel.Model.Id,
                 Power = vehicleModel.Power,
                 Volume = vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCardId
+                FuelCardId = vehicleModel.FuelCard//.Id todo get ID from model
             };
         }
 
@@ -53,7 +53,7 @@ namespace eMenka.API.Mappers
         {
             return new SerieModel
             {
-                BrandId = serie.BrandId,
+                Brand = MapBrandEntity(serie.Brand),
                 Name = serie.Name,
                 Id = serie.Id
             };
@@ -62,7 +62,7 @@ namespace eMenka.API.Mappers
         {
             return new Serie
             {
-                BrandId = serieModel.BrandId,
+                BrandId = serieModel.Brand.Id,
                 Id = serieModel.Id,
                 Name = serieModel.Name
             };
@@ -72,7 +72,7 @@ namespace eMenka.API.Mappers
         {
             return new MotorTypeModel
             {
-                BrandId = motorType.BrandId,
+                Brand = MapBrandEntity(motorType.Brand),
                 Name = motorType.Name,
                 Id = motorType.Id
             };
@@ -81,7 +81,7 @@ namespace eMenka.API.Mappers
         {
             return new MotorType
             {
-                BrandId = motorTypeModel.BrandId,
+                BrandId = motorTypeModel.Brand.Id,
                 Id = motorTypeModel.Id,
                 Name = motorTypeModel.Name
             };
@@ -91,7 +91,7 @@ namespace eMenka.API.Mappers
         {
             return new ModelModel
             {
-                BrandId = model.BrandId,
+                Brand = MapBrandEntity(model.Brand),
                 Name = model.Name,
                 Id = model.Id
             };
@@ -100,7 +100,7 @@ namespace eMenka.API.Mappers
         {
             return new Model
             {
-                BrandId = modelModel.BrandId,
+                BrandId = modelModel.Brand.Id,
                 Id = modelModel.Id,
                 Name = modelModel.Name
             };
