@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { FormsModule } from '@angular/forms';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { VehicleService } from './services/vehicle-service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
