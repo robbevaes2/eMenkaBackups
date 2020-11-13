@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleService } from './services/vehicle-service';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
