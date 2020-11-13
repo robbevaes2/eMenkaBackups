@@ -35,17 +35,17 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorTypeId = vehicleModel.MotorTypeId,
-                BrandId = vehicleModel.BrandId,
-                DoorTypeId = vehicleModel.DoorTypeId,
-                Emission = vehicleModel.Emission,
+                MotorTypeId = (int) vehicleModel.MotorTypeId,
+                BrandId = (int) (int)vehicleModel.BrandId,
+                DoorTypeId = (int)vehicleModel.DoorTypeId,
+                Emission = (int)vehicleModel.Emission,
                 EndDate = vehicleModel.EndDate,
-                FiscalePk = vehicleModel.FiscalePk,
-                FuelTypeId = vehicleModel.FuelTypeId, 
+                FiscalePk = (int)vehicleModel.FiscalePk,
+                FuelTypeId = (int)vehicleModel.FuelTypeId, 
                 IsActive = vehicleModel.IsActive,
-                ModelId = vehicleModel.ModelId,
-                Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume,
+                ModelId = (int)vehicleModel.ModelId,
+                Power = (int)vehicleModel.Power,
+                Volume = (int)vehicleModel.Volume,
                 FuelCardId = vehicleModel.FuelCard//.Id 
             };
         }
@@ -63,7 +63,7 @@ namespace eMenka.API.Mappers
         {
             return new Serie
             {
-                BrandId = serieModel.BrandId,
+                BrandId = (int)serieModel.BrandId,
                 Id = serieModel.Id,
                 Name = serieModel.Name
             };
@@ -82,7 +82,7 @@ namespace eMenka.API.Mappers
         {
             return new MotorType
             {
-                BrandId = motorTypeModel.BrandId,
+                BrandId = (int)motorTypeModel.BrandId,
                 Id = motorTypeModel.Id,
                 Name = motorTypeModel.Name
             };
@@ -101,7 +101,7 @@ namespace eMenka.API.Mappers
         {
             return new Model
             {
-                BrandId = modelModel.BrandId,
+                BrandId = (int)modelModel.BrandId,
                 Id = modelModel.Id,
                 Name = modelModel.Name
             };

@@ -8,6 +8,6 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public string Name { get; set; }
         [Required]
-        public int BrandId { get; set; }
+        public int? BrandId { get; set; }
     }
 }

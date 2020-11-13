@@ -7,24 +7,24 @@ namespace eMenka.API.Models.VehicleModels
     {
         public int Id { get; set; }
         [Required]
-        public int BrandId { get; set; }
+        public int? BrandId { get; set; }
         [Required]
-        public int ModelId { get; set; }
+        public int? ModelId { get; set; }
         [Required]
-        public int FuelTypeId { get; set; }
+        public int? FuelTypeId { get; set; }
         [Required]
-        public int MotorTypeId { get; set; }
+        public int? MotorTypeId { get; set; }
         [Required]
-        public int DoorTypeId { get; set; }
+        public int? DoorTypeId { get; set; }
         public int FuelCard { get; set; } //todo refactor to FuelCardModel
         [Required]
-        public int Volume { get; set; }
+        public int? Volume { get; set; }
         [Required]
-        public int FiscalePk { get; set; }
+        public int? FiscalePk { get; set; }
         [Required]
-        public int Emission { get; set; }
+        public int? Emission { get; set; }
         [Required]
-        public int Power { get; set; }
+        public int? Power { get; set; }
         [Required]
         public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
