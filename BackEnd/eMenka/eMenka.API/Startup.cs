@@ -61,6 +61,7 @@ namespace eMenka.API
             services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<ISerieRepository, SerieRepository>();
             services.AddScoped<IMotorTypeRepository, MotorTypeRepository>();
+            services.AddScoped<IDoorTypeRepository, DoorTypeRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {

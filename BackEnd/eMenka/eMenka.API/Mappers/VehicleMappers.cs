@@ -145,6 +145,15 @@ namespace eMenka.API.Mappers
             };
         }
 
+        public static DoorType MapDoorTypeModel(DoorTypeModel doorTypeModel)
+        {
+            return new DoorType
+            {
+                Id = doorTypeModel.Id,
+                Name = doorTypeModel.Name
+            };
+        }
+
         private static Func<InteriorColor, InteriorColorModel> MapInteriorColorEntity()
         {
             return ic => new InteriorColorModel
