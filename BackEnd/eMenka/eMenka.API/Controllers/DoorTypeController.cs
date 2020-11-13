@@ -35,7 +35,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetDoorTypesById(int id)
+        public IActionResult GetDoorTypeById(int id)
         {
             var doorType = _doorTypeRepository.GetById(id);
             if (doorType == null)

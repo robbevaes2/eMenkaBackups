@@ -40,14 +40,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetAllDoorTypesReturnsOkAndListOfAllDoortypesWhenEverythingIsCorrect()
         {
-            var doorTypes = new List<DoorType>
-            {
-                new DoorType
-                {
-                    Id = 1,
-                    Name = "name"
-                }
-            };
+            var doorTypes = new List<DoorType>();
 
             _doorTypeRepositoryMock.Setup(m => m.GetAll())
                 .Returns(doorTypes);
@@ -59,6 +52,37 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as List<DoorTypeReturnModel>;
             Assert.That(value, Is.Not.Null);
             _doorTypeRepositoryMock.Verify(m => m.GetAll(), Times.Once);
+        }
+
+        [Test]
+        public void GetDoorTypeByIdReturnsBadRequestWhenRepoReturnsNull()
+        {
+            DoorType doorType = null;
+
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+
+            var result = _sut.GetDoorTypeById(0) as BadRequestResult;
+
+            Assert.That(result, Is.Not.Null);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void GetDoorTypeByIdReturnsOkAndDoorTypeWhenEverythingIsCorrect()
+        {
+            var doorType = new DoorType();
+
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+
+            var result = _sut.GetDoorTypeById(0) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as DoorTypeReturnModel;
+            Assert.That(value, Is.Not.Null);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
     }
 }
