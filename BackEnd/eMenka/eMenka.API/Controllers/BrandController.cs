@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace eMenka.API.Controllers
             if (brands == null)
                 return BadRequest();
 
-            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity));
+            return Ok(brands.ToList().Select(VehicleReturnMappers.MapBrandEntity));
         }
 
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace eMenka.API.Controllers
             if (brand == null)
                 return BadRequest();
 
-            return Ok(VehicleMappers.MapBrandEntity(brand));
+            return Ok(VehicleReturnMappers.MapBrandEntity(brand));
         }
         [HttpGet("{brandName}")]
         public IActionResult GetBrandByName(string brandName)
@@ -48,20 +49,20 @@ namespace eMenka.API.Controllers
             if (brands == null)
                 return BadRequest();
 
-            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity));
+            return Ok(brands.ToList().Select(VehicleReturnMappers.MapBrandEntity));
         }
 
         [HttpPost]
-        public IActionResult PostBrand([FromBody] BrandModel brandModel)
+        public IActionResult PostBrand([FromBody] BrandReturnModel brandReturnModel)
         {
-            _brandRepository.Add(VehicleMappers.MapBrandModel(brandModel));
+            _brandRepository.Add(VehicleReturnMappers.MapBrandModel(brandReturnModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBrand([FromBody] BrandModel brandModel, int id)
+        public IActionResult UpdateBrand([FromBody] BrandReturnModel brandReturnModel, int id)
         {
-            var isUpdated = _brandRepository.Update(id, VehicleMappers.MapBrandModel(brandModel));
+            var isUpdated = _brandRepository.Update(id, VehicleReturnMappers.MapBrandModel(brandReturnModel));
 
             if (!isUpdated)
                 return BadRequest();

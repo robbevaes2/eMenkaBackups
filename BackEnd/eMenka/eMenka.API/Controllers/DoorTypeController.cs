@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +31,7 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleReturnMappers.MapDoorTypeEntity));
         }
 
         [HttpGet("{id}")]
@@ -40,7 +41,7 @@ namespace eMenka.API.Controllers
             if (doorType == null)
                 return BadRequest();
 
-            return Ok(VehicleMappers.MapDoorTypeEntity(doorType));
+            return Ok(VehicleReturnMappers.MapDoorTypeEntity(doorType));
         }
 
         [HttpGet("{doorTypeName}")]
@@ -50,20 +51,20 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleReturnMappers.MapDoorTypeEntity));
         }
 
         [HttpPost]
-        public IActionResult PostDoorType([FromBody] DoorTypeModel doorTypeModel)
+        public IActionResult PostDoorType([FromBody] DoorTypeReturnModel doorTypeReturnModel)
         {
-            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel)); 
+            _doorTypeRepository.Add(VehicleReturnMappers.MapDoorTypeModel(doorTypeReturnModel)); 
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateDoorType([FromBody] DoorTypeModel doorTypeModel, int id)
+        public IActionResult UpdateDoorType([FromBody] DoorTypeReturnModel doorTypeReturnModel, int id)
         {
-            var isUpdated = _doorTypeRepository.Update(id, VehicleMappers.MapDoorTypeModel(doorTypeModel));
+            var isUpdated = _doorTypeRepository.Update(id, VehicleReturnMappers.MapDoorTypeModel(doorTypeReturnModel));
 
             if (!isUpdated)
                 return BadRequest();

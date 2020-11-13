@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace eMenka.API.Controllers
             if (models == null)
                 return BadRequest();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
+            return Ok(models.ToList().Select(VehicleReturnMappers.MapModelEntity));
         }
 
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace eMenka.API.Controllers
             if (model == null)
                 return BadRequest();
 
-            return Ok(VehicleMappers.MapModelEntity(model));
+            return Ok(VehicleReturnMappers.MapModelEntity(model));
         }
 
         [HttpGet("{brandId}")]
@@ -50,20 +51,20 @@ namespace eMenka.API.Controllers
             if (models == null)
                 return BadRequest();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
+            return Ok(models.ToList().Select(VehicleReturnMappers.MapModelEntity));
         }
 
         [HttpPost]
-        public IActionResult PostModel([FromBody] ModelModel modelModel)
+        public IActionResult PostModel([FromBody] ModelReturnModel modelReturnModel)
         {
-            _modelRepository.Add(VehicleMappers.MapModelModel(modelModel));
+            _modelRepository.Add(VehicleReturnMappers.MapModelModel(modelReturnModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateModel([FromBody] ModelModel modelModel, int id)
+        public IActionResult UpdateModel([FromBody] ModelReturnModel modelReturnModel, int id)
         {
-            var isUpdated = _modelRepository.Update(id, VehicleMappers.MapModelModel(modelModel));
+            var isUpdated = _modelRepository.Update(id, VehicleReturnMappers.MapModelModel(modelReturnModel));
 
             if (!isUpdated)
                 return BadRequest();

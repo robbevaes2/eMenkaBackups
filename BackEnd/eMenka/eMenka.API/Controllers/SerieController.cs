@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleReturnMappers.MapSerieEntity));
         }
 
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace eMenka.API.Controllers
             if (serie == null)
                 return BadRequest();
 
-            return Ok(VehicleMappers.MapSerieEntity(serie));
+            return Ok(VehicleReturnMappers.MapSerieEntity(serie));
         }
 
         [HttpGet("{brandId}")]
@@ -49,7 +50,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleReturnMappers.MapSerieEntity));
         }
 
         [HttpGet("{serieName}")]
@@ -59,20 +60,20 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleReturnMappers.MapSerieEntity));
         }
 
         [HttpPost]
-        public IActionResult PostSerie([FromBody] SerieModel serieModel)
+        public IActionResult PostSerie([FromBody] SerieReturnModel serieReturnModel)
         {
-            _serieRepository.Add(VehicleMappers.MapSerieModel(serieModel));
+            _serieRepository.Add(VehicleReturnMappers.MapSerieModel(serieReturnModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateSerie([FromBody] SerieModel serieModel, int id)
+        public IActionResult UpdateSerie([FromBody] SerieReturnModel serieReturnModel, int id)
         {
-            var isUpdated = _serieRepository.Update(id, VehicleMappers.MapSerieModel(serieModel));
+            var isUpdated = _serieRepository.Update(id, VehicleReturnMappers.MapSerieModel(serieReturnModel));
 
             if (!isUpdated)
                 return BadRequest();

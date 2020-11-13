@@ -146,7 +146,7 @@ namespace eMenka.Data
                 .HasForeignKey<Record>(r => r.FuelCardId);
             /***********************************************************/
             #endregion
-
+            /*
             #region seeding data
 
             builder.Entity<Brand>().HasData(
@@ -604,7 +604,7 @@ namespace eMenka.Data
                 new Serie { BrandId = 29, Name = "ssss" }
             );
             #endregion
-
+            */
             //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 
             var valueComparer = new ValueComparer<string[]>(
                 (s1, s2) => s1.SequenceEqual(s2),

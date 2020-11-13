@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
+using eMenka.API.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
         }
 
         [HttpGet("{id}")]
@@ -36,7 +37,7 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            return Ok(VehicleMappers.MapVehicleEntity(vehicle));
+            return Ok(VehicleReturnMappers.MapVehicleEntity(vehicle));
         }
 
         [HttpGet("{brandId}")]
@@ -46,7 +47,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
         }
 
         [HttpGet("{brandName}")]
@@ -56,7 +57,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
         }
 
         [HttpGet("{modelId}")]
@@ -66,7 +67,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
         }
 
         [HttpGet("{isActive}")]
@@ -76,20 +77,20 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
         }
 
         [HttpPost]
-        public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
+        public IActionResult PostVehicle([FromBody] VehicleReturnModel vehicleReturnModel)
         {
-            _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
+            _vehicleRepository.Add(VehicleReturnMappers.MapVehicleModel(vehicleReturnModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
+        public IActionResult UpdateVehicle([FromBody] VehicleReturnModel vehicleReturnModel, int id)
         {
-            var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
+            var isUpdated = _vehicleRepository.Update(id, VehicleReturnMappers.MapVehicleModel(vehicleReturnModel));
 
             if (!isUpdated)
                 return BadRequest();
