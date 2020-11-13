@@ -15,17 +15,17 @@ namespace eMenka.API.Mappers
             {
                 Id = vehicle.Id,
                 Brand = MapBrandEntity(vehicle.Brand),
-                FuelType = vehicle.FuelTypeId,
+                FuelType = MapFuelTypeEntity(vehicle.FuelType),
                 MotorType = MapMotorTypeEntity(vehicle.MotorType),
-                //DoorType = vehicle.DoorTypeId, todo create mapper
+                DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = MapModelEntity(vehicle.Model)
-                //FuelCard = vehicle.FuelCard todo create mapper
+                Model = MapModelEntity(vehicle.Model),
+                FuelCard = vehicle.FuelCard.Id 
             };
         }
 
@@ -40,12 +40,12 @@ namespace eMenka.API.Mappers
                 Emission = vehicleModel.Emission,
                 EndDate = vehicleModel.EndDate,
                 FiscalePk = vehicleModel.FiscalePk,
-                FuelTypeId = vehicleModel.FuelType, //todo get ID from model
+                FuelTypeId = vehicleModel.FuelType.Id, 
                 IsActive = vehicleModel.IsActive,
                 ModelId = vehicleModel.Model.Id,
                 Power = vehicleModel.Power,
                 Volume = vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCard//.Id todo get ID from model
+                FuelCardId = vehicleModel.FuelCard//.Id 
             };
         }
 
@@ -123,6 +123,25 @@ namespace eMenka.API.Mappers
                 Id = brand.Id,
                 ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
                 InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
+            };
+        }
+
+        public static FuelTypeModel MapFuelTypeEntity(FuelType fuelType)
+        {
+            return new FuelTypeModel
+            {
+                Id = fuelType.Id,
+                Code = fuelType.Code,
+                Name = fuelType.Name
+            };
+        }
+
+        public static DoorTypeModel MapDoorTypeEntity(DoorType doorType)
+        {
+            return new DoorTypeModel
+            {
+                Id = doorType.Id,
+                Name = doorType.Name
             };
         }
 
