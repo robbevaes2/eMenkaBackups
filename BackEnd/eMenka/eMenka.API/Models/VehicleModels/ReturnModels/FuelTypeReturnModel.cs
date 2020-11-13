@@ -1,4 +1,4 @@
-﻿namespace eMenka.API.VehicleModels.ReturnModels
+﻿namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
     public class FuelTypeReturnModel
     {

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using eMenka.API.Mappers;
-using eMenka.API.VehicleModels;
-using eMenka.API.VehicleModels.ReturnModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;

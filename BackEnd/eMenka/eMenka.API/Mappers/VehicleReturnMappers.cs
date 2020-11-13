@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using eMenka.API.VehicleModels;
-using eMenka.API.VehicleModels.ReturnModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
 namespace eMenka.API.Mappers
@@ -15,17 +14,17 @@ namespace eMenka.API.Mappers
             return new VehicleReturnModel
             {
                 Id = vehicle.Id,
-                BrandReturn = MapBrandEntity(vehicle.Brand),
-                FuelTypeReturn = MapFuelTypeEntity(vehicle.FuelType),
-                MotorTypeReturn = MapMotorTypeEntity(vehicle.MotorType),
-                DoorTypeReturn = MapDoorTypeEntity(vehicle.DoorType), 
+                Brand = MapBrandEntity(vehicle.Brand),
+                FuelType = MapFuelTypeEntity(vehicle.FuelType),
+                MotorType = MapMotorTypeEntity(vehicle.MotorType),
+                DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                ModelReturn = MapModelEntity(vehicle.Model),
+                Model = MapModelEntity(vehicle.Model),
                 FuelCard = vehicle.FuelCard.Id 
             };
         }
@@ -35,15 +34,15 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleReturnModel.Id,
-                MotorTypeId = vehicleReturnModel.MotorTypeReturn.Id,
-                BrandId = vehicleReturnModel.BrandReturn.Id,
-                DoorTypeId = vehicleReturnModel.DoorTypeReturn.Id,
+                MotorTypeId = vehicleReturnModel.MotorType.Id,
+                BrandId = vehicleReturnModel.Brand.Id,
+                DoorTypeId = vehicleReturnModel.DoorType.Id,
                 Emission = vehicleReturnModel.Emission,
                 EndDate = vehicleReturnModel.EndDate,
                 FiscalePk = vehicleReturnModel.FiscalePk,
-                FuelTypeId = vehicleReturnModel.FuelTypeReturn.Id, 
+                FuelTypeId = vehicleReturnModel.FuelType.Id, 
                 IsActive = vehicleReturnModel.IsActive,
-                ModelId = vehicleReturnModel.ModelReturn.Id,
+                ModelId = vehicleReturnModel.Model.Id,
                 Power = vehicleReturnModel.Power,
                 Volume = vehicleReturnModel.Volume,
                 FuelCardId = vehicleReturnModel.FuelCard//.Id 
@@ -54,7 +53,7 @@ namespace eMenka.API.Mappers
         {
             return new SerieReturnModel
             {
-                BrandReturn = MapBrandEntity(serie.Brand),
+                Brand = MapBrandEntity(serie.Brand),
                 Name = serie.Name,
                 Id = serie.Id
             };
@@ -63,7 +62,7 @@ namespace eMenka.API.Mappers
         {
             return new Serie
             {
-                BrandId = serieReturnModel.BrandReturn.Id,
+                BrandId = serieReturnModel.Brand.Id,
                 Id = serieReturnModel.Id,
                 Name = serieReturnModel.Name
             };
@@ -73,7 +72,7 @@ namespace eMenka.API.Mappers
         {
             return new MotorTypeReturnModel
             {
-                BrandReturn = MapBrandEntity(motorType.Brand),
+                Brand = MapBrandEntity(motorType.Brand),
                 Name = motorType.Name,
                 Id = motorType.Id
             };
@@ -82,7 +81,7 @@ namespace eMenka.API.Mappers
         {
             return new MotorType
             {
-                BrandId = motorTypeReturnModel.BrandReturn.Id,
+                BrandId = motorTypeReturnModel.Brand.Id,
                 Id = motorTypeReturnModel.Id,
                 Name = motorTypeReturnModel.Name
             };
@@ -92,7 +91,7 @@ namespace eMenka.API.Mappers
         {
             return new ModelReturnModel
             {
-                BrandReturn = MapBrandEntity(model.Brand),
+                Brand = MapBrandEntity(model.Brand),
                 Name = model.Name,
                 Id = model.Id
             };
@@ -101,7 +100,7 @@ namespace eMenka.API.Mappers
         {
             return new Model
             {
-                BrandId = modelReturnModel.BrandReturn.Id,
+                BrandId = modelReturnModel.Brand.Id,
                 Id = modelReturnModel.Id,
                 Name = modelReturnModel.Name
             };
@@ -165,9 +164,9 @@ namespace eMenka.API.Mappers
             };
         }
 
-        private static Func<InteriorColor, InteriorColorModel> MapInteriorColorEntity()
+        private static Func<InteriorColor, InteriorColorReturnModel> MapInteriorColorEntity()
         {
-            return ic => new InteriorColorModel
+            return ic => new InteriorColorReturnModel
             {
                 Id = ic.Id,
                 BrandId = ic.BrandId,
@@ -176,9 +175,9 @@ namespace eMenka.API.Mappers
             };
         }
 
-        private static Func<ExteriorColor, ExteriorColorModel> MapExteriorColorEntity()
+        private static Func<ExteriorColor, ExteriorColorReturnModel> MapExteriorColorEntity()
         {
-            return ec => new ExteriorColorModel
+            return ec => new ExteriorColorReturnModel
             {
                 BrandId = ec.BrandId,
                 Code = ec.Code,

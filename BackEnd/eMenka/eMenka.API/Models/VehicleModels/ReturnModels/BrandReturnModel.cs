@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace eMenka.API.VehicleModels.ReturnModels
+namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
     public class BrandReturnModel
     {
@@ -9,7 +9,7 @@ namespace eMenka.API.VehicleModels.ReturnModels
         public ICollection<ModelReturnModel> Models { get; set; }
         public ICollection<SerieReturnModel> Series { get; set; }
         public ICollection<MotorTypeReturnModel> MotorTypes { get; set; }
-        public ICollection<ExteriorColorModel> ExteriorColors { get; set; }
-        public ICollection<InteriorColorModel> InteriorColors { get; set; }
+        public ICollection<ExteriorColorReturnModel> ExteriorColors { get; set; }
+        public ICollection<InteriorColorReturnModel> InteriorColors { get; set; }
     }
 }

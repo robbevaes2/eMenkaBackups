@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
-using eMenka.API.VehicleModels;
-using eMenka.API.VehicleModels.ReturnModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
