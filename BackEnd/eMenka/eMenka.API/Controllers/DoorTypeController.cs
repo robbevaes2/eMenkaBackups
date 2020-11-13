@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapDoorTypeEntity(doorType));
         }
 
-        [HttpGet("{doorTypeName}")]
+        [HttpGet("name/{doorTypeName}")]
         public IActionResult GetDoorTypeByName(string doorTypeName)
         {
             var doorTypes = _doorTypeRepository.Find(doorType => doorType.Name == doorTypeName);

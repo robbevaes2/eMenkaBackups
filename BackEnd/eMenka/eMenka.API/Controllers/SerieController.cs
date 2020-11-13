@@ -43,7 +43,7 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapSerieEntity(serie));
         }
 
-        [HttpGet("{brandId}")]
+        [HttpGet("brand/{brandId}")]
         public IActionResult GetSeriesByBrandId(int brandId)
         {
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
@@ -53,7 +53,7 @@ namespace eMenka.API.Controllers
             return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
         }
 
-        [HttpGet("{serieName}")]
+        [HttpGet("name/{serieName}")]
         public IActionResult GetSerieByName(string serieName)
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);

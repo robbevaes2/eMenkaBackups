@@ -29,7 +29,7 @@ namespace eMenka.Data.Repositories
                 .ToList();
         }
 
-        public IEnumerable<Brand> Find(Expression<Func<Brand, bool>> statement)
+        public override IEnumerable<Brand> Find(Expression<Func<Brand, bool>> statement)
         {
             return _context.Brands.Where(statement)
                 .Include(b => b.MotorTypes)

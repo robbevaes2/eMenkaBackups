@@ -40,7 +40,7 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapVehicleEntity(vehicle));
         }
 
-        [HttpGet("{brandId}")]
+        [HttpGet("brand/{brandId}")]
         public IActionResult GetVehicleByBrandId(int brandId)
         {
             var vehicles = _vehicleRepository.Find(vehicle=>vehicle.BrandId == brandId);
@@ -50,7 +50,7 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
-        [HttpGet("{brandName}")]
+        [HttpGet("brand/name/{brandName}")]
         public IActionResult GetVehiclesByBrandName(string brandName)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
@@ -60,7 +60,7 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
-        [HttpGet("{modelId}")]
+        [HttpGet("model/{modelId}")]
         public IActionResult GetVehicleByModelId(int modelId)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
@@ -70,7 +70,7 @@ namespace eMenka.API.Controllers
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
-        [HttpGet("{isActive}")]
+        [HttpGet("isActive/{isActive}")]
         public IActionResult GetVehicleByStatus(bool isActive)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);

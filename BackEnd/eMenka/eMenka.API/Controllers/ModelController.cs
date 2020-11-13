@@ -43,7 +43,7 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapModelEntity(model));
         }
 
-        [HttpGet("{brandId}")]
+        [HttpGet("brand/{brandId}")]
         public IActionResult GetByBrandId(int brandId)
         {
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);

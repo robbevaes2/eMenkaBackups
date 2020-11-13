@@ -121,9 +121,9 @@ namespace eMenka.API.Mappers
             return new BrandReturnModel
             {
                 Name = brand.Name,
-                Id = brand.Id,
-                ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
-                InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
+                Id = brand.Id
+                //ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
+                //InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
             };
         }
 
