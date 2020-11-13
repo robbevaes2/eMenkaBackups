@@ -1,36 +1,44 @@
 <div class="container">
   <div class="row ml-1 mr-1">
     <h1 class="col-10">Voertuigen</h1>
-    <button type="button" class="btn btn-success col-md-2">toevoegen</button>
+    <button type="button" id="add-button" class="btn btn-success col-md-2">toevoegen</button>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Merk</th>
-        <th scope="col">Model</th>
-        <th scope="col">Brandstof</th>
-        <th scope="col">Type motor</th>
-        <th scope="col">Serie</th>
-        <th scope="col">Aantal deuren</th>
-        <th scope="col">Motor capaciteit</th>
-        <th scope="col">Fiscale PK</th>
-        <th scope="col">Vermogen</th>
-        <th scope="col">Levering</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let vehicle of vehicles;">
-        <td scope="row">{{ vehicle.brand.name }}</td>
-        <td>{{ vehicle.model.name }}</td>
-        <td>{{ vehicle.fuelType }}</td>
-        <td>{{ vehicle.motorType.name }}</td>
-        <td>{{ vehicle.serie.name }}</td>
-        <td>{{ vehicle.doorType.name }}</td>
-        <td>{{ vehicle.volume }}</td>
-        <td>{{ vehicle.fiscalePk }}</td>
-        <td>{{ vehicle.power }}</td>
-        <td>{{ vehicle.endData.toLocaleDateString() }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Merk</th>
+          <th scope="col">Model</th>
+          <th scope="col">Brandstof</th>
+          <th scope="col">Type motor</th>
+          <th scope="col">Serie</th>
+          <th scope="col">Aantal deuren</th>
+          <th scope="col">Motor capaciteit</th>
+          <th scope="col">Fiscale PK</th>
+          <th scope="col">Vermogen</th>
+          <th scope="col">Levering</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: pageSize, currentPage: page }">
+          <td scope="row">{{ vehicle.brand.name }}</td>
+          <td>{{ vehicle.model.name }}</td>
+          <td>{{ vehicle.fuelType }}</td>
+          <td>{{ vehicle.motorType.name }}</td>
+          <td>{{ vehicle.serie.name }}</td>
+          <td>{{ vehicle.doorType.name }}</td>
+          <td>{{ vehicle.volume }}</td>
+          <td>{{ vehicle.fiscalePk }}</td>
+          <td>{{ vehicle.power }}</td>
+          <td>{{ vehicle.endData.toLocaleDateString() }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="switchPage($event)"></pagination-controls>
+  <select class="custom-select col-md-2" (change)="handlePageSizeChange($event)">
+    <option [value]="1">1 item per page</option>
+    <option [value]="2">2 items per page</option>
+  </select>
 </div>
+

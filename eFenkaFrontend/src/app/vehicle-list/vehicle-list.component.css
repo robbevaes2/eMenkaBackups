@@ -1,0 +1,13 @@
+.container {
+    margin-top: 2rem;
+}
+
+#add-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pagination /deep/ .ngx-pagination {
+    margin: 0px;
+    padding: 0px;
+}

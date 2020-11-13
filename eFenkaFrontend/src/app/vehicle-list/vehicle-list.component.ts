@@ -5,6 +5,7 @@ import { Model } from '../models/model';
 import { MotorType } from '../models/motor-type';
 import { Serie } from '../models/serie';
 import { Vehicle } from '../models/vehicle';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -13,6 +14,10 @@ import { Vehicle } from '../models/vehicle';
 })
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
+
+  page: number = 1;
+  pageSize = 1;
+
 
   constructor() { }
 
@@ -55,5 +60,16 @@ export class VehicleListComponent implements OnInit {
           isActive: true
         }
       ];
+  }
+  
+  switchPage(event) {
+    this.page = event;
+  }
+
+  handlePageSizeChange(event): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    console.log(event.target.value);
+    console.log(this.pageSize);
   }
 }

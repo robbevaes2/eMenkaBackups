@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { VehicleService } from './services/vehicle-service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxPaginationModule
   ],
   providers: [VehicleService],
   bootstrap: [AppComponent]
