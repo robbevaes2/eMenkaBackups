@@ -70,7 +70,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _doorTypeRepository.Update(id, VehicleMappers.MapDoorTypeModel(doorTypeModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return BadRequest("Update failed");
 
             return Ok();
         }

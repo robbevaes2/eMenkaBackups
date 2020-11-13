@@ -90,7 +90,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _motorTypeRepository.Update(id, VehicleMappers.MapMotorTypeModel(motorTypeModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return BadRequest("Update failed");
 
             return Ok();
         }

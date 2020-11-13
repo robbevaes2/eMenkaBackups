@@ -90,7 +90,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _serieRepository.Update(id, VehicleMappers.MapSerieModel(serieModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return BadRequest("Update failed");
 
             return Ok();
         }

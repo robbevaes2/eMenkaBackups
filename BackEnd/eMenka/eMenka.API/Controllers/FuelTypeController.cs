@@ -58,7 +58,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _fuelTypeRepository.Update(id, VehicleMappers.MapFuelTypeModel(fuelTypeModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return BadRequest("Update failed");
 
             return Ok();
         }

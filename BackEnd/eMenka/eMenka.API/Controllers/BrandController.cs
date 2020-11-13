@@ -67,7 +67,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _brandRepository.Update(id, VehicleMappers.MapBrandModel(brandModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return BadRequest("Update failed");
 
             return Ok();
         }
