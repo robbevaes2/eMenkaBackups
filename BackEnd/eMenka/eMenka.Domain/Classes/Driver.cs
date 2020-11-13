@@ -7,8 +7,6 @@ namespace eMenka.Domain.Classes
         public int Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DriversLicense DriversLicense { get; set; }
-        public int DriversLicenseId { get; set; }
         public FuelCard FuelCard { get; set; }
         public int FuelCardId { get; set; }
         public Language Language { get; set; }
