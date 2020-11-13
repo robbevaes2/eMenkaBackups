@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -26,7 +27,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{id}")]
@@ -36,7 +37,7 @@ namespace eMenka.API.Controllers
             if (vehicle == null)
                 return BadRequest();
 
-            return Ok(VehicleReturnMappers.MapVehicleEntity(vehicle));
+            return Ok(VehicleMappers.MapVehicleEntity(vehicle));
         }
 
         [HttpGet("{brandId}")]
@@ -46,7 +47,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{brandName}")]
@@ -56,7 +57,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{modelId}")]
@@ -66,7 +67,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpGet("{isActive}")]
@@ -76,20 +77,23 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleReturnMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
         }
 
         [HttpPost]
-        public IActionResult PostVehicle([FromBody] VehicleReturnModel vehicleReturnModel)
+        public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
         {
-            _vehicleRepository.Add(VehicleReturnMappers.MapVehicleModel(vehicleReturnModel));
+            _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateVehicle([FromBody] VehicleReturnModel vehicleReturnModel, int id)
+        public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
         {
-            var isUpdated = _vehicleRepository.Update(id, VehicleReturnMappers.MapVehicleModel(vehicleReturnModel));
+            if(id != vehicleModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
+            var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
             if (!isUpdated)
                 return BadRequest();

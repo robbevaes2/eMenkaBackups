@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -29,7 +30,7 @@ namespace eMenka.API.Controllers
             if (motorTypes == null)
                 return BadRequest();
 
-            return Ok(motorTypes.ToList().Select(VehicleReturnMappers.MapMotorTypeEntity));
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace eMenka.API.Controllers
             if (motorType == null)
                 return BadRequest();
 
-            return Ok(VehicleReturnMappers.MapMotorTypeEntity(motorType));
+            return Ok(VehicleMappers.MapMotorTypeEntity(motorType));
         }
 
         [HttpGet("{brandId}")]
@@ -49,7 +50,7 @@ namespace eMenka.API.Controllers
             if (motorTypes == null)
                 return BadRequest();
 
-            return Ok(motorTypes.ToList().Select(VehicleReturnMappers.MapMotorTypeEntity));
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpGet("{motorTypeName}")]
@@ -59,20 +60,23 @@ namespace eMenka.API.Controllers
             if (motorTypes == null)
                 return BadRequest();
 
-            return Ok(motorTypes.ToList().Select(VehicleReturnMappers.MapMotorTypeEntity));
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpPost]
-        public IActionResult PostMotorType([FromBody] MotorTypeReturnModel motorTypeReturnModel)
+        public IActionResult PostMotorType([FromBody] MotorTypeModel motorTypeModel)
         {
-            _motorTypeRepository.Add(VehicleReturnMappers.MapMotorTypeModel(motorTypeReturnModel));
+            _motorTypeRepository.Add(VehicleMappers.MapMotorTypeModel(motorTypeModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateMotorType([FromBody] MotorTypeReturnModel motorTypeReturnModel, int id)
+        public IActionResult UpdateMotorType([FromBody] MotorTypeModel motorTypeModel, int id)
         {
-            var isUpdated = _motorTypeRepository.Update(id, VehicleReturnMappers.MapMotorTypeModel(motorTypeReturnModel));
+            if(id != motorTypeModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
+            var isUpdated = _motorTypeRepository.Update(id, VehicleMappers.MapMotorTypeModel(motorTypeModel));
 
             if (!isUpdated)
                 return BadRequest();

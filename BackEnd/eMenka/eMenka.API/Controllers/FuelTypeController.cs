@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ namespace eMenka.API.Controllers
             if (fuelTypes == null)
                 return BadRequest();
 
-            return Ok(fuelTypes.ToList().Select(VehicleReturnMappers.MapFuelTypeEntity));
+            return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity));
         }
 
         [HttpGet("{id}")]
@@ -38,20 +39,23 @@ namespace eMenka.API.Controllers
             if (fuelType == null)
                 return BadRequest();
 
-            return Ok(VehicleReturnMappers.MapFuelTypeEntity(fuelType));
+            return Ok(VehicleMappers.MapFuelTypeEntity(fuelType));
         }
 
         [HttpPost]
-        public IActionResult PostFuelType([FromBody] FuelTypeReturnModel fuelTypeReturnModel)
+        public IActionResult PostFuelType([FromBody] FuelTypeModel fuelTypeModel)
         {
-            _fuelTypeRepository.Add(VehicleReturnMappers.MapFuelTypeModel(fuelTypeReturnModel));
+            _fuelTypeRepository.Add(VehicleMappers.MapFuelTypeModel(fuelTypeModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateFuelType([FromBody] FuelTypeReturnModel fuelTypeReturnModel, int id)
+        public IActionResult UpdateFuelType([FromBody] FuelTypeModel fuelTypeModel, int id)
         {
-            var isUpdated = _fuelTypeRepository.Update(id, VehicleReturnMappers.MapFuelTypeModel(fuelTypeReturnModel));
+            if(id != fuelTypeModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
+            var isUpdated = _fuelTypeRepository.Update(id, VehicleMappers.MapFuelTypeModel(fuelTypeModel));
 
             if (!isUpdated)
                 return BadRequest();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -29,7 +30,7 @@ namespace eMenka.API.Controllers
             if (brands == null)
                 return BadRequest();
 
-            return Ok(brands.ToList().Select(VehicleReturnMappers.MapBrandEntity));
+            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity));
         }
 
         [HttpGet("{id}")]
@@ -39,7 +40,7 @@ namespace eMenka.API.Controllers
             if (brand == null)
                 return BadRequest();
 
-            return Ok(VehicleReturnMappers.MapBrandEntity(brand));
+            return Ok(VehicleMappers.MapBrandEntity(brand));
         }
         [HttpGet("{brandName}")]
         public IActionResult GetBrandByName(string brandName)
@@ -48,20 +49,22 @@ namespace eMenka.API.Controllers
             if (brands == null)
                 return BadRequest();
 
-            return Ok(brands.ToList().Select(VehicleReturnMappers.MapBrandEntity));
+            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity));
         }
 
         [HttpPost]
-        public IActionResult PostBrand([FromBody] BrandReturnModel brandReturnModel)
+        public IActionResult PostBrand([FromBody] BrandModel brandModel)
         {
-            _brandRepository.Add(VehicleReturnMappers.MapBrandModel(brandReturnModel));
+            _brandRepository.Add(VehicleMappers.MapBrandModel(brandModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBrand([FromBody] BrandReturnModel brandReturnModel, int id)
+        public IActionResult UpdateBrand([FromBody] BrandModel brandModel, int id)
         {
-            var isUpdated = _brandRepository.Update(id, VehicleReturnMappers.MapBrandModel(brandReturnModel));
+            if (id != brandModel.Id)
+                return BadRequest("Id from model does not match id query parameter");
+            var isUpdated = _brandRepository.Update(id, VehicleMappers.MapBrandModel(brandModel));
 
             if (!isUpdated)
                 return BadRequest();

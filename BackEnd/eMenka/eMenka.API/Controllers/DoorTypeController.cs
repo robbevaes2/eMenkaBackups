@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +31,7 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleReturnMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
         }
 
         [HttpGet("{id}")]
@@ -40,7 +41,7 @@ namespace eMenka.API.Controllers
             if (doorType == null)
                 return BadRequest();
 
-            return Ok(VehicleReturnMappers.MapDoorTypeEntity(doorType));
+            return Ok(VehicleMappers.MapDoorTypeEntity(doorType));
         }
 
         [HttpGet("{doorTypeName}")]
@@ -50,20 +51,23 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleReturnMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
         }
 
         [HttpPost]
-        public IActionResult PostDoorType([FromBody] DoorTypeReturnModel doorTypeReturnModel)
+        public IActionResult PostDoorType([FromBody] DoorTypeModel doorTypeModel)
         {
-            _doorTypeRepository.Add(VehicleReturnMappers.MapDoorTypeModel(doorTypeReturnModel)); 
+            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel)); 
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateDoorType([FromBody] DoorTypeReturnModel doorTypeReturnModel, int id)
+        public IActionResult UpdateDoorType([FromBody] DoorTypeModel doorTypeModel, int id)
         {
-            var isUpdated = _doorTypeRepository.Update(id, VehicleReturnMappers.MapDoorTypeModel(doorTypeReturnModel));
+            if (id != doorTypeModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
+            var isUpdated = _doorTypeRepository.Update(id, VehicleMappers.MapDoorTypeModel(doorTypeModel));
 
             if (!isUpdated)
                 return BadRequest();

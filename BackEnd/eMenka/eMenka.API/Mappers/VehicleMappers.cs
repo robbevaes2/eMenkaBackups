@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
 namespace eMenka.API.Mappers
 {
-    public static class VehicleReturnMappers
+    public static class VehicleMappers
     {
         public static VehicleReturnModel MapVehicleEntity(Vehicle vehicle)
         {
@@ -29,23 +30,23 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static Vehicle MapVehicleModel(VehicleReturnModel vehicleReturnModel)
+        public static Vehicle MapVehicleModel(VehicleModel vehicleModel)
         {
             return new Vehicle
             {
-                Id = vehicleReturnModel.Id,
-                MotorTypeId = vehicleReturnModel.MotorType.Id,
-                BrandId = vehicleReturnModel.Brand.Id,
-                DoorTypeId = vehicleReturnModel.DoorType.Id,
-                Emission = vehicleReturnModel.Emission,
-                EndDate = vehicleReturnModel.EndDate,
-                FiscalePk = vehicleReturnModel.FiscalePk,
-                FuelTypeId = vehicleReturnModel.FuelType.Id, 
-                IsActive = vehicleReturnModel.IsActive,
-                ModelId = vehicleReturnModel.Model.Id,
-                Power = vehicleReturnModel.Power,
-                Volume = vehicleReturnModel.Volume,
-                FuelCardId = vehicleReturnModel.FuelCard//.Id 
+                Id = vehicleModel.Id,
+                MotorTypeId = vehicleModel.MotorTypeId,
+                BrandId = vehicleModel.BrandId,
+                DoorTypeId = vehicleModel.DoorTypeId,
+                Emission = vehicleModel.Emission,
+                EndDate = vehicleModel.EndDate,
+                FiscalePk = vehicleModel.FiscalePk,
+                FuelTypeId = vehicleModel.FuelTypeId, 
+                IsActive = vehicleModel.IsActive,
+                ModelId = vehicleModel.ModelId,
+                Power = vehicleModel.Power,
+                Volume = vehicleModel.Volume,
+                FuelCardId = vehicleModel.FuelCard//.Id 
             };
         }
 
@@ -58,13 +59,13 @@ namespace eMenka.API.Mappers
                 Id = serie.Id
             };
         }
-        public static Serie MapSerieModel(SerieReturnModel serieReturnModel)
+        public static Serie MapSerieModel(SerieModel serieModel)
         {
             return new Serie
             {
-                BrandId = serieReturnModel.Brand.Id,
-                Id = serieReturnModel.Id,
-                Name = serieReturnModel.Name
+                BrandId = serieModel.BrandId,
+                Id = serieModel.Id,
+                Name = serieModel.Name
             };
         }
 
@@ -77,13 +78,13 @@ namespace eMenka.API.Mappers
                 Id = motorType.Id
             };
         }
-        public static MotorType MapMotorTypeModel(MotorTypeReturnModel motorTypeReturnModel)
+        public static MotorType MapMotorTypeModel(MotorTypeModel motorTypeModel)
         {
             return new MotorType
             {
-                BrandId = motorTypeReturnModel.Brand.Id,
-                Id = motorTypeReturnModel.Id,
-                Name = motorTypeReturnModel.Name
+                BrandId = motorTypeModel.BrandId,
+                Id = motorTypeModel.Id,
+                Name = motorTypeModel.Name
             };
         }
 
@@ -96,22 +97,22 @@ namespace eMenka.API.Mappers
                 Id = model.Id
             };
         }
-        public static Model MapModelModel(ModelReturnModel modelReturnModel)
+        public static Model MapModelModel(ModelModel modelModel)
         {
             return new Model
             {
-                BrandId = modelReturnModel.Brand.Id,
-                Id = modelReturnModel.Id,
-                Name = modelReturnModel.Name
+                BrandId = modelModel.BrandId,
+                Id = modelModel.Id,
+                Name = modelModel.Name
             };
         }
 
-        public static Brand MapBrandModel(BrandReturnModel brandReturnModel)
+        public static Brand MapBrandModel(BrandModel brandModel)
         {
             return new Brand
             {
-                Id = brandReturnModel.Id,
-                Name = brandReturnModel.Name
+                Id = brandModel.Id,
+                Name = brandModel.Name
             };
         }
 
@@ -136,13 +137,13 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static FuelType MapFuelTypeModel(FuelTypeReturnModel fuelTypeReturnModel)
+        public static FuelType MapFuelTypeModel(FuelTypeModel fuelTypeModel)
         {
             return new FuelType
             {
-                Code = fuelTypeReturnModel.Code,
-                Id = fuelTypeReturnModel.Id,
-                Name = fuelTypeReturnModel.Name
+                Code = fuelTypeModel.Code,
+                Id = fuelTypeModel.Id,
+                Name = fuelTypeModel.Name
             };
         }
 
@@ -155,12 +156,12 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static DoorType MapDoorTypeModel(DoorTypeReturnModel doorTypeReturnModel)
+        public static DoorType MapDoorTypeModel(DoorTypeModel doorTypeModel)
         {
             return new DoorType
             {
-                Id = doorTypeReturnModel.Id,
-                Name = doorTypeReturnModel.Name
+                Id = doorTypeModel.Id,
+                Name = doorTypeModel.Name
             };
         }
 
