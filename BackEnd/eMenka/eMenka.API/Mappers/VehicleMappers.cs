@@ -46,7 +46,7 @@ namespace eMenka.API.Mappers
                 ModelId = (int)vehicleModel.ModelId,
                 Power = (int)vehicleModel.Power,
                 Volume = (int)vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCard//.Id 
+                FuelCardId = 1 //temporary fix untill fuelcard is implemented
             };
         }
 

@@ -17,10 +17,12 @@ namespace eMenka.API.Controllers
     public class MotorTypeController : ControllerBase
     {
         private readonly IMotorTypeRepository _motorTypeRepository;
+        private readonly IBrandRepository _brandRepository;
 
-        public MotorTypeController(IMotorTypeRepository motorTypeRepository)
+        public MotorTypeController(IMotorTypeRepository motorTypeRepository, IBrandRepository brandRepository)
         {
             _motorTypeRepository = motorTypeRepository;
+            _brandRepository = brandRepository;
         }
 
         [HttpGet]
@@ -46,6 +48,9 @@ namespace eMenka.API.Controllers
         [HttpGet("brand/{brandId}")]
         public IActionResult GetMotorTypeByBrandId(int brandId)
         {
+            if (_brandRepository.GetById(brandId) == null)
+                return BadRequest($"No brand with id {brandId}");
+
             var motorTypes = _motorTypeRepository.Find(motorType => motorType.Brand.Id == brandId);
             if (motorTypes == null)
                 return BadRequest();
@@ -66,6 +71,9 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostMotorType([FromBody] MotorTypeModel motorTypeModel)
         {
+            if (_brandRepository.GetById((int)motorTypeModel.BrandId) == null)
+                return BadRequest($"No brand with id {motorTypeModel.BrandId}");
+
             _motorTypeRepository.Add(VehicleMappers.MapMotorTypeModel(motorTypeModel));
             return Ok();
         }
@@ -75,6 +83,9 @@ namespace eMenka.API.Controllers
         {
             if(id != motorTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_brandRepository.GetById((int)motorTypeModel.BrandId) == null)
+                return BadRequest($"No brand with id {motorTypeModel.BrandId}");
 
             var isUpdated = _motorTypeRepository.Update(id, VehicleMappers.MapMotorTypeModel(motorTypeModel));
 

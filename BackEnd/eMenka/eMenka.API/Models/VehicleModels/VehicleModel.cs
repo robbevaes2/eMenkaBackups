@@ -26,7 +26,9 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public int? Power { get; set; }
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM:yyyy}")]
         public DateTime EndDate { get; set; }
+        [Required]
         public bool IsActive { get; set; }
     }
 }

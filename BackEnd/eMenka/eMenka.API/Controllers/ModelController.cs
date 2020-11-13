@@ -17,10 +17,12 @@ namespace eMenka.API.Controllers
     public class ModelController : ControllerBase
     {
         private readonly IModelRepository _modelRepository;
+        private readonly IBrandRepository _brandRepository;
 
-        public ModelController(IModelRepository modelRepository)
+        public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository)
         {
             _modelRepository = modelRepository;
+            _brandRepository = brandRepository;
         }
 
         [HttpGet]
@@ -46,6 +48,9 @@ namespace eMenka.API.Controllers
         [HttpGet("brand/{brandId}")]
         public IActionResult GetByBrandId(int brandId)
         {
+            if (_brandRepository.GetById(brandId) == null)
+                return BadRequest($"No brand with id {brandId}");
+
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);
 
             if (models == null)
@@ -57,6 +62,9 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostModel([FromBody] ModelModel modelModel)
         {
+            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+                return BadRequest($"No brand with id {modelModel.BrandId}");
+
             _modelRepository.Add(VehicleMappers.MapModelModel(modelModel));
             return Ok();
         }
@@ -66,6 +74,9 @@ namespace eMenka.API.Controllers
         {
             if(id != modelModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+                return BadRequest($"No brand with id {modelModel.BrandId}");
 
             var isUpdated = _modelRepository.Update(id, VehicleMappers.MapModelModel(modelModel));
 
