@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Mappers;
 using eMenka.API.VehicleModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
@@ -28,7 +29,7 @@ namespace eMenka.API.Controllers
             if (motorTypes == null)
                 return BadRequest();
 
-            return Ok(motorTypes.ToList().Select(MapMotorTypeEntity));
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpGet("{id}")]
@@ -38,7 +39,17 @@ namespace eMenka.API.Controllers
             if (motorType == null)
                 return BadRequest();
 
-            return Ok(MapMotorTypeEntity(motorType));
+            return Ok(VehicleMappers.MapMotorTypeEntity(motorType));
+        }
+
+        [HttpGet("{brandId}")]
+        public IActionResult GetMotorTypeByBrandId(int brandId)
+        {
+            var motorTypes = _motorTypeRepository.Find(motorType => motorType.Brand.Id == brandId);
+            if (motorTypes == null)
+                return BadRequest();
+
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpGet("{motorTypeName}")]
@@ -48,20 +59,20 @@ namespace eMenka.API.Controllers
             if (motorTypes == null)
                 return BadRequest();
 
-            return Ok(motorTypes.ToList().Select(MapMotorTypeEntity));
+            return Ok(motorTypes.ToList().Select(VehicleMappers.MapMotorTypeEntity));
         }
 
         [HttpPost]
         public IActionResult PostMotorType([FromBody] MotorTypeModel motorTypeModel)
         {
-            _motorTypeRepository.Add(MapMotorTypeModel(motorTypeModel));
+            _motorTypeRepository.Add(VehicleMappers.MapMotorTypeModel(motorTypeModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateMotorType([FromBody] MotorTypeModel motorTypeModel, int id)
         {
-            var isUpdated = _motorTypeRepository.Update(id, MapMotorTypeModel(motorTypeModel));
+            var isUpdated = _motorTypeRepository.Update(id, VehicleMappers.MapMotorTypeModel(motorTypeModel));
 
             if (!isUpdated)
                 return BadRequest();
@@ -79,26 +90,5 @@ namespace eMenka.API.Controllers
             _motorTypeRepository.Remove(motorType);
             return Ok();
         }
-
-        private MotorTypeModel MapMotorTypeEntity(MotorType motorType)
-        {
-            return new MotorTypeModel
-            {
-                BrandId = motorType.BrandId,
-                Name = motorType.Name,
-                Id = motorType.Id
-            };
-        }
-        private MotorType MapMotorTypeModel(MotorTypeModel motorTypeModel)
-        {
-            return new MotorType
-            {
-                BrandId = motorTypeModel.BrandId,
-                Id = motorTypeModel.Id,
-                Name = motorTypeModel.Name
-            };
-        }
-
-
     }
 }
