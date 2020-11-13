@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row ml-1 mr-1">
+    <h1 class="col-4">Nieuw voertuig</h1>
+    <button type="button" class="btn btn-secondary ml-auto col-md-2" (click)="navigateToListVehicleComponent()">Annuleer</button>
+    <button type="button" class="btn btn-success col-md-2" [disabled]="!form.valid" (click)="saveNewVehicle(form)">Opslaan</button>
+  </div>
+  <br>
+  <div>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-6">
+            <div>
+              <label for="brands">Merk:</label>
+              <select name="brands" id="brands" formControlName="brand" class="col-md-12 browser-default custom-select">
+                <option [ngValue]="null" disabled>-</option>
+                <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
+              </select><br>
+            </div>
+            <div>
+              <label for="models">Model:</label>
+              <select name="models" id="models" formControlName="model" class="col-md-12 browser-default custom-select">
+                <option [ngValue]="null" disabled>-</option>
+                <option *ngFor="let item of models" [value]="item.id">{{ item.name }}</option>
+              </select><br>
+            </div>
+            <div>
+              <label for="series">Serie:</label>
+              <select name="series" id="series" formControlName="serie" class="col-md-12 browser-default custom-select">
+                <option [ngValue]="null" disabled>-</option>
+                <option *ngFor="let item of series" [value]="item.id">{{ item.name }}</option>
+              </select><br>
+            </div>
+            <div>
+              <label for="motorTypes">Type motor:</label>
+              <select name="motorTypes" id="motorTypes" formControlName="motorType" class="col-md-12 browser-default custom-select">
+                <option [ngValue]="null" disabled>-</option>
+                <option *ngFor="let item of motorTypes" [value]="item.id">{{ item.name }}</option>
+              </select><br>
+            </div>
+            <div>
+              <label for="doorTypes">Aantal deuren:</label>
+              <select name="doorTypes" id="doorTypes" formControlName="doorType" class="col-md-12 browser-default custom-select">
+                <option [ngValue]="null" disabled>-</option>
+                <option *ngFor="let item of doorTypes" [value]="item.id">{{ item.name }}</option>
+              </select><br>
+            </div>
+            <div>
+              <label for="fuelCard">Tankkaart:</label>
+              <input type="number" id="fuelCard" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <label for="fuelTypes">Brandstoftype:</label>
+            <input type="number" id="fuelTypes" formControlName="fuelType" class="col-md-12 browser-default custom-select">
+          </div>
+          <div>
+            <label for="volume">Volume:</label>
+            <input type="number" id="volume" formControlName="volume" class="col-md-12 browser-default custom-select">
+          </div>
+          <div>
+            <label for="power">Vermogen PK:</label>
+            <input type="number" id="power" formControlName="power" class="col-md-12 browser-default custom-select">
+          </div>
+          <div>
+            <label for="fiscalePk">Fiscale PK:</label>
+            <input type="number" id="fiscalePk" formControlName="fiscalePk" class="col-md-12 browser-default custom-select">
+          </div>
+          <div>
+            <label for="emission">Emissie:</label>
+            <input type="number" id="emission" formControlName="emission" class="col-md-12 browser-default custom-select">
+          </div>
+          <div>
+            <label for="endDate">Afleveringsdatum:</label>
+            <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

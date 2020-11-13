@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Brand } from '../models/brand';
 import { DoorType } from '../models/door-type';
 import { Model } from '../models/model';
@@ -18,11 +19,14 @@ export class VehicleListComponent implements OnInit {
   page: number = 1;
   pageSize = 1;
 
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.vehicles = this.getVehicleDummyList();
+  }
+
+  navigateToNewVehicleComponent(): void {
+    this.router.navigate(['/vehicles/new']);
   }
 
   getVehicleDummyList(): Vehicle[] {
@@ -54,7 +58,7 @@ export class VehicleListComponent implements OnInit {
           fuelCard: 1,
           volume: 2000,
           fiscalePk: 50,
-          emission: 1,
+          emission: 3,
           power: 400,
           endData: new Date('2020-12-20'),
           isActive: true

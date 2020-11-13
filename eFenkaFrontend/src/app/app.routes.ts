@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NewVehicleItemComponent } from './new-vehicle-item/new-vehicle-item.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 
 export const appRoutes: Routes = [
@@ -41,13 +42,13 @@ export const appRoutes: Routes = [
   {
     path: 'vehicles',
     component: VehicleListComponent
-  }/*,
+  },/*
   {
     path: 'vehicles/:index',
     component: VehicleListComponent
-  },
+  },*/
   {
     path: 'vehicles/new',
-    component: VehicleListComponent
-  }*/
+    component: NewVehicleItemComponent
+  }
 ];
