@@ -136,6 +136,16 @@ namespace eMenka.API.Mappers
             };
         }
 
+        public static FuelType MapFuelTypeModel(FuelTypeModel fuelTypeModel)
+        {
+            return new FuelType
+            {
+                Code = fuelTypeModel.Code,
+                Id = fuelTypeModel.Id,
+                Name = fuelTypeModel.Name
+            };
+        }
+
         public static DoorTypeModel MapDoorTypeEntity(DoorType doorType)
         {
             return new DoorTypeModel
