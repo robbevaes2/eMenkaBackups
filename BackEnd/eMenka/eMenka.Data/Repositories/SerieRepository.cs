@@ -18,6 +18,11 @@ namespace eMenka.Data.Repositories
             _context = context;
         }
 
+        public override Serie GetById(int id)
+        {
+            return _context.Series.Include(s => s.Brand).FirstOrDefault(s => s.Id == id);
+        }
+
         public override IEnumerable<Serie> GetAll()
         {
             return _context.Series.Include(s => s.Brand).ToList();
