@@ -32,7 +32,7 @@ namespace eMenka.API.Controllers
             if (models == null)
                 return BadRequest();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -56,7 +56,7 @@ namespace eMenka.API.Controllers
             if (models == null)
                 return BadRequest();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity));
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpPost]

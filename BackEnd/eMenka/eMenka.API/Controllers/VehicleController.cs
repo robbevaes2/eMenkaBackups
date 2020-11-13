@@ -37,7 +37,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -60,7 +60,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("brand/name/{brandName}")]
@@ -70,7 +70,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("model/{modelId}")]
@@ -83,7 +83,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("isActive/{isActive}")]
@@ -93,7 +93,7 @@ namespace eMenka.API.Controllers
             if (vehicles == null)
                 return BadRequest();
             
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity));
+            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpPost]

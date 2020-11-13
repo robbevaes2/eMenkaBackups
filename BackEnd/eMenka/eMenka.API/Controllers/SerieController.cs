@@ -32,7 +32,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -55,7 +55,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
 
         [HttpGet("name/{serieName}")]
@@ -65,7 +65,7 @@ namespace eMenka.API.Controllers
             if (series == null)
                 return BadRequest();
 
-            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity));
+            return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
 
         [HttpPost]

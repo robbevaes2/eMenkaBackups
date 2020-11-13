@@ -29,7 +29,7 @@ namespace eMenka.API.Controllers
             if (fuelTypes == null)
                 return BadRequest();
 
-            return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity));
+            return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]

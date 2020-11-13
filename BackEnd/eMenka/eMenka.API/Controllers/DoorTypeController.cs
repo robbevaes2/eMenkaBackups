@@ -31,7 +31,7 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -51,7 +51,7 @@ namespace eMenka.API.Controllers
             if (doorTypes == null)
                 return BadRequest();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity));
+            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpPost]
