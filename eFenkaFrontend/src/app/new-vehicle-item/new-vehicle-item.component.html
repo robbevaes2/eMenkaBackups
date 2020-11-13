@@ -11,7 +11,7 @@
         <div class="col-md-6">
             <div>
               <label for="brands">Merk:</label>
-              <select name="brands" id="brands" formControlName="brand" class="col-md-12 browser-default custom-select">
+              <select name="brands" id="brands" (change)="onChangedBrand($event)" formControlName="brand" class="col-md-12 browser-default custom-select">
                 <option [ngValue]="null" disabled>-</option>
                 <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
               </select><br>
@@ -46,29 +46,29 @@
             </div>
             <div>
               <label for="fuelCard">Tankkaart:</label>
-              <input type="number" id="fuelCard" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
+              <input type="number" id="fuelCard" min="0" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
             </div>
         </div>
         <div class="col-md-6">
           <div>
             <label for="fuelTypes">Brandstoftype:</label>
-            <input type="number" id="fuelTypes" formControlName="fuelType" class="col-md-12 browser-default custom-select">
+            <input type="number" id="fuelTypes" min="0" formControlName="fuelType" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="volume">Volume:</label>
-            <input type="number" id="volume" formControlName="volume" class="col-md-12 browser-default custom-select">
+            <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="power">Vermogen PK:</label>
-            <input type="number" id="power" formControlName="power" class="col-md-12 browser-default custom-select">
+            <input type="number" id="power" min="0" formControlName="power" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="fiscalePk">Fiscale PK:</label>
-            <input type="number" id="fiscalePk" formControlName="fiscalePk" class="col-md-12 browser-default custom-select">
+            <input type="number" id="fiscalePk" min="0" formControlName="fiscalePk" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="emission">Emissie:</label>
-            <input type="number" id="emission" formControlName="emission" class="col-md-12 browser-default custom-select">
+            <input type="number" id="emission" min="0" formControlName="emission" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="endDate">Afleveringsdatum:</label>

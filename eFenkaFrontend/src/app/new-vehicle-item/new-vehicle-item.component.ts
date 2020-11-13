@@ -24,9 +24,6 @@ export class NewVehicleItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.brands = this.getBrands();
-    this.models = this.getModels();
-    this.series = this.getSeries();
-    this.motorTypes = this.getMotorTypes();
     this.doorTypes = this.getDoorTypes();
 
     this.form = new FormGroup({
@@ -35,14 +32,24 @@ export class NewVehicleItemComponent implements OnInit {
       serie: new FormControl(null, [Validators.required]),
       motorType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required]),
-      fuelType: new FormControl(null, [Validators.required]),
-      volume: new FormControl(null, [Validators.required]),
-      power: new FormControl(null, [Validators.required]),
-      fiscalePk: new FormControl(null, [Validators.required]),
-      emission: new FormControl(null, [Validators.required]),
-      endDate: new FormControl(null, [Validators.required])
+      fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
+      volume: new FormControl(null, [Validators.required, Validators.min(0)]),
+      power: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
+      emission: new FormControl(null, [Validators.required, Validators.min(0)]),
+      endDate: new FormControl(null, [Validators.required, Validators.min(0)])
     });
+  }
+
+  onChangedBrand(event): void {
+    // Do get requests with brandId
+    const brandId = event.target.value;
+    console.log('changed with ' + brandId);
+
+    this.models = this.getModels();
+    this.series = this.getSeries();
+    this.motorTypes = this.getMotorTypes();
   }
 
   navigateToListVehicleComponent(): void {
@@ -52,7 +59,6 @@ export class NewVehicleItemComponent implements OnInit {
   saveNewVehicle(form: FormGroup): void {
     // Save vehicle
     console.log(form.value);
-    console.log(form.valid);
     //this.router.navigate(['/vehicles']);
   }
 
@@ -65,7 +71,6 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   getModels(): Model[] {
-    // Do get request with brand
     return [
       new Model(1, 'A4'),
       new Model(2, 'A5'),
