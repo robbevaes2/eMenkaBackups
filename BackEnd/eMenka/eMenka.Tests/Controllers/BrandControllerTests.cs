@@ -170,15 +170,16 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateBrandReturnsOkWhenEverythingIsCorrect()
         {
-            var invalidModel = new BrandModel
+            var validModel = new BrandModel
             {
-                Id = 1
+                Id = 1,
+                Name = ""
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))
                 .Returns(true);
 
-            var result = _sut.UpdateBrand(invalidModel, invalidModel.Id) as OkResult;
+            var result = _sut.UpdateBrand(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

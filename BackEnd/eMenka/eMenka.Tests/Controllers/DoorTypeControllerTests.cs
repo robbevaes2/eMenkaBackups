@@ -170,15 +170,16 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDoorTypeReturnsOkWhenEverythingIsCorrect()
         {
-            var invalidModel = new DoorTypeModel
+            var validModel = new DoorTypeModel
             {
-                Id = 1
+                Id = 1,
+                Name = ""
             };
 
             _doorTypeRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<DoorType>()))
                 .Returns(true);
 
-            var result = _sut.UpdateDoorType(invalidModel, invalidModel.Id) as OkResult;
+            var result = _sut.UpdateDoorType(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

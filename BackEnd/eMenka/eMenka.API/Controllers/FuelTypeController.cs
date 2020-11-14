@@ -31,7 +31,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetFuelTypesById(int id)
+        public IActionResult GetFuelTypeById(int id)
         {
             var fuelType = _fuelTypeRepository.GetById(id);
             if (fuelType == null)
