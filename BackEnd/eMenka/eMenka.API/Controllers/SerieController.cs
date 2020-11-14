@@ -34,7 +34,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetSeriesById(int id)
+        public IActionResult GetSerieById(int id)
         {
             var serie = _serieRepository.GetById(id);
             if (serie == null)
@@ -55,7 +55,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("name/{serieName}")]
-        public IActionResult GetSerieByName(string serieName)
+        public IActionResult GetSeriesByName(string serieName)
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);
 

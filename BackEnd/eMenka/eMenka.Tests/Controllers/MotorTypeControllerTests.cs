@@ -326,7 +326,5 @@ namespace eMenka.Tests.Controllers
             _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _motorTypeRepositoryMock.Verify(m => m.Remove(It.IsAny<MotorType>()), Times.Once);
         }
-
-
     }
 }
