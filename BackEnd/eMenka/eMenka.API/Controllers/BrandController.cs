@@ -41,7 +41,7 @@ namespace eMenka.API.Controllers
             return Ok(VehicleMappers.MapBrandEntity(brand));
         }
         [HttpGet("name/{brandName}")]
-        public IActionResult GetBrandByName(string brandName)
+        public IActionResult GetBrandsByName(string brandName)
         {
             var brands = _brandRepository.Find(brand => brand.Name == brandName);
 
