@@ -34,7 +34,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetModelsById(int id)
+        public IActionResult GetModelById(int id)
         {
             var model = _modelRepository.GetById(id);
             if (model == null)
