@@ -34,7 +34,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetMotorTypesById(int id)
+        public IActionResult GetMotorTypeById(int id)
         {
             var motorType = _motorTypeRepository.GetById(id);
             if (motorType == null)
@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("brand/{brandId}")]
-        public IActionResult GetMotorTypeByBrandId(int brandId)
+        public IActionResult GetMotorTypesByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
                 return NotFound($"No brand with id {brandId}");
@@ -55,7 +55,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("name/{motorTypeName}")]
-        public IActionResult GetMotorTypeByName(string motorTypeName)
+        public IActionResult GetMotorTypesByName(string motorTypeName)
         {
             var motorTypes = _motorTypeRepository.Find(motorType => motorType.Name == motorTypeName);
             

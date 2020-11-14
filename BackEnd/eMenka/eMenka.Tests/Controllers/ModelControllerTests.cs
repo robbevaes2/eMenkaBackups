@@ -279,7 +279,7 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
-        public void DeleteModelReturnsNotFoundWhenDoorTypeIsNotFound()
+        public void DeleteModelReturnsNotFoundWhenModelIsNotFound()
         {
             Model model = null;
 
