@@ -34,9 +34,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllVehicles()
         {
             var vehicles = _vehicleRepository.GetAll();
-            if (vehicles == null)
-                return BadRequest();
-
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
@@ -45,7 +42,7 @@ namespace eMenka.API.Controllers
         {
             var vehicle = _vehicleRepository.GetById(id);
             if (vehicle == null)
-                return BadRequest();
+                return NotFound();
 
             return Ok(VehicleMappers.MapVehicleEntity(vehicle));
         }
@@ -54,12 +51,10 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return BadRequest($"No brand with id {brandId}");
+                return NotFound($"No brand with id {brandId}");
 
             var vehicles = _vehicleRepository.Find(vehicle=>vehicle.BrandId == brandId);
-            if (vehicles == null)
-                return BadRequest();
-            
+
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
@@ -67,8 +62,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehiclesByBrandName(string brandName)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
-            if (vehicles == null)
-                return BadRequest();
 
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
@@ -77,12 +70,10 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByModelId(int modelId)
         {
             if (_modelRepository.GetById(modelId) == null)
-                return BadRequest($"No model with id {modelId}");
+                return NotFound($"No model with id {modelId}");
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
-            if (vehicles == null)
-                return BadRequest();
-            
+
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
@@ -90,8 +81,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByStatus(bool isActive)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
-            if (vehicles == null)
-                return BadRequest();
             
             return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
         }
@@ -99,20 +88,25 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
-                return BadRequest($"No brand with id {vehicleModel.BrandId}");
+                return NotFound($"No brand with id {vehicleModel.BrandId}");
 
             if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
-                return BadRequest($"No model with id {vehicleModel.ModelId}");
+                return NotFound($"No model with id {vehicleModel.ModelId}");
 
             if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
-                return BadRequest($"No fuelType with id {vehicleModel.FuelTypeId}");
+                return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
             if (_motorTypeRepository.GetById((int)vehicleModel.MotorTypeId) == null)
-                return BadRequest($"No motortype with id {vehicleModel.MotorTypeId}");
+                return NotFound($"No motortype with id {vehicleModel.MotorTypeId}");
 
             if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
-                return BadRequest($"No doortype with id {vehicleModel.DoorTypeId}");
+                return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
 
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
@@ -121,28 +115,32 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
         {
-            if(id != vehicleModel.Id)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            if (id != vehicleModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
             if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
-                return BadRequest($"No brand with id {vehicleModel.BrandId}");
+                return NotFound($"No brand with id {vehicleModel.BrandId}");
 
             if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
-                return BadRequest($"No model with id {vehicleModel.ModelId}");
+                return NotFound($"No model with id {vehicleModel.ModelId}");
 
             if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
-                return BadRequest($"No fuelType with id {vehicleModel.FuelTypeId}");
+                return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
             if (_motorTypeRepository.GetById((int)vehicleModel.MotorTypeId) == null)
-                return BadRequest($"No motortype with id {vehicleModel.MotorTypeId}");
+                return NotFound($"No motortype with id {vehicleModel.MotorTypeId}");
 
             if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
-                return BadRequest($"No doortype with id {vehicleModel.DoorTypeId}");
+                return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
 
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
             if (!isUpdated)
-                return BadRequest("Update failed");
+                return NotFound($"No vehicle found with id {id}");
 
             return Ok();
         }
@@ -152,7 +150,7 @@ namespace eMenka.API.Controllers
         {
             var vehicle = _vehicleRepository.GetById(id);
             if (vehicle == null)
-                return BadRequest();
+                return NotFound();
 
             _vehicleRepository.Remove(vehicle);
             return Ok();

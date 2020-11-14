@@ -27,8 +27,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllBrands()
         {
             var brands = _brandRepository.GetAll();
-            if (brands == null)
-                return BadRequest();
 
             return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity).ToList());
         }
@@ -38,7 +36,7 @@ namespace eMenka.API.Controllers
         {
             var brand = _brandRepository.GetById(id);
             if (brand == null)
-                return BadRequest();
+                return NotFound();
 
             return Ok(VehicleMappers.MapBrandEntity(brand));
         }
@@ -46,8 +44,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetBrandByName(string brandName)
         {
             var brands = _brandRepository.Find(brand => brand.Name == brandName);
-            if (brands == null)
-                return BadRequest();
 
             return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity).ToList());
         }
@@ -55,6 +51,11 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostBrand([FromBody] BrandModel brandModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             _brandRepository.Add(VehicleMappers.MapBrandModel(brandModel));
             return Ok();
         }
@@ -62,12 +63,17 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBrand([FromBody] BrandModel brandModel, int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             if (id != brandModel.Id)
                 return BadRequest("Id from model does not match id query parameter");
             var isUpdated = _brandRepository.Update(id, VehicleMappers.MapBrandModel(brandModel));
 
             if (!isUpdated)
-                return BadRequest("Update failed");
+                return NotFound($"No brand found with id {id}");
 
             return Ok();
         }
@@ -77,7 +83,7 @@ namespace eMenka.API.Controllers
         {
             var brand = _brandRepository.GetById(id);
             if (brand == null)
-                return BadRequest();
+                return NotFound();
 
             _brandRepository.Remove(brand);
             return Ok();

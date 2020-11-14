@@ -26,8 +26,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllFuelTypes()
         {
             var fuelTypes = _fuelTypeRepository.GetAll();
-            if (fuelTypes == null)
-                return BadRequest();
 
             return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity).ToList());
         }
@@ -37,7 +35,7 @@ namespace eMenka.API.Controllers
         {
             var fuelType = _fuelTypeRepository.GetById(id);
             if (fuelType == null)
-                return BadRequest();
+                return NotFound();
 
             return Ok(VehicleMappers.MapFuelTypeEntity(fuelType));
         }
@@ -45,6 +43,11 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostFuelType([FromBody] FuelTypeModel fuelTypeModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             _fuelTypeRepository.Add(VehicleMappers.MapFuelTypeModel(fuelTypeModel));
             return Ok();
         }
@@ -52,13 +55,17 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateFuelType([FromBody] FuelTypeModel fuelTypeModel, int id)
         {
-            if(id != fuelTypeModel.Id)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            if (id != fuelTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
             var isUpdated = _fuelTypeRepository.Update(id, VehicleMappers.MapFuelTypeModel(fuelTypeModel));
 
             if (!isUpdated)
-                return BadRequest("Update failed");
+                return NotFound($"No fueltype found with id {id}");
 
             return Ok();
         }
@@ -68,7 +75,7 @@ namespace eMenka.API.Controllers
         {
             var fuelType = _fuelTypeRepository.GetById(id);
             if (fuelType == null)
-                return BadRequest();
+                return NotFound();
 
             _fuelTypeRepository.Remove(fuelType);
             return Ok();

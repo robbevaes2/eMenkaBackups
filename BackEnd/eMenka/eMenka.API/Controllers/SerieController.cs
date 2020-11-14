@@ -29,8 +29,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllSeries()
         {
             var series = _serieRepository.GetAll();
-            if (series == null)
-                return BadRequest();
 
             return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
@@ -40,7 +38,7 @@ namespace eMenka.API.Controllers
         {
             var serie = _serieRepository.GetById(id);
             if (serie == null)
-                return BadRequest();
+                return NotFound();
 
             return Ok(VehicleMappers.MapSerieEntity(serie));
         }
@@ -49,11 +47,9 @@ namespace eMenka.API.Controllers
         public IActionResult GetSeriesByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return BadRequest($"No brand with id {brandId}");
+                return NotFound($"No brand with id {brandId}");
 
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
-            if (series == null)
-                return BadRequest();
 
             return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
@@ -62,8 +58,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetSerieByName(string serieName)
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);
-            if (series == null)
-                return BadRequest();
 
             return Ok(series.ToList().Select(VehicleMappers.MapSerieEntity).ToList());
         }
@@ -71,8 +65,13 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostSerie([FromBody] SerieModel serieModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             if (_brandRepository.GetById((int)serieModel.BrandId) == null)
-                return BadRequest($"No brand with id {serieModel.BrandId}");
+                return NotFound($"No brand with id {serieModel.BrandId}");
 
             _serieRepository.Add(VehicleMappers.MapSerieModel(serieModel));
             return Ok();
@@ -81,16 +80,21 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateSerie([FromBody] SerieModel serieModel, int id)
         {
-            if(id != serieModel.Id)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (id != serieModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
             if (_brandRepository.GetById((int)serieModel.BrandId) == null)
-                return BadRequest($"No brand with id {serieModel.BrandId}");
+                return NotFound($"No brand with id {serieModel.BrandId}");
 
             var isUpdated = _serieRepository.Update(id, VehicleMappers.MapSerieModel(serieModel));
 
             if (!isUpdated)
-                return BadRequest("Update failed");
+                return NotFound($"No Serie found with id {id}");
 
             return Ok();
         }
@@ -100,7 +104,7 @@ namespace eMenka.API.Controllers
         {
             var serie = _serieRepository.GetById(id);
             if (serie == null)
-                return BadRequest();
+                return NotFound();
 
             _serieRepository.Remove(serie);
             return Ok();

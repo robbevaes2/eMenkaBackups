@@ -28,8 +28,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllDoorTypes()
         {
             var doorTypes = _doorTypeRepository.GetAll();
-            if (doorTypes == null)
-                return BadRequest();
 
             return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
@@ -39,7 +37,7 @@ namespace eMenka.API.Controllers
         {
             var doorType = _doorTypeRepository.GetById(id);
             if (doorType == null)
-                return BadRequest();
+                return NotFound();
 
             return Ok(VehicleMappers.MapDoorTypeEntity(doorType));
         }
@@ -48,8 +46,6 @@ namespace eMenka.API.Controllers
         public IActionResult GetDoorTypeByName(string doorTypeName)
         {
             var doorTypes = _doorTypeRepository.Find(doorType => doorType.Name == doorTypeName);
-            if (doorTypes == null)
-                return BadRequest();
 
             return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
@@ -57,6 +53,11 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostDoorType([FromBody] DoorTypeModel doorTypeModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel)); 
             return Ok();
         }
@@ -64,13 +65,18 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateDoorType([FromBody] DoorTypeModel doorTypeModel, int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
             if (id != doorTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
             var isUpdated = _doorTypeRepository.Update(id, VehicleMappers.MapDoorTypeModel(doorTypeModel));
 
             if (!isUpdated)
-                return BadRequest("Update failed");
+                return NotFound($"No DoorType found with id {id}");
 
             return Ok();
         }
@@ -80,7 +86,7 @@ namespace eMenka.API.Controllers
         {
             var doorType = _doorTypeRepository.GetById(id);
             if (doorType == null)
-                return BadRequest();
+                return NotFound();
 
             _doorTypeRepository.Remove(doorType);
             return Ok();
