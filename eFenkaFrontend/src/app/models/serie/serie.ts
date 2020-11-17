@@ -1,6 +1,5 @@
-import { Brand } from './brand';
-
-export class MotorType {
+import { Brand } from '../brand/brand';
+export class Serie {
   id: number;
   name: string;
   brand: Brand;

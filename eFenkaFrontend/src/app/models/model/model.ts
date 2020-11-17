@@ -1,9 +1,8 @@
-import { Brand } from './brand';
+import { Brand } from '../brand/brand';
 
-export class InteriorColor {
+export class Model {
   id: number;
   name: string;
-  code: string;
   brand: Brand;
 
   constructor(id: number, name: string) {

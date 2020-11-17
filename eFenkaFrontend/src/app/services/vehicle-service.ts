@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Vehicle } from '../models/vehicle';
+import { Vehicle } from '../models/vehicle/vehicle';
 
 const BASE_API_VEHICLES = 'https://localhost:3000/vehicles';
 

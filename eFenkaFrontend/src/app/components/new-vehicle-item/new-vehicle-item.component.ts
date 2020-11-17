@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Brand } from '../models/brand';
-import { Model } from '../models/model';
-import { Serie } from '../models/serie';
-import { MotorType } from '../models/motor-type';
-import { DoorType } from '../models/door-type';
+import { Brand } from '../../models/brand/brand';
+import { DoorType } from '../../models/door-type/door-type';
+import { Model } from '../../models/model/model';
+import { MotorType } from '../../models/motor-type/motor-type';
+import { Serie } from '../../models/serie/serie';
+import { Vehicle } from '../../models/vehicle/vehicle';
 
 @Component({
   selector: 'app-new-vehicle-item',

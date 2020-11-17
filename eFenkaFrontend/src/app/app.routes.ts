@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { NewVehicleItemComponent } from './new-vehicle-item/new-vehicle-item.component';
-import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehicle-item.component';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 
 export const appRoutes: Routes = [
   /*{

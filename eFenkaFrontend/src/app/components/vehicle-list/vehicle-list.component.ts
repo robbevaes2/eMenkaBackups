@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Brand } from '../models/brand';
-import { DoorType } from '../models/door-type';
-import { Model } from '../models/model';
-import { MotorType } from '../models/motor-type';
-import { Serie } from '../models/serie';
-import { Vehicle } from '../models/vehicle';
+import { Brand } from '../../models/brand/brand';
+import { DoorType } from '../../models/door-type/door-type';
+import { Model } from '../../models/model/model';
+import { MotorType } from '../../models/motor-type/motor-type';
+import { Serie } from '../../models/serie/serie';
+import { Vehicle } from '../../models/vehicle/vehicle';
 import { from } from 'rxjs';
 
 @Component({
@@ -65,7 +65,7 @@ export class VehicleListComponent implements OnInit {
         }
       ];
   }
-  
+
   switchPage(event) {
     this.page = event;
   }

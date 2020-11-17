@@ -1,8 +1,8 @@
-import { Brand } from './brand';
-import { Model } from './model';
-import { MotorType } from './motor-type';
-import { DoorType } from './door-type';
-import { Serie } from './serie';
+import { Brand } from '../brand/brand';
+import { Model } from '../model/model';
+import { MotorType } from '../motor-type/motor-type';
+import { DoorType } from '../door-type/door-type';
+import { Serie } from '../serie/serie';
 
 export class Vehicle {
   id: number;

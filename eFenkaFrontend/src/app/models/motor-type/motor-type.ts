@@ -1,9 +1,8 @@
-import { Brand } from './brand';
+import { Brand } from '../brand/brand';
 
-export class ExteriorColor {
+export class MotorType {
   id: number;
   name: string;
-  code: string;
   brand: Brand;
 
   constructor(id: number, name: string) {

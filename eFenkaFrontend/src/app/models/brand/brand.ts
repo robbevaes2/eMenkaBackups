@@ -1,8 +1,8 @@
-import { Model } from './model';
-import { Serie } from './serie';
-import { MotorType } from './motor-type';
-import { ExteriorColor } from './exterior-color';
-import { InteriorColor } from './interior-color';
+import { Model } from '../model/model';
+import { Serie } from '../serie/serie';
+import { MotorType } from '../motor-type/motor-type';
+import { ExteriorColor } from '../exterior-color/exterior-color';
+import { InteriorColor } from '../interior-color/interior-color';
 
 export class Brand {
   id: number;

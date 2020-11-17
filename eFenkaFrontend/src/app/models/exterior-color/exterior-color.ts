@@ -1,7 +1,9 @@
-import { Brand } from './brand';
-export class Serie {
+import { Brand } from '../brand/brand';
+
+export class ExteriorColor {
   id: number;
   name: string;
+  code: string;
   brand: Brand;
 
   constructor(id: number, name: string) {
