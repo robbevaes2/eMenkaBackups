@@ -208,29 +208,30 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()), Times.Once);
         }
 
-        /*
-
         [Test]
-        public void PostSerieReturnsBadRequestWhenModelIsInvalid()
+        public void PostVehicleReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new SerieModel();
+            var invalidModel = new VehicleModel();
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostSerie(invalidModel) as BadRequestResult;
+            var result = _sut.PostVehicle(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Never);
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
-        public void PostSerieReturnsNotFoundWhenBrandIsNotFound()
+        public void PostVehicleReturnsNotFoundWhenBrandIsNotFound()
         {
-            var validModel = new SerieModel
+            var invalidModel = new VehicleModel()
             {
-                Name = "",
                 BrandId = 1
             };
 
@@ -239,36 +240,220 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.PostSerie(validModel) as NotFoundObjectResult;
+            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Never);
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
-        public void PostSerieReturnsOkWhenModelIsValid()
+        public void PostVehicleReturnsNotFoundWhenModelIsNotFound()
         {
-            var validModel = new SerieModel
+            var invalidModel = new VehicleModel()
             {
-                Name = "name",
-                BrandId = 1
+                BrandId = 1,
+                ModelId = 1
             };
 
             var brand = new Brand();
+            Model model = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
 
-            var result = _sut.PostSerie(validModel) as OkResult;
+            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
+        [Test]
+        public void PostVehicleReturnsNotFoundWhenFuelTypeIsNotFound()
+        {
+            var invalidModel = new VehicleModel()
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            FuelType fuelType = null;
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+
+            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+        }
+
+        [Test]
+        public void PostVehicleReturnsNotFoundWhenMotorTypeIsNotFound()
+        {
+            var invalidModel = new VehicleModel()
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                MotorTypeId = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            FuelType fuelType = new FuelType();
+            MotorType motorType = null;
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(motorType);
+
+            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+        [Test]
+        public void PostVehicleReturnsNotFoundWhenDoorTypeIsNotFound()
+        {
+            var invalidModel = new VehicleModel()
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                MotorTypeId = 1,
+                DoorTypeId = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            FuelType fuelType = new FuelType();
+            MotorType motorType = new MotorType
+            {
+                Brand = new Brand()
+            };
+            DoorType doorType = null;
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(motorType);
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+
+            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void PostVehicleReturnsOkWhenModelIsValid()
+        {
+            var validModel = new VehicleModel()
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                MotorTypeId = 1,
+                DoorTypeId = 1,
+                Emission = 1,
+                FiscalePk = 1,
+                Power = 1,
+                Volume = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            FuelType fuelType = new FuelType();
+            MotorType motorType = new MotorType
+            {
+                Brand = new Brand()
+            };
+            DoorType doorType = new DoorType();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(motorType);
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+
+            var result = _sut.PostVehicle(validModel) as OkResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Once);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+        /*
         [Test]
         public void UpdateSerieReturnsBadRequestWhenModelIsInvalid()
         {
