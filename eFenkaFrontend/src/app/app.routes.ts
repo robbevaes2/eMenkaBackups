@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehicle-item.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
+import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -42,13 +43,13 @@ export const appRoutes: Routes = [
   {
     path: 'vehicles',
     component: VehicleListComponent
-  },/*
-  {
-    path: 'vehicles/:index',
-    component: VehicleListComponent
-  },*/
+  },
   {
     path: 'vehicles/new',
     component: NewVehicleItemComponent
+  },
+  {
+    path: 'vehicles/:index',
+    component: VehicleDetailsComponent
   }
 ];

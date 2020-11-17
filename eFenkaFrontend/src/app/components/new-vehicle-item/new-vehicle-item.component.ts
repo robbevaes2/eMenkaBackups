@@ -65,7 +65,7 @@ export class NewVehicleItemComponent implements OnInit {
 
   getBrands(): Brand[] {
     return [
-      new Brand(1, 'Ford'),
+      new Brand(1, 'Audi'),
       new Brand(2, 'Ferrari'),
       new Brand(3, 'Bugatti')
     ];

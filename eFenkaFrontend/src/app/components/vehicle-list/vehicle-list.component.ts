@@ -29,6 +29,10 @@ export class VehicleListComponent implements OnInit {
     this.router.navigate(['/vehicles/new']);
   }
 
+  navigateToVehicleDetailsComponent(index: number): void {
+    this.router.navigate(['/vehicles', index]);
+  }
+
   getVehicleDummyList(): Vehicle[] {
       return [
         {
@@ -48,7 +52,7 @@ export class VehicleListComponent implements OnInit {
           isActive: true
         },
         {
-          id: 1,
+          id: 2,
           brand: new Brand(2, 'Mercedes'),
           model: new Model(2, 'AMG GTR'),
           serie: new Serie(2, 'Sport'),

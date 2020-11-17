@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehicle-item.component';
 import { RecordListComponent } from './components/record-list/record-list.component';
+import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RecordListComponent } from './components/record-list/record-list.compon
     NavbarComponent,
     VehicleListComponent,
     NewVehicleItemComponent,
-    RecordListComponent
+    RecordListComponent,
+    VehicleDetailsComponent
   ],
   imports: [
     BrowserModule,

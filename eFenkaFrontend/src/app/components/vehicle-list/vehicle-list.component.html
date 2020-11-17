@@ -4,7 +4,7 @@
     <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewVehicleComponent()">toevoegen</button>
   </div>
   <div class="table-responsive">
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Merk</th>
@@ -20,7 +20,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: pageSize, currentPage: page }">
+        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: pageSize, currentPage: page }"
+            (click)="navigateToVehicleDetailsComponent(vehicle.id)">
           <td scope="row">{{ vehicle.brand.name }}</td>
           <td>{{ vehicle.model.name }}</td>
           <td>{{ vehicle.fuelType }}</td>
