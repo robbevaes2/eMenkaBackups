@@ -9,7 +9,7 @@ namespace eMenka.Domain.Classes
         public ICollection<Vehicle> Vehicles { get; set; }
         public ICollection<Model> Models { get; set; }
         public ICollection<Serie> Series { get; set; }
-        public ICollection<MotorType> MotorTypes { get; set; }
+        public ICollection<EngineType> EngineTypes { get; set; }
         public ICollection<ExteriorColor> ExteriorColors { get; set; }
         public ICollection<InteriorColor> InteriorColors { get; set; }
     }

@@ -114,7 +114,7 @@ namespace eMenka.API.Controllers
                 Id = vehicle.Id,
                 BrandId = vehicle.Brand.Id,
                 FuelTypeId = vehicle.FuelTypeId,
-                MotorTypeId = vehicle.MotorType.Id,
+                EngineTypeId = vehicle.EngineType.Id,
                 DoorTypeId = vehicle.DoorTypeId,
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
@@ -132,7 +132,7 @@ namespace eMenka.API.Controllers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorTypeId = vehicleModel.MotorTypeId,
+                EngineTypeId = vehicleModel.EngineTypeId,
                 BrandId = vehicleModel.BrandId,
                 DoorTypeId = vehicleModel.DoorTypeId,
                 Emission = vehicleModel.Emission,
