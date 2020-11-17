@@ -12,7 +12,7 @@ namespace eMenka.API.VehicleModels
         public int Id { get; set; }
         public int BrandId { get; set; }
         public int ModelId { get; set; }
-        public FuelType FuelType { get; set; }
+        public int FuelTypeId { get; set; }
         public int MotorTypeId { get; set; }
         public DoorType DoorType { get; set; }
         public int? FuelCardId { get; set; }
