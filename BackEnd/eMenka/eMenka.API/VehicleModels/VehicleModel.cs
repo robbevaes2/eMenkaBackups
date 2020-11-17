@@ -14,8 +14,8 @@ namespace eMenka.API.VehicleModels
         public int ModelId { get; set; }
         public int FuelTypeId { get; set; }
         public int MotorTypeId { get; set; }
-        public int DoorTypeId { get; set; }
-        public int FuelCardId { get; set; }
+        public DoorType DoorType { get; set; }
+        public int? FuelCardId { get; set; }
         public int Volume { get; set; }
         public int FiscalePk { get; set; }
         public int Emission { get; set; }
