@@ -1,10 +1,9 @@
 <div class="container">
   <div class="row ml-1 mr-1">
-    <h1 class="col-4">Nieuw voertuig</h1>
-    <button type="button" class="btn btn-secondary ml-auto col-md-2" (click)="navigateToListVehicleComponent()">Annuleer</button>
+    <h1 class="col-8">Nieuw voertuig</h1>
+    <button type="button" class="btn btn-secondary col-md-2" (click)="navigateToListVehicleComponent()">Annuleer</button>
     <button type="button" class="btn btn-success col-md-2" [disabled]="!form.valid" (click)="saveNewVehicle(form)">Opslaan</button>
   </div>
-  <br>
   <div>
     <form [formGroup]="form">
       <div class="row">
