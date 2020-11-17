@@ -118,11 +118,20 @@ export class VehicleDetailsComponent implements OnInit {
 
   saveEditVehicle(form: FormGroup): void {
     if (this.isEditable) {
-      // Save vehicle and assign new vehicle (get request by vehicleId) to selectedVehicle
-      //this.fillForm();
-      this.disableForm();
+      if (confirm('Are you sure you want to save this vehicle?')) {
+        // Save vehicle and assign new vehicle (get request by vehicleId) to selectedVehicle
+        //this.fillForm();
+        this.disableForm();
+      }
     } else {
       this.enableForm();
+    }
+  }
+
+  deleteVehicle(): void {
+    if (confirm('Are you sure you want to delete this vehicle?')) {
+        // Delete vehicle
+        this.navigateToListVehicleComponent();
     }
   }
 
