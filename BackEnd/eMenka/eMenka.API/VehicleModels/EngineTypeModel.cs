@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eMenka.API.VehicleModels
 {
-    public class MotorTypeModel
+    public class EngineTypeModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

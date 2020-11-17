@@ -97,7 +97,7 @@ namespace eMenka.API.Controllers
                 ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
                 InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList(),
                 Models = brand.Models.Select(MapModelEntity()).ToList(),
-                MotorTypes = brand.MotorTypes.Select(MapMotorTypeEntity()).ToList(),
+                EngineTypes = brand.EngineTypes.Select(MapEngineTypeEntity()).ToList(),
                 Series = brand.Series.Select(MapSerieEntity()).ToList()
             };
         }
@@ -112,9 +112,9 @@ namespace eMenka.API.Controllers
             };
         }
 
-        private static Func<MotorType, MotorTypeModel> MapMotorTypeEntity()
+        private static Func<EngineType, EngineTypeModel> MapEngineTypeEntity()
         {
-            return mt => new MotorTypeModel
+            return mt => new EngineTypeModel
             {
                 BrandId = mt.BrandId,
                 Id = mt.Id,
