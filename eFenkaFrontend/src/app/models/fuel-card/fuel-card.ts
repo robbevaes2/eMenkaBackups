@@ -9,7 +9,7 @@ export class FuelCard {
   record: Record;
   startDate: Date;
   endDate: Date;
-  active: boolean;
+  isActive: boolean;
 
   constructor(id: number, vehicle: Vehicle, driver: Driver, record: Record, startDate: Date, endDate: Date, active: boolean) {
     this.id = id;

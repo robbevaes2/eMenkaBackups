@@ -17,6 +17,7 @@ export class Vehicle {
   fiscalePk: number;
   emission: number;
   power: number;
+  licensePlate: string;
   endData: Date;
   isActive: boolean;
 }

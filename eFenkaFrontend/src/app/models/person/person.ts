@@ -1,4 +1,4 @@
-import { Language } from '../language/language';
+import { Language } from '../../enums/language/language.enum';
 
 export class Person {
   id: number;
