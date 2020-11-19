@@ -30,10 +30,11 @@ namespace eMenka.Domain.Classes
         public int? Power { get; set; }
         public string LicensePlate { get; set; }
         public bool IsActive { get; set; }
-        public int? CategoryId { get; set; }
         public Category Category { get; set; }
+        public int? CategoryId { get; set; }
         public Country Country { get; set; }
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
+        public string Chassis { get; set; }
     }
 }

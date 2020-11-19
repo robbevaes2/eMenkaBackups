@@ -210,6 +210,8 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()), Times.Once);
         }
 
+        //todo add tests for fuelcard
+
         [Test]
         public void PostVehicleReturnsBadRequestWhenModelIsInvalid()
         {
@@ -784,7 +786,7 @@ namespace eMenka.Tests.Controllers
                 FuelTypeId = 1,
                 EngineTypeId = 1,
                 DoorTypeId = 1,
-                Emission = 1,
+                Emission = 1, 
                 FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
