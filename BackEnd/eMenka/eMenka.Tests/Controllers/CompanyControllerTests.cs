@@ -202,7 +202,5 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _companyRepositoryMock.Verify(m => m.Remove(It.IsAny<Company>()), Times.Once);
         }
-
-
     }
 }
