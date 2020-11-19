@@ -79,10 +79,10 @@ export class VehicleListComponent implements OnInit {
           brand: new Brand(2, 'Audi'),
           model: new Model(2, 'RS7'),
           serie: new Serie(2, 'Sport'),
-          fuelType: 1,
+          fuelType: new FuelType(2, 'Diesel'),
           motorType: new MotorType(2, '1.9 JTD'),
           doorType: new DoorType(2, '5-deurs'),
-          fuelCard: 1,
+          fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
           fiscalePk: 50,
           emission: 3,
@@ -132,7 +132,7 @@ export class VehicleListComponent implements OnInit {
       this.vehicles.sort((t1, t2) => {
         const date1 = t1.endData;
         const date2 = t2.endData;
-        
+
         if (date2 > date1) { return 1; }
         if (date2 < date1) { return -1; }
         return 0;
