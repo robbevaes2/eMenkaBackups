@@ -26,7 +26,9 @@ namespace eMenka.API.Mappers
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = MapModelEntity(vehicle.Model),
-                FuelCard = vehicle.FuelCard.Id 
+                FuelCard = vehicle.FuelCard.Id ,
+                Category = MapCategoryEntity(vehicle.Category),
+                LicensePlate = vehicle.LicensePlate
             };
         }
 
@@ -46,6 +48,7 @@ namespace eMenka.API.Mappers
                 ModelId = (int)vehicleModel.ModelId,
                 Power = (int)vehicleModel.Power,
                 Volume = (int)vehicleModel.Volume,
+                LicensePlate = vehicleModel.LicensePlate,
                 FuelCardId = 1 //temporary fix untill fuelcard is implemented
             };
         }
@@ -162,6 +165,24 @@ namespace eMenka.API.Mappers
             {
                 Id = doorTypeModel.Id,
                 Name = doorTypeModel.Name
+            };
+        }
+
+        public static CategoryReturnModel MapCategoryEntity(Category category)
+        {
+            return new CategoryReturnModel
+            {
+                Id = category.Id,
+                Name = category.Name
+            };
+        }
+
+        public static Category MapCategoryModel(CategoryModel categoryModel)
+        {
+            return new Category
+            {
+                Name = categoryModel.Name,
+                Id = categoryModel.Id
             };
         }
 

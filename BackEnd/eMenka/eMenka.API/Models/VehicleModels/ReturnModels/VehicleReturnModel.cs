@@ -19,5 +19,6 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int Power { get; set; }
         public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
+        public string LicensePlate { get; set; }
     }
 }

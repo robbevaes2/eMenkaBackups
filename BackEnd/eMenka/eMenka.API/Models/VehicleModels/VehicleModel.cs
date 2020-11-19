@@ -32,5 +32,7 @@ namespace eMenka.API.Models.VehicleModels
         public bool IsActive { get; set; }
         [Required]
         public int? CategoryId { get; set; }
+
+        public string LicensePlate { get; set; }
     }
 }
