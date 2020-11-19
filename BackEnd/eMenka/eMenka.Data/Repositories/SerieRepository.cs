@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Data.Repositories
 {
-    public class SerieRepository : GenericRepository<Serie>, ISerieRepository
+    public class SerieRepository : GenericRepository<Series>, ISerieRepository
     {
         private readonly EfenkaContext _context;
 
@@ -18,17 +18,17 @@ namespace eMenka.Data.Repositories
             _context = context;
         }
 
-        public override Serie GetById(int id)
+        public override Series GetById(int id)
         {
             return _context.Series.Include(s => s.Brand).FirstOrDefault(s => s.Id == id);
         }
 
-        public override IEnumerable<Serie> GetAll()
+        public override IEnumerable<Series> GetAll()
         {
             return _context.Series.Include(s => s.Brand).ToList();
         }
 
-        public override IEnumerable<Serie> Find(Expression<Func<Serie, bool>> statement)
+        public override IEnumerable<Series> Find(Expression<Func<Series, bool>> statement)
         {
             return _context.Series.Where(statement).Include(s => s.Brand).ToList();
         }

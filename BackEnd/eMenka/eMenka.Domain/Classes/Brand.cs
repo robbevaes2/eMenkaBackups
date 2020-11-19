@@ -8,7 +8,7 @@ namespace eMenka.Domain.Classes
         public string Name { get; set; }
         public ICollection<Vehicle> Vehicles { get; set; }
         public ICollection<Model> Models { get; set; }
-        public ICollection<Serie> Series { get; set; }
+        public ICollection<Series> Series { get; set; }
         public ICollection<EngineType> EngineTypes { get; set; }
         public ICollection<ExteriorColor> ExteriorColors { get; set; }
         public ICollection<InteriorColor> InteriorColors { get; set; }

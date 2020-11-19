@@ -15,7 +15,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public CategoryReturnModel Category { get; set; }
         public FuelCardReturnModel FuelCard { get; set; }
         public int? Volume { get; set; }
-        public int? FiscalHp { get; set; }
+        public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
         public int? Power { get; set; }
         public bool IsActive { get; set; }
