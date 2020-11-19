@@ -53,6 +53,19 @@ namespace eMenka.API.Mappers
             };
         }
 
+        public static Corporation MapCorporationModel(CorporationModel corporationModel)
+        {
+            return new Corporation
+            {
+                Abbreviation = corporationModel.Abbreviation,
+                CompanyId = (int)corporationModel.CompanyId,
+                EndDate = corporationModel.EndDate,
+                Name = corporationModel.Name,
+                Id = corporationModel.Id,
+                StartDate = corporationModel.StartDate
+            };
+        }
+
         public static CostAllocationReturnModel MapCostAllocationEntity(CostAllocation costAllocation)
         {
             return new CostAllocationReturnModel
