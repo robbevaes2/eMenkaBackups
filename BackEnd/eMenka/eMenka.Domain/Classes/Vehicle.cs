@@ -25,5 +25,7 @@ namespace eMenka.Domain.Classes
         public string LicensePlate { get; set; }
         public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

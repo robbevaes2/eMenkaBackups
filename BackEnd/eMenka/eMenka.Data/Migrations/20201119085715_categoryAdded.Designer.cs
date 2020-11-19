@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMenka.Data;
 
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    partial class EfenkaContextModelSnapshot : ModelSnapshot
+    [Migration("20201119085715_categoryAdded")]
+    partial class categoryAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,6 +277,21 @@ namespace eMenka.Data.Migrations
                             Id = 28,
                             Name = "blub"
                         });
+                });
+
+            modelBuilder.Entity("eMenka.Domain.Classes.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Company", b =>
@@ -6043,6 +6060,9 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("DoorTypeId")
                         .HasColumnType("int");
 
@@ -6082,6 +6102,8 @@ namespace eMenka.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("DoorTypeId");
 
@@ -6335,6 +6357,12 @@ namespace eMenka.Data.Migrations
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Vehicles")
                         .HasForeignKey("BrandId");
+
+                    b.HasOne("eMenka.Domain.Classes.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("eMenka.Domain.Classes.DoorType", "DoorType")
                         .WithMany("Vehicles")
