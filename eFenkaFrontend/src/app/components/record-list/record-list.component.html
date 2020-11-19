@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let record of records | paginate: { itemsPerPage: pageSize, currentPage: page }"
+        <tr *ngFor="let record of records | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
             (click)="navigateToRecordDetailsComponent(record.id)">
           <td scope="row">{{ record.fuelCard.vehicle.licensePlate }}</td>
           <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
