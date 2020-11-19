@@ -123,36 +123,30 @@ export class VehicleListComponent implements OnInit {
   }
 
   sortByDate() {
-    console.log(this.ascDescBoolean);
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
 
-    if (this.ascDescBoolean = null) {
-      this.ascDescBoolean=true;
-    }
-
-    this.vehicles.sort((t1, t2) => {
-      const date1 = t1.endData;
-      const date2 = t2.endData;
-      
-      if (this.ascDescBoolean) {
-        this.ascDescBoolean = false;
-
-        console.log(this.ascDescBoolean);
-
-        // alphabetical ascending
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const date1 = t1.endData;
+        const date2 = t2.endData;
+        
         if (date2 > date1) { return 1; }
         if (date2 < date1) { return -1; }
         return 0;
-      } else { 
-        this.ascDescBoolean = true;
+      });
+    } else {
+      this.ascDescBoolean = true;
 
-        console.log(this.ascDescBoolean);
-
-        // alphabetical descending
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const date1 = t1.endData;
+        const date2 = t2.endData;
         if (date1 > date2) { return 1; }
         if (date1 < date2) { return -1; }
         return 0;
-      }
+      });
+    }
 
-    });
   }
 }
