@@ -7,6 +7,7 @@ import { Model } from '../../models/model/model';
 import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
+import { FuelType } from '../../models/FuelType/fuel-type';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -20,12 +21,14 @@ export class NewVehicleItemComponent implements OnInit {
   series: Serie[];
   motorTypes: MotorType[];
   doorTypes: DoorType[];
+  fuelTypes: FuelType[];
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.brands = this.getBrands();
     this.doorTypes = this.getDoorTypes();
+    this.fuelTypes = this.getFuelTypes();
 
     this.form = new FormGroup({
       brand: new FormControl(null, [Validators.required]),
@@ -34,7 +37,7 @@ export class NewVehicleItemComponent implements OnInit {
       motorType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
-      fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fuelType: new FormControl(null, [Validators.required]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
       power: new FormControl(null, [Validators.required, Validators.min(0)]),
       fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -100,6 +103,14 @@ export class NewVehicleItemComponent implements OnInit {
       new DoorType(1, '2-deurs'),
       new DoorType(2, '3-deurs'),
       new DoorType(3, '5-deurs')
+    ];
+  }
+
+  getFuelTypes(): FuelType[] {
+    return [
+      new FuelType(1, 'Benzine'),
+      new FuelType(2, 'Diesel'),
+      new FuelType(3, 'Elektrisch')
     ];
   }
 }
