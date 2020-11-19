@@ -17,7 +17,7 @@ import { FuelType } from 'src/app/models/FuelType/fuel-type';
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
 
-  page: number = 1;
+  page = 1;
   pageSize = 1;
 
   constructor(private router: Router) { }
@@ -49,6 +49,7 @@ export class VehicleListComponent implements OnInit {
           fiscalePk: 50,
           emission: 1,
           power: 300,
+          licensePlate: '1-abc-123',
           endData: new Date('2020-01-16'),
           isActive: true
         },
@@ -65,13 +66,14 @@ export class VehicleListComponent implements OnInit {
           fiscalePk: 50,
           emission: 3,
           power: 400,
+          licensePlate: '1-abc-124',
           endData: new Date('2020-12-20'),
           isActive: true
         }
       ];
   }
 
-  switchPage(event) {
+  switchPage(event): void {
     this.page = event;
   }
 

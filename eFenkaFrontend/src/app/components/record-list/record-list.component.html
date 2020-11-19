@@ -1,1 +1,52 @@
-<p>record-list works!</p>
+<div class="container">
+  <div class="row ml-1 mr-1">
+    <h1 class="col-10">Voertuigen</h1>
+    <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewRecordComponent()">toevoegen</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nummerplaat</th>
+          <th scope="col">Bestuurder</th>
+          <th scope="col">Vennootschap</th>
+          <th scope="col">Kostenplaats</th>
+          <th scope="col">Merk</th>
+          <th scope="col">Wagen</th>
+          <th scope="col">Type</th>
+          <th scope="col">Cntr. start</th>
+          <th scope="col">Cntr. eind</th>
+          <th scope="col">Gebruik</th>
+          <th scope="col">Brandstof</th>
+          <th scope="col">Eerse registartie</th>
+          <th scope="col">Einde</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records | paginate: { itemsPerPage: pageSize, currentPage: page }"
+            (click)="navigateToRecordDetailsComponent(record.id)">
+          <td scope="row">{{ record.brand.name }}</td>
+          <td>{{ record.fuelCard.vehicle.licensePlate }}</td>
+          <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
+          <td>todo</td>
+          <td>todo</td>
+          <td>{{ record.fuelCard.vehicle.brand.name }}</td>
+          <td>{{ record.fuelCard.vehicle.model.name }}</td>
+          <td>{{ record.term }}</td>
+          <td>todo</td>
+          <td>todo</td>
+          <td>{{ record.usage }}</td>
+          <td>{{ record.fuelCard.vehicle.fuelType }}</td>
+          <td>{{ record.startDate.toLocaleDateString() }}</td>
+          <td>{{ record.endDate.toLocaleDateString() }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="switchPage($event)"></pagination-controls>
+  <select class="custom-select col-md-2" (change)="handlePageSizeChange($event)">
+    <option [value]="1">1 item per page</option>
+    <option [value]="2">2 items per page</option>
+  </select>
+</div>
+
