@@ -30,7 +30,7 @@ namespace eMenka.Data.Repositories
             return entity;
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> statement)
+        public virtual IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> statement)
         {
             var entities = _dbSet.Where(statement).ToList();
 

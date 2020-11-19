@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eMenka.API.VehicleModels
+namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
-    public class DoorTypeModel
+    public class CategoryReturnModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public String Name { get; set; }
     }
 }

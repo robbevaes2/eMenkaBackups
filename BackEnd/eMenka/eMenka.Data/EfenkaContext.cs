@@ -27,6 +27,7 @@ namespace eMenka.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<ExteriorColor> ExteriorColors { get; set; }
         public DbSet<InteriorColor> InteriorColors { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public EfenkaContext(DbContextOptions options) : base(options)
         {
@@ -138,7 +139,6 @@ namespace eMenka.Data
                 .HasForeignKey<Record>(r => r.FuelCardId);
             /***********************************************************/
             #endregion
-
             #region seeding data
 
             #region Brands
@@ -3269,7 +3269,7 @@ namespace eMenka.Data
             #endregion
 
             #endregion
-
+            
             //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 
             var valueComparer = new ValueComparer<string[]>(
                 (s1, s2) => s1.SequenceEqual(s2),

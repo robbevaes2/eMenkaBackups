@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using eMenka.API.VehicleModels;
+using eMenka.API.Mappers;
+using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -15,46 +17,76 @@ namespace eMenka.API.Controllers
     public class ModelController : ControllerBase
     {
         private readonly IModelRepository _modelRepository;
+        private readonly IBrandRepository _brandRepository;
 
-        public ModelController(IModelRepository modelRepository)
+        public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository)
         {
             _modelRepository = modelRepository;
+            _brandRepository = brandRepository;
         }
 
         [HttpGet]
         public IActionResult GetAllModels()
         {
             var models = _modelRepository.GetAll();
-            if (models == null)
-                return BadRequest();
 
-            return Ok(models.ToList().Select(MapModelEntity));
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetModelsById(int id)
+        public IActionResult GetModelById(int id)
         {
             var model = _modelRepository.GetById(id);
             if (model == null)
-                return BadRequest();
+                return NotFound();
 
-            return Ok(MapModelEntity(model));
+            return Ok(VehicleMappers.MapModelEntity(model));
+        }
+
+        [HttpGet("brand/{brandId}")]
+        public IActionResult GetByBrandId(int brandId)
+        {
+            if (_brandRepository.GetById(brandId) == null)
+                return NotFound($"No brand with id {brandId}");
+
+            var models = _modelRepository.Find(model => model.Brand.Id == brandId);
+
+            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpPost]
         public IActionResult PostModel([FromBody] ModelModel modelModel)
         {
-            _modelRepository.Add(MapModelModel(modelModel));
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+                return NotFound($"No brand with id {modelModel.BrandId}");
+
+            _modelRepository.Add(VehicleMappers.MapModelModel(modelModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateModel([FromBody] ModelModel modelModel, int id)
         {
-            var isUpdated = _modelRepository.Update(id, MapModelModel(modelModel));
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (id != modelModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
+            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+                return NotFound($"No brand with id {modelModel.BrandId}");
+
+            var isUpdated = _modelRepository.Update(id, VehicleMappers.MapModelModel(modelModel));
 
             if (!isUpdated)
-                return BadRequest();
+                return NotFound("No model with id {id");
 
             return Ok();
         }
@@ -64,29 +96,10 @@ namespace eMenka.API.Controllers
         {
             var model = _modelRepository.GetById(id);
             if (model == null)
-                return BadRequest();
+                return NotFound();
 
             _modelRepository.Remove(model);
             return Ok();
-        }
-
-        private ModelModel MapModelEntity(Model model)
-        {
-            return new ModelModel
-            {
-                BrandId = model.BrandId,
-                Name = model.Name,
-                Id = model.Id
-            };
-        }
-        private Model MapModelModel(ModelModel modelModel)
-        {
-            return new Model
-            {
-                BrandId = modelModel.BrandId,
-                Id = modelModel.Id,
-                Name = modelModel.Name
-            };
         }
     }
 }
