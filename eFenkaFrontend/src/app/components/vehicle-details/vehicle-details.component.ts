@@ -8,7 +8,7 @@ import { Model } from 'src/app/models/model/model';
 import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Serie } from 'src/app/models/serie/serie';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
-import { FuelType } from '../../models/FuelType/fuel-type';
+import { FuelType } from '../../models/fuel-type/fuel-type';
 
 @Component({
   selector: 'app-vehicle-details',

@@ -7,7 +7,7 @@ import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { from } from 'rxjs';
-import { FuelType } from 'src/app/models/FuelType/fuel-type';
+import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 
 @Component({

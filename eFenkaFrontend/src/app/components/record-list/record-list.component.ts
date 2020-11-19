@@ -10,7 +10,7 @@ import { Vehicle } from 'src/app/models/vehicle/vehicle';
 import { Brand } from 'src/app/models/brand/brand';
 import { Model } from 'src/app/models/model/model';
 import { Serie } from 'src/app/models/serie/serie';
-import { FuelType } from 'src/app/models/FuelType/fuel-type';
+import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Driver } from 'src/app/models/driver/driver';
 import { Person } from '../../models/person/person';
