@@ -17,7 +17,11 @@ namespace eMenka.API.Mappers
                 Driver = MapDriverEntity(fuelCard.Driver),
                 EndDate = fuelCard.EndDate,
                 StartDate = fuelCard.StartDate,
-                Id = fuelCard.Id
+                Id = fuelCard.Id,
+                BlockingDate = fuelCard.BlockingDate,
+                BlockingReason = fuelCard.BlockingReason,
+                IsBlocked = fuelCard.IsBlocked,
+                PinCode = fuelCard.PinCode
             };
         }
         public static FuelCard MapFuelCardModel(FuelCardModel fuelCardModel)
@@ -27,7 +31,11 @@ namespace eMenka.API.Mappers
                 DriverId = (int)fuelCardModel.DriverId,
                 EndDate = fuelCardModel.EndDate,
                 Id = fuelCardModel.Id,
-                StartDate = fuelCardModel.StartDate
+                StartDate = fuelCardModel.StartDate,
+                BlockingDate = fuelCardModel.BlockingDate,
+                BlockingReason = fuelCardModel.BlockingReason,
+                IsBlocked = fuelCardModel.IsBlocked,
+                PinCode = fuelCardModel.PinCode
             };
         }
         public static DriverReturnModel MapDriverEntity(Driver driver)

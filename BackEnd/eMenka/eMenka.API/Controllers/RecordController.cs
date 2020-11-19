@@ -17,12 +17,10 @@ namespace eMenka.API.Controllers
     public class RecordController : ControllerBase
     {
         private readonly IRecordRepository _recordRepository;
-        private readonly ICompanyRepository _companyRepository;
 
-        public RecordController(IRecordRepository recordRepository, ICompanyRepository companyRepository)
+        public RecordController(IRecordRepository recordRepository)
         {
             _recordRepository = recordRepository;
-            _companyRepository = companyRepository;
         }
 
         [HttpGet]
