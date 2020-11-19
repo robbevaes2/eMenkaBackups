@@ -16,10 +16,14 @@ export class Vehicle {
   doorType: DoorType;
   fuelCard: FuelCard;
   volume: number;
-  fiscalePk: number;
+
+  // TODO: fiscaleHp
+  fiscaleHp: number;
   emission: number;
   power: number;
   licensePlate: string;
   endData: Date;
   isActive: boolean;
+  chassis: string;
+  registrationDate: Date;
 }

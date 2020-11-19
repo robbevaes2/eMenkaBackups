@@ -7,8 +7,8 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Merk</th>
-          <th scope="col">Model</th>
+          <th scope="col" (click)="sortByBrand()">Merk</th>
+          <th scope="col" >Model</th>
           <th scope="col">Brandstof</th>
           <th scope="col">Type motor</th>
           <th scope="col">Serie</th>
@@ -16,11 +16,11 @@
           <th scope="col">Motor capaciteit</th>
           <th scope="col">Fiscale PK</th>
           <th scope="col">Vermogen</th>
-          <th scope="col">Levering</th>
+          <th scope="col" (click)="sortByDate()">Levering</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: pageSize, currentPage: page }"
+        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
             (click)="navigateToVehicleDetailsComponent(vehicle.id)">
           <td scope="row">{{ vehicle.brand.name }}</td>
           <td>{{ vehicle.model.name }}</td>
@@ -37,9 +37,8 @@
     </table>
   </div>
   <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="switchPage($event)"></pagination-controls>
-  <select class="custom-select col-md-2" (change)="handlePageSizeChange($event)">
-    <option [value]="1">1 item per page</option>
-    <option [value]="2">2 items per page</option>
+  <select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
+    <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount" >{{pageAmount}} items per page</option>
   </select>
 </div>
 

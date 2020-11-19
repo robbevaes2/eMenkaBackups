@@ -23,9 +23,12 @@ import { Language } from '../../enums/language/language.enum';
 })
 export class RecordListComponent implements OnInit {
   records: Record[];
+  pageAmounts = [5, 10, 25];
 
   page = 1;
-  pageSize = 1;
+  selectedAmount = 5;
+  pageSize;
+
 
   constructor(private router: Router) { }
 
@@ -48,7 +51,7 @@ export class RecordListComponent implements OnInit {
   handlePageSizeChange(event): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    console.log(event.target.value);
+    console.log(this.selectedAmount);
     console.log(this.pageSize);
   }
 
@@ -90,12 +93,14 @@ export class RecordListComponent implements OnInit {
       doorType: new MotorType(1, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscalePk: 50,
+      fiscaleHp: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
       endData: new Date('2020-01-16'),
-      isActive: true
+      isActive: true,
+      chassis: 'feoipajfpoaezfjipio',
+      registrationDate: new Date('2020-01-16')
     };
   }
 
