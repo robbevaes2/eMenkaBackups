@@ -7,7 +7,7 @@ import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { from } from 'rxjs';
-import { FuelType } from 'src/app/models/FuelType/fuel-type';
+import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 
 @Component({
@@ -50,12 +50,14 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(1, '5-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalePk: 50,
+          fiscaleHp: 50,
           emission: 1,
           power: 300,
           licensePlate: '1-abc-123',
           endData: new Date('2020-01-16'),
-          isActive: true
+          isActive: true,
+          chassis: 'feoipajfpoaezfjipio',
+          registrationDate: new Date('2020-01-16')
         },
         {
           id: 2,
@@ -67,12 +69,14 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(2, '3-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalePk: 50,
+          fiscaleHp: 50,
           emission: 3,
           power: 400,
           licensePlate: '1-abc-124',
           endData: new Date('2020-12-20'),
-          isActive: true
+          isActive: true,
+          chassis: 'feoipajfpoaezfjipio',
+          registrationDate: new Date('2020-01-16')
         },
         {
           id: 3,
@@ -84,12 +88,14 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(2, '5-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalePk: 50,
+          fiscaleHp: 50,
           emission: 3,
           power: 400,
           licensePlate: '1-abc-124',
           endData: new Date('2020-12-20'),
-          isActive: true
+          isActive: true,
+          chassis: 'feoipajfpoaezfjipio',
+          registrationDate: new Date('2020-01-16')
         }
       ];
   }

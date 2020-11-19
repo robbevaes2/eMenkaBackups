@@ -8,7 +8,7 @@ import { Model } from 'src/app/models/model/model';
 import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Serie } from 'src/app/models/serie/serie';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
-import { FuelType } from '../../models/FuelType/fuel-type';
+import { FuelType } from '../../models/fuel-type/fuel-type';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -69,7 +69,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
     this.form.controls['power'].setValue(this.selectedVehicle.power);
-    this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscalePk);
+    this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscaleHp);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
     this.form.controls['endDate'].setValue(this.selectedVehicle.endData.toISOString().split('T')[0]);
     this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
@@ -209,12 +209,14 @@ export class VehicleDetailsComponent implements OnInit {
       doorType: new DoorType(3, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscalePk: 50,
+      fiscaleHp: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
       endData: new Date('2020-01-16'),
-      isActive: true
+      isActive: true,
+      chassis: 'feoipajfpoaezfjipio',
+      registrationDate: new Date('2020-01-16')
     }
   }
 
