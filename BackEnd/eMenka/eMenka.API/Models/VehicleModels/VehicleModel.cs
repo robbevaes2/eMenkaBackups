@@ -17,6 +17,7 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public int? DoorTypeId { get; set; }
         public int FuelCard { get; set; } //todo refactor to FuelCardModel
+        public int? FuelCardId { get; set; }
         [Required]
         public int? Volume { get; set; }
         [Required]
