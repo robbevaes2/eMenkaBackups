@@ -10,7 +10,7 @@ namespace eMenka.Domain.Classes
         public int? BrandId { get; set; }
         public Model Model { get; set; }
         public int? ModelId { get; set; }
-        public Serie Serie { get; set; }
+        public Series Series { get; set; }
         public int? SeriesId { get; set; }
         public EngineType EngineType { get; set; }
         public int? EngineTypeId { get; set; }
@@ -24,14 +24,16 @@ namespace eMenka.Domain.Classes
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
-        public int FiscalHP { get; set; }
         public int? Volume { get; set; }
-        public int? FiscalePk { get; set; }
+        public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
         public int? Power { get; set; }
         public string LicensePlate { get; set; }
         public bool IsActive { get; set; }
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
+        public Country Country { get; set; }
+        public int? CountryId { get; set; }
+        public int? BuildYear { get; set; }
     }
 }

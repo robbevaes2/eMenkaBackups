@@ -474,7 +474,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
                 CategoryId = 1
@@ -572,7 +572,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1
             };
@@ -606,7 +606,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1
             };
@@ -643,7 +643,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1
             };
@@ -686,7 +686,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1
             };
@@ -732,7 +732,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1
             };
@@ -785,7 +785,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
                 CategoryId = 1
@@ -842,7 +842,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
                 CategoryId = 1
@@ -901,7 +901,7 @@ namespace eMenka.Tests.Controllers
                 EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
-                FiscalePk = 1,
+                FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
                 CategoryId = 1

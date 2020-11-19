@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201119114522_Initial")]
+    [Migration("20201119131945_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -5978,7 +5978,7 @@ namespace eMenka.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Serie", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6856,10 +6856,7 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FiscalHP")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FiscalePk")
+                    b.Property<int?>("FiscalHP")
                         .HasColumnType("int");
 
                     b.Property<int?>("FuelCardId")
@@ -6878,9 +6875,6 @@ namespace eMenka.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("Power")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SerieId")
                         .HasColumnType("int");
 
                     b.Property<int?>("SeriesId")
@@ -6907,7 +6901,7 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("ModelId");
 
-                    b.HasIndex("SerieId");
+                    b.HasIndex("SeriesId");
 
                     b.ToTable("Vehicles");
 
@@ -9438,7 +9432,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId");
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Serie", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Series")
@@ -9477,9 +9471,9 @@ namespace eMenka.Data.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("ModelId");
 
-                    b.HasOne("eMenka.Domain.Classes.Serie", "Serie")
+                    b.HasOne("eMenka.Domain.Classes.Series", "Series")
                         .WithMany()
-                        .HasForeignKey("SerieId");
+                        .HasForeignKey("SeriesId");
                 });
 #pragma warning restore 612, 618
         }

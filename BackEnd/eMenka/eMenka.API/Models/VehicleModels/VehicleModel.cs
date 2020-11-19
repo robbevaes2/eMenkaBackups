@@ -21,7 +21,7 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public int? Volume { get; set; }
         [Required]
-        public int? FiscalePk { get; set; }
+        public int? FiscalHP { get; set; }
         [Required]
         public int? Emission { get; set; }
         [Required]
