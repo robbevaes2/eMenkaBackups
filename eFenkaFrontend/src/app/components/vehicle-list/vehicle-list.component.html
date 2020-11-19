@@ -7,16 +7,16 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col" (click)="sortByBrand()">Merk</th>
+          <th scope="col" class="sortable" (click)="sortByBrand()">Merk</th>
           <th scope="col" >Model</th>
           <th scope="col">Brandstof</th>
           <th scope="col">Type motor</th>
           <th scope="col">Serie</th>
           <th scope="col">Aantal deuren</th>
-          <th scope="col">Motor capaciteit</th>
-          <th scope="col">Fiscale PK</th>
-          <th scope="col">Vermogen</th>
-          <th scope="col" (click)="sortByDate()">Levering</th>
+          <th scope="col" class="sortable" (click)="sort('volume')">Motor capaciteit</th>
+          <th scope="col" class="sortable" (click)="sort('fiscalePk')">Fiscale PK</th>
+          <th scope="col" class="sortable" (click)="sort('power')">Vermogen</th>
+          <th scope="col" class="sortable" (click)="sort('endData')">Levering</th>
         </tr>
       </thead>
       <tbody>
@@ -37,7 +37,7 @@
     </table>
   </div>
   <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="switchPage($event)"></pagination-controls>
-  <select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
+  <select [(ngModel)]="selectedAmount" class="custom-select col-md-2" id="amount-selector">
     <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount" >{{pageAmount}} items per page</option>
   </select>
 </div>

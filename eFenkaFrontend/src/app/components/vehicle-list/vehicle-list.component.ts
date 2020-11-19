@@ -23,7 +23,7 @@ export class VehicleListComponent implements OnInit {
   ascDescBoolean: boolean;
 
   page = 1;
-  selectedAmount = 5;
+  selectedAmount = this.pageAmounts[0];
 
   constructor(private router: Router) { }
 
@@ -97,7 +97,7 @@ export class VehicleListComponent implements OnInit {
           volume: 2000,
           fiscaleHp: 50,
           emission: 3,
-          power: 400,
+          power: 500,
           licensePlate: '1-abc-124',
           endData: new Date('2020-12-20'),
           isActive: true,
@@ -114,7 +114,15 @@ export class VehicleListComponent implements OnInit {
     this.page = event;
   }
 
+  isUndefined() {
+    if (this.ascDescBoolean == undefined) {
+      this.ascDescBoolean = true;
+    }
+  }
+
   sortByBrand() {
+    this.isUndefined();
+
     if (this.ascDescBoolean) {
       this.ascDescBoolean = false;
 
@@ -140,7 +148,10 @@ export class VehicleListComponent implements OnInit {
     }
   }
 
+  /*
   sortByDate() {
+    this.isUndefined();
+
     if (this.ascDescBoolean) {
       this.ascDescBoolean = false;
 
@@ -165,6 +176,128 @@ export class VehicleListComponent implements OnInit {
         return 0;
       });
     }
+  }
 
+  sortByVolume() {
+    this.isUndefined();
+
+    console.log(this.ascDescBoolean)
+
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const vol1 = t1.volume;
+        const vol2 = t2.volume;
+
+        if (vol2 > vol1) { return 1; }
+        if (vol2 < vol1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const vol1 = t1.volume;
+        const vol2 = t2.volume;
+
+        if (vol2 < vol1) { return 1; }
+        if (vol2 > vol1) { return -1; }
+        return 0;
+      });
+    }
+  }
+
+  sortByFiscalHp() {
+    this.isUndefined();
+
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const hp1 = t1.fiscalePk;
+        const hp2 = t2.fiscalePk;
+
+        if (hp2 > hp1) { return 1; }
+        if (hp2 < hp1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const hp1 = t1.fiscalePk;
+        const hp2 = t2.fiscalePk;
+
+        if (hp2 < hp1) { return 1; }
+        if (hp2 > hp1) { return -1; }
+        return 0;
+      });
+    }
+  }
+
+  sortByPower() {
+    this.isUndefined();
+
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const power1 = t1.power;
+        const power2 = t2.power;
+
+        if (power2 > power1) { return 1; }
+        if (power2 < power1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const power1 = t1.power;
+        const power2 = t2.power;
+
+        if (power2 < power1) { return 1; }
+        if (power2 > power1) { return -1; }
+        return 0;
+      });
+    }
+  }
+  */
+
+  sort(type: string) {
+    this.isUndefined();
+
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const value1 = t1[type];
+        const value2 = t2[type];
+
+        if (value2 > value1) { return 1; }
+        if (value2 < value1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const value1 = t1[type];
+        const value2 = t2[type];
+
+        if (value2 < value1) { return 1; }
+        if (value2 > value1) { return -1; }
+        return 0;
+      });
+    }
   }
 }
