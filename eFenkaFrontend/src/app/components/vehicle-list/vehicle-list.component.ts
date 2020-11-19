@@ -7,6 +7,8 @@ import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { from } from 'rxjs';
+import { FuelType } from 'src/app/models/FuelType/fuel-type';
+import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -43,10 +45,10 @@ export class VehicleListComponent implements OnInit {
           brand: new Brand(1, 'BMW'),
           model: new Model(1, 'M4'),
           serie: new Serie(1, 'Eco'),
-          fuelType: 1,
+          fuelType: new FuelType(1, 'Benzine'),
           motorType: new MotorType(1, '1.9 JTD'),
           doorType: new DoorType(1, '5-deurs'),
-          fuelCard: 1,
+          fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
           fiscalePk: 50,
           emission: 1,
@@ -60,10 +62,10 @@ export class VehicleListComponent implements OnInit {
           brand: new Brand(2, 'Mercedes'),
           model: new Model(2, 'AMG GTR'),
           serie: new Serie(2, 'Sport'),
-          fuelType: 1,
+          fuelType: new FuelType(2, 'Diesel'),
           motorType: new MotorType(2, '1.9 JTD'),
           doorType: new DoorType(2, '3-deurs'),
-          fuelCard: 1,
+          fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
           fiscalePk: 50,
           emission: 3,
