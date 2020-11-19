@@ -20,8 +20,9 @@ namespace eMenka.API.Controllers
         private readonly IEngineTypeRepository _engineTypeRepository;
         private readonly IDoorTypeRepository _doorTypeRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IFuelCardRepository _fuelCardRepository;
 
-        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository)
+        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository, IFuelCardRepository fuelCardRepository)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -30,6 +31,7 @@ namespace eMenka.API.Controllers
             _engineTypeRepository = engineTypeRepository;
             _doorTypeRepository = doorTypeRepository;
             _categoryRepository = categoryRepository;
+            _fuelCardRepository = fuelCardRepository;
         }
 
         [HttpGet]
@@ -113,6 +115,9 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
+            if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
+                return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
@@ -144,6 +149,9 @@ namespace eMenka.API.Controllers
 
             if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
+
+            if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
+                return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
 
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
