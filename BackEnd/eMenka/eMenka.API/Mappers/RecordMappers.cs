@@ -14,14 +14,14 @@ namespace eMenka.API.Mappers
         {
             return new RecordReturnModel
             {
-                City = record.City,
-                Company = MapCompanyEntity(record.Company),
-                EndDate = record.EndDate,
                 FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard), 
                 Id = record.Id,
-                StartDate = record.StartDate,
                 Term = record.Term,
-                Usage = record.Usage
+                Usage = record.Usage,
+                EndDate = (DateTime)record.EndDate,
+                StartDate = (DateTime)record.StartDate,
+                Corporation = record.CorporationId, //todo map
+                CostAllocation = record.CostAllocationId //todo map
             };
         }
 
@@ -30,8 +30,8 @@ namespace eMenka.API.Mappers
             return new Record
             {
                 Usage = recordModel.Usage,
-                City = recordModel.City,
-                CompanyId = (int)recordModel.CompanyId,
+                CorporationId = recordModel.CorporationId,
+                CostAllocationId = recordModel.CostAllocationId,
                 EndDate = recordModel.EndDate,
                 FuelCardId = (int)recordModel.FuelCardId,
                 Id = recordModel.Id,

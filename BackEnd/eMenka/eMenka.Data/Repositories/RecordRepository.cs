@@ -21,7 +21,6 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<Record> GetAll()
         {
             return _context.Records
-                .Include(r => r.Company)
                 .Include(r => r.FuelCard)
                 .ToList();
         }
@@ -29,7 +28,6 @@ namespace eMenka.Data.Repositories
         public override Record GetById(int id)
         {
             return _context.Records
-                .Include(r => r.Company)
                 .Include(r => r.FuelCard)
                 .FirstOrDefault(r => r.Id == id);
         }
@@ -38,7 +36,6 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Where(statement)
-                .Include(r => r.Company)
                 .Include(r => r.FuelCard)
                 .ToList();
         }

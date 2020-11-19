@@ -13,8 +13,9 @@ namespace eMenka.API.Models.RecordModels
         [Required]
         public int? FuelCardId { get; set; }
         [Required]
-        public int? CompanyId { get; set; }
-        public string City { get; set; }
+        public int? CorporationId { get; set; }
+        [Required]
+        public int? CostAllocationId { get; set; }
         public Term Term { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

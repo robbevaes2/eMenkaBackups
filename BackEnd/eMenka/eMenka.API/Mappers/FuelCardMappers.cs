@@ -14,7 +14,6 @@ namespace eMenka.API.Mappers
         {
             return new FuelCardReturnModel
             {
-                Active = fuelCard.Active,
                 Driver = MapDriverEntity(fuelCard.Driver),
                 EndDate = fuelCard.EndDate,
                 StartDate = fuelCard.StartDate,
@@ -25,7 +24,6 @@ namespace eMenka.API.Mappers
         {
             return new FuelCard
             {
-                Active = fuelCardModel.Active,
                 DriverId = (int)fuelCardModel.DriverId,
                 EndDate = fuelCardModel.EndDate,
                 Id = fuelCardModel.Id,

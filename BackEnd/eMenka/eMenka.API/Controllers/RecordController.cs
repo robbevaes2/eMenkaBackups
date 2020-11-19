@@ -51,9 +51,6 @@ namespace eMenka.API.Controllers
                 return BadRequest();
             }
 
-            if (_companyRepository.GetById((int)recordModel.CompanyId) == null)
-                return NotFound($"Company with id {recordModel.CompanyId} not found");
-
             _recordRepository.Add(RecordMappers.MapRecordModel(recordModel));
             return Ok();
         }
@@ -68,9 +65,6 @@ namespace eMenka.API.Controllers
 
             if (id != recordModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
-
-            if (_companyRepository.GetById((int)recordModel.CompanyId) == null)
-                return NotFound($"Company with id {recordModel.CompanyId} not found");
 
             var isUpdated = _recordRepository.Update(id, RecordMappers.MapRecordModel(recordModel));
 
