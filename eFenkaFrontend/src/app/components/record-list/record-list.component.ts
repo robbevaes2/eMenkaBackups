@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class RecordListComponent implements OnInit {
   records: Record[];
+  pageAmounts = [5,10,25];
 
   page = 1;
-  pageSize = 1;
+  selectedAmount = 5;
+  pageSize;
+
 
   constructor(private router: Router) { }
 
@@ -33,7 +36,7 @@ export class RecordListComponent implements OnInit {
   handlePageSizeChange(event): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    console.log(event.target.value);
+    console.log(this.selectedAmount);
     console.log(this.pageSize);
   }
 }

@@ -15,9 +15,12 @@ import { from } from 'rxjs';
 })
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
+  pageAmounts = [5,10,25];
+
+  ascDescBoolean: boolean;
 
   page = 1;
-  pageSize = 1;
+  selectedAmount = 5;
 
   constructor(private router: Router) { }
 
@@ -68,6 +71,23 @@ export class VehicleListComponent implements OnInit {
           licensePlate: '1-abc-124',
           endData: new Date('2020-12-20'),
           isActive: true
+        },
+        {
+          id: 3,
+          brand: new Brand(2, 'Audi'),
+          model: new Model(2, 'RS7'),
+          serie: new Serie(2, 'Sport'),
+          fuelType: 1,
+          motorType: new MotorType(2, '1.9 JTD'),
+          doorType: new DoorType(2, '5-deurs'),
+          fuelCard: 1,
+          volume: 2000,
+          fiscalePk: 50,
+          emission: 3,
+          power: 400,
+          licensePlate: '1-abc-124',
+          endData: new Date('2020-12-20'),
+          isActive: true
         }
       ];
   }
@@ -76,10 +96,63 @@ export class VehicleListComponent implements OnInit {
     this.page = event;
   }
 
-  handlePageSizeChange(event): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-    console.log(event.target.value);
-    console.log(this.pageSize);
+  sortByBrand() {
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.vehicles.sort((t1, t2) => {
+        const name1 = t1.brand.name.toLowerCase();
+        const name2 = t2.brand.name.toLowerCase();
+        if (name2 > name1) { return 1; }
+        if (name2 < name1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.vehicles.sort((t1, t2) => {
+        const name1 = t1.brand.name.toLowerCase();
+        const name2 = t2.brand.name.toLowerCase();
+        if (name1 > name2) { return 1; }
+        if (name1 < name2) { return -1; }
+        return 0;
+      });
+    }
+  }
+
+  sortByDate() {
+    console.log(this.ascDescBoolean);
+
+    if (this.ascDescBoolean = null) {
+      this.ascDescBoolean=true;
+    }
+
+    this.vehicles.sort((t1, t2) => {
+      const date1 = t1.endData;
+      const date2 = t2.endData;
+      
+      if (this.ascDescBoolean) {
+        this.ascDescBoolean = false;
+
+        console.log(this.ascDescBoolean);
+
+        // alphabetical ascending
+        if (date2 > date1) { return 1; }
+        if (date2 < date1) { return -1; }
+        return 0;
+      } else { 
+        this.ascDescBoolean = true;
+
+        console.log(this.ascDescBoolean);
+
+        // alphabetical descending
+        if (date1 > date2) { return 1; }
+        if (date1 < date2) { return -1; }
+        return 0;
+      }
+
+    });
   }
 }
