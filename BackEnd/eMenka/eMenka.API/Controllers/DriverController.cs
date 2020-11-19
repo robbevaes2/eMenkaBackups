@@ -64,11 +64,11 @@ namespace eMenka.API.Controllers
                 return BadRequest();
             }
 
-            if (_personRepository.GetById((int)driverModel.PersonId) == null)
-                return NotFound($"Person with id {driverModel.PersonId} not found");
-
             if (id != driverModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_personRepository.GetById((int)driverModel.PersonId) == null)
+                return NotFound($"Person with id {driverModel.PersonId} not found");
 
             var isUpdated = _driverRepository.Update(id, FuelCardMappers.MapDriverModel(driverModel));
 
