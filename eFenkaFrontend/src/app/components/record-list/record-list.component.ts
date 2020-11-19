@@ -15,6 +15,9 @@ import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Driver } from 'src/app/models/driver/driver';
 import { Person } from '../../models/person/person';
 import { Language } from '../../enums/language/language.enum';
+import { Country } from 'src/app/models/country/country';
+import { Corporation } from 'src/app/models/corporation/corporation';
+import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 
 @Component({
   selector: 'app-record-list',
@@ -59,25 +62,29 @@ export class RecordListComponent implements OnInit {
     return [
       {
         id: 1,
-        fuelCard: new FuelCard(1, this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
+        fuelCard: new FuelCard(1, 'feazfazefazefazef', this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
           null, new Date('2020-01-16'), new Date('2022-01-16'), true),
-        company: new Company(1, 'eMenKa', 'description', null, true, true, null, null, null),
+          corporation: new Corporation(1, 'test1', 't1', new Company(1, 'eMenKa', 'description', null, true, true, null, null, null),
+          new Date('2022-01-16'), new Date('2022-01-16')),
         city: 'Hasselt',
         term: Term.Short,
         startDate: new Date('2020-01-16'),
         endDate: new Date('2022-01-16'),
-        usage: Usage.Pool
+        usage: Usage.Pool,
+        costAllocatoin: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
       },
       {
         id: 2,
-        fuelCard: new FuelCard(2, this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
+        fuelCard: new FuelCard(2, 'feazfazefazefazef', this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
           null, new Date('2020-01-20'), new Date('2022-01-20'), true),
-        company: new Company(2, 'PXL', 'description', null, true, true, null, null, null),
+        corporation: new Corporation(2, 'test2', 't2', new Company(2, 'PXL', 'description', null, true, true, null, null, null),
+         new Date('2022-01-16'), new Date('2022-01-16')),
         city: 'Hasselt',
         term: Term.Long,
         startDate: new Date('2020-01-20'),
         endDate: new Date('2022-01-20'),
-        usage: Usage.Definitive
+        usage: Usage.Definitive,
+        costAllocatoin: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
       }
     ]
   }
@@ -91,7 +98,7 @@ export class RecordListComponent implements OnInit {
       fuelType: new FuelType(1, 'Benzine'),
       motorType: new MotorType(1, '1.9 JTD'),
       doorType: new MotorType(1, '5-deurs'),
-      fuelCard: new FuelCard(1, null, null, null, null, null, true),
+      fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
       volume: 2000,
       fiscaleHp: 50,
       emission: 1,
@@ -100,7 +107,10 @@ export class RecordListComponent implements OnInit {
       endData: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
-      registrationDate: new Date('2020-01-16')
+      registrationDate: new Date('2020-01-16'),
+      country: new Country(1, 'België', 'BE', 'Belg', false, true),
+      buildYear: 2012,
+      kilometers: 5000
     };
   }
 

@@ -5,6 +5,7 @@ import { DoorType } from '../door-type/door-type';
 import { Serie } from '../serie/serie';
 import { FuelType } from '../fuel-type/fuel-type';
 import { FuelCard } from '../fuel-card/fuel-card';
+import { Country } from '../country/country';
 
 export class Vehicle {
   id: number;
@@ -16,8 +17,6 @@ export class Vehicle {
   doorType: DoorType;
   fuelCard: FuelCard;
   volume: number;
-
-  // TODO: fiscaleHp
   fiscaleHp: number;
   emission: number;
   power: number;
@@ -26,4 +25,7 @@ export class Vehicle {
   isActive: boolean;
   chassis: string;
   registrationDate: Date;
+  country: Country;
+  buildYear: number;
+  kilometers: number;
 }

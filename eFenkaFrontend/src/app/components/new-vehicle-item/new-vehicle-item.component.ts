@@ -120,8 +120,8 @@ export class NewVehicleItemComponent implements OnInit {
 
   getFuelCards(): FuelCard[] {
     return [
-      new FuelCard(1, null, null, null, null, null, true),
-      new FuelCard(2, null, null, null, null, null, true)
+      new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
+      new FuelCard(2, 'feazfazefazefazef', null, null, null, null, null, true)
     ];
   }
 }

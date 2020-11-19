@@ -9,6 +9,7 @@ import { Vehicle } from '../../models/vehicle/vehicle';
 import { from } from 'rxjs';
 import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
+import { Country } from 'src/app/models/country/country';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -48,7 +49,7 @@ export class VehicleListComponent implements OnInit {
           fuelType: new FuelType(1, 'Benzine'),
           motorType: new MotorType(1, '1.9 JTD'),
           doorType: new DoorType(1, '5-deurs'),
-          fuelCard: new FuelCard(1, null, null, null, null, null, true),
+          fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
           volume: 2000,
           fiscaleHp: 50,
           emission: 1,
@@ -57,7 +58,10 @@ export class VehicleListComponent implements OnInit {
           endData: new Date('2020-01-16'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
-          registrationDate: new Date('2020-01-16')
+          registrationDate: new Date('2020-01-16'),
+          country: new Country(1, 'België', 'BE', 'Belg', false, true),
+          buildYear: 2012,
+          kilometers: 5000
         },
         {
           id: 2,
@@ -67,7 +71,7 @@ export class VehicleListComponent implements OnInit {
           fuelType: new FuelType(2, 'Diesel'),
           motorType: new MotorType(2, '1.9 JTD'),
           doorType: new DoorType(2, '3-deurs'),
-          fuelCard: new FuelCard(1, null, null, null, null, null, true),
+          fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
           volume: 2000,
           fiscaleHp: 50,
           emission: 3,
@@ -76,7 +80,10 @@ export class VehicleListComponent implements OnInit {
           endData: new Date('2020-12-20'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
-          registrationDate: new Date('2020-01-16')
+          registrationDate: new Date('2020-01-16'),
+          country: new Country(1, 'België', 'BE', 'Belg', false, true),
+          buildYear: 2012,
+          kilometers: 5000
         },
         {
           id: 3,
@@ -86,7 +93,7 @@ export class VehicleListComponent implements OnInit {
           fuelType: new FuelType(2, 'Diesel'),
           motorType: new MotorType(2, '1.9 JTD'),
           doorType: new DoorType(2, '5-deurs'),
-          fuelCard: new FuelCard(1, null, null, null, null, null, true),
+          fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
           volume: 2000,
           fiscaleHp: 50,
           emission: 3,
@@ -95,7 +102,10 @@ export class VehicleListComponent implements OnInit {
           endData: new Date('2020-12-20'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
-          registrationDate: new Date('2020-01-16')
+          registrationDate: new Date('2020-01-16'),
+          country: new Country(1, 'België', 'BE', 'Belg', false, true),
+          buildYear: 2012,
+          kilometers: 5000
         }
       ];
   }

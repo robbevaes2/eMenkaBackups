@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand/brand';
+import { Country } from 'src/app/models/country/country';
 import { DoorType } from 'src/app/models/door-type/door-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { Model } from 'src/app/models/model/model';
@@ -207,7 +208,7 @@ export class VehicleDetailsComponent implements OnInit {
       fuelType: new FuelType(1, 'Benzine'),
       motorType: new MotorType(1, '1.9 TDI'),
       doorType: new DoorType(3, '5-deurs'),
-      fuelCard: new FuelCard(1, null, null, null, null, null, true),
+      fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
       volume: 2000,
       fiscaleHp: 50,
       emission: 1,
@@ -216,14 +217,17 @@ export class VehicleDetailsComponent implements OnInit {
       endData: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
-      registrationDate: new Date('2020-01-16')
+      registrationDate: new Date('2020-01-16'),
+      country: new Country(1, 'België', 'BE', 'Belg', false, true),
+      buildYear: 2012,
+      kilometers: 5000
     }
   }
 
   getFuelCards(): FuelCard[] {
     return [
-      new FuelCard(1, null, null, null, null, null, true),
-      new FuelCard(2, null, null, null, null, null, true)
+      new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
+      new FuelCard(2, 'feazfazefazefazef', null, null, null, null, null, true)
     ]
   }
 }
