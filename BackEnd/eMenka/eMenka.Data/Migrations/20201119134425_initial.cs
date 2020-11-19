@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eMenka.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,6 +59,19 @@ namespace eMenka.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Brands", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -474,21 +487,21 @@ namespace eMenka.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FuelCardId = table.Column<int>(nullable: false),
-                    CompanyId = table.Column<int>(nullable: true),
+                    FuelCardId = table.Column<int>(nullable: true),
+                    CorporationId = table.Column<int>(nullable: true),
                     CostAllocationId = table.Column<int>(nullable: true),
                     Term = table.Column<int>(nullable: false),
-                    StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false),
+                    StartDate = table.Column<DateTime>(nullable: true),
+                    EndDate = table.Column<DateTime>(nullable: true),
                     Usage = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Records", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Records_Companies_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        name: "FK_Records_Corporations_CorporationId",
+                        column: x => x.CorporationId,
+                        principalTable: "Corporations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -502,7 +515,7 @@ namespace eMenka.Data.Migrations
                         column: x => x.FuelCardId,
                         principalTable: "FuelCards",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -524,12 +537,13 @@ namespace eMenka.Data.Migrations
                     EndDateDelivery = table.Column<DateTime>(nullable: true),
                     AverageFuel = table.Column<int>(nullable: true),
                     FiscalHP = table.Column<int>(nullable: false),
-                    Volume = table.Column<int>(nullable: false),
-                    FiscalePk = table.Column<int>(nullable: false),
-                    Emission = table.Column<int>(nullable: false),
-                    Power = table.Column<int>(nullable: false),
+                    Volume = table.Column<int>(nullable: true),
+                    Emission = table.Column<int>(nullable: true),
+                    Power = table.Column<int>(nullable: true),
                     LicensePlate = table.Column<string>(nullable: true),
-                    IsActive = table.Column<bool>(nullable: false)
+                    IsActive = table.Column<bool>(nullable: false),
+                    CategoryId = table.Column<int>(nullable: true),
+                    Chassis = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -538,6 +552,12 @@ namespace eMenka.Data.Migrations
                         name: "FK_Vehicles_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Vehicles_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -636,24 +656,35 @@ namespace eMenka.Data.Migrations
                     { 20, "335-0431795-94", "Carglass", true, false, "Carglass", "", "CAR", "BE 0432.023.845" },
                     { 29, "", "", true, true, "eMenKa NV", "", "", "BE 0888.140.116" },
                     { 19, "", "BMW dealer", true, false, "Peter DAENINCK NV", "", "", "" },
-                    { 9, "1", "BMW Garage", true, false, "Sneyers", "", "D", "1" },
+                    { 11, "1", "VAB", true, false, "VAB", "", "VAB", "1" },
                     { 17, "BE31 4100 0007 1155", "", true, false, "Mercator Verzekeringen NV", "", "Mercator", "BE0400.048.883" },
                     { 1, null, null, false, false, "Total Belgium", null, null, null },
                     { 2, "123", "Esso", true, false, "Esso", "", "Esso", "123" },
-                    { 3, null, null, false, false, "Shell", null, null, null },
-                    { 4, "333-7777777-22", "Fictieve Opel garage", true, false, "OpelPlus", "", "Garage opel", "BE0456.565.667" },
                     { 18, "", "", true, false, "KAVEDE NV", "", "KAVEDE", "BE0429.270.926" },
+                    { 4, "333-7777777-22", "Fictieve Opel garage", true, false, "OpelPlus", "", "Garage opel", "BE0456.565.667" },
+                    { 5, "123-1234567-98", "KT leverancier ?", true, false, "AVIS", "", "AVIS", "BE 0455664455556" },
                     { 6, "2", "Texaco", true, false, "Texaco", "", "Texaco", "2" },
                     { 7, null, null, false, false, "Q8", null, null, null },
                     { 8, "xx", "Multimerkverhuurder", true, false, "CIACfleet", "", "CIAC", "xx" },
-                    { 5, "123-1234567-98", "KT leverancier ?", true, false, "AVIS", "", "AVIS", "BE 0455664455556" },
+                    { 3, null, null, false, false, "Shell", null, null, null },
                     { 10, "1", "AXA", true, false, "AXA", "", "AXA", "1" },
-                    { 11, "1", "VAB", true, false, "VAB", "", "VAB", "1" },
                     { 12, "2", "Touring", true, false, "Touring", "", "Touring", "2" },
                     { 13, "123-123456789-12", "Brocom", false, false, "Brocom", "tijdelijk niet acief gezet", "Brocom", "BE 123233134234" },
                     { 14, "BE30 4377 5013 7111", "KBC", true, false, "KBC Autolease", "", "KBC", "BE 0422.562.385" },
                     { 15, "BE42 4829 0171 1154", "Daimler Fleet Management", true, false, "Mercedes-Benz FS Belux NV", "", "MBFS", "BE0405816821" },
-                    { 16, null, null, false, false, "GMAN Antwerpen", null, null, null }
+                    { 16, null, null, false, false, "GMAN Antwerpen", null, null, null },
+                    { 9, "1", "BMW Garage", true, false, "Sneyers", "", "D", "1" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CostAllocation",
+                columns: new[] { "Id", "Abbreviation", "EndDate", "Name", "StartDate" },
+                values: new object[,]
+                {
+                    { 4, "HQ", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Antwerpen", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, "Bxl", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Brussel", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 1, "VL", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gent", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, "Lim", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Hasselt", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -673,15 +704,15 @@ namespace eMenka.Data.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
+                    { 7, "Coupé" },
                     { 9, "Cabrio" },
                     { 8, "Moto" },
-                    { 7, "Coupé" },
-                    { 5, "Monovolume" },
                     { 6, "2-Deurs" },
+                    { 4, "3-Deurs" },
                     { 3, "4-Deurs" },
                     { 2, "5-Deurs" },
                     { 1, "Break" },
-                    { 4, "3-Deurs" }
+                    { 5, "Monovolume" }
                 });
 
             migrationBuilder.InsertData(
@@ -767,7 +798,7 @@ namespace eMenka.Data.Migrations
                     { 96, new DateTime(2019, 11, 21, 12, 0, 0, 0, DateTimeKind.Unspecified), "123", "AB", new DateTime(2019, 11, 21, 12, 0, 0, 0, DateTimeKind.Unspecified), "beast", "M", 1, "7000", new byte[] { 0 }, new DateTime(2019, 11, 21, 12, 0, 0, 0, DateTimeKind.Unspecified), "mr" },
                     { 94, new DateTime(2019, 11, 16, 12, 0, 0, 0, DateTimeKind.Unspecified), "2145", "ABC", new DateTime(2019, 11, 16, 12, 0, 0, 0, DateTimeKind.Unspecified), "super", "M", 3, "man", new byte[] { 0 }, new DateTime(2019, 11, 16, 12, 0, 0, 0, DateTimeKind.Unspecified), "mr" },
                     { 63, new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified), "string", "b", new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified), "elvin", "", 2, "lumani", new byte[] { 0 }, new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
-                    { 19, new DateTime(1974, 11, 29, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Benoit", "M", 2, "Geeraerts", new byte[] { 0 }, new DateTime(1993, 12, 1, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
+                    { 17, new DateTime(1987, 9, 9, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Joeri", "M", 2, "Jansens", null, new DateTime(2006, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 61, new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified), "string", "", null, "elvin", "", 2, "lumani", new byte[] { 0 }, new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 28, new DateTime(1987, 4, 2, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Jorn", "M", 2, "Hens", null, new DateTime(2000, 3, 8, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 27, new DateTime(1985, 4, 29, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Mario", "M", 2, "Van Genth", null, new DateTime(1987, 12, 28, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
@@ -778,9 +809,9 @@ namespace eMenka.Data.Migrations
                     { 22, new DateTime(1980, 10, 15, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Korneel", "M", 2, "Vandijck", null, new DateTime(1999, 6, 23, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 21, new DateTime(1985, 5, 28, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Gien", "V", 2, "Verschoten", new byte[] { 0 }, new DateTime(2004, 4, 8, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 20, new DateTime(1978, 10, 26, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Michaël", "M", 2, "Borremans", null, new DateTime(1996, 10, 29, 12, 0, 0, 0, DateTimeKind.Unspecified), "de heer" },
-                    { 124, new DateTime(2016, 6, 8, 12, 0, 0, 0, DateTimeKind.Unspecified), "123456789", "B", new DateTime(2025, 6, 2, 12, 0, 0, 0, DateTimeKind.Unspecified), "abc", "M", 2, "def", new byte[] { 0 }, new DateTime(2017, 2, 6, 12, 0, 0, 0, DateTimeKind.Unspecified), "Test" },
+                    { 19, new DateTime(1974, 11, 29, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Benoit", "M", 2, "Geeraerts", new byte[] { 0 }, new DateTime(1993, 12, 1, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 18, new DateTime(1976, 5, 12, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Steve", "M", 2, "Baeyens", new byte[] { 0 }, new DateTime(1997, 1, 23, 12, 0, 0, 0, DateTimeKind.Unspecified), "mr" },
-                    { 17, new DateTime(1987, 9, 9, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Joeri", "M", 2, "Jansens", null, new DateTime(2006, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
+                    { 124, new DateTime(2016, 6, 8, 12, 0, 0, 0, DateTimeKind.Unspecified), "123456789", "B", new DateTime(2025, 6, 2, 12, 0, 0, 0, DateTimeKind.Unspecified), "abc", "M", 2, "def", new byte[] { 0 }, new DateTime(2017, 2, 6, 12, 0, 0, 0, DateTimeKind.Unspecified), "Test" },
                     { 16, new DateTime(1985, 4, 4, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", new DateTime(2019, 10, 23, 12, 0, 0, 0, DateTimeKind.Unspecified), "Marc", "M", 2, "Agten", new byte[] { 0 }, new DateTime(1977, 8, 12, 12, 0, 0, 0, DateTimeKind.Unspecified), "Mr" },
                     { 29, new DateTime(1989, 5, 12, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Sep", "M", 2, "Feyaerts", new byte[] { 0 }, new DateTime(2007, 7, 12, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
                     { 15, new DateTime(1975, 3, 12, 12, 0, 0, 0, DateTimeKind.Unspecified), "12345678-25", "B", null, "Yannick", "M", 2, "Hammelinx", null, new DateTime(1994, 3, 16, 12, 0, 0, 0, DateTimeKind.Unspecified), "" },
@@ -1073,45 +1104,45 @@ namespace eMenka.Data.Migrations
                 columns: new[] { "Id", "BlockingDate", "BlockingReason", "CompanyId", "DriverId", "EndDate", "IsBlocked", "Number", "PinCode", "RecordId", "StartDate", "VehicleId" },
                 values: new object[,]
                 {
-                    { 45, null, null, 19, null, new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "123456789", "8896", null, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 39, null, null, 19, null, new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "123456789", "8896", null, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 9, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0001 LUVA", "7846", null, new DateTime(2007, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 10, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 23, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0006 SALES", "****", null, new DateTime(2007, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 25, new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "ok", 4, null, null, true, "0011", "9714", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 26, null, "", 4, null, null, false, "0139", "9183", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 27, null, "", 4, null, null, false, "0014", "6325", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 29, null, "", 4, null, null, false, "0019", "3030", null, new DateTime(2012, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 30, null, "", 4, null, null, false, "0020", "3315", null, new DateTime(2012, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 31, null, "", 4, null, null, false, "0100", "7491", null, new DateTime(2013, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 32, null, null, 4, null, null, false, "0021", "9363", null, new DateTime(2013, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 33, null, null, 4, null, null, false, "0017", "1312", null, new DateTime(2012, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 34, null, "", 4, null, null, false, "0129", "2765", null, new DateTime(2012, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 35, null, "", 4, null, null, false, "0016", "535", null, new DateTime(2011, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 36, null, null, 4, null, null, false, "0023", "****", null, new DateTime(2016, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 38, null, "", 4, null, null, false, "1234", "1234", null, new DateTime(2014, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 23, new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "ok", 4, null, null, true, "0011", "9714", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 24, null, "", 4, null, null, false, "0139", "9183", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 25, null, "", 4, null, null, false, "0014", "6325", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 26, null, "", 4, null, null, false, "0019", "3030", null, new DateTime(2012, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 27, null, "", 4, null, null, false, "0020", "3315", null, new DateTime(2012, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 28, null, "", 4, null, null, false, "0100", "7491", null, new DateTime(2013, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 29, null, null, 4, null, null, false, "0021", "9363", null, new DateTime(2013, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 30, null, null, 4, null, null, false, "0017", "1312", null, new DateTime(2012, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 31, null, "", 4, null, null, false, "0129", "2765", null, new DateTime(2012, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 32, null, "", 4, null, null, false, "0016", "535", null, new DateTime(2011, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 33, null, null, 4, null, null, false, "0023", "****", null, new DateTime(2016, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 35, null, "", 4, null, null, false, "1234", "1234", null, new DateTime(2014, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 3, new DateTime(2020, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 6, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0005 AANLOOP 4", "****", null, new DateTime(2007, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 37, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vervangen door nieuwe tankkaart", 15, null, new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0001", "123456", null, new DateTime(2017, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 34, new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vervangen door nieuwe tankkaart", 15, null, new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0001", "123456", null, new DateTime(2017, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 1, new DateTime(2009, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "kaart niet meer geldig", 16, null, new DateTime(2008, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "188395479", "1011", null, new DateTime(2008, 11, 6, 11, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 42, null, null, 19, null, null, false, "008", "88", null, new DateTime(2020, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 43, null, null, 19, null, null, false, "Test Nummer", "1234", null, new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 24, null, "", 4, null, null, false, "0010", "7861", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 22, null, "", 4, null, null, false, "0007", "6491", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 23, null, "", 4, null, null, false, "0008", "401", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 20, new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "test", 4, null, null, true, "0005", "321", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 37, null, null, 19, null, null, false, "008", "88", null, new DateTime(2020, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 38, null, null, 19, null, null, false, "Test Nummer", "1234", null, new DateTime(2020, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 22, null, "", 4, null, null, false, "0010", "7861", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 20, null, "", 4, null, null, false, "0007", "6491", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 21, null, "", 4, null, null, false, "0008", "401", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 18, new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), "test", 4, null, null, true, "0005", "321", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 2, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0008 Tankkaartje 555", "****888", null, new DateTime(2007, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 4, new DateTime(2010, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0004 AANLOOP 3", "7293", null, new DateTime(2007, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 5, new DateTime(2020, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0010 AANLOOP 88", "****", null, new DateTime(2008, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 6, new DateTime(2020, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "0009 AANLOOP 7", "14589", null, new DateTime(2009, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 7, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0002 AANLOOP 1", "2937", null, new DateTime(2007, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 8, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0003 AANLOOP 2", "3177", null, new DateTime(2007, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 40, null, null, 24, null, null, false, "Test", "12345678", null, new DateTime(2020, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 36, null, null, 24, null, null, false, "Test", "12345678", null, new DateTime(2020, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 11, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0007 AANLOOP 5", "****", null, new DateTime(2007, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 12, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "vervanging", 4, null, new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0011 AANLOOP 9", "****", null, new DateTime(2008, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 21, null, "", 4, null, null, false, "0006", "4606", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 14, new DateTime(2009, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "verloren", 4, null, new DateTime(2011, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0012 AANLOOP 10", "604", null, new DateTime(2008, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 17, null, "", 4, null, null, false, "0002", "2938", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 18, null, "", 4, null, new DateTime(2018, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "0003", "3177", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 19, null, "", 4, null, new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "0004", "7293", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 15, null, "", 4, null, null, false, "0009", "7008", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 19, null, "", 4, null, null, false, "0006", "4606", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 13, new DateTime(2009, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "verloren", 4, null, new DateTime(2011, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), true, "0012 AANLOOP 10", "604", null, new DateTime(2008, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 15, null, "", 4, null, null, false, "0002", "2938", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 16, null, "", 4, null, new DateTime(2018, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "0003", "3177", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 17, null, "", 4, null, new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "0004", "7293", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 14, null, "", 4, null, null, false, "0009", "7008", null, new DateTime(2010, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -1441,179 +1472,214 @@ namespace eMenka.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Vehicles",
-                columns: new[] { "Id", "AverageFuel", "BrandId", "DoorTypeId", "Emission", "EndDateDelivery", "EngineCapacity", "EnginePower", "EngineTypeId", "FiscalHP", "FiscalePk", "FuelCardId", "FuelTypeId", "IsActive", "LicensePlate", "ModelId", "Power", "SerieId", "SeriesId", "Volume" },
+                table: "Records",
+                columns: new[] { "Id", "CorporationId", "CostAllocationId", "EndDate", "FuelCardId", "StartDate", "Term", "Usage" },
                 values: new object[,]
                 {
-                    { 11, null, 1, 2, 0, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 120, 13, 11, 0, null, 10, false, null, 1, 0, null, 17, 0 },
-                    { 160, 0, 8, 6, 0, new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 120, 10, 50, 0, null, 9, false, null, 16, 0, null, 11, 0 },
-                    { 63, null, 8, 6, 0, null, 2700, 120, 55, 14, 0, null, 10, false, null, 20, 0, null, 54, 0 },
-                    { 64, null, 8, 2, 0, null, 1968, 100, 35, 11, 0, null, 10, false, null, 20, 0, null, 25, 0 },
-                    { 65, null, 8, 2, 0, null, 2000, 120, 35, 11, 0, null, 10, false, null, 20, 0, null, 25, 0 },
-                    { 66, null, 8, 2, 0, null, 2000, 100, 56, 11, 0, null, 10, false, null, 20, 0, null, 25, 0 },
-                    { 67, null, 8, 7, 0, null, 2000, 120, 35, 11, 0, null, 10, false, null, 20, 0, null, 55, 0 },
-                    { 40, null, 8, 4, 0, null, 1600, 77, 50, 10, 0, null, 10, false, null, 30, 0, null, 49, 0 },
-                    { 152, 0, 8, 6, 0, new DateTime(2019, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1200, 70, 10, 80, 0, null, 9, false, null, 16, 0, null, 11, 0 },
-                    { 41, null, 8, 4, 0, null, 1600, 75, 51, 9, 0, null, 9, false, null, 30, 0, null, 49, 0 },
-                    { 44, null, 8, 2, 0, new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1900, 77, 10, 10, 0, null, 10, false, null, 30, 0, null, 51, 0 },
-                    { 45, null, 8, 4, 0, null, 1600, 77, 50, 9, 0, null, 10, false, null, 30, 0, null, 52, 0 },
-                    { 28, null, 4, 1, 0, null, 1686, 81, 39, 9, 0, null, 10, false, null, 11, 0, null, 5, 0 },
-                    { 29, null, 4, 1, 0, null, 1686, 96, 39, 9, 0, null, 10, false, null, 11, 0, null, 5, 0 },
-                    { 147, null, 4, 2, 0, null, 1686, 81, 39, 9, 0, null, 10, false, null, 11, 0, null, 128, 0 },
-                    { 148, null, 4, 1, 0, null, 1686, 81, 39, 9, 0, null, 10, false, null, 11, 0, null, 128, 0 },
-                    { 30, null, 6, 4, 0, null, 1233, 120, 40, 10, 0, null, 10, false, null, 17, 0, null, 12, 0 },
-                    { 43, null, 8, 2, 0, null, 1600, 77, 50, 9, 0, null, 10, false, null, 30, 0, null, 51, 0 },
-                    { 38, null, 6, 1, 0, null, 1229, 122, 40, 11, 0, null, 9, false, null, 21, 0, null, 12, 0 },
-                    { 62, null, 8, 3, 0, null, 2000, 100, 53, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 60, null, 8, 3, 0, null, 2000, 100, 53, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 154, 0, 7, 2, 0, new DateTime(2019, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 25, 117, 25, 0, null, 3, false, null, 23, 0, null, 39, 0 },
-                    { 8, null, 8, 1, 0, new DateTime(2012, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2100, 120, 10, 10, 0, null, 9, false, null, 16, 0, null, 19, 0 },
-                    { 46, null, 8, 2, 0, null, 2000, 120, 35, 11, 0, null, 10, false, null, 16, 0, null, 53, 0 },
-                    { 47, null, 8, 2, 0, null, 1999, 100, 35, 12, 0, null, 10, false, null, 16, 0, null, 19, 0 },
-                    { 48, null, 8, 1, 0, null, 2000, 88, 35, 11, 0, null, 10, false, null, 16, 0, null, 19, 0 },
-                    { 49, null, 8, 1, 0, null, 2000, 100, 52, 11, 0, null, 10, false, null, 16, 0, null, 19, 0 },
-                    { 50, null, 8, 1, 0, null, 2000, 100, 53, 11, 0, null, 10, false, null, 16, 0, null, 19, 0 },
-                    { 61, null, 8, 3, 0, null, 2000, 100, 53, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 51, null, 8, 4, 0, null, 1800, 120, 54, 10, 0, null, 9, false, null, 16, 0, null, 11, 0 },
-                    { 53, null, 8, 3, 0, null, 1900, 85, 10, 10, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 54, null, 8, 3, 0, null, 1900, 84, 10, 10, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 55, null, 8, 3, 0, null, 2000, 100, 35, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 56, null, 8, 3, 0, null, 2000, 88, 35, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 57, null, 8, 3, 0, null, 2000, 100, 52, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 58, null, 8, 3, 0, null, 2000, 100, 52, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 59, null, 8, 3, 0, null, 2000, 120, 53, 11, 0, null, 10, false, null, 16, 0, null, 11, 0 },
-                    { 52, null, 8, 3, 0, null, 1800, 120, 54, 10, 0, null, 9, false, null, 16, 0, null, 11, 0 },
-                    { 116, null, 6, 4, 0, null, 1233, 120, 40, 10, 0, null, 10, false, null, 17, 0, null, 91, 0 },
-                    { 42, null, 8, 6, 0, null, 0, 150, 78, 0, 0, null, 5, false, null, 16, 0, null, 11, 0 },
-                    { 123, null, 3, 1, 0, null, 2000, 100, 112, 11, 0, null, 10, false, null, 10, 0, null, 115, 0 },
-                    { 69, null, 1, 3, 0, null, 1800, 85, 61, 11, 0, null, 10, false, null, 2, 0, null, 2, 0 },
-                    { 70, null, 1, 3, 0, null, 1800, 100, 61, 11, 0, null, 10, false, null, 2, 0, null, 2, 0 },
-                    { 71, null, 1, 3, 0, null, 1800, 100, 61, 11, 0, null, 10, false, null, 2, 0, null, 2, 0 },
-                    { 72, null, 1, 1, 0, null, 1800, 100, 61, 11, 0, null, 10, false, null, 2, 0, null, 1, 0 },
-                    { 73, null, 1, 1, 0, null, 1800, 100, 61, 11, 0, null, 10, false, null, 2, 0, null, 1, 0 },
-                    { 34, null, 12, 4, 0, null, 1233, 43, 21, 11, 0, null, 10, false, null, 33, 0, null, 28, 0 },
-                    { 159, 0, 12, 2, 0, new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 100, 36, 100, 0, null, 9, false, null, 33, 0, null, 27, 0 },
-                    { 68, null, 1, 3, 0, null, 1800, 100, 61, 11, 0, null, 10, false, null, 2, 0, null, 2, 0 },
-                    { 18, null, 12, 3, 0, null, 1560, 66, 21, 9, 0, null, 10, false, null, 34, 0, null, 26, 0 },
-                    { 89, null, 12, 2, 0, null, 1600, 80, 22, 9, 0, null, 10, false, null, 34, 0, null, 61, 0 },
-                    { 90, null, 12, 2, 0, null, 1560, 82, 22, 9, 0, null, 10, false, null, 34, 0, null, 62, 0 },
-                    { 91, null, 12, 2, 0, null, 2000, 100, 64, 11, 0, null, 10, false, null, 34, 0, null, 27, 0 },
-                    { 92, null, 12, 2, 0, null, 1600, 80, 22, 9, 0, null, 10, false, null, 34, 0, null, 63, 0 },
-                    { 93, null, 12, 2, 0, null, 1560, 82, 22, 9, 0, null, 10, false, null, 34, 0, null, 64, 0 },
-                    { 94, null, 12, 2, 0, null, 1560, 82, 22, 9, 0, null, 10, false, null, 34, 0, null, 65, 0 },
-                    { 95, null, 12, 2, 0, null, 1560, 82, 22, 9, 0, null, 10, false, null, 34, 0, null, 66, 0 },
-                    { 88, null, 12, 2, 0, null, 2000, 110, 63, 11, 0, null, 10, false, null, 34, 0, null, 60, 0 },
-                    { 156, 0, 7, 4, 0, null, 0, 0, 34, 0, 0, null, 9, false, null, 23, 0, null, 9, 0 },
-                    { 155, 0, 7, 6, 0, null, 0, 0, 34, 0, 0, null, 10, false, null, 18, 0, null, 39, 0 },
-                    { 131, null, 11, 9, 0, null, 2000, 100, 18, 11, 0, null, 10, false, null, 28, 0, null, 120, 0 },
-                    { 124, null, 3, 1, 0, null, 2000, 100, 112, 11, 0, null, 10, false, null, 10, 0, null, 115, 0 },
-                    { 14, null, 11, 4, 0, null, 2000, 136, 18, 11, 0, null, 10, false, null, 24, 0, null, 22, 0 },
-                    { 132, null, 11, 3, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 24, 0, null, 121, 0 },
-                    { 133, null, 11, 2, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 26, 0, null, 22, 0 },
-                    { 134, null, 11, 2, 0, null, 2000, 100, 18, 11, 0, null, 10, false, null, 26, 0, null, 22, 0 },
-                    { 135, null, 11, 1, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 26, 0, null, 22, 0 },
-                    { 136, null, 11, 1, 0, null, 2000, 100, 18, 11, 0, null, 10, false, null, 26, 0, null, 22, 0 },
-                    { 137, null, 11, 1, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 26, 0, null, 124, 0 },
-                    { 138, null, 11, 1, 0, null, 1600, 84, 17, 9, 0, null, 10, false, null, 26, 0, null, 121, 0 },
-                    { 139, null, 11, 1, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 26, 0, null, 121, 0 },
-                    { 16, null, 11, 2, 0, null, 3232, 168, 18, 13, 0, null, 9, false, null, 27, 0, null, 23, 0 },
-                    { 140, null, 11, 1, 0, null, 1984, 120, 18, 11, 0, null, 10, false, null, 27, 0, null, 123, 0 },
-                    { 141, null, 11, 2, 0, null, 1984, 120, 18, 163, 0, null, 10, false, null, 27, 0, null, 122, 0 },
-                    { 142, null, 11, 1, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 27, 0, null, 122, 0 },
-                    { 143, null, 11, 1, 0, null, 1560, 85, 17, 9, 0, null, 10, false, null, 27, 0, null, 122, 0 },
-                    { 144, null, 11, 1, 0, null, 1600, 80, 17, 9, 0, null, 10, false, null, 27, 0, null, 120, 0 },
-                    { 145, null, 11, 1, 0, null, 2000, 100, 18, 11, 0, null, 10, false, null, 27, 0, null, 127, 0 },
-                    { 115, null, 7, 2, 0, null, 2000, 100, 96, 11, 0, null, 10, false, null, 23, 0, null, 88, 0 },
-                    { 114, null, 7, 1, 0, null, 2000, 100, 96, 11, 0, null, 10, false, null, 23, 0, null, 87, 0 },
-                    { 113, null, 7, 3, 0, null, 2000, 100, 96, 11, 0, null, 10, false, null, 23, 0, null, 86, 0 },
-                    { 161, 0, 7, 4, 0, null, 0, 0, 9, 0, 0, null, 3, false, null, 22, 0, null, 9, 0 },
-                    { 2, null, 1, 1, 0, new DateTime(2013, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 130, 13, 10, 0, null, 10, false, null, 5, 0, null, 17, 0 },
-                    { 86, null, 1, 2, 0, null, 3500, 210, 12, 15, 0, null, 10, false, null, 5, 0, null, 17, 0 },
-                    { 87, null, 1, 2, 0, null, 3500, 240, 12, 15, 0, null, 10, false, null, 5, 0, null, 17, 0 },
-                    { 153, 0, 1, 5, 0, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 7894, 1, 7894, 0, null, 9, false, null, 5, 0, null, 1, 0 },
-                    { 151, null, 1, 3, 0, null, 2000, 150, 11, 11, 0, null, 10, false, null, 19, 0, null, 2, 0 },
-                    { 17, null, 1, 4, 0, null, 1800, 8, 1, 11, 0, null, 9, false, null, 31, 0, null, 16, 0 },
-                    { 96, null, 2, 2, 0, null, 1600, 85, 68, 9, 0, null, 10, false, null, 7, 0, null, 75, 0 },
-                    { 83, null, 1, 1, 0, null, 2000, 120, 13, 11, 0, null, 10, false, null, 4, 0, null, 1, 0 },
-                    { 97, null, 2, 1, 0, null, 2000, 84, 70, 11, 0, null, 10, false, null, 7, 0, null, 75, 0 },
-                    { 100, null, 2, 1, 0, null, 1800, 92, 72, 10, 0, null, 10, false, null, 7, 0, null, 71, 0 },
-                    { 101, null, 2, 2, 0, null, 2000, 96, 70, 11, 0, null, 10, false, null, 7, 0, null, 73, 0 },
-                    { 3, null, 3, 2, 0, new DateTime(2009, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1577, 80, 24, 9, 0, null, 9, false, null, 8, 0, null, 3, 0 },
-                    { 36, null, 3, 2, 0, null, null, 0, 3, 0, 0, null, 10, false, null, 8, 0, null, 3, 0 },
-                    { 117, null, 3, 3, 0, null, 1600, 77, 110, 9, 0, null, 10, false, null, 10, 0, null, 112, 0 },
-                    { 118, null, 3, 3, 0, null, 1600, 77, 110, 9, 0, null, 10, false, null, 10, 0, null, 112, 0 },
-                    { 119, null, 3, 3, 0, null, 1600, 77, 110, 9, 0, null, 10, false, null, 10, 0, null, 112, 0 },
-                    { 99, null, 2, 1, 0, null, 2000, 102, 70, 11, 0, null, 10, false, null, 7, 0, null, 72, 0 },
-                    { 82, null, 1, 1, 0, null, 2001, 130, 2, 11, 0, null, 10, false, null, 4, 0, null, 1, 0 },
-                    { 81, null, 1, 3, 0, null, 2000, 135, 13, 11, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 80, null, 1, 3, 0, new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 2000, 135, 13, 10, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 31, null, 1, 2, 0, null, 1, 1, 12, 1, 0, null, 10, false, null, 1, 0, null, 16, 0 },
-                    { 84, null, 1, 2, 0, null, 2000, 120, 13, 11, 0, null, 10, false, null, 1, 0, null, 16, 0 }
+                    { 23, 1, 4, new DateTime(2017, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 24, new DateTime(2012, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 10, null, 2, new DateTime(2022, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(2014, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 3, null, null, null, 5, null, 0, 1 },
+                    { 9, null, 4, new DateTime(2018, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 7, new DateTime(2014, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 7, null, 2, new DateTime(2021, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 11, new DateTime(2013, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 11, null, 4, new DateTime(2018, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 12, new DateTime(2014, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 18, null, 4, new DateTime(2017, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 13, new DateTime(2013, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 17, null, 4, new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 14, new DateTime(2013, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 16, null, 4, new DateTime(2020, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 15, new DateTime(2013, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 15, null, 1, new DateTime(2017, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 16, new DateTime(2013, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 2 },
+                    { 13, null, 3, new DateTime(2021, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 17, new DateTime(2014, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 12, null, 4, new DateTime(2018, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), 19, new DateTime(2014, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 19, null, 2, new DateTime(2017, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), 20, new DateTime(2013, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 20, null, 4, new DateTime(2016, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 21, new DateTime(2012, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 5, 1, 2, null, 8, null, 0, 1 },
+                    { 22, null, 4, new DateTime(2016, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 23, new DateTime(2012, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 0 },
+                    { 21, null, 4, new DateTime(2016, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 22, new DateTime(2012, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 1, 2, 4, null, 1, null, 0, 0 },
+                    { 14, 3, 4, new DateTime(2018, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 18, new DateTime(2014, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 4, 3, 2, null, 6, null, 1, 3 },
+                    { 2, 3, 4, null, 4, null, 0, 1 },
+                    { 6, 3, 2, new DateTime(2023, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 9, new DateTime(2020, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 28, null, 1, null, 29, null, 2, 1 },
+                    { 27, null, 4, new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 28, new DateTime(2012, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 26, null, 3, new DateTime(2017, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 27, new DateTime(2012, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1 },
+                    { 25, null, 2, new DateTime(2017, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 26, new DateTime(2012, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1 },
+                    { 24, null, 3, new DateTime(2016, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 25, new DateTime(2012, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 8, null, 4, new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, null, 1, 3 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Vehicles",
-                columns: new[] { "Id", "AverageFuel", "BrandId", "DoorTypeId", "Emission", "EndDateDelivery", "EngineCapacity", "EnginePower", "EngineTypeId", "FiscalHP", "FiscalePk", "FuelCardId", "FuelTypeId", "IsActive", "LicensePlate", "ModelId", "Power", "SerieId", "SeriesId", "Volume" },
+                columns: new[] { "Id", "AverageFuel", "BrandId", "CategoryId", "Chassis", "DoorTypeId", "Emission", "EndDateDelivery", "EngineCapacity", "EnginePower", "EngineTypeId", "FiscalHP", "FuelCardId", "FuelTypeId", "IsActive", "LicensePlate", "ModelId", "Power", "SerieId", "SeriesId", "Volume" },
                 values: new object[,]
                 {
-                    { 85, null, 1, 2, 0, null, 2000, 135, 13, 11, 0, null, 10, false, null, 1, 0, null, 17, 0 },
-                    { 157, 0, 1, 2, 0, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 789, 1, 789, 0, null, 9, false, null, 1, 0, null, 1, 0 },
-                    { 158, 0, 1, 5, 0, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 789, 1, 789, 0, null, 9, false, null, 1, 0, null, 1, 0 },
-                    { 162, 0, 1, 3, 0, null, 0, 0, 2, 0, 0, null, 10, false, null, 1, 0, null, 1, 0 },
-                    { 6, null, 1, 3, 0, new DateTime(2011, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 90, 1, 10, 0, null, 10, false, null, 2, 0, null, 2, 0 },
-                    { 13, null, 1, 2, 0, new DateTime(2014, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1999, 90, 2, 11, 0, null, 10, false, null, 2, 0, null, 1, 0 },
-                    { 74, null, 1, 1, 0, null, 1999, 90, 2, 11, 0, null, 10, false, null, 2, 0, null, 1, 0 },
-                    { 75, null, 1, 1, 0, null, 1995, 100, 2, 11, 0, null, 10, false, null, 2, 0, null, 1, 0 },
-                    { 7, null, 1, 1, 0, new DateTime(2013, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2001, 165, 2, 12, 0, null, 10, false, null, 4, 0, null, 1, 0 },
-                    { 37, null, 1, 2, 0, null, 1900, 0, 12, 0, 0, null, 10, false, null, 4, 0, null, 15, 0 },
-                    { 39, null, 1, 2, 0, null, null, 0, 12, 0, 0, null, 3, false, null, 4, 0, null, 2, 0 },
-                    { 76, null, 1, 3, 0, null, 2000, 120, 2, 11, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 77, null, 1, 3, 0, null, 2000, 120, 2, 11, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 78, null, 1, 3, 0, null, 2000, 120, 2, 11, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 79, null, 1, 3, 0, null, 2000, 120, 2, 11, 0, null, 10, false, null, 4, 0, null, 2, 0 },
-                    { 120, null, 3, 1, 0, null, 1598, 77, 110, 9, 0, null, 10, false, null, 10, 0, null, 113, 0 },
-                    { 98, null, 2, 2, 0, null, 1800, 92, 73, 10, 0, null, 10, false, null, 7, 0, null, 72, 0 },
-                    { 121, null, 3, 1, 0, null, 1968, 100, 111, 11, 0, null, 10, false, null, 10, 0, null, 113, 0 },
-                    { 125, null, 3, 1, 0, null, 2000, 81, 111, 11, 0, null, 10, false, null, 10, 0, null, 115, 0 },
-                    { 24, null, 4, 1, 0, null, 2999, 150, 16, 11, 0, null, 10, false, null, 29, 0, null, 5, 0 },
-                    { 32, null, 4, 3, 0, null, 1956, 95, 20, 11, 0, null, 10, false, null, 29, 0, null, 24, 0 },
-                    { 108, null, 4, 3, 0, null, 1956, 96, 20, 11, 0, null, 10, false, null, 29, 0, null, 24, 0 },
-                    { 109, null, 4, 2, 0, null, 1956, 96, 20, 11, 0, null, 10, false, null, 29, 0, null, 24, 0 },
-                    { 110, null, 4, 1, 0, null, 1956, 96, 20, 11, 0, null, 10, false, null, 29, 0, null, 82, 0 },
-                    { 19, null, 5, 4, 0, null, 4500, 233, 25, 19, 0, null, 9, false, null, 15, 0, null, 30, 0 },
-                    { 27, null, 4, 1, 0, null, 1956, 96, 38, 11, 0, null, 10, false, null, 29, 0, null, 24, 0 },
-                    { 22, null, 4, 1, 0, null, 1296, 66, 15, 9, 0, null, 10, false, null, 29, 0, null, 5, 0 },
-                    { 146, null, 4, 1, 0, null, 1956, 96, 38, 11, 0, null, 10, false, null, 29, 0, null, 5, 0 },
-                    { 111, null, 4, 2, 0, null, 1700, 81, 95, 9, 0, null, 10, false, null, 12, 0, null, 5, 0 },
-                    { 10, null, 6, 4, 0, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1233, 120, 14, 10, 0, null, 10, false, null, 17, 0, null, 12, 0 },
-                    { 23, null, 6, 3, 0, null, null, 0, 27, 0, 0, null, 10, false, null, 17, 0, null, 13, 0 },
-                    { 102, null, 4, 2, 0, null, 1686, 92, 94, 9, 0, null, 10, false, null, 11, 0, null, 5, 0 },
-                    { 103, null, 4, 1, 0, null, 1686, 92, 94, 9, 0, null, 10, false, null, 11, 0, null, 81, 0 },
-                    { 150, null, 4, 1, 0, null, 1598, 81, 115, 9, 0, null, 10, false, null, 11, 0, null, 81, 0 },
-                    { 9, null, 7, 4, 0, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1560, 123, 9, 9, 0, null, 10, false, null, 18, 0, null, 18, 0 },
-                    { 149, null, 4, 1, 0, null, 1956, 103, 38, 11, 0, null, 10, false, null, 29, 0, null, 129, 0 },
-                    { 15, null, 4, 3, 0, null, 1956, 96, 20, 11, 0, null, 10, false, null, 29, 0, null, 24, 0 },
-                    { 33, null, 4, 1, 0, null, 1910, 100, 5, 10, 0, null, 10, false, null, 14, 0, null, 4, 0 },
-                    { 21, null, 4, 1, 0, null, 1910, 88, 5, 10, 0, null, 10, false, null, 14, 0, null, 5, 0 },
-                    { 126, null, 3, 1, 0, null, 2000, 103, 108, 11, 0, null, 10, false, null, 10, 0, null, 115, 0 },
-                    { 127, null, 3, 3, 0, null, 1999, 100, 108, 11, 0, null, 10, false, null, 10, 0, null, 109, 0 },
-                    { 128, null, 3, 3, 0, null, 1999, 100, 108, 11, 0, null, 10, false, null, 10, 0, null, 109, 0 },
-                    { 129, null, 3, 3, 0, null, 2000, 103, 108, 11, 0, null, 10, false, null, 10, 0, null, 109, 0 },
-                    { 1, null, 4, 1, 0, new DateTime(2009, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 1686, 74, 8, 9, 0, null, 10, false, null, 11, 0, null, 4, 0 },
-                    { 25, null, 4, 2, 0, null, 1686, 81, 8, 9, 0, null, 10, false, null, 11, 0, null, 4, 0 },
-                    { 26, null, 4, 2, 0, null, 1686, 81, 8, 9, 0, null, 10, false, null, 11, 0, null, 37, 0 },
-                    { 35, null, 4, 1, 0, null, 1686, 81, 37, 9, 0, null, 10, false, null, 11, 0, null, 5, 0 },
-                    { 104, null, 4, 2, 0, null, 1686, 59, 8, 9, 0, null, 10, false, null, 11, 0, null, 4, 0 },
-                    { 105, null, 4, 2, 0, null, 1686, 74, 8, 9, 0, null, 10, false, null, 11, 0, null, 4, 0 },
-                    { 106, null, 4, 1, 0, null, 1700, 73, 8, 9, 0, null, 10, false, null, 11, 0, null, 4, 0 },
-                    { 107, null, 4, 2, 0, null, 1700, 80, 8, 9, 0, null, 10, false, null, 11, 0, null, 37, 0 },
-                    { 4, null, 4, 2, 0, new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1910, 74, 5, 10, 0, null, 10, false, null, 12, 0, null, 5, 0 },
-                    { 20, null, 4, 2, 0, null, 1686, 81, 8, 9, 0, null, 10, false, null, 12, 0, null, 4, 0 },
-                    { 112, null, 4, 2, 0, null, 1686, 92, 8, 9, 0, null, 10, false, null, 12, 0, null, 4, 0 },
-                    { 12, null, 4, 2, 0, null, 1248, 66, 15, 7, 0, null, 10, false, null, 13, 0, null, 4, 0 },
-                    { 5, null, 4, 1, 0, new DateTime(2014, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1990, 124, 5, 11, 0, null, 9, false, null, 14, 0, null, 4, 0 },
-                    { 122, null, 3, 1, 0, null, 1598, 77, 110, 9, 0, null, 10, false, null, 10, 0, null, 114, 0 },
-                    { 130, null, 11, 6, 0, null, 2400, 120, 114, 11, 0, null, 10, false, null, 28, 0, null, 120, 0 }
+                    { 30, null, 6, null, null, 4, null, null, 1233, 120, 40, 10, null, 10, false, null, 17, null, null, 12, null },
+                    { 28, null, 4, null, null, 1, null, null, 1686, 81, 39, 9, null, 10, false, null, 11, null, null, 5, null },
+                    { 29, null, 4, null, null, 1, null, null, 1686, 96, 39, 9, null, 10, false, null, 11, null, null, 5, null },
+                    { 147, null, 4, null, null, 2, null, null, 1686, 81, 39, 9, null, 10, false, null, 11, null, null, 128, null },
+                    { 148, null, 4, null, null, 1, null, null, 1686, 81, 39, 9, null, 10, false, null, 11, null, null, 128, null },
+                    { 38, null, 6, null, null, 1, null, null, 1229, 122, 40, 11, null, 9, false, null, 21, null, null, 12, null },
+                    { 14, null, 11, null, null, 4, null, null, 2000, 136, 18, 11, null, 10, false, null, 24, null, null, 22, null },
+                    { 42, null, 8, null, null, 6, null, null, 0, 150, 78, 0, null, 5, false, null, 16, null, null, 11, null },
+                    { 123, null, 3, null, null, 1, null, null, 2000, 100, 112, 11, null, 10, false, null, 10, null, null, 115, null },
+                    { 124, null, 3, null, null, 1, null, null, 2000, 100, 112, 11, null, 10, false, null, 10, null, null, 115, null },
+                    { 45, null, 8, null, null, 4, null, null, 1600, 77, 50, 9, null, 10, false, null, 30, null, null, 52, null },
+                    { 132, null, 11, null, null, 3, null, null, 1600, 80, 17, 9, null, 10, false, null, 24, null, null, 121, null },
+                    { 116, null, 6, null, null, 4, null, null, 1233, 120, 40, 10, null, 10, false, null, 17, null, null, 91, null },
+                    { 44, null, 8, null, null, 2, null, new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 1900, 77, 10, 10, null, 10, false, null, 30, null, null, 51, null },
+                    { 65, null, 8, null, null, 2, null, null, 2000, 120, 35, 11, null, 10, false, null, 20, null, null, 25, null },
+                    { 41, null, 8, null, null, 4, null, null, 1600, 75, 51, 9, null, 9, false, null, 30, null, null, 49, null },
+                    { 57, null, 8, null, null, 3, null, null, 2000, 100, 52, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 58, null, 8, null, null, 3, null, null, 2000, 100, 52, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 59, null, 8, null, null, 3, null, null, 2000, 120, 53, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 60, null, 8, null, null, 3, null, null, 2000, 100, 53, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 61, null, 8, null, null, 3, null, null, 2000, 100, 53, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 62, null, 8, null, null, 3, null, null, 2000, 100, 53, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 43, null, 8, null, null, 2, null, null, 1600, 77, 50, 9, null, 10, false, null, 30, null, null, 51, null },
+                    { 152, 0, 8, null, null, 6, null, new DateTime(2019, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 1200, 70, 10, 80, null, 9, false, null, 16, null, null, 11, null },
+                    { 63, null, 8, null, null, 6, null, null, 2700, 120, 55, 14, null, 10, false, null, 20, null, null, 54, null },
+                    { 64, null, 8, null, null, 2, null, null, 1968, 100, 35, 11, null, 10, false, null, 20, null, null, 25, null },
+                    { 133, null, 11, null, null, 2, null, null, 1600, 80, 17, 9, null, 10, false, null, 26, null, null, 22, null },
+                    { 66, null, 8, null, null, 2, null, null, 2000, 100, 56, 11, null, 10, false, null, 20, null, null, 25, null },
+                    { 67, null, 8, null, null, 7, null, null, 2000, 120, 35, 11, null, 10, false, null, 20, null, null, 55, null },
+                    { 40, null, 8, null, null, 4, null, null, 1600, 77, 50, 10, null, 10, false, null, 30, null, null, 49, null },
+                    { 160, 0, 8, null, null, 6, null, new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 120, 10, 50, null, 9, false, null, 16, null, null, 11, null },
+                    { 134, null, 11, null, null, 2, null, null, 2000, 100, 18, 11, null, 10, false, null, 26, null, null, 22, null },
+                    { 140, null, 11, null, null, 1, null, null, 1984, 120, 18, 11, null, 10, false, null, 27, null, null, 123, null },
+                    { 136, null, 11, null, null, 1, null, null, 2000, 100, 18, 11, null, 10, false, null, 26, null, null, 22, null },
+                    { 130, null, 11, null, null, 6, null, null, 2400, 120, 114, 11, null, 10, false, null, 28, null, null, 120, null },
+                    { 98, null, 2, null, null, 2, null, null, 1800, 92, 73, 10, null, 10, false, null, 7, null, null, 72, null },
+                    { 95, null, 12, null, null, 2, null, null, 1560, 82, 22, 9, null, 10, false, null, 34, null, null, 66, null },
+                    { 94, null, 12, null, null, 2, null, null, 1560, 82, 22, 9, null, 10, false, null, 34, null, null, 65, null },
+                    { 93, null, 12, null, null, 2, null, null, 1560, 82, 22, 9, null, 10, false, null, 34, null, null, 64, null },
+                    { 92, null, 12, null, null, 2, null, null, 1600, 80, 22, 9, null, 10, false, null, 34, null, null, 63, null },
+                    { 91, null, 12, null, null, 2, null, null, 2000, 100, 64, 11, null, 10, false, null, 34, null, null, 27, null },
+                    { 90, null, 12, null, null, 2, null, null, 1560, 82, 22, 9, null, 10, false, null, 34, null, null, 62, null },
+                    { 89, null, 12, null, null, 2, null, null, 1600, 80, 22, 9, null, 10, false, null, 34, null, null, 61, null },
+                    { 88, null, 12, null, null, 2, null, null, 2000, 110, 63, 11, null, 10, false, null, 34, null, null, 60, null },
+                    { 18, null, 12, null, null, 3, null, null, 1560, 66, 21, 9, null, 10, false, null, 34, null, null, 26, null },
+                    { 159, 0, 12, null, null, 2, null, new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 100, 36, 100, null, 9, false, null, 33, null, null, 27, null },
+                    { 34, null, 12, null, null, 4, null, null, 1233, 43, 21, 11, null, 10, false, null, 33, null, null, 28, null },
+                    { 73, null, 1, null, null, 1, null, null, 1800, 100, 61, 11, null, 10, false, null, 2, null, null, 1, null },
+                    { 72, null, 1, null, null, 1, null, null, 1800, 100, 61, 11, null, 10, false, null, 2, null, null, 1, null },
+                    { 71, null, 1, null, null, 3, null, null, 1800, 100, 61, 11, null, 10, false, null, 2, null, null, 2, null },
+                    { 70, null, 1, null, null, 3, null, null, 1800, 100, 61, 11, null, 10, false, null, 2, null, null, 2, null },
+                    { 137, null, 11, null, null, 1, null, null, 1600, 80, 17, 9, null, 10, false, null, 26, null, null, 124, null },
+                    { 138, null, 11, null, null, 1, null, null, 1600, 84, 17, 9, null, 10, false, null, 26, null, null, 121, null },
+                    { 139, null, 11, null, null, 1, null, null, 1600, 80, 17, 9, null, 10, false, null, 26, null, null, 121, null },
+                    { 16, null, 11, null, null, 2, null, null, 3232, 168, 18, 13, null, 9, false, null, 27, null, null, 23, null },
+                    { 141, null, 11, null, null, 2, null, null, 1984, 120, 18, 163, null, 10, false, null, 27, null, null, 122, null },
+                    { 142, null, 11, null, null, 1, null, null, 1600, 80, 17, 9, null, 10, false, null, 27, null, null, 122, null },
+                    { 135, null, 11, null, null, 1, null, null, 1600, 80, 17, 9, null, 10, false, null, 26, null, null, 22, null },
+                    { 143, null, 11, null, null, 1, null, null, 1560, 85, 17, 9, null, 10, false, null, 27, null, null, 122, null },
+                    { 145, null, 11, null, null, 1, null, null, 2000, 100, 18, 11, null, 10, false, null, 27, null, null, 127, null },
+                    { 131, null, 11, null, null, 9, null, null, 2000, 100, 18, 11, null, 10, false, null, 28, null, null, 120, null },
+                    { 56, null, 8, null, null, 3, null, null, 2000, 88, 35, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 156, 0, 7, null, null, 4, null, null, 0, 0, 34, 0, null, 9, false, null, 23, null, null, 9, null },
+                    { 68, null, 1, null, null, 3, null, null, 1800, 100, 61, 11, null, 10, false, null, 2, null, null, 2, null },
+                    { 69, null, 1, null, null, 3, null, null, 1800, 85, 61, 11, null, 10, false, null, 2, null, null, 2, null },
+                    { 144, null, 11, null, null, 1, null, null, 1600, 80, 17, 9, null, 10, false, null, 27, null, null, 120, null },
+                    { 155, 0, 7, null, null, 6, null, null, 0, 0, 34, 0, null, 10, false, null, 18, null, null, 39, null },
+                    { 55, null, 8, null, null, 3, null, null, 2000, 100, 35, 11, null, 10, false, null, 16, null, null, 11, null },
+                    { 53, null, 8, null, null, 3, null, null, 1900, 85, 10, 10, null, 10, false, null, 16, null, null, 11, null },
+                    { 153, 0, 1, null, null, 5, null, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 7894, 1, 7894, null, 9, false, null, 5, null, null, 1, null },
+                    { 151, null, 1, null, null, 3, null, null, 2000, 150, 11, 11, null, 10, false, null, 19, null, null, 2, null },
+                    { 17, null, 1, null, null, 4, null, null, 1800, 8, 1, 11, null, 9, false, null, 31, null, null, 16, null },
+                    { 96, null, 2, null, null, 2, null, null, 1600, 85, 68, 9, null, 10, false, null, 7, null, null, 75, null },
+                    { 97, null, 2, null, null, 1, null, null, 2000, 84, 70, 11, null, 10, false, null, 7, null, null, 75, null },
+                    { 99, null, 2, null, null, 1, null, null, 2000, 102, 70, 11, null, 10, false, null, 7, null, null, 72, null },
+                    { 100, null, 2, null, null, 1, null, null, 1800, 92, 72, 10, null, 10, false, null, 7, null, null, 71, null },
+                    { 101, null, 2, null, null, 2, null, null, 2000, 96, 70, 11, null, 10, false, null, 7, null, null, 73, null },
+                    { 3, null, 3, null, null, 2, null, new DateTime(2009, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1577, 80, 24, 9, null, 9, false, null, 8, null, null, 3, null },
+                    { 36, null, 3, null, null, 2, null, null, null, 0, 3, 0, null, 10, false, null, 8, null, null, 3, null },
+                    { 117, null, 3, null, null, 3, null, null, 1600, 77, 110, 9, null, 10, false, null, 10, null, null, 112, null },
+                    { 118, null, 3, null, null, 3, null, null, 1600, 77, 110, 9, null, 10, false, null, 10, null, null, 112, null },
+                    { 119, null, 3, null, null, 3, null, null, 1600, 77, 110, 9, null, 10, false, null, 10, null, null, 112, null },
+                    { 120, null, 3, null, null, 1, null, null, 1598, 77, 110, 9, null, 10, false, null, 10, null, null, 113, null },
+                    { 121, null, 3, null, null, 1, null, null, 1968, 100, 111, 11, null, 10, false, null, 10, null, null, 113, null },
+                    { 122, null, 3, null, null, 1, null, null, 1598, 77, 110, 9, null, 10, false, null, 10, null, null, 114, null },
+                    { 125, null, 3, null, null, 1, null, null, 2000, 81, 111, 11, null, 10, false, null, 10, null, null, 115, null },
+                    { 126, null, 3, null, null, 1, null, null, 2000, 103, 108, 11, null, 10, false, null, 10, null, null, 115, null },
+                    { 127, null, 3, null, null, 3, null, null, 1999, 100, 108, 11, null, 10, false, null, 10, null, null, 109, null },
+                    { 87, null, 1, null, null, 2, null, null, 3500, 240, 12, 15, null, 10, false, null, 5, null, null, 17, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Vehicles",
+                columns: new[] { "Id", "AverageFuel", "BrandId", "CategoryId", "Chassis", "DoorTypeId", "Emission", "EndDateDelivery", "EngineCapacity", "EnginePower", "EngineTypeId", "FiscalHP", "FuelCardId", "FuelTypeId", "IsActive", "LicensePlate", "ModelId", "Power", "SerieId", "SeriesId", "Volume" },
+                values: new object[,]
+                {
+                    { 86, null, 1, null, null, 2, null, null, 3500, 210, 12, 15, null, 10, false, null, 5, null, null, 17, null },
+                    { 2, null, 1, null, null, 1, null, new DateTime(2013, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 130, 13, 10, null, 10, false, null, 5, null, null, 17, null },
+                    { 83, null, 1, null, null, 1, null, null, 2000, 120, 13, 11, null, 10, false, null, 4, null, null, 1, null },
+                    { 31, null, 1, null, null, 2, null, null, 1, 1, 12, 1, null, 10, false, null, 1, null, null, 16, null },
+                    { 84, null, 1, null, null, 2, null, null, 2000, 120, 13, 11, null, 10, false, null, 1, null, null, 16, null },
+                    { 85, null, 1, null, null, 2, null, null, 2000, 135, 13, 11, null, 10, false, null, 1, null, null, 17, null },
+                    { 157, 0, 1, null, null, 2, null, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 789, 1, 789, null, 9, false, null, 1, null, null, 1, null },
+                    { 158, 0, 1, null, null, 5, null, new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified), 789, 789, 1, 789, null, 9, false, null, 1, null, null, 1, null },
+                    { 162, 0, 1, null, null, 3, null, null, 0, 0, 2, 0, null, 10, false, null, 1, null, null, 1, null },
+                    { 6, null, 1, null, null, 3, null, new DateTime(2011, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 90, 1, 10, null, 10, false, null, 2, null, null, 2, null },
+                    { 13, null, 1, null, null, 2, null, new DateTime(2014, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1999, 90, 2, 11, null, 10, false, null, 2, null, null, 1, null },
+                    { 74, null, 1, null, null, 1, null, null, 1999, 90, 2, 11, null, 10, false, null, 2, null, null, 1, null },
+                    { 128, null, 3, null, null, 3, null, null, 1999, 100, 108, 11, null, 10, false, null, 10, null, null, 109, null },
+                    { 75, null, 1, null, null, 1, null, null, 1995, 100, 2, 11, null, 10, false, null, 2, null, null, 1, null },
+                    { 37, null, 1, null, null, 2, null, null, 1900, 0, 12, 0, null, 10, false, null, 4, null, null, 15, null },
+                    { 39, null, 1, null, null, 2, null, null, null, 0, 12, 0, null, 3, false, null, 4, null, null, 2, null },
+                    { 76, null, 1, null, null, 3, null, null, 2000, 120, 2, 11, null, 10, false, null, 4, null, null, 2, null },
+                    { 77, null, 1, null, null, 3, null, null, 2000, 120, 2, 11, null, 10, false, null, 4, null, null, 2, null },
+                    { 78, null, 1, null, null, 3, null, null, 2000, 120, 2, 11, null, 10, false, null, 4, null, null, 2, null },
+                    { 79, null, 1, null, null, 3, null, null, 2000, 120, 2, 11, null, 10, false, null, 4, null, null, 2, null },
+                    { 80, null, 1, null, null, 3, null, new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), 2000, 135, 13, 10, null, 10, false, null, 4, null, null, 2, null },
+                    { 81, null, 1, null, null, 3, null, null, 2000, 135, 13, 11, null, 10, false, null, 4, null, null, 2, null },
+                    { 82, null, 1, null, null, 1, null, null, 2001, 130, 2, 11, null, 10, false, null, 4, null, null, 1, null },
+                    { 7, null, 1, null, null, 1, null, new DateTime(2013, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 2001, 165, 2, 12, null, 10, false, null, 4, null, null, 1, null },
+                    { 129, null, 3, null, null, 3, null, null, 2000, 103, 108, 11, null, 10, false, null, 10, null, null, 109, null },
+                    { 1, null, 4, null, null, 1, null, new DateTime(2009, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), 1686, 74, 8, 9, null, 10, false, null, 11, null, null, 4, null },
+                    { 25, null, 4, null, null, 2, null, null, 1686, 81, 8, 9, null, 10, false, null, 11, null, null, 4, null },
+                    { 111, null, 4, null, null, 2, null, null, 1700, 81, 95, 9, null, 10, false, null, 12, null, null, 5, null },
+                    { 10, null, 6, null, null, 4, null, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1233, 120, 14, 10, null, 10, false, null, 17, null, null, 12, null },
+                    { 23, null, 6, null, null, 3, null, null, null, 0, 27, 0, null, 10, false, null, 17, null, null, 13, null },
+                    { 102, null, 4, null, null, 2, null, null, 1686, 92, 94, 9, null, 10, false, null, 11, null, null, 5, null },
+                    { 103, null, 4, null, null, 1, null, null, 1686, 92, 94, 9, null, 10, false, null, 11, null, null, 81, null },
+                    { 150, null, 4, null, null, 1, null, null, 1598, 81, 115, 9, null, 10, false, null, 11, null, null, 81, null },
+                    { 9, null, 7, null, null, 4, null, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1560, 123, 9, 9, null, 10, false, null, 18, null, null, 18, null },
+                    { 161, 0, 7, null, null, 4, null, null, 0, 0, 9, 0, null, 3, false, null, 22, null, null, 9, null },
+                    { 113, null, 7, null, null, 3, null, null, 2000, 100, 96, 11, null, 10, false, null, 23, null, null, 86, null },
+                    { 149, null, 4, null, null, 1, null, null, 1956, 103, 38, 11, null, 10, false, null, 29, null, null, 129, null },
+                    { 114, null, 7, null, null, 1, null, null, 2000, 100, 96, 11, null, 10, false, null, 23, null, null, 87, null },
+                    { 154, 0, 7, null, null, 2, null, new DateTime(2019, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 25, 117, 25, null, 3, false, null, 23, null, null, 39, null },
+                    { 8, null, 8, null, null, 1, null, new DateTime(2012, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2100, 120, 10, 10, null, 9, false, null, 16, null, null, 19, null },
+                    { 46, null, 8, null, null, 2, null, null, 2000, 120, 35, 11, null, 10, false, null, 16, null, null, 53, null },
+                    { 47, null, 8, null, null, 2, null, null, 1999, 100, 35, 12, null, 10, false, null, 16, null, null, 19, null },
+                    { 48, null, 8, null, null, 1, null, null, 2000, 88, 35, 11, null, 10, false, null, 16, null, null, 19, null },
+                    { 49, null, 8, null, null, 1, null, null, 2000, 100, 52, 11, null, 10, false, null, 16, null, null, 19, null },
+                    { 50, null, 8, null, null, 1, null, null, 2000, 100, 53, 11, null, 10, false, null, 16, null, null, 19, null },
+                    { 51, null, 8, null, null, 4, null, null, 1800, 120, 54, 10, null, 9, false, null, 16, null, null, 11, null },
+                    { 52, null, 8, null, null, 3, null, null, 1800, 120, 54, 10, null, 9, false, null, 16, null, null, 11, null },
+                    { 115, null, 7, null, null, 2, null, null, 2000, 100, 96, 11, null, 10, false, null, 23, null, null, 88, null },
+                    { 54, null, 8, null, null, 3, null, null, 1900, 84, 10, 10, null, 10, false, null, 16, null, null, 11, null },
+                    { 146, null, 4, null, null, 1, null, null, 1956, 96, 38, 11, null, 10, false, null, 29, null, null, 5, null },
+                    { 19, null, 5, null, null, 4, null, null, 4500, 233, 25, 19, null, 9, false, null, 15, null, null, 30, null },
+                    { 26, null, 4, null, null, 2, null, null, 1686, 81, 8, 9, null, 10, false, null, 11, null, null, 37, null },
+                    { 35, null, 4, null, null, 1, null, null, 1686, 81, 37, 9, null, 10, false, null, 11, null, null, 5, null },
+                    { 104, null, 4, null, null, 2, null, null, 1686, 59, 8, 9, null, 10, false, null, 11, null, null, 4, null },
+                    { 105, null, 4, null, null, 2, null, null, 1686, 74, 8, 9, null, 10, false, null, 11, null, null, 4, null },
+                    { 106, null, 4, null, null, 1, null, null, 1700, 73, 8, 9, null, 10, false, null, 11, null, null, 4, null },
+                    { 107, null, 4, null, null, 2, null, null, 1700, 80, 8, 9, null, 10, false, null, 11, null, null, 37, null },
+                    { 4, null, 4, null, null, 2, null, new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1910, 74, 5, 10, null, 10, false, null, 12, null, null, 5, null },
+                    { 20, null, 4, null, null, 2, null, null, 1686, 81, 8, 9, null, 10, false, null, 12, null, null, 4, null },
+                    { 112, null, 4, null, null, 2, null, null, 1686, 92, 8, 9, null, 10, false, null, 12, null, null, 4, null },
+                    { 27, null, 4, null, null, 1, null, null, 1956, 96, 38, 11, null, 10, false, null, 29, null, null, 24, null },
+                    { 12, null, 4, null, null, 2, null, null, 1248, 66, 15, 7, null, 10, false, null, 13, null, null, 4, null },
+                    { 21, null, 4, null, null, 1, null, null, 1910, 88, 5, 10, null, 10, false, null, 14, null, null, 5, null },
+                    { 33, null, 4, null, null, 1, null, null, 1910, 100, 5, 10, null, 10, false, null, 14, null, null, 4, null },
+                    { 15, null, 4, null, null, 3, null, null, 1956, 96, 20, 11, null, 10, false, null, 29, null, null, 24, null },
+                    { 22, null, 4, null, null, 1, null, null, 1296, 66, 15, 9, null, 10, false, null, 29, null, null, 5, null },
+                    { 24, null, 4, null, null, 1, null, null, 2999, 150, 16, 11, null, 10, false, null, 29, null, null, 5, null },
+                    { 32, null, 4, null, null, 3, null, null, 1956, 95, 20, 11, null, 10, false, null, 29, null, null, 24, null },
+                    { 108, null, 4, null, null, 3, null, null, 1956, 96, 20, 11, null, 10, false, null, 29, null, null, 24, null },
+                    { 109, null, 4, null, null, 2, null, null, 1956, 96, 20, 11, null, 10, false, null, 29, null, null, 24, null },
+                    { 110, null, 4, null, null, 1, null, null, 1956, 96, 20, 11, null, 10, false, null, 29, null, null, 82, null },
+                    { 5, null, 4, null, null, 1, null, new DateTime(2014, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 1990, 124, 5, 11, null, 9, false, null, 14, null, null, 4, null },
+                    { 11, null, 1, null, null, 2, null, new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1995, 120, 13, 11, null, 10, false, null, 1, null, null, 17, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -1698,9 +1764,9 @@ namespace eMenka.Data.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Records_CompanyId",
+                name: "IX_Records_CorporationId",
                 table: "Records",
-                column: "CompanyId");
+                column: "CorporationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Records_CostAllocationId",
@@ -1711,7 +1777,8 @@ namespace eMenka.Data.Migrations
                 name: "IX_Records_FuelCardId",
                 table: "Records",
                 column: "FuelCardId",
-                unique: true);
+                unique: true,
+                filter: "[FuelCardId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Series_BrandId",
@@ -1722,6 +1789,11 @@ namespace eMenka.Data.Migrations
                 name: "IX_Vehicles_BrandId",
                 table: "Vehicles",
                 column: "BrandId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Vehicles_CategoryId",
+                table: "Vehicles",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_DoorTypeId",
@@ -1774,9 +1846,6 @@ namespace eMenka.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Corporations");
-
-            migrationBuilder.DropTable(
                 name: "Countries");
 
             migrationBuilder.DropTable(
@@ -1801,7 +1870,13 @@ namespace eMenka.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "Corporations");
+
+            migrationBuilder.DropTable(
                 name: "CostAllocation");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "DoorTypes");

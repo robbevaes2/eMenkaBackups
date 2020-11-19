@@ -73,7 +73,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _categoryRepository.Update(id, VehicleMappers.MapCategoryModel(categoryModel));
 
             if (!isUpdated)
-                return NotFound($"No DoorType found with id {id}");
+                return NotFound($"No Category found with id {id}");
 
             return Ok();
         }
