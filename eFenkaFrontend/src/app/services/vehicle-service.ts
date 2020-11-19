@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Vehicle } from '../models/vehicle/vehicle';
 
-const BASE_API_VEHICLES = 'https://localhost:3000/vehicles';
+const BASE_API_VEHICLES = 'https://localhost:44356/api/vehicle';
 
 @Injectable()
 export class VehicleService{

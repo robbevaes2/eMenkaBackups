@@ -1,29 +1,32 @@
 import { Brand } from '../brand/brand';
 import { Model } from '../model/model';
-import { MotorType } from '../motor-type/motor-type';
 import { DoorType } from '../door-type/door-type';
 import { Serie } from '../serie/serie';
 import { FuelType } from '../fuel-type/fuel-type';
 import { FuelCard } from '../fuel-card/fuel-card';
+import { EngineType } from '../engine-type/engine-type';
+import { Category } from '../category/category';
 
 export class Vehicle {
   id: number;
   brand: Brand;
   model: Model;
-  serie: Serie;
+  //serie: Serie;
   fuelType: FuelType;
-  motorType: MotorType;
+  engineType: EngineType;
+  engineCapacity: number;
+  enginePower: number;
   doorType: DoorType;
   fuelCard: FuelCard;
   volume: number;
-
-  // TODO: fiscaleHp
-  fiscaleHp: number;
+  category: Category;
+  fiscalHp: number;
   emission: number;
   power: number;
   licensePlate: string;
-  endData: Date;
+  endDataDelivery: Date;
   isActive: boolean;
   chassis: string;
   registrationDate: Date;
+  averageFuel: number;
 }

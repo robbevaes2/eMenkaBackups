@@ -11,10 +11,11 @@ import { Brand } from 'src/app/models/brand/brand';
 import { Model } from 'src/app/models/model/model';
 import { Serie } from 'src/app/models/serie/serie';
 import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Driver } from 'src/app/models/driver/driver';
 import { Person } from '../../models/person/person';
 import { Language } from '../../enums/language/language.enum';
+import { EngineType } from 'src/app/models/engine-type/engine-type';
+import { DoorType } from 'src/app/models/door-type/door-type';
 
 @Component({
   selector: 'app-record-list',
@@ -87,20 +88,24 @@ export class RecordListComponent implements OnInit {
       id: 1,
       brand: new Brand(1, 'BMW'),
       model: new Model(1, 'M4'),
-      serie: new Serie(1, 'Eco'),
+      //serie: new Serie(1, 'Eco'),
       fuelType: new FuelType(1, 'Benzine'),
-      motorType: new MotorType(1, '1.9 JTD'),
-      doorType: new MotorType(1, '5-deurs'),
+      engineType: new EngineType(1, '1.9 JTD'),
+      doorType: new DoorType(1, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscaleHp: 50,
+      fiscalHp: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
-      endData: new Date('2020-01-16'),
+      endDataDelivery: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
-      registrationDate: new Date('2020-01-16')
+      registrationDate: new Date('2020-01-16'),
+      engineCapacity: null,
+      enginePower: null,
+      category: null,
+      averageFuel: null
     };
   }
 

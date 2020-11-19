@@ -25,13 +25,13 @@
           <td scope="row">{{ vehicle.brand.name }}</td>
           <td>{{ vehicle.model.name }}</td>
           <td>{{ vehicle.fuelType.name }}</td>
-          <td>{{ vehicle.motorType.name }}</td>
-          <td>{{ vehicle.serie.name }}</td>
+          <td>{{ vehicle.engineType.name }}</td>
+          <td>{{ vehicle.model.name }}</td>
           <td>{{ vehicle.doorType.name }}</td>
           <td>{{ vehicle.volume }}</td>
-          <td>{{ vehicle.fiscalePk }}</td>
+          <td>{{ vehicle.fiscalHp }}</td>
           <td>{{ vehicle.power }}</td>
-          <td>{{ vehicle.endData.toLocaleDateString() }}</td>
+          <td>{{ vehicle.endDataDelivery?.toLocaleDateString() }}</td>
         </tr>
       </tbody>
     </table>

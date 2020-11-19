@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand/brand';
 import { DoorType } from 'src/app/models/door-type/door-type';
+import { EngineType } from 'src/app/models/engine-type/engine-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { Model } from 'src/app/models/model/model';
-import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Serie } from 'src/app/models/serie/serie';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
@@ -20,7 +20,7 @@ export class VehicleDetailsComponent implements OnInit {
   brands: Brand[];
   models: Model[];
   series: Serie[];
-  motorTypes: MotorType[];
+  engineTypes: EngineType[];
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
@@ -43,7 +43,7 @@ export class VehicleDetailsComponent implements OnInit {
       brand: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       serie: new FormControl(null, [Validators.required]),
-      motorType: new FormControl(null, [Validators.required]),
+      engineType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
       fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -62,16 +62,16 @@ export class VehicleDetailsComponent implements OnInit {
   fillForm(): void {
     this.form.controls['brand'].setValue(this.selectedVehicle.brand.id);
     this.form.controls['model'].setValue(this.selectedVehicle.model.id);
-    this.form.controls['serie'].setValue(this.selectedVehicle.serie.id);
-    this.form.controls['motorType'].setValue(this.selectedVehicle.motorType.id);
+    this.form.controls['serie'].setValue(1);
+    this.form.controls['engineType'].setValue(this.selectedVehicle.engineType.id);
     this.form.controls['doorType'].setValue(this.selectedVehicle.doorType.id);
     this.form.controls['fuelCard'].setValue(this.selectedVehicle.fuelCard.id);
     this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
     this.form.controls['power'].setValue(this.selectedVehicle.power);
-    this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscaleHp);
+    this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscalHp);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
-    this.form.controls['endDate'].setValue(this.selectedVehicle.endData.toISOString().split('T')[0]);
+    this.form.controls['endDate'].setValue(this.selectedVehicle.endDataDelivery.toISOString().split('T')[0]);
     this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
   }
 
@@ -79,7 +79,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['brand'].disable();
     this.form.controls['model'].disable();
     this.form.controls['serie'].disable();
-    this.form.controls['motorType'].disable();
+    this.form.controls['engineType'].disable();
     this.form.controls['doorType'].disable();
     this.form.controls['fuelCard'].disable();
     this.form.controls['fuelType'].disable();
@@ -96,7 +96,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['brand'].enable();
     this.form.controls['model'].enable();
     this.form.controls['serie'].enable();
-    this.form.controls['motorType'].enable();
+    this.form.controls['engineType'].enable();
     this.form.controls['doorType'].enable();
     this.form.controls['fuelCard'].enable();
     this.form.controls['fuelType'].enable();
@@ -119,7 +119,7 @@ export class VehicleDetailsComponent implements OnInit {
     // Do get requests with brandId
     this.models = this.getModels();
     this.series = this.getSeries();
-    this.motorTypes = this.getMotorTypes();
+    this.engineTypes = this.getEngineTypes();
   }
 
   navigateToListVehicleComponent(): void {
@@ -174,11 +174,11 @@ export class VehicleDetailsComponent implements OnInit {
     ];
   }
 
-  getMotorTypes(): MotorType[] {
+  getEngineTypes(): EngineType[] {
     return [
-      new MotorType(1, '1.9 TDI'),
-      new MotorType(2, '2.0 TDI'),
-      new MotorType(3, '2.0 TDI e')
+      new EngineType(1, '1.9 TDI'),
+      new EngineType(2, '2.0 TDI'),
+      new EngineType(3, '2.0 TDI e')
     ];
   }
 
@@ -203,20 +203,24 @@ export class VehicleDetailsComponent implements OnInit {
       id: 1,
       brand: new Brand(1, 'Audi'),
       model: new Model(3, 'A6'),
-      serie: new Serie(1, 'Sportback'),
+      //serie: new Serie(1, 'Sportback'),
       fuelType: new FuelType(1, 'Benzine'),
-      motorType: new MotorType(1, '1.9 TDI'),
+      engineType: new EngineType(1, '1.9 TDI'),
       doorType: new DoorType(3, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscaleHp: 50,
+      fiscalHp: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
-      endData: new Date('2020-01-16'),
+      endDataDelivery: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
-      registrationDate: new Date('2020-01-16')
+      registrationDate: new Date('2020-01-16'),
+      engineCapacity: null,
+      enginePower: null,
+      category: null,
+      averageFuel: null
     }
   }
 

@@ -1,15 +1,15 @@
 import { Model } from '../model/model';
 import { Serie } from '../serie/serie';
-import { MotorType } from '../motor-type/motor-type';
 import { ExteriorColor } from '../exterior-color/exterior-color';
 import { InteriorColor } from '../interior-color/interior-color';
+import { EngineType } from '../engine-type/engine-type';
 
 export class Brand {
   id: number;
   name: string;
   models: Model[];
   series: Serie[];
-  motorTypes: MotorType[];
+  engineTypes: EngineType[];
   exteriorColors: ExteriorColor[];
   interiorColors: InteriorColor[];
 

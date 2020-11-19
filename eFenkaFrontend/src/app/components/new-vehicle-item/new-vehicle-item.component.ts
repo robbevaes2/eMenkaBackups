@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { Brand } from '../../models/brand/brand';
 import { DoorType } from '../../models/door-type/door-type';
 import { Model } from '../../models/model/model';
-import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
+import { EngineType } from '../../models/engine-type/engine-type';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -20,7 +20,7 @@ export class NewVehicleItemComponent implements OnInit {
   brands: Brand[];
   models: Model[];
   series: Serie[];
-  motorTypes: MotorType[];
+  engineTypes: EngineType[];
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
@@ -37,7 +37,7 @@ export class NewVehicleItemComponent implements OnInit {
       brand: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       serie: new FormControl(null, [Validators.required]),
-      motorType: new FormControl(null, [Validators.required]),
+      engineType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required]),
@@ -57,7 +57,7 @@ export class NewVehicleItemComponent implements OnInit {
 
     this.models = this.getModels();
     this.series = this.getSeries();
-    this.motorTypes = this.getMotorTypes();
+    this.engineTypes = this.getEngineTypes();
   }
 
   navigateToListVehicleComponent(): void {
@@ -94,11 +94,11 @@ export class NewVehicleItemComponent implements OnInit {
     ];
   }
 
-  getMotorTypes(): MotorType[] {
+  getEngineTypes(): EngineType[] {
     return [
-      new MotorType(1, '1.9 TDI'),
-      new MotorType(2, '2.0 TDI'),
-      new MotorType(3, '2.0 TDI e')
+      new EngineType(1, '1.9 TDI'),
+      new EngineType(2, '2.0 TDI'),
+      new EngineType(3, '2.0 TDI e')
     ];
   }
 

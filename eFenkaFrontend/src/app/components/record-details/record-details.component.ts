@@ -25,14 +25,14 @@ export class RecordDetailsComponent implements OnInit {
   fillForm(): void {
     this.form.controls['Type'].setValue(this.selectedRecord.brand.id);
     this.form.controls['licensePlate'].setValue(this.selectedRecord.model.id);
-    this.form.controls['chassis'].setValue(this.selectedRecord.motorType.id);
+    this.form.controls['chassis'].setValue(this.selectedRecord.engineType.id);
     this.form.controls['registrationDate'].setValue(this.selectedRecord.fuelCard.id);
     this.form.controls['country'].setValue(this.selectedRecord.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedRecord.volume);
     this.form.controls['power'].setValue(this.selectedRecord.power);
-    this.form.controls['fiscalePk'].setValue(this.selectedRecord.fiscaleHp);
+    this.form.controls['fiscalePk'].setValue(this.selectedRecord.fiscalHp);
     this.form.controls['emission'].setValue(this.selectedRecord.emission);
-    this.form.controls['endDate'].setValue(this.selectedRecord.endData.toISOString().split('T')[0]);
+    this.form.controls['endDate'].setValue(this.selectedRecord.endDataDelivery.toISOString().split('T')[0]);
     this.form.controls['licensePlate'].setValue(this.selectedRecord.licensePlate);
   }
 
