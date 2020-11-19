@@ -30,5 +30,7 @@ namespace eMenka.API.Models.VehicleModels
         public DateTime EndDate { get; set; }
         [Required]
         public bool IsActive { get; set; }
+        [Required]
+        public int? CategoryId { get; set; }
     }
 }

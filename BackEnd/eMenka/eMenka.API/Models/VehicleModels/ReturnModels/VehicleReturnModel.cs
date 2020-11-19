@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
@@ -10,6 +11,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public FuelTypeReturnModel FuelType { get; set; } 
         public EngineTypeReturnModel EngineType { get; set; }
         public DoorTypeReturnModel DoorType { get; set; }
+        public CategoryReturnModel Category { get; set; }
         public int FuelCard { get; set; } //todo refactor to FuelCardModel
         public int Volume { get; set; }
         public int FiscalePk { get; set; }

@@ -27,6 +27,7 @@ namespace eMenka.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<ExteriorColor> ExteriorColors { get; set; }
         public DbSet<InteriorColor> InteriorColors { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public EfenkaContext(DbContextOptions options) : base(options)
         {
