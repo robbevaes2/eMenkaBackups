@@ -10,7 +10,7 @@ import { Vehicle } from 'src/app/models/vehicle/vehicle';
 import { Brand } from 'src/app/models/brand/brand';
 import { Model } from 'src/app/models/model/model';
 import { Serie } from 'src/app/models/serie/serie';
-import { FuelType } from 'src/app/models/FuelType/fuel-type';
+import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Driver } from 'src/app/models/driver/driver';
 import { Person } from '../../models/person/person';
@@ -23,7 +23,7 @@ import { Language } from '../../enums/language/language.enum';
 })
 export class RecordListComponent implements OnInit {
   records: Record[];
-  pageAmounts = [5,10,25];
+  pageAmounts = [5, 10, 25];
 
   ascDescBoolean: boolean;
 
@@ -86,12 +86,14 @@ export class RecordListComponent implements OnInit {
       doorType: new MotorType(1, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscalePk: 50,
+      fiscaleHp: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
       endData: new Date('2020-01-16'),
-      isActive: true
+      isActive: true,
+      chassis: 'feoipajfpoaezfjipio',
+      registrationDate: new Date('2020-01-16')
     };
   }
 

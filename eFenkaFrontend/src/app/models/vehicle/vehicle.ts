@@ -3,7 +3,7 @@ import { Model } from '../model/model';
 import { MotorType } from '../motor-type/motor-type';
 import { DoorType } from '../door-type/door-type';
 import { Serie } from '../serie/serie';
-import { FuelType } from '../FuelType/fuel-type';
+import { FuelType } from '../fuel-type/fuel-type';
 import { FuelCard } from '../fuel-card/fuel-card';
 
 export class Vehicle {
@@ -16,10 +16,14 @@ export class Vehicle {
   doorType: DoorType;
   fuelCard: FuelCard;
   volume: number;
-  fiscalePk: number;
+
+  // TODO: fiscaleHp
+  fiscaleHp: number;
   emission: number;
   power: number;
   licensePlate: string;
   endData: Date;
   isActive: boolean;
+  chassis: string;
+  registrationDate: Date;
 }

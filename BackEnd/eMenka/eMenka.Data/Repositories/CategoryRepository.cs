@@ -6,9 +6,9 @@ using eMenka.Domain.Classes;
 
 namespace eMenka.Data.Repositories
 {
-    public class MotorTypeRepository : GenericRepository<MotorType>, IMotorTypeRepository
+    public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
-        public MotorTypeRepository(EfenkaContext context) : base(context)
+        public CategoryRepository(EfenkaContext context) : base(context)
         {
         }
     }

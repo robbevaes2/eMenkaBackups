@@ -2,9 +2,9 @@
 {
     public enum Language
     {
+        English,
         Dutch,
         French,
-        English,
         German
     }
 }

@@ -2,30 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using eMenka.API.VehicleModels;
+using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
 namespace eMenka.API.Mappers
 {
     public static class VehicleMappers
     {
-        public static VehicleModel MapVehicleEntity(Vehicle vehicle)
+        public static VehicleReturnModel MapVehicleEntity(Vehicle vehicle)
         {
-            return new VehicleModel
+            return new VehicleReturnModel
             {
                 Id = vehicle.Id,
                 Brand = MapBrandEntity(vehicle.Brand),
-                FuelType = vehicle.FuelTypeId,
-                MotorType = MapMotorTypeEntity(vehicle.MotorType),
-                //DoorType = vehicle.DoorTypeId, todo create mapper
+                FuelType = MapFuelTypeEntity(vehicle.FuelType),
+                EngineType = MapEngineTypeEntity(vehicle.EngineType),
+                DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
-                EndDate = vehicle.EndDate,
                 FiscalePk = vehicle.FiscalePk,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = MapModelEntity(vehicle.Model)
-                //FuelCard = vehicle.FuelCard todo create mapper
+                Model = MapModelEntity(vehicle.Model),
+                FuelCard = vehicle.FuelCard.Id ,
+                Category = MapCategoryEntity(vehicle.Category),
+                LicensePlate = vehicle.LicensePlate
             };
         }
 
@@ -34,24 +36,24 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorTypeId = vehicleModel.MotorType.Id,
-                BrandId = vehicleModel.Brand.Id,
-                DoorTypeId = vehicleModel.DoorType.Id,
-                Emission = vehicleModel.Emission,
-                EndDate = vehicleModel.EndDate,
-                FiscalePk = vehicleModel.FiscalePk,
-                FuelTypeId = vehicleModel.FuelType, //todo get ID from model
+                EngineTypeId = (int) vehicleModel.EngineTypeId,
+                BrandId = (int) (int)vehicleModel.BrandId,
+                DoorTypeId = (int)vehicleModel.DoorTypeId,
+                Emission = (int)vehicleModel.Emission,
+                FiscalePk = (int)vehicleModel.FiscalePk,
+                FuelTypeId = (int)vehicleModel.FuelTypeId, 
                 IsActive = vehicleModel.IsActive,
-                ModelId = vehicleModel.Model.Id,
-                Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCard//.Id todo get ID from model
+                ModelId = (int)vehicleModel.ModelId,
+                Power = (int)vehicleModel.Power,
+                Volume = (int)vehicleModel.Volume,
+                LicensePlate = vehicleModel.LicensePlate,
+                FuelCardId = 1 //temporary fix untill fuelcard is implemented
             };
         }
 
-        public static SerieModel MapSerieEntity(Serie serie)
+        public static SerieReturnModel MapSerieEntity(Serie serie)
         {
-            return new SerieModel
+            return new SerieReturnModel
             {
                 Brand = MapBrandEntity(serie.Brand),
                 Name = serie.Name,
@@ -62,34 +64,34 @@ namespace eMenka.API.Mappers
         {
             return new Serie
             {
-                BrandId = serieModel.Brand.Id,
+                BrandId = (int)serieModel.BrandId,
                 Id = serieModel.Id,
                 Name = serieModel.Name
             };
         }
 
-        public static MotorTypeModel MapMotorTypeEntity(MotorType motorType)
+        public static EngineTypeReturnModel MapEngineTypeEntity(EngineType engineType)
         {
-            return new MotorTypeModel
+            return new EngineTypeReturnModel
             {
-                Brand = MapBrandEntity(motorType.Brand),
-                Name = motorType.Name,
-                Id = motorType.Id
+                Brand = MapBrandEntity(engineType.Brand),
+                Name = engineType.Name,
+                Id = engineType.Id
             };
         }
-        public static MotorType MapMotorTypeModel(MotorTypeModel motorTypeModel)
+        public static EngineType MapEngineTypeModel(EngineTypeModel engineTypeModel)
         {
-            return new MotorType
+            return new EngineType()
             {
-                BrandId = motorTypeModel.Brand.Id,
-                Id = motorTypeModel.Id,
-                Name = motorTypeModel.Name
+                BrandId = (int)engineTypeModel.BrandId,
+                Id = engineTypeModel.Id,
+                Name = engineTypeModel.Name
             };
         }
 
-        public static ModelModel MapModelEntity(Model model)
+        public static ModelReturnModel MapModelEntity(Model model)
         {
-            return new ModelModel
+            return new ModelReturnModel
             {
                 Brand = MapBrandEntity(model.Brand),
                 Name = model.Name,
@@ -100,7 +102,7 @@ namespace eMenka.API.Mappers
         {
             return new Model
             {
-                BrandId = modelModel.Brand.Id,
+                BrandId = (int)modelModel.BrandId,
                 Id = modelModel.Id,
                 Name = modelModel.Name
             };
@@ -115,20 +117,76 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static BrandModel MapBrandEntity(Brand brand)
+        public static BrandReturnModel MapBrandEntity(Brand brand)
         {
-            return new BrandModel
+            return new BrandReturnModel
             {
                 Name = brand.Name,
-                Id = brand.Id,
-                ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
-                InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
+                Id = brand.Id
+                //ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
+                //InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
             };
         }
 
-        private static Func<InteriorColor, InteriorColorModel> MapInteriorColorEntity()
+        public static FuelTypeReturnModel MapFuelTypeEntity(FuelType fuelType)
         {
-            return ic => new InteriorColorModel
+            return new FuelTypeReturnModel
+            {
+                Id = fuelType.Id,
+                Code = fuelType.Code,
+                Name = fuelType.Name
+            };
+        }
+
+        public static FuelType MapFuelTypeModel(FuelTypeModel fuelTypeModel)
+        {
+            return new FuelType
+            {
+                Code = fuelTypeModel.Code,
+                Id = fuelTypeModel.Id,
+                Name = fuelTypeModel.Name
+            };
+        }
+
+        public static DoorTypeReturnModel MapDoorTypeEntity(DoorType doorType)
+        {
+            return new DoorTypeReturnModel
+            {
+                Id = doorType.Id,
+                Name = doorType.Name
+            };
+        }
+
+        public static DoorType MapDoorTypeModel(DoorTypeModel doorTypeModel)
+        {
+            return new DoorType
+            {
+                Id = doorTypeModel.Id,
+                Name = doorTypeModel.Name
+            };
+        }
+
+        public static CategoryReturnModel MapCategoryEntity(Category category)
+        {
+            return new CategoryReturnModel
+            {
+                Id = category.Id,
+                Name = category.Name
+            };
+        }
+
+        public static Category MapCategoryModel(CategoryModel categoryModel)
+        {
+            return new Category
+            {
+                Name = categoryModel.Name,
+                Id = categoryModel.Id
+            };
+        }
+
+        private static Func<InteriorColor, InteriorColorReturnModel> MapInteriorColorEntity()
+        {
+            return ic => new InteriorColorReturnModel
             {
                 Id = ic.Id,
                 BrandId = ic.BrandId,
@@ -137,9 +195,9 @@ namespace eMenka.API.Mappers
             };
         }
 
-        private static Func<ExteriorColor, ExteriorColorModel> MapExteriorColorEntity()
+        private static Func<ExteriorColor, ExteriorColorReturnModel> MapExteriorColorEntity()
         {
-            return ec => new ExteriorColorModel
+            return ec => new ExteriorColorReturnModel
             {
                 BrandId = ec.BrandId,
                 Code = ec.Code,
