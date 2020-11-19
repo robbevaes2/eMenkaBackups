@@ -686,7 +686,7 @@ namespace eMenka.Data
             );
             #endregion
 
-            #region Companies
+            #region Companies & Corporations
             builder.Entity<Company>().HasData(
                 new Company { Id = 1, Name = "Total Belgium", Description = null, Reference = null, IsInternal = false, IsActive = false, NonActiveRemark = null, VAT = null, AccountNumber = null },
                 new Company { Id = 2, Name = "Esso", Description = "Esso", Reference = "Esso", IsInternal = false, IsActive = true, NonActiveRemark = "", VAT = "123", AccountNumber = "123" },
@@ -726,14 +726,12 @@ namespace eMenka.Data
                 new Company { Id = 36, Name = null, Description = null, Reference = null, IsInternal = null, IsActive = null, NonActiveRemark = null, VAT = null, AccountNumber = null }
             );
 
-            #endregion
-
-            #region Corporations
             builder.Entity<Corporation>().HasData(
                 new Corporation { Id = 1, Name = "eMenKa BV", Abbreviation = "Holland", CompanyId = 32, StartDate = new DateTime(2010, 1, 1, 12, 0, 0), EndDate = null },
                 new Corporation { Id = 2, Name = "eMenKa GmbH", Abbreviation = "Keulen", CompanyId = 31, StartDate = new DateTime(2010, 1, 1, 12, 0, 0), EndDate = null },
                 new Corporation { Id = 3, Name = "eMenKa NV", Abbreviation = "Antwerpen", CompanyId = 29, StartDate = new DateTime(2010, 1, 1, 12, 0, 0), EndDate = null }
             );
+
             #endregion
 
             #region Persons
@@ -3238,38 +3236,87 @@ namespace eMenka.Data
                 new FuelCard { Id = 10, Number = "0006 SALES", CompanyId = 23, StartDate = new DateTime(2007, 9, 19, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
                 new FuelCard { Id = 11, Number = "0007 AANLOOP 5", CompanyId = 4, StartDate = new DateTime(2007, 10, 31, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
                 new FuelCard { Id = 12, Number = "0011 AANLOOP 9", CompanyId = 4, StartDate = new DateTime(2008, 2, 7, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
-                new FuelCard { Id = 14, Number = "0012 AANLOOP 10", CompanyId = 4, StartDate = new DateTime(2008, 9, 12, 0, 0, 0), EndDate = new DateTime(2011, 11, 9, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2009, 4, 21, 0, 0, 0), BlockingReason = "verloren", PinCode = "604" },
-                new FuelCard { Id = 15, Number = "0009", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7008" },
-                new FuelCard { Id = 17, Number = "0002", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "2938" },
-                new FuelCard { Id = 18, Number = "0003", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2018, 8, 17, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3177" },
-                new FuelCard { Id = 19, Number = "0004", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2019, 2, 1, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7293" },
-                new FuelCard { Id = 20, Number = "0005", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "test", PinCode = "321" },
-                new FuelCard { Id = 21, Number = "0006", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "4606" },
-                new FuelCard { Id = 22, Number = "0007", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "6491" },
-                new FuelCard { Id = 23, Number = "0008", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "401" },
-                new FuelCard { Id = 24, Number = "0010", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7861" },
-                new FuelCard { Id = 25, Number = "0011", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "ok", PinCode = "9714" },
-                new FuelCard { Id = 26, Number = "0139", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "9183" },
-                new FuelCard { Id = 27, Number = "0014", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "6325" },
-                new FuelCard { Id = 29, Number = "0019", CompanyId = 4, StartDate = new DateTime(2012, 8, 13, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3030" },
-                new FuelCard { Id = 30, Number = "0020", CompanyId = 4, StartDate = new DateTime(2012, 8, 20, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3315" },
-                new FuelCard { Id = 31, Number = "0100", CompanyId = 4, StartDate = new DateTime(2013, 12, 9, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7491" },
-                new FuelCard { Id = 32, Number = "0021", CompanyId = 4, StartDate = new DateTime(2013, 9, 12, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "9363" },
-                new FuelCard { Id = 33, Number = "0017", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "1312" },
-                new FuelCard { Id = 34, Number = "0129", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "2765" },
-                new FuelCard { Id = 35, Number = "0016", CompanyId = 4, StartDate = new DateTime(2011, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "535" },
-                new FuelCard { Id = 36, Number = "0023", CompanyId = 4, StartDate = new DateTime(2016, 1, 1, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "****" },
-                new FuelCard { Id = 37, Number = "0001", CompanyId = 15, StartDate = new DateTime(2017, 4, 25, 0, 0, 0), EndDate = new DateTime(2020, 5, 4, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 20, 0, 0, 0), BlockingReason = "Vervangen door nieuwe tankkaart", PinCode = "123456" },
-                new FuelCard { Id = 38, Number = "1234", CompanyId = 4, StartDate = new DateTime(2014, 4, 26, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "1234" },
-                new FuelCard { Id = 40, Number = "Test", CompanyId = 24, StartDate = new DateTime(2020, 4, 3, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "12345678" },
-                new FuelCard { Id = 42, Number = "008", CompanyId = 19, StartDate = new DateTime(2020, 3, 25, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "88" },
-                new FuelCard { Id = 43, Number = "Test Nummer", CompanyId = 19, StartDate = new DateTime(2020, 1, 3, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "1234" },
-                new FuelCard { Id = 45, Number = "123456789", CompanyId = 19, StartDate = new DateTime(2020, 3, 14, 0, 0, 0), EndDate = new DateTime(2022, 3, 7, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "8896" }
+                new FuelCard { Id = 13, Number = "0012 AANLOOP 10", CompanyId = 4, StartDate = new DateTime(2008, 9, 12, 0, 0, 0), EndDate = new DateTime(2011, 11, 9, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2009, 4, 21, 0, 0, 0), BlockingReason = "verloren", PinCode = "604" },
+                new FuelCard { Id = 14, Number = "0009", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7008" },
+                new FuelCard { Id = 15, Number = "0002", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "2938" },
+                new FuelCard { Id = 16, Number = "0003", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2018, 8, 17, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3177" },
+                new FuelCard { Id = 17, Number = "0004", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2019, 2, 1, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7293" },
+                new FuelCard { Id = 18, Number = "0005", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "test", PinCode = "321" },
+                new FuelCard { Id = 19, Number = "0006", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "4606" },
+                new FuelCard { Id = 20, Number = "0007", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "6491" },
+                new FuelCard { Id = 21, Number = "0008", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "401" },
+                new FuelCard { Id = 22, Number = "0010", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7861" },
+                new FuelCard { Id = 23, Number = "0011", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "ok", PinCode = "9714" },
+                new FuelCard { Id = 24, Number = "0139", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "9183" },
+                new FuelCard { Id = 25, Number = "0014", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "6325" },
+                new FuelCard { Id = 26, Number = "0019", CompanyId = 4, StartDate = new DateTime(2012, 8, 13, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3030" },
+                new FuelCard { Id = 27, Number = "0020", CompanyId = 4, StartDate = new DateTime(2012, 8, 20, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "3315" },
+                new FuelCard { Id = 28, Number = "0100", CompanyId = 4, StartDate = new DateTime(2013, 12, 9, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "7491" },
+                new FuelCard { Id = 29, Number = "0021", CompanyId = 4, StartDate = new DateTime(2013, 9, 12, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "9363" },
+                new FuelCard { Id = 30, Number = "0017", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "1312" },
+                new FuelCard { Id = 31, Number = "0129", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "2765" },
+                new FuelCard { Id = 32, Number = "0016", CompanyId = 4, StartDate = new DateTime(2011, 5, 19, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "535" },
+                new FuelCard { Id = 33, Number = "0023", CompanyId = 4, StartDate = new DateTime(2016, 1, 1, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "****" },
+                new FuelCard { Id = 34, Number = "0001", CompanyId = 15, StartDate = new DateTime(2017, 4, 25, 0, 0, 0), EndDate = new DateTime(2020, 5, 4, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 20, 0, 0, 0), BlockingReason = "Vervangen door nieuwe tankkaart", PinCode = "123456" },
+                new FuelCard { Id = 35, Number = "1234", CompanyId = 4, StartDate = new DateTime(2014, 4, 26, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = "", PinCode = "1234" },
+                new FuelCard { Id = 36, Number = "Test", CompanyId = 24, StartDate = new DateTime(2020, 4, 3, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "12345678" },
+                new FuelCard { Id = 37, Number = "008", CompanyId = 19, StartDate = new DateTime(2020, 3, 25, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "88" },
+                new FuelCard { Id = 38, Number = "Test Nummer", CompanyId = 19, StartDate = new DateTime(2020, 1, 3, 0, 0, 0), EndDate = null, IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "1234" },
+                new FuelCard { Id = 39, Number = "123456789", CompanyId = 19, StartDate = new DateTime(2020, 3, 14, 0, 0, 0), EndDate = new DateTime(2022, 3, 7, 0, 0, 0), IsBlocked = false, BlockingDate = null, BlockingReason = null, PinCode = "8896" }
             );
             #endregion
 
+            #region
+
+            builder.Entity<CostAllocation>().HasData(
+                new CostAllocation { Id = 1, Name = "Gent", Abbreviation = "VL", StartDate = new DateTime(), EndDate = new DateTime() },
+                new CostAllocation { Id = 2, Name = "Hasselt", Abbreviation = "Lim", StartDate = new DateTime(), EndDate = new DateTime() },
+                new CostAllocation { Id = 3, Name = "Brussel", Abbreviation = "Bxl", StartDate = new DateTime(), EndDate = new DateTime() },
+                new CostAllocation { Id = 4, Name = "Antwerpen", Abbreviation = "HQ", StartDate = new DateTime(), EndDate = new DateTime() }
+                );
+
+
             #endregion
-            
+
+            #region Records
+
+            builder.Entity<Record>().HasData(
+                new Record { Id = 1, CorporationId = 2, CostAllocationId = 4, FuelCardId =1, StartDate = null, EndDate = null, Term = Term.Long, Usage = Usage.Pool },
+                new Record { Id = 2, CorporationId = 3, CostAllocationId = 4, FuelCardId =4, StartDate = null, EndDate = null, Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 3, CorporationId = null, CostAllocationId = null, FuelCardId =5, StartDate = null, EndDate = null, Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 4, CorporationId = 3, CostAllocationId = 2, FuelCardId =6, StartDate = null, EndDate = null, Term = Term.Short, Usage = Usage.RunIn },
+                new Record { Id = 5, CorporationId = 1, CostAllocationId = 2, FuelCardId =8, StartDate = null, EndDate = null, Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 6, CorporationId = 3, CostAllocationId = 2, FuelCardId =9, StartDate = new DateTime(2020, 1, 20), EndDate = new DateTime(2023, 1, 20), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 7, CorporationId = null, CostAllocationId = 2, FuelCardId =11, StartDate = new DateTime(2013, 7, 24), EndDate = new DateTime(2021, 7, 23), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 8, CorporationId = null, CostAllocationId = 4, FuelCardId =3, StartDate = null, EndDate = new DateTime(2015, 12, 26), Term = Term.Short, Usage = Usage.RunIn },
+                new Record { Id = 9, CorporationId = null, CostAllocationId = 4, FuelCardId =7, StartDate = new DateTime(2014, 11, 28), EndDate = new DateTime(2018, 11, 27), Term = Term.Long, Usage = 0 },
+                new Record { Id = 10, CorporationId = null, CostAllocationId = 2, FuelCardId =2, StartDate = new DateTime(2014, 7, 15), EndDate = new DateTime(2022, 7, 14), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 11, CorporationId = null, CostAllocationId = 4, FuelCardId =12, StartDate = new DateTime(2014, 7, 2), EndDate = new DateTime(2018, 7, 1), Term = Term.Long, Usage = 0 },
+                new Record { Id = 12, CorporationId = null, CostAllocationId = 4, FuelCardId =19, StartDate = new DateTime(2014, 4, 9), EndDate = new DateTime(2018, 4, 8), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 13, CorporationId = null, CostAllocationId = 3, FuelCardId =17, StartDate = new DateTime(2014, 3, 5), EndDate = new DateTime(2021, 3, 4), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 14, CorporationId = 3, CostAllocationId = 4, FuelCardId =18, StartDate = new DateTime(2014, 3, 5), EndDate = new DateTime(2018, 3, 4), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 15, CorporationId = null, CostAllocationId = 1, FuelCardId =16, StartDate = new DateTime(2013, 7, 24), EndDate = new DateTime(2017, 7, 23), Term = Term.Long, Usage = Usage.Replacement },
+                new Record { Id = 16, CorporationId = null, CostAllocationId = 4, FuelCardId =15, StartDate = new DateTime(2013, 5, 7), EndDate = new DateTime(2020, 5, 6), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 17, CorporationId = null, CostAllocationId = 4, FuelCardId =14, StartDate = new DateTime(2013, 3, 4), EndDate = new DateTime(2017, 3, 3), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 18, CorporationId = null, CostAllocationId = 4, FuelCardId =13, StartDate = new DateTime(2013, 2, 8), EndDate = new DateTime(2017, 2, 7), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 19, CorporationId = null, CostAllocationId = 2, FuelCardId =20, StartDate = new DateTime(2013, 1, 18), EndDate = new DateTime(2017, 1, 17), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 20, CorporationId = null, CostAllocationId = 4, FuelCardId =21, StartDate = new DateTime(2012, 11, 28), EndDate = new DateTime(2016, 11, 27), Term = Term.Long, Usage = 0 },
+                new Record { Id = 21, CorporationId = null, CostAllocationId = 4, FuelCardId =22, StartDate = new DateTime(2012, 6, 28), EndDate = new DateTime(2016, 6, 27), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 22, CorporationId = null, CostAllocationId = 4, FuelCardId =23, StartDate = new DateTime(2012, 3, 19), EndDate = new DateTime(2016, 3, 18), Term = Term.Long, Usage = 0 },
+                new Record { Id = 23, CorporationId = 1, CostAllocationId = 4, FuelCardId =24, StartDate = new DateTime(2012, 4, 1), EndDate = new DateTime(2017, 4, 1), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 24, CorporationId = null, CostAllocationId = 3, FuelCardId =25, StartDate = new DateTime(2012, 2, 21), EndDate = new DateTime(2016, 2, 20), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 25, CorporationId = null, CostAllocationId = 2, FuelCardId =26, StartDate = new DateTime(2012, 1, 15), EndDate = new DateTime(2017, 1, 14), Term = Term.Privé, Usage = Usage.Definitive },
+                new Record { Id = 26, CorporationId = null, CostAllocationId = 3, FuelCardId =27, StartDate = new DateTime(2012, 1, 19), EndDate = new DateTime(2017, 1, 18), Term = Term.Privé, Usage = Usage.Definitive },
+                new Record { Id = 27, CorporationId = null, CostAllocationId = 4, FuelCardId =28, StartDate = new DateTime(2012, 10, 27), EndDate = new DateTime(2015, 10, 27), Term = Term.Long, Usage = Usage.Definitive },
+                new Record { Id = 28, CorporationId = null, CostAllocationId = 1, FuelCardId =29, StartDate = null, EndDate = null, Term = Term.Privé, Usage = Usage.Definitive }
+
+                );
+
+
+            #endregion
+
+            #endregion
+
             //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 
             var valueComparer = new ValueComparer<string[]>(
                 (s1, s2) => s1.SequenceEqual(s2),

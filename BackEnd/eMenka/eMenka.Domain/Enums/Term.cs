@@ -3,6 +3,7 @@
     public enum Term
     {
         Long,
-        Short
+        Short,
+        Privé
     }
 }
