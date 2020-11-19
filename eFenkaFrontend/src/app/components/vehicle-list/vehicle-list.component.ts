@@ -22,7 +22,7 @@ export class VehicleListComponent implements OnInit {
   ascDescBoolean: boolean;
 
   page = 1;
-  selectedAmount = 5;
+  selectedAmount = this.pageAmounts[0];
 
   constructor(private router: Router) { }
 
