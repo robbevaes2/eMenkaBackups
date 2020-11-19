@@ -66,6 +66,9 @@ namespace eMenka.API
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IRecordRepository, RecordRepository>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<IFuelCardRepository, FuelCardRepository>();
+            services.AddScoped<ICostAllocationRepository, CostAllocationRepository>();
+            services.AddScoped<ICorporationRepository, CorporationRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {
