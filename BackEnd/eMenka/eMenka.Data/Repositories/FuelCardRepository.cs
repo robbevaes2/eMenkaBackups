@@ -22,6 +22,7 @@ namespace eMenka.Data.Repositories
         {
             return _context.FuelCards
                 .Include(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .ToList();
         }
 
@@ -29,6 +30,7 @@ namespace eMenka.Data.Repositories
         {
             return _context.FuelCards
                 .Include(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .FirstOrDefault(fc => fc.Id == id);
         }
 
@@ -37,6 +39,7 @@ namespace eMenka.Data.Repositories
             return _context.FuelCards
                 .Where(statement)
                 .Include(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .ToList();
         }
     }

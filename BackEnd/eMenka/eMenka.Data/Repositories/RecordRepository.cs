@@ -22,7 +22,10 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Include(r => r.FuelCard)
+                .ThenInclude(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .Include(r => r.Corporation)
+                .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
                 .ToList();
         }
@@ -31,7 +34,10 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Include(r => r.FuelCard)
+                .ThenInclude(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .Include(r => r.Corporation)
+                .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
                 .FirstOrDefault(r => r.Id == id);
         }
@@ -39,9 +45,11 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<Record> Find(Expression<Func<Record, bool>> statement)
         {
             return _context.Records
-                .Where(statement)
                 .Include(r => r.FuelCard)
+                .ThenInclude(fc => fc.Driver)
+                .ThenInclude(d => d.Person)
                 .Include(r => r.Corporation)
+                .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
                 .ToList();
         }

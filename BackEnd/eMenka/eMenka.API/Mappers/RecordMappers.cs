@@ -20,8 +20,8 @@ namespace eMenka.API.Mappers
                 Id = record.Id,
                 Term = record.Term,
                 Usage = record.Usage,
-                EndDate = (DateTime)record.EndDate,
-                StartDate = (DateTime)record.StartDate,
+                EndDate = record.EndDate,
+                StartDate = record.StartDate,
                 Corporation = MapCorporationEntity(record.Corporation),
                 CostAllocation = MapCostAllocationEntity(record.CostAllocation)
             };
