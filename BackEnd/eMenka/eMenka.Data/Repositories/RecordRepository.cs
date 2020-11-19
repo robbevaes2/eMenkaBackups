@@ -22,6 +22,8 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Include(r => r.FuelCard)
+                .Include(r => r.Corporation)
+                .Include(r => r.CostAllocation)
                 .ToList();
         }
 
@@ -29,6 +31,8 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Include(r => r.FuelCard)
+                .Include(r => r.Corporation)
+                .Include(r => r.CostAllocation)
                 .FirstOrDefault(r => r.Id == id);
         }
 
@@ -37,6 +41,8 @@ namespace eMenka.Data.Repositories
             return _context.Records
                 .Where(statement)
                 .Include(r => r.FuelCard)
+                .Include(r => r.Corporation)
+                .Include(r => r.CostAllocation)
                 .ToList();
         }
     }

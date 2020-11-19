@@ -20,8 +20,8 @@ namespace eMenka.API.Mappers
                 Usage = record.Usage,
                 EndDate = (DateTime)record.EndDate,
                 StartDate = (DateTime)record.StartDate,
-                Corporation = record.CorporationId, //todo map
-                CostAllocation = record.CostAllocationId //todo map
+                Corporation = MapCorporationEntity(record.Corporation),
+                CostAllocation = MapCostAllocationEntity(record.CostAllocation)
             };
         }
 
@@ -37,6 +37,43 @@ namespace eMenka.API.Mappers
                 Id = recordModel.Id,
                 StartDate = recordModel.StartDate,
                 Term = recordModel.Term
+            };
+        }
+
+        public static CorporationReturnModel MapCorporationEntity(Corporation corporation)
+        {
+            return new CorporationReturnModel
+            {
+                Abbreviation = corporation.Abbreviation,
+                Company = MapCompanyEntity(corporation.Company),
+                EndDate = corporation.EndDate,
+                Id = corporation.Id,
+                Name = corporation.Name,
+                StartDate = corporation.StartDate
+            };
+        }
+
+        public static CostAllocationReturnModel MapCostAllocationEntity(CostAllocation costAllocation)
+        {
+            return new CostAllocationReturnModel
+            {
+                Abbreviation = costAllocation.Abbreviation,
+                EndDate = costAllocation.EndDate,
+                Id = costAllocation.Id,
+                Name = costAllocation.Name,
+                StartDate = costAllocation.StartDate
+            };
+        }
+
+        public static CostAllocation MapCostAllocationModel(CostAllocationModel costAllocationModel)
+        {
+            return new CostAllocation
+            {
+                Abbreviation = costAllocationModel.Abbreviation,
+                Id = costAllocationModel.Id,
+                Name = costAllocationModel.Name,
+                StartDate = costAllocationModel.StartDate,
+                EndDate = costAllocationModel.EndDate
             };
         }
 
