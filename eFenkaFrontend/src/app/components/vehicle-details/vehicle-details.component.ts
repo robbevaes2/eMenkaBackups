@@ -194,6 +194,7 @@ export class VehicleDetailsComponent implements OnInit {
       fiscalePk: 50,
       emission: 1,
       power: 300,
+      licensePlate: '1-abc-123',
       endData: new Date('2020-01-16'),
       isActive: true
     }
