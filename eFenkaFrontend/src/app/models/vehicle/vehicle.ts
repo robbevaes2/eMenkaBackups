@@ -20,11 +20,11 @@ export class Vehicle {
   fuelCard: FuelCard;
   volume: number;
   category: Category;
-  fiscalHp: number;
+  fiscalHP: number;
   emission: number;
   power: number;
   licensePlate: string;
-  endDataDelivery: Date;
+  endDateDelivery: Date;
   isActive: boolean;
   chassis: string;
   registrationDate: Date;

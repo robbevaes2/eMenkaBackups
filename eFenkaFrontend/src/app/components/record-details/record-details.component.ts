@@ -30,9 +30,9 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls['country'].setValue(this.selectedRecord.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedRecord.volume);
     this.form.controls['power'].setValue(this.selectedRecord.power);
-    this.form.controls['fiscalePk'].setValue(this.selectedRecord.fiscalHp);
+    this.form.controls['fiscalHP'].setValue(this.selectedRecord.fiscalHP);
     this.form.controls['emission'].setValue(this.selectedRecord.emission);
-    this.form.controls['endDate'].setValue(this.selectedRecord.endDataDelivery.toISOString().split('T')[0]);
+    this.form.controls['endDate'].setValue(this.selectedRecord.endDateDelivery.toISOString().split('T')[0]);
     this.form.controls['licensePlate'].setValue(this.selectedRecord.licensePlate);
   }
 
@@ -46,7 +46,7 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls['fuelType'].disable();
     this.form.controls['volume'].disable();
     this.form.controls['power'].disable();
-    this.form.controls['fiscalePk'].disable();
+    this.form.controls['fiscalHP'].disable();
     this.form.controls['emission'].disable();
     this.form.controls['endDate'].disable();
     this.form.controls['licensePlate'].disable();
@@ -63,7 +63,7 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls['fuelType'].enable();
     this.form.controls['volume'].enable();
     this.form.controls['power'].enable();
-    this.form.controls['fiscalePk'].enable();
+    this.form.controls['fiscalHP'].enable();
     this.form.controls['emission'].enable();
     this.form.controls['endDate'].enable();
     this.form.controls['licensePlate'].enable();

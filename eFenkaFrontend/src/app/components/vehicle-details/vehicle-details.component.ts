@@ -8,6 +8,7 @@ import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { Model } from 'src/app/models/model/model';
 import { Serie } from 'src/app/models/serie/serie';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
+import { VehicleService } from 'src/app/services/vehicle-service';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 
 @Component({
@@ -27,7 +28,7 @@ export class VehicleDetailsComponent implements OnInit {
   selectedVehicle: Vehicle;
   isEditable: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
     const vehicleId = this.route.snapshot.params['index'];
@@ -49,7 +50,7 @@ export class VehicleDetailsComponent implements OnInit {
       fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
       power: new FormControl(null, [Validators.required, Validators.min(0)]),
-      fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       licensePlate: new FormControl(null, [Validators.required])
@@ -69,9 +70,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
     this.form.controls['power'].setValue(this.selectedVehicle.power);
-    this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscalHp);
+    this.form.controls['fiscalHP'].setValue(this.selectedVehicle.fiscalHP);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
-    this.form.controls['endDate'].setValue(this.selectedVehicle.endDataDelivery.toISOString().split('T')[0]);
+    this.form.controls['endDate'].setValue(this.selectedVehicle.endDateDelivery.toISOString().split('T')[0]);
     this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
   }
 
@@ -85,7 +86,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fuelType'].disable();
     this.form.controls['volume'].disable();
     this.form.controls['power'].disable();
-    this.form.controls['fiscalePk'].disable();
+    this.form.controls['fiscalHP'].disable();
     this.form.controls['emission'].disable();
     this.form.controls['endDate'].disable();
     this.form.controls['licensePlate'].disable();
@@ -102,7 +103,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fuelType'].enable();
     this.form.controls['volume'].enable();
     this.form.controls['power'].enable();
-    this.form.controls['fiscalePk'].enable();
+    this.form.controls['fiscalHP'].enable();
     this.form.controls['emission'].enable();
     this.form.controls['endDate'].enable();
     this.form.controls['licensePlate'].enable();
@@ -153,8 +154,8 @@ export class VehicleDetailsComponent implements OnInit {
   getBrands(): Brand[] {
     return [
       new Brand(1, 'Audi'),
-      new Brand(2, 'Ferrari'),
-      new Brand(3, 'Bugatti')
+      new Brand(2, 'BMW'),
+      new Brand(3, 'Volkswagen')
     ];
   }
 
@@ -203,17 +204,16 @@ export class VehicleDetailsComponent implements OnInit {
       id: 1,
       brand: new Brand(1, 'Audi'),
       model: new Model(3, 'A6'),
-      //serie: new Serie(1, 'Sportback'),
       fuelType: new FuelType(1, 'Benzine'),
       engineType: new EngineType(1, '1.9 TDI'),
       doorType: new DoorType(3, '5-deurs'),
       fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
-      fiscalHp: 50,
+      fiscalHP: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
-      endDataDelivery: new Date('2020-01-16'),
+      endDateDelivery: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
       registrationDate: new Date('2020-01-16'),

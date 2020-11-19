@@ -9,6 +9,7 @@ import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
+import { VehicleService } from '../../services/vehicle-service';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -25,13 +26,13 @@ export class NewVehicleItemComponent implements OnInit {
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
-    this.brands = this.getBrands();
-    this.doorTypes = this.getDoorTypes();
-    this.fuelTypes = this.getFuelTypes();
-    this.fuelCards = this.getFuelCards();
+    this.setBrands();
+    this.setDoorTypes();
+    this.setFuelTypes();
+    this.setFuelCards();
 
     this.form = new FormGroup({
       brand: new FormControl(null, [Validators.required]),
@@ -43,11 +44,31 @@ export class NewVehicleItemComponent implements OnInit {
       fuelType: new FormControl(null, [Validators.required]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
       power: new FormControl(null, [Validators.required, Validators.min(0)]),
-      fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       licensePlate: new FormControl(null, [Validators.required])
     });
+  }
+
+  mapToModel(values: any): any {
+    return {
+      brandId: values.brand,
+      modelId: values.model,
+      fuelTypeId: values.fuelType,
+      engineTypeId: values.engineType,
+      doorTypeId: values.doorType,
+      fuelCardId: values.fuelCard,
+      volume: values.volume,
+      fiscalHP: values.fiscalHP,
+      emission: values.emission,
+      power: values.power,
+      isActive: true,
+      categoryId: 1,
+      licensePlate: values.licensePlate,
+      chassis: null,
+      endDateDelivery: values.endDate
+    };
   }
 
   onChangedBrand(event): void {
@@ -55,9 +76,9 @@ export class NewVehicleItemComponent implements OnInit {
     const brandId = event.target.value;
     console.log('changed with ' + brandId);
 
-    this.models = this.getModels();
-    this.series = this.getSeries();
-    this.engineTypes = this.getEngineTypes();
+    this.setModels(brandId);
+    this.setSeries(brandId);
+    this.setEngineTypes(brandId);
   }
 
   navigateToListVehicleComponent(): void {
@@ -66,62 +87,79 @@ export class NewVehicleItemComponent implements OnInit {
 
   saveNewVehicle(form: FormGroup): void {
     // Save vehicle
-    console.log(form.value);
-    //this.router.navigate(['/vehicles']);
+    //this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe();
+
+    if (confirm('Are you sure you want to save this vehicle?')) {
+      this.router.navigate(['/vehicles']);
+    }
   }
 
-  getBrands(): Brand[] {
-    return [
-      new Brand(1, 'Audi'),
-      new Brand(2, 'Ferrari'),
-      new Brand(3, 'Bugatti')
+  setBrands(): void {
+    //this.vehicleService.getAllBrands().subscribe(data => this.brands = data);
+
+    this.brands = [
+      new Brand(1, 'BMW'),
+      new Brand(2, 'Ford'),
+      new Brand(3, 'Volkswagen')
     ];
   }
 
-  getModels(): Model[] {
-    return [
+  setModels(brandId: number): void {
+    this.vehicleService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
+
+    /*return [
       new Model(1, 'A4'),
       new Model(2, 'A5'),
       new Model(3, 'A6')
-    ];
+    ];*/
   }
 
-  getSeries(): Serie[] {
-    return [
+  setSeries(brandId: number): void {
+    this.vehicleService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
+
+    /*return [
       new Serie(1, 'Sportback'),
       new Serie(2, 'Berline'),
       new Serie(3, 'SUV')
-    ];
+    ];*/
   }
 
-  getEngineTypes(): EngineType[] {
-    return [
+  setEngineTypes(brandId: number): void {
+    this.vehicleService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
+
+    /*return [
       new EngineType(1, '1.9 TDI'),
       new EngineType(2, '2.0 TDI'),
       new EngineType(3, '2.0 TDI e')
-    ];
+    ];*/
   }
 
-  getDoorTypes(): DoorType[] {
-    return [
+  setDoorTypes(): void {
+    this.vehicleService.getAllDoorTypesByBrandId().subscribe(data => this.doorTypes = data);
+
+    /*return [
       new DoorType(1, '2-deurs'),
       new DoorType(2, '3-deurs'),
       new DoorType(3, '5-deurs')
-    ];
+    ];*/
   }
 
-  getFuelTypes(): FuelType[] {
-    return [
+  setFuelTypes(): void {
+    this.vehicleService.getAllFuelTypesByBrandId().subscribe(data => this.fuelTypes = data);
+
+    /*return [
       new FuelType(1, 'Benzine'),
       new FuelType(2, 'Diesel'),
       new FuelType(3, 'Elektrisch')
-    ];
+    ];*/
   }
 
-  getFuelCards(): FuelCard[] {
-    return [
+  setFuelCards(): void {
+    this.vehicleService.getAllFuelCardsByBrandId().subscribe(data => this.fuelCards = data);
+
+    /*return [
       new FuelCard(1, null, null, null, null, null, true),
       new FuelCard(2, null, null, null, null, null, true)
-    ];
+    ];*/
   }
 }

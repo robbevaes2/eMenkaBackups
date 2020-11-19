@@ -28,10 +28,7 @@ export class VehicleListComponent implements OnInit {
 
   ngOnInit(): void {
     //this.vehicles = this.getVehicleDummyList();
-    this.vehicleService.getAllVehicles().subscribe(data => {
-      this.vehicles = data;
-      console.log(data);
-    });
+    this.vehicleService.getAllVehicles().subscribe(data => this.vehicles = data);
   }
 
   navigateToNewVehicleComponent(): void {
@@ -53,11 +50,11 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(1, '5-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalHp: 50,
+          fiscalHP: 50,
           emission: 1,
           power: 300,
           licensePlate: '1-abc-123',
-          endDataDelivery: new Date('2020-01-16'),
+          endDateDelivery: new Date('2020-01-16'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
           registrationDate: new Date('2020-01-16'),
@@ -75,11 +72,11 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(2, '3-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalHp: 50,
+          fiscalHP: 50,
           emission: 3,
           power: 400,
           licensePlate: '1-abc-124',
-          endDataDelivery: new Date('2020-12-20'),
+          endDateDelivery: new Date('2020-12-20'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
           registrationDate: new Date('2020-01-16'),
@@ -97,11 +94,11 @@ export class VehicleListComponent implements OnInit {
           doorType: new DoorType(2, '5-deurs'),
           fuelCard: new FuelCard(1, null, null, null, null, null, true),
           volume: 2000,
-          fiscalHp: 50,
+          fiscalHP: 50,
           emission: 3,
           power: 400,
           licensePlate: '1-abc-124',
-          endDataDelivery: new Date('2020-12-20'),
+          endDateDelivery: new Date('2020-12-20'),
           isActive: true,
           chassis: 'feoipajfpoaezfjipio',
           registrationDate: new Date('2020-01-16'),
@@ -111,6 +108,10 @@ export class VehicleListComponent implements OnInit {
           averageFuel: null
         }
       ];
+  }
+
+  dateToStringConverter(date: string) {
+    return new Date(date).toLocaleDateString();
   }
 
   switchPage(event): void {
@@ -149,8 +150,8 @@ export class VehicleListComponent implements OnInit {
 
       // alphabetical ascending
       this.vehicles.sort((t1, t2) => {
-        const date1 = t1.endDataDelivery;
-        const date2 = t2.endDataDelivery;
+        const date1 = t1.endDateDelivery;
+        const date2 = t2.endDateDelivery;
 
         if (date2 > date1) { return 1; }
         if (date2 < date1) { return -1; }
@@ -161,8 +162,8 @@ export class VehicleListComponent implements OnInit {
 
       // alphabetical descending
       this.vehicles.sort((t1, t2) => {
-        const date1 = t1.endDataDelivery;
-        const date2 = t2.endDataDelivery;
+        const date1 = t1.endDateDelivery;
+        const date2 = t2.endDateDelivery;
         if (date1 > date2) { return 1; }
         if (date1 < date2) { return -1; }
         return 0;

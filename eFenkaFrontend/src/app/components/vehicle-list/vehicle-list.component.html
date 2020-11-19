@@ -22,16 +22,16 @@
       <tbody>
         <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
             (click)="navigateToVehicleDetailsComponent(vehicle.id)">
-          <td scope="row">{{ vehicle.brand.name }}</td>
-          <td>{{ vehicle.model.name }}</td>
-          <td>{{ vehicle.fuelType.name }}</td>
-          <td>{{ vehicle.engineType.name }}</td>
-          <td>{{ vehicle.model.name }}</td>
-          <td>{{ vehicle.doorType.name }}</td>
+          <td scope="row">{{ vehicle.brand?.name }}</td>
+          <td>{{ vehicle.model?.name }}</td>
+          <td>{{ vehicle.fuelType?.name }}</td>
+          <td>{{ vehicle.engineType?.name }}</td>
+          <td>{{ vehicle.category?.name }}</td>
+          <td>{{ vehicle.doorType?.name }}</td>
           <td>{{ vehicle.volume }}</td>
-          <td>{{ vehicle.fiscalHp }}</td>
+          <td>{{ vehicle.fiscalHP }}</td>
           <td>{{ vehicle.power }}</td>
-          <td>{{ vehicle.endDataDelivery?.toLocaleDateString() }}</td>
+          <td>{{ dateToStringConverter(vehicle.endDateDelivery) }}</td>
         </tr>
       </tbody>
     </table>
