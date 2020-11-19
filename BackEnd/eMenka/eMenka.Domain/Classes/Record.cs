@@ -9,7 +9,8 @@ namespace eMenka.Domain.Classes
         public FuelCard FuelCard { get; set; }
         public int FuelCardId { get; set; }
         public Company Company { get; set; }
-        public string City { get; set; }
+        public CostAllocation CostAllocation { get; set; }
+        public int? CostAllocationId { get; set; }
         public Term Term { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

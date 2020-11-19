@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace eMenka.API.VehicleModels
+﻿namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
-    public class ExteriorColorModel
+    public class ExteriorColorReturnModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

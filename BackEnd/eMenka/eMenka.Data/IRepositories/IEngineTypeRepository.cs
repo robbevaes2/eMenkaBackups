@@ -5,7 +5,7 @@ using eMenka.Domain.Classes;
 
 namespace eMenka.Data.IRepositories
 {
-    public interface IMotorTypeRepository : IGenericRepository<MotorType>
+    public interface IEngineTypeRepository : IGenericRepository<EngineType>
     {
     }
 }
