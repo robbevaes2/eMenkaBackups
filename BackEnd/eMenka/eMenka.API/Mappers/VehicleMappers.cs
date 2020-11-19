@@ -22,7 +22,7 @@ namespace eMenka.API.Mappers
                 EngineType = MapEngineTypeEntity(vehicle.EngineType),
                 DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
-                FiscalHp = vehicle.FiscalHP,
+                FiscalHP = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
@@ -47,7 +47,7 @@ namespace eMenka.API.Mappers
                 BrandId = (int) (int)vehicleModel.BrandId,
                 DoorTypeId = (int)vehicleModel.DoorTypeId,
                 Emission = (int)vehicleModel.Emission,
-                FiscalHP = (int)vehicleModel.FiscalHp,
+                FiscalHP = (int)vehicleModel.FiscalHP,
                 FuelTypeId = (int)vehicleModel.FuelTypeId, 
                 IsActive = vehicleModel.IsActive,
                 ModelId = (int)vehicleModel.ModelId,
@@ -63,20 +63,20 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static SerieReturnModel MapSerieEntity(Serie serie)
+        public static SerieReturnModel MapSerieEntity(Series series)
         {
-            if (serie == null)
+            if (series == null)
                 return null;
             return new SerieReturnModel
             {
-                Brand = MapBrandEntity(serie.Brand),
-                Name = serie.Name,
-                Id = serie.Id
+                Brand = MapBrandEntity(series.Brand),
+                Name = series.Name,
+                Id = series.Id
             };
         }
-        public static Serie MapSerieModel(SerieModel serieModel)
+        public static Series MapSerieModel(SerieModel serieModel)
         {
-            return new Serie
+            return new Series
             {
                 BrandId = (int)serieModel.BrandId,
                 Id = serieModel.Id,
