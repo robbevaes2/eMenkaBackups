@@ -25,10 +25,10 @@ export class RecordListComponent implements OnInit {
   records: Record[];
   pageAmounts = [5,10,25];
 
-  page = 1;
-  selectedAmount = 5;
-  pageSize;
+  ascDescBoolean: boolean;
 
+  page = 1;
+  selectedAmount = this.pageAmounts[0];
 
   constructor(private router: Router) { }
 
@@ -46,13 +46,6 @@ export class RecordListComponent implements OnInit {
 
   switchPage(event): void {
     this.page = event;
-  }
-
-  handlePageSizeChange(event): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-    console.log(this.selectedAmount);
-    console.log(this.pageSize);
   }
 
   getRecordDummyList(): Record[] {
@@ -115,6 +108,44 @@ export class RecordListComponent implements OnInit {
       endDateDriversLicense: null,
       gender: null,
       title: null
+    }
+  }
+
+  isUndefined() {
+    if (this.ascDescBoolean == undefined) {
+      this.ascDescBoolean = true;
+    }
+  }
+
+  sort(type: string) {
+    this.isUndefined();
+
+    if (this.ascDescBoolean) {
+      this.ascDescBoolean = false;
+
+      // alphabetical ascending
+      this.records.sort((t1, t2) => {
+        const value1 = t1[type];
+        const value2 = t2[type];
+
+        console.log(type);
+
+        if (value2 > value1) { return 1; }
+        if (value2 < value1) { return -1; }
+        return 0;
+      });
+    } else {
+      this.ascDescBoolean = true;
+
+      // alphabetical descending
+      this.records.sort((t1, t2) => {
+        const value1 = t1[type];
+        const value2 = t2[type];
+
+        if (value2 < value1) { return 1; }
+        if (value2 > value1) { return -1; }
+        return 0;
+      });
     }
   }
 }

@@ -1,0 +1,17 @@
+#add-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#amount-selector {
+    margin-top: 1rem;
+}
+
+.pagination /deep/ .ngx-pagination {
+    margin: 0px;
+    padding: 0px;
+}
+
+.sortable {
+    cursor: pointer;
+}
