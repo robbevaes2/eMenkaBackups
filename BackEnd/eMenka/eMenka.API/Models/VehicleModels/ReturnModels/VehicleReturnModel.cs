@@ -15,11 +15,15 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public CategoryReturnModel Category { get; set; }
         public FuelCardReturnModel FuelCard { get; set; }
         public int? Volume { get; set; }
-        public int? FiscalePk { get; set; }
+        public int? FiscalHp { get; set; }
         public int? Emission { get; set; }
         public int? Power { get; set; }
-        public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
         public string LicensePlate { get; set; }
+        public string Chassis { get; set; }
+        public int? EngineCapacity { get; set; }
+        public int EnginePower { get; set; }
+        public DateTime? EndDateDelivery { get; set; }
+        public int? AverageFuel { get; set; }
     }
 }

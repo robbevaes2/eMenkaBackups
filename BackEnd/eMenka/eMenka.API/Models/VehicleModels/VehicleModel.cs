@@ -21,19 +21,21 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public int? Volume { get; set; }
         [Required]
-        public int? FiscalePk { get; set; }
+        public int? FiscalHp { get; set; }
         [Required]
         public int? Emission { get; set; }
         [Required]
         public int? Power { get; set; }
-        [Required]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{dd/MM:yyyy}")]
-        public DateTime EndDate { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]
         public int? CategoryId { get; set; }
 
         public string LicensePlate { get; set; }
+        public string Chassis { get; set; }
+        public int? EngineCapacity { get; set; }
+        public int EnginePower { get; set; }
+        public DateTime? EndDateDelivery { get; set; }
+        public int? AverageFuel { get; set; }
     }
 }

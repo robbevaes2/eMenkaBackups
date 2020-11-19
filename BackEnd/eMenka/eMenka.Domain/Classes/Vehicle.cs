@@ -26,12 +26,12 @@ namespace eMenka.Domain.Classes
         public int? AverageFuel { get; set; }
         public int FiscalHP { get; set; }
         public int? Volume { get; set; }
-        public int? FiscalePk { get; set; }
         public int? Emission { get; set; }
         public int? Power { get; set; }
         public string LicensePlate { get; set; }
         public bool IsActive { get; set; }
         public int? CategoryId { get; set; }
         public Category Category { get; set; }
+        public string Chassis { get; set; }
     }
 }

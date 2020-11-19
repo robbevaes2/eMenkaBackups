@@ -20,14 +20,19 @@ namespace eMenka.API.Mappers
                 EngineType = MapEngineTypeEntity(vehicle.EngineType),
                 DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
-                FiscalePk = vehicle.FiscalePk,
+                FiscalHp = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = MapModelEntity(vehicle.Model),
                 FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard) ,
                 Category = MapCategoryEntity(vehicle.Category),
-                LicensePlate = vehicle.LicensePlate
+                LicensePlate = vehicle.LicensePlate,
+                Chassis = vehicle.Chassis,
+                AverageFuel = vehicle.AverageFuel,
+                EndDateDelivery = vehicle.EndDateDelivery,
+                EngineCapacity = vehicle.EngineCapacity,
+                EnginePower = vehicle.EnginePower
             };
         }
 
@@ -40,14 +45,19 @@ namespace eMenka.API.Mappers
                 BrandId = (int) (int)vehicleModel.BrandId,
                 DoorTypeId = (int)vehicleModel.DoorTypeId,
                 Emission = (int)vehicleModel.Emission,
-                FiscalePk = (int)vehicleModel.FiscalePk,
+                FiscalHP = (int)vehicleModel.FiscalHp,
                 FuelTypeId = (int)vehicleModel.FuelTypeId, 
                 IsActive = vehicleModel.IsActive,
                 ModelId = (int)vehicleModel.ModelId,
                 Power = (int)vehicleModel.Power,
                 Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
-                FuelCardId = (int)vehicleModel.FuelCardId //temporary fix untill fuelcard is implemented
+                FuelCardId = (int)vehicleModel.FuelCardId,
+                Chassis = vehicleModel.Chassis,
+                AverageFuel = vehicleModel.AverageFuel,
+                EndDateDelivery = vehicleModel.EndDateDelivery,
+                EngineCapacity = vehicleModel.EngineCapacity,
+                EnginePower = vehicleModel.EnginePower
             };
         }
 
