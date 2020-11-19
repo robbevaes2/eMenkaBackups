@@ -10,8 +10,8 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201119114522_Initial")]
-    partial class Initial
+    [Migration("20201119134425_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -6838,6 +6838,9 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Chassis")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("DoorTypeId")
                         .HasColumnType("int");
 
@@ -6857,9 +6860,6 @@ namespace eMenka.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("FiscalHP")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FiscalePk")
                         .HasColumnType("int");
 
                     b.Property<int?>("FuelCardId")

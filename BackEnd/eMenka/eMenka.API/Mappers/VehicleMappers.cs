@@ -12,6 +12,8 @@ namespace eMenka.API.Mappers
     {
         public static VehicleReturnModel MapVehicleEntity(Vehicle vehicle)
         {
+            if (vehicle == null)
+                return null;
             return new VehicleReturnModel
             {
                 Id = vehicle.Id,
@@ -63,6 +65,8 @@ namespace eMenka.API.Mappers
 
         public static SerieReturnModel MapSerieEntity(Serie serie)
         {
+            if (serie == null)
+                return null;
             return new SerieReturnModel
             {
                 Brand = MapBrandEntity(serie.Brand),
@@ -82,6 +86,8 @@ namespace eMenka.API.Mappers
 
         public static EngineTypeReturnModel MapEngineTypeEntity(EngineType engineType)
         {
+            if (engineType == null)
+                return null;
             return new EngineTypeReturnModel
             {
                 Brand = MapBrandEntity(engineType.Brand),
@@ -101,6 +107,8 @@ namespace eMenka.API.Mappers
 
         public static ModelReturnModel MapModelEntity(Model model)
         {
+            if (model == null)
+                return null;
             return new ModelReturnModel
             {
                 Brand = MapBrandEntity(model.Brand),
@@ -129,6 +137,8 @@ namespace eMenka.API.Mappers
 
         public static BrandReturnModel MapBrandEntity(Brand brand)
         {
+            if (brand == null)
+                return null;
             return new BrandReturnModel
             {
                 Name = brand.Name,
@@ -140,6 +150,8 @@ namespace eMenka.API.Mappers
 
         public static FuelTypeReturnModel MapFuelTypeEntity(FuelType fuelType)
         {
+            if (fuelType == null)
+                return null;
             return new FuelTypeReturnModel
             {
                 Id = fuelType.Id,
@@ -160,6 +172,8 @@ namespace eMenka.API.Mappers
 
         public static DoorTypeReturnModel MapDoorTypeEntity(DoorType doorType)
         {
+            if (doorType == null)
+                return null;
             return new DoorTypeReturnModel
             {
                 Id = doorType.Id,
@@ -178,6 +192,8 @@ namespace eMenka.API.Mappers
 
         public static CategoryReturnModel MapCategoryEntity(Category category)
         {
+            if (category == null)
+                return null;
             return new CategoryReturnModel
             {
                 Id = category.Id,
@@ -193,7 +209,7 @@ namespace eMenka.API.Mappers
                 Id = categoryModel.Id
             };
         }
-
+        /*
         private static Func<InteriorColor, InteriorColorReturnModel> MapInteriorColorEntity()
         {
             return ic => new InteriorColorReturnModel
@@ -214,6 +230,6 @@ namespace eMenka.API.Mappers
                 Id = ec.Id,
                 Name = ec.Name
             };
-        }
+        }*/
     }
 }

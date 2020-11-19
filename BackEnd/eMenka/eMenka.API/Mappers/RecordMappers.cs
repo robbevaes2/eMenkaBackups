@@ -12,6 +12,8 @@ namespace eMenka.API.Mappers
     {
         public static RecordReturnModel MapRecordEntity(Record record)
         {
+            if (record == null)
+                return null;
             return new RecordReturnModel
             {
                 FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard), 
@@ -42,6 +44,8 @@ namespace eMenka.API.Mappers
 
         public static CorporationReturnModel MapCorporationEntity(Corporation corporation)
         {
+            if (corporation == null)
+                return null;
             return new CorporationReturnModel
             {
                 Abbreviation = corporation.Abbreviation,
@@ -68,6 +72,8 @@ namespace eMenka.API.Mappers
 
         public static CostAllocationReturnModel MapCostAllocationEntity(CostAllocation costAllocation)
         {
+            if (costAllocation == null)
+                return null;
             return new CostAllocationReturnModel
             {
                 Abbreviation = costAllocation.Abbreviation,
@@ -92,6 +98,8 @@ namespace eMenka.API.Mappers
 
         public static CompanyReturnModel MapCompanyEntity(Company company)
         {
+            if (company == null)
+                return null;
             return new CompanyReturnModel
             {
                 Name = company.Name,

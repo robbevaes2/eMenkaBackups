@@ -12,6 +12,8 @@ namespace eMenka.API.Mappers
     {
         public static FuelCardReturnModel MapFuelCardEntity(FuelCard fuelCard)
         {
+            if (fuelCard == null)
+                return null;
             return new FuelCardReturnModel
             {
                 Driver = MapDriverEntity(fuelCard.Driver),
@@ -40,6 +42,8 @@ namespace eMenka.API.Mappers
         }
         public static DriverReturnModel MapDriverEntity(Driver driver)
         {
+            if (driver == null)
+                return null;
             return new DriverReturnModel
             {
                 EndDate = driver.EndDate,
@@ -60,6 +64,8 @@ namespace eMenka.API.Mappers
         }
         public static PersonReturnModel MapPersonEntity(Person person)
         {
+            if (person == null)
+                return null;
             return new PersonReturnModel
             {
                 Title = person.Title,
