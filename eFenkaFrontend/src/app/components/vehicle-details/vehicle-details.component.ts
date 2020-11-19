@@ -129,7 +129,7 @@ export class VehicleDetailsComponent implements OnInit {
 
   saveEditVehicle(form: FormGroup): void {
     if (this.isEditable) {
-      if (confirm('Are you sure you want to save this vehicle?')) {
+      if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
         // Save vehicle and assign new vehicle (get request by vehicleId) to selectedVehicle
         //this.fillForm();
         this.disableForm();
@@ -140,7 +140,7 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   deleteVehicle(): void {
-    if (confirm('Are you sure you want to delete this vehicle?')) {
+    if (confirm('Bent u zeker dat u deze wagen wilt verwijderen?')) {
         // Delete vehicle
         this.navigateToListVehicleComponent();
     }

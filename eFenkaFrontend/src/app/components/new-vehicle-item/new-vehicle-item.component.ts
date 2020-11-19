@@ -89,7 +89,7 @@ export class NewVehicleItemComponent implements OnInit {
     // Save vehicle
     //this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe();
 
-    if (confirm('Are you sure you want to save this vehicle?')) {
+    if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
       this.router.navigate(['/vehicles']);
     }
   }
