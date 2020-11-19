@@ -8,7 +8,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public BrandReturnModel Brand { get; set; }
         public ModelReturnModel Model { get; set; }
         public FuelTypeReturnModel FuelType { get; set; } 
-        public MotorTypeReturnModel MotorType { get; set; }
+        public EngineTypeReturnModel EngineType { get; set; }
         public DoorTypeReturnModel DoorType { get; set; }
         public int FuelCard { get; set; } //todo refactor to FuelCardModel
         public int Volume { get; set; }

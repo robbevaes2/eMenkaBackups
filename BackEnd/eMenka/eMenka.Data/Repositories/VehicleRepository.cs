@@ -23,7 +23,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.Brand)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
-                .Include(v => v.MotorType)
+                .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .FirstOrDefault(v => v.Id == id);
         }
@@ -34,7 +34,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.Brand)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
-                .Include(v => v.MotorType)
+                .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .ToList();
         }
@@ -46,7 +46,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.Brand)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
-                .Include(v => v.MotorType)
+                .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .ToList();
         }

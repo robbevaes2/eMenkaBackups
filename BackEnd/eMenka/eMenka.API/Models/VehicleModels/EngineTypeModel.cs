@@ -2,7 +2,7 @@
 
 namespace eMenka.API.Models.VehicleModels
 {
-    public class MotorTypeModel
+    public class EngineTypeModel
     {
         public int Id { get; set; }
         [Required]

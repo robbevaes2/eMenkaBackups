@@ -17,7 +17,7 @@ namespace eMenka.API.Mappers
                 Id = vehicle.Id,
                 Brand = MapBrandEntity(vehicle.Brand),
                 FuelType = MapFuelTypeEntity(vehicle.FuelType),
-                MotorType = MapMotorTypeEntity(vehicle.MotorType),
+                EngineType = MapEngineTypeEntity(vehicle.EngineType),
                 DoorType = MapDoorTypeEntity(vehicle.DoorType), 
                 Emission = vehicle.Emission,
                 EndDate = vehicle.EndDate,
@@ -35,7 +35,7 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                MotorTypeId = (int) vehicleModel.MotorTypeId,
+                EngineTypeId = (int) vehicleModel.EngineTypeId,
                 BrandId = (int) (int)vehicleModel.BrandId,
                 DoorTypeId = (int)vehicleModel.DoorTypeId,
                 Emission = (int)vehicleModel.Emission,
@@ -69,22 +69,22 @@ namespace eMenka.API.Mappers
             };
         }
 
-        public static MotorTypeReturnModel MapMotorTypeEntity(MotorType motorType)
+        public static EngineTypeReturnModel MapEngineTypeEntity(EngineType engineType)
         {
-            return new MotorTypeReturnModel
+            return new EngineTypeReturnModel
             {
-                Brand = MapBrandEntity(motorType.Brand),
-                Name = motorType.Name,
-                Id = motorType.Id
+                Brand = MapBrandEntity(engineType.Brand),
+                Name = engineType.Name,
+                Id = engineType.Id
             };
         }
-        public static MotorType MapMotorTypeModel(MotorTypeModel motorTypeModel)
+        public static EngineType MapEngineTypeModel(EngineTypeModel engineTypeModel)
         {
-            return new MotorType
+            return new EngineType()
             {
-                BrandId = (int)motorTypeModel.BrandId,
-                Id = motorTypeModel.Id,
-                Name = motorTypeModel.Name
+                BrandId = (int)engineTypeModel.BrandId,
+                Id = engineTypeModel.Id,
+                Name = engineTypeModel.Name
             };
         }
 

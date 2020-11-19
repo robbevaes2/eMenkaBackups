@@ -17,16 +17,16 @@ namespace eMenka.API.Controllers
         private readonly IBrandRepository _brandRepository;
         private readonly IModelRepository _modelRepository;
         private readonly IFuelTypeRepository _fuelTypeRepository;
-        private readonly IMotorTypeRepository _motorTypeRepository;
+        private readonly IEngineTypeRepository _engineTypeRepository;
         private readonly IDoorTypeRepository _doorTypeRepository;
 
-        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IMotorTypeRepository motorTypeRepository, IDoorTypeRepository doorTypeRepository)
+        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
             _modelRepository = modelRepository;
             _fuelTypeRepository = fuelTypeRepository;
-            _motorTypeRepository = motorTypeRepository;
+            _engineTypeRepository = engineTypeRepository;
             _doorTypeRepository = doorTypeRepository;
         }
 
@@ -102,8 +102,8 @@ namespace eMenka.API.Controllers
             if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
-            if (_motorTypeRepository.GetById((int)vehicleModel.MotorTypeId) == null)
-                return NotFound($"No motortype with id {vehicleModel.MotorTypeId}");
+            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
+                return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
 
             if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
                 return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
@@ -131,8 +131,8 @@ namespace eMenka.API.Controllers
             if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
-            if (_motorTypeRepository.GetById((int)vehicleModel.MotorTypeId) == null)
-                return NotFound($"No motortype with id {vehicleModel.MotorTypeId}");
+            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
+                return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
 
             if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
                 return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");

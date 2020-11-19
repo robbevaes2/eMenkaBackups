@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201113163427_Initial")]
+    [Migration("20201117203652_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -914,21 +914,1111 @@ namespace eMenka.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FuelCardId")
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("FuelCardId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Language")
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Drivers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            PersonId = 2,
+                            StartDate = new DateTime(2007, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EndDate = new DateTime(2009, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 6,
+                            StartDate = new DateTime(2007, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EndDate = new DateTime(2011, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 9,
+                            StartDate = new DateTime(2009, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EndDate = new DateTime(2010, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 4,
+                            StartDate = new DateTime(2008, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EndDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 1,
+                            StartDate = new DateTime(2008, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EndDate = new DateTime(2010, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 10,
+                            StartDate = new DateTime(2007, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            PersonId = 3,
+                            StartDate = new DateTime(2007, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EndDate = new DateTime(2011, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 11,
+                            StartDate = new DateTime(2009, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EndDate = new DateTime(2010, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 12,
+                            StartDate = new DateTime(2008, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            PersonId = 13,
+                            StartDate = new DateTime(2009, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EndDate = new DateTime(2008, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 14,
+                            StartDate = new DateTime(2007, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            PersonId = 15,
+                            StartDate = new DateTime(2007, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            PersonId = 16,
+                            StartDate = new DateTime(2007, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            PersonId = 17,
+                            StartDate = new DateTime(2009, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            PersonId = 18,
+                            StartDate = new DateTime(2008, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            EndDate = new DateTime(2012, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 19,
+                            StartDate = new DateTime(2011, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            PersonId = 20,
+                            StartDate = new DateTime(2011, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EndDate = new DateTime(2014, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 21,
+                            StartDate = new DateTime(2011, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EndDate = new DateTime(2012, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 22,
+                            StartDate = new DateTime(2011, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EndDate = new DateTime(2015, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 23,
+                            StartDate = new DateTime(2011, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            PersonId = 24,
+                            StartDate = new DateTime(2011, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EndDate = new DateTime(2009, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 25,
+                            StartDate = new DateTime(2008, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EndDate = new DateTime(2008, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 26,
+                            StartDate = new DateTime(2007, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 24,
+                            PersonId = 27,
+                            StartDate = new DateTime(2012, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 25,
+                            PersonId = 28,
+                            StartDate = new DateTime(2012, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EndDate = new DateTime(2014, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 29,
+                            StartDate = new DateTime(2012, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EndDate = new DateTime(2014, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 30,
+                            StartDate = new DateTime(2012, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EndDate = new DateTime(2014, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 31,
+                            StartDate = new DateTime(2012, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EndDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 32,
+                            StartDate = new DateTime(2012, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EndDate = new DateTime(2013, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 33,
+                            StartDate = new DateTime(2012, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 31,
+                            EndDate = new DateTime(2015, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PersonId = 34,
+                            StartDate = new DateTime(2013, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 32,
+                            PersonId = 35,
+                            StartDate = new DateTime(2013, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 33,
+                            PersonId = 36,
+                            StartDate = new DateTime(2014, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 34,
+                            PersonId = 37,
+                            StartDate = new DateTime(2014, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 35,
+                            PersonId = 38,
+                            StartDate = new DateTime(2014, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 36,
+                            PersonId = 39,
+                            StartDate = new DateTime(2015, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 37,
+                            PersonId = 40,
+                            StartDate = new DateTime(2015, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 38,
+                            PersonId = 41,
+                            StartDate = new DateTime(2007, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 39,
+                            PersonId = 42,
+                            StartDate = new DateTime(2015, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 40,
+                            PersonId = 43,
+                            StartDate = new DateTime(2007, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 41,
+                            PersonId = 46,
+                            StartDate = new DateTime(2017, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 42,
+                            PersonId = 49,
+                            StartDate = new DateTime(2017, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 43,
+                            PersonId = 80,
+                            StartDate = new DateTime(2019, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 44,
+                            PersonId = 84,
+                            StartDate = new DateTime(2019, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 45,
+                            PersonId = 86,
+                            StartDate = new DateTime(2019, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 46,
+                            PersonId = 92,
+                            StartDate = new DateTime(2019, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 47,
+                            PersonId = 93,
+                            StartDate = new DateTime(2019, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 48,
+                            PersonId = 94,
+                            StartDate = new DateTime(2019, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 49,
+                            PersonId = 97,
+                            StartDate = new DateTime(2019, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 50,
+                            PersonId = 116,
+                            StartDate = new DateTime(2020, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 51,
+                            PersonId = 119,
+                            StartDate = new DateTime(2020, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 52,
+                            PersonId = 122,
+                            StartDate = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 53,
+                            PersonId = 123,
+                            StartDate = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 54,
+                            PersonId = 124,
+                            StartDate = new DateTime(2020, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("eMenka.Domain.Classes.EngineType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Drivers");
+                    b.HasIndex("BrandId");
+
+                    b.ToTable("EngineTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            Name = "1.9"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 1,
+                            Name = "2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 3,
+                            Name = "1.9 TDI"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 4,
+                            Name = "1.8 ECOTEC"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 4,
+                            Name = "1.9 CDTI"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandId = 4,
+                            Name = "1.6 CNG"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandId = 4,
+                            Name = "1.6 CNG ECOTEC"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BrandId = 4,
+                            Name = "1.7 CDTI"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BrandId = 7,
+                            Name = "1.6 HDi"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BrandId = 8,
+                            Name = "1.9 Tdi"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BrandId = 1,
+                            Name = "30d"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BrandId = 1,
+                            Name = "35d"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BrandId = 1,
+                            Name = "20d"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BrandId = 6,
+                            Name = "1,6"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BrandId = 4,
+                            Name = "1.3 CDTi 16v"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BrandId = 4,
+                            Name = "3.0 CDTI"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BrandId = 11,
+                            Name = "1.6 D"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BrandId = 11,
+                            Name = "2.0 D"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BrandId = 11,
+                            Name = "2.4 D"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BrandId = 4,
+                            Name = "2.0 DPF CDTi"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BrandId = 12,
+                            Name = "1.6 HDi 92"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            BrandId = 12,
+                            Name = "1.6 HDi 110"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BrandId = 12,
+                            Name = "2.0 HDi 138"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BrandId = 3,
+                            Name = "1.6"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BrandId = 5,
+                            Name = "3456"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BrandId = 15,
+                            Name = "1,5"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BrandId = 6,
+                            Name = "1.5"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BrandId = 15,
+                            Name = "1.4 Crdi"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BrandId = 15,
+                            Name = "1.7 CRDi"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BrandId = 15,
+                            Name = "1.6 GDi"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BrandId = 15,
+                            Name = "2.0 CRDi"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BrandId = 7,
+                            Name = "2"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BrandId = 8,
+                            Name = "2.0 Tdi"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BrandId = 12,
+                            Name = "2.2 ESS"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BrandId = 4,
+                            Name = "1.7 CDTI ECOTEC"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BrandId = 4,
+                            Name = "2.0 CDTI ecoflex S/S DPF"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BrandId = 4,
+                            Name = "1.7 CDTI ecoflex S/S DPF"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BrandId = 6,
+                            Name = "16D"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BrandId = 9,
+                            Name = "200 CDI"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BrandId = 9,
+                            Name = "220 CDI"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BrandId = 9,
+                            Name = "180 CDI"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            BrandId = 13,
+                            Name = "1500"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            BrandId = 9,
+                            Name = "160 CDI"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            BrandId = 13,
+                            Name = "1600"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            BrandId = 17,
+                            Name = "1.9 JTDm"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            BrandId = 17,
+                            Name = "1.9 JTD"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            BrandId = 17,
+                            Name = "2,0 JTDM 163PK"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BrandId = 8,
+                            Name = "1.6 TDI"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            BrandId = 8,
+                            Name = "1.6 Tiptronic"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            BrandId = 8,
+                            Name = "2.0 TDi DPF"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            BrandId = 8,
+                            Name = "2.0 TDI e"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            BrandId = 8,
+                            Name = "1.8 T"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            BrandId = 8,
+                            Name = "2.7 TDI"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            BrandId = 8,
+                            Name = "2.0 TDi Multitronic"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            BrandId = 8,
+                            Name = "2.8 V6 Multitronic"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            BrandId = 8,
+                            Name = "3.0 TDI"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            BrandId = 1,
+                            Name = "16d"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            BrandId = 1,
+                            Name = "1,6"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            BrandId = 1,
+                            Name = "18d"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            BrandId = 1,
+                            Name = "25d"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            BrandId = 12,
+                            Name = "2.0 HDi"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            BrandId = 12,
+                            Name = "2.0 HDi 136"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            BrandId = 12,
+                            Name = "2.2 HDI"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            BrandId = 12,
+                            Name = "2.2 HDI 74"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            BrandId = 2,
+                            Name = "2.0 TDCi AUT"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            BrandId = 2,
+                            Name = "1.6 TDCi Turbo"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            BrandId = 2,
+                            Name = "1.6 TDCI ECOnetic"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            BrandId = 2,
+                            Name = "2.0 TDCi Turbo"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            BrandId = 2,
+                            Name = "2.2 TDCi Turbo"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            BrandId = 2,
+                            Name = "1.8 TDCi"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            BrandId = 2,
+                            Name = "1.8 TDCi Turbo"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            BrandId = 2,
+                            Name = "2.0 Monovol 6v"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            BrandId = 16,
+                            Name = "1.5 dCi"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            BrandId = 18,
+                            Name = "300cc"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            BrandId = 19,
+                            Name = "Hybrid 2.0"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            BrandId = 8,
+                            Name = "PowerPlus"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            BrandId = 9,
+                            Name = "B 180 CDI"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            BrandId = 9,
+                            Name = "B 200 CDI"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            BrandId = 9,
+                            Name = "C 200 CDI"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            BrandId = 9,
+                            Name = "C 220 CDI"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            BrandId = 9,
+                            Name = "C 180 CDI"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            BrandId = 9,
+                            Name = "C 200"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            BrandId = 9,
+                            Name = "E 350 CDI"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            BrandId = 9,
+                            Name = "E 200 CDI"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            BrandId = 9,
+                            Name = "GLK 220 CDI 4matic"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            BrandId = 9,
+                            Name = "ML 300 CDI"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            BrandId = 9,
+                            Name = "ML 300 CDI Blue Efficiency"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            BrandId = 9,
+                            Name = "350 CDI Bluetec"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            BrandId = 9,
+                            Name = "S 320 CDI"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            BrandId = 16,
+                            Name = "1.5dCi"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            BrandId = 4,
+                            Name = "2.0 CDTI"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            BrandId = 4,
+                            Name = "1.7 CDTI DPF"
+                        },
+                        new
+                        {
+                            Id = 93,
+                            BrandId = 4,
+                            Name = "1.7 CDTi ecoFLEX"
+                        },
+                        new
+                        {
+                            Id = 94,
+                            BrandId = 7,
+                            Name = "2.0 HDi"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            BrandId = 6,
+                            Name = "2.0 dCi"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            BrandId = 6,
+                            Name = "1.5 dCi"
+                        },
+                        new
+                        {
+                            Id = 97,
+                            BrandId = 6,
+                            Name = "1.9 dCi FAP"
+                        },
+                        new
+                        {
+                            Id = 98,
+                            BrandId = 20,
+                            Name = "1.9 TiD"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            BrandId = 21,
+                            Name = "1.6 TD"
+                        },
+                        new
+                        {
+                            Id = 100,
+                            BrandId = 21,
+                            Name = "2.0 TD"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            BrandId = 10,
+                            Name = "0.8 CDI"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            BrandId = 14,
+                            Name = "2.0 D"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            BrandId = 14,
+                            Name = "1.8"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            BrandId = 14,
+                            Name = "1.4 D4D"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            BrandId = 3,
+                            Name = "1.6 TDi"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            BrandId = 3,
+                            Name = "2.0 TDi"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            BrandId = 3,
+                            Name = "1.9 TDI BlueMotion"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            BrandId = 3,
+                            Name = "1.6 CR TDI"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            BrandId = 3,
+                            Name = "2.0 CR Tdi bluemotion"
+                        },
+                        new
+                        {
+                            Id = 110,
+                            BrandId = 3,
+                            Name = "2.0 CR TDi"
+                        },
+                        new
+                        {
+                            Id = 111,
+                            BrandId = 3,
+                            Name = "2.0 TDI BlueMotion"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            BrandId = 11,
+                            Name = "2.4 D5 GEARTRONIC"
+                        },
+                        new
+                        {
+                            Id = 113,
+                            BrandId = 4,
+                            Name = "1.6 CDTi ecoFLEX"
+                        },
+                        new
+                        {
+                            Id = 114,
+                            BrandId = 17,
+                            Name = "2.4 JTDm"
+                        },
+                        new
+                        {
+                            Id = 115,
+                            BrandId = 7,
+                            Name = "1.4 HDi"
+                        },
+                        new
+                        {
+                            Id = 116,
+                            BrandId = 26,
+                            Name = "whosh"
+                        },
+                        new
+                        {
+                            Id = 117,
+                            BrandId = 2,
+                            Name = "blablu"
+                        },
+                        new
+                        {
+                            Id = 118,
+                            BrandId = 27,
+                            Name = "azerty"
+                        },
+                        new
+                        {
+                            Id = 119,
+                            BrandId = 28,
+                            Name = "blob"
+                        },
+                        new
+                        {
+                            Id = 120,
+                            BrandId = 28,
+                            Name = "blasterx"
+                        });
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.ExteriorColor", b =>
@@ -2312,748 +3402,6 @@ namespace eMenka.Data.Migrations
                             Id = 137,
                             BrandId = 28,
                             Name = "baz"
-                        });
-                });
-
-            modelBuilder.Entity("eMenka.Domain.Classes.MotorType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.ToTable("MotorTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BrandId = 1,
-                            Name = "1.9"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BrandId = 1,
-                            Name = "2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BrandId = 3,
-                            Name = "1.9 TDI"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BrandId = 4,
-                            Name = "1.8 ECOTEC"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BrandId = 4,
-                            Name = "1.9 CDTI"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BrandId = 4,
-                            Name = "1.6 CNG"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BrandId = 4,
-                            Name = "1.6 CNG ECOTEC"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BrandId = 4,
-                            Name = "1.7 CDTI"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            BrandId = 7,
-                            Name = "1.6 HDi"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            BrandId = 8,
-                            Name = "1.9 Tdi"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            BrandId = 1,
-                            Name = "30d"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            BrandId = 1,
-                            Name = "35d"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            BrandId = 1,
-                            Name = "20d"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            BrandId = 6,
-                            Name = "1,6"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            BrandId = 4,
-                            Name = "1.3 CDTi 16v"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            BrandId = 4,
-                            Name = "3.0 CDTI"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            BrandId = 11,
-                            Name = "1.6 D"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            BrandId = 11,
-                            Name = "2.0 D"
-                        },
-                        new
-                        {
-                            Id = 19,
-                            BrandId = 11,
-                            Name = "2.4 D"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            BrandId = 4,
-                            Name = "2.0 DPF CDTi"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            BrandId = 12,
-                            Name = "1.6 HDi 92"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            BrandId = 12,
-                            Name = "1.6 HDi 110"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            BrandId = 12,
-                            Name = "2.0 HDi 138"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            BrandId = 3,
-                            Name = "1.6"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            BrandId = 5,
-                            Name = "3456"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            BrandId = 15,
-                            Name = "1,5"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            BrandId = 6,
-                            Name = "1.5"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            BrandId = 15,
-                            Name = "1.4 Crdi"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            BrandId = 15,
-                            Name = "1.7 CRDi"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            BrandId = 15,
-                            Name = "1.6 GDi"
-                        },
-                        new
-                        {
-                            Id = 31,
-                            BrandId = 15,
-                            Name = "2.0 CRDi"
-                        },
-                        new
-                        {
-                            Id = 32,
-                            BrandId = 7,
-                            Name = "2"
-                        },
-                        new
-                        {
-                            Id = 33,
-                            BrandId = 8,
-                            Name = "2.0 Tdi"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            BrandId = 12,
-                            Name = "2.2 ESS"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            BrandId = 4,
-                            Name = "1.7 CDTI ECOTEC"
-                        },
-                        new
-                        {
-                            Id = 36,
-                            BrandId = 4,
-                            Name = "2.0 CDTI ecoflex S/S DPF"
-                        },
-                        new
-                        {
-                            Id = 37,
-                            BrandId = 4,
-                            Name = "1.7 CDTI ecoflex S/S DPF"
-                        },
-                        new
-                        {
-                            Id = 38,
-                            BrandId = 6,
-                            Name = "16D"
-                        },
-                        new
-                        {
-                            Id = 39,
-                            BrandId = 9,
-                            Name = "200 CDI"
-                        },
-                        new
-                        {
-                            Id = 40,
-                            BrandId = 9,
-                            Name = "220 CDI"
-                        },
-                        new
-                        {
-                            Id = 41,
-                            BrandId = 9,
-                            Name = "180 CDI"
-                        },
-                        new
-                        {
-                            Id = 42,
-                            BrandId = 13,
-                            Name = "1500"
-                        },
-                        new
-                        {
-                            Id = 43,
-                            BrandId = 9,
-                            Name = "160 CDI"
-                        },
-                        new
-                        {
-                            Id = 44,
-                            BrandId = 13,
-                            Name = "1600"
-                        },
-                        new
-                        {
-                            Id = 45,
-                            BrandId = 17,
-                            Name = "1.9 JTDm"
-                        },
-                        new
-                        {
-                            Id = 46,
-                            BrandId = 17,
-                            Name = "1.9 JTD"
-                        },
-                        new
-                        {
-                            Id = 47,
-                            BrandId = 17,
-                            Name = "2,0 JTDM 163PK"
-                        },
-                        new
-                        {
-                            Id = 48,
-                            BrandId = 8,
-                            Name = "1.6 TDI"
-                        },
-                        new
-                        {
-                            Id = 49,
-                            BrandId = 8,
-                            Name = "1.6 Tiptronic"
-                        },
-                        new
-                        {
-                            Id = 50,
-                            BrandId = 8,
-                            Name = "2.0 TDi DPF"
-                        },
-                        new
-                        {
-                            Id = 51,
-                            BrandId = 8,
-                            Name = "2.0 TDI e"
-                        },
-                        new
-                        {
-                            Id = 52,
-                            BrandId = 8,
-                            Name = "1.8 T"
-                        },
-                        new
-                        {
-                            Id = 53,
-                            BrandId = 8,
-                            Name = "2.7 TDI"
-                        },
-                        new
-                        {
-                            Id = 54,
-                            BrandId = 8,
-                            Name = "2.0 TDi Multitronic"
-                        },
-                        new
-                        {
-                            Id = 55,
-                            BrandId = 8,
-                            Name = "2.8 V6 Multitronic"
-                        },
-                        new
-                        {
-                            Id = 56,
-                            BrandId = 8,
-                            Name = "3.0 TDI"
-                        },
-                        new
-                        {
-                            Id = 57,
-                            BrandId = 1,
-                            Name = "16d"
-                        },
-                        new
-                        {
-                            Id = 58,
-                            BrandId = 1,
-                            Name = "1,6"
-                        },
-                        new
-                        {
-                            Id = 59,
-                            BrandId = 1,
-                            Name = "18d"
-                        },
-                        new
-                        {
-                            Id = 60,
-                            BrandId = 1,
-                            Name = "25d"
-                        },
-                        new
-                        {
-                            Id = 61,
-                            BrandId = 12,
-                            Name = "2.0 HDi"
-                        },
-                        new
-                        {
-                            Id = 62,
-                            BrandId = 12,
-                            Name = "2.0 HDi 136"
-                        },
-                        new
-                        {
-                            Id = 63,
-                            BrandId = 12,
-                            Name = "2.2 HDI"
-                        },
-                        new
-                        {
-                            Id = 64,
-                            BrandId = 12,
-                            Name = "2.2 HDI 74"
-                        },
-                        new
-                        {
-                            Id = 65,
-                            BrandId = 2,
-                            Name = "2.0 TDCi AUT"
-                        },
-                        new
-                        {
-                            Id = 66,
-                            BrandId = 2,
-                            Name = "1.6 TDCi Turbo"
-                        },
-                        new
-                        {
-                            Id = 67,
-                            BrandId = 2,
-                            Name = "1.6 TDCI ECOnetic"
-                        },
-                        new
-                        {
-                            Id = 68,
-                            BrandId = 2,
-                            Name = "2.0 TDCi Turbo"
-                        },
-                        new
-                        {
-                            Id = 69,
-                            BrandId = 2,
-                            Name = "2.2 TDCi Turbo"
-                        },
-                        new
-                        {
-                            Id = 70,
-                            BrandId = 2,
-                            Name = "1.8 TDCi"
-                        },
-                        new
-                        {
-                            Id = 71,
-                            BrandId = 2,
-                            Name = "1.8 TDCi Turbo"
-                        },
-                        new
-                        {
-                            Id = 72,
-                            BrandId = 2,
-                            Name = "2.0 Monovol 6v"
-                        },
-                        new
-                        {
-                            Id = 73,
-                            BrandId = 16,
-                            Name = "1.5 dCi"
-                        },
-                        new
-                        {
-                            Id = 74,
-                            BrandId = 18,
-                            Name = "300cc"
-                        },
-                        new
-                        {
-                            Id = 75,
-                            BrandId = 19,
-                            Name = "Hybrid 2.0"
-                        },
-                        new
-                        {
-                            Id = 76,
-                            BrandId = 8,
-                            Name = "PowerPlus"
-                        },
-                        new
-                        {
-                            Id = 77,
-                            BrandId = 9,
-                            Name = "B 180 CDI"
-                        },
-                        new
-                        {
-                            Id = 78,
-                            BrandId = 9,
-                            Name = "B 200 CDI"
-                        },
-                        new
-                        {
-                            Id = 79,
-                            BrandId = 9,
-                            Name = "C 200 CDI"
-                        },
-                        new
-                        {
-                            Id = 80,
-                            BrandId = 9,
-                            Name = "C 220 CDI"
-                        },
-                        new
-                        {
-                            Id = 81,
-                            BrandId = 9,
-                            Name = "C 180 CDI"
-                        },
-                        new
-                        {
-                            Id = 82,
-                            BrandId = 9,
-                            Name = "C 200"
-                        },
-                        new
-                        {
-                            Id = 83,
-                            BrandId = 9,
-                            Name = "E 350 CDI"
-                        },
-                        new
-                        {
-                            Id = 84,
-                            BrandId = 9,
-                            Name = "E 200 CDI"
-                        },
-                        new
-                        {
-                            Id = 85,
-                            BrandId = 9,
-                            Name = "GLK 220 CDI 4matic"
-                        },
-                        new
-                        {
-                            Id = 86,
-                            BrandId = 9,
-                            Name = "ML 300 CDI"
-                        },
-                        new
-                        {
-                            Id = 87,
-                            BrandId = 9,
-                            Name = "ML 300 CDI Blue Efficiency"
-                        },
-                        new
-                        {
-                            Id = 88,
-                            BrandId = 9,
-                            Name = "350 CDI Bluetec"
-                        },
-                        new
-                        {
-                            Id = 89,
-                            BrandId = 9,
-                            Name = "S 320 CDI"
-                        },
-                        new
-                        {
-                            Id = 90,
-                            BrandId = 16,
-                            Name = "1.5dCi"
-                        },
-                        new
-                        {
-                            Id = 91,
-                            BrandId = 4,
-                            Name = "2.0 CDTI"
-                        },
-                        new
-                        {
-                            Id = 92,
-                            BrandId = 4,
-                            Name = "1.7 CDTI DPF"
-                        },
-                        new
-                        {
-                            Id = 93,
-                            BrandId = 4,
-                            Name = "1.7 CDTi ecoFLEX"
-                        },
-                        new
-                        {
-                            Id = 94,
-                            BrandId = 7,
-                            Name = "2.0 HDi"
-                        },
-                        new
-                        {
-                            Id = 95,
-                            BrandId = 6,
-                            Name = "2.0 dCi"
-                        },
-                        new
-                        {
-                            Id = 96,
-                            BrandId = 6,
-                            Name = "1.5 dCi"
-                        },
-                        new
-                        {
-                            Id = 97,
-                            BrandId = 6,
-                            Name = "1.9 dCi FAP"
-                        },
-                        new
-                        {
-                            Id = 98,
-                            BrandId = 20,
-                            Name = "1.9 TiD"
-                        },
-                        new
-                        {
-                            Id = 99,
-                            BrandId = 21,
-                            Name = "1.6 TD"
-                        },
-                        new
-                        {
-                            Id = 100,
-                            BrandId = 21,
-                            Name = "2.0 TD"
-                        },
-                        new
-                        {
-                            Id = 101,
-                            BrandId = 10,
-                            Name = "0.8 CDI"
-                        },
-                        new
-                        {
-                            Id = 102,
-                            BrandId = 14,
-                            Name = "2.0 D"
-                        },
-                        new
-                        {
-                            Id = 103,
-                            BrandId = 14,
-                            Name = "1.8"
-                        },
-                        new
-                        {
-                            Id = 104,
-                            BrandId = 14,
-                            Name = "1.4 D4D"
-                        },
-                        new
-                        {
-                            Id = 105,
-                            BrandId = 3,
-                            Name = "1.6 TDi"
-                        },
-                        new
-                        {
-                            Id = 106,
-                            BrandId = 3,
-                            Name = "2.0 TDi"
-                        },
-                        new
-                        {
-                            Id = 107,
-                            BrandId = 3,
-                            Name = "1.9 TDI BlueMotion"
-                        },
-                        new
-                        {
-                            Id = 108,
-                            BrandId = 3,
-                            Name = "1.6 CR TDI"
-                        },
-                        new
-                        {
-                            Id = 109,
-                            BrandId = 3,
-                            Name = "2.0 CR Tdi bluemotion"
-                        },
-                        new
-                        {
-                            Id = 110,
-                            BrandId = 3,
-                            Name = "2.0 CR TDi"
-                        },
-                        new
-                        {
-                            Id = 111,
-                            BrandId = 3,
-                            Name = "2.0 TDI BlueMotion"
-                        },
-                        new
-                        {
-                            Id = 112,
-                            BrandId = 11,
-                            Name = "2.4 D5 GEARTRONIC"
-                        },
-                        new
-                        {
-                            Id = 113,
-                            BrandId = 4,
-                            Name = "1.6 CDTi ecoFLEX"
-                        },
-                        new
-                        {
-                            Id = 114,
-                            BrandId = 17,
-                            Name = "2.4 JTDm"
-                        },
-                        new
-                        {
-                            Id = 115,
-                            BrandId = 7,
-                            Name = "1.4 HDi"
-                        },
-                        new
-                        {
-                            Id = 116,
-                            BrandId = 26,
-                            Name = "whosh"
-                        },
-                        new
-                        {
-                            Id = 117,
-                            BrandId = 2,
-                            Name = "blablu"
-                        },
-                        new
-                        {
-                            Id = 118,
-                            BrandId = 27,
-                            Name = "azerty"
-                        },
-                        new
-                        {
-                            Id = 119,
-                            BrandId = 28,
-                            Name = "blob"
-                        },
-                        new
-                        {
-                            Id = 120,
-                            BrandId = 28,
-                            Name = "blasterx"
                         });
                 });
 
@@ -5706,6 +6054,9 @@ namespace eMenka.Data.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("EngineTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("FiscalePk")
                         .HasColumnType("int");
 
@@ -5724,9 +6075,6 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("ModelId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MotorTypeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Power")
                         .HasColumnType("int");
 
@@ -5739,6 +6087,8 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("DoorTypeId");
 
+                    b.HasIndex("EngineTypeId");
+
                     b.HasIndex("FuelCardId")
                         .IsUnique()
                         .HasFilter("[FuelCardId] IS NOT NULL");
@@ -5746,8 +6096,6 @@ namespace eMenka.Data.Migrations
                     b.HasIndex("FuelTypeId");
 
                     b.HasIndex("ModelId");
-
-                    b.HasIndex("MotorTypeId");
 
                     b.ToTable("Vehicles");
                 });
@@ -5908,6 +6256,24 @@ namespace eMenka.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("eMenka.Domain.Classes.Driver", b =>
+                {
+                    b.HasOne("eMenka.Domain.Classes.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("eMenka.Domain.Classes.EngineType", b =>
+                {
+                    b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
+                        .WithMany("EngineTypes")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("eMenka.Domain.Classes.ExteriorColor", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
@@ -5939,15 +6305,6 @@ namespace eMenka.Data.Migrations
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Models")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("eMenka.Domain.Classes.MotorType", b =>
-                {
-                    b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
-                        .WithMany("MotorTypes")
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -5985,6 +6342,10 @@ namespace eMenka.Data.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("DoorTypeId");
 
+                    b.HasOne("eMenka.Domain.Classes.EngineType", "EngineType")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("EngineTypeId");
+
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Vehicle")
                         .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
@@ -5996,10 +6357,6 @@ namespace eMenka.Data.Migrations
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")
                         .WithMany("Vehicles")
                         .HasForeignKey("ModelId");
-
-                    b.HasOne("eMenka.Domain.Classes.MotorType", "MotorType")
-                        .WithMany("Vehicles")
-                        .HasForeignKey("MotorTypeId");
                 });
 #pragma warning restore 612, 618
         }

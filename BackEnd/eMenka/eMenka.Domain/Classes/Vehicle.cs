@@ -10,8 +10,8 @@ namespace eMenka.Domain.Classes
         public int? BrandId { get; set; }
         public Model Model { get; set; }
         public int? ModelId { get; set; }
-        public MotorType MotorType { get; set; }
-        public int? MotorTypeId { get; set; }
+        public EngineType EngineType { get; set; }
+        public int? EngineTypeId { get; set; }
         public FuelCard FuelCard { get; set; }
         public int? FuelCardId { get; set; }
         public DoorType DoorType { get; set; }

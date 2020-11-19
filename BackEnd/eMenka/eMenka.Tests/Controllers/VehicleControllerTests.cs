@@ -22,7 +22,7 @@ namespace eMenka.Tests.Controllers
         private Mock<IBrandRepository> _brandRepositoryMock;
         private Mock<IModelRepository> _modelRepositoryMock;
         private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
-        private Mock<IMotorTypeRepository> _motorTypeRepositoryMock;
+        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
         private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
 
         [SetUp]
@@ -30,12 +30,12 @@ namespace eMenka.Tests.Controllers
         {
             _vehicleRepositoryMock = new Mock<IVehicleRepository>();
             _brandRepositoryMock = new Mock<IBrandRepository>();
-            _motorTypeRepositoryMock = new Mock<IMotorTypeRepository>();
+            _engineTypeRepositoryMock = new Mock<IEngineTypeRepository>();
             _modelRepositoryMock = new Mock<IModelRepository>();
             _fuelTypeRepositoryMock = new Mock<IFuelTypeRepository>();
             _doorTypeRepositoryMock = new Mock<IDoorTypeRepository>();
 
-            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object, _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _motorTypeRepositoryMock.Object, _doorTypeRepositoryMock.Object);
+            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object, _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object, _doorTypeRepositoryMock.Object);
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace eMenka.Tests.Controllers
                 {
                     Brand = new Brand()
                 },
-                MotorType = new MotorType
+                EngineType = new EngineType()
                 {
                     Brand = new Brand()
                 }
@@ -224,7 +224,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -249,7 +249,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -278,7 +278,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -314,7 +314,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -325,7 +325,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1
+                EngineTypeId = 1
             };
 
             var brand = new Brand();
@@ -334,7 +334,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = null;
+            EngineType engineType = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
@@ -342,8 +342,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
 
             var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
 
@@ -354,7 +354,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
         [Test]
         public void PostVehicleReturnsNotFoundWhenDoorTypeIsNotFound()
@@ -364,7 +364,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1
             };
 
@@ -374,7 +374,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = new MotorType
+            EngineType engineType = new EngineType()
             {
                 Brand = new Brand()
             };
@@ -386,8 +386,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
@@ -400,7 +400,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -411,7 +411,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -425,7 +425,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = new MotorType
+            EngineType engineType = new EngineType()
             {
                 Brand = new Brand()
             };
@@ -437,8 +437,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
@@ -451,7 +451,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
         
         [Test]
@@ -470,7 +470,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -490,7 +490,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
         [Test]
@@ -502,7 +502,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -524,7 +524,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenModelIsNotFound()
@@ -535,7 +535,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -560,7 +560,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenFuelTypeIsNotFound()
@@ -571,7 +571,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -602,7 +602,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenMotorTypeIsNotFound()
@@ -613,7 +613,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -627,7 +627,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = null;
+            EngineType engineType = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
@@ -635,8 +635,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
 
             var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
 
@@ -647,7 +647,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenDoorTypeIsNotFound()
@@ -658,7 +658,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -672,7 +672,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = new MotorType
+            EngineType engineType = new EngineType()
             {
                 Brand = new Brand()
             };
@@ -684,8 +684,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
@@ -698,7 +698,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -710,7 +710,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -724,7 +724,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = new MotorType
+            EngineType engineType = new EngineType()
             {
                 Brand = new Brand()
             };
@@ -738,8 +738,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
@@ -752,7 +752,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -764,7 +764,7 @@ namespace eMenka.Tests.Controllers
                 BrandId = 1,
                 ModelId = 1,
                 FuelTypeId = 1,
-                MotorTypeId = 1,
+                EngineTypeId = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalePk = 1,
@@ -778,7 +778,7 @@ namespace eMenka.Tests.Controllers
                 Brand = new Brand()
             };
             FuelType fuelType = new FuelType();
-            MotorType motorType = new MotorType
+            EngineType engineType = new EngineType()
             {
                 Brand = new Brand()
             };
@@ -792,8 +792,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(model);
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-            _motorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(motorType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
@@ -806,7 +806,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _motorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
