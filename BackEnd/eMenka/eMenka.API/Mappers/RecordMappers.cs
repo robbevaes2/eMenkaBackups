@@ -17,7 +17,7 @@ namespace eMenka.API.Mappers
                 City = record.City,
                 Company = MapCompanyEntity(record.Company),
                 EndDate = record.EndDate,
-                FuelCard = record.FuelCardId, //todo map to fuelcardreturnmodel in future
+                FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard), 
                 Id = record.Id,
                 StartDate = record.StartDate,
                 Term = record.Term,
@@ -33,7 +33,7 @@ namespace eMenka.API.Mappers
                 City = recordModel.City,
                 CompanyId = (int)recordModel.CompanyId,
                 EndDate = recordModel.EndDate,
-                FuelCardId = 1,
+                FuelCardId = (int)recordModel.FuelCardId,
                 Id = recordModel.Id,
                 StartDate = recordModel.StartDate,
                 Term = recordModel.Term

@@ -26,7 +26,7 @@ namespace eMenka.API.Mappers
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = MapModelEntity(vehicle.Model),
-                FuelCard = vehicle.FuelCard.Id ,
+                FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard) ,
                 Category = MapCategoryEntity(vehicle.Category),
                 LicensePlate = vehicle.LicensePlate
             };
@@ -49,7 +49,7 @@ namespace eMenka.API.Mappers
                 Power = (int)vehicleModel.Power,
                 Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
-                FuelCardId = 1 //temporary fix untill fuelcard is implemented
+                FuelCardId = (int)vehicleModel.FuelCardId //temporary fix untill fuelcard is implemented
             };
         }
 

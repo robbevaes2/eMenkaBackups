@@ -10,6 +10,7 @@ namespace eMenka.API.Models.RecordModels
     public class RecordModel
     {
         public int Id { get; set; }
+        [Required]
         public int? FuelCardId { get; set; }
         [Required]
         public int? CompanyId { get; set; }
