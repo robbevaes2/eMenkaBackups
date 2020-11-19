@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand/brand';
 import { DoorType } from 'src/app/models/door-type/door-type';
+import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { Model } from 'src/app/models/model/model';
 import { MotorType } from 'src/app/models/motor-type/motor-type';
 import { Serie } from 'src/app/models/serie/serie';
@@ -22,6 +23,7 @@ export class VehicleDetailsComponent implements OnInit {
   motorTypes: MotorType[];
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
+  fuelCards: FuelCard[];
   selectedVehicle: Vehicle;
   isEditable: boolean;
 
@@ -34,6 +36,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.brands = this.getBrands();
     this.doorTypes = this.getDoorTypes();
     this.fuelTypes = this.getFuelTypes();
+    this.fuelCards = this.getFuelCards();
     this.setAllDropDownsByBrand(this.selectedVehicle.brand.id);
 
     this.form = new FormGroup({
@@ -48,7 +51,8 @@ export class VehicleDetailsComponent implements OnInit {
       power: new FormControl(null, [Validators.required, Validators.min(0)]),
       fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
-      endDate: new FormControl(null, [Validators.required, Validators.min(0)])
+      endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      licensePlate: new FormControl(null, [Validators.required])
     });
 
     this.fillForm();
@@ -61,13 +65,14 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['serie'].setValue(this.selectedVehicle.serie.id);
     this.form.controls['motorType'].setValue(this.selectedVehicle.motorType.id);
     this.form.controls['doorType'].setValue(this.selectedVehicle.doorType.id);
-    this.form.controls['fuelCard'].setValue(this.selectedVehicle.fuelCard);
+    this.form.controls['fuelCard'].setValue(this.selectedVehicle.fuelCard.id);
     this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
     this.form.controls['power'].setValue(this.selectedVehicle.power);
     this.form.controls['fiscalePk'].setValue(this.selectedVehicle.fiscalePk);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
     this.form.controls['endDate'].setValue(this.selectedVehicle.endData.toISOString().split('T')[0]);
+    this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
   }
 
   disableForm(): void {
@@ -83,6 +88,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fiscalePk'].disable();
     this.form.controls['emission'].disable();
     this.form.controls['endDate'].disable();
+    this.form.controls['licensePlate'].disable();
     this.isEditable = false;
   }
 
@@ -99,6 +105,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['fiscalePk'].enable();
     this.form.controls['emission'].enable();
     this.form.controls['endDate'].enable();
+    this.form.controls['licensePlate'].enable();
     this.isEditable = true;
   }
 
@@ -200,7 +207,7 @@ export class VehicleDetailsComponent implements OnInit {
       fuelType: new FuelType(1, 'Benzine'),
       motorType: new MotorType(1, '1.9 TDI'),
       doorType: new DoorType(3, '5-deurs'),
-      fuelCard: 1,
+      fuelCard: new FuelCard(1, null, null, null, null, null, true),
       volume: 2000,
       fiscalePk: 50,
       emission: 1,
@@ -209,5 +216,12 @@ export class VehicleDetailsComponent implements OnInit {
       endData: new Date('2020-01-16'),
       isActive: true
     }
+  }
+
+  getFuelCards(): FuelCard[] {
+    return [
+      new FuelCard(1, null, null, null, null, null, true),
+      new FuelCard(2, null, null, null, null, null, true)
+    ]
   }
 }

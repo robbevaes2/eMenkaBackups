@@ -8,6 +8,7 @@ import { MotorType } from '../../models/motor-type/motor-type';
 import { Serie } from '../../models/serie/serie';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/FuelType/fuel-type';
+import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -22,6 +23,7 @@ export class NewVehicleItemComponent implements OnInit {
   motorTypes: MotorType[];
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
+  fuelCards: FuelCard[];
 
   constructor(private router: Router) { }
 
@@ -29,6 +31,7 @@ export class NewVehicleItemComponent implements OnInit {
     this.brands = this.getBrands();
     this.doorTypes = this.getDoorTypes();
     this.fuelTypes = this.getFuelTypes();
+    this.fuelCards = this.getFuelCards();
 
     this.form = new FormGroup({
       brand: new FormControl(null, [Validators.required]),
@@ -36,13 +39,14 @@ export class NewVehicleItemComponent implements OnInit {
       serie: new FormControl(null, [Validators.required]),
       motorType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
+      fuelCard: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
       power: new FormControl(null, [Validators.required, Validators.min(0)]),
       fiscalePk: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
-      endDate: new FormControl(null, [Validators.required, Validators.min(0)])
+      endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      licensePlate: new FormControl(null, [Validators.required])
     });
   }
 
@@ -111,6 +115,13 @@ export class NewVehicleItemComponent implements OnInit {
       new FuelType(1, 'Benzine'),
       new FuelType(2, 'Diesel'),
       new FuelType(3, 'Elektrisch')
+    ];
+  }
+
+  getFuelCards(): FuelCard[] {
+    return [
+      new FuelCard(1, null, null, null, null, null, true),
+      new FuelCard(2, null, null, null, null, null, true)
     ];
   }
 }
