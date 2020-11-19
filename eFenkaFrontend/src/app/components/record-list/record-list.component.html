@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row ml-1 mr-1">
-    <h1 class="col-10">Voertuigen</h1>
+    <h1 class="col-10">Dossiers</h1>
     <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewRecordComponent()">toevoegen</button>
   </div>
   <div class="table-responsive">
@@ -25,8 +25,7 @@
       <tbody>
         <tr *ngFor="let record of records | paginate: { itemsPerPage: pageSize, currentPage: page }"
             (click)="navigateToRecordDetailsComponent(record.id)">
-          <td scope="row">{{ record.brand.name }}</td>
-          <td>{{ record.fuelCard.vehicle.licensePlate }}</td>
+          <td scope="row">{{ record.fuelCard.vehicle.licensePlate }}</td>
           <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
           <td>todo</td>
           <td>todo</td>
@@ -36,7 +35,7 @@
           <td>todo</td>
           <td>todo</td>
           <td>{{ record.usage }}</td>
-          <td>{{ record.fuelCard.vehicle.fuelType }}</td>
+          <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
           <td>{{ record.startDate.toLocaleDateString() }}</td>
           <td>{{ record.endDate.toLocaleDateString() }}</td>
         </tr>
