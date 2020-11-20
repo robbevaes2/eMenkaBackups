@@ -5,7 +5,7 @@ using eMenka.Domain.Classes;
 
 namespace eMenka.Data.IRepositories
 {
-    public interface ISerieRepository : IGenericRepository<Serie>
+    public interface ISerieRepository : IGenericRepository<Series>
     {
     }
 }

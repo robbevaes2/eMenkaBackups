@@ -31,7 +31,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetAllSeriesReturnsOkAndListOfAllSeriesWhenEverythingIsCorrect()
         {
-            var series = new List<Serie>();
+            var series = new List<Series>();
 
             _serieRepositoryMock.Setup(m => m.GetAll())
                 .Returns(series);
@@ -48,10 +48,10 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetSerieByIdReturnsNotFoundWhenSerieDoesNotExist()
         {
-            Serie serie = null;
+            Series series = null;
 
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(serie);
+                .Returns(series);
 
             var result = _sut.GetSerieById(0) as NotFoundResult;
 
@@ -62,7 +62,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetSerieByIdReturnsOkAndSerieWhenEverythingIsCorrect()
         {
-            var serie = new Serie
+            var serie = new Series
             {
                 Brand = new Brand()
             };
@@ -91,18 +91,18 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Serie, bool>>>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()), Times.Never);
         }
 
         [Test]
         public void GetSeriesByBrandIdReturnsOkAndSerieWhenEverythingIsCorrect()
         {
             var brand = new Brand();
-            var series = new List<Serie>();
+            var series = new List<Series>();
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
-            _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Serie, bool>>>()))
+            _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()))
                 .Returns(series);
 
             var result = _sut.GetSeriesByBrandId(0) as OkObjectResult;
@@ -113,15 +113,15 @@ namespace eMenka.Tests.Controllers
             Assert.That(value, Is.Not.Null);
 
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Serie, bool>>>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()), Times.Once);
         }
 
         [Test]
         public void GetSeriesByNameReturnsOkAndSerieWhenEverythingIsCorrect()
         {
-            var series = new List<Serie>();
+            var series = new List<Series>();
 
-            _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Serie, bool>>>()))
+            _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()))
                 .Returns(series);
 
             var result = _sut.GetSeriesByName("name") as OkObjectResult;
@@ -130,7 +130,7 @@ namespace eMenka.Tests.Controllers
 
             var value = result.Value as List<SerieReturnModel>;
             Assert.That(value, Is.Not.Null);
-            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Serie, bool>>>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -144,7 +144,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Series>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
@@ -166,7 +166,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Series>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
@@ -188,7 +188,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Serie>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Series>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
@@ -203,7 +203,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
@@ -219,7 +219,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
 
@@ -242,7 +242,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Never);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
@@ -257,7 +257,7 @@ namespace eMenka.Tests.Controllers
 
             var brand = new Brand();
 
-            _serieRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()))
+            _serieRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()))
                 .Returns(false);
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
@@ -266,7 +266,7 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
@@ -282,7 +282,7 @@ namespace eMenka.Tests.Controllers
 
             var brand = new Brand();
 
-            _serieRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()))
+            _serieRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()))
                 .Returns(true);
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
@@ -291,30 +291,30 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Serie>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
         public void DeleteSerieReturnsNotFoundWhenSerieIsNotFound()
         {
-            Serie serie = null;
+            Series series = null;
 
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(serie);
+                .Returns(series);
 
             var result = _sut.DeleteSerie(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _serieRepositoryMock.Verify(m => m.Remove(It.IsAny<Serie>()), Times.Never);
+            _serieRepositoryMock.Verify(m => m.Remove(It.IsAny<Series>()), Times.Never);
         }
 
         [Test]
         public void DeleteSerieReturnsOkWhenEverythingIsCorrect()
         {
-            var serie = new Serie();
+            var serie = new Series();
 
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(serie);
@@ -324,7 +324,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
-            _serieRepositoryMock.Verify(m => m.Remove(It.IsAny<Serie>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.Remove(It.IsAny<Series>()), Times.Once);
         }
     }
 }

@@ -30,10 +30,10 @@
               </select><br>
             </div>
             <div>
-              <label for="motorTypes">Type motor:</label>
-              <select name="motorTypes" id="motorTypes" formControlName="motorType" class="col-md-12 browser-default custom-select">
+              <label for="engineTypes">Type motor:</label>
+              <select name="engineTypes" id="engineTypes" formControlName="engineType" class="col-md-12 browser-default custom-select">
                 <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of motorTypes" [value]="item.id">{{ item.name }}</option>
+                <option *ngFor="let item of engineTypes" [value]="item.id">{{ item.name }}</option>
               </select><br>
             </div>
             <div>
@@ -68,8 +68,8 @@
             <input type="number" id="power" min="0" formControlName="power" class="col-md-12 browser-default custom-select">
           </div>
           <div>
-            <label for="fiscalePk">Fiscale PK:</label>
-            <input type="number" id="fiscalePk" min="0" formControlName="fiscalePk" class="col-md-12 browser-default custom-select">
+            <label for="fiscalHP">Fiscale PK:</label>
+            <input type="number" id="fiscalHP" min="0" formControlName="fiscalHP" class="col-md-12 browser-default custom-select">
           </div>
           <div>
             <label for="emission">Emissie:</label>

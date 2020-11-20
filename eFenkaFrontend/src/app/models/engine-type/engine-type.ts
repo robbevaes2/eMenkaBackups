@@ -1,6 +1,6 @@
 import { Brand } from '../brand/brand';
 
-export class MotorType {
+export class EngineType {
   id: number;
   name: string;
   brand: Brand;
