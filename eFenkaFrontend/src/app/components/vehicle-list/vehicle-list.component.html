@@ -19,22 +19,22 @@
       <thead class="sticky-top">
       <tr>
         <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="vehicles" [sortBy]="headElements[i]" scope="col">
-          {{head | titlecase}} 
+          {{head | titlecase}}
           <mdb-icon fas icon="sort"></mdb-icon>
         </th>
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vehicle of vehicles; let i = index" (click)="navigateToVehicleDetailsComponent(vehicle.id)">        
+        <tr *ngFor="let vehicle of vehicles; let i = index" (click)="navigateToVehicleDetailsComponent(vehicle.id)">
           <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.brand.name}}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.model.name}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fuelType.name}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.motorType.name}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.engineType.name}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.doorType.name}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.volume}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalePk}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalHP}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.power}}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endData.toLocaleDateString()}}</td>
+          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endDateDelivery.toLocaleDateString()}}</td>
         </tr>
       </tbody>
       <tfoot class="grey lighten-5 w-100">
@@ -46,6 +46,6 @@
       </tfoot>
     </table>
   </div>
-  
+
 </div>
 

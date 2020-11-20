@@ -20,7 +20,7 @@
         <thead class="sticky-top">
           <tr>
             <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
-              {{head | titlecase}} 
+              {{head | titlecase}}
               <mdb-icon fas icon="sort"></mdb-icon>
             </th>
           </tr>
