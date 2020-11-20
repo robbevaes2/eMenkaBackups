@@ -30,8 +30,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class RecordListComponent implements OnInit {
   records: Record[];
 
-  headNames  = ["Nummerplaat", "Bestuurder", "Vennootschap", "Kostenplaats", "Merk", "Wagen", "Type", "Cntr. start", "Cntr. eind", "Gebruik", "Eerse registartie", "Einde"];
-  headElements  = ["fuelCard.vehicle.licensePlate", "fuelCard.driver.person.firstname", "", "", "fuelCard.vehicle.brand.name", "fuelCard.vehicle.model.name", "term", "", "", "usage", "fuelCard.vehicle.fuelType.name", "startDate", "endDate"];
+  headNames  = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Type', 'Gebruik', 'Eerse registartie', 'Einde'];
+  headElements  = ['fuelCard.vehicle.licensePlate', 'fuelCard.driver.person.firstname', '', '', 'fuelCard.vehicle.brand.name', 'fuelCard.vehicle.model.name', 'term', '', '', 'usage', 'fuelCard.vehicle.fuelType.name', 'startDate', 'endDate'];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
