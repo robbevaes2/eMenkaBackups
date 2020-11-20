@@ -20,6 +20,7 @@ import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 import { DoorType } from 'src/app/models/door-type/door-type';
 import { EngineType } from 'src/app/models/engine-type/engine-type';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-record-list',
@@ -35,16 +36,16 @@ export class RecordListComponent implements OnInit {
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild('row', { static: true }) row: ElementRef;
-  
+
   searchText: string = '';
   previous: string;
 
   maxVisibleItems: number = 3;
 
-  constructor(private router: Router, private cdRef: ChangeDetectorRef) { }
+  constructor(private router: Router, private cdRef: ChangeDetectorRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.records = this.getRecordDummyList();
+    this.apiService.getAllRecords().subscribe(data => {this.records = data; console.log(this.records);});
 
     this.mdbTable.setDataSource(this.records);
     this.records = this.mdbTable.getDataSource();
@@ -87,7 +88,6 @@ export class RecordListComponent implements OnInit {
           null, new Date('2020-01-16'), new Date('2022-01-16'), true),
           corporation: new Corporation(1, 'test1', 't1', new Company(1, 'eMenKa', 'description', null, true, true, null, null, null),
           new Date('2022-01-16'), new Date('2022-01-16')),
-        city: 'Hasselt',
         term: Term.Short,
         startDate: new Date('2020-01-16'),
         endDate: new Date('2022-01-16'),
@@ -100,7 +100,6 @@ export class RecordListComponent implements OnInit {
           null, new Date('2020-01-20'), new Date('2022-01-20'), true),
         corporation: new Corporation(2, 'test2', 't2', new Company(2, 'PXL', 'description', null, true, true, null, null, null),
          new Date('2022-01-16'), new Date('2022-01-16')),
-        city: 'Hasselt',
         term: Term.Long,
         startDate: new Date('2020-01-20'),
         endDate: new Date('2022-01-20'),

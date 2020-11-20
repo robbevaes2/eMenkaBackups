@@ -1,3 +1,4 @@
+import { Record } from 'src/app/models/record/record';
 import { Model } from './../models/model/model';
 import {Injectable} from '@angular/core';
 import {
@@ -132,5 +133,8 @@ export class ApiService {
 
   getAllDoorTypes(): Observable<DoorType[]> {
     return this.getFromAPI<DoorType[]>('doortype/');
+  }
+  getAllRecords(): Observable<Record[]> {
+    return this.getFromAPI<Record[]>('record/');
   }
 }
