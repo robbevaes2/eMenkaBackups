@@ -108,6 +108,7 @@ namespace eMenka.API
             app.UseAuthorization();
             app.UseCors("MyAllowSpecificOrigins");
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

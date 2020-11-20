@@ -10,6 +10,7 @@ import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
 import { VehicleService } from '../../services/vehicle-service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -53,12 +54,12 @@ export class NewVehicleItemComponent implements OnInit {
 
   mapToModel(values: any): any {
     return {
-      brandId: values.brand,
-      modelId: values.model,
-      fuelTypeId: values.fuelType,
-      engineTypeId: values.engineType,
-      doorTypeId: values.doorType,
-      fuelCardId: values.fuelCard,
+      brandId: Number(values.brand),
+      modelId:  Number(values.model),
+      fuelTypeId:  Number(values.fuelType),
+      engineTypeId:  Number(values.engineType),
+      doorTypeId:  Number(values.doorType),
+      fuelCardId:  Number(values.fuelCard),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
       emission: values.emission,
@@ -72,7 +73,6 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   onChangedBrand(event): void {
-    // Do get requests with brandId
     const brandId = event.target.value;
     console.log('changed with ' + brandId);
 
@@ -87,7 +87,10 @@ export class NewVehicleItemComponent implements OnInit {
 
   saveNewVehicle(form: FormGroup): void {
     // Save vehicle
-    //this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe();
+    this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe(
+      (result) => {
+        console.log(result);
+      });
 
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
       this.router.navigate(['/vehicles']);
@@ -95,13 +98,13 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setBrands(): void {
-    //this.vehicleService.getAllBrands().subscribe(data => this.brands = data);
+    this.vehicleService.getAllBrands().subscribe(data => this.brands = data);
 
-    this.brands = [
+    /*this.brands = [
       new Brand(1, 'BMW'),
       new Brand(2, 'Ford'),
       new Brand(3, 'Volkswagen')
-    ];
+    ];*/
   }
 
   setModels(brandId: number): void {
