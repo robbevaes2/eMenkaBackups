@@ -6,12 +6,14 @@ using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class FuelCardController : ControllerBase
     {
