@@ -11,6 +11,10 @@ export class FuelCard {
   startDate: Date;
   endDate: Date;
   isActive: boolean;
+  blockingDate: Date;
+  blockingReason: string;
+  isBlocked: boolean;
+  pinCode: string;
 
   constructor(id: number, fuelCardNumber: string, vehicle: Vehicle, driver: Driver, record: Record, startDate: Date, endDate: Date,
               isActive: boolean) {

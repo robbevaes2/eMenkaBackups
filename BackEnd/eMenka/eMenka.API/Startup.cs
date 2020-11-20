@@ -64,6 +64,13 @@ namespace eMenka.API
             services.AddScoped<IFuelTypeRepository, FuelTypeRepository>();
             services.AddScoped<IEngineTypeRepository, EngineTypeRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IRecordRepository, RecordRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<IFuelCardRepository, FuelCardRepository>();
+            services.AddScoped<ICostAllocationRepository, CostAllocationRepository>();
+            services.AddScoped<ICorporationRepository, CorporationRepository>();
+            services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {
@@ -99,6 +106,8 @@ namespace eMenka.API
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors("MyAllowSpecificOrigins");
+
 
             app.UseEndpoints(endpoints =>
             {

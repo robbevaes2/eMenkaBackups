@@ -4,11 +4,13 @@ using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("MyAllowSpecificOrigins")]
     [ApiController]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class VehicleController : ControllerBase
@@ -20,8 +22,9 @@ namespace eMenka.API.Controllers
         private readonly IEngineTypeRepository _engineTypeRepository;
         private readonly IDoorTypeRepository _doorTypeRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly ISerieRepository _serieRepository;
 
-        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository)
+        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository, ISerieRepository serieRepository)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -30,6 +33,7 @@ namespace eMenka.API.Controllers
             _engineTypeRepository = engineTypeRepository;
             _doorTypeRepository = doorTypeRepository;
             _categoryRepository = categoryRepository;
+            _serieRepository = serieRepository;
         }
 
         [HttpGet]
@@ -113,6 +117,9 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
@@ -145,6 +152,9 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
             if (!isUpdated)
@@ -174,7 +184,7 @@ namespace eMenka.API.Controllers
                 EngineTypeId = vehicle.EngineType.Id,
                 DoorTypeId = vehicle.DoorTypeId,
                 Emission = vehicle.Emission,
-                FiscalePk = vehicle.FiscalePk,
+                FiscalHP = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
@@ -192,7 +202,7 @@ namespace eMenka.API.Controllers
                 BrandId = vehicleModel.BrandId,
                 DoorTypeId = vehicleModel.DoorTypeId,
                 Emission = vehicleModel.Emission,
-                FiscalePk = vehicleModel.FiscalePk,
+                FiscalHP = vehicleModel.FiscalHP,
                 FuelTypeId = vehicleModel.FuelTypeId,
                 IsActive = vehicleModel.IsActive,
                 ModelId = vehicleModel.ModelId,
@@ -201,5 +211,6 @@ namespace eMenka.API.Controllers
                 FuelCardId = vehicleModel.FuelCardId
             };
         }
+
     }
 }

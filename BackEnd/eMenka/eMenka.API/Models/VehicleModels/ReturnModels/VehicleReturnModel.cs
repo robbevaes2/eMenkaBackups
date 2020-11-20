@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
@@ -12,13 +13,18 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public EngineTypeReturnModel EngineType { get; set; }
         public DoorTypeReturnModel DoorType { get; set; }
         public CategoryReturnModel Category { get; set; }
-        public int FuelCard { get; set; } //todo refactor to FuelCardModel
+        public FuelCardReturnModel FuelCard { get; set; }
+        public SerieReturnModel Serie { get; set; }
         public int? Volume { get; set; }
-        public int? FiscalePk { get; set; }
+        public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
         public int? Power { get; set; }
-        public DateTime EndDate { get; set; }
         public bool IsActive { get; set; }
         public string LicensePlate { get; set; }
+        public string Chassis { get; set; }
+        public int? EngineCapacity { get; set; }
+        public int EnginePower { get; set; }
+        public DateTime? EndDateDelivery { get; set; }
+        public int? AverageFuel { get; set; }
     }
 }

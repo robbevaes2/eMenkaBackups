@@ -5,7 +5,6 @@ import { Vehicle } from './../../models/vehicle/vehicle';
 import { Usage } from './../../enums/usage/usage.enum';
 import { Country } from './../../models/country/country';
 import { Serie } from './../../models/serie/serie';
-import { MotorType } from './../../models/motor-type/motor-type';
 import { DoorType } from './../../models/door-type/door-type';
 import { ExteriorColor } from './../../models/exterior-color/exterior-color';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +15,7 @@ import { Term } from 'src/app/enums/term/term.enum';
 import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
+import { EngineType } from 'src/app/models/engine-type/engine-type';
 
 @Component({
   selector: 'app-record-details',
@@ -247,21 +247,25 @@ export class RecordDetailsComponent implements OnInit {
       model: new Model(3, 'A6'),
       serie: new Serie(1, 'Sportback'),
       fuelType: new FuelType(1, 'Benzine'),
-      motorType: new MotorType(1, '1.9 TDI'),
+      engineType: new EngineType(1, '1.9 TDI'),
+      engineCapacity: 12,
+      enginePower: 12,
       doorType: new DoorType(3, '5-deurs'),
       fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
       volume: 2000,
-      fiscaleHp: 50,
+      category: null,
+      fiscalHP: 50,
       emission: 1,
       power: 300,
       licensePlate: '1-abc-123',
-      endData: new Date('2020-01-16'),
+      endDateDelivery: new Date('2020-01-16'),
       isActive: true,
       chassis: 'feoipajfpoaezfjipio',
       registrationDate: new Date('2020-01-16'),
       country: new Country(1, 'België', 'BE', 'Belg', false, true),
       buildYear: 2012,
-      kilometers: 5000
+      kilometers: 5000,
+      averageFuel: 50
     }]
   }
 }
