@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,15 +15,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class BrandControllerTests
     {
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _sut = new BrandController(_brandRepositoryMock.Object);
         }
+
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()

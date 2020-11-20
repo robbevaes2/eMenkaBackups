@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class DoorTypeController : ControllerBase
     {
@@ -29,7 +26,7 @@ namespace eMenka.API.Controllers
         {
             var doorTypes = _doorTypeRepository.GetAll();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
+            return Ok(doorTypes.Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -47,28 +44,22 @@ namespace eMenka.API.Controllers
         {
             var doorTypes = _doorTypeRepository.Find(doorType => doorType.Name == doorTypeName);
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
+            return Ok(doorTypes.Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpPost]
         public IActionResult PostDoorType([FromBody] DoorTypeModel doorTypeModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel)); 
+            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateDoorType([FromBody] DoorTypeModel doorTypeModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != doorTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");

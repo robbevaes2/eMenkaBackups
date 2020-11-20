@@ -30,8 +30,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class RecordListComponent implements OnInit {
   records: Record[];
 
-  headNames  = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Type', 'Gebruik', 'Eerse registartie', 'Einde'];
-  headElements  = ['fuelCard.vehicle.licensePlate', 'fuelCard.driver.person.firstname', '', '', 'fuelCard.vehicle.brand.name', 'fuelCard.vehicle.model.name', 'term', '', '', 'usage', 'fuelCard.vehicle.fuelType.name', 'startDate', 'endDate'];
+  headNames: string[];
+  headElements  = ['fuelCard.vehicle.licensePlate', 'fuelCard.driver.person.firstname', 'corporation.name', 'costAllocatoin.name', 'fuelCard.vehicle.brand.name', 'fuelCard.vehicle.model.name', 'usage', 'fuelCard.vehicle.fuelType.name', 'startDate', 'endDate'];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
@@ -45,18 +45,21 @@ export class RecordListComponent implements OnInit {
   constructor(private router: Router, private cdRef: ChangeDetectorRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getAllRecords().subscribe(data => {this.records = data; console.log(this.records);});
+    this.apiService.getAllRecords().subscribe(data => this.records = data);
+    //this.records = this.getRecordDummyList();
+    this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerse registartie', 'Einde'];
 
-    this.mdbTable.setDataSource(this.records);
-    this.records = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+
   }
 
   ngAfterViewInit() {
-    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
+    // this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
 
-    this.mdbTablePagination.calculateFirstItemIndex();
-    this.mdbTablePagination.calculateLastItemIndex();
+    // this.mdbTablePagination.calculateFirstItemIndex();
+    // this.mdbTablePagination.calculateLastItemIndex();
+    this.mdbTable.setDataSource(this.records);
+    this.records = this.mdbTable.getDataSource();
+    this.previous = this.mdbTable.getDataSource();
     this.cdRef.detectChanges();
   }
 
@@ -153,5 +156,7 @@ export class RecordListComponent implements OnInit {
       title: null
     }
   }
-
+  dateToStringConverter(date: string) {
+    return new Date(date).toLocaleDateString();
+  }
 }

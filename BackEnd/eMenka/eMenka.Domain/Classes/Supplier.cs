@@ -7,6 +7,5 @@
         public string[] Types { get; set; }
         public bool Active { get; set; }
         public bool Internal { get; set; }
-
     }
 }

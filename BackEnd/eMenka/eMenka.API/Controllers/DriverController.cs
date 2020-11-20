@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class DriverController : ControllerBase
     {
@@ -28,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var drivers = _driverRepository.GetAll();
 
-            return Ok(drivers.ToList().Select(FuelCardMappers.MapDriverEntity).ToList());
+            return Ok(drivers.Select(FuelCardMappers.MapDriverEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -44,12 +43,9 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostDriver([FromBody] DriverModel driverModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            if (_personRepository.GetById((int)driverModel.PersonId) == null)
+            if (_personRepository.GetById((int) driverModel.PersonId) == null)
                 return NotFound($"Person with id {driverModel.PersonId} not found");
 
             _driverRepository.Add(FuelCardMappers.MapDriverModel(driverModel));
@@ -59,16 +55,13 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateDriver([FromBody] DriverModel driverModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (_personRepository.GetById((int)driverModel.PersonId) == null)
-                return NotFound($"Person with id {driverModel.PersonId} not found");
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != driverModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_personRepository.GetById((int) driverModel.PersonId) == null)
+                return NotFound($"Person with id {driverModel.PersonId} not found");
 
             var isUpdated = _driverRepository.Update(id, FuelCardMappers.MapDriverModel(driverModel));
 

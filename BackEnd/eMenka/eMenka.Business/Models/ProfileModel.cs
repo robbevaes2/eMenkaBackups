@@ -1,19 +1,12 @@
-﻿using eMenka.Domain;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using eMenka.Domain;
 
 namespace eMenka.Business.Models
 {
     public class ProfileModel
     {
-        [Required]
-        public int Id { get; set; }
-        [Required]
-        public string Email { get; set; }
-        public string UserName { get; set; }
-
         public ProfileModel()
         {
-
         }
 
         public ProfileModel(User entity)
@@ -22,5 +15,11 @@ namespace eMenka.Business.Models
             Email = entity.Email;
             UserName = entity.Email;
         }
+
+        [Required] public int Id { get; set; }
+
+        [Required] public string Email { get; set; }
+
+        public string UserName { get; set; }
     }
 }

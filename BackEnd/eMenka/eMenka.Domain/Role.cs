@@ -6,6 +6,5 @@ namespace eMenka.Domain
     {
         public const string Admin = "admin";
         public const string Client = "client";
-
     }
 }

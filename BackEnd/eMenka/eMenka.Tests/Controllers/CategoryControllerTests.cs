@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,15 +15,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class CategoryControllerTests
     {
-        private CategoryController _sut;
-        private Mock<ICategoryRepository> _categoryRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _categoryRepositoryMock = new Mock<ICategoryRepository>();
             _sut = new CategoryController(_categoryRepositoryMock.Object);
         }
+
+        private CategoryController _sut;
+        private Mock<ICategoryRepository> _categoryRepositoryMock;
 
         [Test]
         public void GetAllCatgeoriesReturnsOkAndListOfAllCatgeoriesWhenEverythingIsCorrect()
@@ -108,7 +107,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCategoryReturnsOkWhenModelIsValid()
         {
-            var validModel = new CategoryModel()
+            var validModel = new CategoryModel
             {
                 Name = "name"
             };
@@ -137,7 +136,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCategoryReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new CategoryModel()
+            var invalidModel = new CategoryModel
             {
                 Id = 1
             };
@@ -152,7 +151,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCategoryReturnsNotFoundWhenDoorTypeIsNotFound()
         {
-            var invalidModel = new CategoryModel()
+            var invalidModel = new CategoryModel
             {
                 Id = 1
             };
@@ -170,7 +169,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCategoryReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new CategoryModel()
+            var validModel = new CategoryModel
             {
                 Id = 1,
                 Name = ""
@@ -217,7 +216,5 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _categoryRepositoryMock.Verify(m => m.Remove(It.IsAny<Category>()), Times.Once);
         }
-
-
     }
 }

@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
-using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-
     public class RecordController : ControllerBase
     {
-        private readonly IRecordRepository _recordRepository;
-        private readonly IFuelCardRepository _fuelCardRepository;
         private readonly ICorporationRepository _corporationRepository;
         private readonly ICostAllocationRepository _costAllocationRepository;
+        private readonly IFuelCardRepository _fuelCardRepository;
+        private readonly IRecordRepository _recordRepository;
 
-        public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository, ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository)
+        public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
+            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository)
         {
             _recordRepository = recordRepository;
             _fuelCardRepository = fuelCardRepository;
@@ -34,7 +32,7 @@ namespace eMenka.API.Controllers
         {
             var records = _recordRepository.GetAll();
 
-            return Ok(records.ToList().Select(RecordMappers.MapRecordEntity).ToList());
+            return Ok(records.Select(RecordMappers.MapRecordEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -50,18 +48,15 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostRecord([FromBody] RecordModel recordModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
 
-            if (_corporationRepository.GetById((int)recordModel.CorporationId) == null)
+            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
                 return NotFound($"Corporation with id {recordModel.CorporationId} not found");
 
-            if (_costAllocationRepository.GetById((int)recordModel.CostAllocationId) == null)
+            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
 
             _recordRepository.Add(RecordMappers.MapRecordModel(recordModel));
@@ -71,22 +66,19 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateRecord([FromBody] RecordModel recordModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (_fuelCardRepository.GetById((int)recordModel.FuelCardId) == null)
-                return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
-
-            if (_corporationRepository.GetById((int)recordModel.CorporationId) == null)
-                return NotFound($"Corporation with id {recordModel.CorporationId} not found");
-
-            if (_costAllocationRepository.GetById((int)recordModel.CostAllocationId) == null)
-                return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != recordModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
+                return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
+
+            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
+                return NotFound($"Corporation with id {recordModel.CorporationId} not found");
+
+            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
+                return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
 
             var isUpdated = _recordRepository.Update(id, RecordMappers.MapRecordModel(recordModel));
 

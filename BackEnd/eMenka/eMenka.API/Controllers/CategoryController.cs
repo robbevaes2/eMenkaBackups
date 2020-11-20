@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CategoryController : ControllerBase
     {
@@ -26,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var categories = _categoryRepository.GetAll();
 
-            return Ok(categories.ToList().Select(VehicleMappers.MapCategoryEntity).ToList());
+            return Ok(categories.Select(VehicleMappers.MapCategoryEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -44,16 +43,13 @@ namespace eMenka.API.Controllers
         {
             var categories = _categoryRepository.Find(category => category.Name == categoryName);
 
-            return Ok(categories.ToList().Select(VehicleMappers.MapCategoryEntity).ToList());
+            return Ok(categories.Select(VehicleMappers.MapCategoryEntity).ToList());
         }
 
         [HttpPost]
         public IActionResult PostCategroy([FromBody] CategoryModel categoryModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _categoryRepository.Add(VehicleMappers.MapCategoryModel(categoryModel));
             return Ok();
@@ -62,10 +58,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCategory([FromBody] CategoryModel categoryModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != categoryModel.Id)
                 return BadRequest("Id from model does not match query paramater id");

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.Domain.Enums;
 
 namespace eMenka.Domain.Classes
@@ -19,6 +17,5 @@ namespace eMenka.Domain.Classes
         public string Gender { get; set; }
         public string Title { get; set; }
         public byte[] Picture { get; set; }
-
     }
 }

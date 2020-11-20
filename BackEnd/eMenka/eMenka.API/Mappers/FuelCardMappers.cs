@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.FuelCardModels;
+﻿using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
@@ -56,11 +52,12 @@ namespace eMenka.API.Mappers
                 Serie = VehicleMappers.MapSerieEntity(vehicle.Series)
             };
         }
+
         public static FuelCard MapFuelCardModel(FuelCardModel fuelCardModel)
         {
             return new FuelCard
             {
-                DriverId = (int)fuelCardModel.DriverId,
+                DriverId = (int) fuelCardModel.DriverId,
                 EndDate = fuelCardModel.EndDate,
                 Id = fuelCardModel.Id,
                 StartDate = fuelCardModel.StartDate,
@@ -68,9 +65,11 @@ namespace eMenka.API.Mappers
                 BlockingReason = fuelCardModel.BlockingReason,
                 IsBlocked = fuelCardModel.IsBlocked,
                 PinCode = fuelCardModel.PinCode,
-                VehicleId = fuelCardModel.VehicleId
+                VehicleId = fuelCardModel.VehicleId,
+                Number = fuelCardModel.Number
             };
         }
+
         public static DriverReturnModel MapDriverEntity(Driver driver)
         {
             if (driver == null)
@@ -83,16 +82,18 @@ namespace eMenka.API.Mappers
                 Person = MapPersonEntity(driver.Person)
             };
         }
+
         public static Driver MapDriverModel(DriverModel driverModel)
         {
             return new Driver
             {
                 Id = driverModel.Id,
                 EndDate = driverModel.EndDate,
-                PersonId = (int)driverModel.PersonId,
+                PersonId = (int) driverModel.PersonId,
                 StartDate = driverModel.StartDate
             };
         }
+
         public static PersonReturnModel MapPersonEntity(Person person)
         {
             if (person == null)
@@ -113,6 +114,7 @@ namespace eMenka.API.Mappers
                 DriversLicenseType = person.DriversLicenseType
             };
         }
+
         public static Person MapPersonModel(PersonModel personModel)
         {
             return new Person

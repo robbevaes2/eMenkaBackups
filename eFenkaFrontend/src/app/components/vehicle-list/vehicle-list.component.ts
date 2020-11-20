@@ -22,7 +22,7 @@ import { ApiService } from '../../services/api.service';
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
   headNames  = ["Merk", "Model", "brandstof", "type motor", "aantal deuren", "volume", "fiscale Pk", "vermogen", "Einddatum"];
-  headElements  = ["brand.name", "model.name", "fuelType.name", "motorType.name", "doorType.name", "volume", "fiscalePk", "power", "endData"];
+  headElements  = ["brand.name", "model.name", "fuelType.name", "motorType.name", "doorType.name", "volume", "fiscalHp", "power", "endDateDelivery"];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
@@ -44,10 +44,10 @@ export class VehicleListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
+    // this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
 
-    this.mdbTablePagination.calculateFirstItemIndex();
-    this.mdbTablePagination.calculateLastItemIndex();
+    // this.mdbTablePagination.calculateFirstItemIndex();
+    // this.mdbTablePagination.calculateLastItemIndex();
     this.cdRef.detectChanges();
   }
 

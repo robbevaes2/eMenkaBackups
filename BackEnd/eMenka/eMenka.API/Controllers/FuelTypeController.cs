@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class FuelTypeController : ControllerBase
     {
@@ -27,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var fuelTypes = _fuelTypeRepository.GetAll();
 
-            return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity).ToList());
+            return Ok(fuelTypes.Select(VehicleMappers.MapFuelTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -43,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostFuelType([FromBody] FuelTypeModel fuelTypeModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _fuelTypeRepository.Add(VehicleMappers.MapFuelTypeModel(fuelTypeModel));
             return Ok();
@@ -55,10 +50,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateFuelType([FromBody] FuelTypeModel fuelTypeModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
             if (id != fuelTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 

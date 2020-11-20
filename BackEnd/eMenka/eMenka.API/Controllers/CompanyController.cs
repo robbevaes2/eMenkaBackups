@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CompanyController : ControllerBase
     {
@@ -26,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var companies = _companyRepository.GetAll();
 
-            return Ok(companies.ToList().Select(RecordMappers.MapCompanyEntity).ToList());
+            return Ok(companies.Select(RecordMappers.MapCompanyEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -42,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostCompany([FromBody] CompanyModel companyModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _companyRepository.Add(RecordMappers.MapCompanyModel(companyModel));
             return Ok();
@@ -54,10 +50,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCompany([FromBody] CompanyModel companyModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != companyModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
