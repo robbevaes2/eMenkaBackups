@@ -15,6 +15,7 @@ import { EngineType } from '../models/engine-type/engine-type';
 import { FuelType } from '../models/fuel-type/fuel-type';
 import { FuelCard } from '../models/fuel-card/fuel-card';
 import { DoorType } from '../models/door-type/door-type';
+import { Category } from '../models/category/category';
 
 const BASE_API_URL = 'https://localhost:44356/api/';
 
@@ -78,6 +79,7 @@ export class ApiService {
       );
     }
     console.log(error);
+    window.alert('Er ging iets verkeerd!');
     return throwError(error);
   }
 
@@ -96,14 +98,11 @@ export class ApiService {
   }
 
   addVehicle(vehicleModel: any) {
-    console.log(vehicleModel);
     return this.postToAPI('vehicle/', vehicleModel);
   }
 
   deleteVehicle(id: number) {
-    return this.http.delete('vehicle/' + id).pipe(
-      catchError(this.handleError)
-    );
+    return this.deleteFromAPI('vehicle/' + id);
   }
 
   getAllBrands(): Observable<Brand[]> {
@@ -132,5 +131,9 @@ export class ApiService {
 
   getAllDoorTypes(): Observable<DoorType[]> {
     return this.getFromAPI<DoorType[]>('doortype/');
+  }
+
+  getAllCategories(): Observable<Category[]> {
+    return this.getFromAPI<Category[]>('category/');
   }
 }
