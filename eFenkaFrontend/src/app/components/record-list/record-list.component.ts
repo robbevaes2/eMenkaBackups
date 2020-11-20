@@ -19,6 +19,7 @@ import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { DoorType } from 'src/app/models/door-type/door-type';
 import { EngineType } from 'src/app/models/engine-type/engine-type';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-record-list',
@@ -34,10 +35,10 @@ export class RecordListComponent implements OnInit {
   page = 1;
   selectedAmount = this.pageAmounts[0];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.records = this.getRecordDummyList();
+    this.apiService.getAllRecords().subscribe(data => {this.records = data; console.log(this.records);});
   }
 
   navigateToNewRecordComponent(): void {
@@ -60,7 +61,6 @@ export class RecordListComponent implements OnInit {
           null, new Date('2020-01-16'), new Date('2022-01-16'), true),
           corporation: new Corporation(1, 'test1', 't1', new Company(1, 'eMenKa', 'description', null, true, true, null, null, null),
           new Date('2022-01-16'), new Date('2022-01-16')),
-        city: 'Hasselt',
         term: Term.Short,
         startDate: new Date('2020-01-16'),
         endDate: new Date('2022-01-16'),
@@ -73,7 +73,6 @@ export class RecordListComponent implements OnInit {
           null, new Date('2020-01-20'), new Date('2022-01-20'), true),
         corporation: new Corporation(2, 'test2', 't2', new Company(2, 'PXL', 'description', null, true, true, null, null, null),
          new Date('2022-01-16'), new Date('2022-01-16')),
-        city: 'Hasselt',
         term: Term.Long,
         startDate: new Date('2020-01-20'),
         endDate: new Date('2022-01-20'),
