@@ -11,6 +11,10 @@ namespace eMenka.Data
 {
     public class EfenkaContext : IdentityDbContext<User, Role, int>
     {
+        public EfenkaContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Company> Companies { get; set; }
@@ -29,15 +33,12 @@ namespace eMenka.Data
         public DbSet<InteriorColor> InteriorColors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-        public EfenkaContext(DbContextOptions options) : base(options)
-        {
-
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             #region Primary Keys
+
             builder.Entity<Brand>().HasKey(b => b.Id);
             builder.Entity<Country>().HasKey(c => c.Id);
             builder.Entity<Company>().HasKey(c => c.Id);
@@ -51,9 +52,11 @@ namespace eMenka.Data
             builder.Entity<Series>().HasKey(s => s.Id);
             builder.Entity<Supplier>().HasKey(s => s.Id);
             builder.Entity<Vehicle>().HasKey(v => v.Id);
+
             #endregion
 
             #region Relations
+
             /********************** One To Many *************************/
             //1 brand -> x EngineTypes
             builder.Entity<Brand>()
@@ -138,6 +141,7 @@ namespace eMenka.Data
                 .WithOne(r => r.FuelCard)
                 .HasForeignKey<Record>(r => r.FuelCardId);
             /***********************************************************/
+
             #endregion
             
             DataBaseSeeder.SeedData(builder);
@@ -153,7 +157,7 @@ namespace eMenka.Data
                 .HasConversion(
                     v => string.Join(',', v),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                    ).Metadata.SetValueComparer(valueComparer);
+                ).Metadata.SetValueComparer(valueComparer);
         }
 
         /*
@@ -162,10 +166,7 @@ namespace eMenka.Data
         */
         public void DetachEntries()
         {
-            foreach (var entityEntry in ChangeTracker.Entries())
-            {
-                Entry(entityEntry.Entity).State = EntityState.Detached;
-            }
+            foreach (var entityEntry in ChangeTracker.Entries()) Entry(entityEntry.Entity).State = EntityState.Detached;
         }
     }
 }

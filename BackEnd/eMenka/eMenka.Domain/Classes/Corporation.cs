@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace eMenka.Domain.Classes
 {
@@ -13,6 +11,5 @@ namespace eMenka.Domain.Classes
         public int CompanyId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-
     }
 }

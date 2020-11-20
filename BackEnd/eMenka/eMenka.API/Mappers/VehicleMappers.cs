@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.VehicleModels;
+﻿using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
@@ -20,21 +16,24 @@ namespace eMenka.API.Mappers
                 Brand = MapBrandEntity(vehicle.Brand),
                 FuelType = MapFuelTypeEntity(vehicle.FuelType),
                 EngineType = MapEngineTypeEntity(vehicle.EngineType),
-                DoorType = MapDoorTypeEntity(vehicle.DoorType), 
+                DoorType = MapDoorTypeEntity(vehicle.DoorType),
                 Emission = vehicle.Emission,
                 FiscalHP = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = MapModelEntity(vehicle.Model),
-                FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard) ,
+                FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard),
                 Category = MapCategoryEntity(vehicle.Category),
                 LicensePlate = vehicle.LicensePlate,
                 Chassis = vehicle.Chassis,
                 AverageFuel = vehicle.AverageFuel,
                 EndDateDelivery = vehicle.EndDateDelivery,
                 EngineCapacity = vehicle.EngineCapacity,
-                EnginePower = vehicle.EnginePower
+                EnginePower = vehicle.EnginePower,
+                Serie = MapSerieEntity(vehicle.Series),
+                BuildYear = vehicle.BuildYear,
+                Country = MapCountryEntity(vehicle.Country)
             };
         }
 
@@ -44,22 +43,26 @@ namespace eMenka.API.Mappers
             {
                 Id = vehicleModel.Id,
                 EngineTypeId = (int) vehicleModel.EngineTypeId,
-                BrandId = (int) (int)vehicleModel.BrandId,
-                DoorTypeId = (int)vehicleModel.DoorTypeId,
-                Emission = (int)vehicleModel.Emission,
-                FiscalHP = (int)vehicleModel.FiscalHP,
-                FuelTypeId = (int)vehicleModel.FuelTypeId, 
+                BrandId = (int) vehicleModel.BrandId,
+                DoorTypeId = (int) vehicleModel.DoorTypeId,
+                Emission = (int) vehicleModel.Emission,
+                FiscalHP = (int) vehicleModel.FiscalHP,
+                FuelTypeId = (int) vehicleModel.FuelTypeId,
                 IsActive = vehicleModel.IsActive,
-                ModelId = (int)vehicleModel.ModelId,
-                Power = (int)vehicleModel.Power,
-                Volume = (int)vehicleModel.Volume,
+                ModelId = (int) vehicleModel.ModelId,
+                Power = (int) vehicleModel.Power,
+                Volume = (int) vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
-                FuelCardId = (int)vehicleModel.FuelCardId,
+                FuelCardId = (int) vehicleModel.FuelCardId,
+                SeriesId = (int) vehicleModel.SeriesId,
                 Chassis = vehicleModel.Chassis,
                 AverageFuel = vehicleModel.AverageFuel,
                 EndDateDelivery = vehicleModel.EndDateDelivery,
                 EngineCapacity = vehicleModel.EngineCapacity,
-                EnginePower = vehicleModel.EnginePower
+                EnginePower = vehicleModel.EnginePower,
+                CountryId = vehicleModel.CountryId,
+                BuildYear = vehicleModel.BuildYear,
+                CategoryId = vehicleModel.CategoryId
             };
         }
 
@@ -74,11 +77,12 @@ namespace eMenka.API.Mappers
                 Id = series.Id
             };
         }
+
         public static Series MapSerieModel(SerieModel serieModel)
         {
             return new Series
             {
-                BrandId = (int)serieModel.BrandId,
+                BrandId = (int) serieModel.BrandId,
                 Id = serieModel.Id,
                 Name = serieModel.Name
             };
@@ -95,11 +99,12 @@ namespace eMenka.API.Mappers
                 Id = engineType.Id
             };
         }
+
         public static EngineType MapEngineTypeModel(EngineTypeModel engineTypeModel)
         {
-            return new EngineType()
+            return new EngineType
             {
-                BrandId = (int)engineTypeModel.BrandId,
+                BrandId = (int) engineTypeModel.BrandId,
                 Id = engineTypeModel.Id,
                 Name = engineTypeModel.Name
             };
@@ -116,11 +121,12 @@ namespace eMenka.API.Mappers
                 Id = model.Id
             };
         }
+
         public static Model MapModelModel(ModelModel modelModel)
         {
             return new Model
             {
-                BrandId = (int)modelModel.BrandId,
+                BrandId = (int) modelModel.BrandId,
                 Id = modelModel.Id,
                 Name = modelModel.Name
             };
@@ -209,6 +215,35 @@ namespace eMenka.API.Mappers
                 Id = categoryModel.Id
             };
         }
+
+        public static CountryReturnModel MapCountryEntity(Country country)
+        {
+            if (country == null)
+                return null;
+            return new CountryReturnModel
+            {
+                Code = country.Code,
+                Id = country.Id,
+                IsActive = country.IsActive,
+                Name = country.Name,
+                Nationality = country.Nationality,
+                POD = country.POD
+            };
+        }
+
+        public static Country MapCountryModel(CountryModel countryModel)
+        {
+            return new Country
+            {
+                POD = countryModel.POD,
+                Code = countryModel.Code,
+                Id = countryModel.Id,
+                IsActive = countryModel.IsActive,
+                Name = countryModel.Name,
+                Nationality = countryModel.Nationality
+            };
+        }
+
         /*
         private static Func<InteriorColor, InteriorColorReturnModel> MapInteriorColorEntity()
         {

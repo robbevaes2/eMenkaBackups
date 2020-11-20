@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ModelController : ControllerBase
     {
-        private readonly IModelRepository _modelRepository;
         private readonly IBrandRepository _brandRepository;
+        private readonly IModelRepository _modelRepository;
 
         public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository)
         {
@@ -30,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var models = _modelRepository.GetAll();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
+            return Ok(models.Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -51,18 +48,15 @@ namespace eMenka.API.Controllers
 
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
+            return Ok(models.Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpPost]
         public IActionResult PostModel([FromBody] ModelModel modelModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+            if (_brandRepository.GetById((int) modelModel.BrandId) == null)
                 return NotFound($"No brand with id {modelModel.BrandId}");
 
             _modelRepository.Add(VehicleMappers.MapModelModel(modelModel));
@@ -72,15 +66,12 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateModel([FromBody] ModelModel modelModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != modelModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
-            if (_brandRepository.GetById((int)modelModel.BrandId) == null)
+            if (_brandRepository.GetById((int) modelModel.BrandId) == null)
                 return NotFound($"No brand with id {modelModel.BrandId}");
 
             var isUpdated = _modelRepository.Update(id, VehicleMappers.MapModelModel(modelModel));

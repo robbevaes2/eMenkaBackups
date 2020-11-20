@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
-using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class FuelCardController : ControllerBase
     {
-        private readonly IFuelCardRepository _fuelCardRepository;
         private readonly IDriverRepository _driverRepository;
+        private readonly IFuelCardRepository _fuelCardRepository;
 
         public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository)
         {
@@ -29,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var fuelCards = _fuelCardRepository.GetAll();
 
-            return Ok(fuelCards.ToList().Select(FuelCardMappers.MapFuelCardEntity).ToList());
+            return Ok(fuelCards.Select(FuelCardMappers.MapFuelCardEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -45,12 +43,9 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostFuelCard([FromBody] FuelCardModel fuelCardModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            if (_driverRepository.GetById((int)fuelCardModel.DriverId) == null)
+            if (_driverRepository.GetById((int) fuelCardModel.DriverId) == null)
                 return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
 
             _fuelCardRepository.Add(FuelCardMappers.MapFuelCardModel(fuelCardModel));
@@ -60,16 +55,13 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateFuelCard([FromBody] FuelCardModel fuelCardModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (_driverRepository.GetById((int)fuelCardModel.DriverId) == null)
-                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != fuelCardModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_driverRepository.GetById((int) fuelCardModel.DriverId) == null)
+                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
 
             var isUpdated = _fuelCardRepository.Update(id, FuelCardMappers.MapFuelCardModel(fuelCardModel));
 
@@ -89,7 +81,5 @@ namespace eMenka.API.Controllers
             _fuelCardRepository.Remove(fuelCard);
             return Ok();
         }
-
-
     }
 }

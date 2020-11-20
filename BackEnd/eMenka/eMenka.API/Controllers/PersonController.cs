@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PersonController : ControllerBase
     {
@@ -26,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var persons = _personRepository.GetAll();
 
-            return Ok(persons.ToList().Select(FuelCardMappers.MapPersonEntity).ToList());
+            return Ok(persons.Select(FuelCardMappers.MapPersonEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -42,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostPerson([FromBody] PersonModel personModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _personRepository.Add(FuelCardMappers.MapPersonModel(personModel));
             return Ok();
@@ -54,10 +50,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdatePerson([FromBody] PersonModel personModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != personModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
