@@ -79,33 +79,36 @@ export class RecordDetailsComponent implements OnInit {
       exteriorColor: new FormControl(null, [Validators.required]),
       interiorColor: new FormControl(null, [Validators.required])
     });
+
+    this.fillForm();
+    this.disableForm();
   }
 
   fillForm(): void {
-    this.form.controls['type'].setValue(this.selectedRecord.term);
-    this.form.controls['licensePlate'].setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
-    this.form.controls['chassis'].setValue(this.selectedRecord.fuelCard.vehicle.chassis);
-    this.form.controls['registrationDate'].setValue(this.selectedRecord.fuelCard.vehicle.registrationDate);
-    this.form.controls['country'].setValue(this.selectedRecord.fuelCard.vehicle.country.name);
-    this.form.controls['startDate'].setValue(this.selectedRecord.startDate);
-    this.form.controls['corporation'].setValue(this.selectedRecord.corporation.name);
-    this.form.controls['costAllocation'].setValue(this.selectedRecord.costAllocatoin.name);
-    this.form.controls['fuelCard'].setValue(this.selectedRecord.fuelCard);
-    this.form.controls['usage'].setValue(this.selectedRecord.usage);
-    this.form.controls['driver'].setValue(this.selectedRecord.fuelCard.driver);
-    this.form.controls['brand'].setValue(this.selectedRecord.fuelCard.vehicle.brand);
-    this.form.controls['fuelType'].setValue(this.selectedRecord.fuelCard.vehicle.fuelType.name);
-    this.form.controls['model'].setValue(this.selectedRecord.fuelCard.vehicle.model.name);
-    this.form.controls['vehicle'].setValue(this.selectedRecord.fuelCard.vehicle.serie.name + ' ' +
-      this.selectedRecord.fuelCard.vehicle.doorType.name);
-    this.form.controls['buildYear'].setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
-    this.form.controls['kilometers'].setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
-    this.form.controls['exteriorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.exteriorColors);
-    this.form.controls['interiorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.interiorColors);
+    // this.form.controls['type'].setValue(this.selectedRecord.term);
+    // this.form.controls['licensePlate'].setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
+    // this.form.controls['chassis'].setValue(this.selectedRecord.fuelCard.vehicle.chassis);
+    // this.form.controls['registrationDate'].setValue(this.selectedRecord.fuelCard.vehicle.registrationDate);
+    // this.form.controls['country'].setValue(this.selectedRecord.fuelCard.vehicle.country.name);
+    // this.form.controls['startDate'].setValue(this.selectedRecord.startDate);
+    // this.form.controls['corporation'].setValue(this.selectedRecord.corporation.name);
+    // this.form.controls['costAllocation'].setValue(this.selectedRecord.costAllocatoin.name);
+    // this.form.controls['fuelCard'].setValue(this.selectedRecord.fuelCard.fuelCardNumber);
+    // this.form.controls['usage'].setValue(this.selectedRecord.usage);
+    // this.form.controls['driver'].setValue(this.selectedRecord.fuelCard.driver);
+    // this.form.controls['brand'].setValue(this.selectedRecord.fuelCard.vehicle.brand);
+    // this.form.controls['fuelType'].setValue(this.selectedRecord.fuelCard.vehicle.fuelType.name);
+    // this.form.controls['model'].setValue(this.selectedRecord.fuelCard.vehicle.model.name);
+    // this.form.controls['vehicle'].setValue(this.selectedRecord.fuelCard.vehicle.serie.name + ' ' +
+    //   this.selectedRecord.fuelCard.vehicle.doorType.name);
+    // this.form.controls['buildYear'].setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
+    // this.form.controls['kilometers'].setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
+    // this.form.controls['exteriorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.exteriorColors);
+    // this.form.controls['interiorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.interiorColors);
   }
 
   disableForm(): void {
-    this.form.controls['Type'].disable();
+    this.form.controls['type'].disable();
     this.form.controls['licensePlate'].disable();
     this.form.controls['chassis'].disable();
     this.form.controls['registrationDate'].disable();
@@ -128,7 +131,7 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   enableForm(): void {
-    this.form.controls['Type'].enable();
+    this.form.controls['type'].enable();
     this.form.controls['licensePlate'].enable();
     this.form.controls['chassis'].enable();
     this.form.controls['registrationDate'].enable();
@@ -154,7 +157,7 @@ export class RecordDetailsComponent implements OnInit {
     this.router.navigate(['/records']);
   }
 
-  saveEditVehicle(form: FormGroup): void {
+  saveEditRecord(form: FormGroup): void {
     if (this.isEditable) {
       if (confirm('Are you sure you want to save this vehicle?')) {
         // Save vehicle and assign new vehicle (get request by vehicleId) to selectedRecord
@@ -166,7 +169,7 @@ export class RecordDetailsComponent implements OnInit {
     }
   }
 
-  deleteVehicle(): void {
+  deleteRecord(): void {
     if (confirm('Are you sure you want to delete this vehicle?')) {
         // Delete vehicle
         this.navigateToListRecordComponent();
