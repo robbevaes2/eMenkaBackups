@@ -26,5 +26,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
+        public int? BuildYear { get; set; }
+        public CountryReturnModel Country { get; set; }
     }
 }

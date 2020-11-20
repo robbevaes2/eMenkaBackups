@@ -39,5 +39,7 @@ namespace eMenka.API.Models.VehicleModels
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
+        public int? CountryId { get; set; }
+        public int? BuildYear { get; set; }
     }
 }

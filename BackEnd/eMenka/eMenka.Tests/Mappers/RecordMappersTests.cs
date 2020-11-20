@@ -18,7 +18,7 @@ namespace eMenka.Tests.Mappers
         {
             Record record = null;
 
-            var result = RecordMappers.MapRecordEntity(null);
+            var result = RecordMappers.MapRecordEntity(record);
 
             Assert.That(result, Is.Null);
         }
