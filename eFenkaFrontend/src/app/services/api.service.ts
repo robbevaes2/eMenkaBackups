@@ -1,3 +1,4 @@
+import { Record } from 'src/app/models/record/record';
 import { Model } from './../models/model/model';
 import {Injectable} from '@angular/core';
 import {
@@ -135,5 +136,8 @@ export class ApiService {
 
   getAllCategories(): Observable<Category[]> {
     return this.getFromAPI<Category[]>('category/');
+  }
+  getAllRecords(): Observable<Record[]> {
+    return this.getFromAPI<Record[]>('record/');
   }
 }

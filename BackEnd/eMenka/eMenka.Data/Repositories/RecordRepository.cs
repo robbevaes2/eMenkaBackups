@@ -22,6 +22,8 @@ namespace eMenka.Data.Repositories
         {
             return _context.Records
                 .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .Include(r => r.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .Include(r => r.Corporation)
