@@ -2487,457 +2487,331 @@ namespace eMenka.Data
 
             #region Drivers
             builder.Entity<Driver>().HasData(
-                new Driver
-                {
-                    Id = 1,
-                    PersonId = 2,
-                    StartDate = new DateTime(2007, 08, 1, 0, 0, 0),
-
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 2,
-                    PersonId = 6,
-                    StartDate = new DateTime(2007, 09, 1, 0, 0, 0),
-                    EndDate = new DateTime(2009, 06, 25, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 3,
-                    PersonId = 9,
-                    StartDate = new DateTime(2009, 05, 13, 0, 0, 0),
-                    EndDate = new DateTime(2011, 01, 13, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 4,
-                    PersonId = 4,
-                    StartDate = new DateTime(2008, 03, 16, 0, 0, 0),
-                    EndDate = new DateTime(2010, 11, 30, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 5,
-                    PersonId = 1,
-                    StartDate = new DateTime(2008, 09, 16, 0, 0, 0),
-                    EndDate = new DateTime(2015, 02, 28, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 6,
-                    PersonId = 10,
-                    StartDate = new DateTime(2007, 08, 5, 0, 0, 0),
-                    EndDate = new DateTime(2010, 04, 16, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 7,
-                    PersonId = 3,
-                    StartDate = new DateTime(2007, 06, 1, 0, 0, 0),
-
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 8,
-                    PersonId = 11,
-                    StartDate = new DateTime(2009, 06, 15, 0, 0, 0),
-                    EndDate = new DateTime(2011, 09, 30, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 9,
-                    PersonId = 12,
-                    StartDate = new DateTime(2008, 10, 6, 0, 0, 0),
-                    EndDate = new DateTime(2010, 03, 1, 0, 0, 0),
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 10,
-                    PersonId = 13,
-                    StartDate = new DateTime(2009, 09, 14, 0, 0, 0),
-
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 11,
-                    PersonId = 14,
-                    StartDate = new DateTime(2007, 09, 17, 0, 0, 0),
-                    EndDate = new DateTime(2008, 06, 30, 0, 0, 0),
-                    FuelCardId = null
-                },
+                new Driver { Id = 1, PersonId = 2, StartDate = new DateTime(2007, 08, 1), FuelCardId = 1 },
+                new Driver { Id = 2, PersonId = 6, StartDate = new DateTime(2007, 09, 1), EndDate = new DateTime(2009, 06, 25), FuelCardId = 2 },
+                new Driver { Id = 3, PersonId = 9, StartDate = new DateTime(2009, 05, 13), EndDate = new DateTime(2011, 01, 13), FuelCardId = 3 },
+                new Driver { Id = 4, PersonId = 4, StartDate = new DateTime(2008, 03, 16), EndDate = new DateTime(2010, 11, 30), FuelCardId = 4 },
+                new Driver { Id = 5, PersonId = 1, StartDate = new DateTime(2008, 09, 16), EndDate = new DateTime(2015, 02, 28), FuelCardId = 5 },
+                new Driver { Id = 6, PersonId = 10, StartDate = new DateTime(2007, 08, 5), EndDate = new DateTime(2010, 04, 16), FuelCardId = 6 },
+                new Driver { Id = 7, PersonId = 3, StartDate = new DateTime(2007, 06, 1), FuelCardId = 7 },
+                new Driver { Id = 8, PersonId = 11, StartDate = new DateTime(2009, 06, 15), EndDate = new DateTime(2011, 09, 30), FuelCardId = 8 },
+                new Driver { Id = 9, PersonId = 12, StartDate = new DateTime(2008, 10, 6), EndDate = new DateTime(2010, 03, 1), FuelCardId = 9 },
+                new Driver { Id = 10, PersonId = 13, StartDate = new DateTime(2009, 09, 14), FuelCardId = 10 },
+                new Driver {Id = 11, PersonId = 14, StartDate = new DateTime(2007, 09, 17), EndDate = new DateTime(2008, 06, 30), FuelCardId = 11},
                 new Driver
                 {
                     Id = 12,
                     PersonId = 15,
-                    StartDate = new DateTime(2007, 11, 1, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2007, 11, 1),
+                    FuelCardId = 12
                 },
                 new Driver
                 {
                     Id = 13,
                     PersonId = 16,
-                    StartDate = new DateTime(2007, 05, 1, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2007, 05, 1),
+                    FuelCardId = 13
                 },
                 new Driver
                 {
                     Id = 14,
                     PersonId = 17,
-                    StartDate = new DateTime(2009, 09, 25, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2009, 09, 25),
+                    FuelCardId = 14
                 },
                 new Driver
                 {
                     Id = 15,
                     PersonId = 18,
-                    StartDate = new DateTime(2008, 08, 31, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2008, 08, 31),
+                    FuelCardId = 15
                 },
                 new Driver
                 {
                     Id = 16,
                     PersonId = 19,
-                    StartDate = new DateTime(2011, 02, 1, 0, 0, 0),
-                    EndDate = new DateTime(2012, 12, 31, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 02, 1),
+                    EndDate = new DateTime(2012, 12, 31),
+                    FuelCardId = 16
                 },
                 new Driver
                 {
                     Id = 17,
                     PersonId = 20,
-                    StartDate = new DateTime(2011, 03, 30, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 03, 30),
+                    FuelCardId = 17
                 },
                 new Driver
                 {
                     Id = 18,
                     PersonId = 21,
-                    StartDate = new DateTime(2011, 03, 14, 0, 0, 0),
-                    EndDate = new DateTime(2014, 06, 13, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 03, 14),
+                    EndDate = new DateTime(2014, 06, 13),
+                    FuelCardId = 18
                 },
                 new Driver
                 {
                     Id = 19,
                     PersonId = 22,
-                    StartDate = new DateTime(2011, 04, 12, 0, 0, 0),
-                    EndDate = new DateTime(2012, 03, 5, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 04, 12),
+                    EndDate = new DateTime(2012, 03, 5),
+                    FuelCardId = 19
                 },
                 new Driver
                 {
                     Id = 20,
                     PersonId = 23,
-                    StartDate = new DateTime(2011, 05, 16, 0, 0, 0),
-                    EndDate = new DateTime(2015, 10, 9, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 05, 16),
+                    EndDate = new DateTime(2015, 10, 9),
+                    FuelCardId = 20
                 },
                 new Driver
                 {
                     Id = 21,
                     PersonId = 24,
-                    StartDate = new DateTime(2011, 06, 1, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2011, 06, 1),
+                    FuelCardId = 21
                 },
                 new Driver
                 {
                     Id = 22,
                     PersonId = 25,
-                    StartDate = new DateTime(2008, 01, 2, 0, 0, 0),
-                    EndDate = new DateTime(2009, 01, 14, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2008, 01, 2),
+                    EndDate = new DateTime(2009, 01, 14),
+                    FuelCardId = 22
                 },
                 new Driver
                 {
                     Id = 23,
                     PersonId = 26,
-                    StartDate = new DateTime(2007, 12, 3, 0, 0, 0),
-                    EndDate = new DateTime(2008, 05, 31, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2007, 12, 3),
+                    EndDate = new DateTime(2008, 05, 31),
+                    FuelCardId = 23
                 },
                 new Driver
                 {
                     Id = 24,
                     PersonId = 27,
-                    StartDate = new DateTime(2012, 01, 1, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 01, 1),
+                    FuelCardId = 24
                 },
                 new Driver
                 {
                     Id = 25,
                     PersonId = 28,
-                    StartDate = new DateTime(2012, 03, 5, 0, 0, 0),
-
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 03, 5),
+                    FuelCardId = 25
                 },
                 new Driver
                 {
                     Id = 26,
                     PersonId = 29,
-                    StartDate = new DateTime(2012, 02, 6, 0, 0, 0),
-                    EndDate = new DateTime(2014, 10, 31, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 02, 6),
+                    EndDate = new DateTime(2014, 10, 31),
+                    FuelCardId = 26
                 },
                 new Driver
                 {
                     Id = 27,
                     PersonId = 30,
-                    StartDate = new DateTime(2012, 02, 27, 0, 0, 0),
-                    EndDate = new DateTime(2014, 08, 25, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 02, 27),
+                    EndDate = new DateTime(2014, 08, 25),
+                    FuelCardId = 27
                 },
                 new Driver
                 {
                     Id = 28,
                     PersonId = 31,
-                    StartDate = new DateTime(2012, 05, 14, 0, 0, 0),
-                    EndDate = new DateTime(2014, 10, 24, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 05, 14),
+                    EndDate = new DateTime(2014, 10, 24),
+                    FuelCardId = 28
                 },
                 new Driver
                 {
                     Id = 29,
                     PersonId = 32,
-                    StartDate = new DateTime(2012, 08, 13, 0, 0, 0),
-                    EndDate = new DateTime(2015, 02, 28, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 08, 13),
+                    EndDate = new DateTime(2015, 02, 28),
+                    FuelCardId = 29
                 },
                 new Driver
                 {
                     Id = 30,
                     PersonId = 33,
-                    StartDate = new DateTime(2012, 08, 20, 0, 0, 0),
-                    EndDate = new DateTime(2013, 12, 16, 0, 0, 0),
-                    FuelCardId = null
+                    StartDate = new DateTime(2012, 08, 20),
+                    EndDate = new DateTime(2013, 12, 16),
+                    FuelCardId = 30
                 },
                 new Driver
                 {
                     Id = 31,
                     PersonId = 34,
-                    StartDate = new DateTime(2013, 01, 23, 0, 0, 0),
-                    EndDate = new DateTime(2015, 08, 28, 0, 0, 0),
+                    StartDate = new DateTime(2013, 01, 23),
+                    EndDate = new DateTime(2015, 08, 28),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 32,
                     PersonId = 35,
-                    StartDate = new DateTime(2013, 09, 16, 0, 0, 0),
-
+                    StartDate = new DateTime(2013, 09, 16),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 33,
                     PersonId = 36,
-                    StartDate = new DateTime(2014, 01, 14, 0, 0, 0),
-
+                    StartDate = new DateTime(2014, 01, 14),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 34,
                     PersonId = 37,
-                    StartDate = new DateTime(2014, 08, 4, 0, 0, 0),
-
+                    StartDate = new DateTime(2014, 08, 4),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 35,
                     PersonId = 38,
-                    StartDate = new DateTime(2014, 10, 13, 0, 0, 0),
-
+                    StartDate = new DateTime(2014, 10, 13),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 36,
                     PersonId = 39,
-                    StartDate = new DateTime(2015, 07, 13, 0, 0, 0),
-
+                    StartDate = new DateTime(2015, 07, 13),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 37,
                     PersonId = 40,
-                    StartDate = new DateTime(2015, 01, 19, 0, 0, 0),
-
+                    StartDate = new DateTime(2015, 01, 19),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 38,
                     PersonId = 41,
-                    StartDate = new DateTime(2007, 03, 20, 0, 0, 0),
-
+                    StartDate = new DateTime(2007, 03, 20),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 39,
                     PersonId = 42,
-                    StartDate = new DateTime(2015, 07, 27, 0, 0, 0),
-
+                    StartDate = new DateTime(2015, 07, 27),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 40,
                     PersonId = 43,
-                    StartDate = new DateTime(2007, 05, 1, 0, 0, 0),
-
+                    StartDate = new DateTime(2007, 05, 1),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 41,
                     PersonId = 46,
-                    StartDate = new DateTime(2017, 07, 3, 0, 0, 0),
-
+                    StartDate = new DateTime(2017, 07, 3),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 42,
                     PersonId = 49,
-                    StartDate = new DateTime(2017, 09, 11, 0, 0, 0),
-
+                    StartDate = new DateTime(2017, 09, 11),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 43,
                     PersonId = 80,
-                    StartDate = new DateTime(2019, 09, 30, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 09, 30),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 44,
                     PersonId = 84,
-                    StartDate = new DateTime(2019, 11, 27, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 27),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 45,
                     PersonId = 86,
-                    StartDate = new DateTime(2019, 11, 3, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 3),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 46,
                     PersonId = 92,
-                    StartDate = new DateTime(2019, 11, 22, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 22),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 47,
                     PersonId = 93,
-                    StartDate = new DateTime(2019, 11, 16, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 16),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 48,
                     PersonId = 94,
-                    StartDate = new DateTime(2019, 11, 16, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 16),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 49,
                     PersonId = 97,
-                    StartDate = new DateTime(2019, 11, 19, 0, 0, 0),
-
+                    StartDate = new DateTime(2019, 11, 19),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 50,
                     PersonId = 116,
-                    StartDate = new DateTime(2020, 01, 17, 0, 0, 0),
-
+                    StartDate = new DateTime(2020, 01, 17),
                     FuelCardId = null
                 },
                 new Driver
                 {
                     Id = 51,
                     PersonId = 119,
-                    StartDate = new DateTime(2020, 02, 6, 0, 0, 0),
-
+                    StartDate = new DateTime(2020, 02, 6),
                     FuelCardId = null
                 },
-                new Driver
-                {
-                    Id = 52,
-                    PersonId = 122,
-                    StartDate = new DateTime(2020, 03, 2, 0, 0, 0),
-
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 53,
-                    PersonId = 123,
-                    StartDate = new DateTime(2020, 03, 4, 0, 0, 0),
-
-                    FuelCardId = null
-                },
-                new Driver
-                {
-                    Id = 54,
-                    PersonId = 124,
-                    StartDate = new DateTime(2020, 10, 7, 0, 0, 0),
-
-                    FuelCardId = null
-                }
+                new Driver { Id = 52, PersonId = 122, StartDate = new DateTime(2020, 03, 2), FuelCardId = null },
+                new Driver { Id = 53, PersonId = 123, StartDate = new DateTime(2020, 03, 4), FuelCardId = null },
+                new Driver { Id = 54, PersonId = 124, StartDate = new DateTime(2020, 10, 7), FuelCardId = null }
             );
             #endregion
 
             #region Vehicles
 
             builder.Entity<Vehicle>().HasData(
-                new Vehicle { Id = 1, Volume = 3112, CountryId = 1, BuildYear = 2005, LicensePlate = "1ABQ121", Chassis = "SJNFDAE11U2117751", Emission = 123, FuelCardId = 1, BrandId = 4, ModelId = 11, SeriesId = 4, EngineTypeId = 8, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 74, FiscalHP = 9, EndDateDelivery = new DateTime(2009, 12, 31, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 2, Volume = 3117, CountryId = 1, BuildYear = 2001, LicensePlate = "1ACS122", Chassis = "0azerty", Emission = 134, FuelCardId = 3, BrandId = 1, ModelId = 5, SeriesId = 17, EngineTypeId = 13, DoorTypeId = 1, EngineCapacity = 1995, EnginePower = 130, FiscalHP = 10, EndDateDelivery = new DateTime(2013, 12, 1, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 3, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1ADB123", Chassis = "W0LPE9EM4D2025752", Emission = 145, FuelCardId = 2, BrandId = 3, ModelId = 8, SeriesId = 3, EngineTypeId = 24, DoorTypeId = 2, EngineCapacity = 1577, EnginePower = 80, FiscalHP = 9, EndDateDelivery = new DateTime(2009, 05, 19, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 4, Volume = 3116, CountryId = 1, BuildYear = 2003, LicensePlate = "1AEB124", Chassis = "7897456", Emission = 156, FuelCardId = 4, BrandId = 4, ModelId = 12, SeriesId = 5, EngineTypeId = 5, DoorTypeId = 2, EngineCapacity = 1910, EnginePower = 74, FiscalHP = 10, EndDateDelivery = new DateTime(2020, 01, 1, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 5, Volume = 3114, CountryId = 1, BuildYear = 2004, LicensePlate = "1BFB125", Chassis = "547854", Emission = 167, FuelCardId = 6, BrandId = 4, ModelId = 14, SeriesId = 4, EngineTypeId = 5, DoorTypeId = 1, EngineCapacity = 1990, EnginePower = 124, FiscalHP = 11, EndDateDelivery = new DateTime(2014, 03, 4, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 6, Volume = 3115, CountryId = 1, BuildYear = 2005, LicensePlate = "1BGB126", Chassis = "MKLI89Y77Y67UI", Emission = 178, FuelCardId = 5, BrandId = 1, ModelId = 2, SeriesId = 2, EngineTypeId = 1, DoorTypeId = 3, EngineCapacity = 1995, EnginePower = 90, FiscalHP = 10, EndDateDelivery = new DateTime(2011, 12, 31, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 7, Volume = 3116, CountryId = 1, BuildYear = 2006, LicensePlate = "1BHB127", Chassis = "W0L0AHM759G027219", Emission = 189, FuelCardId = 9, BrandId = 1, ModelId = 4, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 165, FiscalHP = 12, EndDateDelivery = new DateTime(2013, 05, 15, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 8, Volume = 3118, CountryId = 1, BuildYear = 2007, LicensePlate = "1BIB138", Chassis = "nvt", Emission = 196, FuelCardId = 8, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 10, DoorTypeId = 1, EngineCapacity = 2100, EnginePower = 120, FiscalHP = 10, EndDateDelivery = new DateTime(2012, 01, 1, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 9, Volume = 3114, CountryId = 1, BuildYear = 2008, LicensePlate = "1CJB139", Chassis = "100", Emission = 103, FuelCardId = 7, BrandId = 7, ModelId = 18, SeriesId = 18, EngineTypeId = 9, DoorTypeId = 4, EngineCapacity = 1560, EnginePower = 123, FiscalHP = 9, EndDateDelivery = new DateTime(2013, 01, 1, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 10, Volume = 3119, CountryId = 1, BuildYear = 2009, LicensePlate = "1CKB130", Chassis = "1515154", Emission = 112, FuelCardId = 10, BrandId = 6, ModelId = 17, SeriesId = 12, EngineTypeId = 14, DoorTypeId = 4, EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10, EndDateDelivery = new DateTime(2013, 01, 1, 0, 0, 0), FuelTypeId = 10 },
-                new Vehicle { Id = 11, Volume = 3117, CountryId = 1, BuildYear = 2000, LicensePlate = "1CLB231", Chassis = "W0LPD6EW6DG097221", Emission = 121, FuelCardId = 12, BrandId = 1, ModelId = 1, SeriesId = 17, EngineTypeId = 13, DoorTypeId = 2, EngineCapacity = 1995, EnginePower = 120, FiscalHP = 11, EndDateDelivery = new DateTime(2013, 01, 1, 0, 0, 0), FuelTypeId = 10 },
+                new Vehicle { Id = 1, Volume = 3112, CountryId = 1, BuildYear = 2005, LicensePlate = "1ABQ121", Chassis = "SJNFDAE11U2117751", Emission = 123, FuelCardId = 1, BrandId = 4, ModelId = 11, SeriesId = 4, EngineTypeId = 8, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 74, FiscalHP = 9, EndDateDelivery = new DateTime(2009, 12, 31), FuelTypeId = 10 },
+                new Vehicle { Id = 2, Volume = 3117, CountryId = 1, BuildYear = 2001, LicensePlate = "1ACS122", Chassis = "0azerty", Emission = 134, FuelCardId = 3, BrandId = 1, ModelId = 5, SeriesId = 17, EngineTypeId = 13, DoorTypeId = 1, EngineCapacity = 1995, EnginePower = 130, FiscalHP = 10, EndDateDelivery = new DateTime(2013, 12, 1), FuelTypeId = 10 },
+                new Vehicle { Id = 3, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1ADB123", Chassis = "W0LPE9EM4D2025752", Emission = 145, FuelCardId = 2, BrandId = 3, ModelId = 8, SeriesId = 3, EngineTypeId = 24, DoorTypeId = 2, EngineCapacity = 1577, EnginePower = 80, FiscalHP = 9, EndDateDelivery = new DateTime(2009, 05, 19), FuelTypeId = 9 },
+                new Vehicle { Id = 4, Volume = 3116, CountryId = 1, BuildYear = 2003, LicensePlate = "1AEB124", Chassis = "7897456", Emission = 156, FuelCardId = 4, BrandId = 4, ModelId = 12, SeriesId = 5, EngineTypeId = 5, DoorTypeId = 2, EngineCapacity = 1910, EnginePower = 74, FiscalHP = 10, EndDateDelivery = new DateTime(2020, 01, 1), FuelTypeId = 10 },
+                new Vehicle { Id = 5, Volume = 3114, CountryId = 1, BuildYear = 2004, LicensePlate = "1BFB125", Chassis = "547854", Emission = 167, FuelCardId = 6, BrandId = 4, ModelId = 14, SeriesId = 4, EngineTypeId = 5, DoorTypeId = 1, EngineCapacity = 1990, EnginePower = 124, FiscalHP = 11, EndDateDelivery = new DateTime(2014, 03, 4), FuelTypeId = 9 },
+                new Vehicle { Id = 6, Volume = 3115, CountryId = 1, BuildYear = 2005, LicensePlate = "1BGB126", Chassis = "MKLI89Y77Y67UI", Emission = 178, FuelCardId = 5, BrandId = 1, ModelId = 2, SeriesId = 2, EngineTypeId = 1, DoorTypeId = 3, EngineCapacity = 1995, EnginePower = 90, FiscalHP = 10, EndDateDelivery = new DateTime(2011, 12, 31), FuelTypeId = 10 },
+                new Vehicle { Id = 7, Volume = 3116, CountryId = 1, BuildYear = 2006, LicensePlate = "1BHB127", Chassis = "W0L0AHM759G027219", Emission = 189, FuelCardId = 9, BrandId = 1, ModelId = 4, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 165, FiscalHP = 12, EndDateDelivery = new DateTime(2013, 05, 15), FuelTypeId = 10 },
+                new Vehicle { Id = 8, Volume = 3118, CountryId = 1, BuildYear = 2007, LicensePlate = "1BIB138", Chassis = "nvt", Emission = 196, FuelCardId = 8, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 10, DoorTypeId = 1, EngineCapacity = 2100, EnginePower = 120, FiscalHP = 10, EndDateDelivery = new DateTime(2012, 01, 1), FuelTypeId = 9 },
+                new Vehicle { Id = 9, Volume = 3114, CountryId = 1, BuildYear = 2008, LicensePlate = "1CJB139", Chassis = "100", Emission = 103, FuelCardId = 7, BrandId = 7, ModelId = 18, SeriesId = 18, EngineTypeId = 9, DoorTypeId = 4, EngineCapacity = 1560, EnginePower = 123, FiscalHP = 9, EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10 },
+                new Vehicle { Id = 10, Volume = 3119, CountryId = 1, BuildYear = 2009, LicensePlate = "1CKB130", Chassis = "1515154", Emission = 112, FuelCardId = 10, BrandId = 6, ModelId = 17, SeriesId = 12, EngineTypeId = 14, DoorTypeId = 4, EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10, EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10 },
+                new Vehicle { Id = 11, Volume = 3117, CountryId = 1, BuildYear = 2000, LicensePlate = "1CLB231", Chassis = "W0LPD6EW6DG097221", Emission = 121, FuelCardId = 12, BrandId = 1, ModelId = 1, SeriesId = 17, EngineTypeId = 13, DoorTypeId = 2, EngineCapacity = 1995, EnginePower = 120, FiscalHP = 11, EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10 },
                 new Vehicle { Id = 12, Volume = 3112, CountryId = 1, BuildYear = 2001, LicensePlate = "1CMB232", Chassis = "145", Emission = 130, FuelCardId = 11, BrandId = 4, ModelId = 13, SeriesId = 4, EngineTypeId = 15, DoorTypeId = 2, EngineCapacity = 1248, EnginePower = 66, FiscalHP = 7, FuelTypeId = 10 },
-                new Vehicle { Id = 13, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1CAB233", Chassis = "W0L0ZCF3581087846", Emission = 146, FuelCardId = 13, BrandId = 1, ModelId = 2, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 2, EngineCapacity = 1999, EnginePower = 90, FiscalHP = 11, EndDateDelivery = new DateTime(2014, 01, 1, 0, 0, 0), FuelTypeId = 10 },
+                new Vehicle { Id = 13, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1CAB233", Chassis = "W0L0ZCF3581087846", Emission = 146, FuelCardId = 13, BrandId = 1, ModelId = 2, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 2, EngineCapacity = 1999, EnginePower = 90, FiscalHP = 11, EndDateDelivery = new DateTime(2014, 01, 1), FuelTypeId = 10 },
                 new Vehicle { Id = 14, Volume = 3111, CountryId = 1, BuildYear = 2003, LicensePlate = "1DZB234", Chassis = "U5YZU81UABL093503", Emission = 122, FuelCardId = 15, BrandId = 11, ModelId = 24, SeriesId = 22, EngineTypeId = 18, DoorTypeId = 4, EngineCapacity = 2000, EnginePower = 136, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 15, Volume = 3130, CountryId = 1, BuildYear = 2004, LicensePlate = "1DEB235", Chassis = "W0LGT8EL1D1035314", Emission = 131, FuelCardId = 14, BrandId = 4, ModelId = 29, SeriesId = 24, EngineTypeId = 20, DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 16, Volume = 3131, CountryId = 1, BuildYear = 2005, LicensePlate = "1DRB236", Chassis = "W0L0AHL4898044253", Emission = 143, FuelCardId = 16, BrandId = 11, ModelId = 27, SeriesId = 23, EngineTypeId = 18, DoorTypeId = 2, EngineCapacity = 3232, EnginePower = 168, FiscalHP = 13, FuelTypeId = 9 },
@@ -2968,7 +2842,7 @@ namespace eMenka.Data
                 new Vehicle { Id = 41, Volume = 3245, CountryId = 1, BuildYear = 2000, LicensePlate = "1IUM571", Chassis = "W0LGT8ELXD1044444", Emission = 371, BrandId = 8, ModelId = 30, SeriesId = 49, EngineTypeId = 51, DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 75, FiscalHP = 9, FuelTypeId = 9 },
                 new Vehicle { Id = 42, Volume = 3346, CountryId = 1, BuildYear = 2001, LicensePlate = "1JYP573", Chassis = null, Emission = 382, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 78, DoorTypeId = 6, EngineCapacity = 0, EnginePower = 150, FiscalHP = 0, FuelTypeId = 5 },
                 new Vehicle { Id = 43, Volume = 3347, CountryId = 1, BuildYear = 2002, LicensePlate = "1JTU570", Chassis = "W0LPE8EX7D8050002", Emission = 393, BrandId = 8, ModelId = 30, SeriesId = 51, EngineTypeId = 50, DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10 },
-                new Vehicle { Id = 44, Volume = 3348, CountryId = 1, BuildYear = 2003, LicensePlate = "1JRL581", Chassis = "VF3CC8HROET203509", Emission = 314, BrandId = 8, ModelId = 30, SeriesId = 51, EngineTypeId = 10, DoorTypeId = 2, EngineCapacity = 1900, EnginePower = 77, FiscalHP = 10, EndDateDelivery = new DateTime(2019, 05, 15, 0, 0, 0), FuelTypeId = 10 },
+                new Vehicle { Id = 44, Volume = 3348, CountryId = 1, BuildYear = 2003, LicensePlate = "1JRL581", Chassis = "VF3CC8HROET203509", Emission = 314, BrandId = 8, ModelId = 30, SeriesId = 51, EngineTypeId = 10, DoorTypeId = 2, EngineCapacity = 1900, EnginePower = 77, FiscalHP = 10, EndDateDelivery = new DateTime(2019, 05, 15), FuelTypeId = 10 },
                 new Vehicle { Id = 45, Volume = 3349, CountryId = 1, BuildYear = 2004, LicensePlate = "1JAO682", Chassis = "789789", Emission = 325, BrandId = 8, ModelId = 30, SeriesId = 52, EngineTypeId = 50, DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10 },
                 new Vehicle { Id = 46, Volume = 3345, CountryId = 1, BuildYear = 2005, LicensePlate = "1KZN683", Chassis = "12354", Emission = 336, BrandId = 8, ModelId = 16, SeriesId = 53, EngineTypeId = 35, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 47, Volume = 3446, CountryId = 1, BuildYear = 2006, LicensePlate = "1KEB686", Chassis = "VF3LB9HPAES115707", Emission = 348, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 35, DoorTypeId = 2, EngineCapacity = 1999, EnginePower = 100, FiscalHP = 12, FuelTypeId = 10 },
@@ -3004,7 +2878,7 @@ namespace eMenka.Data
                 new Vehicle { Id = 77, Volume = 3529, CountryId = 1, BuildYear = 2006, LicensePlate = "1SND863", Chassis = "WAUZZZ8R1BA081105", Emission = 691, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 78, Volume = 3628, CountryId = 1, BuildYear = 2007, LicensePlate = "1TAQ862", Chassis = "VF38ERHR8BL085484", Emission = 682, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 79, Volume = 3627, CountryId = 1, BuildYear = 2008, LicensePlate = "1TZG861", Chassis = "W0LPE8E63E8064049", Emission = 673, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10 },
-                new Vehicle { Id = 80, Volume = 3624, CountryId = 1, BuildYear = 2009, LicensePlate = "1TEG864", Chassis = "YV1DZ73CDE2608659", Emission = 664, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 13, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 135, FiscalHP = 10, EndDateDelivery = new DateTime(2019, 05, 7, 0, 0, 0), FuelTypeId = 10 },
+                new Vehicle { Id = 80, Volume = 3624, CountryId = 1, BuildYear = 2009, LicensePlate = "1TEG864", Chassis = "YV1DZ73CDE2608659", Emission = 664, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 13, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 135, FiscalHP = 10, EndDateDelivery = new DateTime(2019, 05, 7), FuelTypeId = 10 },
                 new Vehicle { Id = 81, Volume = 3625, CountryId = 1, BuildYear = 2000, LicensePlate = "1TRH815", Chassis = "W0L0SDL6884314639", Emission = 655, BrandId = 1, ModelId = 4, SeriesId = 2, EngineTypeId = 13, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 135, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 82, Volume = 3656, CountryId = 1, BuildYear = 2001, LicensePlate = "1UTN818", Chassis = "blablubli", Emission = 646, BrandId = 1, ModelId = 4, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 130, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 83, Volume = 3653, CountryId = 1, BuildYear = 2002, LicensePlate = "1UYN819", Chassis = "W0LJD7EL0EB618949", Emission = 617, BrandId = 1, ModelId = 4, SeriesId = 1, EngineTypeId = 13, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10 },
@@ -3076,15 +2950,15 @@ namespace eMenka.Data
                 new Vehicle { Id = 149, Volume = 2813, CountryId = 5, BuildYear = 2018, LicensePlate = "1CEZ163", Chassis = "nfezf654b", Emission = 1399, BrandId = 4, ModelId = 29, SeriesId = 129, EngineTypeId = 38, DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 103, FiscalHP = 11, FuelTypeId = 10 },
                 new Vehicle { Id = 150, Volume = 2811, CountryId = 5, BuildYear = 2019, LicensePlate = "1CEA254", Chassis = "146517", Emission = 1385, BrandId = 4, ModelId = 11, SeriesId = 81, EngineTypeId = 115, DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10 },
                 new Vehicle { Id = 151, Volume = 2917, CountryId = 5, BuildYear = 2016, LicensePlate = "1CEF345", Chassis = "W0L0AH599371", Emission = 137, BrandId = 1, ModelId = 19, SeriesId = 2, EngineTypeId = 11, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 150, FiscalHP = 11, FuelTypeId = 10 },
-                new Vehicle { Id = 152, Volume = 2918, CountryId = 5, BuildYear = 2013, LicensePlate = "1CDF436", Chassis = "W0LPEC8095933", Emission = 135, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10, DoorTypeId = 6, EngineCapacity = 1200, EnginePower = 70, FiscalHP = 80, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 05, 2, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 153, Volume = 2919, CountryId = 5, BuildYear = 2012, LicensePlate = "1CDD527", Chassis = null, Emission = 131, BrandId = 1, ModelId = 5, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 5, EngineCapacity = 789, EnginePower = 7894, FiscalHP = 7894, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 154, Volume = 2916, CountryId = 5, BuildYear = 2011, LicensePlate = "1CDX618", Chassis = "W0LME418678", Emission = 122, BrandId = 7, ModelId = 23, SeriesId = 39, EngineTypeId = 117, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 25, FiscalHP = 25, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 30, 0, 0, 0), FuelTypeId = 3 },
+                new Vehicle { Id = 152, Volume = 2918, CountryId = 5, BuildYear = 2013, LicensePlate = "1CDF436", Chassis = "W0LPEC8095933", Emission = 135, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10, DoorTypeId = 6, EngineCapacity = 1200, EnginePower = 70, FiscalHP = 80, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 05, 2), FuelTypeId = 9 },
+                new Vehicle { Id = 153, Volume = 2919, CountryId = 5, BuildYear = 2012, LicensePlate = "1CDD527", Chassis = null, Emission = 131, BrandId = 1, ModelId = 5, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 5, EngineCapacity = 789, EnginePower = 7894, FiscalHP = 7894, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9 },
+                new Vehicle { Id = 154, Volume = 2916, CountryId = 5, BuildYear = 2011, LicensePlate = "1CDX618", Chassis = "W0LME418678", Emission = 122, BrandId = 7, ModelId = 23, SeriesId = 39, EngineTypeId = 117, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 25, FiscalHP = 25, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 30), FuelTypeId = 3 },
                 new Vehicle { Id = 155, Volume = 2915, CountryId = 5, BuildYear = 2014, LicensePlate = "1CEW499", Chassis = "nf56ez1fb", Emission = 1236, BrandId = 7, ModelId = 18, SeriesId = 39, EngineTypeId = 34, DoorTypeId = 6, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10 },
                 new Vehicle { Id = 156, Volume = 2914, CountryId = 5, BuildYear = 2015, LicensePlate = "1CEL781", Chassis = "12056142", Emission = 122, BrandId = 7, ModelId = 23, SeriesId = 9, EngineTypeId = 34, DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 9 },
-                new Vehicle { Id = 157, Volume = 2916, CountryId = 5, BuildYear = 2016, LicensePlate = "1CEF872", Chassis = "W0LEW9D8062050", Emission = 126, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 2, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 158, Volume = 2912, CountryId = 5, BuildYear = 2019, LicensePlate = "1CAJ963", Chassis = "SJDE11U2157331", Emission = 128, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 5, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 159, Volume = 2911, CountryId = 5, BuildYear = 2018, LicensePlate = "1CAG654", Chassis = "WBA1090K051447", Emission = 129, BrandId = 12, ModelId = 33, SeriesId = 27, EngineTypeId = 36, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 100, FiscalHP = 100, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15, 0, 0, 0), FuelTypeId = 9 },
-                new Vehicle { Id = 160, Volume = 2916, CountryId = 5, BuildYear = 2017, LicensePlate = "1CAD345", Chassis = "100zda4545", Emission = 128, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10, DoorTypeId = 6, EngineCapacity = 0, EnginePower = 120, FiscalHP = 50, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15, 0, 0, 0), FuelTypeId = 9 },
+                new Vehicle { Id = 157, Volume = 2916, CountryId = 5, BuildYear = 2016, LicensePlate = "1CEF872", Chassis = "W0LEW9D8062050", Emission = 126, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 2, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9 },
+                new Vehicle { Id = 158, Volume = 2912, CountryId = 5, BuildYear = 2019, LicensePlate = "1CAJ963", Chassis = "SJDE11U2157331", Emission = 128, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 5, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789, AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9 },
+                new Vehicle { Id = 159, Volume = 2911, CountryId = 5, BuildYear = 2018, LicensePlate = "1CAG654", Chassis = "WBA1090K051447", Emission = 129, BrandId = 12, ModelId = 33, SeriesId = 27, EngineTypeId = 36, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 100, FiscalHP = 100, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9 },
+                new Vehicle { Id = 160, Volume = 2916, CountryId = 5, BuildYear = 2017, LicensePlate = "1CAD345", Chassis = "100zda4545", Emission = 128, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10, DoorTypeId = 6, EngineCapacity = 0, EnginePower = 120, FiscalHP = 50, AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9 },
                 new Vehicle { Id = 161, Volume = 2919, CountryId = 5, BuildYear = 2011, LicensePlate = "1CZK236", Chassis = "W0LGM57K39231", Emission = 172, BrandId = 7, ModelId = 22, SeriesId = 9, EngineTypeId = 9, DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 3 },
                 new Vehicle { Id = 162, Volume = 2918, CountryId = 5, BuildYear = 2012, LicensePlate = "1CZI127", Chassis = "WAUZZZ8R81105", Emission = 122, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10 }
             );
@@ -3097,45 +2971,45 @@ namespace eMenka.Data
             #region FuelCards
 
             builder.Entity<FuelCard>().HasData(
-                new FuelCard { Id = 1, Number = "188395479", CompanyId = 16, StartDate = new DateTime(2008, 11, 6, 11, 0, 0, 0), EndDate = new DateTime(2008, 12, 20, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2009, 3, 25, 0, 0, 0), BlockingReason = "kaart niet meer geldig", PinCode = "1011" },
-                new FuelCard { Id = 2, Number = "0008 Tankkaartje 555", CompanyId = 4, StartDate = new DateTime(2007, 12, 12, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****888" },
-                new FuelCard { Id = 3, Number = "0005 AANLOOP 4", CompanyId = 6, StartDate = new DateTime(2007, 9, 14, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2020, 6, 3, 0, 0, 0), BlockingReason = "", PinCode = "****" },
-                new FuelCard { Id = 4, Number = "0004 AANLOOP 3", CompanyId = 4, StartDate = new DateTime(2007, 8, 13, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 3, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "7293" },
-                new FuelCard { Id = 5, Number = "0010 AANLOOP 88", CompanyId = 4, StartDate = new DateTime(2008, 1, 17, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 3, 0, 0, 0), BlockingReason = "", PinCode = "****" },
-                new FuelCard { Id = 6, Number = "0009 AANLOOP 7", CompanyId = 4, StartDate = new DateTime(2009, 4, 1, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = false, BlockingDate = new DateTime(2020, 3, 3, 0, 0, 0), BlockingReason = "", PinCode = "14589" },
-                new FuelCard { Id = 7, Number = "0002 AANLOOP 1", CompanyId = 4, StartDate = new DateTime(2007, 5, 22, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "2937" },
-                new FuelCard { Id = 8, Number = "0003 AANLOOP 2", CompanyId = 4, StartDate = new DateTime(2007, 8, 1, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "3177" },
-                new FuelCard { Id = 9, Number = "0001 LUVA", CompanyId = 4, StartDate = new DateTime(2007, 5, 22, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "7846" },
-                new FuelCard { Id = 10, Number = "0006 SALES", CompanyId = 23, StartDate = new DateTime(2007, 9, 19, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
-                new FuelCard { Id = 11, Number = "0007 AANLOOP 5", CompanyId = 4, StartDate = new DateTime(2007, 10, 31, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
-                new FuelCard { Id = 12, Number = "0011 AANLOOP 9", CompanyId = 4, StartDate = new DateTime(2008, 2, 7, 0, 0, 0), EndDate = new DateTime(2010, 5, 18, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0), BlockingReason = "vervanging", PinCode = "****" },
-                new FuelCard { Id = 13, Number = "0012 AANLOOP 10", CompanyId = 4, StartDate = new DateTime(2008, 9, 12, 0, 0, 0), EndDate = new DateTime(2011, 11, 9, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2009, 4, 21, 0, 0, 0), BlockingReason = "verloren", PinCode = "604" },
-                new FuelCard { Id = 14, Number = "0009", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "7008" },
-                new FuelCard { Id = 15, Number = "0002", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "2938" },
-                new FuelCard { Id = 16, Number = "0003", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2018, 8, 17, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "3177" },
-                new FuelCard { Id = 17, Number = "0004", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), EndDate = new DateTime(2019, 2, 1, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "7293" },
-                new FuelCard { Id = 18, Number = "0005", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "test", PinCode = "321" },
-                new FuelCard { Id = 19, Number = "0006", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "4606" },
-                new FuelCard { Id = 20, Number = "0007", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "6491" },
-                new FuelCard { Id = 21, Number = "0008", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "401" },
-                new FuelCard { Id = 22, Number = "0010", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "7861" },
-                new FuelCard { Id = 23, Number = "0011", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0), BlockingReason = "ok", PinCode = "9714" },
-                new FuelCard { Id = 24, Number = "0139", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "9183" },
-                new FuelCard { Id = 25, Number = "0014", CompanyId = 4, StartDate = new DateTime(2010, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "6325" },
-                new FuelCard { Id = 26, Number = "0019", CompanyId = 4, StartDate = new DateTime(2012, 8, 13, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "3030" },
-                new FuelCard { Id = 27, Number = "0020", CompanyId = 4, StartDate = new DateTime(2012, 8, 20, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "3315" },
-                new FuelCard { Id = 28, Number = "0100", CompanyId = 4, StartDate = new DateTime(2013, 12, 9, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "7491" },
-                new FuelCard { Id = 29, Number = "0021", CompanyId = 4, StartDate = new DateTime(2013, 9, 12, 0, 0, 0), IsBlocked = false, PinCode = "9363" },
-                new FuelCard { Id = 30, Number = "0017", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), IsBlocked = false, PinCode = "1312" },
-                new FuelCard { Id = 31, Number = "0129", CompanyId = 4, StartDate = new DateTime(2012, 2, 24, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "2765" },
-                new FuelCard { Id = 32, Number = "0016", CompanyId = 4, StartDate = new DateTime(2011, 5, 19, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "535" },
-                new FuelCard { Id = 33, Number = "0023", CompanyId = 4, StartDate = new DateTime(2016, 1, 1, 0, 0, 0), IsBlocked = false, PinCode = "****" },
-                new FuelCard { Id = 34, Number = "0001", CompanyId = 15, StartDate = new DateTime(2017, 4, 25, 0, 0, 0), EndDate = new DateTime(2020, 5, 4, 0, 0, 0), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 20, 0, 0, 0), BlockingReason = "Vervangen door nieuwe tankkaart", PinCode = "123456" },
-                new FuelCard { Id = 35, Number = "1234", CompanyId = 4, StartDate = new DateTime(2014, 4, 26, 0, 0, 0), IsBlocked = false, BlockingReason = "", PinCode = "1234" },
-                new FuelCard { Id = 36, Number = "Test", CompanyId = 24, StartDate = new DateTime(2020, 4, 3, 0, 0, 0), IsBlocked = false, PinCode = "12345678" },
-                new FuelCard { Id = 37, Number = "008", CompanyId = 19, StartDate = new DateTime(2020, 3, 25, 0, 0, 0), IsBlocked = false, PinCode = "88" },
-                new FuelCard { Id = 38, Number = "Test Nummer", CompanyId = 19, StartDate = new DateTime(2020, 1, 3, 0, 0, 0), IsBlocked = false, PinCode = "1234" },
-                new FuelCard { Id = 39, Number = "123456789", CompanyId = 19, StartDate = new DateTime(2020, 3, 14, 0, 0, 0), EndDate = new DateTime(2022, 3, 7, 0, 0, 0), IsBlocked = false, PinCode = "8896" }
+                new FuelCard { Id = 1, DriverId = 1, Number = "188395479", CompanyId = 16, StartDate = new DateTime(2008, 11, 6, 11, 0, 0, 0), EndDate = new DateTime(2008, 12, 20), IsBlocked = true, BlockingDate = new DateTime(2009, 3, 25), BlockingReason = "kaart niet meer geldig", PinCode = "1011" },
+                new FuelCard { Id = 2, DriverId = 2, Number = "0008 Tankkaartje 555", CompanyId = 4, StartDate = new DateTime(2007, 12, 12), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "****888" },
+                new FuelCard { Id = 3, DriverId = 3, Number = "0005 AANLOOP 4", CompanyId = 6, StartDate = new DateTime(2007, 9, 14), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2020, 6, 3), BlockingReason = "", PinCode = "****" },
+                new FuelCard { Id = 4, DriverId = 4, Number = "0004 AANLOOP 3", CompanyId = 4, StartDate = new DateTime(2007, 8, 13), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 3, 18), BlockingReason = "vervanging", PinCode = "7293" },
+                new FuelCard { Id = 5, DriverId = 5, Number = "0010 AANLOOP 88", CompanyId = 4, StartDate = new DateTime(2008, 1, 17), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 3), BlockingReason = "", PinCode = "****" },
+                new FuelCard { Id = 6, DriverId = 6, Number = "0009 AANLOOP 7", CompanyId = 4, StartDate = new DateTime(2009, 4, 1), EndDate = new DateTime(2010, 5, 18), IsBlocked = false, BlockingDate = new DateTime(2020, 3, 3), BlockingReason = "", PinCode = "14589" },
+                new FuelCard { Id = 7, DriverId = 7, Number = "0002 AANLOOP 1", CompanyId = 4, StartDate = new DateTime(2007, 5, 22), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "2937" },
+                new FuelCard { Id = 8, DriverId = 8, Number = "0003 AANLOOP 2", CompanyId = 4, StartDate = new DateTime(2007, 8, 1), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "3177" },
+                new FuelCard { Id = 9, DriverId = 9, Number = "0001 LUVA", CompanyId = 4, StartDate = new DateTime(2007, 5, 22), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "7846" },
+                new FuelCard { Id = 10, DriverId = 10, Number = "0006 SALES", CompanyId = 23, StartDate = new DateTime(2007, 9, 19), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "****" },
+                new FuelCard { Id = 11, DriverId = 11, Number = "0007 AANLOOP 5", CompanyId = 4, StartDate = new DateTime(2007, 10, 31), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "****" },
+                new FuelCard { Id = 12, DriverId = 12, Number = "0011 AANLOOP 9", CompanyId = 4, StartDate = new DateTime(2008, 2, 7), EndDate = new DateTime(2010, 5, 18), IsBlocked = true, BlockingDate = new DateTime(2010, 5, 18), BlockingReason = "vervanging", PinCode = "****" },
+                new FuelCard { Id = 13, DriverId = 13, Number = "0012 AANLOOP 10", CompanyId = 4, StartDate = new DateTime(2008, 9, 12), EndDate = new DateTime(2011, 11, 9), IsBlocked = true, BlockingDate = new DateTime(2009, 4, 21), BlockingReason = "verloren", PinCode = "604" },
+                new FuelCard { Id = 14, DriverId = 14, Number = "0009", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "7008" },
+                new FuelCard { Id = 15, DriverId = 15, Number = "0002", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "2938" },
+                new FuelCard { Id = 16, DriverId = 16, Number = "0003", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), EndDate = new DateTime(2018, 8, 17), IsBlocked = false, BlockingReason = "", PinCode = "3177" },
+                new FuelCard { Id = 17, DriverId = 17, Number = "0004", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), EndDate = new DateTime(2019, 2, 1), IsBlocked = false, BlockingReason = "", PinCode = "7293" },
+                new FuelCard { Id = 18, DriverId = 18, Number = "0005", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23), BlockingReason = "test", PinCode = "321" },
+                new FuelCard { Id = 19, DriverId = 19, Number = "0006", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "4606" },
+                new FuelCard { Id = 20, DriverId = 20, Number = "0007", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "6491" },
+                new FuelCard { Id = 21, DriverId = 21, Number = "0008", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "401" },
+                new FuelCard { Id = 22, DriverId = 22, Number = "0010", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "7861" },
+                new FuelCard { Id = 23, DriverId = 23, Number = "0011", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = true, BlockingDate = new DateTime(2017, 8, 23), BlockingReason = "ok", PinCode = "9714" },
+                new FuelCard { Id = 24, DriverId = 24, Number = "0139", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "9183" },
+                new FuelCard { Id = 25, DriverId = 25, Number = "0014", CompanyId = 4, StartDate = new DateTime(2010, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "6325" },
+                new FuelCard { Id = 26, DriverId = 26, Number = "0019", CompanyId = 4, StartDate = new DateTime(2012, 8, 13), IsBlocked = false, BlockingReason = "", PinCode = "3030" },
+                new FuelCard { Id = 27, DriverId = 27, Number = "0020", CompanyId = 4, StartDate = new DateTime(2012, 8, 20), IsBlocked = false, BlockingReason = "", PinCode = "3315" },
+                new FuelCard { Id = 28, DriverId = 28, Number = "0100", CompanyId = 4, StartDate = new DateTime(2013, 12, 9), IsBlocked = false, BlockingReason = "", PinCode = "7491" },
+                new FuelCard { Id = 29, DriverId = 29, Number = "0021", CompanyId = 4, StartDate = new DateTime(2013, 9, 12), IsBlocked = false, PinCode = "9363" },
+                new FuelCard { Id = 30, DriverId = 30, Number = "0017", CompanyId = 4, StartDate = new DateTime(2012, 2, 24), IsBlocked = false, PinCode = "1312" },
+                new FuelCard { Id = 31, DriverId = null, Number = "0129", CompanyId = 4, StartDate = new DateTime(2012, 2, 24), IsBlocked = false, BlockingReason = "", PinCode = "2765" },
+                new FuelCard { Id = 32, DriverId = null, Number = "0016", CompanyId = 4, StartDate = new DateTime(2011, 5, 19), IsBlocked = false, BlockingReason = "", PinCode = "535" },
+                new FuelCard { Id = 33, DriverId = null, Number = "0023", CompanyId = 4, StartDate = new DateTime(2016, 1, 1), IsBlocked = false, PinCode = "****" },
+                new FuelCard { Id = 34, DriverId = null, Number = "0001", CompanyId = 15, StartDate = new DateTime(2017, 4, 25), EndDate = new DateTime(2020, 5, 4), IsBlocked = true, BlockingDate = new DateTime(2020, 4, 20), BlockingReason = "Vervangen door nieuwe tankkaart", PinCode = "123456" },
+                new FuelCard { Id = 35, DriverId = null, Number = "1234", CompanyId = 4, StartDate = new DateTime(2014, 4, 26), IsBlocked = false, BlockingReason = "", PinCode = "1234" },
+                new FuelCard { Id = 36, DriverId = null, Number = "Test", CompanyId = 24, StartDate = new DateTime(2020, 4, 3), IsBlocked = false, PinCode = "12345678" },
+                new FuelCard { Id = 37, DriverId = null, Number = "008", CompanyId = 19, StartDate = new DateTime(2020, 3, 25), IsBlocked = false, PinCode = "88" },
+                new FuelCard { Id = 38, DriverId = null, Number = "Test Nummer", CompanyId = 19, StartDate = new DateTime(2020, 1, 3), IsBlocked = false, PinCode = "1234" },
+                new FuelCard { Id = 39, DriverId = null, Number = "123456789", CompanyId = 19, StartDate = new DateTime(2020, 3, 14), EndDate = new DateTime(2022, 3, 7), IsBlocked = false, PinCode = "8896" }
             );
             #endregion
 
