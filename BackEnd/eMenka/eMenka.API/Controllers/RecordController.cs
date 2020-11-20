@@ -76,6 +76,9 @@ namespace eMenka.API.Controllers
                 return BadRequest();
             }
 
+            if (id != recordModel.Id)
+                return BadRequest("Id from model does not match query paramater id");
+
             if (_fuelCardRepository.GetById((int)recordModel.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
 
@@ -84,9 +87,6 @@ namespace eMenka.API.Controllers
 
             if (_costAllocationRepository.GetById((int)recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
-
-            if (id != recordModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
 
             var isUpdated = _recordRepository.Update(id, RecordMappers.MapRecordModel(recordModel));
 
