@@ -1,3 +1,4 @@
+import { Corporation } from './../models/corporation/corporation';
 import { Record } from 'src/app/models/record/record';
 import { Model } from './../models/model/model';
 import {Injectable} from '@angular/core';
@@ -161,5 +162,9 @@ export class ApiService {
 
   getAllCategories(): Observable<Category[]> {
     return this.getFromAPI<Category[]>('category/');
+  }
+
+  getAllCorporatoins(): Observable<Corporation[]> {
+    return this.getFromAPI<Corporation[]>('corporation/');
   }
 }

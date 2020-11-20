@@ -95,7 +95,7 @@ export class RecordListComponent implements OnInit {
         startDate: new Date('2020-01-16'),
         endDate: new Date('2022-01-16'),
         usage: Usage.Pool,
-        costAllocatoin: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
+        costAllocation: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
       },
       {
         id: 2,
@@ -107,7 +107,7 @@ export class RecordListComponent implements OnInit {
         startDate: new Date('2020-01-20'),
         endDate: new Date('2022-01-20'),
         usage: Usage.Definitive,
-        costAllocatoin: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
+        costAllocation: new CostAllocation(1, 'Gent', 'VL', new Date('2022-01-20'), new Date('2022-01-20'))
       }
     ]
   }
