@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
@@ -16,8 +13,8 @@ namespace eMenka.API.Controllers
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CorporationController : ControllerBase
     {
-        private readonly ICorporationRepository _corporationRepository;
         private readonly ICompanyRepository _companyRepository;
+        private readonly ICorporationRepository _corporationRepository;
 
         public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository)
         {
@@ -46,12 +43,9 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostCorporation([FromBody] CorporationModel corporationModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
+            if (_companyRepository.GetById((int) corporationModel.CompanyId) == null)
                 return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
             _corporationRepository.Add(RecordMappers.MapCorporationModel(corporationModel));
@@ -61,15 +55,12 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCorporation([FromBody] CorporationModel corporationModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != corporationModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
-            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
+            if (_companyRepository.GetById((int) corporationModel.CompanyId) == null)
                 return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
             var isUpdated = _corporationRepository.Update(id, RecordMappers.MapCorporationModel(corporationModel));

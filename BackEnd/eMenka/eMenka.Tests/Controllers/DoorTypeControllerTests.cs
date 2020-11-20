@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,15 +15,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class DoorTypeControllerTests
     {
-        private DoorTypeController _sut;
-        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _doorTypeRepositoryMock = new Mock<IDoorTypeRepository>();
             _sut = new DoorTypeController(_doorTypeRepositoryMock.Object);
         }
+
+        private DoorTypeController _sut;
+        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
 
         [Test]
         public void GetAllDoorTypesReturnsOkAndListOfAllDoortypesWhenEverythingIsCorrect()
@@ -116,7 +115,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostDoorType(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
-            
+
             _doorTypeRepositoryMock.Verify(m => m.Add(It.IsAny<DoorType>()), Times.Once);
         }
 

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
-using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -18,15 +13,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class CompanyControllerTests
     {
-        private CompanyController _sut;
-        private Mock<ICompanyRepository> _companyRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _companyRepositoryMock = new Mock<ICompanyRepository>();
             _sut = new CompanyController(_companyRepositoryMock.Object);
         }
+
+        private CompanyController _sut;
+        private Mock<ICompanyRepository> _companyRepositoryMock;
 
         [Test]
         public void GetAllCompaniesReturnsOkAndListOfAllCompaniesWhenEverythingIsCorrect()
@@ -93,7 +88,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCompanyReturnsOkWhenModelIsValid()
         {
-            var validModel = new CompanyModel()
+            var validModel = new CompanyModel
             {
                 Name = "name"
             };
@@ -122,7 +117,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCompanyReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new CompanyModel()
+            var invalidModel = new CompanyModel
             {
                 Id = 1
             };
@@ -137,7 +132,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCompanyReturnsNotFoundWhenCompanyIsNotFound()
         {
-            var invalidModel = new CompanyModel()
+            var invalidModel = new CompanyModel
             {
                 Id = 1
             };
@@ -155,7 +150,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCompanyReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new CompanyModel()
+            var validModel = new CompanyModel
             {
                 Id = 1,
                 Name = ""

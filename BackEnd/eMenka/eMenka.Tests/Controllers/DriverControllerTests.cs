@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
-using eMenka.API.Models.RecordModels;
-using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +13,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class DriverControllerTests
     {
-        private DriverController _sut;
-        private Mock<IDriverRepository> _driverRepositoryMock;
-        private Mock<IPersonRepository> _personRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -28,6 +20,10 @@ namespace eMenka.Tests.Controllers
             _personRepositoryMock = new Mock<IPersonRepository>();
             _sut = new DriverController(_driverRepositoryMock.Object, _personRepositoryMock.Object);
         }
+
+        private DriverController _sut;
+        private Mock<IDriverRepository> _driverRepositoryMock;
+        private Mock<IPersonRepository> _personRepositoryMock;
 
         [Test]
         public void GetAllDriversReturnsOkAndListOfAllDriversWhenEverythingIsCorrect()
@@ -95,7 +91,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostDriverReturnsNotFoundWhenPersonIsNotFound()
         {
-            var validModel = new DriverModel()
+            var validModel = new DriverModel
             {
                 PersonId = 1
             };
@@ -116,7 +112,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostDriverReturnsOkWhenModelIsValid()
         {
-            var validModel = new DriverModel()
+            var validModel = new DriverModel
             {
                 PersonId = 1
             };
@@ -152,7 +148,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDriverReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new DriverModel()
+            var invalidModel = new DriverModel
             {
                 Id = 1,
                 PersonId = 1
@@ -169,7 +165,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDriverReturnsNotFoundWhenPersonIsNotFound()
         {
-            var validModel = new DriverModel()
+            var validModel = new DriverModel
             {
                 Id = 1,
                 PersonId = 1
@@ -191,7 +187,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDriverReturnsNotFoundWhenDriverIsNotFound()
         {
-            var invalidModel = new DriverModel()
+            var invalidModel = new DriverModel
             {
                 Id = 1,
                 PersonId = 1
@@ -215,7 +211,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDriverReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new DriverModel()
+            var validModel = new DriverModel
             {
                 Id = 1,
                 PersonId = 1

@@ -40,15 +40,12 @@ namespace eMenka.API
                         builder.AllowAnyMethod();
                     });
             });
-            services.AddAuthentication(options =>
-                {
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
+            services.AddAuthentication(options => { options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme; })
                 .AddJwtBearer(options =>
                 {
                     var tokenSettings = new TokenSettings();
                     Configuration.Bind("token", tokenSettings);
-                    options.TokenValidationParameters = new TokenValidationParameters()
+                    options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidIssuer = tokenSettings.Issuer,
                         ValidAudience = tokenSettings.Audience,
@@ -96,10 +93,7 @@ namespace eMenka.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
 
@@ -108,10 +102,7 @@ namespace eMenka.API
             app.UseAuthorization();
             app.UseCors("MyAllowSpecificOrigins");
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

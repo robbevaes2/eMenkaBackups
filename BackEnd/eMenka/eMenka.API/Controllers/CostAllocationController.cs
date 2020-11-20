@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
@@ -44,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostCostAllocation([FromBody] CostAllocationModel costAllocationModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _costAllocationRepository.Add(RecordMappers.MapCostAllocationModel(costAllocationModel));
             return Ok();
@@ -56,15 +50,13 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCostAllocation([FromBody] CostAllocationModel costAllocationModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != costAllocationModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
 
-            var isUpdated = _costAllocationRepository.Update(id, RecordMappers.MapCostAllocationModel(costAllocationModel));
+            var isUpdated =
+                _costAllocationRepository.Update(id, RecordMappers.MapCostAllocationModel(costAllocationModel));
 
             if (!isUpdated)
                 return NotFound($"No Cost allocation found with id {id}");

@@ -1,5 +1,4 @@
 ﻿using System;
-using eMenka.Domain.Enums;
 
 namespace eMenka.Domain.Classes
 {

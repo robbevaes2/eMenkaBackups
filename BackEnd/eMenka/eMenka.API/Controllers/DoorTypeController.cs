@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-
 
 namespace eMenka.API.Controllers
 {
@@ -55,22 +50,16 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostDoorType([FromBody] DoorTypeModel doorTypeModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
-            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel)); 
+            _doorTypeRepository.Add(VehicleMappers.MapDoorTypeModel(doorTypeModel));
             return Ok();
         }
 
         [HttpPut("{id}")]
         public IActionResult UpdateDoorType([FromBody] DoorTypeModel doorTypeModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != doorTypeModel.Id)
                 return BadRequest("Id from model does not match query paramater id");

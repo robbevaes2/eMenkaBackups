@@ -1,16 +1,16 @@
-﻿using eMenka.API.AuthenticationModels;
+﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+using eMenka.API.AuthenticationModels;
 using eMenka.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using Stage_API;
 
 namespace eMenka.API.Controllers
@@ -20,13 +20,14 @@ namespace eMenka.API.Controllers
     [AllowAnonymous]
     public class AuthenticationController : ControllerBase
     {
-        private readonly UserManager<User> _userManager;
         private readonly RoleManager<Role> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IOptions<TokenSettings> _tokenSettings;
+        private readonly UserManager<User> _userManager;
 
 
-        public AuthenticationController(RoleManager<Role> roleManager, SignInManager<User> signInManager, IOptions<TokenSettings> tokenSettings)
+        public AuthenticationController(RoleManager<Role> roleManager, SignInManager<User> signInManager,
+            IOptions<TokenSettings> tokenSettings)
         {
             _userManager = signInManager.UserManager;
             _roleManager = roleManager;
@@ -41,10 +42,12 @@ namespace eMenka.API.Controllers
         {
             throw new NotImplementedException();
         }
+
         #endregion
 
 
         #region Login
+
         [HttpPost("token")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
@@ -77,7 +80,7 @@ namespace eMenka.API.Controllers
             }.Union(userClaims).ToList();
 
             var userRoles = await _userManager.GetRolesAsync(user);
-            
+
             //Adds roles to claims
             allClaims.AddRange(userRoles.Select(role => new Claim(ClaimTypes.Role, role)));
 
@@ -86,9 +89,9 @@ namespace eMenka.API.Controllers
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
             var jwtSecurityToken = new JwtSecurityToken(
-                issuer: _tokenSettings.Value.Issuer,
-                audience: _tokenSettings.Value.Audience,
-                claims: allClaims,
+                _tokenSettings.Value.Issuer,
+                _tokenSettings.Value.Audience,
+                allClaims,
                 expires: DateTime.UtcNow.AddMinutes(_tokenSettings.Value.ExpirationTimeInMinutes),
                 signingCredentials: signingCredentials);
 
@@ -97,6 +100,5 @@ namespace eMenka.API.Controllers
         }
 
         #endregion
-
     }
 }

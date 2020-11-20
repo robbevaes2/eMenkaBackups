@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
-using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -18,10 +13,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class CorporationControllerTests
     {
-        private CorporationController _sut;
-        private Mock<ICorporationRepository> _corporationRepositoryMock;
-        private Mock<ICompanyRepository> _companyRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -29,6 +20,10 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock = new Mock<ICompanyRepository>();
             _sut = new CorporationController(_corporationRepositoryMock.Object, _companyRepositoryMock.Object);
         }
+
+        private CorporationController _sut;
+        private Mock<ICorporationRepository> _corporationRepositoryMock;
+        private Mock<ICompanyRepository> _companyRepositoryMock;
 
         [Test]
         public void GetAllCorporationsReturnsOkAndListOfAllCorporationsWhenEverythingIsCorrect()
@@ -96,7 +91,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCorporationReturnsNotFoundWhenCompanyIsNotFound()
         {
-            var validModel = new CorporationModel()
+            var validModel = new CorporationModel
             {
                 Name = "",
                 CompanyId = 1
@@ -118,7 +113,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCorporationReturnsOkWhenModelIsValid()
         {
-            var validModel = new CorporationModel()
+            var validModel = new CorporationModel
             {
                 Name = "name",
                 CompanyId = 1
@@ -155,7 +150,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new CorporationModel()
+            var invalidModel = new CorporationModel
             {
                 Id = 1,
                 CompanyId = 1
@@ -172,7 +167,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsNotFoundWhenCompanyIsNotFound()
         {
-            var validModel = new CorporationModel()
+            var validModel = new CorporationModel
             {
                 Id = 1,
                 Name = "",
@@ -195,7 +190,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsNotFoundWhenCorporationIsNotFound()
         {
-            var invalidModel = new CorporationModel()
+            var invalidModel = new CorporationModel
             {
                 Id = 1,
                 CompanyId = 1
@@ -219,7 +214,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new CorporationModel()
+            var validModel = new CorporationModel
             {
                 Id = 1,
                 Name = "",
@@ -272,6 +267,5 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.Remove(It.IsAny<Corporation>()), Times.Once);
         }
-
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
@@ -15,15 +13,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class CostAllocationControllerTests
     {
-        private CostAllocationController _sut;
-        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _costAllocationRepositoryMock = new Mock<ICostAllocationRepository>();
             _sut = new CostAllocationController(_costAllocationRepositoryMock.Object);
         }
+
+        private CostAllocationController _sut;
+        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
 
         [Test]
         public void GetAllCostAllocationsReturnsOkAndListOfAllCostAllocationsWhenEverythingIsCorrect()
@@ -90,7 +88,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCostAllocationReturnsOkWhenModelIsValid()
         {
-            var validModel = new CostAllocationModel()
+            var validModel = new CostAllocationModel
             {
                 Name = "name"
             };
@@ -113,13 +111,14 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()), Times.Never);
+            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()),
+                Times.Never);
         }
 
         [Test]
         public void UpdateCostAllocationReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new CostAllocationModel()
+            var invalidModel = new CostAllocationModel
             {
                 Id = 1
             };
@@ -128,13 +127,14 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()), Times.Never);
+            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()),
+                Times.Never);
         }
 
         [Test]
         public void UpdateCostAllocationReturnsNotFoundWhenCostAllocationIsNotFound()
         {
-            var invalidModel = new CostAllocationModel()
+            var invalidModel = new CostAllocationModel
             {
                 Id = 1
             };
@@ -146,13 +146,14 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()),
+                Times.Once);
         }
 
         [Test]
         public void UpdateCostAllocationReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new CostAllocationModel()
+            var validModel = new CostAllocationModel
             {
                 Id = 1,
                 Name = ""
@@ -165,7 +166,8 @@ namespace eMenka.Tests.Controllers
 
             Assert.That(result, Is.Not.Null);
 
-            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<CostAllocation>()),
+                Times.Once);
         }
 
         [Test]

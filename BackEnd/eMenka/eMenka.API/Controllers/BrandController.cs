@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -42,6 +37,7 @@ namespace eMenka.API.Controllers
 
             return Ok(VehicleMappers.MapBrandEntity(brand));
         }
+
         [HttpGet("name/{brandName}")]
         public IActionResult GetBrandsByName(string brandName)
         {
@@ -53,10 +49,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostBrand([FromBody] BrandModel brandModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _brandRepository.Add(VehicleMappers.MapBrandModel(brandModel));
             return Ok();
@@ -65,10 +58,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateBrand([FromBody] BrandModel brandModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != brandModel.Id)
                 return BadRequest("Id from model does not match id query parameter");

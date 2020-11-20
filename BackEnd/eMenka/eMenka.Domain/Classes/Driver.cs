@@ -1,5 +1,4 @@
 ﻿using System;
-using eMenka.Domain.Enums;
 
 namespace eMenka.Domain.Classes
 {
@@ -12,6 +11,5 @@ namespace eMenka.Domain.Classes
         public int? FuelCardId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-
     }
 }

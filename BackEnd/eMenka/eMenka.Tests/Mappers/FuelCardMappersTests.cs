@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
-using eMenka.API.Models.FuelCardModels.ReturnModels;
-using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using NUnit.Framework;
@@ -28,16 +23,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapFuelCardEntityReturnsReturnModelWithCorrectProperties()
         {
-            int id = 1;
-            DateTime endDate = DateTime.Now;
-            DateTime startDate = DateTime.Now;
-            DateTime blockingDate = DateTime.Now;
-            string blockingReason = "reason";
-            bool isBlocked = true;
-            string pinCode = "1234";
-            string number = "2345678";
+            var id = 1;
+            var endDate = DateTime.Now;
+            var startDate = DateTime.Now;
+            var blockingDate = DateTime.Now;
+            var blockingReason = "reason";
+            var isBlocked = true;
+            var pinCode = "1234";
+            var number = "2345678";
 
-            FuelCard fuelCard = new FuelCard()
+            var fuelCard = new FuelCard
             {
                 Id = id,
                 Driver = null,
@@ -50,7 +45,7 @@ namespace eMenka.Tests.Mappers
                 Number = number
             };
 
-            FuelCardReturnModel result = FuelCardMappers.MapFuelCardEntity(fuelCard);
+            var result = FuelCardMappers.MapFuelCardEntity(fuelCard);
 
             Assert.That(result.Driver, Is.Null);
             Assert.That(result.Id, Is.EqualTo(id));
@@ -66,17 +61,17 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapCategoryModelReturnsCategoryWithCorrectProperties()
         {
-            int id = 1;
-            DateTime endDate = DateTime.Now;
-            DateTime startDate = DateTime.Now;
-            DateTime blockingDate = DateTime.Now;
-            string blockingReason = "reason";
-            bool isBlocked = true;
-            string pinCode = "1234";
-            string number = "2345678";
-            int driverId = 1;
+            var id = 1;
+            var endDate = DateTime.Now;
+            var startDate = DateTime.Now;
+            var blockingDate = DateTime.Now;
+            var blockingReason = "reason";
+            var isBlocked = true;
+            var pinCode = "1234";
+            var number = "2345678";
+            var driverId = 1;
 
-            FuelCardModel fuelCardModel = new FuelCardModel()
+            var fuelCardModel = new FuelCardModel
             {
                 Id = id,
                 DriverId = driverId,
@@ -89,7 +84,7 @@ namespace eMenka.Tests.Mappers
                 Number = number
             };
 
-            FuelCard result = FuelCardMappers.MapFuelCardModel(fuelCardModel);
+            var result = FuelCardMappers.MapFuelCardModel(fuelCardModel);
 
             Assert.That(result.DriverId, Is.EqualTo(driverId));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -115,11 +110,11 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapDriverEntityReturnsReturnModelWithCorrectProperties()
         {
-            int id = 1;
-            DateTime endDate = DateTime.Now;
-            DateTime startDate = DateTime.Now;
+            var id = 1;
+            var endDate = DateTime.Now;
+            var startDate = DateTime.Now;
 
-            Driver driver = new Driver()
+            var driver = new Driver
             {
                 Id = id,
                 Person = null,
@@ -127,7 +122,7 @@ namespace eMenka.Tests.Mappers
                 StartDate = startDate
             };
 
-            DriverReturnModel result = FuelCardMappers.MapDriverEntity(driver);
+            var result = FuelCardMappers.MapDriverEntity(driver);
 
             Assert.That(result.Person, Is.Null);
             Assert.That(result.Id, Is.EqualTo(id));
@@ -138,12 +133,12 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapDriverModelReturnsDriverWithCorrectProperties()
         {
-            int id = 1;
-            DateTime endDate = DateTime.Now;
-            DateTime startDate = DateTime.Now;
-            int personId = 1;
+            var id = 1;
+            var endDate = DateTime.Now;
+            var startDate = DateTime.Now;
+            var personId = 1;
 
-            DriverModel driverModel = new DriverModel()
+            var driverModel = new DriverModel
             {
                 Id = id,
                 PersonId = personId,
@@ -151,7 +146,7 @@ namespace eMenka.Tests.Mappers
                 StartDate = startDate
             };
 
-            Driver result = FuelCardMappers.MapDriverModel(driverModel);
+            var result = FuelCardMappers.MapDriverModel(driverModel);
 
             Assert.That(result.PersonId, Is.EqualTo(personId));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -172,20 +167,20 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapPersonEntityReturnsReturnModelWithCorrectProperties()
         {
-            int id = 1;
-            string title = "mr";
-            DateTime birthdate = DateTime.Now;
-            DateTime startdateDriversLicense = DateTime.Now;
-            byte[] picture = new byte[2];
-            string lastname = "last";
-            Language language = Language.Dutch;
-            string gender = "m";
-            string firstname = "first";
-            DateTime enddateDriversLicense = DateTime.Now;
-            string driversLicenseNumber = "23456789";
-            string driversLicenseType = "A";
+            var id = 1;
+            var title = "mr";
+            var birthdate = DateTime.Now;
+            var startdateDriversLicense = DateTime.Now;
+            var picture = new byte[2];
+            var lastname = "last";
+            var language = Language.Dutch;
+            var gender = "m";
+            var firstname = "first";
+            var enddateDriversLicense = DateTime.Now;
+            var driversLicenseNumber = "23456789";
+            var driversLicenseType = "A";
 
-            Person person = new Person()
+            var person = new Person
             {
                 Id = id,
                 BirthDate = birthdate,
@@ -201,7 +196,7 @@ namespace eMenka.Tests.Mappers
                 DriversLicenseType = driversLicenseType
             };
 
-            PersonReturnModel result = FuelCardMappers.MapPersonEntity(person);
+            var result = FuelCardMappers.MapPersonEntity(person);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.BirthDate, Is.EqualTo(birthdate));
@@ -220,20 +215,20 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapPersonModelReturnsPersonWithCorrectProperties()
         {
-            int id = 1;
-            string title = "mr";
-            DateTime birthdate = DateTime.Now;
-            DateTime startdateDriversLicense = DateTime.Now;
-            byte[] picture = new byte[2];
-            string lastname = "last";
-            Language language = Language.Dutch;
-            string gender = "m";
-            string firstname = "first";
-            DateTime enddateDriversLicense = DateTime.Now;
-            string driversLicenseNumber = "23456789";
-            string driversLicenseType = "A";
+            var id = 1;
+            var title = "mr";
+            var birthdate = DateTime.Now;
+            var startdateDriversLicense = DateTime.Now;
+            var picture = new byte[2];
+            var lastname = "last";
+            var language = Language.Dutch;
+            var gender = "m";
+            var firstname = "first";
+            var enddateDriversLicense = DateTime.Now;
+            var driversLicenseNumber = "23456789";
+            var driversLicenseType = "A";
 
-            PersonModel personModel = new PersonModel()
+            var personModel = new PersonModel
             {
                 Id = id,
                 BirthDate = birthdate,
@@ -249,7 +244,7 @@ namespace eMenka.Tests.Mappers
                 DriversLicenseType = driversLicenseType
             };
 
-            Person result = FuelCardMappers.MapPersonModel(personModel);
+            var result = FuelCardMappers.MapPersonModel(personModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.BirthDate, Is.EqualTo(birthdate));

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
-using eMenka.API.Models.FuelCardModels;
-using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -17,12 +13,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class RecordControllersTests
     {
-        private RecordController _sut;
-        private Mock<IRecordRepository> _recordRepositoryMock;
-        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
-        private Mock<ICorporationRepository> _corporationRepositoryMock;
-        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -31,8 +21,15 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock = new Mock<ICorporationRepository>();
             _costAllocationRepositoryMock = new Mock<ICostAllocationRepository>();
 
-            _sut = new RecordController(_recordRepositoryMock.Object, _fuelCardRepositoryMock.Object, _corporationRepositoryMock.Object, _costAllocationRepositoryMock.Object);
+            _sut = new RecordController(_recordRepositoryMock.Object, _fuelCardRepositoryMock.Object,
+                _corporationRepositoryMock.Object, _costAllocationRepositoryMock.Object);
         }
+
+        private RecordController _sut;
+        private Mock<IRecordRepository> _recordRepositoryMock;
+        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
+        private Mock<ICorporationRepository> _corporationRepositoryMock;
+        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
 
         [Test]
         public void GetAllRecordsReturnsOkAndListOfAllRecordsWhenEverythingIsCorrect()
@@ -102,7 +99,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostRecordReturnsNotFoundWhenFuelCardIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 FuelCardId = 1
             };
@@ -125,13 +122,13 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostRecordReturnsNotFoundWhenCorporationIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 FuelCardId = 1,
                 CorporationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
+            var fuelCard = new FuelCard();
             Corporation corporation = null;
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -152,15 +149,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostRecordReturnsNotFoundWhenCostAllocationIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 FuelCardId = 1,
                 CorporationId = 1,
                 CostAllocationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
-            Corporation corporation = new Corporation();
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
             CostAllocation costAllocation = null;
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -183,16 +180,16 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostFuelCardReturnsOkWhenModelIsValid()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 FuelCardId = 1,
                 CorporationId = 1,
                 CostAllocationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
-            Corporation corporation = new Corporation();
-            CostAllocation costAllocation = new CostAllocation();
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
@@ -231,7 +228,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateRecordReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new RecordModel()
+            var invalidModel = new RecordModel
             {
                 Id = 1
             };
@@ -249,7 +246,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateRecordReturnsNotFoundWhenFuelCardIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 Id = 1,
                 FuelCardId = 1
@@ -273,14 +270,14 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateRecordReturnsNotFoundWhenCorporationIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 Id = 1,
                 FuelCardId = 1,
                 CorporationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
+            var fuelCard = new FuelCard();
             Corporation corporation = null;
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -301,7 +298,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateRecordReturnsNotFoundWhenCostAllocationIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 Id = 1,
                 FuelCardId = 1,
@@ -309,8 +306,8 @@ namespace eMenka.Tests.Controllers
                 CostAllocationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
-            Corporation corporation = new Corporation();
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
             CostAllocation costAllocation = null;
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -333,7 +330,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsNotFoundWhenFuelCardIsNotFound()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 Id = 1,
                 FuelCardId = 1,
@@ -341,12 +338,12 @@ namespace eMenka.Tests.Controllers
                 CostAllocationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
-            Corporation corporation = new Corporation();
-            CostAllocation costAllocation = new CostAllocation();
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
 
             _recordRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()))
-                .Returns(false); 
+                .Returns(false);
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -367,7 +364,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new RecordModel()
+            var validModel = new RecordModel
             {
                 Id = 1,
                 FuelCardId = 1,
@@ -375,9 +372,9 @@ namespace eMenka.Tests.Controllers
                 CostAllocationId = 1
             };
 
-            FuelCard fuelCard = new FuelCard();
-            Corporation corporation = new Corporation();
-            CostAllocation costAllocation = new CostAllocation();
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
 
             _recordRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()))
                 .Returns(true);

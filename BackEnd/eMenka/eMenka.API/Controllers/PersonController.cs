@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Data.IRepositories;
@@ -44,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostPerson([FromBody] PersonModel personModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _personRepository.Add(FuelCardMappers.MapPersonModel(personModel));
             return Ok();
@@ -56,10 +50,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdatePerson([FromBody] PersonModel personModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != personModel.Id)
                 return BadRequest("Id from model does not match query paramater id");

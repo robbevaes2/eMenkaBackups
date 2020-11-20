@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -10,24 +9,12 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using VehicleReturnModel = eMenka.API.Models.VehicleModels.ReturnModels.VehicleReturnModel;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class VehicleControllerTests
     {
-        private VehicleController _sut;
-        private Mock<IVehicleRepository> _vehicleRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IModelRepository> _modelRepositoryMock;
-        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
-        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
-        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
-        private Mock<ICategoryRepository> _categoryRepositoryMock;
-        private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
-        private Mock<ISerieRepository> _serieRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -41,9 +28,22 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock = new Mock<IFuelCardRepository>();
             _serieRepositoryMock = new Mock<ISerieRepository>();
 
-            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object, _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object, _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object, _fuelcardRepositoryMock.Object);
-
+            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object,
+                _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object,
+                _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object,
+                _fuelcardRepositoryMock.Object);
         }
+
+        private VehicleController _sut;
+        private Mock<IVehicleRepository> _vehicleRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IModelRepository> _modelRepositoryMock;
+        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
+        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
+        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
+        private Mock<ICategoryRepository> _categoryRepositoryMock;
+        private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
+        private Mock<ISerieRepository> _serieRepositoryMock;
 
         [Test]
         public void GetAllVehiclesReturnsOkAndListOfAllVehiclesWhenEverythingIsCorrect()
@@ -89,7 +89,7 @@ namespace eMenka.Tests.Controllers
                 {
                     Brand = new Brand()
                 },
-                EngineType = new EngineType()
+                EngineType = new EngineType
                 {
                     Brand = new Brand()
                 }
@@ -240,7 +240,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenBrandIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1
             };
@@ -268,7 +268,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenModelIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1
@@ -300,7 +300,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenFuelTypeIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -339,7 +339,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenMotorTypeIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -352,7 +352,7 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
+            var fuelType = new FuelType();
             EngineType engineType = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -378,10 +378,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void PostVehicleReturnsNotFoundWhenDoorTypeIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -395,8 +396,8 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
@@ -431,7 +432,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenCategoryIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -446,12 +447,12 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
+            var doorType = new DoorType();
             Category category = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -485,7 +486,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenFuelcardIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -501,13 +502,13 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
+            var doorType = new DoorType();
+            var category = new Category();
             FuelCard fuelCard = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -543,7 +544,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsNotFoundWhenSeriesIsNotFound()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -560,14 +561,14 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
-            FuelCard fuelCard = new FuelCard();
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
             Series series = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -605,7 +606,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsOkWhenModelIsValid()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 BrandId = 1,
                 ModelId = 1,
@@ -626,15 +627,15 @@ namespace eMenka.Tests.Controllers
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
-            FuelCard fuelCard = new FuelCard();
-            Series series = new Series();
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
@@ -667,7 +668,7 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
-        
+
         [Test]
         public void UpdateVehcileReturnsBadRequestWhenModelIsInvalid()
         {
@@ -693,7 +694,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehicleReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new VehicleModel()
+            var invalidModel = new VehicleModel
             {
                 Id = 1
             };
@@ -716,7 +717,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenBrandIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -749,10 +750,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenModelIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -766,7 +768,7 @@ namespace eMenka.Tests.Controllers
                 Volume = 1
             };
 
-            Brand brand = new Brand();
+            var brand = new Brand();
             Model model = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -788,10 +790,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenFuelTypeIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -805,8 +808,8 @@ namespace eMenka.Tests.Controllers
                 Volume = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
@@ -833,10 +836,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenMotorTypeIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -850,12 +854,12 @@ namespace eMenka.Tests.Controllers
                 Volume = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
+            var fuelType = new FuelType();
             EngineType engineType = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -881,10 +885,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenDoorTypeIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -898,13 +903,13 @@ namespace eMenka.Tests.Controllers
                 Volume = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
@@ -939,7 +944,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenCategoryIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -947,24 +952,24 @@ namespace eMenka.Tests.Controllers
                 FuelTypeId = 1,
                 EngineTypeId = 1,
                 DoorTypeId = 1,
-                Emission = 1, 
+                Emission = 1,
                 FiscalHP = 1,
                 Power = 1,
                 Volume = 1,
                 CategoryId = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
+            var doorType = new DoorType();
             Category category = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -994,10 +999,11 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
         }
+
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenFuelcardIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -1013,18 +1019,18 @@ namespace eMenka.Tests.Controllers
                 FuelCardId = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
+            var doorType = new DoorType();
+            var category = new Category();
             FuelCard fuelCard = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -1060,7 +1066,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehicleReturnsNotFoundWhenSerieIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -1077,19 +1083,19 @@ namespace eMenka.Tests.Controllers
                 SeriesId = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
-            FuelCard fuelCard = new FuelCard();
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
             Series series = null;
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -1127,7 +1133,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdatevehicleReturnsNotFoundWhenVehicleIsNotFound()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -1144,20 +1150,20 @@ namespace eMenka.Tests.Controllers
                 SeriesId = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category();
-            FuelCard fuelCard = new FuelCard();
-            Series series = new Series();
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
 
             _vehicleRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Vehicle>()))
                 .Returns(false);
@@ -1196,7 +1202,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehicleReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new VehicleModel()
+            var validModel = new VehicleModel
             {
                 Id = 1,
                 BrandId = 1,
@@ -1213,20 +1219,20 @@ namespace eMenka.Tests.Controllers
                 SeriesId = 1
             };
 
-            Brand brand = new Brand();
-            Model model = new Model
+            var brand = new Brand();
+            var model = new Model
             {
                 Brand = new Brand()
             };
-            FuelType fuelType = new FuelType();
-            EngineType engineType = new EngineType()
+            var fuelType = new FuelType();
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };
-            DoorType doorType = new DoorType();
-            Category category = new Category(); 
-            FuelCard fuelCard = new FuelCard();
-            Series series = new Series();
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
 
             _vehicleRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Vehicle>()))
                 .Returns(true);

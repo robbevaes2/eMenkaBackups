@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace eMenka.API.Models.VehicleModels.ReturnModels
+﻿namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
     public class BrandReturnModel
     {

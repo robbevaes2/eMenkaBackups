@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
-using eMenka.API.Models.RecordModels;
-using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
@@ -17,15 +13,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class PersonControllerTests
     {
-        private PersonController _sut;
-        private Mock<IPersonRepository> _personRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _personRepositoryMock = new Mock<IPersonRepository>();
             _sut = new PersonController(_personRepositoryMock.Object);
         }
+
+        private PersonController _sut;
+        private Mock<IPersonRepository> _personRepositoryMock;
 
         [Test]
         public void GetAllPersonsReturnsOkAndListOfAllPersonsWhenEverythingIsCorrect()
@@ -118,7 +114,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdatePersonReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new PersonModel()
+            var invalidModel = new PersonModel
             {
                 Id = 1
             };
@@ -133,7 +129,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdatePersonReturnsNotFoundWhenPersonIsNotFound()
         {
-            var invalidModel = new PersonModel()
+            var invalidModel = new PersonModel
             {
                 Id = 1
             };
@@ -151,7 +147,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdatePersonReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new PersonModel()
+            var validModel = new PersonModel
             {
                 Id = 1
             };

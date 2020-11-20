@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
-using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
 
@@ -25,21 +22,21 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapVehicleEntityReturnsReturnModelWithCorrectProperties()
         {
-            int id = 1;
-            int emission = 1;
-            int fiscalhp = 1;
-            bool isActive = true;
-            int power = 1;
-            int volume = 1;
-            string licensePlate = "plate";
-            string chassis = "chassis";
-            int averageFuel = 1;
-            DateTime enDateDelivery = DateTime.Now;
-            int engineCapacity = 1;
-            int enginePower = 1;
-            int buildYear = 2000;
+            var id = 1;
+            var emission = 1;
+            var fiscalhp = 1;
+            var isActive = true;
+            var power = 1;
+            var volume = 1;
+            var licensePlate = "plate";
+            var chassis = "chassis";
+            var averageFuel = 1;
+            var enDateDelivery = DateTime.Now;
+            var engineCapacity = 1;
+            var enginePower = 1;
+            var buildYear = 2000;
 
-            Vehicle vehicle = new Vehicle
+            var vehicle = new Vehicle
             {
                 AverageFuel = averageFuel,
                 Brand = null,
@@ -65,7 +62,7 @@ namespace eMenka.Tests.Mappers
                 BuildYear = buildYear
             };
 
-            VehicleReturnModel result = VehicleMappers.MapVehicleEntity(vehicle);
+            var result = VehicleMappers.MapVehicleEntity(vehicle);
 
             Assert.That(result.AverageFuel, Is.EqualTo(averageFuel));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -94,30 +91,30 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapVehicleModelReturnsVehicleWithCorrectProperties()
         {
-            int id = 1;
-            int emission = 1;
-            int fiscalhp = 1;
-            bool isActive = true;
-            int power = 1;
-            int volume = 1;
-            string licensePlate = "plate";
-            string chassis = "chassis";
-            int averageFuel = 1;
-            DateTime enDateDelivery = DateTime.Now;
-            int engineCapacity = 1;
-            int enginePower = 1;
-            int buildYear = 2000;
-            int engineTypeId = 1;
-            int brandId = 1;
-            int doortypeId = 1;
-            int fuelTypeId = 1;
-            int modelId = 1;
-            int fuelCardId = 1;
-            int seriesId = 1;
-            int countryId = 1;
-            int categoryId = 1;
+            var id = 1;
+            var emission = 1;
+            var fiscalhp = 1;
+            var isActive = true;
+            var power = 1;
+            var volume = 1;
+            var licensePlate = "plate";
+            var chassis = "chassis";
+            var averageFuel = 1;
+            var enDateDelivery = DateTime.Now;
+            var engineCapacity = 1;
+            var enginePower = 1;
+            var buildYear = 2000;
+            var engineTypeId = 1;
+            var brandId = 1;
+            var doortypeId = 1;
+            var fuelTypeId = 1;
+            var modelId = 1;
+            var fuelCardId = 1;
+            var seriesId = 1;
+            var countryId = 1;
+            var categoryId = 1;
 
-            VehicleModel vehicle = new VehicleModel
+            var vehicle = new VehicleModel
             {
                 AverageFuel = averageFuel,
                 Id = id,
@@ -143,7 +140,7 @@ namespace eMenka.Tests.Mappers
                 ModelId = modelId
             };
 
-            Vehicle result = VehicleMappers.MapVehicleModel(vehicle);
+            var result = VehicleMappers.MapVehicleModel(vehicle);
 
             Assert.That(result.AverageFuel, Is.EqualTo(averageFuel));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -182,17 +179,17 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapSerieEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            Series series = new Series
+            var series = new Series
             {
                 Brand = null,
                 Id = id,
                 Name = name
             };
 
-            SerieReturnModel result = VehicleMappers.MapSerieEntity(series);
+            var result = VehicleMappers.MapSerieEntity(series);
 
             Assert.That(result.Brand, Is.Null);
             Assert.That(result.Id, Is.EqualTo(id));
@@ -202,18 +199,18 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapSerieModelReturnsSeriesWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            int brandid = 1;
+            var name = "name";
+            var id = 1;
+            var brandid = 1;
 
-            SerieModel serieModel = new SerieModel
+            var serieModel = new SerieModel
             {
                 BrandId = brandid,
                 Id = id,
                 Name = name
             };
 
-            Series result = VehicleMappers.MapSerieModel(serieModel);
+            var result = VehicleMappers.MapSerieModel(serieModel);
 
             Assert.That(result.BrandId, Is.EqualTo(brandid));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -233,17 +230,17 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapEngineTypeEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            EngineType engineType = new EngineType()
+            var engineType = new EngineType
             {
                 Brand = null,
                 Id = id,
                 Name = name
             };
 
-            EngineTypeReturnModel result = VehicleMappers.MapEngineTypeEntity(engineType);
+            var result = VehicleMappers.MapEngineTypeEntity(engineType);
 
             Assert.That(result.Brand, Is.Null);
             Assert.That(result.Id, Is.EqualTo(id));
@@ -253,18 +250,18 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapEngineTypeModelReturnsEngineTypeWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            int brandid = 1;
+            var name = "name";
+            var id = 1;
+            var brandid = 1;
 
-            EngineTypeModel engineTypeModel = new EngineTypeModel()
+            var engineTypeModel = new EngineTypeModel
             {
                 BrandId = brandid,
                 Id = id,
                 Name = name
             };
 
-            EngineType result = VehicleMappers.MapEngineTypeModel(engineTypeModel);
+            var result = VehicleMappers.MapEngineTypeModel(engineTypeModel);
 
             Assert.That(result.BrandId, Is.EqualTo(brandid));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -284,17 +281,17 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapModelEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            Model model = new Model()
+            var model = new Model
             {
                 Brand = null,
                 Id = id,
                 Name = name
             };
 
-            ModelReturnModel result = VehicleMappers.MapModelEntity(model);
+            var result = VehicleMappers.MapModelEntity(model);
 
             Assert.That(result.Brand, Is.Null);
             Assert.That(result.Id, Is.EqualTo(id));
@@ -304,18 +301,18 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapModelModelReturnsModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            int brandid = 1;
+            var name = "name";
+            var id = 1;
+            var brandid = 1;
 
-            ModelModel modelModel = new ModelModel()
+            var modelModel = new ModelModel
             {
                 BrandId = brandid,
                 Id = id,
                 Name = name
             };
 
-            Model result = VehicleMappers.MapModelModel(modelModel);
+            var result = VehicleMappers.MapModelModel(modelModel);
 
             Assert.That(result.BrandId, Is.EqualTo(brandid));
             Assert.That(result.Id, Is.EqualTo(id));
@@ -335,16 +332,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapBrandEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            Brand brand = new Brand()
+            var brand = new Brand
             {
                 Id = id,
                 Name = name
             };
 
-            BrandReturnModel result = VehicleMappers.MapBrandEntity(brand);
+            var result = VehicleMappers.MapBrandEntity(brand);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -353,16 +350,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapBrandModelReturnsBrandWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            BrandModel brandModel = new BrandModel()
+            var brandModel = new BrandModel
             {
                 Id = id,
                 Name = name
             };
 
-            Brand result = VehicleMappers.MapBrandModel(brandModel);
+            var result = VehicleMappers.MapBrandModel(brandModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -381,18 +378,18 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapFuelTypeEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            string code = "code";
+            var name = "name";
+            var id = 1;
+            var code = "code";
 
-            FuelType fuelType = new FuelType()
+            var fuelType = new FuelType
             {
                 Id = id,
                 Name = name,
                 Code = code
             };
 
-            FuelTypeReturnModel result = VehicleMappers.MapFuelTypeEntity(fuelType);
+            var result = VehicleMappers.MapFuelTypeEntity(fuelType);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -402,18 +399,18 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapFuelTypeModelReturnsBrandWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            string code = "code";
+            var name = "name";
+            var id = 1;
+            var code = "code";
 
-            FuelTypeModel fuelTypeModel = new FuelTypeModel()
+            var fuelTypeModel = new FuelTypeModel
             {
                 Id = id,
                 Name = name,
                 Code = code
             };
 
-            FuelType result = VehicleMappers.MapFuelTypeModel(fuelTypeModel);
+            var result = VehicleMappers.MapFuelTypeModel(fuelTypeModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -433,16 +430,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapDoorTypeEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            DoorType doorType = new DoorType()
+            var doorType = new DoorType
             {
                 Id = id,
                 Name = name
             };
 
-            DoorTypeReturnModel result = VehicleMappers.MapDoorTypeEntity(doorType);
+            var result = VehicleMappers.MapDoorTypeEntity(doorType);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -451,16 +448,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapDoorTypeModelReturnsDoorTypeWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            DoorTypeModel doorTypeModel = new DoorTypeModel()
+            var doorTypeModel = new DoorTypeModel
             {
                 Id = id,
                 Name = name
             };
 
-            DoorType result = VehicleMappers.MapDoorTypeModel(doorTypeModel);
+            var result = VehicleMappers.MapDoorTypeModel(doorTypeModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -479,16 +476,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapCategoryEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            Category category = new Category()
+            var category = new Category
             {
                 Id = id,
                 Name = name
             };
 
-            CategoryReturnModel result = VehicleMappers.MapCategoryEntity(category);
+            var result = VehicleMappers.MapCategoryEntity(category);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -497,16 +494,16 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapCategoryModelReturnsCategoryWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
+            var name = "name";
+            var id = 1;
 
-            CategoryModel categoryModel = new CategoryModel()
+            var categoryModel = new CategoryModel
             {
                 Id = id,
                 Name = name
             };
 
-            Category result = VehicleMappers.MapCategoryModel(categoryModel);
+            var result = VehicleMappers.MapCategoryModel(categoryModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -525,14 +522,14 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapCountryEntityReturnsReturnModelWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            string code = "code";
-            bool isActive = true;
-            string nationality = "nation";
-            bool pod = true;
+            var name = "name";
+            var id = 1;
+            var code = "code";
+            var isActive = true;
+            var nationality = "nation";
+            var pod = true;
 
-            Country country = new Country()
+            var country = new Country
             {
                 Id = id,
                 Name = name,
@@ -542,7 +539,7 @@ namespace eMenka.Tests.Mappers
                 POD = pod
             };
 
-            CountryReturnModel result = VehicleMappers.MapCountryEntity(country);
+            var result = VehicleMappers.MapCountryEntity(country);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -555,14 +552,14 @@ namespace eMenka.Tests.Mappers
         [Test]
         public void MapCountryModelReturnsCategoryWithCorrectProperties()
         {
-            string name = "name";
-            int id = 1;
-            string code = "code";
-            bool isActive = true;
-            string nationality = "nation";
-            bool pod = true;
+            var name = "name";
+            var id = 1;
+            var code = "code";
+            var isActive = true;
+            var nationality = "nation";
+            var pod = true;
 
-            CountryModel countryModel = new CountryModel()
+            var countryModel = new CountryModel
             {
                 Id = id,
                 Name = name,
@@ -572,7 +569,7 @@ namespace eMenka.Tests.Mappers
                 POD = pod
             };
 
-            Country result = VehicleMappers.MapCountryModel(countryModel);
+            var result = VehicleMappers.MapCountryModel(countryModel);
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
@@ -582,6 +579,4 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.POD, Is.EqualTo(pod));
         }
     }
-
-
 }

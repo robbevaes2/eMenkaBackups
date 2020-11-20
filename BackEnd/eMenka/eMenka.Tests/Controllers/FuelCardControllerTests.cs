@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
@@ -15,10 +13,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class FuelCardControllerTests
     {
-        private FuelCardController _sut;
-        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
-        private Mock<IDriverRepository> _driverRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -26,6 +20,10 @@ namespace eMenka.Tests.Controllers
             _driverRepositoryMock = new Mock<IDriverRepository>();
             _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object);
         }
+
+        private FuelCardController _sut;
+        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
+        private Mock<IDriverRepository> _driverRepositoryMock;
 
         [Test]
         public void GetAllFuelCardsReturnsOkAndListOfAllFuelCardsWhenEverythingIsCorrect()
@@ -93,7 +91,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostFuelCardReturnsNotFoundWhenDriverIsNotFound()
         {
-            var validModel = new FuelCardModel()
+            var validModel = new FuelCardModel
             {
                 DriverId = 1
             };
@@ -114,7 +112,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostFuelCardReturnsOkWhenModelIsValid()
         {
-            var validModel = new FuelCardModel()
+            var validModel = new FuelCardModel
             {
                 DriverId = 1
             };
@@ -150,7 +148,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new FuelCardModel()
+            var invalidModel = new FuelCardModel
             {
                 Id = 1,
                 DriverId = 1
@@ -167,7 +165,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsNotFoundWhenDriverIsNotFound()
         {
-            var validModel = new FuelCardModel()
+            var validModel = new FuelCardModel
             {
                 Id = 1,
                 DriverId = 1
@@ -189,7 +187,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsNotFoundWhenFuelCardIsNotFound()
         {
-            var invalidModel = new FuelCardModel()
+            var invalidModel = new FuelCardModel
             {
                 Id = 1,
                 DriverId = 1
@@ -213,7 +211,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateFuelCardReturnsOkWhenEverythingIsCorrect()
         {
-            var validModel = new FuelCardModel()
+            var validModel = new FuelCardModel
             {
                 Id = 1,
                 DriverId = 1

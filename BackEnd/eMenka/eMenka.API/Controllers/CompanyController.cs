@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
@@ -44,10 +41,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public IActionResult PostCompany([FromBody] CompanyModel companyModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             _companyRepository.Add(RecordMappers.MapCompanyModel(companyModel));
             return Ok();
@@ -56,10 +50,7 @@ namespace eMenka.API.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCompany([FromBody] CompanyModel companyModel, int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
+            if (!ModelState.IsValid) return BadRequest();
 
             if (id != companyModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
