@@ -10,8 +10,8 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201119165909_initial")]
-    partial class initial
+    [Migration("20201120152951_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -292,6 +292,28 @@ namespace eMenka.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Personenwagen"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Bestelwagen"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Heftruck"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Vrachtwagen"
+                        });
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Company", b =>
@@ -1009,6 +1031,7 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 1,
+                            FuelCardId = 1,
                             PersonId = 2,
                             StartDate = new DateTime(2007, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1016,6 +1039,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 2,
                             EndDate = new DateTime(2009, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 2,
                             PersonId = 6,
                             StartDate = new DateTime(2007, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1023,6 +1047,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 3,
                             EndDate = new DateTime(2011, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 3,
                             PersonId = 9,
                             StartDate = new DateTime(2009, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1030,6 +1055,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 4,
                             EndDate = new DateTime(2010, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 4,
                             PersonId = 4,
                             StartDate = new DateTime(2008, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1037,6 +1063,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 5,
                             EndDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 5,
                             PersonId = 1,
                             StartDate = new DateTime(2008, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1044,12 +1071,14 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 6,
                             EndDate = new DateTime(2010, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 6,
                             PersonId = 10,
                             StartDate = new DateTime(2007, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
+                            FuelCardId = 7,
                             PersonId = 3,
                             StartDate = new DateTime(2007, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1057,6 +1086,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 8,
                             EndDate = new DateTime(2011, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 8,
                             PersonId = 11,
                             StartDate = new DateTime(2009, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1064,12 +1094,14 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 9,
                             EndDate = new DateTime(2010, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 9,
                             PersonId = 12,
                             StartDate = new DateTime(2008, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
+                            FuelCardId = 10,
                             PersonId = 13,
                             StartDate = new DateTime(2009, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1077,30 +1109,35 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 11,
                             EndDate = new DateTime(2008, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 11,
                             PersonId = 14,
                             StartDate = new DateTime(2007, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 12,
+                            FuelCardId = 12,
                             PersonId = 15,
                             StartDate = new DateTime(2007, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 13,
+                            FuelCardId = 13,
                             PersonId = 16,
                             StartDate = new DateTime(2007, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 14,
+                            FuelCardId = 14,
                             PersonId = 17,
                             StartDate = new DateTime(2009, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 15,
+                            FuelCardId = 15,
                             PersonId = 18,
                             StartDate = new DateTime(2008, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1108,12 +1145,14 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 16,
                             EndDate = new DateTime(2012, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 16,
                             PersonId = 19,
                             StartDate = new DateTime(2011, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 17,
+                            FuelCardId = 17,
                             PersonId = 20,
                             StartDate = new DateTime(2011, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1121,6 +1160,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 18,
                             EndDate = new DateTime(2014, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 18,
                             PersonId = 21,
                             StartDate = new DateTime(2011, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1128,6 +1168,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 19,
                             EndDate = new DateTime(2012, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 19,
                             PersonId = 22,
                             StartDate = new DateTime(2011, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1135,12 +1176,14 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 20,
                             EndDate = new DateTime(2015, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 20,
                             PersonId = 23,
                             StartDate = new DateTime(2011, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 21,
+                            FuelCardId = 21,
                             PersonId = 24,
                             StartDate = new DateTime(2011, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1148,6 +1191,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 22,
                             EndDate = new DateTime(2009, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 22,
                             PersonId = 25,
                             StartDate = new DateTime(2008, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1155,18 +1199,21 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 23,
                             EndDate = new DateTime(2008, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 23,
                             PersonId = 26,
                             StartDate = new DateTime(2007, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 24,
+                            FuelCardId = 24,
                             PersonId = 27,
                             StartDate = new DateTime(2012, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 25,
+                            FuelCardId = 25,
                             PersonId = 28,
                             StartDate = new DateTime(2012, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1174,6 +1221,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 26,
                             EndDate = new DateTime(2014, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 26,
                             PersonId = 29,
                             StartDate = new DateTime(2012, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1181,6 +1229,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 27,
                             EndDate = new DateTime(2014, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 27,
                             PersonId = 30,
                             StartDate = new DateTime(2012, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1188,6 +1237,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 28,
                             EndDate = new DateTime(2014, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 28,
                             PersonId = 31,
                             StartDate = new DateTime(2012, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1195,6 +1245,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 29,
                             EndDate = new DateTime(2015, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 29,
                             PersonId = 32,
                             StartDate = new DateTime(2012, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -1202,6 +1253,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 30,
                             EndDate = new DateTime(2013, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FuelCardId = 30,
                             PersonId = 33,
                             StartDate = new DateTime(2012, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -2374,6 +2426,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2009, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "kaart niet meer geldig",
                             CompanyId = 16,
+                            DriverId = 1,
                             EndDate = new DateTime(2008, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "188395479",
@@ -2386,6 +2439,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 2,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0008 Tankkaartje 555",
@@ -2398,6 +2452,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2020, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "",
                             CompanyId = 6,
+                            DriverId = 3,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0005 AANLOOP 4",
@@ -2410,6 +2465,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 4,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0004 AANLOOP 3",
@@ -2422,6 +2478,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2020, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 5,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0010 AANLOOP 88",
@@ -2434,6 +2491,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2020, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 6,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0009 AANLOOP 7",
@@ -2446,6 +2504,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 7,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0002 AANLOOP 1",
@@ -2458,6 +2517,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 8,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0003 AANLOOP 2",
@@ -2470,6 +2530,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 9,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0001 LUVA",
@@ -2482,6 +2543,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 23,
+                            DriverId = 10,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0006 SALES",
@@ -2494,6 +2556,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 11,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0007 AANLOOP 5",
@@ -2506,6 +2569,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "vervanging",
                             CompanyId = 4,
+                            DriverId = 12,
                             EndDate = new DateTime(2010, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0011 AANLOOP 9",
@@ -2518,6 +2582,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2009, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "verloren",
                             CompanyId = 4,
+                            DriverId = 13,
                             EndDate = new DateTime(2011, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0012 AANLOOP 10",
@@ -2529,6 +2594,7 @@ namespace eMenka.Data.Migrations
                             Id = 14,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 14,
                             IsBlocked = false,
                             Number = "0009",
                             PinCode = "7008",
@@ -2539,6 +2605,7 @@ namespace eMenka.Data.Migrations
                             Id = 15,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 15,
                             IsBlocked = false,
                             Number = "0002",
                             PinCode = "2938",
@@ -2549,6 +2616,7 @@ namespace eMenka.Data.Migrations
                             Id = 16,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 16,
                             EndDate = new DateTime(2018, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0003",
@@ -2560,6 +2628,7 @@ namespace eMenka.Data.Migrations
                             Id = 17,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 17,
                             EndDate = new DateTime(2019, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0004",
@@ -2572,6 +2641,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "test",
                             CompanyId = 4,
+                            DriverId = 18,
                             IsBlocked = true,
                             Number = "0005",
                             PinCode = "321",
@@ -2582,6 +2652,7 @@ namespace eMenka.Data.Migrations
                             Id = 19,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 19,
                             IsBlocked = false,
                             Number = "0006",
                             PinCode = "4606",
@@ -2592,6 +2663,7 @@ namespace eMenka.Data.Migrations
                             Id = 20,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 20,
                             IsBlocked = false,
                             Number = "0007",
                             PinCode = "6491",
@@ -2602,6 +2674,7 @@ namespace eMenka.Data.Migrations
                             Id = 21,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 21,
                             IsBlocked = false,
                             Number = "0008",
                             PinCode = "401",
@@ -2612,6 +2685,7 @@ namespace eMenka.Data.Migrations
                             Id = 22,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 22,
                             IsBlocked = false,
                             Number = "0010",
                             PinCode = "7861",
@@ -2623,6 +2697,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2017, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "ok",
                             CompanyId = 4,
+                            DriverId = 23,
                             IsBlocked = true,
                             Number = "0011",
                             PinCode = "9714",
@@ -2633,6 +2708,7 @@ namespace eMenka.Data.Migrations
                             Id = 24,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 24,
                             IsBlocked = false,
                             Number = "0139",
                             PinCode = "9183",
@@ -2643,6 +2719,7 @@ namespace eMenka.Data.Migrations
                             Id = 25,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 25,
                             IsBlocked = false,
                             Number = "0014",
                             PinCode = "6325",
@@ -2653,6 +2730,7 @@ namespace eMenka.Data.Migrations
                             Id = 26,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 26,
                             IsBlocked = false,
                             Number = "0019",
                             PinCode = "3030",
@@ -2663,6 +2741,7 @@ namespace eMenka.Data.Migrations
                             Id = 27,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 27,
                             IsBlocked = false,
                             Number = "0020",
                             PinCode = "3315",
@@ -2673,6 +2752,7 @@ namespace eMenka.Data.Migrations
                             Id = 28,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 28,
                             IsBlocked = false,
                             Number = "0100",
                             PinCode = "7491",
@@ -2682,6 +2762,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 29,
                             CompanyId = 4,
+                            DriverId = 29,
                             IsBlocked = false,
                             Number = "0021",
                             PinCode = "9363",
@@ -2691,6 +2772,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 30,
                             CompanyId = 4,
+                            DriverId = 30,
                             IsBlocked = false,
                             Number = "0017",
                             PinCode = "1312",
