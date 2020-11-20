@@ -23,7 +23,8 @@ namespace eMenka.API.Mappers
                 BlockingDate = fuelCard.BlockingDate,
                 BlockingReason = fuelCard.BlockingReason,
                 IsBlocked = fuelCard.IsBlocked,
-                PinCode = fuelCard.PinCode
+                PinCode = fuelCard.PinCode,
+                Vehicle = VehicleMappers.MapVehicleEntity(fuelCard.Vehicle)
             };
         }
         public static FuelCard MapFuelCardModel(FuelCardModel fuelCardModel)
@@ -37,7 +38,8 @@ namespace eMenka.API.Mappers
                 BlockingDate = fuelCardModel.BlockingDate,
                 BlockingReason = fuelCardModel.BlockingReason,
                 IsBlocked = fuelCardModel.IsBlocked,
-                PinCode = fuelCardModel.PinCode
+                PinCode = fuelCardModel.PinCode,
+                VehicleId = fuelCardModel.VehicleId
             };
         }
         public static DriverReturnModel MapDriverEntity(Driver driver)

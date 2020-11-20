@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
 {
@@ -15,5 +16,6 @@ namespace eMenka.API.Models.FuelCardModels.ReturnModels
         public DateTime? BlockingDate { get; set; }
         public string BlockingReason { get; set; }
         public string PinCode { get; set; }
+        public VehicleReturnModel Vehicle { get; set; }
     }
 }
