@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
@@ -27,7 +28,7 @@ namespace eMenka.API.Mappers
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = MapModelEntity(vehicle.Model),
-                FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard) ,
+                FuelCard = MapFuelCardEntity(vehicle.FuelCard) ,
                 Category = MapCategoryEntity(vehicle.Category),
                 LicensePlate = vehicle.LicensePlate,
                 Chassis = vehicle.Chassis,
@@ -36,6 +37,23 @@ namespace eMenka.API.Mappers
                 EngineCapacity = vehicle.EngineCapacity,
                 EnginePower = vehicle.EnginePower,
                 Serie = MapSerieEntity(vehicle.Series)
+            };
+        }
+
+        public static FuelCardReturnModel MapFuelCardEntity(FuelCard fuelCard)
+        {
+            if (fuelCard == null)
+                return null;
+            return new FuelCardReturnModel
+            {
+                Driver = FuelCardMappers.MapDriverEntity(fuelCard.Driver),
+                EndDate = fuelCard.EndDate,
+                StartDate = fuelCard.StartDate,
+                Id = fuelCard.Id,
+                BlockingDate = fuelCard.BlockingDate,
+                BlockingReason = fuelCard.BlockingReason,
+                IsBlocked = fuelCard.IsBlocked,
+                PinCode = fuelCard.PinCode
             };
         }
 
