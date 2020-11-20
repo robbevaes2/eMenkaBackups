@@ -65,7 +65,8 @@ namespace eMenka.API.Mappers
                 EngineCapacity = vehicleModel.EngineCapacity,
                 EnginePower = vehicleModel.EnginePower,
                 CountryId = vehicleModel.CountryId,
-                BuildYear = vehicleModel.BuildYear
+                BuildYear = vehicleModel.BuildYear,
+                CategoryId = vehicleModel.CategoryId
             };
         }
 
@@ -218,6 +219,8 @@ namespace eMenka.API.Mappers
 
         public static CountryReturnModel MapCountryEntity(Country country)
         {
+            if (country == null)
+                return null;
             return new CountryReturnModel
             {
                 Code = country.Code,
