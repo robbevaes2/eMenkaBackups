@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CorporationController : ControllerBase
     {
@@ -64,11 +66,11 @@ namespace eMenka.API.Controllers
                 return BadRequest();
             }
 
-            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
-                return NotFound($"Company with id {corporationModel.CompanyId} not found");
-
             if (id != corporationModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
+                return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
             var isUpdated = _corporationRepository.Update(id, RecordMappers.MapCorporationModel(corporationModel));
 

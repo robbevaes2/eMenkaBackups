@@ -217,7 +217,5 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _categoryRepositoryMock.Verify(m => m.Remove(It.IsAny<Category>()), Times.Once);
         }
-
-
     }
 }

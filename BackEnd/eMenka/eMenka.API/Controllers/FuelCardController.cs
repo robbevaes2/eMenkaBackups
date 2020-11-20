@@ -6,12 +6,14 @@ using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class FuelCardController : ControllerBase
     {
@@ -65,11 +67,11 @@ namespace eMenka.API.Controllers
                 return BadRequest();
             }
 
-            if (_driverRepository.GetById((int)fuelCardModel.DriverId) == null)
-                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
-
             if (id != fuelCardModel.Id)
                 return BadRequest("Id from model does not match query paramater id");
+
+            if (_driverRepository.GetById((int)fuelCardModel.DriverId) == null)
+                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
 
             var isUpdated = _fuelCardRepository.Update(id, FuelCardMappers.MapFuelCardModel(fuelCardModel));
 

@@ -14,6 +14,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public DoorTypeReturnModel DoorType { get; set; }
         public CategoryReturnModel Category { get; set; }
         public FuelCardReturnModel FuelCard { get; set; }
+        public SerieReturnModel Serie { get; set; }
         public int? Volume { get; set; }
         public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
@@ -25,5 +26,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
+        public int? BuildYear { get; set; }
+        public CountryReturnModel Country { get; set; }
     }
 }

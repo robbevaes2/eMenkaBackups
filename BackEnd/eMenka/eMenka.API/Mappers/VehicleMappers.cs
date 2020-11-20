@@ -34,7 +34,10 @@ namespace eMenka.API.Mappers
                 AverageFuel = vehicle.AverageFuel,
                 EndDateDelivery = vehicle.EndDateDelivery,
                 EngineCapacity = vehicle.EngineCapacity,
-                EnginePower = vehicle.EnginePower
+                EnginePower = vehicle.EnginePower,
+                Serie = MapSerieEntity(vehicle.Series),
+                BuildYear = vehicle.BuildYear,
+                Country = MapCountryEntity(vehicle.Country)
             };
         }
 
@@ -55,11 +58,15 @@ namespace eMenka.API.Mappers
                 Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
                 FuelCardId = (int)vehicleModel.FuelCardId,
+                SeriesId = (int)vehicleModel.SeriesId,
                 Chassis = vehicleModel.Chassis,
                 AverageFuel = vehicleModel.AverageFuel,
                 EndDateDelivery = vehicleModel.EndDateDelivery,
                 EngineCapacity = vehicleModel.EngineCapacity,
-                EnginePower = vehicleModel.EnginePower
+                EnginePower = vehicleModel.EnginePower,
+                CountryId = vehicleModel.CountryId,
+                BuildYear = vehicleModel.BuildYear,
+                CategoryId = vehicleModel.CategoryId
             };
         }
 
@@ -207,6 +214,34 @@ namespace eMenka.API.Mappers
             {
                 Name = categoryModel.Name,
                 Id = categoryModel.Id
+            };
+        }
+
+        public static CountryReturnModel MapCountryEntity(Country country)
+        {
+            if (country == null)
+                return null;
+            return new CountryReturnModel
+            {
+                Code = country.Code,
+                Id = country.Id,
+                IsActive = country.IsActive,
+                Name = country.Name,
+                Nationality = country.Nationality,
+                POD = country.POD
+            };
+        }
+
+        public static Country MapCountryModel(CountryModel countryModel)
+        {
+            return new Country
+            {
+                POD = countryModel.POD,
+                Code = countryModel.Code,
+                Id = countryModel.Id,
+                IsActive = countryModel.IsActive,
+                Name = countryModel.Name,
+                Nationality = countryModel.Nationality
             };
         }
         /*

@@ -17,7 +17,9 @@ namespace eMenka.API.Models.VehicleModels
         [Required]
         public int? DoorTypeId { get; set; }
         [Required]
-        public int? FuelCardId { get; set; } 
+        public int? FuelCardId { get; set; }
+        [Required]
+        public int? SeriesId { get; set; }
         [Required]
         public int? Volume { get; set; }
         [Required]
@@ -37,5 +39,7 @@ namespace eMenka.API.Models.VehicleModels
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
+        public int? CountryId { get; set; }
+        public int? BuildYear { get; set; }
     }
 }
