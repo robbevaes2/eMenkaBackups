@@ -25,6 +25,7 @@ namespace eMenka.Tests.Controllers
         private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
         private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
         private Mock<ICategoryRepository> _categoryRepositoryMock;
+        private Mock<ISerieRepository> _serieRepositoryMock;
 
         [SetUp]
         public void Init()
@@ -36,8 +37,9 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock = new Mock<IFuelTypeRepository>();
             _doorTypeRepositoryMock = new Mock<IDoorTypeRepository>();
             _categoryRepositoryMock = new Mock<ICategoryRepository>();
+            _serieRepositoryMock = new Mock<ISerieRepository>();
 
-            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object, _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object, _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object);
+            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object, _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object, _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object);
         }
 
         [Test]

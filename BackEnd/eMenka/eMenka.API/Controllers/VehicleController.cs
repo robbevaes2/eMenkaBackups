@@ -22,8 +22,9 @@ namespace eMenka.API.Controllers
         private readonly IEngineTypeRepository _engineTypeRepository;
         private readonly IDoorTypeRepository _doorTypeRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly ISerieRepository _serieRepository;
 
-        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository)
+        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository, ISerieRepository serieRepository)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -32,6 +33,7 @@ namespace eMenka.API.Controllers
             _engineTypeRepository = engineTypeRepository;
             _doorTypeRepository = doorTypeRepository;
             _categoryRepository = categoryRepository;
+            _serieRepository = serieRepository;
         }
 
         [HttpGet]
@@ -115,6 +117,9 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
@@ -146,6 +151,9 @@ namespace eMenka.API.Controllers
 
             if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
+
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
 
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 

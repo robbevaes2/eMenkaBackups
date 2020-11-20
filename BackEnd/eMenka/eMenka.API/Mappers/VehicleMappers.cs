@@ -34,7 +34,8 @@ namespace eMenka.API.Mappers
                 AverageFuel = vehicle.AverageFuel,
                 EndDateDelivery = vehicle.EndDateDelivery,
                 EngineCapacity = vehicle.EngineCapacity,
-                EnginePower = vehicle.EnginePower
+                EnginePower = vehicle.EnginePower,
+                Serie = MapSerieEntity(vehicle.Series)
             };
         }
 
@@ -55,6 +56,7 @@ namespace eMenka.API.Mappers
                 Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
                 FuelCardId = (int)vehicleModel.FuelCardId,
+                SeriesId = (int)vehicleModel.SeriesId,
                 Chassis = vehicleModel.Chassis,
                 AverageFuel = vehicleModel.AverageFuel,
                 EndDateDelivery = vehicleModel.EndDateDelivery,
