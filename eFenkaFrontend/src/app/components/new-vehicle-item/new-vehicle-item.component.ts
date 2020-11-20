@@ -5,13 +5,11 @@ import { Brand } from '../../models/brand/brand';
 import { DoorType } from '../../models/door-type/door-type';
 import { Model } from '../../models/model/model';
 import { Serie } from '../../models/serie/serie';
-import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
-import { VehicleService } from '../../services/vehicle-service';
-import { stringify } from 'querystring';
 import { ApiService } from '../../services/api.service';
+import { Category } from '../../models/category/category';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -27,6 +25,7 @@ export class NewVehicleItemComponent implements OnInit {
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
+  categories: Category[];
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -35,6 +34,7 @@ export class NewVehicleItemComponent implements OnInit {
     this.setDoorTypes();
     this.setFuelTypes();
     this.setFuelCards();
+    this.setCategories();
 
     this.form = new FormGroup({
       brand: new FormControl(null, [Validators.required]),
@@ -49,7 +49,9 @@ export class NewVehicleItemComponent implements OnInit {
       fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      licensePlate: new FormControl(null, [Validators.required])
+      licensePlate: new FormControl(null, [Validators.required]),
+      chassis: new FormControl(null, [Validators.required]),
+      category: new FormControl(null, [Validators.required])
     });
   }
 
@@ -66,9 +68,9 @@ export class NewVehicleItemComponent implements OnInit {
       emission: values.emission,
       power: values.power,
       isActive: true,
-      categoryId: 1,
+      categoryId: Number(values.category),
       licensePlate: values.licensePlate,
-      chassis: null,
+      chassis: values.chassis,
       endDateDelivery: values.endDate,
       seriesId: Number(values.serie)
     };
@@ -88,81 +90,40 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   saveNewVehicle(form: FormGroup): void {
-    // Save vehicle
-
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
-      this.apiService.addVehicle(this.mapToModel(form.value)).subscribe((result) => {
-          this.router.navigate(['/vehicles']);
-      });
+      this.apiService.addVehicle(this.mapToModel(form.value)).subscribe(() => this.router.navigate(['/vehicles']));
     }
   }
 
   setBrands(): void {
     this.apiService.getAllBrands().subscribe(data => this.brands = data);
-
-    /*this.brands = [
-      new Brand(1, 'BMW'),
-      new Brand(2, 'Ford'),
-      new Brand(3, 'Volkswagen')
-    ];*/
   }
 
   setModels(brandId: number): void {
     this.apiService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
-
-    /*return [
-      new Model(1, 'A4'),
-      new Model(2, 'A5'),
-      new Model(3, 'A6')
-    ];*/
   }
 
   setSeries(brandId: number): void {
     this.apiService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
-
-    /*return [
-      new Serie(1, 'Sportback'),
-      new Serie(2, 'Berline'),
-      new Serie(3, 'SUV')
-    ];*/
   }
 
   setEngineTypes(brandId: number): void {
     this.apiService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
-
-    /*return [
-      new EngineType(1, '1.9 TDI'),
-      new EngineType(2, '2.0 TDI'),
-      new EngineType(3, '2.0 TDI e')
-    ];*/
   }
 
   setDoorTypes(): void {
     this.apiService.getAllDoorTypes().subscribe(data => this.doorTypes = data);
-
-    /*return [
-      new DoorType(1, '2-deurs'),
-      new DoorType(2, '3-deurs'),
-      new DoorType(3, '5-deurs')
-    ];*/
   }
 
   setFuelTypes(): void {
     this.apiService.getAllFuelTypes().subscribe(data => this.fuelTypes = data);
-
-    /*return [
-      new FuelType(1, 'Benzine'),
-      new FuelType(2, 'Diesel'),
-      new FuelType(3, 'Elektrisch')
-    ];*/
   }
 
   setFuelCards(): void {
     this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
+  }
 
-    /*return [
-      new FuelCard(1, null, null, null, null, null, true),
-      new FuelCard(2, null, null, null, null, null, true)
-    ];*/
+  setCategories(): void {
+    this.apiService.getAllCategories().subscribe(data => this.categories = data);
   }
 }

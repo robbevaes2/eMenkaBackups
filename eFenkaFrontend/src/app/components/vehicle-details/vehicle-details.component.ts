@@ -12,6 +12,7 @@ import { Vehicle } from 'src/app/models/vehicle/vehicle';
 import { VehicleService } from 'src/app/services/vehicle-service';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { ApiService } from '../../services/api.service';
+import { Category } from '../../models/category/category';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -27,6 +28,7 @@ export class VehicleDetailsComponent implements OnInit {
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
+  categories: Category[];
   selectedVehicle: Vehicle;
   isEditable: boolean;
 
@@ -34,48 +36,61 @@ export class VehicleDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const vehicleId = this.route.snapshot.params['index'];
-    this.selectedVehicle = this.getVehicle(vehicleId);
+    //setVehicle(vehicleId);
+    this.apiService.getVehicleById(vehicleId).subscribe(data => {
 
-    this.brands = this.getBrands();
-    this.doorTypes = this.getDoorTypes();
-    this.fuelTypes = this.getFuelTypes();
-    this.fuelCards = this.getFuelCards();
-    this.setAllDropDownsByBrand(this.selectedVehicle.brand.id);
+      this.selectedVehicle = data;
+      console.log(this.selectedVehicle);
 
-    this.form = new FormGroup({
-      brand: new FormControl(null, [Validators.required]),
-      model: new FormControl(null, [Validators.required]),
-      serie: new FormControl(null, [Validators.required]),
-      engineType: new FormControl(null, [Validators.required]),
-      doorType: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
-      fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
-      volume: new FormControl(null, [Validators.required, Validators.min(0)]),
-      power: new FormControl(null, [Validators.required, Validators.min(0)]),
-      fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
-      emission: new FormControl(null, [Validators.required, Validators.min(0)]),
-      endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      licensePlate: new FormControl(null, [Validators.required])
+      this.setBrands();
+      this.setDoorTypes();
+      this.setFuelTypes();
+      this.setFuelCards();
+      this.setCategories();
+
+      this.setModels(this.selectedVehicle.brand.id);
+      this.setSeries(this.selectedVehicle.brand.id);
+      this.setEngineTypes(this.selectedVehicle.brand.id);
+
+      this.form = new FormGroup({
+        brand: new FormControl(null, [Validators.required]),
+        model: new FormControl(null, [Validators.required]),
+        serie: new FormControl(null, [Validators.required]),
+        engineType: new FormControl(null, [Validators.required]),
+        doorType: new FormControl(null, [Validators.required]),
+        fuelCard: new FormControl(null, [Validators.required, Validators.min(0)]),
+        fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
+        volume: new FormControl(null, [Validators.required, Validators.min(0)]),
+        power: new FormControl(null, [Validators.required, Validators.min(0)]),
+        fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
+        emission: new FormControl(null, [Validators.required, Validators.min(0)]),
+        endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+        licensePlate: new FormControl(null, [Validators.required]),
+        chassis: new FormControl(null, [Validators.required]),
+        category: new FormControl(null, [Validators.required])
+      });
+
+      this.fillForm();
+      this.disableForm();
     });
-
-    this.fillForm();
-    this.disableForm();
   }
 
   fillForm(): void {
-    this.form.controls['brand'].setValue(this.selectedVehicle.brand.id);
-    this.form.controls['model'].setValue(this.selectedVehicle.model.id);
-    this.form.controls['serie'].setValue(1);
-    this.form.controls['engineType'].setValue(this.selectedVehicle.engineType.id);
-    this.form.controls['doorType'].setValue(this.selectedVehicle.doorType.id);
-    this.form.controls['fuelCard'].setValue(this.selectedVehicle.fuelCard.id);
-    this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType.id);
+    this.form.controls['brand'].setValue(this.selectedVehicle.brand?.id);
+    this.form.controls['model'].setValue(this.selectedVehicle.model?.id);
+    this.form.controls['serie'].setValue(this.selectedVehicle.serie?.id);
+    this.form.controls['engineType'].setValue(this.selectedVehicle.engineType?.id);
+    this.form.controls['doorType'].setValue(this.selectedVehicle.doorType?.id);
+    this.form.controls['fuelCard'].setValue(this.selectedVehicle.fuelCard?.id);
+    this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType?.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
     this.form.controls['power'].setValue(this.selectedVehicle.power);
     this.form.controls['fiscalHP'].setValue(this.selectedVehicle.fiscalHP);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
-    this.form.controls['endDate'].setValue(this.selectedVehicle.endDateDelivery.toISOString().split('T')[0]);
+    this.form.controls['endDate'].setValue(new Date(this.selectedVehicle.endDateDelivery).toISOString().substring(0, 10));
     this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
+    this.form.controls['chassis'].setValue(this.selectedVehicle.chassis);
+    this.form.controls['category'].setValue(this.selectedVehicle.category?.id);
   }
 
   disableForm(): void {
@@ -92,6 +107,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['emission'].disable();
     this.form.controls['endDate'].disable();
     this.form.controls['licensePlate'].disable();
+    this.form.controls['chassis'].disable();
+    this.form.controls['category'].disable();
     this.isEditable = false;
   }
 
@@ -109,6 +126,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['emission'].enable();
     this.form.controls['endDate'].enable();
     this.form.controls['licensePlate'].enable();
+    this.form.controls['chassis'].enable();
+    this.form.controls['category'].enable();
     this.isEditable = true;
   }
 
@@ -119,10 +138,9 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   setAllDropDownsByBrand(brandId: number): void {
-    // Do get requests with brandId
-    this.models = this.getModels();
-    this.series = this.getSeries();
-    this.engineTypes = this.getEngineTypes();
+    this.setModels(brandId);
+    this.setSeries(brandId);
+    this.setEngineTypes(brandId);
   }
 
   navigateToListVehicleComponent(): void {
@@ -132,9 +150,14 @@ export class VehicleDetailsComponent implements OnInit {
   saveEditVehicle(form: FormGroup): void {
     if (this.isEditable) {
       if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
-        // Save vehicle and assign new vehicle (get request by vehicleId) to selectedVehicle
-        //this.fillForm();
-        this.disableForm();
+        console.log(this.mapToModel(form.value));
+        this.apiService.updateVehicle(this.selectedVehicle.id, this.mapToModel(form.value)).subscribe(() => {
+          this.apiService.getVehicleById(this.selectedVehicle.id).subscribe(data => {
+            this.selectedVehicle = data;
+            this.fillForm();
+            this.disableForm();
+          });
+        });
       }
     } else {
       this.enableForm();
@@ -143,97 +166,71 @@ export class VehicleDetailsComponent implements OnInit {
 
   deleteVehicle(): void {
     if (confirm('Bent u zeker dat u deze wagen wilt verwijderen?')) {
-        // Delete vehicle
-        this.navigateToListVehicleComponent();
+      this.apiService.deleteVehicle(this.selectedVehicle.id).subscribe(() => this.navigateToListVehicleComponent());
     }
   }
 
   cancel(): void {
+    this.setAllDropDownsByBrand(this.selectedVehicle.brand.id);
     this.fillForm();
     this.disableForm();
   }
 
-  getBrands(): Brand[] {
-    return [
-      new Brand(1, 'Audi'),
-      new Brand(2, 'BMW'),
-      new Brand(3, 'Volkswagen')
-    ];
-  }
-
-  getModels(): Model[] {
-    return [
-      new Model(1, 'A4'),
-      new Model(2, 'A5'),
-      new Model(3, 'A6')
-    ];
-  }
-
-  getSeries(): Serie[] {
-    return [
-      new Serie(1, 'Sportback'),
-      new Serie(2, 'Berline'),
-      new Serie(3, 'SUV')
-    ];
-  }
-
-  getEngineTypes(): EngineType[] {
-    return [
-      new EngineType(1, '1.9 TDI'),
-      new EngineType(2, '2.0 TDI'),
-      new EngineType(3, '2.0 TDI e')
-    ];
-  }
-
-  getDoorTypes(): DoorType[] {
-    return [
-      new DoorType(1, '2-deurs'),
-      new DoorType(2, '3-deurs'),
-      new DoorType(3, '5-deurs')
-    ];
-  }
-
-  getFuelTypes(): FuelType[] {
-    return [
-      new FuelType(1, 'Benzine'),
-      new FuelType(2, 'Diesel'),
-      new FuelType(3, 'Elektrisch')
-    ];
-  }
-
-  getVehicle(id: number): Vehicle {
+  mapToModel(values: any): any {
     return {
-      id: 1,
-      brand: new Brand(1, 'Audi'),
-      model: new Model(3, 'A6'),
-      fuelType: new FuelType(1, 'Benzine'),
-      engineType: new EngineType(1, '1.9 TDI'),
-      doorType: new DoorType(3, '5-deurs'),
-      fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
-      volume: 2000,
-      fiscalHP: 50,
-      emission: 1,
-      power: 300,
-      licensePlate: '1-abc-123',
-      endDateDelivery: new Date('2020-01-16'),
+      Id: this.selectedVehicle.id,
+      brandId: Number(values.brand),
+      modelId:  Number(values.model),
+      fuelTypeId:  Number(values.fuelType),
+      engineTypeId:  Number(values.engineType),
+      doorTypeId:  Number(values.doorType),
+      fuelCardId:  Number(values.fuelCard),
+      volume: values.volume,
+      fiscalHP: values.fiscalHP,
+      emission: values.emission,
+      power: values.power,
       isActive: true,
-      chassis: 'feoipajfpoaezfjipio',
-      registrationDate: new Date('2020-01-16'),
-      country: new Country(1, 'België', 'BE', 'Belg', false, true),
-      buildYear: 2012,
-      kilometers: 5000,
-      engineCapacity: null,
-      enginePower: null,
-      category: null,
-      averageFuel: null,
-      serie: null
-    }
+      categoryId: Number(values.category),
+      licensePlate: values.licensePlate,
+      chassis: values.chassis,
+      endDateDelivery: values.endDate,
+      seriesId: Number(values.serie)
+    };
   }
 
-  getFuelCards(): FuelCard[] {
-    return [
-      new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
-      new FuelCard(2, 'feazfazefazefazef', null, null, null, null, null, true)
-    ]
+  setVehicle(id: number): void {
+    this.apiService.getVehicleById(id).subscribe(data => this.selectedVehicle = data);
+  }
+
+  setBrands(): void {
+    this.apiService.getAllBrands().subscribe(data => this.brands = data);
+  }
+
+  setModels(brandId: number): void {
+    this.apiService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
+  }
+
+  setSeries(brandId: number): void {
+    this.apiService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
+  }
+
+  setEngineTypes(brandId: number): void {
+    this.apiService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
+  }
+
+  setDoorTypes(): void {
+    this.apiService.getAllDoorTypes().subscribe(data => this.doorTypes = data);
+  }
+
+  setFuelTypes(): void {
+    this.apiService.getAllFuelTypes().subscribe(data => this.fuelTypes = data);
+  }
+
+  setFuelCards(): void {
+    this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
+  }
+
+  setCategories(): void {
+    this.apiService.getAllCategories().subscribe(data => this.categories = data);
   }
 }

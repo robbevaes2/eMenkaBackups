@@ -49,7 +49,9 @@ export class RecordListComponent implements OnInit {
     //this.records = this.getRecordDummyList();
     this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerse registartie', 'Einde'];
 
-
+    this.mdbTable.setDataSource(this.records);
+    this.records = this.mdbTable.getDataSource();
+    this.previous = this.mdbTable.getDataSource();
   }
 
   ngAfterViewInit() {
@@ -57,9 +59,7 @@ export class RecordListComponent implements OnInit {
 
     // this.mdbTablePagination.calculateFirstItemIndex();
     // this.mdbTablePagination.calculateLastItemIndex();
-    this.mdbTable.setDataSource(this.records);
-    this.records = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+
     this.cdRef.detectChanges();
   }
 
