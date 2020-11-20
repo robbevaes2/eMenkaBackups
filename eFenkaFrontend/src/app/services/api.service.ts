@@ -107,6 +107,31 @@ export class ApiService {
     );
   }
 
+  // Records
+
+  getAllRecords(): Observable<Record[]> {
+    return this.getFromAPI<Record[]>('record');
+  }
+
+  getRecordById(id: number): Observable<Record> {
+    return this.getFromAPI<Record>('record/' + id);
+  }
+
+  updateRecord(id: number, RecordModel: any) {
+    return this.putToAPI('record/' + id, RecordModel);
+  }
+
+  addRecord(RecordModel: any) {
+    console.log(RecordModel);
+    return this.postToAPI('record/', RecordModel);
+  }
+
+  deleteRecord(id: number) {
+    return this.http.delete('record/' + id).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   getAllBrands(): Observable<Brand[]> {
     return this.getFromAPI<Brand[]>('brand/');
   }
@@ -133,8 +158,5 @@ export class ApiService {
 
   getAllDoorTypes(): Observable<DoorType[]> {
     return this.getFromAPI<DoorType[]>('doortype/');
-  }
-  getAllRecords(): Observable<Record[]> {
-    return this.getFromAPI<Record[]>('record/');
   }
 }
