@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var models = _modelRepository.GetAll();
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
+            return Ok(models.Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -48,7 +48,7 @@ namespace eMenka.API.Controllers
 
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);
 
-            return Ok(models.ToList().Select(VehicleMappers.MapModelEntity).ToList());
+            return Ok(models.Select(VehicleMappers.MapModelEntity).ToList());
         }
 
         [HttpPost]

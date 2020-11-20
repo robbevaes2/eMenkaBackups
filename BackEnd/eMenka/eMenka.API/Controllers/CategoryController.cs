@@ -25,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var categories = _categoryRepository.GetAll();
 
-            return Ok(categories.ToList().Select(VehicleMappers.MapCategoryEntity).ToList());
+            return Ok(categories.Select(VehicleMappers.MapCategoryEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -43,7 +43,7 @@ namespace eMenka.API.Controllers
         {
             var categories = _categoryRepository.Find(category => category.Name == categoryName);
 
-            return Ok(categories.ToList().Select(VehicleMappers.MapCategoryEntity).ToList());
+            return Ok(categories.Select(VehicleMappers.MapCategoryEntity).ToList());
         }
 
         [HttpPost]

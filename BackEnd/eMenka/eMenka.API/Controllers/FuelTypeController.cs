@@ -25,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var fuelTypes = _fuelTypeRepository.GetAll();
 
-            return Ok(fuelTypes.ToList().Select(VehicleMappers.MapFuelTypeEntity).ToList());
+            return Ok(fuelTypes.Select(VehicleMappers.MapFuelTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]

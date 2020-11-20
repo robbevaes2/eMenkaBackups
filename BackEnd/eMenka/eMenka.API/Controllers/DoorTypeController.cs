@@ -26,7 +26,7 @@ namespace eMenka.API.Controllers
         {
             var doorTypes = _doorTypeRepository.GetAll();
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
+            return Ok(doorTypes.Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
         {
             var doorTypes = _doorTypeRepository.Find(doorType => doorType.Name == doorTypeName);
 
-            return Ok(doorTypes.ToList().Select(VehicleMappers.MapDoorTypeEntity).ToList());
+            return Ok(doorTypes.Select(VehicleMappers.MapDoorTypeEntity).ToList());
         }
 
         [HttpPost]

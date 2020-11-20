@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllVehicles()
         {
             var vehicles = _vehicleRepository.GetAll();
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -65,7 +65,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("brand/name/{brandName}")]
@@ -73,7 +73,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("model/{modelId}")]
@@ -84,7 +84,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpGet("isActive/{isActive}")]
@@ -92,7 +92,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
 
-            return Ok(vehicles.ToList().Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
         }
 
         [HttpPost]

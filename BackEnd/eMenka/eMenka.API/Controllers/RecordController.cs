@@ -32,7 +32,7 @@ namespace eMenka.API.Controllers
         {
             var records = _recordRepository.GetAll();
 
-            return Ok(records.ToList().Select(RecordMappers.MapRecordEntity).ToList());
+            return Ok(records.Select(RecordMappers.MapRecordEntity).ToList());
         }
 
         [HttpGet("{id}")]

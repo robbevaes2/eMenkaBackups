@@ -25,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var costAllocations = _costAllocationRepository.GetAll();
 
-            return Ok(costAllocations.ToList().Select(RecordMappers.MapCostAllocationEntity).ToList());
+            return Ok(costAllocations.Select(RecordMappers.MapCostAllocationEntity).ToList());
         }
 
         [HttpGet("{id}")]

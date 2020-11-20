@@ -25,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var brands = _brandRepository.GetAll();
 
-            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity).ToList());
+            return Ok(brands.Select(VehicleMappers.MapBrandEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -43,7 +43,7 @@ namespace eMenka.API.Controllers
         {
             var brands = _brandRepository.Find(brand => brand.Name == brandName);
 
-            return Ok(brands.ToList().Select(VehicleMappers.MapBrandEntity).ToList());
+            return Ok(brands.Select(VehicleMappers.MapBrandEntity).ToList());
         }
 
         [HttpPost]

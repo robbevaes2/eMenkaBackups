@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var fuelCards = _fuelCardRepository.GetAll();
 
-            return Ok(fuelCards.ToList().Select(FuelCardMappers.MapFuelCardEntity).ToList());
+            return Ok(fuelCards.Select(FuelCardMappers.MapFuelCardEntity).ToList());
         }
 
         [HttpGet("{id}")]

@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var corporations = _corporationRepository.GetAll();
 
-            return Ok(corporations.ToList().Select(RecordMappers.MapCorporationEntity).ToList());
+            return Ok(corporations.Select(RecordMappers.MapCorporationEntity).ToList());
         }
 
         [HttpGet("{id}")]

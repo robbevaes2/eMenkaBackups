@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var engineTypes = _engineTypeRepository.GetAll();
 
-            return Ok(engineTypes.ToList().Select(VehicleMappers.MapEngineTypeEntity).ToList());
+            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
         }
 
         [HttpGet("brand/{brandId}")]
@@ -38,7 +38,7 @@ namespace eMenka.API.Controllers
 
             var engineTypes = _engineTypeRepository.Find(motorType => motorType.Brand.Id == brandId);
 
-            return Ok(engineTypes.ToList().Select(VehicleMappers.MapEngineTypeEntity).ToList());
+            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -56,7 +56,7 @@ namespace eMenka.API.Controllers
         {
             var engineTypes = _engineTypeRepository.Find(engineType => engineType.Name == engineTypeName);
 
-            return Ok(engineTypes.ToList().Select(VehicleMappers.MapEngineTypeEntity).ToList());
+            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
         }
 
         [HttpPost]

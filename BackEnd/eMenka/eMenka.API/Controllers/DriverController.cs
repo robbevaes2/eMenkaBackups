@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         {
             var drivers = _driverRepository.GetAll();
 
-            return Ok(drivers.ToList().Select(FuelCardMappers.MapDriverEntity).ToList());
+            return Ok(drivers.Select(FuelCardMappers.MapDriverEntity).ToList());
         }
 
         [HttpGet("{id}")]

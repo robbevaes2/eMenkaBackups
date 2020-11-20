@@ -25,7 +25,7 @@ namespace eMenka.API.Controllers
         {
             var persons = _personRepository.GetAll();
 
-            return Ok(persons.ToList().Select(FuelCardMappers.MapPersonEntity).ToList());
+            return Ok(persons.Select(FuelCardMappers.MapPersonEntity).ToList());
         }
 
         [HttpGet("{id}")]
