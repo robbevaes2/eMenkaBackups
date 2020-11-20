@@ -10,6 +10,7 @@ import { Serie } from 'src/app/models/serie/serie';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
 import { VehicleService } from 'src/app/services/vehicle-service';
 import { FuelType } from '../../models/fuel-type/fuel-type';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -28,7 +29,7 @@ export class VehicleDetailsComponent implements OnInit {
   selectedVehicle: Vehicle;
   isEditable: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router, private vehicleService: VehicleService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
     const vehicleId = this.route.snapshot.params['index'];
@@ -220,7 +221,8 @@ export class VehicleDetailsComponent implements OnInit {
       engineCapacity: null,
       enginePower: null,
       category: null,
-      averageFuel: null
+      averageFuel: null,
+      serie: null
     }
   }
 
@@ -228,6 +230,6 @@ export class VehicleDetailsComponent implements OnInit {
     return [
       new FuelCard(1, null, null, null, null, null, true),
       new FuelCard(2, null, null, null, null, null, true)
-    ]
+    ];
   }
 }

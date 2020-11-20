@@ -11,7 +11,7 @@ export class Vehicle {
   id: number;
   brand: Brand;
   model: Model;
-  //serie: Serie;
+  serie: Serie;
   fuelType: FuelType;
   engineType: EngineType;
   engineCapacity: number;

@@ -105,7 +105,8 @@ export class RecordListComponent implements OnInit {
       engineCapacity: null,
       enginePower: null,
       category: null,
-      averageFuel: null
+      averageFuel: null,
+      serie: null
     };
   }
 

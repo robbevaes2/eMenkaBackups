@@ -16,6 +16,7 @@ import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-de
 import { NewRecordItemComponent } from './components/new-record-item/new-record-item.component';
 import { RecordDetailsComponent } from './components/record-details/record-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [VehicleService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,13 +8,13 @@ import {
 } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {Stagevoorstel} from '../classes/stagevoorstel';
 import { Vehicle } from '../models/vehicle/vehicle';
 import { Brand } from '../models/brand/brand';
 import { Serie } from '../models/serie/serie';
 import { EngineType } from '../models/engine-type/engine-type';
 import { FuelType } from '../models/fuel-type/fuel-type';
 import { FuelCard } from '../models/fuel-card/fuel-card';
+import { DoorType } from '../models/door-type/door-type';
 
 const BASE_API_URL = 'https://localhost:44356/api/';
 
@@ -87,15 +87,16 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle');
   }
 
-  getVehicleById(id: number): Observable<Stagevoorstel> {
+  getVehicleById(id: number): Observable<Vehicle> {
     return this.getFromAPI<Vehicle>('vehicle/' + id);
   }
 
-  updateVehicle(id: number, vehicleModel: Vehicle) {
+  updateVehicle(id: number, vehicleModel: any) {
     return this.putToAPI('vehicle/' + id, vehicleModel);
   }
 
-  addVehicle(vehicleModel: Vehicle) {
+  addVehicle(vehicleModel: any) {
+    console.log(vehicleModel);
     return this.postToAPI('vehicle/', vehicleModel);
   }
 
@@ -125,44 +126,11 @@ export class ApiService {
     return this.getFromAPI<FuelType[]>('fueltype/');
   }
 
-  /*getAllFuelCards(): Observable<FuelCard[]> {
-    return this.getFromAPI<FuelType[]>('fueltype/');
+  getAllFuelCards(): Observable<FuelCard[]> {
+    return this.getFromAPI<FuelCard[]>('fuelcard/');
   }
 
-  getAllDoorTypesByBrandId(): Observable<DoorType[]> {
-    return this.http.get<DoorType[]>(BASE_API_DOOR_TYPE).pipe(
-      catchError(this.handleError)
-    );
+  getAllDoorTypes(): Observable<DoorType[]> {
+    return this.getFromAPI<DoorType[]>('doortype/');
   }
-
-  getStagevoorstellenBedrijf(id: number): Observable<Stagevoorstel[]> {
-    return this.getFromAPI<Stagevoorstel[]>('Stagevoorstellen/Bedrijf/' + id);
-  }
-
-  postStagevoorstel(voorstel: Stagevoorstel) {
-    return this.postToAPI('Stagevoorstellen/', voorstel);
-  }
-
-  putStagevoorstel(voorstel: Stagevoorstel) {
-    return this.putToAPI('Stagevoorstellen/' + voorstel.id, voorstel);
-  }
-
-  patchStagevoorstel(voorstel: Stagevoorstel) {
-    return this.patchToAPI(
-      'Stagevoorstellen/Status/' + voorstel.id,
-      +voorstel.status
-    );
-  }
-
-  deleteStagevoorstel(id: number) {
-    return this.deleteFromAPI('Stagevoorstellen/' + id);
-  }
-
-  deleteStagevoorstellen(ids: string) {
-    const httpParams = new HttpParams().set('ids', ids);
-    const options = {params: httpParams};
-    return this.deleteMultipleFromAPI('Stagevoorstellen/', options);
-  }*/
-
-
 }

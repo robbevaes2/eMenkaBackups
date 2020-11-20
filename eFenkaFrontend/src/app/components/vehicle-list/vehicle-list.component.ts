@@ -9,6 +9,7 @@ import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { VehicleService } from '../../services/vehicle-service';
 import { EngineType } from 'src/app/models/engine-type/engine-type';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -24,11 +25,10 @@ export class VehicleListComponent implements OnInit {
   page = 1;
   selectedAmount = 5;
 
-  constructor(private router: Router, private vehicleService: VehicleService) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    //this.vehicles = this.getVehicleDummyList();
-    this.vehicleService.getAllVehicles().subscribe(data => this.vehicles = data);
+    this.apiService.getAllVehicles().subscribe(data => this.vehicles = data);
   }
 
   navigateToNewVehicleComponent(): void {
@@ -39,7 +39,7 @@ export class VehicleListComponent implements OnInit {
     this.router.navigate(['/vehicles', index]);
   }
 
-  getVehicleDummyList(): Vehicle[] {
+  /*getVehicleDummyList(): Vehicle[] {
       return [
         {
           id: 1,
@@ -108,7 +108,7 @@ export class VehicleListComponent implements OnInit {
           averageFuel: null
         }
       ];
-  }
+  }*/
 
   dateToStringConverter(date: string) {
     return new Date(date).toLocaleDateString();

@@ -11,6 +11,7 @@ import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
 import { VehicleService } from '../../services/vehicle-service';
 import { stringify } from 'querystring';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -27,7 +28,7 @@ export class NewVehicleItemComponent implements OnInit {
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
 
-  constructor(private router: Router, private vehicleService: VehicleService) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.setBrands();
@@ -68,7 +69,8 @@ export class NewVehicleItemComponent implements OnInit {
       categoryId: 1,
       licensePlate: values.licensePlate,
       chassis: null,
-      endDateDelivery: values.endDate
+      endDateDelivery: values.endDate,
+      seriesId: Number(values.serie)
     };
   }
 
@@ -87,18 +89,16 @@ export class NewVehicleItemComponent implements OnInit {
 
   saveNewVehicle(form: FormGroup): void {
     // Save vehicle
-    this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe(
-      (result) => {
-        console.log(result);
-      });
 
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
-      this.router.navigate(['/vehicles']);
+      this.apiService.addVehicle(this.mapToModel(form.value)).subscribe((result) => {
+          this.router.navigate(['/vehicles']);
+      });
     }
   }
 
   setBrands(): void {
-    this.vehicleService.getAllBrands().subscribe(data => this.brands = data);
+    this.apiService.getAllBrands().subscribe(data => this.brands = data);
 
     /*this.brands = [
       new Brand(1, 'BMW'),
@@ -108,7 +108,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setModels(brandId: number): void {
-    this.vehicleService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
+    this.apiService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
 
     /*return [
       new Model(1, 'A4'),
@@ -118,7 +118,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setSeries(brandId: number): void {
-    this.vehicleService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
+    this.apiService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
 
     /*return [
       new Serie(1, 'Sportback'),
@@ -128,7 +128,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setEngineTypes(brandId: number): void {
-    this.vehicleService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
+    this.apiService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
 
     /*return [
       new EngineType(1, '1.9 TDI'),
@@ -138,7 +138,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setDoorTypes(): void {
-    this.vehicleService.getAllDoorTypesByBrandId().subscribe(data => this.doorTypes = data);
+    this.apiService.getAllDoorTypes().subscribe(data => this.doorTypes = data);
 
     /*return [
       new DoorType(1, '2-deurs'),
@@ -148,7 +148,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setFuelTypes(): void {
-    this.vehicleService.getAllFuelTypesByBrandId().subscribe(data => this.fuelTypes = data);
+    this.apiService.getAllFuelTypes().subscribe(data => this.fuelTypes = data);
 
     /*return [
       new FuelType(1, 'Benzine'),
@@ -158,7 +158,7 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   setFuelCards(): void {
-    this.vehicleService.getAllFuelCardsByBrandId().subscribe(data => this.fuelCards = data);
+    this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
 
     /*return [
       new FuelCard(1, null, null, null, null, null, true),
