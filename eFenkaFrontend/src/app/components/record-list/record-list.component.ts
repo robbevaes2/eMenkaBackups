@@ -1,5 +1,5 @@
 import { Record } from './../../models/record/record';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Term } from '../../enums/term/term.enum';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
@@ -18,6 +18,7 @@ import { Language } from '../../enums/language/language.enum';
 import { Country } from 'src/app/models/country/country';
 import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
+import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-record-list',
@@ -26,29 +27,55 @@ import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 })
 export class RecordListComponent implements OnInit {
   records: Record[];
-  pageAmounts = [5, 10, 25];
 
-  ascDescBoolean: boolean;
+  headNames  = ["Nummerplaat", "Bestuurder", "Vennootschap", "Kostenplaats", "Merk", "Wagen", "Type", "Cntr. start", "Cntr. eind", "Gebruik", "Eerse registartie", "Einde"];
+  headElements  = ["fuelCard.vehicle.licensePlate", "fuelCard.driver.person.firstname", "", "", "fuelCard.vehicle.brand.name", "fuelCard.vehicle.model.name", "term", "", "", "usage", "fuelCard.vehicle.fuelType.name", "startDate", "endDate"];
 
-  page = 1;
-  selectedAmount = this.pageAmounts[0];
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
+  @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
+  @ViewChild('row', { static: true }) row: ElementRef;
+  
+  searchText: string = '';
+  previous: string;
 
-  constructor(private router: Router) { }
+  maxVisibleItems: number = 3;
+
+  constructor(private router: Router, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.records = this.getRecordDummyList();
+
+    this.mdbTable.setDataSource(this.records);
+    this.records = this.mdbTable.getDataSource();
+    this.previous = this.mdbTable.getDataSource();
+  }
+
+  ngAfterViewInit() {
+    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
+
+    this.mdbTablePagination.calculateFirstItemIndex();
+    this.mdbTablePagination.calculateLastItemIndex();
+    this.cdRef.detectChanges();
   }
 
   navigateToNewRecordComponent(): void {
     this.router.navigate(['/records/new']);
   }
 
-  navigateToRecordDetailsComponent(index: number): void {
-    this.router.navigate(['/records', index]);
+  searchItems() {
+    const prev = this.mdbTable.getDataSource();
+    if (!this.searchText) {
+        this.mdbTable.setDataSource(this.previous);
+        this.records = this.mdbTable.getDataSource();
+    }
+    if (this.searchText) {
+        this.records = this.mdbTable.searchLocalDataBy(this.searchText);
+        this.mdbTable.setDataSource(prev);
+    }
   }
 
-  switchPage(event): void {
-    this.page = event;
+  navigateToRecordDetailsComponent(index: number): void {
+    this.router.navigate(['/records', index]);
   }
 
   getRecordDummyList(): Record[] {
@@ -123,41 +150,4 @@ export class RecordListComponent implements OnInit {
     }
   }
 
-  isUndefined() {
-    if (this.ascDescBoolean == undefined) {
-      this.ascDescBoolean = true;
-    }
-  }
-
-  sort(type: string) {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.records.sort((t1, t2) => {
-        const value1 = t1[type];
-        const value2 = t2[type];
-
-        console.log(type);
-
-        if (value2 > value1) { return 1; }
-        if (value2 < value1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.records.sort((t1, t2) => {
-        const value1 = t1[type];
-        const value2 = t2[type];
-
-        if (value2 < value1) { return 1; }
-        if (value2 > value1) { return -1; }
-        return 0;
-      });
-    }
-  }
 }

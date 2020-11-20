@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brand } from '../../models/brand/brand';
 import { DoorType } from '../../models/door-type/door-type';
@@ -10,6 +10,7 @@ import { from } from 'rxjs';
 import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { Country } from 'src/app/models/country/country';
+import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -18,17 +19,34 @@ import { Country } from 'src/app/models/country/country';
 })
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
-  pageAmounts = [5,10,25];
+  headNames  = ["Merk", "Model", "brandstof", "type motor", "aantal deuren", "volume", "fiscale Pk", "vermogen", "Einddatum"];
+  headElements  = ["brand.name", "model.name", "fuelType.name", "motorType.name", "doorType.name", "volume", "fiscalePk", "power", "endData"];
 
-  ascDescBoolean: boolean;
+  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
+  @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
+  @ViewChild('row', { static: true }) row: ElementRef;
 
-  page = 1;
-  selectedAmount = this.pageAmounts[0];
+  searchText: string = '';
+  previous: string;
 
-  constructor(private router: Router) { }
+  maxVisibleItems: number = 3;
+
+  constructor(private router: Router, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.vehicles = this.getVehicleDummyList();
+
+    this.mdbTable.setDataSource(this.vehicles);
+    this.vehicles = this.mdbTable.getDataSource();
+    this.previous = this.mdbTable.getDataSource();
+  }
+
+  ngAfterViewInit() {
+    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
+
+    this.mdbTablePagination.calculateFirstItemIndex();
+    this.mdbTablePagination.calculateLastItemIndex();
+    this.cdRef.detectChanges();
   }
 
   navigateToNewVehicleComponent(): void {
@@ -37,6 +55,18 @@ export class VehicleListComponent implements OnInit {
 
   navigateToVehicleDetailsComponent(index: number): void {
     this.router.navigate(['/vehicles', index]);
+  }
+
+  searchItems() {
+    const prev = this.mdbTable.getDataSource();
+    if (!this.searchText) {
+        this.mdbTable.setDataSource(this.previous);
+        this.vehicles = this.mdbTable.getDataSource();
+    }
+    if (this.searchText) {
+        this.vehicles = this.mdbTable.searchLocalDataBy(this.searchText);
+        this.mdbTable.setDataSource(prev);
+    }
   }
 
   getVehicleDummyList(): Vehicle[] {
@@ -108,196 +138,5 @@ export class VehicleListComponent implements OnInit {
           kilometers: 5000
         }
       ];
-  }
-
-  switchPage(event): void {
-    this.page = event;
-  }
-
-  isUndefined() {
-    if (this.ascDescBoolean == undefined) {
-      this.ascDescBoolean = true;
-    }
-  }
-
-  sortByBrand() {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const name1 = t1.brand.name.toLowerCase();
-        const name2 = t2.brand.name.toLowerCase();
-        if (name2 > name1) { return 1; }
-        if (name2 < name1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const name1 = t1.brand.name.toLowerCase();
-        const name2 = t2.brand.name.toLowerCase();
-        if (name1 > name2) { return 1; }
-        if (name1 < name2) { return -1; }
-        return 0;
-      });
-    }
-  }
-
-  /*
-  sortByDate() {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const date1 = t1.endData;
-        const date2 = t2.endData;
-
-        if (date2 > date1) { return 1; }
-        if (date2 < date1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const date1 = t1.endData;
-        const date2 = t2.endData;
-        if (date1 > date2) { return 1; }
-        if (date1 < date2) { return -1; }
-        return 0;
-      });
-    }
-  }
-
-  sortByVolume() {
-    this.isUndefined();
-
-    console.log(this.ascDescBoolean)
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const vol1 = t1.volume;
-        const vol2 = t2.volume;
-
-        if (vol2 > vol1) { return 1; }
-        if (vol2 < vol1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const vol1 = t1.volume;
-        const vol2 = t2.volume;
-
-        if (vol2 < vol1) { return 1; }
-        if (vol2 > vol1) { return -1; }
-        return 0;
-      });
-    }
-  }
-
-  sortByFiscalHp() {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const hp1 = t1.fiscalePk;
-        const hp2 = t2.fiscalePk;
-
-        if (hp2 > hp1) { return 1; }
-        if (hp2 < hp1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const hp1 = t1.fiscalePk;
-        const hp2 = t2.fiscalePk;
-
-        if (hp2 < hp1) { return 1; }
-        if (hp2 > hp1) { return -1; }
-        return 0;
-      });
-    }
-  }
-
-  sortByPower() {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const power1 = t1.power;
-        const power2 = t2.power;
-
-        if (power2 > power1) { return 1; }
-        if (power2 < power1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const power1 = t1.power;
-        const power2 = t2.power;
-
-        if (power2 < power1) { return 1; }
-        if (power2 > power1) { return -1; }
-        return 0;
-      });
-    }
-  }
-  */
-
-  sort(type: string) {
-    this.isUndefined();
-
-    if (this.ascDescBoolean) {
-      this.ascDescBoolean = false;
-
-      // alphabetical ascending
-      this.vehicles.sort((t1, t2) => {
-        const value1 = t1[type];
-        const value2 = t2[type];
-
-        if (value2 > value1) { return 1; }
-        if (value2 < value1) { return -1; }
-        return 0;
-      });
-    } else {
-      this.ascDescBoolean = true;
-
-      // alphabetical descending
-      this.vehicles.sort((t1, t2) => {
-        const value1 = t1[type];
-        const value2 = t2[type];
-
-        if (value2 < value1) { return 1; }
-        if (value2 > value1) { return -1; }
-        return 0;
-      });
-    }
   }
 }

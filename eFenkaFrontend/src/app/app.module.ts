@@ -15,6 +15,7 @@ import { RecordListComponent } from './components/record-list/record-list.compon
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { NewRecordItemComponent } from './components/new-record-item/new-record-item.component';
 import { RecordDetailsComponent } from './components/record-details/record-details.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
     RouterModule.forRoot(appRoutes),
     FontAwesomeModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule
   ],
   providers: [VehicleService],
   bootstrap: [AppComponent]
