@@ -180,44 +180,5 @@ namespace eMenka.API.Controllers
             _vehicleRepository.Remove(vehicle);
             return Ok();
         }
-
-        public VehicleModel MapVehicleEntity(Vehicle vehicle)
-        {
-            return new VehicleModel
-            {
-                Id = vehicle.Id,
-                BrandId = vehicle.Brand.Id,
-                FuelTypeId = vehicle.FuelTypeId,
-                EngineTypeId = vehicle.EngineType.Id,
-                DoorTypeId = vehicle.DoorTypeId,
-                Emission = vehicle.Emission,
-                FiscalHP = vehicle.FiscalHP,
-                IsActive = vehicle.IsActive,
-                Power = vehicle.Power,
-                Volume = vehicle.Volume,
-                ModelId = vehicle.Id,
-                FuelCardId = vehicle.FuelCardId
-            };
-        }
-
-        public Vehicle MapVehicleModel(VehicleModel vehicleModel)
-        {
-            return new Vehicle
-            {
-                Id = vehicleModel.Id,
-                EngineTypeId = vehicleModel.EngineTypeId,
-                BrandId = vehicleModel.BrandId,
-                DoorTypeId = vehicleModel.DoorTypeId,
-                Emission = vehicleModel.Emission,
-                FiscalHP = vehicleModel.FiscalHP,
-                FuelTypeId = vehicleModel.FuelTypeId,
-                IsActive = vehicleModel.IsActive,
-                ModelId = vehicleModel.ModelId,
-                Power = vehicleModel.Power,
-                Volume = vehicleModel.Volume,
-                FuelCardId = vehicleModel.FuelCardId
-            };
-        }
-
     }
 }
