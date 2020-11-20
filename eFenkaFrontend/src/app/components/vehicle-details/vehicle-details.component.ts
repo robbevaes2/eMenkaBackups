@@ -47,7 +47,7 @@ export class VehicleDetailsComponent implements OnInit {
       this.setFuelTypes();
       this.setFuelCards();
       this.setCategories();
-      //this.setAllDropDownsByBrand(vehicleId);
+
       this.setModels(this.selectedVehicle.brand.id);
       this.setSeries(this.selectedVehicle.brand.id);
       this.setEngineTypes(this.selectedVehicle.brand.id);
@@ -138,7 +138,6 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   setAllDropDownsByBrand(brandId: number): void {
-    // Do get requests with brandId
     this.setModels(brandId);
     this.setSeries(brandId);
     this.setEngineTypes(brandId);

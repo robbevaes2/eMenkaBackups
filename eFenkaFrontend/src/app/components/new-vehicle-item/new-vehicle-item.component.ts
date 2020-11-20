@@ -5,12 +5,9 @@ import { Brand } from '../../models/brand/brand';
 import { DoorType } from '../../models/door-type/door-type';
 import { Model } from '../../models/model/model';
 import { Serie } from '../../models/serie/serie';
-import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
-import { VehicleService } from '../../services/vehicle-service';
-import { stringify } from 'querystring';
 import { ApiService } from '../../services/api.service';
 import { Category } from '../../models/category/category';
 
