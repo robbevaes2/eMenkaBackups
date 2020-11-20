@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201119134425_initial")]
+    [Migration("20201119165909_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -5978,7 +5978,7 @@ namespace eMenka.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Serie", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -6835,11 +6835,17 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("BuildYear")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Chassis")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CountryId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DoorTypeId")
                         .HasColumnType("int");
@@ -6859,7 +6865,7 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FiscalHP")
+                    b.Property<int?>("FiscalHP")
                         .HasColumnType("int");
 
                     b.Property<int?>("FuelCardId")
@@ -6880,9 +6886,6 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("Power")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SerieId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SeriesId")
                         .HasColumnType("int");
 
@@ -6894,6 +6897,8 @@ namespace eMenka.Data.Migrations
                     b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("DoorTypeId");
 
@@ -6907,7 +6912,7 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("ModelId");
 
-                    b.HasIndex("SerieId");
+                    b.HasIndex("SeriesId");
 
                     b.ToTable("Vehicles");
 
@@ -6916,618 +6921,905 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 1,
                             BrandId = 4,
+                            BuildYear = 2005,
+                            Chassis = "SJNFDAE11U2117751",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 123,
                             EndDateDelivery = new DateTime(2009, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1686,
                             EnginePower = 74,
                             EngineTypeId = 8,
                             FiscalHP = 9,
+                            FuelCardId = 1,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ABQ121",
                             ModelId = 11,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3112
                         },
                         new
                         {
                             Id = 2,
                             BrandId = 1,
+                            BuildYear = 2001,
+                            Chassis = "0azerty",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 134,
                             EndDateDelivery = new DateTime(2013, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1995,
                             EnginePower = 130,
                             EngineTypeId = 13,
                             FiscalHP = 10,
+                            FuelCardId = 3,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ACS122",
                             ModelId = 5,
-                            SeriesId = 17
+                            SeriesId = 17,
+                            Volume = 3117
                         },
                         new
                         {
                             Id = 3,
                             BrandId = 3,
+                            BuildYear = 2002,
+                            Chassis = "W0LPE9EM4D2025752",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 145,
                             EndDateDelivery = new DateTime(2009, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1577,
                             EnginePower = 80,
                             EngineTypeId = 24,
                             FiscalHP = 9,
+                            FuelCardId = 2,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1ADB123",
                             ModelId = 8,
-                            SeriesId = 3
+                            SeriesId = 3,
+                            Volume = 3113
                         },
                         new
                         {
                             Id = 4,
                             BrandId = 4,
+                            BuildYear = 2003,
+                            Chassis = "7897456",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 156,
                             EndDateDelivery = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1910,
                             EnginePower = 74,
                             EngineTypeId = 5,
                             FiscalHP = 10,
+                            FuelCardId = 4,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AEB124",
                             ModelId = 12,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3116
                         },
                         new
                         {
                             Id = 5,
                             BrandId = 4,
+                            BuildYear = 2004,
+                            Chassis = "547854",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 167,
                             EndDateDelivery = new DateTime(2014, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1990,
                             EnginePower = 124,
                             EngineTypeId = 5,
                             FiscalHP = 11,
+                            FuelCardId = 6,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1BFB125",
                             ModelId = 14,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3114
                         },
                         new
                         {
                             Id = 6,
                             BrandId = 1,
+                            BuildYear = 2005,
+                            Chassis = "MKLI89Y77Y67UI",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 178,
                             EndDateDelivery = new DateTime(2011, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1995,
                             EnginePower = 90,
                             EngineTypeId = 1,
                             FiscalHP = 10,
+                            FuelCardId = 5,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BGB126",
                             ModelId = 2,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3115
                         },
                         new
                         {
                             Id = 7,
                             BrandId = 1,
+                            BuildYear = 2006,
+                            Chassis = "W0L0AHM759G027219",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 189,
                             EndDateDelivery = new DateTime(2013, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 2001,
                             EnginePower = 165,
                             EngineTypeId = 2,
                             FiscalHP = 12,
+                            FuelCardId = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BHB127",
                             ModelId = 4,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3116
                         },
                         new
                         {
                             Id = 8,
                             BrandId = 8,
+                            BuildYear = 2007,
+                            Chassis = "nvt",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 196,
                             EndDateDelivery = new DateTime(2012, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 2100,
                             EnginePower = 120,
                             EngineTypeId = 10,
                             FiscalHP = 10,
+                            FuelCardId = 8,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1BIB138",
                             ModelId = 16,
-                            SeriesId = 19
+                            SeriesId = 19,
+                            Volume = 3118
                         },
                         new
                         {
                             Id = 9,
                             BrandId = 7,
+                            BuildYear = 2008,
+                            Chassis = "100",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 103,
                             EndDateDelivery = new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1560,
                             EnginePower = 123,
                             EngineTypeId = 9,
                             FiscalHP = 9,
+                            FuelCardId = 7,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CJB139",
                             ModelId = 18,
-                            SeriesId = 18
+                            SeriesId = 18,
+                            Volume = 3114
                         },
                         new
                         {
                             Id = 10,
                             BrandId = 6,
+                            BuildYear = 2009,
+                            Chassis = "1515154",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 112,
                             EndDateDelivery = new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1233,
                             EnginePower = 120,
                             EngineTypeId = 14,
                             FiscalHP = 10,
+                            FuelCardId = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CKB130",
                             ModelId = 17,
-                            SeriesId = 12
+                            SeriesId = 12,
+                            Volume = 3119
                         },
                         new
                         {
                             Id = 11,
                             BrandId = 1,
+                            BuildYear = 2000,
+                            Chassis = "W0LPD6EW6DG097221",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 121,
                             EndDateDelivery = new DateTime(2013, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1995,
                             EnginePower = 120,
                             EngineTypeId = 13,
                             FiscalHP = 11,
+                            FuelCardId = 12,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CLB231",
                             ModelId = 1,
-                            SeriesId = 17
+                            SeriesId = 17,
+                            Volume = 3117
                         },
                         new
                         {
                             Id = 12,
                             BrandId = 4,
+                            BuildYear = 2001,
+                            Chassis = "145",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 130,
                             EngineCapacity = 1248,
                             EnginePower = 66,
                             EngineTypeId = 15,
                             FiscalHP = 7,
+                            FuelCardId = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CMB232",
                             ModelId = 13,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3112
                         },
                         new
                         {
                             Id = 13,
                             BrandId = 1,
+                            BuildYear = 2002,
+                            Chassis = "W0L0ZCF3581087846",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 146,
                             EndDateDelivery = new DateTime(2014, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1999,
                             EnginePower = 90,
                             EngineTypeId = 2,
                             FiscalHP = 11,
+                            FuelCardId = 13,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CAB233",
                             ModelId = 2,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3113
                         },
                         new
                         {
                             Id = 14,
                             BrandId = 11,
+                            BuildYear = 2003,
+                            Chassis = "U5YZU81UABL093503",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 122,
                             EngineCapacity = 2000,
                             EnginePower = 136,
                             EngineTypeId = 18,
                             FiscalHP = 11,
+                            FuelCardId = 15,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1DZB234",
                             ModelId = 24,
-                            SeriesId = 22
+                            SeriesId = 22,
+                            Volume = 3111
                         },
                         new
                         {
                             Id = 15,
                             BrandId = 4,
+                            BuildYear = 2004,
+                            Chassis = "W0LGT8EL1D1035314",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 131,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 20,
                             FiscalHP = 11,
+                            FuelCardId = 14,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1DEB235",
                             ModelId = 29,
-                            SeriesId = 24
+                            SeriesId = 24,
+                            Volume = 3130
                         },
                         new
                         {
                             Id = 16,
                             BrandId = 11,
+                            BuildYear = 2005,
+                            Chassis = "W0L0AHL4898044253",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 143,
                             EngineCapacity = 3232,
                             EnginePower = 168,
                             EngineTypeId = 18,
                             FiscalHP = 13,
+                            FuelCardId = 16,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1DRB236",
                             ModelId = 27,
-                            SeriesId = 23
+                            SeriesId = 23,
+                            Volume = 3131
                         },
                         new
                         {
                             Id = 17,
                             BrandId = 1,
+                            BuildYear = 2006,
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 156,
                             EngineCapacity = 1800,
                             EnginePower = 8,
                             EngineTypeId = 1,
                             FiscalHP = 11,
+                            FuelCardId = 17,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1DTB247",
                             ModelId = 31,
-                            SeriesId = 16
+                            SeriesId = 16,
+                            Volume = 3133
                         },
                         new
                         {
                             Id = 18,
                             BrandId = 12,
+                            BuildYear = 2007,
+                            Chassis = "WBAWY31SDFDSGEGF21",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 165,
                             EngineCapacity = 1560,
                             EnginePower = 66,
                             EngineTypeId = 21,
                             FiscalHP = 9,
+                            FuelCardId = 19,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1EYB349",
                             ModelId = 34,
-                            SeriesId = 26
+                            SeriesId = 26,
+                            Volume = 3132
                         },
                         new
                         {
                             Id = 19,
                             BrandId = 5,
+                            BuildYear = 2008,
+                            Chassis = "NLHBB51RABZ026442",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 184,
                             EngineCapacity = 4500,
                             EnginePower = 233,
                             EngineTypeId = 25,
                             FiscalHP = 19,
+                            FuelCardId = 18,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1EUB348",
                             ModelId = 15,
-                            SeriesId = 30
+                            SeriesId = 30,
+                            Volume = 3131
                         },
                         new
                         {
                             Id = 20,
                             BrandId = 4,
+                            BuildYear = 2009,
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 17,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 8,
                             FiscalHP = 9,
+                            FuelCardId = 20,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1EIX347",
                             ModelId = 12,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3135
                         },
                         new
                         {
                             Id = 21,
                             BrandId = 4,
+                            BuildYear = 2000,
+                            Chassis = "789",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 111,
                             EngineCapacity = 1910,
                             EnginePower = 88,
                             EngineTypeId = 5,
                             FiscalHP = 10,
+                            FuelCardId = 21,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1EOS346",
                             ModelId = 14,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3130
                         },
                         new
                         {
                             Id = 22,
                             BrandId = 4,
+                            BuildYear = 2001,
+                            Chassis = "W0LPF6EG8A8044691",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 0,
                             EngineCapacity = 1296,
                             EnginePower = 66,
                             EngineTypeId = 15,
                             FiscalHP = 9,
+                            FuelCardId = 23,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1FPT345",
                             ModelId = 29,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3236
                         },
                         new
                         {
                             Id = 23,
                             BrandId = 6,
+                            BuildYear = 2002,
+                            Chassis = "123456",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 233,
                             EnginePower = 0,
                             EngineTypeId = 27,
                             FiscalHP = 0,
+                            FuelCardId = 22,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1FQR344",
                             ModelId = 17,
-                            SeriesId = 13
+                            SeriesId = 13,
+                            Volume = 3234
                         },
                         new
                         {
                             Id = 24,
                             BrandId = 4,
+                            BuildYear = 2003,
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 244,
                             EngineCapacity = 2999,
                             EnginePower = 150,
                             EngineTypeId = 16,
                             FiscalHP = 11,
+                            FuelCardId = 24,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1FSE343",
                             ModelId = 29,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3230
                         },
                         new
                         {
                             Id = 25,
                             BrandId = 4,
+                            BuildYear = 2004,
+                            Chassis = "145",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 2532,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 8,
                             FiscalHP = 9,
+                            FuelCardId = 26,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1FDZ352",
                             ModelId = 11,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3232
                         },
                         new
                         {
                             Id = 26,
                             BrandId = 4,
+                            BuildYear = 2005,
+                            Chassis = "45414521451454125",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 266,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 8,
                             FiscalHP = 9,
+                            FuelCardId = 25,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1FFD351",
                             ModelId = 11,
-                            SeriesId = 37
+                            SeriesId = 37,
+                            Volume = 3233
                         },
                         new
                         {
                             Id = 27,
                             BrandId = 4,
+                            BuildYear = 2006,
+                            Chassis = "SJNFDAE11U2159420",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 217,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 38,
                             FiscalHP = 11,
+                            FuelCardId = 28,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1GGF450",
                             ModelId = 29,
-                            SeriesId = 24
+                            SeriesId = 24,
+                            Volume = 3231
                         },
                         new
                         {
                             Id = 28,
                             BrandId = 4,
+                            BuildYear = 2007,
+                            Chassis = "123456789",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 2382,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 39,
                             FiscalHP = 9,
+                            FuelCardId = 27,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1GHG451",
                             ModelId = 11,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3235
                         },
                         new
                         {
                             Id = 29,
                             BrandId = 4,
+                            BuildYear = 2008,
+                            Chassis = "123458",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 2493,
                             EngineCapacity = 1686,
                             EnginePower = 96,
                             EngineTypeId = 39,
                             FiscalHP = 9,
+                            FuelCardId = 29,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1GJ?452",
                             ModelId = 11,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3236
                         },
                         new
                         {
                             Id = 30,
                             BrandId = 6,
+                            BuildYear = 2009,
+                            Chassis = "454745747547",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 251,
                             EngineCapacity = 1233,
                             EnginePower = 120,
                             EngineTypeId = 40,
                             FiscalHP = 10,
+                            FuelCardId = 30,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1GKN453",
                             ModelId = 17,
-                            SeriesId = 12
+                            SeriesId = 12,
+                            Volume = 3234
                         },
                         new
                         {
                             Id = 31,
                             BrandId = 1,
+                            BuildYear = 2000,
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 216,
                             EngineCapacity = 1,
                             EnginePower = 1,
                             EngineTypeId = 12,
                             FiscalHP = 1,
+                            FuelCardId = 32,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1GLB454",
                             ModelId = 1,
-                            SeriesId = 16
+                            SeriesId = 16,
+                            Volume = 3239
                         },
                         new
                         {
                             Id = 32,
                             BrandId = 4,
+                            BuildYear = 2001,
+                            Chassis = "VF30U9HR8BS316981",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 2732,
                             EngineCapacity = 1956,
                             EnginePower = 95,
                             EngineTypeId = 20,
                             FiscalHP = 11,
+                            FuelCardId = 31,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1HMV455",
                             ModelId = 29,
-                            SeriesId = 24
+                            SeriesId = 24,
+                            Volume = 3237
                         },
                         new
                         {
                             Id = 33,
                             BrandId = 4,
+                            BuildYear = 2002,
+                            Chassis = "WBAVC11040VG85589",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 282,
                             EngineCapacity = 1910,
                             EnginePower = 100,
                             EngineTypeId = 5,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1HWC456",
                             ModelId = 14,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 3236
                         },
                         new
                         {
                             Id = 34,
                             BrandId = 12,
+                            BuildYear = 2003,
+                            Chassis = "W0LPE6EW4C1078195",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 293,
                             EngineCapacity = 1233,
                             EnginePower = 43,
                             EngineTypeId = 21,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1HXX457",
                             ModelId = 33,
-                            SeriesId = 28
+                            SeriesId = 28,
+                            Volume = 3232
                         },
                         new
                         {
                             Id = 35,
                             BrandId = 4,
+                            BuildYear = 2004,
+                            Chassis = "123",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 214,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 37,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1HCG456",
                             ModelId = 11,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 3241
                         },
                         new
                         {
                             Id = 36,
                             BrandId = 3,
+                            BuildYear = 2005,
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 2255,
                             EnginePower = 0,
                             EngineTypeId = 3,
                             FiscalHP = 0,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1HVB579",
                             ModelId = 8,
-                            SeriesId = 3
+                            SeriesId = 3,
+                            Volume = 3243
                         },
                         new
                         {
                             Id = 37,
                             BrandId = 1,
+                            BuildYear = 2006,
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 2366,
                             EngineCapacity = 1900,
                             EnginePower = 0,
                             EngineTypeId = 12,
                             FiscalHP = 0,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1IBA578",
                             ModelId = 4,
-                            SeriesId = 15
+                            SeriesId = 15,
+                            Volume = 3242
                         },
                         new
                         {
                             Id = 38,
                             BrandId = 6,
+                            BuildYear = 2007,
+                            Chassis = "4521",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 2477,
                             EngineCapacity = 1229,
                             EnginePower = 122,
                             EngineTypeId = 40,
                             FiscalHP = 11,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1ILK577",
                             ModelId = 21,
-                            SeriesId = 12
+                            SeriesId = 12,
+                            Volume = 3241
                         },
                         new
                         {
                             Id = 39,
                             BrandId = 1,
+                            BuildYear = 2008,
+                            Chassis = "W0L0SDL6884193058",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 3588,
                             EnginePower = 0,
                             EngineTypeId = 12,
                             FiscalHP = 0,
                             FuelTypeId = 3,
                             IsActive = false,
+                            LicensePlate = "1IML575",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3240
                         },
                         new
                         {
                             Id = 40,
                             BrandId = 8,
+                            BuildYear = 2009,
+                            Chassis = "W0LPE8EG2B8045397",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 369,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 50,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1IOI576",
                             ModelId = 30,
-                            SeriesId = 49
+                            SeriesId = 49,
+                            Volume = 3244
                         },
                         new
                         {
                             Id = 41,
                             BrandId = 8,
+                            BuildYear = 2000,
+                            Chassis = "W0LGT8ELXD1044444",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 371,
                             EngineCapacity = 1600,
                             EnginePower = 75,
                             EngineTypeId = 51,
                             FiscalHP = 9,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1IUM571",
                             ModelId = 30,
-                            SeriesId = 49
+                            SeriesId = 49,
+                            Volume = 3245
                         },
                         new
                         {
                             Id = 42,
                             BrandId = 8,
+                            BuildYear = 2001,
+                            CountryId = 1,
                             DoorTypeId = 6,
+                            Emission = 382,
                             EngineCapacity = 0,
                             EnginePower = 150,
                             EngineTypeId = 78,
                             FiscalHP = 0,
                             FuelTypeId = 5,
                             IsActive = false,
+                            LicensePlate = "1JYP573",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3346
                         },
                         new
                         {
                             Id = 43,
                             BrandId = 8,
+                            BuildYear = 2002,
+                            Chassis = "W0LPE8EX7D8050002",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 393,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 50,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1JTU570",
                             ModelId = 30,
-                            SeriesId = 51
+                            SeriesId = 51,
+                            Volume = 3347
                         },
                         new
                         {
                             Id = 44,
                             BrandId = 8,
+                            BuildYear = 2003,
+                            Chassis = "VF3CC8HROET203509",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 314,
                             EndDateDelivery = new DateTime(2019, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1900,
                             EnginePower = 77,
@@ -7535,504 +7827,711 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1JRL581",
                             ModelId = 30,
-                            SeriesId = 51
+                            SeriesId = 51,
+                            Volume = 3348
                         },
                         new
                         {
                             Id = 45,
                             BrandId = 8,
+                            BuildYear = 2004,
+                            Chassis = "789789",
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 325,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 50,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1JAO682",
                             ModelId = 30,
-                            SeriesId = 52
+                            SeriesId = 52,
+                            Volume = 3349
                         },
                         new
                         {
                             Id = 46,
                             BrandId = 8,
+                            BuildYear = 2005,
+                            Chassis = "12354",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 336,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1KZN683",
                             ModelId = 16,
-                            SeriesId = 53
+                            SeriesId = 53,
+                            Volume = 3345
                         },
                         new
                         {
                             Id = 47,
                             BrandId = 8,
+                            BuildYear = 2006,
+                            Chassis = "VF3LB9HPAES115707",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 348,
                             EngineCapacity = 1999,
                             EnginePower = 100,
                             EngineTypeId = 35,
                             FiscalHP = 12,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1KEB686",
                             ModelId = 16,
-                            SeriesId = 19
+                            SeriesId = 19,
+                            Volume = 3446
                         },
                         new
                         {
                             Id = 48,
                             BrandId = 8,
+                            BuildYear = 2007,
+                            Chassis = "100",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 356,
                             EngineCapacity = 2000,
                             EnginePower = 88,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1KRV685",
                             ModelId = 16,
-                            SeriesId = 19
+                            SeriesId = 19,
+                            Volume = 3444
                         },
                         new
                         {
                             Id = 49,
                             BrandId = 8,
+                            BuildYear = 2008,
+                            Chassis = "14521",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 382,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 52,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1KTC684",
                             ModelId = 16,
-                            SeriesId = 19
+                            SeriesId = 19,
+                            Volume = 3442
                         },
                         new
                         {
                             Id = 50,
                             BrandId = 8,
+                            BuildYear = 2009,
+                            Chassis = "W0L0AHM758G153913",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 37,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 53,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1LYX684",
                             ModelId = 16,
-                            SeriesId = 19
+                            SeriesId = 19,
+                            Volume = 3446
                         },
                         new
                         {
                             Id = 51,
                             BrandId = 8,
+                            BuildYear = 2000,
+                            CountryId = 1,
                             DoorTypeId = 4,
+                            Emission = 412,
                             EngineCapacity = 1800,
                             EnginePower = 120,
                             EngineTypeId = 54,
                             FiscalHP = 10,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1LQW687",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3443
                         },
                         new
                         {
                             Id = 52,
                             BrandId = 8,
+                            BuildYear = 2001,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 4231,
                             EngineCapacity = 1800,
                             EnginePower = 120,
                             EngineTypeId = 54,
                             FiscalHP = 10,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1LSD688",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3444
                         },
                         new
                         {
                             Id = 53,
                             BrandId = 8,
+                            BuildYear = 2002,
+                            Chassis = "ezrtrra",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 4322,
                             EngineCapacity = 1900,
                             EnginePower = 85,
                             EngineTypeId = 10,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1LDA689",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3446
                         },
                         new
                         {
                             Id = 54,
                             BrandId = 8,
+                            BuildYear = 2003,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 4513,
                             EngineCapacity = 1900,
                             EnginePower = 84,
                             EngineTypeId = 10,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1MFZ696",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3443
                         },
                         new
                         {
                             Id = 55,
                             BrandId = 8,
+                            BuildYear = 2004,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 464,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1MGE695",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3442
                         },
                         new
                         {
                             Id = 56,
                             BrandId = 8,
+                            BuildYear = 2005,
+                            Chassis = "W0LPE6EW9DG046079",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 446,
                             EngineCapacity = 2000,
                             EnginePower = 88,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1MHR694",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3441
                         },
                         new
                         {
                             Id = 57,
                             BrandId = 8,
+                            BuildYear = 2006,
+                            Chassis = "nvt",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 476,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 52,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1MJT691",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3420
                         },
                         new
                         {
                             Id = 58,
                             BrandId = 8,
+                            BuildYear = 2007,
+                            Chassis = "W0LGM8EL3C1068598",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 489,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 52,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1NAY792",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3421
                         },
                         new
                         {
                             Id = 59,
                             BrandId = 8,
+                            BuildYear = 2008,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 498,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 53,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1NZS793",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3422
                         },
                         new
                         {
                             Id = 60,
                             BrandId = 8,
+                            BuildYear = 2009,
+                            Chassis = "W0LGM8ES4E1137406",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 407,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 53,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1NES794",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3425
                         },
                         new
                         {
                             Id = 61,
                             BrandId = 8,
+                            BuildYear = 2000,
+                            Chassis = "W0LJD7EL6EB615571",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 414,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 53,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1NRW795",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3424
                         },
                         new
                         {
                             Id = 62,
                             BrandId = 8,
+                            BuildYear = 2001,
+                            Chassis = "zaer",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 4256,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 53,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1OTC796",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 3428
                         },
                         new
                         {
                             Id = 63,
                             BrandId = 8,
+                            BuildYear = 2002,
+                            CountryId = 1,
                             DoorTypeId = 6,
+                            Emission = 432,
                             EngineCapacity = 2700,
                             EnginePower = 120,
                             EngineTypeId = 55,
                             FiscalHP = 14,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1OYV797",
                             ModelId = 20,
-                            SeriesId = 54
+                            SeriesId = 54,
+                            Volume = 3429
                         },
                         new
                         {
                             Id = 64,
                             BrandId = 8,
+                            BuildYear = 2003,
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 461,
                             EngineCapacity = 1968,
                             EnginePower = 100,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1OUB798",
                             ModelId = 20,
-                            SeriesId = 25
+                            SeriesId = 25,
+                            Volume = 3427
                         },
                         new
                         {
                             Id = 65,
                             BrandId = 8,
+                            BuildYear = 2004,
+                            Chassis = "147",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 452,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1OIA799",
                             ModelId = 20,
-                            SeriesId = 25
+                            SeriesId = 25,
+                            Volume = 3426
                         },
                         new
                         {
                             Id = 66,
                             BrandId = 8,
+                            BuildYear = 2005,
+                            Chassis = "W0L0AHL3582099371",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 5571,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 56,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1POZ793",
                             ModelId = 20,
-                            SeriesId = 25
+                            SeriesId = 25,
+                            Volume = 3523
                         },
                         new
                         {
                             Id = 67,
                             BrandId = 8,
+                            BuildYear = 2006,
+                            Chassis = "W0LPE8EX6C8095933",
+                            CountryId = 1,
                             DoorTypeId = 7,
+                            Emission = 5653,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 35,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1PQT792",
                             ModelId = 20,
-                            SeriesId = 55
+                            SeriesId = 55,
+                            Volume = 3522
                         },
                         new
                         {
                             Id = 68,
                             BrandId = 1,
+                            BuildYear = 2007,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 5685,
                             EngineCapacity = 1800,
                             EnginePower = 100,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1PSU761",
                             ModelId = 2,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3521
                         },
                         new
                         {
                             Id = 69,
                             BrandId = 1,
+                            BuildYear = 2008,
+                            Chassis = "W0LGM8ES4E1181678",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 5796,
                             EngineCapacity = 1800,
                             EnginePower = 85,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1PDL764",
                             ModelId = 2,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3524
                         },
                         new
                         {
                             Id = 70,
                             BrandId = 1,
+                            BuildYear = 2009,
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 5861,
                             EngineCapacity = 1800,
                             EnginePower = 100,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1RFK765",
                             ModelId = 2,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3525
                         },
                         new
                         {
                             Id = 71,
                             BrandId = 1,
+                            BuildYear = 2000,
+                            Chassis = "120142",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 590,
                             EngineCapacity = 1800,
                             EnginePower = 100,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1RGJ766",
                             ModelId = 2,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3526
                         },
                         new
                         {
                             Id = 72,
                             BrandId = 1,
+                            BuildYear = 2001,
+                            Chassis = "W0LPD8EW9D8062050",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 587,
                             EngineCapacity = 1800,
                             EnginePower = 100,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1RWH764",
                             ModelId = 2,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3529
                         },
                         new
                         {
                             Id = 73,
                             BrandId = 1,
+                            BuildYear = 2002,
+                            Chassis = "SJNFDAE11U2157331",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 561,
                             EngineCapacity = 1800,
                             EnginePower = 100,
                             EngineTypeId = 61,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1RXG869",
                             ModelId = 2,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3528
                         },
                         new
                         {
                             Id = 74,
                             BrandId = 1,
+                            BuildYear = 2003,
+                            Chassis = "WBAVU11090K051447",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 534,
                             EngineCapacity = 1999,
                             EnginePower = 90,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1SCF868",
                             ModelId = 2,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3527
                         },
                         new
                         {
                             Id = 75,
                             BrandId = 1,
+                            BuildYear = 2004,
+                            Chassis = "100",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 523,
                             EngineCapacity = 1995,
                             EnginePower = 100,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1SVD867",
                             ModelId = 2,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3525
                         },
                         new
                         {
                             Id = 76,
                             BrandId = 1,
+                            BuildYear = 2005,
+                            Chassis = "W0LGM57K391058231",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 510,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1SBN866",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3526
                         },
                         new
                         {
                             Id = 77,
                             BrandId = 1,
+                            BuildYear = 2006,
+                            Chassis = "WAUZZZ8R1BA081105",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 691,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1SND863",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3529
                         },
                         new
                         {
                             Id = 78,
                             BrandId = 1,
+                            BuildYear = 2007,
+                            Chassis = "VF38ERHR8BL085484",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 682,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1TAQ862",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3628
                         },
                         new
                         {
                             Id = 79,
                             BrandId = 1,
+                            BuildYear = 2008,
+                            Chassis = "W0LPE8E63E8064049",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 673,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1TZG861",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3627
                         },
                         new
                         {
                             Id = 80,
                             BrandId = 1,
+                            BuildYear = 2009,
+                            Chassis = "YV1DZ73CDE2608659",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 664,
                             EndDateDelivery = new DateTime(2019, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 2000,
                             EnginePower = 135,
@@ -8040,1009 +8539,1430 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1TEG864",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3624
                         },
                         new
                         {
                             Id = 81,
                             BrandId = 1,
+                            BuildYear = 2000,
+                            Chassis = "W0L0SDL6884314639",
+                            CountryId = 1,
                             DoorTypeId = 3,
+                            Emission = 655,
                             EngineCapacity = 2000,
                             EnginePower = 135,
                             EngineTypeId = 13,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1TRH815",
                             ModelId = 4,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 3625
                         },
                         new
                         {
                             Id = 82,
                             BrandId = 1,
+                            BuildYear = 2001,
+                            Chassis = "blablubli",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 646,
                             EngineCapacity = 2001,
                             EnginePower = 130,
                             EngineTypeId = 2,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1UTN818",
                             ModelId = 4,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3656
                         },
                         new
                         {
                             Id = 83,
                             BrandId = 1,
+                            BuildYear = 2002,
+                            Chassis = "W0LJD7EL0EB618949",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 617,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 13,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1UYN819",
                             ModelId = 4,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 3653
                         },
                         new
                         {
                             Id = 84,
                             BrandId = 1,
+                            BuildYear = 2003,
+                            Chassis = "123",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 638,
                             EngineCapacity = 2000,
                             EnginePower = 120,
                             EngineTypeId = 13,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1UUB817",
                             ModelId = 1,
-                            SeriesId = 16
+                            SeriesId = 16,
+                            Volume = 3652
                         },
                         new
                         {
                             Id = 85,
                             BrandId = 1,
+                            BuildYear = 2004,
+                            Chassis = "2541",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 629,
                             EngineCapacity = 2000,
                             EnginePower = 135,
                             EngineTypeId = 13,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1UQV816",
                             ModelId = 1,
-                            SeriesId = 17
+                            SeriesId = 17,
+                            Volume = 3651
                         },
                         new
                         {
                             Id = 86,
                             BrandId = 1,
+                            BuildYear = 2005,
+                            Chassis = "JNA1U2117751",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 610,
                             EngineCapacity = 3500,
                             EnginePower = 210,
                             EngineTypeId = 12,
                             FiscalHP = 15,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1VSC813",
                             ModelId = 5,
-                            SeriesId = 17
+                            SeriesId = 17,
+                            Volume = 3656
                         },
                         new
                         {
                             Id = 87,
                             BrandId = 1,
+                            BuildYear = 2007,
+                            Chassis = "0arty",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 601,
                             EngineCapacity = 3500,
                             EnginePower = 240,
                             EngineTypeId = 12,
                             FiscalHP = 15,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1VWX952",
                             ModelId = 5,
-                            SeriesId = 17
+                            SeriesId = 17,
+                            Volume = 3659
                         },
                         new
                         {
                             Id = 88,
                             BrandId = 12,
+                            BuildYear = 2006,
+                            Chassis = "W09EM4D2025752",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 622,
                             EngineCapacity = 2000,
                             EnginePower = 110,
                             EngineTypeId = 63,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1VXW951",
                             ModelId = 34,
-                            SeriesId = 60
+                            SeriesId = 60,
+                            Volume = 3658
                         },
                         new
                         {
                             Id = 89,
                             BrandId = 12,
+                            BuildYear = 2007,
+                            Chassis = "7856",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 633,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1VCP955",
                             ModelId = 34,
-                            SeriesId = 61
+                            SeriesId = 61,
+                            Volume = 3657
                         },
                         new
                         {
                             Id = 90,
                             BrandId = 12,
+                            BuildYear = 2008,
+                            Chassis = "5454",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 664,
                             EngineCapacity = 1560,
                             EnginePower = 82,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1VVO952",
                             ModelId = 34,
-                            SeriesId = 62
+                            SeriesId = 62,
+                            Volume = 3654
                         },
                         new
                         {
                             Id = 91,
                             BrandId = 12,
+                            BuildYear = 2009,
+                            Chassis = "MK89Y77Y67UI",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 791,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 64,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1WBI951",
                             ModelId = 34,
-                            SeriesId = 27
+                            SeriesId = 27,
+                            Volume = 3655
                         },
                         new
                         {
                             Id = 92,
                             BrandId = 12,
+                            BuildYear = 2000,
+                            Chassis = "W0HM759G027219",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 782,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1WNU952",
                             ModelId = 34,
-                            SeriesId = 63
+                            SeriesId = 63,
+                            Volume = 3656
                         },
                         new
                         {
                             Id = 93,
                             BrandId = 12,
+                            BuildYear = 2001,
+                            Chassis = "nv",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 763,
                             EngineCapacity = 1560,
                             EnginePower = 82,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1WPY953",
                             ModelId = 34,
-                            SeriesId = 64
+                            SeriesId = 64,
+                            Volume = 3653
                         },
                         new
                         {
                             Id = 94,
                             BrandId = 12,
+                            BuildYear = 2002,
+                            Chassis = "10",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 774,
                             EngineCapacity = 1560,
                             EnginePower = 82,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1WOT956",
                             ModelId = 34,
-                            SeriesId = 65
+                            SeriesId = 65,
+                            Volume = 3652
                         },
                         new
                         {
                             Id = 95,
                             BrandId = 12,
+                            BuildYear = 2003,
+                            Chassis = "155154",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 755,
                             EngineCapacity = 1560,
                             EnginePower = 82,
                             EngineTypeId = 22,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1XIR955",
                             ModelId = 34,
-                            SeriesId = 66
+                            SeriesId = 66,
+                            Volume = 3654
                         },
                         new
                         {
                             Id = 96,
                             BrandId = 2,
+                            BuildYear = 2004,
+                            Chassis = "W06EW6DG097221",
+                            CountryId = 1,
                             DoorTypeId = 2,
+                            Emission = 746,
                             EngineCapacity = 1600,
                             EnginePower = 85,
                             EngineTypeId = 68,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1XUE954",
                             ModelId = 7,
-                            SeriesId = 75
+                            SeriesId = 75,
+                            Volume = 2656
                         },
                         new
                         {
                             Id = 97,
                             BrandId = 2,
+                            BuildYear = 2005,
+                            Chassis = "14",
+                            CountryId = 1,
                             DoorTypeId = 1,
+                            Emission = 737,
                             EngineCapacity = 2000,
                             EnginePower = 84,
                             EngineTypeId = 70,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1XYZ957",
                             ModelId = 7,
-                            SeriesId = 75
+                            SeriesId = 75,
+                            Volume = 2655
                         },
                         new
                         {
                             Id = 98,
                             BrandId = 2,
+                            BuildYear = 2005,
+                            Chassis = "W00ZC81087846",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 738,
                             EngineCapacity = 1800,
                             EnginePower = 92,
                             EngineTypeId = 73,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1XKA958",
                             ModelId = 7,
-                            SeriesId = 72
+                            SeriesId = 72,
+                            Volume = 2652
                         },
                         new
                         {
                             Id = 99,
                             BrandId = 2,
+                            BuildYear = 2006,
+                            Chassis = "U5YZUABL093503",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 719,
                             EngineCapacity = 2000,
                             EnginePower = 102,
                             EngineTypeId = 70,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1YAS956",
                             ModelId = 7,
-                            SeriesId = 72
+                            SeriesId = 72,
+                            Volume = 2653
                         },
                         new
                         {
                             Id = 100,
                             BrandId = 2,
+                            BuildYear = 2004,
+                            Chassis = "W0LGTL1D1035314",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 710,
                             EngineCapacity = 1800,
                             EnginePower = 92,
                             EngineTypeId = 72,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1YZW956",
                             ModelId = 7,
-                            SeriesId = 71
+                            SeriesId = 71,
+                            Volume = 2651
                         },
                         new
                         {
                             Id = 101,
                             BrandId = 2,
+                            BuildYear = 2006,
+                            Chassis = "W0L0A898044253",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 721,
                             EngineCapacity = 2000,
                             EnginePower = 96,
                             EngineTypeId = 70,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1YEQ949",
                             ModelId = 7,
-                            SeriesId = 73
+                            SeriesId = 73,
+                            Volume = 2654
                         },
                         new
                         {
                             Id = 102,
                             BrandId = 4,
+                            BuildYear = 2007,
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 722,
                             EngineCapacity = 1686,
                             EnginePower = 92,
                             EngineTypeId = 94,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1YTA948",
                             ModelId = 11,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 2655
                         },
                         new
                         {
                             Id = 103,
                             BrandId = 4,
+                            BuildYear = 2005,
+                            Chassis = "WBA1SDFDSGEGF21",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 851,
                             EngineCapacity = 1686,
                             EnginePower = 92,
                             EngineTypeId = 94,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ZRZ947",
                             ModelId = 11,
-                            SeriesId = 81
+                            SeriesId = 81,
+                            Volume = 2656
                         },
                         new
                         {
                             Id = 104,
                             BrandId = 4,
+                            BuildYear = 2006,
+                            Chassis = "NLHB1BZ026442",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 843,
                             EngineCapacity = 1686,
                             EnginePower = 59,
                             EngineTypeId = 8,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ZQW946",
                             ModelId = 11,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 2659
                         },
                         new
                         {
                             Id = 105,
                             BrandId = 4,
+                            BuildYear = 2003,
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 8632,
                             EngineCapacity = 1686,
                             EnginePower = 74,
                             EngineTypeId = 8,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ZSZ142",
                             ModelId = 11,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 2658
                         },
                         new
                         {
                             Id = 106,
                             BrandId = 4,
+                            BuildYear = 2002,
+                            Chassis = "789",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 834,
                             EngineCapacity = 1700,
                             EnginePower = 73,
                             EngineTypeId = 8,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ZDA149",
                             ModelId = 11,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 2657
                         },
                         new
                         {
                             Id = 107,
                             BrandId = 4,
+                            BuildYear = 2001,
+                            Chassis = "W0PE8844691",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 825,
                             EngineCapacity = 1700,
                             EnginePower = 80,
                             EngineTypeId = 8,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1QFQ148",
                             ModelId = 11,
-                            SeriesId = 37
+                            SeriesId = 37,
+                            Volume = 2744
                         },
                         new
                         {
                             Id = 108,
                             BrandId = 4,
+                            BuildYear = 2000,
+                            Chassis = "1265165134",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 876,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 20,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1QWB147",
                             ModelId = 29,
-                            SeriesId = 24
+                            SeriesId = 24,
+                            Volume = 2745
                         },
                         new
                         {
                             Id = 109,
                             BrandId = 4,
+                            BuildYear = 2007,
+                            Chassis = "zeaeaz?",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 899,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 20,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1QXV146",
                             ModelId = 29,
-                            SeriesId = 24
+                            SeriesId = 24,
+                            Volume = 2746
                         },
                         new
                         {
                             Id = 110,
                             BrandId = 4,
+                            BuildYear = 2008,
+                            Chassis = "1489414",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 828,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 20,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1QCC146",
                             ModelId = 29,
-                            SeriesId = 82
+                            SeriesId = 82,
+                            Volume = 2743
                         },
                         new
                         {
                             Id = 111,
                             BrandId = 4,
+                            BuildYear = 2009,
+                            Chassis = "45442141454125",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 817,
                             EngineCapacity = 1700,
                             EnginePower = 81,
                             EngineTypeId = 95,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AVX142",
                             ModelId = 12,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 2746
                         },
                         new
                         {
                             Id = 112,
                             BrandId = 4,
+                            BuildYear = 2006,
+                            Chassis = "SJFDEU2159420",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 882,
                             EngineCapacity = 1686,
                             EnginePower = 92,
                             EngineTypeId = 8,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AHW143",
                             ModelId = 12,
-                            SeriesId = 4
+                            SeriesId = 4,
+                            Volume = 2742
                         },
                         new
                         {
                             Id = 113,
                             BrandId = 7,
+                            BuildYear = 2005,
+                            Chassis = "1246789",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 811,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 96,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AFF141",
                             ModelId = 23,
-                            SeriesId = 86
+                            SeriesId = 86,
+                            Volume = 2741
                         },
                         new
                         {
                             Id = 114,
                             BrandId = 7,
+                            BuildYear = 2004,
+                            Chassis = "12458",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 941,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 96,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AAQ144",
                             ModelId = 23,
-                            SeriesId = 87
+                            SeriesId = 87,
+                            Volume = 2744
                         },
                         new
                         {
                             Id = 115,
                             BrandId = 7,
+                            BuildYear = 2002,
+                            Chassis = "45745747547",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 942,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 96,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AZE135",
                             ModelId = 23,
-                            SeriesId = 88
+                            SeriesId = 88,
+                            Volume = 2745
                         },
                         new
                         {
                             Id = 116,
                             BrandId = 6,
+                            BuildYear = 2001,
+                            CountryId = 2,
                             DoorTypeId = 4,
+                            Emission = 933,
                             EngineCapacity = 1233,
                             EnginePower = 120,
                             EngineTypeId = 40,
                             FiscalHP = 10,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AHR136",
                             ModelId = 17,
-                            SeriesId = 91
+                            SeriesId = 91,
+                            Volume = 2746
                         },
                         new
                         {
                             Id = 117,
                             BrandId = 3,
+                            BuildYear = 2003,
+                            Chassis = "VF09HR8BS316981",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 936,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 110,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ABT138",
                             ModelId = 10,
-                            SeriesId = 112
+                            SeriesId = 112,
+                            Volume = 2749
                         },
                         new
                         {
                             Id = 118,
                             BrandId = 3,
+                            BuildYear = 2004,
+                            Chassis = "WBV11040VG85589",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 955,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 110,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ANY231",
                             ModelId = 10,
-                            SeriesId = 112
+                            SeriesId = 112,
+                            Volume = 2748
                         },
                         new
                         {
                             Id = 119,
                             BrandId = 3,
+                            BuildYear = 2005,
+                            Chassis = "W0P6EW4C1078195",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 954,
                             EngineCapacity = 1600,
                             EnginePower = 77,
                             EngineTypeId = 110,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AMU233",
                             ModelId = 10,
-                            SeriesId = 112
+                            SeriesId = 112,
+                            Volume = 2747
                         },
                         new
                         {
                             Id = 120,
                             BrandId = 3,
+                            BuildYear = 2006,
+                            Chassis = "15616512",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 935,
                             EngineCapacity = 1598,
                             EnginePower = 77,
                             EngineTypeId = 110,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1ALI232",
                             ModelId = 10,
-                            SeriesId = 113
+                            SeriesId = 113,
+                            Volume = 2744
                         },
                         new
                         {
                             Id = 121,
                             BrandId = 3,
+                            BuildYear = 2007,
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 938,
                             EngineCapacity = 1968,
                             EnginePower = 100,
                             EngineTypeId = 111,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AKK231",
                             ModelId = 10,
-                            SeriesId = 113
+                            SeriesId = 113,
+                            Volume = 2745
                         },
                         new
                         {
                             Id = 122,
                             BrandId = 3,
+                            BuildYear = 2008,
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 929,
                             EngineCapacity = 1598,
                             EnginePower = 77,
                             EngineTypeId = 110,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AJJ236",
                             ModelId = 10,
-                            SeriesId = 114
+                            SeriesId = 114,
+                            Volume = 2746
                         },
                         new
                         {
                             Id = 123,
                             BrandId = 3,
+                            BuildYear = 2009,
+                            Chassis = "451",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 996,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 112,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AHH235",
                             ModelId = 10,
-                            SeriesId = 115
+                            SeriesId = 115,
+                            Volume = 2749
                         },
                         new
                         {
                             Id = 124,
                             BrandId = 3,
+                            BuildYear = 2006,
+                            Chassis = "W00SDL6884193058",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 993,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 112,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AGG234",
                             ModelId = 10,
-                            SeriesId = 115
+                            SeriesId = 115,
+                            Volume = 2748
                         },
                         new
                         {
                             Id = 125,
                             BrandId = 3,
+                            BuildYear = 2015,
+                            Chassis = "W08EG2B8045397",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 962,
                             EngineCapacity = 2000,
                             EnginePower = 81,
                             EngineTypeId = 111,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AGW217",
                             ModelId = 10,
-                            SeriesId = 115
+                            SeriesId = 115,
+                            Volume = 2746
                         },
                         new
                         {
                             Id = 126,
                             BrandId = 3,
+                            BuildYear = 2014,
+                            Chassis = "W08ELXD1044444",
+                            CountryId = 2,
                             DoorTypeId = 1,
+                            Emission = 961,
                             EngineCapacity = 2000,
                             EnginePower = 103,
                             EngineTypeId = 108,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AYQ218",
                             ModelId = 10,
-                            SeriesId = 115
+                            SeriesId = 115,
+                            Volume = 2749
                         },
                         new
                         {
                             Id = 127,
                             BrandId = 3,
+                            BuildYear = 2011,
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 924,
                             EngineCapacity = 1999,
                             EnginePower = 100,
                             EngineTypeId = 108,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1AAS219",
                             ModelId = 10,
-                            SeriesId = 109
+                            SeriesId = 109,
+                            Volume = 2748
                         },
                         new
                         {
                             Id = 128,
                             BrandId = 3,
+                            BuildYear = 2012,
+                            Chassis = "W0EX7850002",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 925,
                             EngineCapacity = 1999,
                             EnginePower = 100,
                             EngineTypeId = 108,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BZW216",
                             ModelId = 10,
-                            SeriesId = 109
+                            SeriesId = 109,
+                            Volume = 2727
                         },
                         new
                         {
                             Id = 129,
                             BrandId = 3,
+                            BuildYear = 2014,
+                            Chassis = "VFROE203509",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 928,
                             EngineCapacity = 2000,
                             EnginePower = 103,
                             EngineTypeId = 108,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BER215",
                             ModelId = 10,
-                            SeriesId = 109
+                            SeriesId = 109,
+                            Volume = 2724
                         },
                         new
                         {
                             Id = 130,
                             BrandId = 11,
+                            BuildYear = 2010,
+                            Chassis = "797165619",
+                            CountryId = 2,
                             DoorTypeId = 6,
+                            Emission = 929,
                             EngineCapacity = 2400,
                             EnginePower = 120,
                             EngineTypeId = 114,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BZU214",
                             ModelId = 28,
-                            SeriesId = 120
+                            SeriesId = 120,
+                            Volume = 2725
                         },
                         new
                         {
                             Id = 131,
                             BrandId = 11,
+                            BuildYear = 2019,
+                            Chassis = "1566655614",
+                            CountryId = 2,
                             DoorTypeId = 9,
+                            Emission = 917,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 18,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BWY211",
                             ModelId = 28,
-                            SeriesId = 120
+                            SeriesId = 120,
+                            Volume = 2726
                         },
                         new
                         {
                             Id = 132,
                             BrandId = 11,
+                            BuildYear = 2018,
+                            Chassis = "VF3LB9ES115707",
+                            CountryId = 2,
                             DoorTypeId = 3,
+                            Emission = 976,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BST212",
                             ModelId = 24,
-                            SeriesId = 121
+                            SeriesId = 121,
+                            Volume = 2823
                         },
                         new
                         {
                             Id = 133,
                             BrandId = 11,
+                            BuildYear = 2017,
+                            Chassis = "14565100",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 975,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BQR213",
                             ModelId = 26,
-                            SeriesId = 22
+                            SeriesId = 22,
+                            Volume = 2822
                         },
                         new
                         {
                             Id = 134,
                             BrandId = 11,
+                            BuildYear = 2016,
+                            Chassis = "14525611",
+                            CountryId = 2,
                             DoorTypeId = 2,
+                            Emission = 974,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 18,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BGF325",
                             ModelId = 26,
-                            SeriesId = 22
+                            SeriesId = 22,
+                            Volume = 2821
                         },
                         new
                         {
                             Id = 135,
                             BrandId = 11,
+                            BuildYear = 2015,
+                            Chassis = "W0HG153913",
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 911,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BHE326",
                             ModelId = 26,
-                            SeriesId = 22
+                            SeriesId = 22,
+                            Volume = 2825
                         },
                         new
                         {
                             Id = 136,
                             BrandId = 11,
+                            BuildYear = 2014,
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 982,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 18,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFZ324",
                             ModelId = 26,
-                            SeriesId = 22
+                            SeriesId = 22,
+                            Volume = 2826
                         },
                         new
                         {
                             Id = 137,
                             BrandId = 11,
+                            BuildYear = 2011,
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 983,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BDA327",
                             ModelId = 26,
-                            SeriesId = 124
+                            SeriesId = 124,
+                            Volume = 2824
                         },
                         new
                         {
                             Id = 138,
                             BrandId = 11,
+                            BuildYear = 2012,
+                            Chassis = "ezrra",
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 986,
                             EngineCapacity = 1600,
                             EnginePower = 84,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BQS328",
                             ModelId = 26,
-                            SeriesId = 121
+                            SeriesId = 121,
+                            Volume = 2822
                         },
                         new
                         {
                             Id = 139,
                             BrandId = 11,
+                            BuildYear = 2016,
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 985,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BAS199",
                             ModelId = 26,
-                            SeriesId = 121
+                            SeriesId = 121,
+                            Volume = 2823
                         },
                         new
                         {
                             Id = 140,
                             BrandId = 11,
+                            BuildYear = 2013,
+                            CountryId = 3,
                             DoorTypeId = 1,
+                            Emission = 912,
                             EngineCapacity = 1984,
                             EnginePower = 120,
                             EngineTypeId = 18,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BZH268",
                             ModelId = 27,
-                            SeriesId = 123
+                            SeriesId = 123,
+                            Volume = 2826
                         },
                         new
                         {
                             Id = 141,
                             BrandId = 11,
+                            BuildYear = 2012,
+                            Chassis = "W0EE9G046079",
+                            CountryId = 4,
                             DoorTypeId = 2,
+                            Emission = 911,
                             EngineCapacity = 1984,
                             EnginePower = 120,
                             EngineTypeId = 18,
                             FiscalHP = 163,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BEG357",
                             ModelId = 27,
-                            SeriesId = 122
+                            SeriesId = 122,
+                            Volume = 2825
                         },
                         new
                         {
                             Id = 142,
                             BrandId = 11,
+                            BuildYear = 2011,
+                            Chassis = "nvt",
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 912,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFO446",
                             ModelId = 27,
-                            SeriesId = 122
+                            SeriesId = 122,
+                            Volume = 2824
                         },
                         new
                         {
                             Id = 143,
                             BrandId = 11,
+                            BuildYear = 2012,
+                            Chassis = "W0LGM8LC68598",
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 131,
                             EngineCapacity = 1560,
                             EnginePower = 85,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFI535",
                             ModelId = 27,
-                            SeriesId = 122
+                            SeriesId = 122,
+                            Volume = 2822
                         },
                         new
                         {
                             Id = 144,
                             BrandId = 11,
+                            BuildYear = 2013,
+                            Chassis = "nbefzzf",
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 1322,
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFU624",
                             ModelId = 27,
-                            SeriesId = 120
+                            SeriesId = 120,
+                            Volume = 2823
                         },
                         new
                         {
                             Id = 145,
                             BrandId = 11,
+                            BuildYear = 2014,
+                            Chassis = "W0LM8E1137406",
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 1335,
                             EngineCapacity = 2000,
                             EnginePower = 100,
                             EngineTypeId = 18,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFY713",
                             ModelId = 27,
-                            SeriesId = 127
+                            SeriesId = 127,
+                            Volume = 2816
                         },
                         new
                         {
                             Id = 146,
                             BrandId = 4,
+                            BuildYear = 2015,
+                            Chassis = "W0LJD7EB615571",
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 1357,
                             EngineCapacity = 1956,
                             EnginePower = 96,
                             EngineTypeId = 38,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BFT892",
                             ModelId = 29,
-                            SeriesId = 5
+                            SeriesId = 5,
+                            Volume = 2815
                         },
                         new
                         {
                             Id = 147,
                             BrandId = 4,
+                            BuildYear = 2016,
+                            Chassis = "za4561htger",
+                            CountryId = 4,
                             DoorTypeId = 2,
+                            Emission = 1348,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 39,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BER981",
                             ModelId = 11,
-                            SeriesId = 128
+                            SeriesId = 128,
+                            Volume = 2814
                         },
                         new
                         {
                             Id = 148,
                             BrandId = 4,
+                            BuildYear = 2017,
+                            CountryId = 4,
                             DoorTypeId = 1,
+                            Emission = 1369,
                             EngineCapacity = 1686,
                             EnginePower = 81,
                             EngineTypeId = 39,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1BEE072",
                             ModelId = 11,
-                            SeriesId = 128
+                            SeriesId = 128,
+                            Volume = 2812
                         },
                         new
                         {
                             Id = 149,
                             BrandId = 4,
+                            BuildYear = 2018,
+                            Chassis = "nfezf654b",
+                            CountryId = 5,
                             DoorTypeId = 1,
+                            Emission = 1399,
                             EngineCapacity = 1956,
                             EnginePower = 103,
                             EngineTypeId = 38,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CEZ163",
                             ModelId = 29,
-                            SeriesId = 129
+                            SeriesId = 129,
+                            Volume = 2813
                         },
                         new
                         {
                             Id = 150,
                             BrandId = 4,
+                            BuildYear = 2019,
+                            Chassis = "146517",
+                            CountryId = 5,
                             DoorTypeId = 1,
+                            Emission = 1385,
                             EngineCapacity = 1598,
                             EnginePower = 81,
                             EngineTypeId = 115,
                             FiscalHP = 9,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CEA254",
                             ModelId = 11,
-                            SeriesId = 81
+                            SeriesId = 81,
+                            Volume = 2811
                         },
                         new
                         {
                             Id = 151,
                             BrandId = 1,
+                            BuildYear = 2016,
+                            Chassis = "W0L0AH599371",
+                            CountryId = 5,
                             DoorTypeId = 3,
+                            Emission = 137,
                             EngineCapacity = 2000,
                             EnginePower = 150,
                             EngineTypeId = 11,
                             FiscalHP = 11,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CEF345",
                             ModelId = 19,
-                            SeriesId = 2
+                            SeriesId = 2,
+                            Volume = 2917
                         },
                         new
                         {
                             Id = 152,
                             AverageFuel = 0,
                             BrandId = 8,
+                            BuildYear = 2013,
+                            Chassis = "W0LPEC8095933",
+                            CountryId = 5,
                             DoorTypeId = 6,
+                            Emission = 135,
                             EndDateDelivery = new DateTime(2019, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 1200,
                             EnginePower = 70,
@@ -9050,15 +9970,20 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 80,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CDF436",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 2918
                         },
                         new
                         {
                             Id = 153,
                             AverageFuel = 0,
                             BrandId = 1,
+                            BuildYear = 2012,
+                            CountryId = 5,
                             DoorTypeId = 5,
+                            Emission = 131,
                             EndDateDelivery = new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 789,
                             EnginePower = 7894,
@@ -9066,15 +9991,21 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 7894,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CDD527",
                             ModelId = 5,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 2919
                         },
                         new
                         {
                             Id = 154,
                             AverageFuel = 0,
                             BrandId = 7,
+                            BuildYear = 2011,
+                            Chassis = "W0LME418678",
+                            CountryId = 5,
                             DoorTypeId = 2,
+                            Emission = 122,
                             EndDateDelivery = new DateTime(2019, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 0,
                             EnginePower = 25,
@@ -9082,45 +10013,63 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 25,
                             FuelTypeId = 3,
                             IsActive = false,
+                            LicensePlate = "1CDX618",
                             ModelId = 23,
-                            SeriesId = 39
+                            SeriesId = 39,
+                            Volume = 2916
                         },
                         new
                         {
                             Id = 155,
                             AverageFuel = 0,
                             BrandId = 7,
+                            BuildYear = 2014,
+                            Chassis = "nf56ez1fb",
+                            CountryId = 5,
                             DoorTypeId = 6,
+                            Emission = 1236,
                             EngineCapacity = 0,
                             EnginePower = 0,
                             EngineTypeId = 34,
                             FiscalHP = 0,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CEW499",
                             ModelId = 18,
-                            SeriesId = 39
+                            SeriesId = 39,
+                            Volume = 2915
                         },
                         new
                         {
                             Id = 156,
                             AverageFuel = 0,
                             BrandId = 7,
+                            BuildYear = 2015,
+                            Chassis = "12056142",
+                            CountryId = 5,
                             DoorTypeId = 4,
+                            Emission = 122,
                             EngineCapacity = 0,
                             EnginePower = 0,
                             EngineTypeId = 34,
                             FiscalHP = 0,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CEL781",
                             ModelId = 23,
-                            SeriesId = 9
+                            SeriesId = 9,
+                            Volume = 2914
                         },
                         new
                         {
                             Id = 157,
                             AverageFuel = 0,
                             BrandId = 1,
+                            BuildYear = 2016,
+                            Chassis = "W0LEW9D8062050",
+                            CountryId = 5,
                             DoorTypeId = 2,
+                            Emission = 126,
                             EndDateDelivery = new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 789,
                             EnginePower = 789,
@@ -9128,15 +10077,21 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 789,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CEF872",
                             ModelId = 1,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 2916
                         },
                         new
                         {
                             Id = 158,
                             AverageFuel = 0,
                             BrandId = 1,
+                            BuildYear = 2019,
+                            Chassis = "SJDE11U2157331",
+                            CountryId = 5,
                             DoorTypeId = 5,
+                            Emission = 128,
                             EndDateDelivery = new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 789,
                             EnginePower = 789,
@@ -9144,15 +10099,21 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 789,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CAJ963",
                             ModelId = 1,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 2912
                         },
                         new
                         {
                             Id = 159,
                             AverageFuel = 0,
                             BrandId = 12,
+                            BuildYear = 2018,
+                            Chassis = "WBA1090K051447",
+                            CountryId = 5,
                             DoorTypeId = 2,
+                            Emission = 129,
                             EndDateDelivery = new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 0,
                             EnginePower = 100,
@@ -9160,15 +10121,21 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 100,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CAG654",
                             ModelId = 33,
-                            SeriesId = 27
+                            SeriesId = 27,
+                            Volume = 2911
                         },
                         new
                         {
                             Id = 160,
                             AverageFuel = 0,
                             BrandId = 8,
+                            BuildYear = 2017,
+                            Chassis = "100zda4545",
+                            CountryId = 5,
                             DoorTypeId = 6,
+                            Emission = 128,
                             EndDateDelivery = new DateTime(2019, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EngineCapacity = 0,
                             EnginePower = 120,
@@ -9176,38 +10143,52 @@ namespace eMenka.Data.Migrations
                             FiscalHP = 50,
                             FuelTypeId = 9,
                             IsActive = false,
+                            LicensePlate = "1CAD345",
                             ModelId = 16,
-                            SeriesId = 11
+                            SeriesId = 11,
+                            Volume = 2916
                         },
                         new
                         {
                             Id = 161,
                             AverageFuel = 0,
                             BrandId = 7,
+                            BuildYear = 2011,
+                            Chassis = "W0LGM57K39231",
+                            CountryId = 5,
                             DoorTypeId = 4,
+                            Emission = 172,
                             EngineCapacity = 0,
                             EnginePower = 0,
                             EngineTypeId = 9,
                             FiscalHP = 0,
                             FuelTypeId = 3,
                             IsActive = false,
+                            LicensePlate = "1CZK236",
                             ModelId = 22,
-                            SeriesId = 9
+                            SeriesId = 9,
+                            Volume = 2919
                         },
                         new
                         {
                             Id = 162,
                             AverageFuel = 0,
                             BrandId = 1,
+                            BuildYear = 2012,
+                            Chassis = "WAUZZZ8R81105",
+                            CountryId = 5,
                             DoorTypeId = 3,
+                            Emission = 122,
                             EngineCapacity = 0,
                             EnginePower = 0,
                             EngineTypeId = 2,
                             FiscalHP = 0,
                             FuelTypeId = 10,
                             IsActive = false,
+                            LicensePlate = "1CZI127",
                             ModelId = 1,
-                            SeriesId = 1
+                            SeriesId = 1,
+                            Volume = 2918
                         });
                 });
 
@@ -9438,7 +10419,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId");
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Serie", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Series")
@@ -9456,6 +10437,10 @@ namespace eMenka.Data.Migrations
                     b.HasOne("eMenka.Domain.Classes.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");
+
+                    b.HasOne("eMenka.Domain.Classes.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
 
                     b.HasOne("eMenka.Domain.Classes.DoorType", "DoorType")
                         .WithMany("Vehicles")
@@ -9477,9 +10462,9 @@ namespace eMenka.Data.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("ModelId");
 
-                    b.HasOne("eMenka.Domain.Classes.Serie", "Serie")
+                    b.HasOne("eMenka.Domain.Classes.Series", "Series")
                         .WithMany()
-                        .HasForeignKey("SerieId");
+                        .HasForeignKey("SeriesId");
                 });
 #pragma warning restore 612, 618
         }

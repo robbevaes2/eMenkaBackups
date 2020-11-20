@@ -21,8 +21,9 @@ namespace eMenka.API.Controllers
         private readonly IDoorTypeRepository _doorTypeRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
+        private readonly ISerieRepository _serieRepository;
 
-        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository, IFuelCardRepository fuelCardRepository)
+        public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository, IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository, IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository, ICategoryRepository categoryRepository, ISerieRepository serieRepository, IFuelCardRepository fuelCardRepository)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -32,6 +33,7 @@ namespace eMenka.API.Controllers
             _doorTypeRepository = doorTypeRepository;
             _categoryRepository = categoryRepository;
             _fuelCardRepository = fuelCardRepository;
+            _serieRepository = serieRepository;
         }
 
         [HttpGet]
@@ -118,6 +120,10 @@ namespace eMenka.API.Controllers
             if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
                 return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
 
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
+
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
         }
@@ -153,6 +159,9 @@ namespace eMenka.API.Controllers
             if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
                 return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
 
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
+                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 
             if (!isUpdated)
@@ -171,5 +180,44 @@ namespace eMenka.API.Controllers
             _vehicleRepository.Remove(vehicle);
             return Ok();
         }
+
+        public VehicleModel MapVehicleEntity(Vehicle vehicle)
+        {
+            return new VehicleModel
+            {
+                Id = vehicle.Id,
+                BrandId = vehicle.Brand.Id,
+                FuelTypeId = vehicle.FuelTypeId,
+                EngineTypeId = vehicle.EngineType.Id,
+                DoorTypeId = vehicle.DoorTypeId,
+                Emission = vehicle.Emission,
+                FiscalHP = vehicle.FiscalHP,
+                IsActive = vehicle.IsActive,
+                Power = vehicle.Power,
+                Volume = vehicle.Volume,
+                ModelId = vehicle.Id,
+                FuelCardId = vehicle.FuelCardId
+            };
+        }
+
+        public Vehicle MapVehicleModel(VehicleModel vehicleModel)
+        {
+            return new Vehicle
+            {
+                Id = vehicleModel.Id,
+                EngineTypeId = vehicleModel.EngineTypeId,
+                BrandId = vehicleModel.BrandId,
+                DoorTypeId = vehicleModel.DoorTypeId,
+                Emission = vehicleModel.Emission,
+                FiscalHP = vehicleModel.FiscalHP,
+                FuelTypeId = vehicleModel.FuelTypeId,
+                IsActive = vehicleModel.IsActive,
+                ModelId = vehicleModel.ModelId,
+                Power = vehicleModel.Power,
+                Volume = vehicleModel.Volume,
+                FuelCardId = vehicleModel.FuelCardId
+            };
+        }
+
     }
 }

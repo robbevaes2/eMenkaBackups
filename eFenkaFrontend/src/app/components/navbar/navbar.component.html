@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a href="#" class="navbar-brand">
+      <img src="assets/CompanyLogo.png" height="40" alt="CoolBrand">
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <fa-icon [icon]="faBars"></fa-icon>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+          <a [routerLink]="['records']" class="nav-item nav-link active">Dossiers</a>
+          <a href="#" class="nav-item nav-link">Bestuurders</a>
+          <a href="#" class="nav-item nav-link">Leveranciers</a>
+          <a href="#" class="nav-item nav-link">Tankkaarten</a>
+          <a [routerLink]="['vehicles']" class="nav-item nav-link">Voertuigen</a>
+      </div>
+      <!-- <div class="navbar-nav ml-auto">
+          <a href="#" class="nav-item nav-link">Login</a>
+      </div> -->
+  </div>
+</nav>
