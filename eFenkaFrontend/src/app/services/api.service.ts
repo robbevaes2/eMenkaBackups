@@ -18,6 +18,7 @@ import { FuelType } from '../models/fuel-type/fuel-type';
 import { FuelCard } from '../models/fuel-card/fuel-card';
 import { DoorType } from '../models/door-type/door-type';
 import { Category } from '../models/category/category';
+import { CostAllocation } from '../models/cost-allocatoin/cost-allocation';
 
 const BASE_API_URL = 'https://localhost:44356/api/';
 
@@ -127,9 +128,7 @@ export class ApiService {
   }
 
   deleteRecord(id: number) {
-    return this.http.delete('record/' + id).pipe(
-      catchError(this.handleError)
-    );
+    return this.deleteFromAPI('record/' + id);
   }
 
   getAllBrands(): Observable<Brand[]> {
@@ -148,12 +147,20 @@ export class ApiService {
     return this.getFromAPI<EngineType[]>('enginetype/brand/' + id);
   }
 
+  getAllVehiclesByBrandId(id: number): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
+  }
+
   getAllFuelTypes(): Observable<FuelType[]> {
     return this.getFromAPI<FuelType[]>('fueltype/');
   }
 
   getAllFuelCards(): Observable<FuelCard[]> {
     return this.getFromAPI<FuelCard[]>('fuelcard/');
+  }
+
+  updateFuelCard(id: number, FuelCardModel: any) {
+    return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
 
   getAllDoorTypes(): Observable<DoorType[]> {
@@ -166,5 +173,10 @@ export class ApiService {
 
   getAllCorporatoins(): Observable<Corporation[]> {
     return this.getFromAPI<Corporation[]>('corporation/');
+  }
+
+  getAllCostAllocations(): Observable<CostAllocation[]> {
+    return this.getFromAPI<CostAllocation[]>('costallocation/');
+
   }
 }

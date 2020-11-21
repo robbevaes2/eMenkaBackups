@@ -1,3 +1,4 @@
+import { FuelCard } from './../../models/fuel-card/fuel-card';
 import { ApiService } from 'src/app/services/api.service';
 import {Corporation} from '../../models/corporation/corporation';
 import { FuelType } from 'src/app/models/fuel-type/fuel-type';
@@ -15,7 +16,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Record } from 'src/app/models/record/record';
 import { Term } from 'src/app/enums/term/term.enum';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
-import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from 'src/app/models/engine-type/engine-type';
 
 @Component({
@@ -28,11 +28,6 @@ export class RecordDetailsComponent implements OnInit {
   form: FormGroup;
   selectedRecord: Record;
 
-  termKeys = [];
-  terms = Term;
-  usageKeys = [];
-  usages = Usage;
-
   countries: Country[];
   corporations: Corporation[];
   costAllocations: CostAllocation[];
@@ -43,15 +38,14 @@ export class RecordDetailsComponent implements OnInit {
   vehicles: Vehicle[];
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
-    this.termKeys = Object.keys(this.terms).filter(f => !isNaN(Number(f)));
-    this.usageKeys = Object.keys(this.usages).filter(f => !isNaN(Number(f)));
+
   }
 
   ngOnInit(): void {
     const recordId = this.route.snapshot.params['index'];
 
     this.apiService.getRecordById(recordId).subscribe(data => {
-      // this.countries = this.getCountries();
+      this.countries = this.getCountries();
       // this.corporations = this.getCorporations();
       // this.costAllocations = this.getCostAllocations();
       // this.fuelCards = this.getFuelCards();
@@ -64,6 +58,12 @@ export class RecordDetailsComponent implements OnInit {
       console.log(this.selectedRecord);
 
       this.setCorporatoin();
+      this.setCostAllocation();
+      this.setFuelCard();
+      this.setBrand();
+      this.setFuelType();
+      this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
+      this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
 
       this.form = new FormGroup({
         type: new FormControl(null, [Validators.required]),
@@ -102,7 +102,7 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls['country'].setValue(this.selectedRecord.fuelCard.vehicle.country.name);
     }
-    this.form.controls['startDate'].setValue(this.selectedRecord.startDate);
+    this.form.controls['startDate'].setValue(new Date(this.selectedRecord.startDate).toISOString().substring(0, 10));
     if (this.selectedRecord.corporation === null) {
       this.form.controls['corporation'].setValue('');
     } else {
@@ -111,21 +111,15 @@ export class RecordDetailsComponent implements OnInit {
     if (this.selectedRecord.costAllocation === null) {
       this.form.controls['costAllocation'].setValue('');
     } else {
-      this.form.controls['costAllocation'].setValue(this.selectedRecord.costAllocation.name);
+      this.form.controls['costAllocation'].setValue(this.selectedRecord.costAllocation.id);
     }
-    this.form.controls['fuelCard'].setValue(this.selectedRecord.fuelCard.fuelCardNumber);
+    this.form.controls['fuelCard'].setValue(this.selectedRecord.fuelCard.id);
     this.form.controls['usage'].setValue(this.selectedRecord.usage);
     this.form.controls['driver'].setValue(this.selectedRecord.fuelCard.driver);
-    this.form.controls['brand'].setValue(this.selectedRecord.fuelCard.vehicle.brand);
-    this.form.controls['fuelType'].setValue(this.selectedRecord.fuelCard.vehicle.fuelType.name);
-    this.form.controls['model'].setValue(this.selectedRecord.fuelCard.vehicle.model.name);
-    if (this.selectedRecord.fuelCard.vehicle.serie === null) {
-      this.form.controls['vehicle'].setValue('');
-    } else {
-      this.form.controls['vehicle'].setValue(this.selectedRecord.fuelCard.vehicle.serie.name + ' ' +
-      this.selectedRecord.fuelCard.vehicle.doorType.name);
-    }
-
+    this.form.controls['brand'].setValue(this.selectedRecord.fuelCard.vehicle.brand.id);
+    this.form.controls['fuelType'].setValue(this.selectedRecord.fuelCard.vehicle.fuelType.id);
+    this.form.controls['model'].setValue(this.selectedRecord.fuelCard.vehicle.model.id);
+    this.form.controls['vehicle'].setValue(this.selectedRecord.fuelCard.vehicle.id);
     this.form.controls['buildYear'].setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
     this.form.controls['kilometers'].setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
     this.form.controls['exteriorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.exteriorColors);
@@ -178,6 +172,19 @@ export class RecordDetailsComponent implements OnInit {
     this.isEditable = true;
   }
 
+  onChangedBrand(event): void {
+    const brandId = event.target.value;
+    console.log('changed with ' + brandId);
+    this.setAllDropDownsByBrand(brandId);
+  }
+
+  setAllDropDownsByBrand(brandId: number): void {
+    this.setModels(brandId);
+    this.setVehicle(brandId);
+    // this.setSeries(brandId);
+    // this.setEngineTypes(brandId);
+  }
+
   navigateToListRecordComponent(): void {
     this.router.navigate(['/records']);
   }
@@ -185,9 +192,15 @@ export class RecordDetailsComponent implements OnInit {
   saveEditRecord(form: FormGroup): void {
     if (this.isEditable) {
       if (confirm('Are you sure you want to save this vehicle?')) {
-        // Save vehicle and assign new vehicle (get request by vehicleId) to selectedRecord
-        //this.fillForm();
-        this.disableForm();
+        this.apiService.updateRecord(this.selectedRecord.id, this.mapToModel(form.value)).subscribe(() => {
+
+          this.apiService.updateVehicle(form.value.vehicle, this.mapToVehicle(form.value)).subscribe();
+          this.apiService.getRecordById(this.selectedRecord.id).subscribe(data => {
+            this.selectedRecord = data;
+            this.fillForm();
+            this.disableForm();
+          });
+        });
       }
     } else {
       this.enableForm();
@@ -196,8 +209,7 @@ export class RecordDetailsComponent implements OnInit {
 
   deleteRecord(): void {
     if (confirm('Are you sure you want to delete this vehicle?')) {
-        // Delete vehicle
-        this.navigateToListRecordComponent();
+      this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
     }
   }
 
@@ -208,7 +220,7 @@ export class RecordDetailsComponent implements OnInit {
 
   mapToModel(values: any): any {
     return {
-      id: this.selectedRecord,
+      id: this.selectedRecord.id,
       fuelCardId: Number(values.fuelCard),
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
@@ -219,19 +231,81 @@ export class RecordDetailsComponent implements OnInit {
     };
   }
 
+  mapToFuelCard(values: any): any {
+    return {
+      id: Number(values.fuelCard),
+      driverId: this.fuelCards[values.fuelCard].driver.id,
+      startDate: this.fuelCards[values.fuelCard].startDate,
+      endDate: this.fuelCards[values.fuelCard].endDate,
+      isBlocked: false,
+      blockingDate: new Date('10-10-2016'),
+      blockingReason: '',
+      pinCode: '1234',
+      vehicleId: Number(values.vehicle),
+      number: this.fuelCards[values.fuelCard].fuelCardNumber,
+    };
+  }
+
+  mapToVehicle(values: any): any {
+    return {
+      Id: Number(values.vehicle),
+      brandId: this.vehicles[values.vehicle - 1].brand.id,
+      modelId:  this.vehicles[values.vehicle - 1].model.id,
+      fuelTypeId:  this.vehicles[values.vehicle - 1].fuelType.id,
+      engineTypeId:  this.vehicles[values.vehicle - 1].engineType.id,
+      doorTypeId:  this.vehicles[values.vehicle - 1].doorType.id,
+      fuelCardId:  this.vehicles[values.vehicle - 1].fuelCard.id,
+      volume: this.vehicles[values.vehicle - 1].volume,
+      fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
+      emission: this.vehicles[values.vehicle - 1].emission,
+      power: this.vehicles[values.vehicle - 1].power,
+      isActive: true,
+      categoryId: this.vehicles[values.vehicle - 1].category.id,
+      licensePlate: values.licensePlate,
+      chassis: values.chassis,
+      endDateDelivery: this.vehicles[values.vehicle - 1].endDateDelivery,
+      seriesId: this.vehicles[values.vehicle - 1].serie.id,
+      buildYear: values.buildYear,
+    };
+  }
+
   setCorporatoin(): void {
     this.apiService.getAllCorporatoins().subscribe(data => this.corporations = data);
   }
 
-  // getCountries(): Country[] {
-  //   return [
-  //     new Country(1, 'België', 'BE', 'Belg', false, true),
-  //     new Country(2, 'Nederland', 'NL', 'Nederlandse', true, true),
-  //     new Country(3, 'Duitsland', 'DE', 'Duitse', false, true),
-  //     new Country(4, 'Frankrijk', 'FR', 'Franse', false, true),
-  //     new Country(5, 'Spanje', 'ES', 'Spaanse', false, false),
-  //   ];
-  // }
+  setCostAllocation(): void {
+    this.apiService.getAllCostAllocations().subscribe(data => this.costAllocations = data);
+  }
+
+  setFuelCard(): void {
+    this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
+  }
+
+  setBrand(): void {
+    this.apiService.getAllBrands().subscribe(data => this.brands = data);
+  }
+
+  setFuelType(): void {
+    this.apiService.getAllFuelTypes().subscribe(data => this.fuelTypes = data);
+  }
+
+  setModels(brandId: number): void {
+    this.apiService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
+  }
+
+  setVehicle(brandId: number): void {
+    this.apiService.getAllVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
+  }
+
+  getCountries(): Country[] {
+    return [
+      new Country(1, 'België', 'BE', 'Belg', false, true),
+      new Country(2, 'Nederland', 'NL', 'Nederlandse', true, true),
+      new Country(3, 'Duitsland', 'DE', 'Duitse', false, true),
+      new Country(4, 'Frankrijk', 'FR', 'Franse', false, true),
+      new Country(5, 'Spanje', 'ES', 'Spaanse', false, false),
+    ];
+  }
   // getCorporations(): Corporation[] {
   //   return [
   //     new Corporation(1, 'eMenKa BV', null, null, null, null),
