@@ -15,7 +15,7 @@
             <label for="types">Type:</label>
             <select name="types" id="types" formControlName="type" class="col-md-12 browser-default custom-select">
               <option [ngValue]="null" disabled>-</option>
-              <option [value]="0">Long</option>
+              <option [value]="1">Long</option>
               <option [value]="2">Short</option>
               <option [value]="3">Privé</option>
             </select><br>
@@ -67,11 +67,11 @@
           <div>
             <label for="usages">Gebruik:</label>
             <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
-              <option [ngValue]="null" disabled>-</option>
-              <option [value]="0">Pool</option>
-              <option [value]="1">Definitive</option>
-              <option [value]="2">Replacement</option>
-              <option [value]="3">RunIn</option>
+              <!-- <option [ngValue]="null" disabled>-</option> -->
+              <option [value]="1">Pool</option>
+              <option [value]="2">Definitive</option>
+              <option [value]="3">Replacement</option>
+              <option [value]="4">RunIn</option>
             </select><br>
           </div>
         </div>
@@ -101,7 +101,7 @@
             <label for="vehicles">Voertuig:</label>
             <select name="vehicles" id="vehicles" formControlName="vehicle" class="col-md-12 browser-default custom-select">
               <option [ngValue]="null" disabled>-</option>
-              <option *ngFor="let item of vehicles" [value]="item.id">{{ item.id }}</option>
+              <option *ngFor="let item of vehicles" [value]="item.id">{{ item.id }} {{ item.doorType.name }}</option>
             </select><br>
           </div>
           <div>
