@@ -33,4 +33,6 @@ export class Vehicle {
   buildYear: number;
   kilometers: number;
   averageFuel: number;
+
+  constructor() {}
 }

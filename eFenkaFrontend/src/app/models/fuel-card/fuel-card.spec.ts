@@ -1,7 +1,7 @@
 import { FuelCard } from './fuel-card';
 
-describe('FuelCard', () => {
+/*describe('FuelCard', () => {
   it('should create an instance', () => {
     expect(new FuelCard()).toBeTruthy();
   });
-});
+});*/

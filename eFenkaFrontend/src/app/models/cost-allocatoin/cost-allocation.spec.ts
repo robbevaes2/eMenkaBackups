@@ -1,7 +1,7 @@
 import { CostAllocation } from './cost-allocation';
 
-describe('CostAllocation', () => {
+/*describe('CostAllocation', () => {
   it('should create an instance', () => {
     expect(new CostAllocation()).toBeTruthy();
   });
-});
+});*/
