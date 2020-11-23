@@ -1,25 +1,27 @@
 ﻿using System.Linq;
 using eMenka.API.Mappers;
 using eMenka.API.Models.FuelCardModels;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
+   // [ApiController]
+   // [EnableCors("MyAllowSpecificOrigins")]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class PersonController : ControllerBase
+    public class PersonController : GenericController<Person, PersonModel, PersonReturnModel> //: ControllerBase
     {
         private readonly IPersonRepository _personRepository;
 
-        public PersonController(IPersonRepository personRepository)
+        public PersonController(IPersonRepository personRepository) : base(personRepository, new PersonMapper())
         {
             _personRepository = personRepository;
         }
-
+        /*
         [HttpGet]
         public IActionResult GetAllPersons()
         {
@@ -72,6 +74,6 @@ namespace eMenka.API.Controllers
 
             _personRepository.Remove(person);
             return Ok();
-        }
+        }*/
     }
 }
