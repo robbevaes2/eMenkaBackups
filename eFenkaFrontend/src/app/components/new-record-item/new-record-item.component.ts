@@ -40,13 +40,6 @@ export class NewRecordItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.countries = this.getCountries();
-    // this.corporations = this.getCorporations();
-    // this.costAllocations = this.getCostAllocations();
-    // this.fuelCards = this.getFuelCards();
-    // this.brands = this.getBrand();
-    // this.fuelTypes = this.getFuelTypes();
-    // this.models = this.getModels();
-    // this.vehicles = this.getVehicles();
 
     this.setCorporatoin();
     this.setCostAllocation();

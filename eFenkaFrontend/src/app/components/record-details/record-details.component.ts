@@ -46,13 +46,6 @@ export class RecordDetailsComponent implements OnInit {
 
     this.apiService.getRecordById(recordId).subscribe(data => {
       this.countries = this.getCountries();
-      // this.corporations = this.getCorporations();
-      // this.costAllocations = this.getCostAllocations();
-      // this.fuelCards = this.getFuelCards();
-      // this.brands = this.getBrand();
-      // this.fuelTypes = this.getFuelTypes();
-      // this.models = this.getModels();
-      // this.vehicles = this.getVehicles();
 
       this.selectedRecord = data;
       console.log(this.selectedRecord);
@@ -151,14 +144,11 @@ export class RecordDetailsComponent implements OnInit {
 
   enableForm(): void {
     this.form.controls['type'].enable();
-    this.form.controls['licensePlate'].enable();
-    this.form.controls['chassis'].enable();
     this.form.controls['registrationDate'].enable();
     this.form.controls['country'].enable();
     this.form.controls['startDate'].enable();
     this.form.controls['corporation'].enable();
     this.form.controls['costAllocation'].enable();
-    this.form.controls['fuelCard'].enable();
     this.form.controls['usage'].enable();
     this.form.controls['driver'].enable();
     this.form.controls['brand'].enable();
@@ -174,15 +164,24 @@ export class RecordDetailsComponent implements OnInit {
 
   onChangedBrand(event): void {
     const brandId = event.target.value;
-    console.log('changed with ' + brandId);
     this.setAllDropDownsByBrand(brandId);
   }
 
   setAllDropDownsByBrand(brandId: number): void {
     this.setModels(brandId);
     this.setVehicle(brandId);
-    // this.setSeries(brandId);
-    // this.setEngineTypes(brandId);
+  }
+
+  onChangedVehicle(event): void {
+    const vehicleId = event.target.value;
+    console.log('changed with ' + vehicleId);
+
+    this.apiService.getVehicleById(vehicleId).subscribe(data => {
+      this.form.controls['licensePlate'].setValue(data.licensePlate);
+      this.form.controls['chassis'].setValue(data.chassis);
+      this.form.controls['fuelCard'].setValue(data.fuelCard.id);
+
+    });
   }
 
   navigateToListRecordComponent(): void {
@@ -193,12 +192,12 @@ export class RecordDetailsComponent implements OnInit {
     if (this.isEditable) {
       if (confirm('Are you sure you want to save this vehicle?')) {
         this.apiService.updateRecord(this.selectedRecord.id, this.mapToModel(form.value)).subscribe(() => {
-
-          this.apiService.updateVehicle(form.value.vehicle, this.mapToVehicle(form.value)).subscribe();
-          this.apiService.getRecordById(this.selectedRecord.id).subscribe(data => {
-            this.selectedRecord = data;
-            this.fillForm();
-            this.disableForm();
+          this.apiService.updateVehicle(form.value.vehicle, this.mapToVehicle(form.value)).subscribe(() => {
+            this.apiService.getRecordById(this.selectedRecord.id).subscribe(data => {
+              this.selectedRecord = data;
+              this.fillForm();
+              this.disableForm();
+            });
           });
         });
       }
@@ -306,82 +305,4 @@ export class RecordDetailsComponent implements OnInit {
       new Country(5, 'Spanje', 'ES', 'Spaanse', false, false),
     ];
   }
-  // getCorporations(): Corporation[] {
-  //   return [
-  //     new Corporation(1, 'eMenKa BV', null, null, null, null),
-  //     new Corporation(1, 'eMenKa GmbH', null, null, null, null),
-  //     new Corporation(1, 'eMenKa NV', null, null, null, null),
-  //   ];
-  // }
-
-  // getCostAllocations(): CostAllocation[] {
-  //   return [
-  //     new CostAllocation(1, 'Antwerpen', null, null, null),
-  //     new CostAllocation(1, 'Gent', null, null, null),
-  //     new CostAllocation(1, 'Hasselt', null, null, null),
-  //     new CostAllocation(1, 'Antwerpen', null, null, null),
-  //   ];
-  // }
-
-  // getFuelCards(): FuelCard[] {
-  //   return [
-  //     new FuelCard(1, 'tankKaart1', null, null, null, null, null, null),
-  //     new FuelCard(2, 'tankKaart2', null, null, null, null, null, null),
-  //     new FuelCard(3, 'tankKaart3', null, null, null, null, null, null),
-  //     new FuelCard(4, 'tankKaart4', null, null, null, null, null, null),
-  //   ];
-  // }
-
-  // getBrand(): Brand[] {
-  //   return [
-  //     new Brand(1, 'Opel'),
-  //     new Brand(2, 'Ford'),
-  //     new Brand(3, 'Mini'),
-  //     new Brand(4, 'Audi'),
-  //   ];
-  // }
-
-  // getFuelTypes(): FuelType[] {
-  //   return [
-  //     new FuelType(1, 'Diezel'),
-  //     new FuelType(2, 'Benzine')
-  //   ];
-  // }
-
-  // getModels(): Model[] {
-  //   return [
-  //     new Model(1, 'gti'),
-  //     new Model(2, 'gtd'),
-  //     new Model(3, 'superNitroSpeed')
-  //   ];
-  // }
-
-  // getVehicles(): Vehicle[] {
-  //   return [{
-  //     id: 1,
-  //     brand: new Brand(1, 'Audi'),
-  //     model: new Model(3, 'A6'),
-  //     serie: new Serie(1, 'Sportback'),
-  //     fuelType: new FuelType(1, 'Benzine'),
-  //     engineType: new EngineType(1, '1.9 TDI'),
-  //     engineCapacity: 12,
-  //     enginePower: 12,
-  //     doorType: new DoorType(3, '5-deurs'),
-  //     fuelCard: new FuelCard(1, 'feazfazefazefazef', null, null, null, null, null, true),
-  //     volume: 2000,
-  //     category: null,
-  //     fiscalHP: 50,
-  //     emission: 1,
-  //     power: 300,
-  //     licensePlate: '1-abc-123',
-  //     endDateDelivery: new Date('2020-01-16'),
-  //     isActive: true,
-  //     chassis: 'feoipajfpoaezfjipio',
-  //     registrationDate: new Date('2020-01-16'),
-  //     country: new Country(1, 'België', 'BE', 'Belg', false, true),
-  //     buildYear: 2012,
-  //     kilometers: 5000,
-  //     averageFuel: 50
-  //   }]
-  // }
 }

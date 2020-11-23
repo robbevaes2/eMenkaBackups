@@ -1,63 +1,61 @@
-<div class="container">
-  <div class="row ml-1 mr-1">
-    <h1 class="col-10">Dossiers</h1>
-    <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewRecordComponent()">toevoegen</button>
-  </div>
-  <div class="md-form">
-    <input
-      type="text"
-      [(ngModel)]="searchText"
-      class="form-control"
-      id="search"
-      (ngModelChange)="searchItems()"
-      mdbInput
-    />
-    <label for="search">Search</label>
-  </div>
-  <div class="table-responsive">
-    <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
-        <thead class="sticky-top">
-          <tr>
-              <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
-                {{head | titlecase}}
-                <mdb-icon fas icon="sort"></mdb-icon>
-              </th>
-
-          </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let record of records; let i = index" (click)="navigateToRecordDetailsComponent(record.id)">
-          <!-- <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.licensePlate }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.corporation.name }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.costAllocatoin.name }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.brand.name }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.model.name }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.term }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.usage }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.fuelType.name }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.startDate.toLocaleDateString() }}</td>
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.endDate.toLocaleDateString() }}</td> -->
-          <td>{{ record.fuelCard.vehicle.licensePlate }}</td>
-          <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
-          <td>{{ record.corporation == null ? '': record.corporation.name }}</td>
-          <td>{{ record.costAllocatoin == null ? '': record.costAllocatoin.name }}</td>
-          <td>{{ record.fuelCard.vehicle.brand.name }}</td>
-          <td>{{ record.fuelCard.vehicle.model.name }}</td>
-          <td>{{ record.usage }}</td>
-          <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
-          <td>{{ dateToStringConverter(record.startDate) }}</td>
-          <td>{{ dateToStringConverter(record.endDate) }}</td>
-        </tr>
-      </tbody>
-      <!-- <tfoot>
+<div class="row ml-1 mr-1">
+  <h1 class="col-10">Dossiers</h1>
+  <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewRecordComponent()">Toevoegen</button>
+</div>
+<div class="md-form">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    class="form-control"
+    id="search"
+    (ngModelChange)="searchItems()"
+    mdbInput
+  />
+  <label for="search">Search</label>
+</div>
+<div class="table-responsive">
+  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+      <thead class="sticky-top">
         <tr>
-          <td colspan="10">
-            <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="records"></mdb-table-pagination>
-          </td>
+            <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
+              {{head | titlecase}}
+              <mdb-icon fas icon="sort"></mdb-icon>
+            </th>
+
         </tr>
-        </tfoot> -->
-    </table>
-  </div>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records; let i = index" (click)="navigateToRecordDetailsComponent(record.id)">
+        <!-- <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.licensePlate }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.corporation.name }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.costAllocatoin.name }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.brand.name }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.model.name }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.term }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.usage }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.fuelType.name }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.startDate.toLocaleDateString() }}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.endDate.toLocaleDateString() }}</td> -->
+        <td>{{ record.fuelCard.vehicle.licensePlate }}</td>
+        <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
+        <td>{{ record.corporation == null ? '': record.corporation.name }}</td>
+        <td>{{ record.costAllocation == null ? '': record.costAllocation.name }}</td>
+        <td>{{ record.fuelCard.vehicle.brand.name }}</td>
+        <td>{{ record.fuelCard.vehicle.model.name }}</td>
+        <td>{{ record.usage }}</td>
+        <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
+        <td>{{ dateToStringConverter(record.startDate) }}</td>
+        <td>{{ dateToStringConverter(record.endDate) }}</td>
+      </tr>
+    </tbody>
+    <!-- <tfoot>
+      <tr>
+        <td colspan="10">
+          <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="records"></mdb-table-pagination>
+        </td>
+      </tr>
+      </tfoot> -->
+  </table>
 </div>
 

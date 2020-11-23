@@ -2,12 +2,7 @@ import { Corporation } from './../models/corporation/corporation';
 import { Record } from 'src/app/models/record/record';
 import { Model } from './../models/model/model';
 import {Injectable} from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-  HttpParams,
-} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { Vehicle } from '../models/vehicle/vehicle';
@@ -131,6 +126,8 @@ export class ApiService {
     return this.deleteFromAPI('record/' + id);
   }
 
+  // Brands
+
   getAllBrands(): Observable<Brand[]> {
     return this.getFromAPI<Brand[]>('brand/');
   }
@@ -151,29 +148,45 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
+  // FuelType
+
   getAllFuelTypes(): Observable<FuelType[]> {
     return this.getFromAPI<FuelType[]>('fueltype/');
   }
 
+  // FuelCard
+
   getAllFuelCards(): Observable<FuelCard[]> {
     return this.getFromAPI<FuelCard[]>('fuelcard/');
+  }
+
+  getFuelCardById(id: number): Observable<FuelCard> {
+    return this.getFromAPI<FuelCard>('fuelcard/' + id);
   }
 
   updateFuelCard(id: number, FuelCardModel: any) {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
 
+  // DoorType
+
   getAllDoorTypes(): Observable<DoorType[]> {
     return this.getFromAPI<DoorType[]>('doortype/');
   }
+
+  // Categorie
 
   getAllCategories(): Observable<Category[]> {
     return this.getFromAPI<Category[]>('category/');
   }
 
+  // Corporation
+
   getAllCorporatoins(): Observable<Corporation[]> {
     return this.getFromAPI<Corporation[]>('corporation/');
   }
+
+  // CostAllocation
 
   getAllCostAllocations(): Observable<CostAllocation[]> {
     return this.getFromAPI<CostAllocation[]>('costallocation/');

@@ -1,16 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Brand } from '../../models/brand/brand';
-import { DoorType } from '../../models/door-type/door-type';
-import { Model } from '../../models/model/model';
 import { Vehicle } from '../../models/vehicle/vehicle';
-import { from } from 'rxjs';
-import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { Country } from 'src/app/models/country/country';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
-import { VehicleService } from '../../services/vehicle-service';
-import { EngineType } from 'src/app/models/engine-type/engine-type';
 import { ApiService } from '../../services/api.service';
 
 
