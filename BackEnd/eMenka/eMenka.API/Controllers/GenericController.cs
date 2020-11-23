@@ -26,7 +26,7 @@ namespace eMenka.API.Controllers
         }
         
         [HttpGet]
-        public IActionResult GetAllEntities()
+        public virtual IActionResult GetAllEntities()
         {
             var entities = _genericRepository.GetAll();
 
@@ -34,7 +34,7 @@ namespace eMenka.API.Controllers
         }
         
         [HttpGet("{id}")]
-        public IActionResult GetEntityById(int id)
+        public virtual IActionResult GetEntityById(int id)
         {
             var entity = _genericRepository.GetById(id);
             if (entity == null)
@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
         }
         
         [HttpPost]
-        public IActionResult PostEntity([FromBody] TModel model)
+        public virtual IActionResult PostEntity([FromBody] TModel model)
         {
             if (!ModelState.IsValid) return BadRequest();
 
@@ -53,7 +53,7 @@ namespace eMenka.API.Controllers
         }
         
         [HttpPut("{id}")]
-        public IActionResult UpdateEntity([FromBody] TModel model, int id)
+        public virtual IActionResult UpdateEntity([FromBody] TModel model, int id)
         {
             if (!ModelState.IsValid) return BadRequest();
 
@@ -69,7 +69,7 @@ namespace eMenka.API.Controllers
         }
         
         [HttpDelete("{id}")]
-        public IActionResult DeleteEntity(int id)
+        public virtual IActionResult DeleteEntity(int id)
         {
             var entity = _genericRepository.GetById(id);
             if (entity == null)
