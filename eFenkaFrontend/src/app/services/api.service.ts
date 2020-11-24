@@ -84,7 +84,7 @@ export class ApiService {
   // Vehicles
 
   getAllVehicles(): Observable<Vehicle[]> {
-    return this.getFromAPI<Vehicle[]>('vehicle');
+    return this.getFromAPI<Vehicle[]>('vehicle/');
   }
 
   getVehicleById(id: number): Observable<Vehicle> {
@@ -106,7 +106,7 @@ export class ApiService {
   // Records
 
   getAllRecords(): Observable<Record[]> {
-    return this.getFromAPI<Record[]>('record');
+    return this.getFromAPI<Record[]>('record/');
   }
 
   getRecordById(id: number): Observable<Record> {
@@ -190,6 +190,5 @@ export class ApiService {
 
   getAllCostAllocations(): Observable<CostAllocation[]> {
     return this.getFromAPI<CostAllocation[]>('costallocation/');
-
   }
 }

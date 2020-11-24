@@ -34,7 +34,7 @@ describe('ApiService', () => {
 
   describe('#getAllBrands', () => {
     it('should return an Observable<Brand[]>', () => {
-      let brands = dummyData.getBrands();
+      const brands = dummyData.getBrands();
 
       service.getAllBrands().subscribe(b => {
         expect(b.length).toBe(2);
@@ -130,7 +130,7 @@ class DummyData {
     new InteriorColor(1, 'Leder Dakota Schwarz'),
     new InteriorColor(2, 'Fluid Anthracit'),
     new InteriorColor(3, 'Lace/jet Black'),
-    new InteriorColor(3, 'Lyra/jet Black')
+    new InteriorColor(4, 'Lyra/jet Black')
   ];
 
   brands = [
