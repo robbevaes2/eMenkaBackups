@@ -46,6 +46,9 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.Corporation)
                 .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .ToList();
         }
 
@@ -78,6 +81,9 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.Corporation)
                 .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .FirstOrDefault(r => r.Id == id);
         }
 

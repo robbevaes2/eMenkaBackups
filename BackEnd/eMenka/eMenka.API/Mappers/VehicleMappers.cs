@@ -64,21 +64,12 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-<<<<<<< HEAD
                 EngineTypeId = (int) vehicleModel.EngineTypeId,
                 BrandId = (int) vehicleModel.BrandId,
                 DoorTypeId = (int) vehicleModel.DoorTypeId,
                 Emission = (int) vehicleModel.Emission,
                 FiscalHP = (int) vehicleModel.FiscalHP,
                 FuelTypeId = (int) vehicleModel.FuelTypeId,
-=======
-                EngineTypeId = (int)vehicleModel.EngineTypeId,
-                BrandId = (int)(int)vehicleModel.BrandId,
-                DoorTypeId = (int)vehicleModel.DoorTypeId,
-                Emission = (int)vehicleModel.Emission,
-                FiscalHP = (int)vehicleModel.FiscalHP,
-                FuelTypeId = (int)vehicleModel.FuelTypeId,
->>>>>>> Vehicles
                 IsActive = vehicleModel.IsActive,
                 ModelId = (int) vehicleModel.ModelId,
                 Power = (int) vehicleModel.Power,
@@ -91,13 +82,10 @@ namespace eMenka.API.Mappers
                 EndDateDelivery = vehicleModel.EndDateDelivery,
                 EngineCapacity = vehicleModel.EngineCapacity,
                 EnginePower = vehicleModel.EnginePower,
-<<<<<<< HEAD
                 CountryId = vehicleModel.CountryId,
                 BuildYear = vehicleModel.BuildYear,
                 CategoryId = vehicleModel.CategoryId
-=======
-                CategoryId = (int)vehicleModel.CategoryId
->>>>>>> Vehicles
+                //CategoryId = (int)vehicleModel.CategoryId
             };
         }
 

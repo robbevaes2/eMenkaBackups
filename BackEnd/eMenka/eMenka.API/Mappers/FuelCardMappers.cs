@@ -49,7 +49,8 @@ namespace eMenka.API.Mappers
                 EndDateDelivery = vehicle.EndDateDelivery,
                 EngineCapacity = vehicle.EngineCapacity,
                 EnginePower = vehicle.EnginePower,
-                Serie = VehicleMappers.MapSerieEntity(vehicle.Series)
+                Serie = VehicleMappers.MapSerieEntity(vehicle.Series),
+                BuildYear = vehicle.BuildYear
             };
         }
 

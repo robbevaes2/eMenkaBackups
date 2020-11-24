@@ -15,36 +15,36 @@ import { DoorType } from '../models/door-type/door-type';
 import { Category } from '../models/category/category';
 import { CostAllocation } from '../models/cost-allocatoin/cost-allocation';
 
-const BASE_API_URL = 'https://localhost:44356/api/';
-
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+  BASE_API_URL = 'https://localhost:44356/api/';
+
   constructor(private http: HttpClient) {
   }
 
   // Generic CRUD methods
   private getFromAPI<T>(url) {
     return this.http
-      .get<T>(BASE_API_URL + url)
+      .get<T>(this.BASE_API_URL + url)
       .pipe(catchError(this.handleError));
   }
 
   private postToAPI(url, data) {
     return this.http
-      .post(BASE_API_URL + url, data)
+      .post(this.BASE_API_URL + url, data)
       .pipe(catchError(this.handleError));
   }
 
   private putToAPI(url, data, headers?: HttpHeaders) {
     return this.http
-      .put(BASE_API_URL + url, data, {headers})
+      .put(this.BASE_API_URL + url, data, {headers})
       .pipe(catchError(this.handleError));
   }
 
   private patchToAPI(url, data, headers?: HttpHeaders) {
-    return this.http.patch(BASE_API_URL + url, data, {headers}).pipe(
+    return this.http.patch(this.BASE_API_URL + url, data, {headers}).pipe(
       catchError((err, caught) => {
         console.error(err);
         console.error(caught);
@@ -55,13 +55,13 @@ export class ApiService {
 
   private deleteFromAPI(url) {
     return this.http
-      .delete(BASE_API_URL + url)
+      .delete(this.BASE_API_URL + url)
       .pipe(catchError(this.handleError));
   }
 
   private deleteMultipleFromAPI(url, options) {
     return this.http
-      .delete(BASE_API_URL + url, options)
+      .delete(this.BASE_API_URL + url, options)
       .pipe(catchError(this.handleError));
   }
 

@@ -45,6 +45,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
+                .Include(s => s.Series)
                 .ToList();
         }
 
@@ -61,6 +62,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
+                .Include(s => s.Series)
                 .ToList();
         }
     }
