@@ -26,6 +26,16 @@
       </thead>
       <tbody>
         <tr *ngFor="let vehicle of vehicles; let i = index" (click)="navigateToVehicleDetailsComponent(vehicle.id)">        
+          <th >{{vehicle.brand.name}}</th>
+          <td >{{vehicle.model.name}}</td>
+          <td >{{vehicle.fuelType.name}}</td>
+          <td >{{vehicle.engineType.name}}</td>
+          <td >{{vehicle.doorType.name}}</td>
+          <td >{{vehicle.volume}}</td>
+          <td >{{vehicle.fiscalHP}}</td>
+          <td >{{vehicle.power}}</td>
+          <td >{{dateToStringConverter(vehicle.endDateDelivery)}}</td>
+          <!--
           <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.brand.name}}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.model.name}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fuelType.name}}</td>
@@ -35,8 +45,10 @@
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalePk}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.power}}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endData.toLocaleDateString()}}</td>
+          -->
         </tr>
       </tbody>
+      <!--
       <tfoot class="grey lighten-5 w-100">
       <tr>
         <td colspan="10">
@@ -44,6 +56,7 @@
         </td>
       </tr>
       </tfoot>
+      -->
     </table>
   </div>
   
