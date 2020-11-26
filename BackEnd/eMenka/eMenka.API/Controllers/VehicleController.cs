@@ -118,8 +118,11 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
-            if (_fuelCardRepository.GetById((int) vehicleModel.FuelCardId) == null)
-                return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+            if (vehicleModel.FuelCardId != null)
+            {
+                if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
+                    return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+            }
 
             if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
@@ -157,8 +160,11 @@ namespace eMenka.API.Controllers
             if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
-            if (_fuelCardRepository.GetById((int) vehicleModel.FuelCardId) == null)
-                return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+            if (vehicleModel.FuelCardId != null)
+            {
+                if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
+                    return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+            }
 
             if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
