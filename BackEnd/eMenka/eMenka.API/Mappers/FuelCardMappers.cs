@@ -21,6 +21,7 @@ namespace eMenka.API.Mappers
                 BlockingReason = fuelCard.BlockingReason,
                 IsBlocked = fuelCard.IsBlocked,
                 PinCode = fuelCard.PinCode,
+<<<<<<< HEAD
                 Vehicle = MapVehicleEntity(fuelCard.Vehicle)
             };
         }
@@ -51,6 +52,10 @@ namespace eMenka.API.Mappers
                 EnginePower = vehicle.EnginePower,
                 Serie = VehicleMappers.MapSerieEntity(vehicle.Series),
                 BuildYear = vehicle.BuildYear
+=======
+                Number = fuelCard.Number,
+                Vehicle = MapVehicleEntity(fuelCard.Vehicle)
+>>>>>>> Development
             };
         }
 
@@ -66,8 +71,43 @@ namespace eMenka.API.Mappers
                 BlockingReason = fuelCardModel.BlockingReason,
                 IsBlocked = fuelCardModel.IsBlocked,
                 PinCode = fuelCardModel.PinCode,
+<<<<<<< HEAD
                 VehicleId = fuelCardModel.VehicleId,
                 Number = fuelCardModel.Number
+=======
+                Number = fuelCardModel.Number,
+                VehicleId = fuelCardModel.VehicleId
+            };
+        }
+
+        public static VehicleReturnModel MapVehicleEntity(Vehicle vehicle)
+        {
+            if (vehicle == null)
+                return null;
+            return new VehicleReturnModel
+            {
+                Id = vehicle.Id,
+                Brand = VehicleMappers.MapBrandEntity(vehicle.Brand),
+                FuelType = VehicleMappers.MapFuelTypeEntity(vehicle.FuelType),
+                EngineType = VehicleMappers.MapEngineTypeEntity(vehicle.EngineType),
+                DoorType = VehicleMappers.MapDoorTypeEntity(vehicle.DoorType),
+                Emission = vehicle.Emission,
+                FiscalHP = vehicle.FiscalHP,
+                IsActive = vehicle.IsActive,
+                Power = vehicle.Power,
+                Volume = vehicle.Volume,
+                Model = VehicleMappers.MapModelEntity(vehicle.Model),
+                Category = VehicleMappers.MapCategoryEntity(vehicle.Category),
+                LicensePlate = vehicle.LicensePlate,
+                Chassis = vehicle.Chassis,
+                AverageFuel = vehicle.AverageFuel,
+                EndDateDelivery = vehicle.EndDateDelivery,
+                EngineCapacity = vehicle.EngineCapacity,
+                EnginePower = vehicle.EnginePower,
+                Serie = VehicleMappers.MapSerieEntity(vehicle.Series),
+                BuildYear = vehicle.BuildYear,
+                Country = VehicleMappers.MapCountryEntity(vehicle.Country)
+>>>>>>> Development
             };
         }
 
