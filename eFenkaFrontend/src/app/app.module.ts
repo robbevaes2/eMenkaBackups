@@ -18,6 +18,7 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { HttpClientModule } from '@angular/common/http';
 import { FuelcardListComponent } from './components/fuelcard-list/fuelcard-list.component';
 import { FuelcardDetailsComponent } from './components/fuelcard-details/fuelcard-details.component';
+import {FuelCardService} from './services/fuelcard-service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { FuelcardDetailsComponent } from './components/fuelcard-details/fuelcard
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [VehicleService],
+  providers: [VehicleService, FuelCardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

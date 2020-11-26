@@ -16,6 +16,7 @@ namespace eMenka.API.Mappers
                 Driver = MapDriverEntity(fuelCard.Driver),
                 EndDate = fuelCard.EndDate,
                 StartDate = fuelCard.StartDate,
+                Company = fuelCard.Company,
                 Id = fuelCard.Id,
                 BlockingDate = fuelCard.BlockingDate,
                 BlockingReason = fuelCard.BlockingReason,

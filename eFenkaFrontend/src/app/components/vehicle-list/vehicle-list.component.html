@@ -1,44 +1,47 @@
 <div class="container">
   <div class="row ml-1 mr-1">
     <h1 class="col-10">Voertuigen</h1>
-    <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewVehicleComponent()">toevoegen</button>
+    <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewVehicleComponent()">
+      toevoegen
+    </button>
   </div>
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
-        <tr>
-          <th scope="col" (click)="sortByBrand()">Merk</th>
-          <th scope="col" >Model</th>
-          <th scope="col">Brandstof</th>
-          <th scope="col">Type motor</th>
-          <th scope="col">Serie</th>
-          <th scope="col">Aantal deuren</th>
-          <th scope="col">Motor capaciteit</th>
-          <th scope="col">Fiscale PK</th>
-          <th scope="col">Vermogen</th>
-          <th scope="col" (click)="sortByDate()">Levering</th>
-        </tr>
+      <tr>
+        <th scope="col" (click)="sortByBrand()">Merk</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brandstof</th>
+        <th scope="col">Type motor</th>
+        <th scope="col">Serie</th>
+        <th scope="col">Aantal deuren</th>
+        <th scope="col">Motor capaciteit</th>
+        <th scope="col">Fiscale PK</th>
+        <th scope="col">Vermogen</th>
+        <th scope="col" (click)="sortByDate()">Levering</th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
-            (click)="navigateToVehicleDetailsComponent(vehicle.id)">
-          <td scope="row">{{ vehicle.brand?.name }}</td>
-          <td>{{ vehicle.model?.name }}</td>
-          <td>{{ vehicle.fuelType?.name }}</td>
-          <td>{{ vehicle.engineType?.name }}</td>
-          <td>{{ vehicle.category?.name }}</td>
-          <td>{{ vehicle.doorType?.name }}</td>
-          <td>{{ vehicle.volume }}</td>
-          <td>{{ vehicle.fiscalHP }}</td>
-          <td>{{ vehicle.power }}</td>
-          <td>{{ dateToStringConverter(vehicle.endDateDelivery) }}</td>
-        </tr>
+      <tr *ngFor="let vehicle of vehicles | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
+          (click)="navigateToVehicleDetailsComponent(vehicle.id)">
+        <td scope="row">{{ vehicle.brand?.name }}</td>
+        <td>{{ vehicle.model?.name }}</td>
+        <td>{{ vehicle.fuelType?.name }}</td>
+        <td>{{ vehicle.engineType?.name }}</td>
+        <td>{{ vehicle.category?.name }}</td>
+        <td>{{ vehicle.doorType?.name }}</td>
+        <td>{{ vehicle.volume }}</td>
+        <td>{{ vehicle.fiscalHP }}</td>
+        <td>{{ vehicle.power }}</td>
+        <td>{{ vehicle.endDateDelivery | date: 'dd/MM/yyyy' }}</td>
+      </tr>
       </tbody>
     </table>
   </div>
-  <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true" (pageChange)="switchPage($event)"></pagination-controls>
+  <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true"
+                       (pageChange)="switchPage($event)"></pagination-controls>
   <select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
-    <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount" >{{pageAmount}} items per page</option>
+    <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount">{{pageAmount}} items per page</option>
   </select>
 </div>
 

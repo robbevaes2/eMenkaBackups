@@ -1,21 +1,19 @@
-import { Record } from './../../models/record/record';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Term } from '../../enums/term/term.enum';
-import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { Company } from 'src/app/models/company/company';
-import { faCity } from '@fortawesome/free-solid-svg-icons';
-import { Usage } from 'src/app/enums/usage/usage.enum';
-import { Vehicle } from 'src/app/models/vehicle/vehicle';
-import { Brand } from 'src/app/models/brand/brand';
-import { Model } from 'src/app/models/model/model';
-import { Serie } from 'src/app/models/serie/serie';
-import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { Driver } from 'src/app/models/driver/driver';
-import { Person } from '../../models/person/person';
-import { Language } from '../../enums/language/language.enum';
-import { EngineType } from 'src/app/models/engine-type/engine-type';
-import { DoorType } from 'src/app/models/door-type/door-type';
+import {Record} from './../../models/record/record';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Term} from '../../enums/term/term.enum';
+import {FuelCard} from 'src/app/models/fuel-card/fuel-card';
+import {Company} from 'src/app/models/company/company';
+import {Usage} from 'src/app/enums/usage/usage.enum';
+import {Vehicle} from 'src/app/models/vehicle/vehicle';
+import {Brand} from 'src/app/models/brand/brand';
+import {Model} from 'src/app/models/model/model';
+import {FuelType} from 'src/app/models/fuel-type/fuel-type';
+import {Driver} from 'src/app/models/driver/driver';
+import {Person} from '../../models/person/person';
+import {Language} from '../../enums/language/language.enum';
+import {EngineType} from 'src/app/models/engine-type/engine-type';
+import {DoorType} from 'src/app/models/door-type/door-type';
 
 @Component({
   selector: 'app-record-list',
@@ -31,7 +29,8 @@ export class RecordListComponent implements OnInit {
   pageSize;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit(): void {
     this.records = this.getRecordDummyList();
@@ -61,7 +60,7 @@ export class RecordListComponent implements OnInit {
       {
         id: 1,
         fuelCard: new FuelCard(1, this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
-          null, new Date('2020-01-16'), new Date('2022-01-16'), true),
+          null, null,  new Date('2020-01-16'), new Date('2022-01-16'), true),
         company: new Company(1, 'eMenKa', 'description', null, true, true, null, null, null),
         city: 'Hasselt',
         term: Term.Short,
@@ -72,7 +71,7 @@ export class RecordListComponent implements OnInit {
       {
         id: 2,
         fuelCard: new FuelCard(2, this.getVehicle(), new Driver(1, this.getPerson(), null, null, null),
-          null, new Date('2020-01-20'), new Date('2022-01-20'), true),
+          null,  null, new Date('2020-01-20'), new Date('2022-01-20'), true),
         company: new Company(2, 'PXL', 'description', null, true, true, null, null, null),
         city: 'Hasselt',
         term: Term.Long,
@@ -80,7 +79,7 @@ export class RecordListComponent implements OnInit {
         endDate: new Date('2022-01-20'),
         usage: Usage.Definitive
       }
-    ]
+    ];
   }
 
   getVehicle(): Vehicle {
@@ -88,11 +87,11 @@ export class RecordListComponent implements OnInit {
       id: 1,
       brand: new Brand(1, 'BMW'),
       model: new Model(1, 'M4'),
-      //serie: new Serie(1, 'Eco'),
+      // serie: new Serie(1, 'Eco'),
       fuelType: new FuelType(1, 'Benzine'),
       engineType: new EngineType(1, '1.9 JTD'),
       doorType: new DoorType(1, '5-deurs'),
-      fuelCard: new FuelCard(1, null, null, null, null, null, true),
+      fuelCard: new FuelCard(1, null, null, null,  null, null, null, true),
       volume: 2000,
       fiscalHP: 50,
       emission: 1,
@@ -110,18 +109,18 @@ export class RecordListComponent implements OnInit {
   }
 
   getPerson(): Person {
-    return {
-      id: 1,
-      firstname: 'Joske',
-      lastname: 'Termalen',
-      birthDate: new Date('1999-02-22'),
-      language: Language.Dutch,
-      driversLicenseNumber: null,
-      driversLicenseType: null,
-      startDateDriversLicense: null,
-      endDateDriversLicense: null,
-      gender: null,
-      title: null
-    }
+    const birthDate = new Date('1999-02-22');
+    return new Person(
+      1,
+      'Joske',
+      'Termalen',
+      birthDate,
+      Language.Dutch,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null);
   }
 }

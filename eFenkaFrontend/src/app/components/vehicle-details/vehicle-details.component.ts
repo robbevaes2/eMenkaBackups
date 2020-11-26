@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Brand } from 'src/app/models/brand/brand';
-import { DoorType } from 'src/app/models/door-type/door-type';
-import { EngineType } from 'src/app/models/engine-type/engine-type';
-import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { Model } from 'src/app/models/model/model';
-import { Serie } from 'src/app/models/serie/serie';
-import { Vehicle } from 'src/app/models/vehicle/vehicle';
-import { VehicleService } from 'src/app/services/vehicle-service';
-import { FuelType } from '../../models/fuel-type/fuel-type';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Brand} from 'src/app/models/brand/brand';
+import {DoorType} from 'src/app/models/door-type/door-type';
+import {EngineType} from 'src/app/models/engine-type/engine-type';
+import {FuelCard} from 'src/app/models/fuel-card/fuel-card';
+import {Model} from 'src/app/models/model/model';
+import {Serie} from 'src/app/models/serie/serie';
+import {Vehicle} from 'src/app/models/vehicle/vehicle';
+import {VehicleService} from 'src/app/services/vehicle-service';
+import {FuelType} from '../../models/fuel-type/fuel-type';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -28,7 +28,8 @@ export class VehicleDetailsComponent implements OnInit {
   selectedVehicle: Vehicle;
   isEditable: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router, private vehicleService: VehicleService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private vehicleService: VehicleService) {
+  }
 
   ngOnInit(): void {
     const vehicleId = this.route.snapshot.params['index'];
@@ -141,8 +142,8 @@ export class VehicleDetailsComponent implements OnInit {
 
   deleteVehicle(): void {
     if (confirm('Bent u zeker dat u deze wagen wilt verwijderen?')) {
-        // Delete vehicle
-        this.navigateToListVehicleComponent();
+      // Delete vehicle
+      this.navigateToListVehicleComponent();
     }
   }
 
@@ -207,7 +208,7 @@ export class VehicleDetailsComponent implements OnInit {
       fuelType: new FuelType(1, 'Benzine'),
       engineType: new EngineType(1, '1.9 TDI'),
       doorType: new DoorType(3, '5-deurs'),
-      fuelCard: new FuelCard(1, null, null, null, null, null, true),
+      fuelCard: new FuelCard(1, null,  null, null, null, null, null, true),
       volume: 2000,
       fiscalHP: 50,
       emission: 1,
@@ -221,13 +222,13 @@ export class VehicleDetailsComponent implements OnInit {
       enginePower: null,
       category: null,
       averageFuel: null
-    }
+    };
   }
 
   getFuelCards(): FuelCard[] {
     return [
-      new FuelCard(1, null, null, null, null, null, true),
-      new FuelCard(2, null, null, null, null, null, true)
-    ]
+      new FuelCard(1, null, null,  null, null, null, null, true),
+      new FuelCard(2, null, null,  null, null, null, null, true)
+    ];
   }
 }

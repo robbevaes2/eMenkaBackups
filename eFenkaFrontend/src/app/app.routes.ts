@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehicle-item.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
+import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -66,5 +67,9 @@ export const appRoutes: Routes = [
   {
     path: 'records/:index',
     component: RecordDetailsComponent
+  },
+  {
+    path: 'fuelcards',
+    component: FuelcardListComponent
   },
 ];

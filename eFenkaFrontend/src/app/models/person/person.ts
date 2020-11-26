@@ -1,4 +1,4 @@
-import { Language } from '../../enums/language/language.enum';
+import {Language} from '../../enums/language/language.enum';
 
 export class Person {
   id: number;
@@ -28,4 +28,5 @@ export class Person {
     this.gender = gender;
     this.title = title;
   }
+
 }
