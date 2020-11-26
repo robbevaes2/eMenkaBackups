@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
-namespace eMenka.API.Mappers
+namespace eMenka.API.Mappers.VehicleMappers
 {
     public class BrandMapper : IMapper<Brand, BrandModel, BrandReturnModel>
     {

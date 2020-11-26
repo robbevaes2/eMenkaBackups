@@ -4,6 +4,7 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using eMenka.API.Mappers.StaticMappers;
 
 namespace eMenka.API.Controllers
 {
