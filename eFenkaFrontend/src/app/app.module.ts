@@ -16,6 +16,8 @@ import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-de
 import { NewRecordItemComponent } from './components/new-record-item/new-record-item.component';
 import { RecordDetailsComponent } from './components/record-details/record-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FuelcardListComponent } from './components/fuelcard-list/fuelcard-list.component';
+import { FuelcardDetailsComponent } from './components/fuelcard-details/fuelcard-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     RecordListComponent,
     VehicleDetailsComponent,
     NewRecordItemComponent,
-    RecordDetailsComponent
+    RecordDetailsComponent,
+    FuelcardListComponent,
+    FuelcardDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Vehicle } from 'src/app/models/vehicle/vehicle';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Vehicle} from 'src/app/models/vehicle/vehicle';
 
 @Component({
   selector: 'app-record-details',
@@ -13,13 +13,12 @@ export class RecordDetailsComponent implements OnInit {
   form: FormGroup;
   selectedRecord: Vehicle;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit(): void {
     const recordId = this.route.snapshot.params['index'];
-    this.form = new FormGroup({
-
-    });
+    this.form = new FormGroup({});
   }
 
   fillForm(): void {
@@ -88,8 +87,8 @@ export class RecordDetailsComponent implements OnInit {
 
   deleteVehicle(): void {
     if (confirm('Are you sure you want to delete this vehicle?')) {
-        // Delete vehicle
-        this.navigateToListRecordComponent();
+      // Delete vehicle
+      this.navigateToListRecordComponent();
     }
   }
 

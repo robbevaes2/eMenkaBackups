@@ -1,4 +1,4 @@
-import { Record } from './../record/record';
+import { Record } from '../record/record';
 import { Driver } from '../driver/driver';
 import { Vehicle } from '../vehicle/vehicle';
 

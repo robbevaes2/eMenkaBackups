@@ -38,6 +38,9 @@ namespace eMenka.Data.Repositories
         {
             return _context.Vehicles
                 .Include(v => v.Brand)
+                .ThenInclude(v=>v.ExteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(v=>v.InteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
