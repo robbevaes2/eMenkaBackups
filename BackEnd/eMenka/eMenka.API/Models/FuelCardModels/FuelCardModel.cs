@@ -16,7 +16,6 @@ namespace eMenka.API.Models.FuelCardModels
         public DateTime? BlockingDate { get; set; }
         public string BlockingReason { get; set; }
         public string PinCode { get; set; }
-        public int? VehicleId { get; set; }
         public string Number { get; set; }
     }
 }
