@@ -14,7 +14,7 @@ import { Serie } from 'src/app/models/serie/serie';
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
   headNames  = ["Merk", "Model", "brandstof", "type motor", "aantal deuren", "volume", "fiscale Pk", "vermogen", "Einddatum"];
-  headElements  = ["brand.name", "model.name", "fuelType.name", "motorType.name", "doorType.name", "volume", "fiscalHP", "power", "endDateDelivery"];
+  headElements  = ["brand.name", "model.name", "fuelType.name", "engineType.name", "doorType.name", "volume", "fiscalHP", "power", "endDateDelivery"];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
