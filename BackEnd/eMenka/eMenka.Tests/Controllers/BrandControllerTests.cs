@@ -122,6 +122,11 @@ namespace eMenka.Tests.Controllers
                 InteriorColorIds = new[] { 1 }
             };
 
+            _exteriorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(new ExteriorColor());
+            _interiorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(new InteriorColor());
+
             var result = _sut.PostEntity(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
