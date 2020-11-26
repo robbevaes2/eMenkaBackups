@@ -1,3 +1,4 @@
+import { Country } from 'src/app/models/country/country';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -5,11 +6,11 @@ import { Brand } from '../../models/brand/brand';
 import { DoorType } from '../../models/door-type/door-type';
 import { Model } from '../../models/model/model';
 import { Serie } from '../../models/serie/serie';
-import { Vehicle } from '../../models/vehicle/vehicle';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
-import { VehicleService } from '../../services/vehicle-service';
+import { ApiService } from '../../services/api.service';
+import { Category } from '../../models/category/category';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -25,14 +26,18 @@ export class NewVehicleItemComponent implements OnInit {
   doorTypes: DoorType[];
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
+  categories: Category[];
+  countries: Country[];
 
-  constructor(private router: Router, private vehicleService: VehicleService) { }
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.countries = this.getCountries();
     this.setBrands();
     this.setDoorTypes();
     this.setFuelTypes();
     this.setFuelCards();
+    this.setCategories();
 
     this.form = new FormGroup({
       brand: new FormControl(null, [Validators.required]),
@@ -40,39 +45,48 @@ export class NewVehicleItemComponent implements OnInit {
       serie: new FormControl(null, [Validators.required]),
       engineType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required]),
-      fuelType: new FormControl(null, [Validators.required]),
+      fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
-      power: new FormControl(null, [Validators.required, Validators.min(0)]),
+      enginePower: new FormControl(null, [Validators.required, Validators.min(0)]),
       fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      licensePlate: new FormControl(null, [Validators.required])
+      licensePlate: new FormControl(null, [Validators.required]),
+      chassis: new FormControl(null, [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
+      country: new FormControl(null, [Validators.required]),
+      engineCapacity: new FormControl(null, [Validators.required]),
+      buildYear: new FormControl(null, [Validators.required]),
+      kilometers: new FormControl(null, [Validators.required])
     });
   }
 
   mapToModel(values: any): any {
     return {
-      brandId: values.brand,
-      modelId: values.model,
-      fuelTypeId: values.fuelType,
-      engineTypeId: values.engineType,
-      doorTypeId: values.doorType,
-      fuelCardId: values.fuelCard,
+      brandId: Number(values.brand),
+      modelId:  Number(values.model),
+      fuelTypeId:  Number(values.fuelType),
+      engineTypeId:  Number(values.engineType),
+      doorTypeId:  Number(values.doorType),
+      fuelCardId:  null,
+      seriesId: Number(values.serie),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
       emission: values.emission,
-      power: values.power,
+      enginePower: Number(values.enginePower),
       isActive: true,
-      categoryId: 1,
+      categoryId: Number(values.category),
       licensePlate: values.licensePlate,
-      chassis: null,
-      endDateDelivery: values.endDate
+      chassis: values.chassis,
+      engineCapacity: values.engineCapacity,
+      endDateDelivery: values.endDate,
+      countryId: Number(values.country),
+      buildYear: Number(values.buildYear),
+      kilometers: Number(values.kilometers)
     };
   }
 
   onChangedBrand(event): void {
-    // Do get requests with brandId
     const brandId = event.target.value;
     console.log('changed with ' + brandId);
 
@@ -86,80 +100,50 @@ export class NewVehicleItemComponent implements OnInit {
   }
 
   saveNewVehicle(form: FormGroup): void {
-    // Save vehicle
-    //this.vehicleService.addVehicle(this.mapToModel(form.value)).subscribe();
-
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
-      this.router.navigate(['/vehicles']);
+      this.apiService.addVehicle(this.mapToModel(form.value)).subscribe(() => this.router.navigate(['/vehicles']));
     }
   }
 
   setBrands(): void {
-    //this.vehicleService.getAllBrands().subscribe(data => this.brands = data);
-
-    this.brands = [
-      new Brand(1, 'BMW'),
-      new Brand(2, 'Ford'),
-      new Brand(3, 'Volkswagen')
-    ];
+    this.apiService.getAllBrands().subscribe(data => this.brands = data);
   }
 
   setModels(brandId: number): void {
-    this.vehicleService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
-
-    /*return [
-      new Model(1, 'A4'),
-      new Model(2, 'A5'),
-      new Model(3, 'A6')
-    ];*/
+    this.apiService.getAllModelsByBrandId(brandId).subscribe(data => this.models = data);
   }
 
   setSeries(brandId: number): void {
-    this.vehicleService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
-
-    /*return [
-      new Serie(1, 'Sportback'),
-      new Serie(2, 'Berline'),
-      new Serie(3, 'SUV')
-    ];*/
+    this.apiService.getAllSeriesByBrandId(brandId).subscribe(data => this.series = data);
   }
 
   setEngineTypes(brandId: number): void {
-    this.vehicleService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
-
-    /*return [
-      new EngineType(1, '1.9 TDI'),
-      new EngineType(2, '2.0 TDI'),
-      new EngineType(3, '2.0 TDI e')
-    ];*/
+    this.apiService.getAllEngineTypesByBrandId(brandId).subscribe(data => this.engineTypes = data);
   }
 
   setDoorTypes(): void {
-    this.vehicleService.getAllDoorTypesByBrandId().subscribe(data => this.doorTypes = data);
-
-    /*return [
-      new DoorType(1, '2-deurs'),
-      new DoorType(2, '3-deurs'),
-      new DoorType(3, '5-deurs')
-    ];*/
+    this.apiService.getAllDoorTypes().subscribe(data => this.doorTypes = data);
   }
 
   setFuelTypes(): void {
-    this.vehicleService.getAllFuelTypesByBrandId().subscribe(data => this.fuelTypes = data);
-
-    /*return [
-      new FuelType(1, 'Benzine'),
-      new FuelType(2, 'Diesel'),
-      new FuelType(3, 'Elektrisch')
-    ];*/
+    this.apiService.getAllFuelTypes().subscribe(data => this.fuelTypes = data);
   }
 
   setFuelCards(): void {
-    this.vehicleService.getAllFuelCardsByBrandId().subscribe(data => this.fuelCards = data);
+    this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
+  }
 
-    /*return [
-      new FuelCard(1, null, null, null, null, null, true),
-      new FuelCard(2, null, null, null, null, null, true)
-    ];*/
+  setCategories(): void {
+    this.apiService.getAllCategories().subscribe(data => this.categories = data);
+  }
+
+  getCountries(): Country[] {
+    return [
+      new Country(1, 'België', 'BE', 'Belg', false, true),
+      new Country(2, 'Nederland', 'NL', 'Nederlandse', true, true),
+      new Country(3, 'Duitsland', 'DE', 'Duitse', false, true),
+      new Country(4, 'Frankrijk', 'FR', 'Franse', false, true),
+      new Country(5, 'Spanje', 'ES', 'Spaanse', false, false),
+    ];
   }
 }

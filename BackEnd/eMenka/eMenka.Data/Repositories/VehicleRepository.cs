@@ -19,7 +19,7 @@ namespace eMenka.Data.Repositories
 
         public override Vehicle GetById(int id)
         {
-            return _context.Vehicles
+            var vehicle = _context.Vehicles
                 .Include(v => v.Brand)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
@@ -32,6 +32,7 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .FirstOrDefault(v => v.Id == id);
+            return vehicle;
         }
 
         public override IEnumerable<Vehicle> GetAll()
@@ -47,6 +48,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
+                .Include(s => s.Series)
                 .ToList();
         }
 
@@ -64,6 +66,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
+                .Include(s => s.Series)
                 .ToList();
         }
     }

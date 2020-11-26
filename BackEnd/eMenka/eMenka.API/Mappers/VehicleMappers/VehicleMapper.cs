@@ -84,7 +84,7 @@ namespace eMenka.API.Mappers.VehicleMappers
                 Power = model.Power,
                 Volume = (int)model.Volume,
                 LicensePlate = model.LicensePlate,
-                FuelCardId = (int)model.FuelCardId,
+                FuelCardId = model.FuelCardId,
                 SeriesId = (int)model.SeriesId,
                 Chassis = model.Chassis,
                 AverageFuel = model.AverageFuel,

@@ -6,9 +6,9 @@
     "configurations": [
 
         {
-            "type": "chrome",
+            "type": "edge",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch edge against localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
         }

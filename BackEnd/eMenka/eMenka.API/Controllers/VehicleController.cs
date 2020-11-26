@@ -12,6 +12,7 @@ using eMenka.Domain.Classes;
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
+
     public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
