@@ -41,5 +41,6 @@ namespace eMenka.API.Models.VehicleModels
         public int? AverageFuel { get; set; }
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
+        public double Kilometers { get; set; }
     }
 }

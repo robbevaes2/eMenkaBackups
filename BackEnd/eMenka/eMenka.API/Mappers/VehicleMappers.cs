@@ -1,4 +1,5 @@
-﻿using eMenka.API.Models.VehicleModels;
+﻿using System.Linq;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
@@ -33,7 +34,8 @@ namespace eMenka.API.Mappers
                 EnginePower = vehicle.EnginePower,
                 Serie = MapSerieEntity(vehicle.Series),
                 BuildYear = vehicle.BuildYear,
-                Country = MapCountryEntity(vehicle.Country)
+                Country = MapCountryEntity(vehicle.Country),
+                Kilometers = vehicle.Kilometers
             };
         }
 
@@ -62,7 +64,8 @@ namespace eMenka.API.Mappers
                 EnginePower = vehicleModel.EnginePower,
                 CountryId = vehicleModel.CountryId,
                 BuildYear = vehicleModel.BuildYear,
-                CategoryId = vehicleModel.CategoryId
+                CategoryId = vehicleModel.CategoryId,
+                Kilometers = vehicleModel.Kilometers
             };
         }
 
@@ -148,9 +151,9 @@ namespace eMenka.API.Mappers
             return new BrandReturnModel
             {
                 Name = brand.Name,
-                Id = brand.Id
-                //ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity()).ToList(),
-                //InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity()).ToList()
+                Id = brand.Id,
+                ExteriorColors = brand.ExteriorColors.Select(MapExteriorColorEntity).ToList(),
+                InteriorColors = brand.InteriorColors.Select(MapInteriorColorEntity).ToList()
             };
         }
 
@@ -244,27 +247,25 @@ namespace eMenka.API.Mappers
             };
         }
 
-        /*
-        private static Func<InteriorColor, InteriorColorReturnModel> MapInteriorColorEntity()
+        
+        public static InteriorColorReturnModel MapInteriorColorEntity(InteriorColor interiorColor)
         {
-            return ic => new InteriorColorReturnModel
+            return  new InteriorColorReturnModel
             {
-                Id = ic.Id,
-                BrandId = ic.BrandId,
-                Code = ic.Code,
-                Name = ic.Name
+                Id = interiorColor.Id,
+                Code = interiorColor.Code,
+                Name = interiorColor.Name
             };
         }
 
-        private static Func<ExteriorColor, ExteriorColorReturnModel> MapExteriorColorEntity()
+        public static ExteriorColorReturnModel MapExteriorColorEntity(ExteriorColor exteriorColor)
         {
-            return ec => new ExteriorColorReturnModel
+            return  new ExteriorColorReturnModel
             {
-                BrandId = ec.BrandId,
-                Code = ec.Code,
-                Id = ec.Id,
-                Name = ec.Name
+                Code = exteriorColor.Code,
+                Id = exteriorColor.Id,
+                Name = exteriorColor.Name
             };
-        }*/
+        }
     }
 }
