@@ -106,6 +106,7 @@ namespace eMenka.API.Controllers
                 if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
                     return NotFound($"No fuelcard with id {model.FuelCardId}");
 
+
                 if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
                     return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
@@ -141,7 +142,9 @@ namespace eMenka.API.Controllers
                 if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
                     return NotFound($"No fuelcard with id {model.FuelCardId}");
 
-                if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
+                var vehicle = _vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault();
+
+                if (vehicle != null && vehicle.Id != model.Id)
                     return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
 
