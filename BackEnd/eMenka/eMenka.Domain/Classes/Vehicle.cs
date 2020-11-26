@@ -35,5 +35,6 @@ namespace eMenka.Domain.Classes
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
         public string Chassis { get; set; }
+        public double Kilometers { get; set; }
     }
 }

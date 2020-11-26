@@ -1,5 +1,5 @@
-﻿using System;
-using eMenka.Domain.Enums;
+﻿using eMenka.Domain.Enums;
+using System;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using eMenka.API.Controllers;
+﻿using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -9,6 +6,9 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -97,7 +97,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostCategroy(invalidModel) as BadRequestResult;
+            var result = _sut.PostCategory(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -112,7 +112,7 @@ namespace eMenka.Tests.Controllers
                 Name = "name"
             };
 
-            var result = _sut.PostCategroy(validModel) as OkResult;
+            var result = _sut.PostCategory(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

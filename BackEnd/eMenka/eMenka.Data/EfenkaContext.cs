@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-using eMenka.Domain;
+﻿using eMenka.Domain;
 using eMenka.Domain.Classes;
-using eMenka.Domain.Enums;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
+using System.Linq;
 
 namespace eMenka.Data
 {
@@ -143,7 +142,7 @@ namespace eMenka.Data
             /***********************************************************/
 
             #endregion
-            
+
             DataBaseSeeder.SeedData(builder);
 
             //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 

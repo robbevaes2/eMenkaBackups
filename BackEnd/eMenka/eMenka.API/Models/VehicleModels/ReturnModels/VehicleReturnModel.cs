@@ -1,5 +1,5 @@
-﻿using System;
-using eMenka.API.Models.FuelCardModels.ReturnModels;
+﻿using eMenka.API.Models.FuelCardModels.ReturnModels;
+using System;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
@@ -27,5 +27,6 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int? AverageFuel { get; set; }
         public int? BuildYear { get; set; }
         public CountryReturnModel Country { get; set; }
+        public double Kilometers { get; set; }
     }
 }

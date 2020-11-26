@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -100,22 +100,22 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_brandRepository.GetById((int) vehicleModel.BrandId) == null)
+            if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
                 return NotFound($"No brand with id {vehicleModel.BrandId}");
 
-            if (_modelRepository.GetById((int) vehicleModel.ModelId) == null)
+            if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
                 return NotFound($"No model with id {vehicleModel.ModelId}");
 
-            if (_fuelTypeRepository.GetById((int) vehicleModel.FuelTypeId) == null)
+            if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
-            if (_engineTypeRepository.GetById((int) vehicleModel.EngineTypeId) == null)
+            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
                 return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
 
-            if (_doorTypeRepository.GetById((int) vehicleModel.DoorTypeId) == null)
+            if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
                 return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
 
-            if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
+            if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
             if (vehicleModel.FuelCardId != null)
@@ -124,7 +124,7 @@ namespace eMenka.API.Controllers
                     return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
 
             if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)
@@ -140,24 +140,24 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
             if (id != vehicleModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
-            if (_brandRepository.GetById((int) vehicleModel.BrandId) == null)
+            if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
                 return NotFound($"No brand with id {vehicleModel.BrandId}");
 
-            if (_modelRepository.GetById((int) vehicleModel.ModelId) == null)
+            if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
                 return NotFound($"No model with id {vehicleModel.ModelId}");
 
-            if (_fuelTypeRepository.GetById((int) vehicleModel.FuelTypeId) == null)
+            if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
 
-            if (_engineTypeRepository.GetById((int) vehicleModel.EngineTypeId) == null)
+            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
                 return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
 
-            if (_doorTypeRepository.GetById((int) vehicleModel.DoorTypeId) == null)
+            if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
                 return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
 
-            if (_categoryRepository.GetById((int) vehicleModel.CategoryId) == null)
+            if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
                 return NotFound($"No category with id {vehicleModel.CategoryId}");
 
             if (vehicleModel.FuelCardId != null)
@@ -166,7 +166,7 @@ namespace eMenka.API.Controllers
                     return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
+            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
 
             if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)

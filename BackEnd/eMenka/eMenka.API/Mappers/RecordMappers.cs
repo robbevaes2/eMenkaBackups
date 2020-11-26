@@ -31,7 +31,7 @@ namespace eMenka.API.Mappers
                 CorporationId = recordModel.CorporationId,
                 CostAllocationId = recordModel.CostAllocationId,
                 EndDate = recordModel.EndDate,
-                FuelCardId = (int) recordModel.FuelCardId,
+                FuelCardId = (int)recordModel.FuelCardId,
                 Id = recordModel.Id,
                 StartDate = recordModel.StartDate,
                 Term = recordModel.Term
@@ -58,7 +58,7 @@ namespace eMenka.API.Mappers
             return new Corporation
             {
                 Abbreviation = corporationModel.Abbreviation,
-                CompanyId = (int) corporationModel.CompanyId,
+                CompanyId = (int)corporationModel.CompanyId,
                 EndDate = corporationModel.EndDate,
                 Name = corporationModel.Name,
                 Id = corporationModel.Id,

@@ -1,9 +1,11 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using eMenka.Domain.Classes;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eMenka.API.Controllers
 {
@@ -14,10 +16,14 @@ namespace eMenka.API.Controllers
     public class BrandController : ControllerBase
     {
         private readonly IBrandRepository _brandRepository;
+        private readonly IExteriorColorRepository _exteriorColorRepository;
+        private readonly IInteriorColorRepository _interiorColorRepository;
 
-        public BrandController(IBrandRepository brandRepository)
+        public BrandController(IBrandRepository brandRepository, IExteriorColorRepository exteriorColorRepository, IInteriorColorRepository interiorColorRepository)
         {
             _brandRepository = brandRepository;
+            _exteriorColorRepository = exteriorColorRepository;
+            _interiorColorRepository = interiorColorRepository;
         }
 
         [HttpGet]
@@ -79,6 +85,33 @@ namespace eMenka.API.Controllers
 
             _brandRepository.Remove(brand);
             return Ok();
+        }
+
+        private void AddColors(Brand brand, BrandModel brandModel)
+        {
+            AddExteriorColors(brand, brandModel);
+
+            AddInteriorColors(brand, brandModel);
+        }
+
+        private void AddInteriorColors(Brand brand, BrandModel brandModel)
+        {
+            foreach (var brandModelInteriorColorId in brandModel.InteriorColorIds)
+            {
+                var color = _interiorColorRepository.GetById(brandModelInteriorColorId);
+                if (color != null)
+                    brand.InteriorColors.Add(color);
+            }
+        }
+
+        private void AddExteriorColors(Brand brand, BrandModel brandModel)
+        {
+            foreach (var brandModelExteriorColorId in brandModel.ExteriorColorIds)
+            {
+                var color = _exteriorColorRepository.GetById(brandModelExteriorColorId);
+                if (color != null)
+                    brand.ExteriorColors.Add(color);
+            }
         }
     }
 }

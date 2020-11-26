@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -62,7 +62,7 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != doorTypeModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
             var isUpdated = _doorTypeRepository.Update(id, VehicleMappers.MapDoorTypeModel(doorTypeModel));
 

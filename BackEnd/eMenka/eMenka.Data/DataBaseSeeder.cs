@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.Domain.Classes;
+﻿using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace eMenka.Data
 {
@@ -2497,7 +2495,7 @@ namespace eMenka.Data
                 new Driver { Id = 8, PersonId = 11, StartDate = new DateTime(2009, 06, 15), EndDate = new DateTime(2011, 09, 30), FuelCardId = 8 },
                 new Driver { Id = 9, PersonId = 12, StartDate = new DateTime(2008, 10, 6), EndDate = new DateTime(2010, 03, 1), FuelCardId = 9 },
                 new Driver { Id = 10, PersonId = 13, StartDate = new DateTime(2009, 09, 14), FuelCardId = 10 },
-                new Driver {Id = 11, PersonId = 14, StartDate = new DateTime(2007, 09, 17), EndDate = new DateTime(2008, 06, 30), FuelCardId = 11},
+                new Driver { Id = 11, PersonId = 14, StartDate = new DateTime(2007, 09, 17), EndDate = new DateTime(2008, 06, 30), FuelCardId = 11 },
                 new Driver
                 {
                     Id = 12,

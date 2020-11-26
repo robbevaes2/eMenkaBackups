@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -47,7 +47,7 @@ namespace eMenka.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostCategroy([FromBody] CategoryModel categoryModel)
+        public IActionResult PostCategory([FromBody] CategoryModel categoryModel)
         {
             if (!ModelState.IsValid) return BadRequest();
 
@@ -61,7 +61,7 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != categoryModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
             var isUpdated = _categoryRepository.Update(id, VehicleMappers.MapCategoryModel(categoryModel));
 

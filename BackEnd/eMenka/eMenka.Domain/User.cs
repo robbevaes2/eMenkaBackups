@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Runtime.Serialization;
-using Microsoft.AspNetCore.Identity;
 
 namespace eMenka.Domain
 {

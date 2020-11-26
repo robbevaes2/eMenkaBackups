@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+
 
 namespace eMenka.API.Controllers
 {
@@ -17,14 +15,14 @@ namespace eMenka.API.Controllers
         private readonly IGenericRepository<TEntity> _genericRepository;
         private readonly IMapper<TEntity, TModel, TReturnModel> _mapper;
 
-        public GenericController(){}
+        public GenericController() { }
 
-        public GenericController(IGenericRepository<TEntity> genericRepository, IMapper<TEntity, TModel ,TReturnModel> mapper)
+        public GenericController(IGenericRepository<TEntity> genericRepository, IMapper<TEntity, TModel, TReturnModel> mapper)
         {
             _genericRepository = genericRepository;
             _mapper = mapper;
         }
-        
+
         [HttpGet]
         public virtual IActionResult GetAllEntities()
         {
@@ -32,7 +30,7 @@ namespace eMenka.API.Controllers
 
             return Ok(entities.Select(_mapper.MapEntityToReturnModel).ToList());
         }
-        
+
         [HttpGet("{id}")]
         public virtual IActionResult GetEntityById(int id)
         {
@@ -42,7 +40,7 @@ namespace eMenka.API.Controllers
 
             return Ok(_mapper.MapEntityToReturnModel(entity));
         }
-        
+
         [HttpPost]
         public virtual IActionResult PostEntity([FromBody] TModel model)
         {
@@ -51,14 +49,14 @@ namespace eMenka.API.Controllers
             _genericRepository.Add(_mapper.MapModelToEntity(model));
             return Ok();
         }
-        
+
         [HttpPut("{id}")]
         public virtual IActionResult UpdateEntity([FromBody] TModel model, int id)
         {
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != model.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
             var isUpdated = _genericRepository.Update(id, _mapper.MapModelToEntity(model));
 
@@ -67,7 +65,7 @@ namespace eMenka.API.Controllers
 
             return Ok();
         }
-        
+
         [HttpDelete("{id}")]
         public virtual IActionResult DeleteEntity(int id)
         {

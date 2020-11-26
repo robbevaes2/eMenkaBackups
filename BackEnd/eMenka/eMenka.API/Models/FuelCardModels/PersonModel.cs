@@ -1,6 +1,6 @@
-﻿using System;
+﻿using eMenka.Domain.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
-using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.FuelCardModels
 {
