@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 import { ApiService } from '../../services/api.service';
+import { Serie } from 'src/app/models/serie/serie';
 
 
 @Component({
@@ -27,18 +28,29 @@ export class VehicleListComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.apiService.getAllVehicles().subscribe(data => this.vehicles = data);
+    this.apiService.getAllVehicles().subscribe(
+      data => {
+        this.vehicles = data;
+        
+        this.mdbTable.setDataSource(this.vehicles);
+        this.vehicles = this.mdbTable.getDataSource();
+        this.previous = this.mdbTable.getDataSource();
+      }
 
-    this.mdbTable.setDataSource(this.vehicles);
-    this.vehicles = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+    );
+    //this.vehicles = this.getVehicleDummyList();
+
   }
 
   ngAfterViewInit() {
-    // this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
 
-    // this.mdbTablePagination.calculateFirstItemIndex();
-    // this.mdbTablePagination.calculateLastItemIndex();
+
+    /*
+    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
+
+    this.mdbTablePagination.calculateFirstItemIndex();
+    this.mdbTablePagination.calculateLastItemIndex();
+    */
     this.cdRef.detectChanges();
   }
 
