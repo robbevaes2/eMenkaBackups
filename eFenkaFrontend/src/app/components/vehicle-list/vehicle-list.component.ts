@@ -31,15 +31,12 @@ export class VehicleListComponent implements OnInit {
     this.apiService.getAllVehicles().subscribe(
       data => {
         this.vehicles = data;
-        
+
         this.mdbTable.setDataSource(this.vehicles);
         this.vehicles = this.mdbTable.getDataSource();
         this.previous = this.mdbTable.getDataSource();
       }
-
     );
-    //this.vehicles = this.getVehicleDummyList();
-
   }
 
   ngAfterViewInit() {

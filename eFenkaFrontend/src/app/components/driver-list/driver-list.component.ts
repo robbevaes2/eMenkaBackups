@@ -27,11 +27,13 @@ export class DriverListComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.apiService.getAllDrivers().subscribe(data => this.drivers = data);
-
-    this.mdbTable.setDataSource(this.drivers);
-    this.drivers = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+    this.apiService.getAllDrivers().subscribe(data => {
+        this.drivers = data;
+        this.mdbTable.setDataSource(this.drivers);
+        this.drivers = this.mdbTable.getDataSource();
+        this.previous = this.mdbTable.getDataSource();
+      }
+    );
   }
 
   ngAfterViewInit() {
