@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 import { Driver } from 'src/app/models/driver/driver';
 import { ApiService } from 'src/app/services/api.service';
+import { Language } from '../../enums/language/language.enum';
 
 @Component({
   selector: 'app-driver-list',
@@ -11,17 +12,17 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class DriverListComponent implements OnInit {
   drivers: Driver[];
-  headNames  = ['Voornaam', 'Naam', 'Rijbewijs categorie', 'Rijbewijs nummer', 'Taal'];
-  headElements  = ['driver.person.firstname', 'driver.person.lastname', 'driver.person.driversLicenseType', 'driver.person.driversLicenseNumber', 'driver.person.language'];
+  headNames  = ['Voornaam', 'Naam', 'Rijbewijs categorie', 'Rijbewijs nummer', 'Taal', 'Actief'];
+  headElements  = ['driver.person.firstname', 'driver.person.lastname', 'driver.person.driversLicenseType', 'driver.person.driversLicenseNumber', 'getLanguageName(driver.person.language)', 'isDriverActive(driver)'];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild('row', { static: true }) row: ElementRef;
 
-  searchText: string = '';
+  searchText = '';
   previous: string;
 
-  maxVisibleItems: number = 3;
+  maxVisibleItems = 3;
 
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
@@ -49,7 +50,19 @@ export class DriverListComponent implements OnInit {
     this.router.navigate(['/drivers', index]);
   }
 
-  searchItems() {
+  isDriverActive(driver: Driver): boolean {
+    const currentDate = new Date();
+    const driverStartDate = new Date(driver.startDate);
+    const driverEndDate = new Date(driver.endDate);
+
+    return driverStartDate < currentDate && driverEndDate > currentDate;
+  }
+
+  getLanguageName(languageId: number): string {
+    return Language[languageId];
+  }
+
+  searchItems(): void {
     const prev = this.mdbTable.getDataSource();
     if (!this.searchText) {
         this.mdbTable.setDataSource(this.previous);

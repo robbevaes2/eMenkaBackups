@@ -1,6 +1,6 @@
 
 <div class="row mr-1">
-  <h1 class="col-10">Voertuigen</h1>
+  <h1 class="col-10">Bestuurders</h1>
   <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewDriverComponent()">toevoegen</button>
 </div>
 <div class="md-form">
@@ -39,7 +39,10 @@
         <td >{{driver.person.lastname}}</td>
         <td >{{driver.person.driversLicenseType}}</td>
         <td >{{driver.person.driversLicenseNumber}}</td>
-        <td >{{driver.person.language}}</td>
+        <td >{{getLanguageName(driver.person.language)}}</td>
+        <td >
+          <input type="checkbox" [checked]="isDriverActive(driver)" class="form-check-input">
+        </td>
       </tr>
     </tbody>
     <!-- <tfoot class="grey lighten-5 w-100">

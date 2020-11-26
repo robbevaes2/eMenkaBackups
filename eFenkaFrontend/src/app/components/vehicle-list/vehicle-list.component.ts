@@ -12,17 +12,17 @@ import { ApiService } from '../../services/api.service';
 })
 export class VehicleListComponent implements OnInit {
   vehicles: Vehicle[];
-  headNames  = ["Merk", "Model", "brandstof", "type motor", "aantal deuren", "volume", "fiscale Pk", "vermogen", "Einddatum"];
-  headElements  = ["brand.name", "model.name", "fuelType.name", "motorType.name", "doorType.name", "volume", "fiscalHp", "power", "endDateDelivery"];
+  headNames  = ['Merk', 'Model', 'brandstof', 'type motor', 'aantal deuren', 'volume', 'fiscale Pk', 'vermogen', 'Einddatum'];
+  headElements  = ['brand.name', 'model.name', 'fuelType.name', 'motorType.name', 'doorType.name', 'volume', 'fiscalHp', 'power', 'endDateDelivery'];
 
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild('row', { static: true }) row: ElementRef;
 
-  searchText: string = '';
+  searchText = '';
   previous: string;
 
-  maxVisibleItems: number = 3;
+  maxVisibleItems = 3;
 
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
@@ -50,7 +50,7 @@ export class VehicleListComponent implements OnInit {
     this.router.navigate(['/vehicles', index]);
   }
 
-  searchItems() {
+  searchItems(): void {
     const prev = this.mdbTable.getDataSource();
     if (!this.searchText) {
         this.mdbTable.setDataSource(this.previous);
@@ -62,7 +62,7 @@ export class VehicleListComponent implements OnInit {
     }
   }
 
-  dateToStringConverter(date: string) {
+  dateToStringConverter(date: string): string {
     return new Date(date).toLocaleDateString();
   }
 }
