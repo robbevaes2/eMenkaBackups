@@ -28,16 +28,23 @@ export class VehicleListComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.apiService.getAllVehicles().subscribe(data => this.vehicles = data);
+    this.apiService.getAllVehicles().subscribe(
+      data => {
+        this.vehicles = data;
+        
+        this.mdbTable.setDataSource(this.vehicles);
+        this.vehicles = this.mdbTable.getDataSource();
+        this.previous = this.mdbTable.getDataSource();
+      }
+
+    );
     //this.vehicles = this.getVehicleDummyList();
 
   }
 
   ngAfterViewInit() {
 
-    this.mdbTable.setDataSource(this.vehicles);
-    this.vehicles = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+
     /*
     this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
 
