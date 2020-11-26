@@ -148,12 +148,6 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
-  // FuelType
-
-  getAllFuelTypes(): Observable<FuelType[]> {
-    return this.getFromAPI<FuelType[]>('fueltype/');
-  }
-
   // FuelCard
 
   getAllFuelCards(): Observable<FuelCard[]> {
@@ -166,6 +160,12 @@ export class ApiService {
 
   updateFuelCard(id: number, FuelCardModel: any) {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
+  }
+
+  // FuelType
+
+  getAllFuelTypes(): Observable<FuelType[]> {
+    return this.getFromAPI<FuelType[]>('fueltype/');
   }
 
   // DoorType
