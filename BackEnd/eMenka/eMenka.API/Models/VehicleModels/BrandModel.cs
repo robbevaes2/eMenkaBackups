@@ -2,7 +2,7 @@
 
 namespace eMenka.API.Models.VehicleModels
 {
-    public class BrandModel
+    public class BrandModel : IModelBase
     {
         public int Id { get; set; }
 

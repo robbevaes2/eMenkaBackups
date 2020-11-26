@@ -4,7 +4,7 @@ using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.RecordModels
 {
-    public class RecordModel
+    public class RecordModel : IModelBase
     {
         public int Id { get; set; }
 

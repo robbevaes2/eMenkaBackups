@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.RecordModels
 {
-    public class CorporationModel
+    public class CorporationModel : IModelBase
     {
         public int Id { get; set; }
 

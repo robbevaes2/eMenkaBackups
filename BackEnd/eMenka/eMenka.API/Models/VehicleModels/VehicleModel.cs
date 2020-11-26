@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.VehicleModels
 {
-    public class VehicleModel
+    public class VehicleModel : IModelBase
     {
         public int Id { get; set; }
 
