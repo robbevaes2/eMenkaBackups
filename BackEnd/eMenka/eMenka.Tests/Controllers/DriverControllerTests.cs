@@ -76,7 +76,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostDriverReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new DriverModel();
+            var invalidModel = new DriverModel
+            {
+                PersonId = 1
+            };
+
+            Person person = new Person();
+
+            _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(person);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -85,7 +93,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _driverRepositoryMock.Verify(m => m.Add(It.IsAny<Driver>()), Times.Never);
-            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -133,7 +141,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateDriverReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new DriverModel();
+            var invalidModel = new DriverModel
+            {
+                PersonId = 1
+            };
+
+            Person person = new Person();
+
+            _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(person);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -142,7 +158,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _driverRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Driver>()), Times.Never);
-            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -154,12 +170,17 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
+            Person person = new Person();
+
+            _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(person);
+
             var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _driverRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Driver>()), Times.Never);
-            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]

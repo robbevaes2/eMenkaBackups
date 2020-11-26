@@ -76,16 +76,23 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCorporationReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new CorporationModel();
+            var invalidModel = new CorporationModel
+            {
+                CompanyId = 1
+            };
+            var company = new Company();
 
             _sut.ModelState.AddModelError("name", "name is required");
+
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
 
             var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Add(It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -135,7 +142,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new CorporationModel();
+            var invalidModel = new CorporationModel
+            {
+                CompanyId = 1
+            };
+
+            var company = new Company();
+
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -144,7 +159,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -156,12 +171,17 @@ namespace eMenka.Tests.Controllers
                 CompanyId = 1
             };
 
+            var company = new Company();
+
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
+
             var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]

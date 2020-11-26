@@ -82,7 +82,23 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostRecordReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new RecordModel();
+            var invalidModel = new RecordModel
+            {
+                FuelCardId = 1,
+                CorporationId = 1,
+                CostAllocationId = 1
+            };
+
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
+
+            _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(corporation);
+            _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(costAllocation);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -91,9 +107,9 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _recordRepositoryMock.Verify(m => m.Add(It.IsAny<Record>()), Times.Never);
-            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -211,7 +227,23 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateRecordReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new RecordModel();
+            var invalidModel = new RecordModel
+            {
+                FuelCardId = 1,
+                CorporationId = 1,
+                CostAllocationId = 1
+            };
+
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
+
+            _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(corporation);
+            _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(costAllocation);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -220,27 +252,40 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _recordRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()), Times.Never);
-            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
         public void UpdateRecordReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
-            var invalidModel = new RecordModel
+            var validModel = new RecordModel
             {
-                Id = 1
+                FuelCardId = 1,
+                CorporationId = 1,
+                CostAllocationId = 1
             };
 
-            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
+
+            _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(corporation);
+            _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(costAllocation);
+
+            var result = _sut.UpdateEntity(validModel, validModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _recordRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()), Times.Never);
-            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]

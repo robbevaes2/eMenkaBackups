@@ -135,7 +135,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostSerieReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new SerieModel();
+            var invalidModel = new SerieModel
+            {
+                BrandId = 1
+            };
+
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -144,7 +152,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _serieRepositoryMock.Verify(m => m.Add(It.IsAny<Series>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -194,7 +202,15 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateSerieReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new SerieModel();
+            var invalidModel = new SerieModel
+            {
+                BrandId = 1
+            };
+
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -203,7 +219,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -211,15 +227,21 @@ namespace eMenka.Tests.Controllers
         {
             var invalidModel = new SerieModel
             {
-                Id = 1
+                Id = 1,
+                BrandId = 1
             };
+
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
 
             var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _serieRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Series>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
