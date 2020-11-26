@@ -21,9 +21,5 @@
     <ProjectReference Include="..\eMenka.Domain\eMenka.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Mappers\RecordMappers\" />
-  </ItemGroup>
-
 
 </Project>
