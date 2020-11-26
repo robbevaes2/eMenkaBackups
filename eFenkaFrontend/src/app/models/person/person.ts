@@ -12,6 +12,7 @@ export class Person {
   endDateDriversLicense: Date;
   gender: string;
   title: string;
+  picture: Int8Array;
 
   constructor(id: number, firstname: string, lastname: string, birthDate: Date, language: Language,
               driversLicenseNumber: string, driversLicenseType: string, startDateDriversLicense: Date, endDateDriversLicense: Date,

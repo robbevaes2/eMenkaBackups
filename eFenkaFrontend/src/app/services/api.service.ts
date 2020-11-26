@@ -14,6 +14,7 @@ import { FuelCard } from '../models/fuel-card/fuel-card';
 import { DoorType } from '../models/door-type/door-type';
 import { Category } from '../models/category/category';
 import { CostAllocation } from '../models/cost-allocatoin/cost-allocation';
+import { Driver } from '../models/driver/driver';
 
 @Injectable({
   providedIn: 'root',
@@ -190,5 +191,27 @@ export class ApiService {
 
   getAllCostAllocations(): Observable<CostAllocation[]> {
     return this.getFromAPI<CostAllocation[]>('costallocation/');
+  }
+
+  // Driver
+
+  getAllDrivers(): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/');
+  }
+
+  getDriverById(id: number): Observable<Driver> {
+    return this.getFromAPI<Driver>('driver/' + id);
+  }
+
+  updateDriver(id: number, driverModel: any) {
+    return this.putToAPI('driver/' + id, driverModel);
+  }
+
+  addDriver(driverModel: any) {
+    return this.postToAPI('driver/', driverModel);
+  }
+
+  deleteDriver(id: number) {
+    return this.deleteFromAPI('driver/' + id);
   }
 }

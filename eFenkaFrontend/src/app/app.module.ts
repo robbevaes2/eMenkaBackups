@@ -18,6 +18,9 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { DriverListComponent } from './components/driver-list/driver-list.component';
+import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
+import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ApiService } from './services/api.service';
     RecordListComponent,
     VehicleDetailsComponent,
     NewRecordItemComponent,
-    RecordDetailsComponent
+    RecordDetailsComponent,
+    DriverListComponent,
+    DriverDetailsComponent,
+    NewDriverItemComponent
   ],
   imports: [
     BrowserModule,
