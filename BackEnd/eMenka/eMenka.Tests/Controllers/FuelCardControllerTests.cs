@@ -18,12 +18,14 @@ namespace eMenka.Tests.Controllers
         {
             _fuelCardRepositoryMock = new Mock<IFuelCardRepository>();
             _driverRepositoryMock = new Mock<IDriverRepository>();
-            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object);
+            _vehicleRepositoryMock = new Mock<IVehicleRepository>();
+            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object, _vehicleRepositoryMock.Object);
         }
 
         private FuelCardController _sut;
         private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
         private Mock<IDriverRepository> _driverRepositoryMock;
+        private Mock<IVehicleRepository> _vehicleRepositoryMock;
 
         [Test]
         public void GetAllFuelCardsReturnsOkAndListOfAllFuelCardsWhenEverythingIsCorrect()
@@ -78,13 +80,17 @@ namespace eMenka.Tests.Controllers
         {
             var invalidModel = new FuelCardModel
             {
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            Vehicle vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -94,6 +100,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Add(It.IsAny<FuelCard>()), Times.Never);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -115,6 +122,33 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Add(It.IsAny<FuelCard>()), Times.Never);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+        }
+
+        [Test]
+        public void PostFuelCardReturnsNotFoundWhenVehicleIsNotFound()
+        {
+            var validModel = new FuelCardModel
+            {
+                DriverId = 1,
+                VehicleId = 1
+            };
+
+            Driver driver = new Driver();
+            Vehicle vehicle = null;
+
+            _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
+
+            var result = _sut.PostEntity(validModel) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _fuelCardRepositoryMock.Verify(m => m.Add(It.IsAny<FuelCard>()), Times.Never);
+            _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -122,13 +156,17 @@ namespace eMenka.Tests.Controllers
         {
             var validModel = new FuelCardModel
             {
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            Vehicle vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             var result = _sut.PostEntity(validModel) as OkResult;
 
@@ -136,6 +174,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Add(It.IsAny<FuelCard>()), Times.Once);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -143,13 +182,17 @@ namespace eMenka.Tests.Controllers
         {
             var invalidModel = new FuelCardModel
             {
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            var vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
@@ -159,6 +202,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Never);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -167,13 +211,17 @@ namespace eMenka.Tests.Controllers
             var invalidModel = new FuelCardModel
             {
                 Id = 1,
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            var vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
@@ -181,6 +229,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Never);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -203,6 +252,34 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Never);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+        }
+
+        [Test]
+        public void UpdateFuelCardReturnsNotFoundWhenVehicleIsNotFound()
+        {
+            var validModel = new FuelCardModel
+            {
+                Id = 1,
+                DriverId = 1,
+                VehicleId = 1
+            };
+
+            Driver driver = new Driver();
+            Vehicle vehicle = null;
+
+            _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
+
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Never);
+            _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -211,15 +288,19 @@ namespace eMenka.Tests.Controllers
             var invalidModel = new FuelCardModel
             {
                 Id = 1,
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            var vehicle = new Vehicle();
 
             _fuelCardRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()))
                 .Returns(false);
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
@@ -227,6 +308,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Once);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -235,15 +317,19 @@ namespace eMenka.Tests.Controllers
             var validModel = new FuelCardModel
             {
                 Id = 1,
-                DriverId = 1
+                DriverId = 1,
+                VehicleId = 1
             };
 
             var driver = new Driver();
+            var vehicle = new Vehicle();
 
             _fuelCardRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()))
                 .Returns(true);
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
+            _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(vehicle);
 
             var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
@@ -251,6 +337,7 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<FuelCard>()), Times.Once);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
