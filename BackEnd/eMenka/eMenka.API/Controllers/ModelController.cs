@@ -16,11 +16,13 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IModelRepository _modelRepository;
+        private readonly ModelMapper _modelMapper;
 
         public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository) : base(modelRepository, new ModelMapper())
         {
             _modelRepository = modelRepository;
             _brandRepository = brandRepository;
+            _modelMapper = new ModelMapper();
         }
 
         
@@ -32,7 +34,7 @@ namespace eMenka.API.Controllers
 
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);
 
-            return Ok(models.Select(VehicleMappers.MapModelEntity).ToList());
+            return Ok(models.Select(_modelMapper.MapEntityToReturnModel).ToList());
         }
 
         public override IActionResult PostEntity(ModelModel model)

@@ -1,4 +1,5 @@
 ﻿using eMenka.API.Mappers.FuelCardMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -9,6 +10,7 @@ namespace eMenka.API.Mappers.StaticMappers
     public static class FuelCardMapper
     {
         private static PersonMapper _personMapper = new PersonMapper();
+        static ModelMapper _modelMapper = new ModelMapper();
         public static FuelCardReturnModel MapFuelCardEntity(FuelCard fuelCard)
         {
             if (fuelCard == null)
@@ -61,7 +63,7 @@ namespace eMenka.API.Mappers.StaticMappers
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = VehicleMappers.MapModelEntity(vehicle.Model),
+                Model = _modelMapper.MapEntityToReturnModel(vehicle.Model),
                 Category = VehicleMappers.MapCategoryEntity(vehicle.Category),
                 LicensePlate = vehicle.LicensePlate,
                 Chassis = vehicle.Chassis,
