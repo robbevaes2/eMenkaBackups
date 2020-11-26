@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -110,6 +112,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -133,6 +136,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
         }
 
         [Test]
@@ -160,6 +164,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
         }
 
         [Test]
@@ -191,6 +196,45 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
+        }
+
+        [Test]
+        public void PostFuelCardReturnsBadRequestWhenFuelCardAlreadyExists()
+        {
+            var validModel = new RecordModel
+            {
+                FuelCardId = 1,
+                CorporationId = 1,
+                CostAllocationId = 1
+            };
+
+            var fuelCard = new FuelCard();
+            var corporation = new Corporation();
+            var costAllocation = new CostAllocation();
+            var records = new List<Record>
+            {
+                new Record()
+            };
+
+            _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(corporation);
+            _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(costAllocation);
+            _recordRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()))
+                .Returns(records);
+
+            var result = _sut.PostEntity(validModel) as BadRequestObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _recordRepositoryMock.Verify(m => m.Add(It.IsAny<Record>()), Times.Never);
+            _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -222,6 +266,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -255,6 +300,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -286,6 +332,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -310,6 +357,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
         }
 
         [Test]
@@ -338,6 +386,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
         }
 
         [Test]
@@ -370,10 +419,11 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Never);
         }
 
         [Test]
-        public void UpdateFuelCardReturnsNotFoundWhenFuelCardIsNotFound()
+        public void UpdateRecordReturnsBadRequestWhenFuelCardAlreadyExistsAndIsntFromUpdatingRecord()
         {
             var validModel = new RecordModel
             {
@@ -386,28 +436,37 @@ namespace eMenka.Tests.Controllers
             var fuelCard = new FuelCard();
             var corporation = new Corporation();
             var costAllocation = new CostAllocation();
+            var records = new List<Record>
+            {
+                new Record
+                {
+                    Id = validModel.Id + 1
+                }
+            };
 
             _recordRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()))
-                .Returns(false);
+                .Returns(true);
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
+            _recordRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()))
+                .Returns(records);
 
-            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
-            _recordRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Record>()), Times.Never);
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
-
         [Test]
-        public void UpdateFuelCardReturnsOkWhenEverythingIsCorrect()
+        public void UpdateRecordReturnsOkWhenEverythingIsCorrect()
         {
             var validModel = new RecordModel
             {
@@ -438,6 +497,7 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
