@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -50,13 +50,13 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
+            if (_fuelCardRepository.GetById((int)recordModel.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
 
-            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
+            if (_corporationRepository.GetById((int)recordModel.CorporationId) == null)
                 return NotFound($"Corporation with id {recordModel.CorporationId} not found");
 
-            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
+            if (_costAllocationRepository.GetById((int)recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
 
             if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)
@@ -72,15 +72,15 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != recordModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
-            if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
+            if (_fuelCardRepository.GetById((int)recordModel.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
 
-            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
+            if (_corporationRepository.GetById((int)recordModel.CorporationId) == null)
                 return NotFound($"Corporation with id {recordModel.CorporationId} not found");
 
-            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
+            if (_costAllocationRepository.GetById((int)recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
 
             if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)

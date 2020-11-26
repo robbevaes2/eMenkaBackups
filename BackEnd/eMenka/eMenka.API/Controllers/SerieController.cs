@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -64,7 +64,7 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_brandRepository.GetById((int) serieModel.BrandId) == null)
+            if (_brandRepository.GetById((int)serieModel.BrandId) == null)
                 return NotFound($"No brand with id {serieModel.BrandId}");
 
             _serieRepository.Add(VehicleMappers.MapSerieModel(serieModel));
@@ -77,9 +77,9 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != serieModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
-            if (_brandRepository.GetById((int) serieModel.BrandId) == null)
+            if (_brandRepository.GetById((int)serieModel.BrandId) == null)
                 return NotFound($"No brand with id {serieModel.BrandId}");
 
             var isUpdated = _serieRepository.Update(id, VehicleMappers.MapSerieModel(serieModel));

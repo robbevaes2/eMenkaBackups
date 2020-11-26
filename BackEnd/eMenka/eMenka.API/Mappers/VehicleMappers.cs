@@ -42,19 +42,19 @@ namespace eMenka.API.Mappers
             return new Vehicle
             {
                 Id = vehicleModel.Id,
-                EngineTypeId = (int) vehicleModel.EngineTypeId,
-                BrandId = (int) vehicleModel.BrandId,
-                DoorTypeId = (int) vehicleModel.DoorTypeId,
-                Emission = (int) vehicleModel.Emission,
-                FiscalHP = (int) vehicleModel.FiscalHP,
-                FuelTypeId = (int) vehicleModel.FuelTypeId,
+                EngineTypeId = (int)vehicleModel.EngineTypeId,
+                BrandId = (int)vehicleModel.BrandId,
+                DoorTypeId = (int)vehicleModel.DoorTypeId,
+                Emission = (int)vehicleModel.Emission,
+                FiscalHP = (int)vehicleModel.FiscalHP,
+                FuelTypeId = (int)vehicleModel.FuelTypeId,
                 IsActive = vehicleModel.IsActive,
-                ModelId = (int) vehicleModel.ModelId,
-                Power = (int) vehicleModel.Power,
-                Volume = (int) vehicleModel.Volume,
+                ModelId = (int)vehicleModel.ModelId,
+                Power = (int)vehicleModel.Power,
+                Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
-                FuelCardId = (int) vehicleModel.FuelCardId,
-                SeriesId = (int) vehicleModel.SeriesId,
+                FuelCardId = (int)vehicleModel.FuelCardId,
+                SeriesId = (int)vehicleModel.SeriesId,
                 Chassis = vehicleModel.Chassis,
                 AverageFuel = vehicleModel.AverageFuel,
                 EndDateDelivery = vehicleModel.EndDateDelivery,
@@ -82,7 +82,7 @@ namespace eMenka.API.Mappers
         {
             return new Series
             {
-                BrandId = (int) serieModel.BrandId,
+                BrandId = (int)serieModel.BrandId,
                 Id = serieModel.Id,
                 Name = serieModel.Name
             };
@@ -104,7 +104,7 @@ namespace eMenka.API.Mappers
         {
             return new EngineType
             {
-                BrandId = (int) engineTypeModel.BrandId,
+                BrandId = (int)engineTypeModel.BrandId,
                 Id = engineTypeModel.Id,
                 Name = engineTypeModel.Name
             };
@@ -126,7 +126,7 @@ namespace eMenka.API.Mappers
         {
             return new Model
             {
-                BrandId = (int) modelModel.BrandId,
+                BrandId = (int)modelModel.BrandId,
                 Id = modelModel.Id,
                 Name = modelModel.Name
             };

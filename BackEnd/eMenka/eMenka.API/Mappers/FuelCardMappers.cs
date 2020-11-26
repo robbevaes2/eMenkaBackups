@@ -30,7 +30,7 @@ namespace eMenka.API.Mappers
         {
             return new FuelCard
             {
-                DriverId = (int) fuelCardModel.DriverId,
+                DriverId = (int)fuelCardModel.DriverId,
                 EndDate = fuelCardModel.EndDate,
                 Id = fuelCardModel.Id,
                 StartDate = fuelCardModel.StartDate,
@@ -92,7 +92,7 @@ namespace eMenka.API.Mappers
             {
                 Id = driverModel.Id,
                 EndDate = driverModel.EndDate,
-                PersonId = (int) driverModel.PersonId,
+                PersonId = (int)driverModel.PersonId,
                 StartDate = driverModel.StartDate
             };
         }
