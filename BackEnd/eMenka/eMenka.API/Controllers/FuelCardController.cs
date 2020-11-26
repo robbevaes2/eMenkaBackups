@@ -4,41 +4,23 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Mappers.StaticMappers;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class FuelCardController : ControllerBase
+    public class FuelCardController : GenericController<FuelCard, FuelCardModel, FuelCardReturnModel>
     {
         private readonly IDriverRepository _driverRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
 
-        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository)
+        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository) : base(fuelCardRepository, new FuelCardMapper())
         {
             _fuelCardRepository = fuelCardRepository;
             _driverRepository = driverRepository;
-        }
-
-        [HttpGet]
-        public IActionResult GetAllFuelCards()
-        {
-            var fuelCards = _fuelCardRepository.GetAll();
-
-            return Ok(fuelCards.Select(FuelCardMappers.MapFuelCardEntity).ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetFuelCardById(int id)
-        {
-            var fuelCard = _fuelCardRepository.GetById(id);
-            if (fuelCard == null)
-                return NotFound();
-
-            return Ok(FuelCardMappers.MapFuelCardEntity(fuelCard));
         }
 
         [HttpPost]

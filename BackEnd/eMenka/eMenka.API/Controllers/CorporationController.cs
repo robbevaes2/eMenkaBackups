@@ -4,83 +4,38 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Mappers.StaticMappers;
+using eMenka.API.Models.RecordModels.ReturnModels;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class CorporationController : ControllerBase
+    public class CorporationController : GenericController<Corporation, CorporationModel, CorporationReturnModel>
     {
         private readonly ICompanyRepository _companyRepository;
-        private readonly ICorporationRepository _corporationRepository;
 
-        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository)
+        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository) : base(corporationRepository, new CorporationMapper())
         {
-            _corporationRepository = corporationRepository;
             _companyRepository = companyRepository;
         }
 
-        [HttpGet]
-        public IActionResult GetAllCorporations()
-        {
-            var corporations = _corporationRepository.GetAll();
-
-            return Ok(corporations.Select(RecordMappers.MapCorporationEntity).ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetCorporationById(int id)
-        {
-            var corporation = _corporationRepository.GetById(id);
-            if (corporation == null)
-                return NotFound();
-
-            return Ok(RecordMappers.MapCorporationEntity(corporation));
-        }
-
         [HttpPost]
-        public IActionResult PostCorporation([FromBody] CorporationModel corporationModel)
+        public override IActionResult PostEntity([FromBody] CorporationModel corporationModel)
         {
-            if (!ModelState.IsValid) return BadRequest();
-
             if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
                 return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
-            _corporationRepository.Add(RecordMappers.MapCorporationModel(corporationModel));
-            return Ok();
+            return base.PostEntity(corporationModel);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateCorporation([FromBody] CorporationModel corporationModel, int id)
+        public override IActionResult UpdateEntity(CorporationModel model, int id)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_companyRepository.GetById((int)model.CompanyId) == null)
+                return NotFound($"Company with id {model.CompanyId} not found");
 
-            if (id != corporationModel.Id)
-                return BadRequest("Id from model does not match query parameter id");
-
-            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
-                return NotFound($"Company with id {corporationModel.CompanyId} not found");
-
-            var isUpdated = _corporationRepository.Update(id, RecordMappers.MapCorporationModel(corporationModel));
-
-            if (!isUpdated)
-                return NotFound($"No Corporation found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCorporation(int id)
-        {
-            var corporation = _corporationRepository.GetById(id);
-            if (corporation == null)
-                return NotFound();
-
-            _corporationRepository.Remove(corporation);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }
