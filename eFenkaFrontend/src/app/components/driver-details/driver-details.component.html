@@ -1,1 +1,70 @@
-<p>driver-details works!</p>
+<h1 class="">Details bestuurder</h1>
+<div class="row ml-1 mr-1">
+  <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListDriverComponent()">Terug</button>
+  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" (click)="saveEditDriver(form)">
+    <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
+  </button>
+  <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
+</div>
+<div>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Persoon</h3>
+        <div>
+          <label for="title">Titel:</label>
+          <input type="text" id="title" formControlName="title" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="firstName">Voornaam:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="lastName">Achternaam:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="birthDate">Geboortedatum:</label>
+          <input type="date" id="birthDate" formControlName="birthDate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="genders">Geslacht:</label>
+          <select name="genders" id="genders" formControlName="gender" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of genders" [value]="item">{{ item }}</option>
+          </select><br>
+        </div>
+        <div>
+          <label for="languages">Taal:</label>
+          <select name="languages" id="languages" formControlName="language" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of languages; let id = index" [value]="id">{{ item }}</option>
+          </select><br>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Rijbewijs</h3>
+        <div>
+          <label for="driverLicenseNumber">Nummer:</label>
+          <input type="text" id="driverLicenseNumber" min="0" formControlName="driverLicenseNumber" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="driverLicenseType">Categorie:</label>
+          <input type="text" id="driverLicenseType" min="0" formControlName="driverLicenseType" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="startDate">Startdatum:</label>
+          <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="endDate">Einddatum:</label>
+          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <br>
+  <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteDriver()">Verwijder</button>
+</div>
