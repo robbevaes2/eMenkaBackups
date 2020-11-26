@@ -2,7 +2,7 @@
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Domain.Classes;
 
-namespace eMenka.API.Mappers
+namespace eMenka.API.Mappers.FuelCardMappers
 {
     public class PersonMapper : IMapper<Person, PersonModel, PersonReturnModel>
     {

@@ -257,7 +257,7 @@ export class RecordDetailsComponent implements OnInit {
       volume: this.vehicles[values.vehicle - 1].volume,
       fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
       emission: this.vehicles[values.vehicle - 1].emission,
-      power: this.vehicles[values.vehicle - 1].power,
+      enginePower: this.vehicles[values.vehicle - 1].enginePower,
       isActive: true,
       categoryId: this.vehicles[values.vehicle - 1].category.id,
       licensePlate: values.licensePlate,

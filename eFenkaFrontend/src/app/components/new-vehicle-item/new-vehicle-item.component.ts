@@ -1,3 +1,4 @@
+import { Country } from 'src/app/models/country/country';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,10 +27,12 @@ export class NewVehicleItemComponent implements OnInit {
   fuelTypes: FuelType[];
   fuelCards: FuelCard[];
   categories: Category[];
+  countries: Country[];
 
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.countries = this.getCountries();
     this.setBrands();
     this.setDoorTypes();
     this.setFuelTypes();
@@ -42,16 +45,19 @@ export class NewVehicleItemComponent implements OnInit {
       serie: new FormControl(null, [Validators.required]),
       engineType: new FormControl(null, [Validators.required]),
       doorType: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required]),
-      fuelType: new FormControl(null, [Validators.required]),
+      fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
       volume: new FormControl(null, [Validators.required, Validators.min(0)]),
-      power: new FormControl(null, [Validators.required, Validators.min(0)]),
+      enginePower: new FormControl(null, [Validators.required, Validators.min(0)]),
       fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
       emission: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       licensePlate: new FormControl(null, [Validators.required]),
       chassis: new FormControl(null, [Validators.required]),
-      category: new FormControl(null, [Validators.required])
+      category: new FormControl(null, [Validators.required]),
+      country: new FormControl(null, [Validators.required]),
+      engineCapacity: new FormControl(null, [Validators.required]),
+      buildYear: new FormControl(null, [Validators.required]),
+      kilometers: new FormControl(null, [Validators.required])
     });
   }
 
@@ -62,17 +68,21 @@ export class NewVehicleItemComponent implements OnInit {
       fuelTypeId:  Number(values.fuelType),
       engineTypeId:  Number(values.engineType),
       doorTypeId:  Number(values.doorType),
-      fuelCardId:  Number(values.fuelCard),
+      fuelCardId:  null,
+      seriesId: Number(values.serie),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
       emission: values.emission,
-      power: values.power,
+      enginePower: Number(values.enginePower),
       isActive: true,
       categoryId: Number(values.category),
       licensePlate: values.licensePlate,
       chassis: values.chassis,
+      engineCapacity: values.engineCapacity,
       endDateDelivery: values.endDate,
-      seriesId: Number(values.serie)
+      countryId: Number(values.country),
+      buildYear: Number(values.buildYear),
+      kilometers: Number(values.kilometers)
     };
   }
 
@@ -125,5 +135,15 @@ export class NewVehicleItemComponent implements OnInit {
 
   setCategories(): void {
     this.apiService.getAllCategories().subscribe(data => this.categories = data);
+  }
+
+  getCountries(): Country[] {
+    return [
+      new Country(1, 'België', 'BE', 'Belg', false, true),
+      new Country(2, 'Nederland', 'NL', 'Nederlandse', true, true),
+      new Country(3, 'Duitsland', 'DE', 'Duitse', false, true),
+      new Country(4, 'Frankrijk', 'FR', 'Franse', false, true),
+      new Country(5, 'Spanje', 'ES', 'Spaanse', false, false),
+    ];
   }
 }

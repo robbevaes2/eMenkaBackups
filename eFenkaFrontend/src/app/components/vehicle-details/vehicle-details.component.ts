@@ -60,14 +60,17 @@ export class VehicleDetailsComponent implements OnInit {
         doorType: new FormControl(null, [Validators.required]),
         fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
         volume: new FormControl(null, [Validators.required, Validators.min(0)]),
-        power: new FormControl(null, [Validators.required, Validators.min(0)]),
+        enginePower: new FormControl(null, [Validators.required, Validators.min(0)]),
         fiscalHP: new FormControl(null, [Validators.required, Validators.min(0)]),
         emission: new FormControl(null, [Validators.required, Validators.min(0)]),
         endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
         licensePlate: new FormControl(null, [Validators.required]),
         chassis: new FormControl(null, [Validators.required]),
         category: new FormControl(null, [Validators.required]),
-        country: new FormControl(null, [Validators.required])
+        country: new FormControl(null, [Validators.required]),
+        engineCapacity: new FormControl(null, [Validators.required]),
+        buildYear: new FormControl(null, [Validators.required]),
+        kilometers: new FormControl(null, [Validators.required])
       });
 
       this.fillForm();
@@ -83,7 +86,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['doorType'].setValue(this.selectedVehicle.doorType?.id);
     this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType?.id);
     this.form.controls['volume'].setValue(this.selectedVehicle.volume);
-    this.form.controls['power'].setValue(this.selectedVehicle.power);
+    this.form.controls['enginePower'].setValue(this.selectedVehicle.enginePower);
     this.form.controls['fiscalHP'].setValue(this.selectedVehicle.fiscalHP);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
     this.form.controls['endDate'].setValue(new Date(this.selectedVehicle.endDateDelivery).toISOString().substring(0, 10));
@@ -91,6 +94,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['chassis'].setValue(this.selectedVehicle.chassis);
     this.form.controls['category'].setValue(this.selectedVehicle.category?.id);
     this.form.controls['country'].setValue(this.selectedVehicle.country?.id);
+    this.form.controls['engineCapacity'].setValue(this.selectedVehicle.engineCapacity);
+    this.form.controls['buildYear'].setValue(this.selectedVehicle.buildYear);
+    this.form.controls['kilometers'].setValue(this.selectedVehicle.kilometers);
   }
 
   disableForm(): void {
@@ -101,7 +107,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['doorType'].disable();
     this.form.controls['fuelType'].disable();
     this.form.controls['volume'].disable();
-    this.form.controls['power'].disable();
+    this.form.controls['enginePower'].disable();
     this.form.controls['fiscalHP'].disable();
     this.form.controls['emission'].disable();
     this.form.controls['endDate'].disable();
@@ -109,6 +115,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['chassis'].disable();
     this.form.controls['category'].disable();
     this.form.controls['country'].disable();
+    this.form.controls['engineCapacity'].disable();
+    this.form.controls['buildYear'].disable();
+    this.form.controls['kilometers'].disable();
     this.isEditable = false;
   }
 
@@ -120,7 +129,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['doorType'].enable();
     this.form.controls['fuelType'].enable();
     this.form.controls['volume'].enable();
-    this.form.controls['power'].enable();
+    this.form.controls['enginePower'].enable();
     this.form.controls['fiscalHP'].enable();
     this.form.controls['emission'].enable();
     this.form.controls['endDate'].enable();
@@ -128,6 +137,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['chassis'].enable();
     this.form.controls['category'].enable();
     this.form.controls['country'].enable();
+    this.form.controls['engineCapacity'].enable();
+    this.form.controls['buildYear'].enable();
+    this.form.controls['kilometers'].enable();
     this.isEditable = true;
   }
 
@@ -185,16 +197,20 @@ export class VehicleDetailsComponent implements OnInit {
       engineTypeId:  Number(values.engineType),
       doorTypeId:  Number(values.doorType),
       fuelCardId:  this.selectedVehicle.fuelCard.id,
+      seriesId: Number(values.serie),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
       emission: values.emission,
-      power: values.power,
+      enginePower: Number(values.enginePower),
       isActive: true,
       categoryId: Number(values.category),
       licensePlate: values.licensePlate,
       chassis: values.chassis,
+      engineCapacity: values.engineCapacity,
       endDateDelivery: values.endDate,
-      seriesId: Number(values.serie)
+      countryId: Number(values.country),
+      buildYear: Number(values.buildYear),
+      kilometers: Number(values.kilometers)
     };
   }
 

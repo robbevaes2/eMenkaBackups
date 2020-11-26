@@ -2,7 +2,7 @@
 
 namespace eMenka.API.Models.RecordModels
 {
-    public class CompanyModel
+    public class CompanyModel : IModelBase
     {
         public int Id { get; set; }
 

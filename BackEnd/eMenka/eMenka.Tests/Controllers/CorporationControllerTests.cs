@@ -33,7 +33,7 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Setup(m => m.GetAll())
                 .Returns(corporations);
 
-            var result = _sut.GetAllCorporations() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -50,7 +50,7 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
 
-            var result = _sut.GetCorporationById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _corporationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -64,7 +64,7 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
 
-            var result = _sut.GetCorporationById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -76,16 +76,23 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostCorporationReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new CorporationModel();
+            var invalidModel = new CorporationModel
+            {
+                CompanyId = 1
+            };
+            var company = new Company();
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostCorporation(invalidModel) as BadRequestResult;
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
+
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Add(It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -102,7 +109,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.PostCorporation(validModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(validModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -124,7 +131,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.PostCorporation(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -135,16 +142,24 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateCorporationReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new CorporationModel();
+            var invalidModel = new CorporationModel
+            {
+                CompanyId = 1
+            };
+
+            var company = new Company();
+
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateCorporation(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -156,12 +171,17 @@ namespace eMenka.Tests.Controllers
                 CompanyId = 1
             };
 
-            var result = _sut.UpdateCorporation(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var company = new Company();
+
+            _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(company);
+
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Corporation>()), Times.Never);
-            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -179,7 +199,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.UpdateCorporation(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -203,7 +223,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.UpdateCorporation(invalidModel, invalidModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -228,7 +248,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.UpdateCorporation(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -244,7 +264,7 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
 
-            var result = _sut.DeleteCorporation(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -260,7 +280,7 @@ namespace eMenka.Tests.Controllers
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
 
-            var result = _sut.DeleteCorporation(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

@@ -23,7 +23,6 @@ export class Vehicle {
   category: Category;
   fiscalHP: number;
   emission: number;
-  power: number;
   licensePlate: string;
   endDateDelivery: Date;
   isActive: boolean;

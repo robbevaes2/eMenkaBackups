@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.FuelCardModels
 {
-    public class DriverModel
+    public class DriverModel : IModelBase
     {
         public int Id { get; set; }
 

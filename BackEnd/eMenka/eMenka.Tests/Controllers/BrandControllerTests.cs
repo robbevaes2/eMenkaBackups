@@ -37,7 +37,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetAll())
                 .Returns(brands);
 
-            var result = _sut.GetAllBrands() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -54,7 +54,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.GetBrandById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -63,12 +63,16 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetBrandByIdReturnsOkAndBrandWhenEverythingIsCorrect()
         {
-            var brand = new Brand();
+            var brand = new Brand
+            {
+                ExteriorColors = new List<ExteriorColor>(),
+                InteriorColors = new List<InteriorColor>()
+            };
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.GetBrandById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -101,7 +105,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostBrand(invalidModel) as BadRequestResult;
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -113,10 +117,12 @@ namespace eMenka.Tests.Controllers
         {
             var validModel = new BrandModel
             {
-                Name = "name"
+                Name = "name",
+                ExteriorColorIds = new[] { 1 },
+                InteriorColorIds = new[] { 1 }
             };
 
-            var result = _sut.PostBrand(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -130,7 +136,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateBrand(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -145,7 +151,7 @@ namespace eMenka.Tests.Controllers
                 Id = 1
             };
 
-            var result = _sut.UpdateBrand(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -157,13 +163,15 @@ namespace eMenka.Tests.Controllers
         {
             var invalidModel = new BrandModel
             {
-                Id = 1
+                Id = 1,
+                ExteriorColorIds = new []{1},
+                InteriorColorIds = new []{1}
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))
                 .Returns(false);
 
-            var result = _sut.UpdateBrand(invalidModel, invalidModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -176,13 +184,15 @@ namespace eMenka.Tests.Controllers
             var validModel = new BrandModel
             {
                 Id = 1,
-                Name = ""
+                Name = "",
+                ExteriorColorIds = new[] { 1 },
+                InteriorColorIds = new[] { 1 }
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))
                 .Returns(true);
 
-            var result = _sut.UpdateBrand(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -197,7 +207,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.DeleteBrand(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -213,7 +223,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.DeleteBrand(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

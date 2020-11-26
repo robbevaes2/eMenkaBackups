@@ -43,13 +43,6 @@
           </select><br>
         </div>
         <div>
-          <label for="fuelCards">Tankkaart:</label>
-          <select name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
-          </select><br>
-        </div>
-        <div>
           <label for="fuelTypes">Type brandstof:</label>
           <select name="fuelTypes" id="fuelTypes" formControlName="fuelType" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
@@ -63,6 +56,17 @@
             <option *ngFor="let item of categories" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
+        <div>
+          <label for="countries">Land:</label>
+          <select name="countries" id="countries" formControlName="country" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of countries" [value]="item.id">{{ item.name }}</option>
+          </select><br>
+        </div>
+        <div>
+          <label for="kilometers">Kilometers:</label>
+          <input type="number" id="kilometers" min="0" formControlName="kilometers" class="col-md-12 browser-default custom-select">
+        </div>
       </div>
       <div class="col-md-6">
         <div>
@@ -70,8 +74,12 @@
           <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default custom-select">
         </div>
         <div>
-          <label for="power">Vermogen PK:</label>
-          <input type="number" id="power" min="0" formControlName="power" class="col-md-12 browser-default custom-select">
+          <label for="engineCapacity">Motor CC:</label>
+          <input type="number" id="engineCapacity" min="0" formControlName="engineCapacity" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="enginePower">Vermogen PK:</label>
+          <input type="number" id="enginePower" min="0" formControlName="enginePower" class="col-md-12 browser-default custom-select">
         </div>
         <div>
           <label for="fiscalHP">Fiscale PK:</label>
@@ -92,6 +100,10 @@
         <div>
           <label for="chassis">Chassis:</label>
           <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="buildYear">Bouw Jaar:</label>
+          <input type="number" id="buildYear" min="0" formControlName="buildYear" class="col-md-12 browser-default custom-select">
         </div>
       </div>
     </div>
