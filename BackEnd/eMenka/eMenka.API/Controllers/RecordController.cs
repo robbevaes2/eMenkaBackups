@@ -59,6 +59,9 @@ namespace eMenka.API.Controllers
             if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
 
+            if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)
+                return BadRequest($"A record already exists with fuelcard id {recordModel.FuelCardId}");
+
             _recordRepository.Add(RecordMappers.MapRecordModel(recordModel));
             return Ok();
         }
@@ -79,6 +82,9 @@ namespace eMenka.API.Controllers
 
             if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
+
+            if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)
+                return BadRequest($"A record already exists with fuelcard id {recordModel.FuelCardId}");
 
             var isUpdated = _recordRepository.Update(id, RecordMappers.MapRecordModel(recordModel));
 

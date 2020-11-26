@@ -4,7 +4,7 @@ using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.FuelCardModels
 {
-    public class PersonModel
+    public class PersonModel : IModelBase
     {
         public int Id { get; set; }
 
