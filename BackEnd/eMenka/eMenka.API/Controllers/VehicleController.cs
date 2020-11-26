@@ -124,6 +124,9 @@ namespace eMenka.API.Controllers
             if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
 
+            if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)
+                return BadRequest($"A vehicle already exists with fuelcard id {vehicleModel.FuelCardId}");
+
 
             _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
             return Ok();
@@ -159,6 +162,9 @@ namespace eMenka.API.Controllers
 
             if (_serieRepository.GetById((int) vehicleModel.SeriesId) == null)
                 return NotFound($"No serie with id {vehicleModel.SeriesId}");
+
+            if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)
+                return BadRequest($"A vehicle already exists with fuelcard id {vehicleModel.FuelCardId}");
 
             var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
 

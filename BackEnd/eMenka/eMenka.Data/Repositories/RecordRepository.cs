@@ -44,6 +44,7 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<Record> Find(Expression<Func<Record, bool>> statement)
         {
             return _context.Records
+                .Where(statement)
                 .Include(r => r.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
