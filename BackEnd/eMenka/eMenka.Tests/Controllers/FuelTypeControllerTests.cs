@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,15 +13,15 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class FuelTypeControllerTests
     {
-        private FuelTypeController _sut;
-        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _fuelTypeRepositoryMock = new Mock<IFuelTypeRepository>();
             _sut = new FuelTypeController(_fuelTypeRepositoryMock.Object);
         }
+
+        private FuelTypeController _sut;
+        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
 
         [Test]
         public void GetAllFuelTypesReturnsOkAndListOfAllFueltypesWhenEverythingIsCorrect()
@@ -200,7 +197,5 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _fuelTypeRepositoryMock.Verify(m => m.Remove(It.IsAny<FuelType>()), Times.Once);
         }
-
-
     }
 }

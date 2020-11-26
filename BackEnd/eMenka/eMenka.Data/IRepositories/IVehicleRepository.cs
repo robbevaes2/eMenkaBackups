@@ -4,6 +4,5 @@ namespace eMenka.Data.IRepositories
 {
     public interface IVehicleRepository : IGenericRepository<Vehicle>
     {
-
     }
 }

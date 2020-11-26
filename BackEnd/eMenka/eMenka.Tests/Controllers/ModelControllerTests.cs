@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,10 +15,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class ModelControllerTests
     {
-        private ModelController _sut;
-        private Mock<IModelRepository> _modelRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -27,6 +22,10 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _sut = new ModelController(_modelRepositoryMock.Object, _brandRepositoryMock.Object);
         }
+
+        private ModelController _sut;
+        private Mock<IModelRepository> _modelRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
 
         [Test]
         public void GetAllModelsReturnsOkAndListOfAllModelsWhenEverythingIsCorrect()
@@ -115,7 +114,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _modelRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Model, bool>>>()), Times.Once);
         }
-        
+
         [Test]
         public void PostModelReturnsBadRequestWhenModelIsInvalid()
         {
@@ -156,7 +155,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostModelReturnsOkWhenModelIsValid()
         {
-            var validModel = new ModelModel()
+            var validModel = new ModelModel
             {
                 Name = "name",
                 BrandId = 1

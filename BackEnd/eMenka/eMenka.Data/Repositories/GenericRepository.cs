@@ -1,9 +1,9 @@
-﻿using eMenka.Data.IRepositories;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using eMenka.Data.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Data.Repositories
 {
@@ -52,10 +52,7 @@ namespace eMenka.Data.Repositories
         public virtual bool Update(int id, TEntity entity)
         {
             var originalEntity = _dbSet.Find(id);
-            if (originalEntity == null)
-            {
-                return false;
-            }
+            if (originalEntity == null) return false;
 
             _context.Entry(originalEntity).CurrentValues.SetValues(entity);
             Save();

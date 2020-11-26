@@ -1,62 +1,59 @@
-<div class="container">
-  <h1 class="col-4">Details voertuig</h1>
-  <div class="row ml-1 mr-1">
-    <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListVehicleComponent()">Terug</button>
-    <button type="button" class="btn btn-success ml-auto col-md-2" (click)="saveEditVehicle(form)">
-      <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
-    </button>
-    <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
-  </div>
-  <div>
-    <form [formGroup]="form">
-      <div class="row">
-        <div class="col-md-6">
+<h1 class="">Details voertuig</h1>
+<div class="row ml-1 mr-1">
+  <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListVehicleComponent()">Terug</button>
+  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" (click)="saveEditVehicle(form)">
+    <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
+  </button>
+  <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
+</div>
+<div>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="row">
+      <div class="col-md-6">
+          <div>
+            <label for="brands">Merk:</label>
+            <select name="brands" id="brands" (change)="onChangedBrand($event)" formControlName="brand" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
+            </select><br>
+          </div>
+          <div>
+            <label for="models">Model:</label>
+            <select name="models" id="models" formControlName="model" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of models" [value]="item.id">{{ item.name }}</option>
+            </select><br>
+          </div>
+          <div>
+            <label for="series">Serie:</label>
+            <select name="series" id="series" formControlName="serie" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of series" [value]="item.id">{{ item.name }}</option>
+            </select><br>
+          </div>
+          <div>
+            <label for="engineTypes">Type motor:</label>
+            <select name="engineTypes" id="engineTypes" formControlName="engineType" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of engineTypes" [value]="item.id">{{ item.name }}</option>
+            </select><br>
+          </div>
+          <div>
+            <label for="doorTypes">Aantal deuren:</label>
+            <select name="doorTypes" id="doorTypes" formControlName="doorType" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of doorTypes" [value]="item.id">{{ item.name }}</option>
+            </select><br>
+          </div>
+          <div>
             <div>
-              <label for="brands">Merk:</label>
-              <select name="brands" id="brands" (change)="onChangedBrand($event)" formControlName="brand" class="col-md-12 browser-default custom-select">
+              <label for="fuelCards">Tankkaart:</label>
+              <select name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
                 <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
+                <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
               </select><br>
             </div>
-            <div>
-              <label for="models">Model:</label>
-              <select name="models" id="models" formControlName="model" class="col-md-12 browser-default custom-select">
-                <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of models" [value]="item.id">{{ item.name }}</option>
-              </select><br>
-            </div>
-            <div>
-              <label for="series">Serie:</label>
-              <select name="series" id="series" formControlName="serie" class="col-md-12 browser-default custom-select">
-                <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of series" [value]="item.id">{{ item.name }}</option>
-              </select><br>
-            </div>
-            <div>
-              <label for="engineTypes">Type motor:</label>
-              <select name="engineTypes" id="engineTypes" formControlName="engineType" class="col-md-12 browser-default custom-select">
-                <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of engineTypes" [value]="item.id">{{ item.name }}</option>
-              </select><br>
-            </div>
-            <div>
-              <label for="doorTypes">Aantal deuren:</label>
-              <select name="doorTypes" id="doorTypes" formControlName="doorType" class="col-md-12 browser-default custom-select">
-                <option [ngValue]="null" disabled>-</option>
-                <option *ngFor="let item of doorTypes" [value]="item.id">{{ item.name }}</option>
-              </select><br>
-            </div>
-            <div>
-              <div>
-                <label for="fuelCards">Tankkaart:</label>
-                <select name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
-                  <option [ngValue]="null" disabled>-</option>
-                  <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
-                </select><br>
-              </div>
-            </div>
-        </div>
-        <div class="col-md-6">
+          </div>
           <div>
             <label for="fuelTypes">Type brandstof:</label>
             <select name="fuelTypes" id="fuelTypes" formControlName="fuelType" class="col-md-12 browser-default custom-select">
@@ -65,35 +62,47 @@
             </select><br>
           </div>
           <div>
-            <label for="volume">Volume:</label>
-            <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default custom-select">
+            <label for="categories">Categorie:</label>
+            <select name="categories" id="categories" formControlName="category" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let item of categories" [value]="item.id">{{ item.name }}</option>
+            </select><br>
           </div>
-          <div>
-            <label for="power">Vermogen PK:</label>
-            <input type="number" id="power" min="0" formControlName="power" class="col-md-12 browser-default custom-select">
-          </div>
-          <div>
-            <label for="fiscalHP">Fiscale PK:</label>
-            <input type="number" id="fiscalHP" min="0" formControlName="fiscalHP" class="col-md-12 browser-default custom-select">
-          </div>
-          <div>
-            <label for="emission">Emissie:</label>
-            <input type="number" id="emission" min="0" formControlName="emission" class="col-md-12 browser-default custom-select">
-          </div>
-          <div>
-            <label for="endDate">Afleveringsdatum:</label>
-            <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
-          </div>
-          <div>
-            <label for="licensePlate">Nummerplaat:</label>
-            <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
-          </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <label for="volume">Volume:</label>
+          <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="power">Vermogen PK:</label>
+          <input type="number" id="power" min="0" formControlName="power" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="fiscalHP">Fiscale PK:</label>
+          <input type="number" id="fiscalHP" min="0" formControlName="fiscalHP" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="emission">Emissie:</label>
+          <input type="number" id="emission" min="0" formControlName="emission" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="endDate">Afleveringsdatum:</label>
+          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="licensePlate">Nummerplaat:</label>
+          <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="chassis">Chassis:</label>
+          <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default custom-select">
         </div>
       </div>
-    </form>
-  </div>
-  <div>
-    <br>
-    <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteVehicle()">Verwijder</button>
-  </div>
+    </div>
+  </form>
+</div>
+<div>
+  <br>
+  <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteVehicle()">Verwijder</button>
 </div>

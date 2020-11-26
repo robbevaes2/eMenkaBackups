@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.RecordModels;
+﻿using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Domain.Classes;
 
@@ -16,7 +12,7 @@ namespace eMenka.API.Mappers
                 return null;
             return new RecordReturnModel
             {
-                FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard), 
+                FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard),
                 Id = record.Id,
                 Term = record.Term,
                 Usage = record.Usage,
@@ -35,7 +31,7 @@ namespace eMenka.API.Mappers
                 CorporationId = recordModel.CorporationId,
                 CostAllocationId = recordModel.CostAllocationId,
                 EndDate = recordModel.EndDate,
-                FuelCardId = (int)recordModel.FuelCardId,
+                FuelCardId = (int) recordModel.FuelCardId,
                 Id = recordModel.Id,
                 StartDate = recordModel.StartDate,
                 Term = recordModel.Term
@@ -62,7 +58,7 @@ namespace eMenka.API.Mappers
             return new Corporation
             {
                 Abbreviation = corporationModel.Abbreviation,
-                CompanyId = (int)corporationModel.CompanyId,
+                CompanyId = (int) corporationModel.CompanyId,
                 EndDate = corporationModel.EndDate,
                 Name = corporationModel.Name,
                 Id = corporationModel.Id,

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +46,9 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.Corporation)
                 .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .ToList();
         }
 
@@ -79,12 +81,16 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.Corporation)
                 .ThenInclude(c => c.Company)
                 .Include(r => r.CostAllocation)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .FirstOrDefault(r => r.Id == id);
         }
 
         public override IEnumerable<Record> Find(Expression<Func<Record, bool>> statement)
         {
             return _context.Records
+                .Where(statement)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(v => v.Brand)

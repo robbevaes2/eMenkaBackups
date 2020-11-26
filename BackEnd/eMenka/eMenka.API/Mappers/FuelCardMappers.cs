@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.FuelCardModels;
+﻿using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
@@ -25,7 +21,25 @@ namespace eMenka.API.Mappers
                 BlockingReason = fuelCard.BlockingReason,
                 IsBlocked = fuelCard.IsBlocked,
                 PinCode = fuelCard.PinCode,
+                Number = fuelCard.Number,
                 Vehicle = MapVehicleEntity(fuelCard.Vehicle)
+            };
+        }
+
+        public static FuelCard MapFuelCardModel(FuelCardModel fuelCardModel)
+        {
+            return new FuelCard
+            {
+                DriverId = (int)fuelCardModel.DriverId,
+                EndDate = fuelCardModel.EndDate,
+                Id = fuelCardModel.Id,
+                StartDate = fuelCardModel.StartDate,
+                BlockingDate = fuelCardModel.BlockingDate,
+                BlockingReason = fuelCardModel.BlockingReason,
+                IsBlocked = fuelCardModel.IsBlocked,
+                PinCode = fuelCardModel.PinCode,
+                VehicleId = fuelCardModel.VehicleId,
+                Number = fuelCardModel.Number
             };
         }
 
@@ -53,24 +67,12 @@ namespace eMenka.API.Mappers
                 EndDateDelivery = vehicle.EndDateDelivery,
                 EngineCapacity = vehicle.EngineCapacity,
                 EnginePower = vehicle.EnginePower,
-                Serie = VehicleMappers.MapSerieEntity(vehicle.Series)
+                Serie = VehicleMappers.MapSerieEntity(vehicle.Series),
+                BuildYear = vehicle.BuildYear,
+                Country = VehicleMappers.MapCountryEntity(vehicle.Country)
             };
         }
-        public static FuelCard MapFuelCardModel(FuelCardModel fuelCardModel)
-        {
-            return new FuelCard
-            {
-                DriverId = (int)fuelCardModel.DriverId,
-                EndDate = fuelCardModel.EndDate,
-                Id = fuelCardModel.Id,
-                StartDate = fuelCardModel.StartDate,
-                BlockingDate = fuelCardModel.BlockingDate,
-                BlockingReason = fuelCardModel.BlockingReason,
-                IsBlocked = fuelCardModel.IsBlocked,
-                PinCode = fuelCardModel.PinCode,
-                VehicleId = fuelCardModel.VehicleId
-            };
-        }
+
         public static DriverReturnModel MapDriverEntity(Driver driver)
         {
             if (driver == null)
@@ -83,16 +85,18 @@ namespace eMenka.API.Mappers
                 Person = MapPersonEntity(driver.Person)
             };
         }
+
         public static Driver MapDriverModel(DriverModel driverModel)
         {
             return new Driver
             {
                 Id = driverModel.Id,
                 EndDate = driverModel.EndDate,
-                PersonId = (int)driverModel.PersonId,
+                PersonId = (int) driverModel.PersonId,
                 StartDate = driverModel.StartDate
             };
         }
+
         public static PersonReturnModel MapPersonEntity(Person person)
         {
             if (person == null)
@@ -113,6 +117,7 @@ namespace eMenka.API.Mappers
                 DriversLicenseType = person.DriversLicenseType
             };
         }
+
         public static Person MapPersonModel(PersonModel personModel)
         {
             return new Person

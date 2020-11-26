@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -16,10 +15,6 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class EngineTypeControllerTests
     {
-        private EngineTypeController _sut;
-        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-
         [SetUp]
         public void Init()
         {
@@ -27,6 +22,10 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _sut = new EngineTypeController(_engineTypeRepositoryMock.Object, _brandRepositoryMock.Object);
         }
+
+        private EngineTypeController _sut;
+        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
 
         [Test]
         public void GetAllEngineTypesReturnsOkAndListOfAllEngineTypesWhenEverythingIsCorrect()
@@ -62,7 +61,7 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void GetEngineTypeByIdReturnsOkAndEngineTypeWhenEverythingIsCorrect()
         {
-            var engineType = new EngineType()
+            var engineType = new EngineType
             {
                 Brand = new Brand()
             };

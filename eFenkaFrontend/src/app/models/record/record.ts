@@ -8,14 +8,14 @@ export class Record {
   id: number;
   fuelCard: FuelCard;
   corporation: Corporation;
-  costAllocatoin: CostAllocation;
+  costAllocation: CostAllocation;
   term: Term;
   startDate: Date;
   endDate: Date;
   usage: Usage;
 
   constructor(id: number, fuelCard: FuelCard, corporatoin: Corporation, term: Term, startDate: Date, endDate: Date,
-              usage: Usage, costAllocatoin: CostAllocation) {
+              usage: Usage, costAllocation: CostAllocation) {
     this.id = id;
     this.fuelCard = fuelCard;
     this.corporation = corporatoin;
@@ -23,6 +23,6 @@ export class Record {
     this.startDate = startDate;
     this.endDate = endDate;
     this.usage = usage;
-    this.costAllocatoin = costAllocatoin;
+    this.costAllocation = costAllocation;
   }
 }

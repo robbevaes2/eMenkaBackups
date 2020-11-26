@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
