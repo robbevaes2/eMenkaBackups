@@ -27,12 +27,15 @@ export class RecordListComponent implements OnInit {
   constructor(private router: Router, private cdRef: ChangeDetectorRef, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getAllRecords().subscribe(data => this.records = data);
     this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerse Registratie', 'Eind Datum'];
 
-    this.mdbTable.setDataSource(this.records);
-    this.records = this.mdbTable.getDataSource();
-    this.previous = this.mdbTable.getDataSource();
+    this.apiService.getAllRecords().subscribe(data => {
+      this.records = data;
+      
+      this.mdbTable.setDataSource(this.records);
+      this.records = this.mdbTable.getDataSource();
+      this.previous = this.mdbTable.getDataSource();
+    });
   }
 
   ngAfterViewInit() {

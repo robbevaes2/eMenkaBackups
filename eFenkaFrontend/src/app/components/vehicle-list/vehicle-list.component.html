@@ -42,9 +42,8 @@
         <td >{{vehicle.doorType.name}}</td>
         <td >{{vehicle.volume}}</td>
         <td >{{vehicle.fiscalHP}}</td>
-        <td >{{vehicle.power}}</td>
+        <td >{{vehicle.power == null ? 'not set': vehicle.power}}</td>
         <td>{{dateToStringConverter(vehicle.endDateDelivery)}}</td>
-
       </tr>
     </tbody>
     <!-- <tfoot class="grey lighten-5 w-100">

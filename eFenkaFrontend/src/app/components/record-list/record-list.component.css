@@ -1,10 +1,10 @@
+.container {
+    margin-top: 2rem;
+}
+
 #add-button {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-#amount-selector {
-    margin-top: 1rem;
 }
 
 .pagination {
@@ -16,3 +16,4 @@
     cursor: pointer;
     user-select: none;
 }
+
