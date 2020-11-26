@@ -200,7 +200,7 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
-        public void PostFuelCardReturnsBadRequestWhenFuelCardAlreadyExists()
+        public void PostRecordReturnsBadRequestWhenFuelCardAlreadyExists()
         {
             var validModel = new RecordModel
             {
@@ -238,7 +238,7 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
-        public void PostFuelCardReturnsOkWhenModelIsValid()
+        public void PostRecordReturnsOkWhenModelIsValid()
         {
             var validModel = new RecordModel
             {
@@ -258,9 +258,10 @@ namespace eMenka.Tests.Controllers
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((RecordReturnModel)result.Value, Is.Not.Null);
 
             _recordRepositoryMock.Verify(m => m.Add(It.IsAny<Record>()), Times.Once);
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);

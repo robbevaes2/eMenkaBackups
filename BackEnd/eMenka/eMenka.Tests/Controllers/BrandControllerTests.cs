@@ -127,9 +127,10 @@ namespace eMenka.Tests.Controllers
             _interiorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(new InteriorColor());
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((BrandReturnModel)result.Value, Is.Not.Null);
 
             _brandRepositoryMock.Verify(m => m.Add(It.IsAny<Brand>()), Times.Once);
         }

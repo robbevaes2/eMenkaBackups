@@ -168,9 +168,10 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((FuelCardReturnModel)result.Value, Is.Not.Null);
 
             _fuelCardRepositoryMock.Verify(m => m.Add(It.IsAny<FuelCard>()), Times.Once);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
