@@ -7,6 +7,7 @@
   <form [formGroup]="form">
     <div class="row">
       <div class="col-md-6">
+        <h3>Persoon</h3>
         <div>
           <label for="title">Titel:</label>
           <input type="text" id="title" formControlName="title" class="col-md-12 browser-default custom-select">
@@ -39,12 +40,13 @@
         </div>
       </div>
       <div class="col-md-6">
+        <h3>Rijbewijs</h3>
         <div>
-          <label for="driverLicenseNumber">Rijbewijs nummer:</label>
+          <label for="driverLicenseNumber">Nummer:</label>
           <input type="text" id="driverLicenseNumber" min="0" formControlName="driverLicenseNumber" class="col-md-12 browser-default custom-select">
         </div>
         <div>
-          <label for="driverLicenseType">Rijbewijs categorie:</label>
+          <label for="driverLicenseType">Categorie:</label>
           <input type="text" id="driverLicenseType" min="0" formControlName="driverLicenseType" class="col-md-12 browser-default custom-select">
         </div>
         <div>
