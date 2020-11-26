@@ -15,15 +15,19 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class BrandControllerTests
     {
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
+        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
+
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
-            _sut = new BrandController(_brandRepositoryMock.Object);
+            _interiorColorRepositoryMock = new Mock<IInteriorColorRepository>();
+            _exteriorColorRepositoryMock = new Mock<IExteriorColorRepository>();
+            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object, _interiorColorRepositoryMock.Object);
         }
-
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()
