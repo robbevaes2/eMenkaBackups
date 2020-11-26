@@ -51,16 +51,15 @@ export class NewRecordItemComponent implements OnInit {
 
     this.form = new FormGroup({
       type: new FormControl(null, [Validators.required]),
-      licensePlate: new FormControl(null, [Validators.required]),
-      chassis: new FormControl(null, [Validators.required]),
+      licensePlate: new FormControl(null, []),
+      chassis: new FormControl(null, []),
       registrationDate: new FormControl(null, []),
       country: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, [Validators.required]),
+      fuelCard: new FormControl(null, []),
       usage: new FormControl(null, [Validators.required]),
-      driver: new FormControl(null, [Validators.required]),
       brand: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
@@ -77,7 +76,6 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   saveNewRecord(form: FormGroup): void {
-    let test = this.mapToModel(form.value)
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
       this.apiService.addRecord(this.mapToModel(form.value)).subscribe(() => this.router.navigate(['/record']));
     }
