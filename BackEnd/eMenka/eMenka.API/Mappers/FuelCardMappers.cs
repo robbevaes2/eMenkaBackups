@@ -92,7 +92,7 @@ namespace eMenka.API.Mappers
             {
                 Id = driverModel.Id,
                 EndDate = driverModel.EndDate,
-                PersonId = (int) driverModel.PersonId,
+                PersonId = (int)driverModel.PersonId,
                 StartDate = driverModel.StartDate
             };
         }

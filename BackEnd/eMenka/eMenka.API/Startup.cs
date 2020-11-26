@@ -1,5 +1,3 @@
-using System;
-using System.Text;
 using eMenka.Data;
 using eMenka.Data.IRepositories;
 using eMenka.Data.Repositories;
@@ -15,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Stage_API;
+using System;
+using System.Text;
 
 namespace eMenka.API
 {
@@ -72,6 +72,8 @@ namespace eMenka.API
             services.AddScoped<ICorporationRepository, CorporationRepository>();
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IExteriorColorRepository, ExteriorColorRepository>();
+            services.AddScoped<IInteriorColorRepository, InteriorColorRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {

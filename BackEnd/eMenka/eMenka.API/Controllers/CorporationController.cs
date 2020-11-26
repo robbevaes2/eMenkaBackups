@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -45,7 +45,7 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_companyRepository.GetById((int) corporationModel.CompanyId) == null)
+            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
                 return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
             _corporationRepository.Add(RecordMappers.MapCorporationModel(corporationModel));
@@ -58,9 +58,9 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != corporationModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
-            if (_companyRepository.GetById((int) corporationModel.CompanyId) == null)
+            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
                 return NotFound($"Company with id {corporationModel.CompanyId} not found");
 
             var isUpdated = _corporationRepository.Update(id, RecordMappers.MapCorporationModel(corporationModel));

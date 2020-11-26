@@ -27,7 +27,7 @@ namespace eMenka.API.Models.VehicleModels
 
         [Required] public int? Emission { get; set; }
 
-        [Required] public int? Power { get; set; }
+        public int Power { get; set; }
 
         [Required] public bool IsActive { get; set; }
 
@@ -41,5 +41,6 @@ namespace eMenka.API.Models.VehicleModels
         public int? AverageFuel { get; set; }
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
+        public double Kilometers { get; set; }
     }
 }

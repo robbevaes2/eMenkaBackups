@@ -1,10 +1,10 @@
-﻿using System;
+﻿using eMenka.Data.IRepositories;
+using eMenka.Domain.Classes;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
-using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Data.Repositories
 {
@@ -27,6 +27,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.Series)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
@@ -42,6 +43,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
@@ -59,6 +61,7 @@ namespace eMenka.Data.Repositories
                 .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)

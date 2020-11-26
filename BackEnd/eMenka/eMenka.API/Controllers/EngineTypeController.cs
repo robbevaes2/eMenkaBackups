@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -64,7 +64,7 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_brandRepository.GetById((int) engineTypeModel.BrandId) == null)
+            if (_brandRepository.GetById((int)engineTypeModel.BrandId) == null)
                 return NotFound($"No brand with id {engineTypeModel.BrandId}");
 
             _engineTypeRepository.Add(VehicleMappers.MapEngineTypeModel(engineTypeModel));
@@ -77,9 +77,9 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != engineTypeModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+                return BadRequest("Id from model does not match query parameter id");
 
-            if (_brandRepository.GetById((int) engineTypeModel.BrandId) == null)
+            if (_brandRepository.GetById((int)engineTypeModel.BrandId) == null)
                 return NotFound($"No brand with id {engineTypeModel.BrandId}");
 
             var isUpdated = _engineTypeRepository.Update(id, VehicleMappers.MapEngineTypeModel(engineTypeModel));
