@@ -15,6 +15,7 @@ import { DoorType } from '../models/door-type/door-type';
 import { Category } from '../models/category/category';
 import { CostAllocation } from '../models/cost-allocatoin/cost-allocation';
 import { Driver } from '../models/driver/driver';
+import { Person } from '../models/person/person';
 
 @Injectable({
   providedIn: 'root',
@@ -213,5 +214,19 @@ export class ApiService {
 
   deleteDriver(id: number) {
     return this.deleteFromAPI('driver/' + id);
+  }
+
+  // Person
+
+  getPersonById(id: number): Observable<Person> {
+    return this.getFromAPI<Person>('person/' + id);
+  }
+
+  updatePerson(id: number, personModel: any) {
+    return this.putToAPI('person/' + id, personModel);
+  }
+
+  addPerson(personModel: any) {
+    return this.postToAPI('person/', personModel);
   }
 }

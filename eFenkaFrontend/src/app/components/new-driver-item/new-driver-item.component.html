@@ -1,1 +1,61 @@
-<p>new-driver-item works!</p>
+<div class="row mr-1">
+  <h1 class="col-8">Nieuwe bestuurder</h1>
+  <button type="button" class="btn btn-secondary col-md-2"  (click)="navigateToListDriverComponent()">Annuleer</button>
+  <button type="button" class="btn btn-success col-md-2" [disabled]="!form.valid" (click)="saveNewDriver(form)">Opslaan</button>
+</div>
+<div>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+        <div>
+          <label for="title">Titel:</label>
+          <input type="text" id="title" formControlName="title" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="firstName">Voornaam:</label>
+          <input type="text" id="firstName" formControlName="firstName" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="lastName">Achternaam:</label>
+          <input type="text" id="lastName" formControlName="lastName" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="birthDate">Geboortedatum:</label>
+          <input type="date" id="birthDate" formControlName="birthDate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="genders">Geslacht:</label>
+          <select name="genders" id="genders" formControlName="gender" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of genders" [value]="item">{{ item }}</option>
+          </select><br>
+        </div>
+        <div>
+          <label for="languages">Taal:</label>
+          <select name="languages" id="languages" formControlName="language" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of languages; let id = index" [value]="id">{{ item }}</option>
+          </select><br>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <label for="driverLicenseNumber">Rijbewijs nummer:</label>
+          <input type="text" id="driverLicenseNumber" min="0" formControlName="driverLicenseNumber" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="driverLicenseType">Rijbewijs categorie:</label>
+          <input type="text" id="driverLicenseType" min="0" formControlName="driverLicenseType" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="startDate">Startdatum:</label>
+          <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default custom-select">
+        </div>
+        <div>
+          <label for="endDate">Einddatum:</label>
+          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
