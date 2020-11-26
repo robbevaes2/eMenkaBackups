@@ -28,7 +28,7 @@ namespace eMenka.API.Controllers
         {
             var drivers = _driverRepository.GetAll();
 
-            return Ok(drivers.Select(FuelCardMapper.MapDriverEntity).ToList());
+            return Ok(drivers.Select(FuelCardMappers.MapDriverEntity).ToList());
         }
 
         [HttpGet("{id}")]
@@ -38,7 +38,7 @@ namespace eMenka.API.Controllers
             if (driver == null)
                 return NotFound();
 
-            return Ok(FuelCardMapper.MapDriverEntity(driver));
+            return Ok(FuelCardMappers.MapDriverEntity(driver));
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace eMenka.API.Controllers
             if (_personRepository.GetById((int)driverModel.PersonId) == null)
                 return NotFound($"Person with id {driverModel.PersonId} not found");
 
-            _driverRepository.Add(FuelCardMapper.MapDriverModel(driverModel));
+            _driverRepository.Add(FuelCardMappers.MapDriverModel(driverModel));
             return Ok();
         }
 
@@ -64,7 +64,7 @@ namespace eMenka.API.Controllers
             if (_personRepository.GetById((int)driverModel.PersonId) == null)
                 return NotFound($"Person with id {driverModel.PersonId} not found");
 
-            var isUpdated = _driverRepository.Update(id, FuelCardMapper.MapDriverModel(driverModel));
+            var isUpdated = _driverRepository.Update(id, FuelCardMappers.MapDriverModel(driverModel));
 
             if (!isUpdated)
                 return NotFound($"No Driver found with id {id}");
