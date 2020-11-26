@@ -34,8 +34,20 @@ namespace eMenka.Tests.Mappers.VehicleMappers
         {
             var name = "name";
             var id = 1;
-            var exteriorColors = new List<ExteriorColor>();
-            var interiorColors= new List<InteriorColor>();
+            var code = "code";
+            var exteriorColors = new List<ExteriorColor>
+            {
+                new ExteriorColor
+                {
+                    Id = id,
+                    Code = code,
+                    Name = name
+                }
+            };
+            var interiorColors= new List<InteriorColor>
+            {
+
+            };
 
             var brand = new Brand
             {
