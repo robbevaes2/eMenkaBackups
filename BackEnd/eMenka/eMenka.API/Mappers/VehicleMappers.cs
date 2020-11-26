@@ -52,7 +52,7 @@ namespace eMenka.API.Mappers
                 FuelTypeId = (int)vehicleModel.FuelTypeId,
                 IsActive = vehicleModel.IsActive,
                 ModelId = (int)vehicleModel.ModelId,
-                Power = (int)vehicleModel.Power,
+                Power = vehicleModel.Power,
                 Volume = (int)vehicleModel.Volume,
                 LicensePlate = vehicleModel.LicensePlate,
                 FuelCardId = (int)vehicleModel.FuelCardId,
