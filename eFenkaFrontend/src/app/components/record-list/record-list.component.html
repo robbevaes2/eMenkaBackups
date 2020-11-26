@@ -16,18 +16,17 @@
   </div>
   <div class="table-responsive">
     <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
-      <thead>
-        <thead class="sticky-top">
-          <tr>
-            <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
-              {{head | titlecase}} 
-              <mdb-icon fas icon="sort"></mdb-icon>
-            </th>
-          </tr>
+      <thead class="sticky-top">
+        <tr>
+          <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
+            {{head | titlecase}} 
+            <mdb-icon fas icon="sort"></mdb-icon>
+          </th>
+        </tr>
       </thead>
       <tbody>
         <tr *ngFor="let record of records; let i = index" (click)="navigateToRecordDetailsComponent(record.id)">
-          <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.licensePlate }}</td>
+          <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.licensePlate }}</th>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">todo</td>
           <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">todo</td>
@@ -44,11 +43,11 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="10">
+          <td>
             <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="records"></mdb-table-pagination>
           </td>
         </tr>
-        </tfoot>
+      </tfoot>
     </table>
   </div>
 </div>

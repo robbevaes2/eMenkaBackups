@@ -32,7 +32,7 @@ export class RecordListComponent implements OnInit {
 
   headNames  = ["Nummerplaat", "Bestuurder", "Vennootschap", "Kostenplaats", "Merk", "Wagen", "Type", "Cntr. start", "Cntr. eind", "Gebruik", "Eerse registartie", "Einde"];
   headElements  = ["fuelCard.vehicle.licensePlate", "fuelCard.driver.person.firstname", "", "", "fuelCard.vehicle.brand.name", "fuelCard.vehicle.model.name", "term", "", "", "usage", "fuelCard.vehicle.fuelType.name", "startDate", "endDate"];
-
+  
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
   @ViewChild('row', { static: true }) row: ElementRef;
@@ -46,6 +46,7 @@ export class RecordListComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getAllRecords().subscribe(data => {this.records = data; console.log(this.records);});
+    //this.records = this.getRecordDummyList();
 
     this.mdbTable.setDataSource(this.records);
     this.records = this.mdbTable.getDataSource();
