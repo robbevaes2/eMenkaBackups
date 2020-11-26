@@ -31,6 +31,8 @@ namespace eMenka.API.Mappers.VehicleMappers
 
         public static InteriorColorReturnModel MapInteriorColorEntity(InteriorColor interiorColor)
         {
+            if (interiorColor == null)
+                return null;
             return new InteriorColorReturnModel
             {
                 Id = interiorColor.Id,
@@ -41,6 +43,8 @@ namespace eMenka.API.Mappers.VehicleMappers
 
         public static ExteriorColorReturnModel MapExteriorColorEntity(ExteriorColor exteriorColor)
         {
+            if (exteriorColor == null)
+                return null;
             return new ExteriorColorReturnModel
             {
                 Code = exteriorColor.Code,
