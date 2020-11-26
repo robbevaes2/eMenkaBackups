@@ -1,12 +1,14 @@
-﻿using eMenka.API.Models.FuelCardModels;
+﻿using eMenka.API.Mappers.FuelCardMappers;
+using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
 namespace eMenka.API.Mappers.StaticMappers
 {
-    public static class FuelCardMappers
+    public static class FuelCardMapper
     {
+        private static PersonMapper _personMapper = new PersonMapper();
         public static FuelCardReturnModel MapFuelCardEntity(FuelCard fuelCard)
         {
             if (fuelCard == null)
@@ -82,7 +84,7 @@ namespace eMenka.API.Mappers.StaticMappers
                 EndDate = driver.EndDate,
                 StartDate = driver.StartDate,
                 Id = driver.Id,
-                Person = MapPersonEntity(driver.Person)
+                Person = _personMapper.MapEntityToReturnModel(driver.Person)
             };
         }
 
@@ -94,46 +96,6 @@ namespace eMenka.API.Mappers.StaticMappers
                 EndDate = driverModel.EndDate,
                 PersonId = (int)driverModel.PersonId,
                 StartDate = driverModel.StartDate
-            };
-        }
-
-        public static PersonReturnModel MapPersonEntity(Person person)
-        {
-            if (person == null)
-                return null;
-            return new PersonReturnModel
-            {
-                Title = person.Title,
-                BirthDate = person.BirthDate,
-                StartDateDriversLicense = person.StartDateDriversLicense,
-                Picture = person.Picture,
-                Lastname = person.Lastname,
-                Language = person.Language,
-                Id = person.Id,
-                Gender = person.Gender,
-                Firstname = person.Firstname,
-                EndDateDriversLicense = person.EndDateDriversLicense,
-                DriversLicenseNumber = person.DriversLicenseNumber,
-                DriversLicenseType = person.DriversLicenseType
-            };
-        }
-
-        public static Person MapPersonModel(PersonModel personModel)
-        {
-            return new Person
-            {
-                BirthDate = personModel.BirthDate,
-                DriversLicenseNumber = personModel.DriversLicenseNumber,
-                DriversLicenseType = personModel.DriversLicenseType,
-                EndDateDriversLicense = personModel.EndDateDriversLicense,
-                Firstname = personModel.Firstname,
-                Gender = personModel.Gender,
-                Id = personModel.Id,
-                Language = personModel.Language,
-                Lastname = personModel.Lastname,
-                Picture = personModel.Picture,
-                StartDateDriversLicense = personModel.StartDateDriversLicense,
-                Title = personModel.Title
             };
         }
     }

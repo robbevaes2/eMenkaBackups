@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
@@ -7,6 +8,7 @@ namespace eMenka.API.Mappers.StaticMappers
 {
     public static class VehicleMappers
     {
+        static ModelMapper modelMapper = new ModelMapper();
         public static VehicleReturnModel MapVehicleEntity(Vehicle vehicle)
         {
             if (vehicle == null)
@@ -23,8 +25,8 @@ namespace eMenka.API.Mappers.StaticMappers
                 IsActive = vehicle.IsActive,
                 Power = vehicle.Power,
                 Volume = vehicle.Volume,
-                Model = MapModelEntity(vehicle.Model),
-                FuelCard = FuelCardMappers.MapFuelCardEntity(vehicle.FuelCard),
+                Model = modelMapper.MapEntityToReturnModel(vehicle.Model),
+                FuelCard = FuelCardMapper.MapFuelCardEntity(vehicle.FuelCard),
                 Category = MapCategoryEntity(vehicle.Category),
                 LicensePlate = vehicle.LicensePlate,
                 Chassis = vehicle.Chassis,
@@ -110,28 +112,6 @@ namespace eMenka.API.Mappers.StaticMappers
                 BrandId = (int)engineTypeModel.BrandId,
                 Id = engineTypeModel.Id,
                 Name = engineTypeModel.Name
-            };
-        }
-
-        public static ModelReturnModel MapModelEntity(Model model)
-        {
-            if (model == null)
-                return null;
-            return new ModelReturnModel
-            {
-                Brand = MapBrandEntity(model.Brand),
-                Name = model.Name,
-                Id = model.Id
-            };
-        }
-
-        public static Model MapModelModel(ModelModel modelModel)
-        {
-            return new Model
-            {
-                BrandId = (int)modelModel.BrandId,
-                Id = modelModel.Id,
-                Name = modelModel.Name
             };
         }
 

@@ -12,7 +12,7 @@ namespace eMenka.API.Mappers.StaticMappers
                 return null;
             return new RecordReturnModel
             {
-                FuelCard = FuelCardMappers.MapFuelCardEntity(record.FuelCard),
+                FuelCard = FuelCardMapper.MapFuelCardEntity(record.FuelCard),
                 Id = record.Id,
                 Term = record.Term,
                 Usage = record.Usage,

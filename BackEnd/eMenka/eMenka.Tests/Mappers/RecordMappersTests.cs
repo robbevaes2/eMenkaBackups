@@ -11,6 +11,7 @@ namespace eMenka.Tests.Mappers
     [TestFixture]
     public class RecordMappersTests
     {
+        /*
         [Test]
         public void MapRecordEntityReturnNullWhenRecordIsNull()
         {
@@ -309,6 +310,6 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.NonActiveRemark, Is.EqualTo(nonActiveRemark));
             Assert.That(result.Reference, Is.EqualTo(reference));
             Assert.That(result.VAT, Is.EqualTo(vat));
-        }
+        }*/
     }
 }
