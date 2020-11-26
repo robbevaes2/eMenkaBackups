@@ -33,7 +33,7 @@ namespace eMenka.API.Controllers
         {
             var brands = _brandRepository.Find(brand => brand.Name == brandName);
 
-            return Ok(brands.Select(VehicleMappers.MapBrandEntity).ToList());
+            return Ok(brands.Select(_brandMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpPost]
