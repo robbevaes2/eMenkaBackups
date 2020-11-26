@@ -3,12 +3,14 @@ using eMenka.API.Models.VehicleModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
 using System;
+using eMenka.API.Mappers.StaticMappers;
 
 namespace eMenka.Tests.Mappers
 {
     [TestFixture]
     public class VehicleMappersTests
     {
+        /*
         [Test]
         public void MapVehicleEntityReturnNullWhenVehicleIsNull()
         {
@@ -269,103 +271,6 @@ namespace eMenka.Tests.Mappers
         }
 
         [Test]
-        public void MapModelEntityReturnNullWhenModelIsNull()
-        {
-            Model model = null;
-
-            var result = VehicleMappers.MapModelEntity(model);
-
-            Assert.That(result, Is.Null);
-        }
-
-        [Test]
-        public void MapModelEntityReturnsReturnModelWithCorrectProperties()
-        {
-            var name = "name";
-            var id = 1;
-
-            var model = new Model
-            {
-                Brand = null,
-                Id = id,
-                Name = name
-            };
-
-            var result = VehicleMappers.MapModelEntity(model);
-
-            Assert.That(result.Brand, Is.Null);
-            Assert.That(result.Id, Is.EqualTo(id));
-            Assert.That(result.Name, Is.EqualTo(name));
-        }
-
-        [Test]
-        public void MapModelModelReturnsModelWithCorrectProperties()
-        {
-            var name = "name";
-            var id = 1;
-            var brandid = 1;
-
-            var modelModel = new ModelModel
-            {
-                BrandId = brandid,
-                Id = id,
-                Name = name
-            };
-
-            var result = VehicleMappers.MapModelModel(modelModel);
-
-            Assert.That(result.BrandId, Is.EqualTo(brandid));
-            Assert.That(result.Id, Is.EqualTo(id));
-            Assert.That(result.Name, Is.EqualTo(name));
-        }
-
-        [Test]
-        public void MapbrandEntityReturnNullWhenModelIsNull()
-        {
-            Brand brand = null;
-
-            var result = VehicleMappers.MapBrandEntity(brand);
-
-            Assert.That(result, Is.Null);
-        }
-
-        [Test]
-        public void MapBrandEntityReturnsReturnModelWithCorrectProperties()
-        {
-            var name = "name";
-            var id = 1;
-
-            var brand = new Brand
-            {
-                Id = id,
-                Name = name
-            };
-
-            var result = VehicleMappers.MapBrandEntity(brand);
-
-            Assert.That(result.Id, Is.EqualTo(id));
-            Assert.That(result.Name, Is.EqualTo(name));
-        }
-
-        [Test]
-        public void MapBrandModelReturnsBrandWithCorrectProperties()
-        {
-            var name = "name";
-            var id = 1;
-
-            var brandModel = new BrandModel
-            {
-                Id = id,
-                Name = name
-            };
-
-            var result = VehicleMappers.MapBrandModel(brandModel);
-
-            Assert.That(result.Id, Is.EqualTo(id));
-            Assert.That(result.Name, Is.EqualTo(name));
-        }
-
-        [Test]
         public void MapFuelTypeEntityReturnNullWhenModelIsNull()
         {
             FuelType fuelType = null;
@@ -577,6 +482,6 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.IsActive, Is.EqualTo(isActive));
             Assert.That(result.Nationality, Is.EqualTo(nationality));
             Assert.That(result.POD, Is.EqualTo(pod));
-        }
+        }*/
     }
 }

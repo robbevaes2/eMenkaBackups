@@ -4,14 +4,15 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using eMenka.API.Mappers.StaticMappers;
+using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Models.VehicleModels.ReturnModels;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class VehicleController : ControllerBase
+    public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
         private readonly ICategoryRepository _categoryRepository;
@@ -22,12 +23,13 @@ namespace eMenka.API.Controllers
         private readonly IModelRepository _modelRepository;
         private readonly ISerieRepository _serieRepository;
         private readonly IVehicleRepository _vehicleRepository;
+        private VehicleMapper _vehicleMapper;
 
         public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository,
             IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository,
             IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository,
             ICategoryRepository categoryRepository, ISerieRepository serieRepository,
-            IFuelCardRepository fuelCardRepository)
+            IFuelCardRepository fuelCardRepository) : base(vehicleRepository, new VehicleMapper())
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -38,23 +40,7 @@ namespace eMenka.API.Controllers
             _categoryRepository = categoryRepository;
             _fuelCardRepository = fuelCardRepository;
             _serieRepository = serieRepository;
-        }
-
-        [HttpGet]
-        public IActionResult GetAllVehicles()
-        {
-            var vehicles = _vehicleRepository.GetAll();
-            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetVehicleById(int id)
-        {
-            var vehicle = _vehicleRepository.GetById(id);
-            if (vehicle == null)
-                return NotFound();
-
-            return Ok(VehicleMappers.MapVehicleEntity(vehicle));
+            _vehicleMapper = new VehicleMapper();
         }
 
         [HttpGet("brand/{brandId}")]
@@ -65,7 +51,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
 
-            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpGet("brand/name/{brandName}")]
@@ -73,7 +59,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
 
-            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpGet("model/{modelId}")]
@@ -84,7 +70,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
 
-            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpGet("isActive/{isActive}")]
@@ -92,103 +78,77 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
 
-            return Ok(vehicles.Select(VehicleMappers.MapVehicleEntity).ToList());
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
 
-        [HttpPost]
-        public IActionResult PostVehicle([FromBody] VehicleModel vehicleModel)
+        public override IActionResult PostEntity(VehicleModel model)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_brandRepository.GetById((int)model.BrandId) == null)
+                return NotFound($"No brand with id {model.BrandId}");
 
-            if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
-                return NotFound($"No brand with id {vehicleModel.BrandId}");
+            if (_modelRepository.GetById((int)model.ModelId) == null)
+                return NotFound($"No model with id {model.ModelId}");
 
-            if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
-                return NotFound($"No model with id {vehicleModel.ModelId}");
+            if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
+                return NotFound($"No fuelType with id {model.FuelTypeId}");
 
-            if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
-                return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
+            if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
+                return NotFound($"No motortype with id {model.EngineTypeId}");
 
-            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
-                return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
+            if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
+                return NotFound($"No doortype with id {model.DoorTypeId}");
 
-            if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
-                return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
+            if (_categoryRepository.GetById((int)model.CategoryId) == null)
+                return NotFound($"No category with id {model.CategoryId}");
 
-            if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
-                return NotFound($"No category with id {vehicleModel.CategoryId}");
-
-            if (vehicleModel.FuelCardId != null)
+            if (model.FuelCardId != null)
             {
-                if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
-                    return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+                if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+                    return NotFound($"No fuelcard with id {model.FuelCardId}");
+
+                if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
+                    return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
-                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+            if (_serieRepository.GetById((int)model.SeriesId) == null)
+                return NotFound($"No serie with id {model.SeriesId}");
 
-            if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)
-                return BadRequest($"A vehicle already exists with fuelcard id {vehicleModel.FuelCardId}");
-
-
-            _vehicleRepository.Add(VehicleMappers.MapVehicleModel(vehicleModel));
-            return Ok();
+            return base.PostEntity(model);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateVehicle([FromBody] VehicleModel vehicleModel, int id)
+        public override IActionResult UpdateEntity(VehicleModel model, int id)
         {
-            if (!ModelState.IsValid) return BadRequest();
-            if (id != vehicleModel.Id)
-                return BadRequest("Id from model does not match query parameter id");
+            if (_brandRepository.GetById((int)model.BrandId) == null)
+                return NotFound($"No brand with id {model.BrandId}");
 
-            if (_brandRepository.GetById((int)vehicleModel.BrandId) == null)
-                return NotFound($"No brand with id {vehicleModel.BrandId}");
+            if (_modelRepository.GetById((int)model.ModelId) == null)
+                return NotFound($"No model with id {model.ModelId}");
 
-            if (_modelRepository.GetById((int)vehicleModel.ModelId) == null)
-                return NotFound($"No model with id {vehicleModel.ModelId}");
+            if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
+                return NotFound($"No fuelType with id {model.FuelTypeId}");
 
-            if (_fuelTypeRepository.GetById((int)vehicleModel.FuelTypeId) == null)
-                return NotFound($"No fuelType with id {vehicleModel.FuelTypeId}");
+            if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
+                return NotFound($"No motortype with id {model.EngineTypeId}");
 
-            if (_engineTypeRepository.GetById((int)vehicleModel.EngineTypeId) == null)
-                return NotFound($"No motortype with id {vehicleModel.EngineTypeId}");
+            if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
+                return NotFound($"No doortype with id {model.DoorTypeId}");
 
-            if (_doorTypeRepository.GetById((int)vehicleModel.DoorTypeId) == null)
-                return NotFound($"No doortype with id {vehicleModel.DoorTypeId}");
+            if (_categoryRepository.GetById((int)model.CategoryId) == null)
+                return NotFound($"No category with id {model.CategoryId}");
 
-            if (_categoryRepository.GetById((int)vehicleModel.CategoryId) == null)
-                return NotFound($"No category with id {vehicleModel.CategoryId}");
-
-            if (vehicleModel.FuelCardId != null)
+            if (model.FuelCardId != null)
             {
-                if (_fuelCardRepository.GetById((int)vehicleModel.FuelCardId) == null)
-                    return NotFound($"No fuelcard with id {vehicleModel.FuelCardId}");
+                if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+                    return NotFound($"No fuelcard with id {model.FuelCardId}");
+
+                if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
+                    return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int)vehicleModel.SeriesId) == null)
-                return NotFound($"No serie with id {vehicleModel.SeriesId}");
+            if (_serieRepository.GetById((int)model.SeriesId) == null)
+                return NotFound($"No serie with id {model.SeriesId}");
 
-            if (_vehicleRepository.Find(v => v.FuelCard.Id == vehicleModel.FuelCardId).FirstOrDefault() != null)
-                return BadRequest($"A vehicle already exists with fuelcard id {vehicleModel.FuelCardId}");
-
-            var isUpdated = _vehicleRepository.Update(id, VehicleMappers.MapVehicleModel(vehicleModel));
-
-            if (!isUpdated)
-                return NotFound($"No vehicle found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteVehicle(int id)
-        {
-            var vehicle = _vehicleRepository.GetById(id);
-            if (vehicle == null)
-                return NotFound();
-
-            _vehicleRepository.Remove(vehicle);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }

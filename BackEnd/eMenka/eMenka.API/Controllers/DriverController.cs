@@ -4,82 +4,37 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using eMenka.API.Mappers.FuelCardMappers;
+using eMenka.API.Mappers.StaticMappers;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class DriverController : ControllerBase
+    public class DriverController : GenericController<Driver, DriverModel, DriverReturnModel>
     {
-        private readonly IDriverRepository _driverRepository;
         private readonly IPersonRepository _personRepository;
 
-        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository)
+        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(driverRepository, new DriverMapper())
         {
-            _driverRepository = driverRepository;
             _personRepository = personRepository;
         }
 
-        [HttpGet]
-        public IActionResult GetAllDrivers()
+        public override IActionResult PostEntity(DriverModel model)
         {
-            var drivers = _driverRepository.GetAll();
+            if (_personRepository.GetById((int)model.PersonId) == null)
+                return NotFound($"Person with id {model.PersonId} not found");
 
-            return Ok(drivers.Select(FuelCardMappers.MapDriverEntity).ToList());
+            return base.PostEntity(model);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetDriverById(int id)
+        public override IActionResult UpdateEntity(DriverModel model, int id)
         {
-            var driver = _driverRepository.GetById(id);
-            if (driver == null)
-                return NotFound();
+            if (_personRepository.GetById((int)model.PersonId) == null)
+                return NotFound($"Person with id {model.PersonId} not found");
 
-            return Ok(FuelCardMappers.MapDriverEntity(driver));
-        }
-
-        [HttpPost]
-        public IActionResult PostDriver([FromBody] DriverModel driverModel)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-
-            if (_personRepository.GetById((int)driverModel.PersonId) == null)
-                return NotFound($"Person with id {driverModel.PersonId} not found");
-
-            _driverRepository.Add(FuelCardMappers.MapDriverModel(driverModel));
-            return Ok();
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateDriver([FromBody] DriverModel driverModel, int id)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-
-            if (id != driverModel.Id)
-                return BadRequest("Id from model does not match query parameter id");
-
-            if (_personRepository.GetById((int)driverModel.PersonId) == null)
-                return NotFound($"Person with id {driverModel.PersonId} not found");
-
-            var isUpdated = _driverRepository.Update(id, FuelCardMappers.MapDriverModel(driverModel));
-
-            if (!isUpdated)
-                return NotFound($"No Driver found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteDriver(int id)
-        {
-            var driver = _driverRepository.GetById(id);
-            if (driver == null)
-                return NotFound();
-
-            _driverRepository.Remove(driver);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }

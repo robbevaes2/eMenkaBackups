@@ -15,4 +15,8 @@
     <ProjectReference Include="..\eMenka.API\eMenka.API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappers\RecordMappers\" />
+  </ItemGroup>
+
 </Project>
