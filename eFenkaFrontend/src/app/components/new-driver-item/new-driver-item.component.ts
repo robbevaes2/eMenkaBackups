@@ -63,9 +63,9 @@ export class NewDriverItemComponent implements OnInit {
     const personModel = this.mapToPersonModel(form.value);
 
     if (confirm('Bent u zeker dat u deze bestuurder wilt opslaan?')) {
-      this.apiService.addPerson(personModel).subscribe(() => {
-        // TODO set personId
-        const driverModel = this.mapToDriverModel(form.value, 1);
+      this.apiService.addPerson(personModel).subscribe((model: any) => {
+        const personId = Number(model.id);
+        const driverModel = this.mapToDriverModel(form.value, personId);
 
         this.apiService.addDriver(driverModel).subscribe(() => this.navigateToListDriverComponent());
       });

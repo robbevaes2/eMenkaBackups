@@ -48,8 +48,9 @@ namespace eMenka.API.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            _genericRepository.Add(_mapper.MapModelToEntity(model));
-            return Ok();
+            var entity = _mapper.MapModelToEntity(model);
+            _genericRepository.Add(entity);
+            return Ok(entity);
         }
         
         [HttpPut("{id}")]
