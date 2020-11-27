@@ -368,7 +368,7 @@ describe('ApiService', () => {
     it('should return an Observable<Corporation[]>', () => {
       const corporations = dummyData.getCorporations();
 
-      service.getAllCorporatoins().subscribe(v => {
+      service.getAllCorporations().subscribe(v => {
         expect(v.length).toBe(3);
         expect(v).toEqual(corporations);
       });

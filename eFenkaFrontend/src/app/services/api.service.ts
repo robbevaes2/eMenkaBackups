@@ -186,7 +186,7 @@ export class ApiService {
 
   // Corporation
 
-  getAllCorporatoins(): Observable<Corporation[]> {
+  getAllCorporations(): Observable<Corporation[]> {
     return this.getFromAPI<Corporation[]>('corporation/');
   }
 

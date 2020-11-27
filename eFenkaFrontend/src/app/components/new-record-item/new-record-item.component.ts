@@ -3,20 +3,13 @@ import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { Brand } from './../../models/brand/brand';
 import { Model } from './../../models/model/model';
 import { Vehicle } from './../../models/vehicle/vehicle';
-import { Usage } from './../../enums/usage/usage.enum';
 import { Country } from './../../models/country/country';
-import { Serie } from './../../models/serie/serie';
-import { DoorType } from './../../models/door-type/door-type';
-import { ExteriorColor } from './../../models/exterior-color/exterior-color';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Record } from 'src/app/models/record/record';
-import { Term } from 'src/app/enums/term/term.enum';
+import { Router } from '@angular/router';
 import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { EngineType } from 'src/app/models/engine-type/engine-type';
 
 @Component({
   selector: 'app-new-record-item',
@@ -35,13 +28,13 @@ export class NewRecordItemComponent implements OnInit {
   models: Model[];
   vehicles: Vehicle[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService) {
   }
 
   ngOnInit(): void {
     this.countries = this.getCountries();
 
-    this.setCorporatoin();
+    this.setCorporation();
     this.setCostAllocation();
     this.setFuelCard();
     this.setBrand();
@@ -101,8 +94,8 @@ export class NewRecordItemComponent implements OnInit {
     });
   }
 
-  setCorporatoin(): void {
-    this.apiService.getAllCorporatoins().subscribe(data => this.corporations = data);
+  setCorporation(): void {
+    this.apiService.getAllCorporations().subscribe(data => this.corporations = data);
   }
 
   setCostAllocation(): void {

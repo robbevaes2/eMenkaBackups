@@ -1,4 +1,6 @@
-﻿namespace eMenka.Domain.Classes
+﻿using System.Collections.Generic;
+
+namespace eMenka.Domain.Classes
 {
     public class ExteriorColor
     {
@@ -7,7 +9,6 @@
         public string Code { get; set; }
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
-        public int? VehicleId { get; set; }
-        public Vehicle Vehicle { get; set; }
+        public IEnumerable<Vehicle> Vehicle { get; set; }
     }
 }

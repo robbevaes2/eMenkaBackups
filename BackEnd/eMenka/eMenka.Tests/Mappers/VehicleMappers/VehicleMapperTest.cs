@@ -60,7 +60,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 Emission = emission,
                 FiscalHP = fiscalhp,
                 IsActive = isActive,
-                Power = power,
                 Volume = volume,
                 Model = null,
                 FuelCard = null,
@@ -73,7 +72,9 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 Country = null,
                 BuildYear = buildYear,
                 Kilometers = kilometers,
-                RegistrationDate = registrationDate
+                RegistrationDate = registrationDate,
+                ExteriorColor = null,
+                InteriorColor = null
             };
 
             var result = _sut.MapEntityToReturnModel(vehicle);
@@ -102,6 +103,8 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.Serie, Is.Null);
             Assert.That(result.Country, Is.Null);
             Assert.That(result.Category, Is.Null);
+            Assert.That(result.InteriorColor, Is.Null);
+            Assert.That(result.ExteriorColor, Is.Null);
         }
 
         [Test]
@@ -131,6 +134,8 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             var countryId = 1;
             var categoryId = 1;
             var registrationDate = DateTime.Now;
+            var exteriorColorId = 1;
+            var interiorColorId = 1;
 
             var vehicle = new VehicleModel
             {
@@ -157,7 +162,9 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 FuelTypeId = fuelTypeId,
                 ModelId = modelId,
                 Kilometers = kilometers,
-                RegistrationDate = registrationDate
+                RegistrationDate = registrationDate,
+                ExteriorColorId = exteriorColorId,
+                InteriorColorId = interiorColorId
             };
 
             var result = _sut.MapModelToEntity(vehicle);
@@ -167,7 +174,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.Emission, Is.EqualTo(emission));
             Assert.That(result.FiscalHP, Is.EqualTo(fiscalhp));
             Assert.That(result.IsActive, Is.EqualTo(isActive));
-            Assert.That(result.Power, Is.EqualTo(power));
             Assert.That(result.Volume, Is.EqualTo(volume));
             Assert.That(result.LicensePlate, Is.EqualTo(licensePlate));
             Assert.That(result.Chassis, Is.EqualTo(chassis));
@@ -186,6 +192,8 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.EngineTypeId, Is.EqualTo(engineTypeId));
             Assert.That(result.FuelTypeId, Is.EqualTo(fuelTypeId));
             Assert.That(result.ModelId, Is.EqualTo(modelId));
+            Assert.That(result.ExteriorColorId, Is.EqualTo(exteriorColorId));
+            Assert.That(result.InteriorColorId, Is.EqualTo(interiorColorId));
         }
     }
 }

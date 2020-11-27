@@ -12,15 +12,17 @@ namespace eMenka.API.Mappers.FuelCardMappers
 {
     public class FuelCardMapper : IMapper<FuelCard, FuelCardModel, FuelCardReturnModel>
     {
-        private BrandMapper _brandMapper;
-        private FuelTypeMapper _fuelTypeMapper;
-        private EngineTypeMapper _engineTypeMapper;
-        private DoorTypeMapper _doorTypeMapper;
-        private ModelMapper _modelMapper;
-        private CategoryMapper _categoryMapper;
-        private SerieMapper _serieMapper;
-        private CountryMapper _countryMapper;
-        private DriverMapper _driverMapper;
+        private readonly BrandMapper _brandMapper;
+        private readonly FuelTypeMapper _fuelTypeMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
+        private readonly DoorTypeMapper _doorTypeMapper;
+        private readonly ModelMapper _modelMapper;
+        private readonly CategoryMapper _categoryMapper;
+        private readonly SerieMapper _serieMapper;
+        private readonly CountryMapper _countryMapper;
+        private readonly DriverMapper _driverMapper;
+        private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly InteriorColorMapper _interiorColorMapper;
         public FuelCardMapper()
         {
             _brandMapper = new BrandMapper();
@@ -32,6 +34,8 @@ namespace eMenka.API.Mappers.FuelCardMappers
             _serieMapper = new SerieMapper();
             _countryMapper = new CountryMapper();
             _driverMapper = new DriverMapper();
+            _exteriorColorMapper = new ExteriorColorMapper();
+            _interiorColorMapper = new InteriorColorMapper();
         }
 
         public FuelCardReturnModel MapEntityToReturnModel(FuelCard entity)
@@ -84,7 +88,6 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 Emission = vehicle.Emission,
                 FiscalHP = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
-                Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = _modelMapper.MapEntityToReturnModel(vehicle.Model),
                 Category = _categoryMapper.MapEntityToReturnModel(vehicle.Category),
@@ -98,7 +101,9 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 BuildYear = vehicle.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(vehicle.Country),
                 Kilometers = vehicle.Kilometers,
-                RegistrationDate = vehicle.RegistrationDate
+                RegistrationDate = vehicle.RegistrationDate,
+                ExteriorColor = _exteriorColorMapper.MapExteriorColorEntity(vehicle.ExteriorColor),
+                InteriorColor = _interiorColorMapper.MapInteriorColorEntity(vehicle.InteriorColor)
             };
         }
     }

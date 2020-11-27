@@ -3,6 +3,8 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Linq;
 
@@ -32,6 +34,11 @@ namespace eMenka.Data
         public DbSet<InteriorColor> InteriorColors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -106,6 +113,20 @@ namespace eMenka.Data
                 .HasMany(f => f.Vehicles)
                 .WithOne(v => v.FuelType)
                 .HasForeignKey(v => v.FuelTypeId);
+
+            //1 Vehicle - x ExteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.ExteriorColor)
+                .WithMany(ec => ec.Vehicle)
+                .HasForeignKey(v => v.ExteriorColorId);
+
+
+            //1 Vehicle - x InteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.InteriorColor)
+                .WithMany(ic => ic.Vehicle)
+                .HasForeignKey(v => v.InteriorColorId);
+
             /***********************************************************/
 
             /********************** One To One *************************/
@@ -142,27 +163,7 @@ namespace eMenka.Data
                 .WithOne(r => r.FuelCard)
                 .HasForeignKey<Record>(r => r.FuelCardId);
 
-            //Vehicle - ExteriorColor
-            builder.Entity<Vehicle>()
-                .HasOne(v => v.ExteriorColor)
-                .WithOne(ec => ec.Vehicle)
-                .HasForeignKey<ExteriorColor>(ec => ec.VehicleId);
 
-            builder.Entity<ExteriorColor>()
-                .HasOne(ec => ec.Vehicle)
-                .WithOne(v => v.ExteriorColor)
-                .HasForeignKey<Vehicle>(v => v.ExteriorColorId);
-
-            //Vehicle - InteriorColor
-            builder.Entity<Vehicle>()
-                .HasOne(v => v.InteriorColor)
-                .WithOne(ic => ic.Vehicle)
-                .HasForeignKey<InteriorColor>(ic => ic.VehicleId);
-
-            builder.Entity<InteriorColor>()
-                .HasOne(ic => ic.Vehicle)
-                .WithOne(v => v.InteriorColor)
-                .HasForeignKey<Vehicle>(v => v.InteriorColorId);
             /***********************************************************/
 
             #endregion

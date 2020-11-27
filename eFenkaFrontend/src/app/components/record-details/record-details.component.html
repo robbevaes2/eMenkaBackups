@@ -6,7 +6,7 @@
   </button>
   <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
 </div>
-<div>
+<div *ngIf="isLoaded">
   <form [formGroup]="form">
     <div class="row">
       <div class="col-md-6">

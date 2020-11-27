@@ -21,6 +21,9 @@ namespace eMenka.Data.Repositories
         {
             var vehicle = _context.Vehicles
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
@@ -41,6 +44,9 @@ namespace eMenka.Data.Repositories
         {
             return _context.Vehicles
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
@@ -61,6 +67,9 @@ namespace eMenka.Data.Repositories
             return _context.Vehicles
                 .Where(statement)
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
