@@ -107,23 +107,23 @@ namespace eMenka.Data
                 .WithOne(v => v.FuelType)
                 .HasForeignKey(v => v.FuelTypeId);
 
-            //1 Vehicle - x ExteriorColor
+            //1 Vehicles - x ExteriorColor
             builder.Entity<Vehicle>()
                 .HasOne(v => v.ExteriorColor)
-                .WithMany(ec => ec.Vehicle)
+                .WithMany(ec => ec.Vehicles)
                 .HasForeignKey(v => v.ExteriorColorId);
 
 
-            //1 Vehicle - x InteriorColor
+            //1 Vehicles - x InteriorColor
             builder.Entity<Vehicle>()
                 .HasOne(v => v.InteriorColor)
-                .WithMany(ic => ic.Vehicle)
+                .WithMany(ic => ic.Vehicles)
                 .HasForeignKey(v => v.InteriorColorId);
 
             /***********************************************************/
 
             /********************** One To One *************************/
-            //Vehicle - FuelCard
+            //Vehicles - FuelCard
             builder.Entity<Vehicle>()
                 .HasOne(v => v.FuelCard)
                 .WithOne(fc => fc.Vehicle)

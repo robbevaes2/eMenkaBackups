@@ -6902,7 +6902,7 @@ namespace eMenka.Data.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Vehicle", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Vehicles", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -10845,7 +10845,7 @@ namespace eMenka.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Vehicle", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Vehicles", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Vehicles")
@@ -10868,19 +10868,19 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("EngineTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("ExteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
-                        .WithOne("Vehicle")
-                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
+                        .WithOne("Vehicles")
+                        .HasForeignKey("eMenka.Domain.Classes.Vehicles", "FuelCardId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelType", "FuelType")
                         .WithMany("Vehicles")
                         .HasForeignKey("FuelTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")

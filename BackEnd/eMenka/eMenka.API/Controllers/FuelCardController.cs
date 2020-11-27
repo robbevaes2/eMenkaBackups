@@ -28,7 +28,7 @@ namespace eMenka.API.Controllers
                 return NotFound($"Driver with id {model.DriverId} not found");
 
             if(_vehicleRepository.GetById((int) model.VehicleId) == null)
-                return NotFound($"Vehicle with id {model.VehicleId} not found");
+                return NotFound($"Vehicles with id {model.VehicleId} not found");
 
             return base.PostEntity(model);
         }
@@ -39,7 +39,7 @@ namespace eMenka.API.Controllers
                 return NotFound($"Driver with id {model.DriverId} not found");
 
             if (_vehicleRepository.GetById((int)model.VehicleId) == null)
-                return NotFound($"Vehicle with id {model.VehicleId} not found");
+                return NotFound($"Vehicles with id {model.VehicleId} not found");
 
             return base.UpdateEntity(model, id);
         }
