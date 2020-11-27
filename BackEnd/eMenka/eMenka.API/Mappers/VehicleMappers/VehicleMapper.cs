@@ -63,7 +63,8 @@ namespace eMenka.API.Mappers.VehicleMappers
                 Serie = _serieMapper.MapEntityToReturnModel(entity.Series),
                 BuildYear = entity.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(entity.Country),
-                Kilometers = entity.Kilometers
+                Kilometers = entity.Kilometers,
+                RegistrationDate = entity.RegistrationDate
             };
         }
 
@@ -93,7 +94,8 @@ namespace eMenka.API.Mappers.VehicleMappers
                 CountryId = model.CountryId,
                 BuildYear = model.BuildYear,
                 CategoryId = model.CategoryId,
-                Kilometers = model.Kilometers
+                Kilometers = model.Kilometers,
+                RegistrationDate = model.RegistrationDate
             };
         }
 

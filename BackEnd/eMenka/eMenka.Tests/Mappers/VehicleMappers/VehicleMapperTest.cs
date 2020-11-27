@@ -46,6 +46,7 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             var enginePower = 1;
             var buildYear = 2000;
             var kilometers = 1000;
+            var registrationDate = DateTime.Now;
 
             var vehicle = new Vehicle
             {
@@ -71,7 +72,8 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 Series = null,
                 Country = null,
                 BuildYear = buildYear,
-                Kilometers = kilometers
+                Kilometers = kilometers,
+                RegistrationDate = registrationDate
             };
 
             var result = _sut.MapEntityToReturnModel(vehicle);
@@ -90,6 +92,7 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.EnginePower, Is.EqualTo(enginePower));
             Assert.That(result.BuildYear, Is.EqualTo(buildYear));
             Assert.That(result.Kilometers, Is.EqualTo(kilometers));
+            Assert.That(result.RegistrationDate, Is.EqualTo(registrationDate));
             Assert.That(result.Brand, Is.Null);
             Assert.That(result.FuelCard, Is.Null);
             Assert.That(result.FuelType, Is.Null);
@@ -127,6 +130,7 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             var seriesId = 1;
             var countryId = 1;
             var categoryId = 1;
+            var registrationDate = DateTime.Now;
 
             var vehicle = new VehicleModel
             {
@@ -152,7 +156,8 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 EngineTypeId = engineTypeId,
                 FuelTypeId = fuelTypeId,
                 ModelId = modelId,
-                Kilometers = kilometers
+                Kilometers = kilometers,
+                RegistrationDate = registrationDate
             };
 
             var result = _sut.MapModelToEntity(vehicle);
@@ -171,6 +176,7 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.EnginePower, Is.EqualTo(enginePower));
             Assert.That(result.BuildYear, Is.EqualTo(buildYear));
             Assert.That(result.Kilometers, Is.EqualTo(kilometers));
+            Assert.That(result.RegistrationDate, Is.EqualTo(registrationDate));
             Assert.That(result.FuelCardId, Is.EqualTo(fuelCardId));
             Assert.That(result.BrandId, Is.EqualTo(brandId));
             Assert.That(result.SeriesId, Is.EqualTo(seriesId));

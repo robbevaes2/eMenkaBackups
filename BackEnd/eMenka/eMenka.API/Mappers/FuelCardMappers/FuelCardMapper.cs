@@ -97,7 +97,8 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 Serie = _serieMapper.MapEntityToReturnModel(vehicle.Series),
                 BuildYear = vehicle.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(vehicle.Country),
-                Kilometers = vehicle.Kilometers
+                Kilometers = vehicle.Kilometers,
+                RegistrationDate = vehicle.RegistrationDate
             };
         }
     }
