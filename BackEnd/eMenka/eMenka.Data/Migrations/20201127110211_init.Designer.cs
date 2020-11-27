@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201126145050_init")]
+    [Migration("20201127110211_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2162,6 +2162,9 @@ namespace eMenka.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("VehicleId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
@@ -2963,6 +2966,9 @@ namespace eMenka.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VehicleId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -6947,6 +6953,9 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineTypeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ExteriorColorId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("FiscalHP")
                         .HasColumnType("int");
 
@@ -6954,6 +6963,9 @@ namespace eMenka.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("FuelTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InteriorColorId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -6970,6 +6982,9 @@ namespace eMenka.Data.Migrations
 
                     b.Property<int?>("Power")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("SeriesId")
                         .HasColumnType("int");
@@ -6989,11 +7004,19 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("EngineTypeId");
 
+                    b.HasIndex("ExteriorColorId")
+                        .IsUnique()
+                        .HasFilter("[ExteriorColorId] IS NOT NULL");
+
                     b.HasIndex("FuelCardId")
                         .IsUnique()
                         .HasFilter("[FuelCardId] IS NOT NULL");
 
                     b.HasIndex("FuelTypeId");
+
+                    b.HasIndex("InteriorColorId")
+                        .IsUnique()
+                        .HasFilter("[InteriorColorId] IS NOT NULL");
 
                     b.HasIndex("ModelId");
 
@@ -7022,6 +7045,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ABQ121",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3112
                         },
@@ -7045,6 +7069,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ACS122",
                             ModelId = 5,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 17,
                             Volume = 3117
                         },
@@ -7068,6 +7093,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ADB123",
                             ModelId = 8,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 3,
                             Volume = 3113
                         },
@@ -7091,6 +7117,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AEB124",
                             ModelId = 12,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3116
                         },
@@ -7114,6 +7141,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFB125",
                             ModelId = 14,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3114
                         },
@@ -7137,6 +7165,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BGB126",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3115
                         },
@@ -7160,6 +7189,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BHB127",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3116
                         },
@@ -7183,6 +7213,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BIB138",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 19,
                             Volume = 3118
                         },
@@ -7206,6 +7237,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CJB139",
                             ModelId = 18,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 18,
                             Volume = 3114
                         },
@@ -7229,6 +7261,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CKB130",
                             ModelId = 17,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 12,
                             Volume = 3119
                         },
@@ -7252,6 +7285,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CLB231",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 17,
                             Volume = 3117
                         },
@@ -7274,6 +7308,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CMB232",
                             ModelId = 13,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3112
                         },
@@ -7297,6 +7332,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CAB233",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3113
                         },
@@ -7319,6 +7355,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1DZB234",
                             ModelId = 24,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 22,
                             Volume = 3111
                         },
@@ -7341,6 +7378,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1DEB235",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 24,
                             Volume = 3130
                         },
@@ -7363,6 +7401,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1DRB236",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 23,
                             Volume = 3131
                         },
@@ -7384,6 +7423,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1DTB247",
                             ModelId = 31,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 16,
                             Volume = 3133
                         },
@@ -7406,6 +7446,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1EYB349",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 26,
                             Volume = 3132
                         },
@@ -7428,6 +7469,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1EUB348",
                             ModelId = 15,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 30,
                             Volume = 3131
                         },
@@ -7449,6 +7491,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1EIX347",
                             ModelId = 12,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3135
                         },
@@ -7471,6 +7514,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1EOS346",
                             ModelId = 14,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3130
                         },
@@ -7493,6 +7537,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1FPT345",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3236
                         },
@@ -7514,6 +7559,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1FQR344",
                             ModelId = 17,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 13,
                             Volume = 3234
                         },
@@ -7535,6 +7581,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1FSE343",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3230
                         },
@@ -7557,6 +7604,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1FDZ352",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3232
                         },
@@ -7579,6 +7627,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1FFD351",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 37,
                             Volume = 3233
                         },
@@ -7601,6 +7650,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1GGF450",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 24,
                             Volume = 3231
                         },
@@ -7623,6 +7673,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1GHG451",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3235
                         },
@@ -7645,6 +7696,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1GJ?452",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3236
                         },
@@ -7667,6 +7719,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1GKN453",
                             ModelId = 17,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 12,
                             Volume = 3234
                         },
@@ -7688,6 +7741,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1GLB454",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 16,
                             Volume = 3239
                         },
@@ -7710,6 +7764,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1HMV455",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 24,
                             Volume = 3237
                         },
@@ -7731,6 +7786,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1HWC456",
                             ModelId = 14,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 3236
                         },
@@ -7752,6 +7808,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1HXX457",
                             ModelId = 33,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 28,
                             Volume = 3232
                         },
@@ -7773,6 +7830,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1HCG456",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 3241
                         },
@@ -7792,6 +7850,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1HVB579",
                             ModelId = 8,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 3,
                             Volume = 3243
                         },
@@ -7812,6 +7871,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1IBA578",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 15,
                             Volume = 3242
                         },
@@ -7833,6 +7893,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ILK577",
                             ModelId = 21,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 12,
                             Volume = 3241
                         },
@@ -7853,6 +7914,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1IML575",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3240
                         },
@@ -7874,6 +7936,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1IOI576",
                             ModelId = 30,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 49,
                             Volume = 3244
                         },
@@ -7895,6 +7958,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1IUM571",
                             ModelId = 30,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 49,
                             Volume = 3245
                         },
@@ -7915,6 +7979,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1JYP573",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3346
                         },
@@ -7936,6 +8001,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1JTU570",
                             ModelId = 30,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 51,
                             Volume = 3347
                         },
@@ -7958,6 +8024,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1JRL581",
                             ModelId = 30,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 51,
                             Volume = 3348
                         },
@@ -7979,6 +8046,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1JAO682",
                             ModelId = 30,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 52,
                             Volume = 3349
                         },
@@ -8000,6 +8068,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1KZN683",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 53,
                             Volume = 3345
                         },
@@ -8021,6 +8090,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1KEB686",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 19,
                             Volume = 3446
                         },
@@ -8042,6 +8112,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1KRV685",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 19,
                             Volume = 3444
                         },
@@ -8063,6 +8134,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1KTC684",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 19,
                             Volume = 3442
                         },
@@ -8084,6 +8156,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1LYX684",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 19,
                             Volume = 3446
                         },
@@ -8104,6 +8177,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1LQW687",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3443
                         },
@@ -8124,6 +8198,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1LSD688",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3444
                         },
@@ -8145,6 +8220,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1LDA689",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3446
                         },
@@ -8165,6 +8241,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1MFZ696",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3443
                         },
@@ -8185,6 +8262,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1MGE695",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3442
                         },
@@ -8206,6 +8284,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1MHR694",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3441
                         },
@@ -8227,6 +8306,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1MJT691",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3420
                         },
@@ -8248,6 +8328,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1NAY792",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3421
                         },
@@ -8268,6 +8349,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1NZS793",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3422
                         },
@@ -8289,6 +8371,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1NES794",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3425
                         },
@@ -8310,6 +8393,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1NRW795",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3424
                         },
@@ -8331,6 +8415,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1OTC796",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 3428
                         },
@@ -8351,6 +8436,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1OYV797",
                             ModelId = 20,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 54,
                             Volume = 3429
                         },
@@ -8371,6 +8457,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1OUB798",
                             ModelId = 20,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 25,
                             Volume = 3427
                         },
@@ -8392,6 +8479,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1OIA799",
                             ModelId = 20,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 25,
                             Volume = 3426
                         },
@@ -8413,6 +8501,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1POZ793",
                             ModelId = 20,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 25,
                             Volume = 3523
                         },
@@ -8434,6 +8523,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1PQT792",
                             ModelId = 20,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 55,
                             Volume = 3522
                         },
@@ -8454,6 +8544,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1PSU761",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3521
                         },
@@ -8475,6 +8566,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1PDL764",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3524
                         },
@@ -8495,6 +8587,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1RFK765",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3525
                         },
@@ -8516,6 +8609,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1RGJ766",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3526
                         },
@@ -8537,6 +8631,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1RWH764",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3529
                         },
@@ -8558,6 +8653,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1RXG869",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3528
                         },
@@ -8579,6 +8675,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1SCF868",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3527
                         },
@@ -8600,6 +8697,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1SVD867",
                             ModelId = 2,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3525
                         },
@@ -8621,6 +8719,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1SBN866",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3526
                         },
@@ -8642,6 +8741,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1SND863",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3529
                         },
@@ -8663,6 +8763,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1TAQ862",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3628
                         },
@@ -8684,6 +8785,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1TZG861",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3627
                         },
@@ -8706,6 +8808,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1TEG864",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3624
                         },
@@ -8727,6 +8830,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1TRH815",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 3625
                         },
@@ -8748,6 +8852,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1UTN818",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3656
                         },
@@ -8769,6 +8874,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1UYN819",
                             ModelId = 4,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 3653
                         },
@@ -8790,6 +8896,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1UUB817",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 16,
                             Volume = 3652
                         },
@@ -8811,6 +8918,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1UQV816",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 17,
                             Volume = 3651
                         },
@@ -8832,6 +8940,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1VSC813",
                             ModelId = 5,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 17,
                             Volume = 3656
                         },
@@ -8853,6 +8962,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1VWX952",
                             ModelId = 5,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 17,
                             Volume = 3659
                         },
@@ -8874,6 +8984,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1VXW951",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 60,
                             Volume = 3658
                         },
@@ -8895,6 +9006,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1VCP955",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 61,
                             Volume = 3657
                         },
@@ -8916,6 +9028,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1VVO952",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 62,
                             Volume = 3654
                         },
@@ -8937,6 +9050,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1WBI951",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 27,
                             Volume = 3655
                         },
@@ -8958,6 +9072,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1WNU952",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 63,
                             Volume = 3656
                         },
@@ -8979,6 +9094,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1WPY953",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 64,
                             Volume = 3653
                         },
@@ -9000,6 +9116,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1WOT956",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 65,
                             Volume = 3652
                         },
@@ -9021,6 +9138,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1XIR955",
                             ModelId = 34,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 66,
                             Volume = 3654
                         },
@@ -9042,6 +9160,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1XUE954",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 75,
                             Volume = 2656
                         },
@@ -9063,6 +9182,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1XYZ957",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 75,
                             Volume = 2655
                         },
@@ -9084,6 +9204,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1XKA958",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 72,
                             Volume = 2652
                         },
@@ -9105,6 +9226,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1YAS956",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 72,
                             Volume = 2653
                         },
@@ -9126,6 +9248,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1YZW956",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 71,
                             Volume = 2651
                         },
@@ -9147,6 +9270,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1YEQ949",
                             ModelId = 7,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 73,
                             Volume = 2654
                         },
@@ -9167,6 +9291,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1YTA948",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 2655
                         },
@@ -9188,6 +9313,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ZRZ947",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 81,
                             Volume = 2656
                         },
@@ -9209,6 +9335,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ZQW946",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 2659
                         },
@@ -9229,6 +9356,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ZSZ142",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 2658
                         },
@@ -9250,6 +9378,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ZDA149",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 2657
                         },
@@ -9271,6 +9400,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1QFQ148",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 37,
                             Volume = 2744
                         },
@@ -9292,6 +9422,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1QWB147",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 24,
                             Volume = 2745
                         },
@@ -9313,6 +9444,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1QXV146",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 24,
                             Volume = 2746
                         },
@@ -9334,6 +9466,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1QCC146",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 82,
                             Volume = 2743
                         },
@@ -9355,6 +9488,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AVX142",
                             ModelId = 12,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 2746
                         },
@@ -9376,6 +9510,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AHW143",
                             ModelId = 12,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 4,
                             Volume = 2742
                         },
@@ -9397,6 +9532,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AFF141",
                             ModelId = 23,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 86,
                             Volume = 2741
                         },
@@ -9418,6 +9554,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AAQ144",
                             ModelId = 23,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 87,
                             Volume = 2744
                         },
@@ -9439,6 +9576,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AZE135",
                             ModelId = 23,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 88,
                             Volume = 2745
                         },
@@ -9459,6 +9597,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AHR136",
                             ModelId = 17,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 91,
                             Volume = 2746
                         },
@@ -9480,6 +9619,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ABT138",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 112,
                             Volume = 2749
                         },
@@ -9501,6 +9641,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ANY231",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 112,
                             Volume = 2748
                         },
@@ -9522,6 +9663,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AMU233",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 112,
                             Volume = 2747
                         },
@@ -9543,6 +9685,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1ALI232",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 113,
                             Volume = 2744
                         },
@@ -9563,6 +9706,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AKK231",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 113,
                             Volume = 2745
                         },
@@ -9583,6 +9727,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AJJ236",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 114,
                             Volume = 2746
                         },
@@ -9604,6 +9749,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AHH235",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 115,
                             Volume = 2749
                         },
@@ -9625,6 +9771,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AGG234",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 115,
                             Volume = 2748
                         },
@@ -9646,6 +9793,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AGW217",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 115,
                             Volume = 2746
                         },
@@ -9667,6 +9815,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AYQ218",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 115,
                             Volume = 2749
                         },
@@ -9687,6 +9836,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1AAS219",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 109,
                             Volume = 2748
                         },
@@ -9708,6 +9858,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BZW216",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 109,
                             Volume = 2727
                         },
@@ -9729,6 +9880,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BER215",
                             ModelId = 10,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 109,
                             Volume = 2724
                         },
@@ -9750,6 +9902,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BZU214",
                             ModelId = 28,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 120,
                             Volume = 2725
                         },
@@ -9771,6 +9924,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BWY211",
                             ModelId = 28,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 120,
                             Volume = 2726
                         },
@@ -9792,6 +9946,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BST212",
                             ModelId = 24,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 121,
                             Volume = 2823
                         },
@@ -9813,6 +9968,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BQR213",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 22,
                             Volume = 2822
                         },
@@ -9834,6 +9990,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BGF325",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 22,
                             Volume = 2821
                         },
@@ -9855,6 +10012,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BHE326",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 22,
                             Volume = 2825
                         },
@@ -9875,6 +10033,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFZ324",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 22,
                             Volume = 2826
                         },
@@ -9895,6 +10054,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BDA327",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 124,
                             Volume = 2824
                         },
@@ -9916,6 +10076,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BQS328",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 121,
                             Volume = 2822
                         },
@@ -9936,6 +10097,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BAS199",
                             ModelId = 26,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 121,
                             Volume = 2823
                         },
@@ -9956,6 +10118,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BZH268",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 123,
                             Volume = 2826
                         },
@@ -9977,6 +10140,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BEG357",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 122,
                             Volume = 2825
                         },
@@ -9998,6 +10162,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFO446",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 122,
                             Volume = 2824
                         },
@@ -10019,6 +10184,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFI535",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 122,
                             Volume = 2822
                         },
@@ -10040,6 +10206,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFU624",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 120,
                             Volume = 2823
                         },
@@ -10061,6 +10228,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFY713",
                             ModelId = 27,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 127,
                             Volume = 2816
                         },
@@ -10082,6 +10250,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BFT892",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 5,
                             Volume = 2815
                         },
@@ -10103,6 +10272,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BER981",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 128,
                             Volume = 2814
                         },
@@ -10123,6 +10293,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1BEE072",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 128,
                             Volume = 2812
                         },
@@ -10144,6 +10315,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEZ163",
                             ModelId = 29,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 129,
                             Volume = 2813
                         },
@@ -10165,6 +10337,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEA254",
                             ModelId = 11,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 81,
                             Volume = 2811
                         },
@@ -10186,6 +10359,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEF345",
                             ModelId = 19,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 2,
                             Volume = 2917
                         },
@@ -10209,6 +10383,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CDF436",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 2918
                         },
@@ -10231,6 +10406,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CDD527",
                             ModelId = 5,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 2919
                         },
@@ -10254,6 +10430,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CDX618",
                             ModelId = 23,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 39,
                             Volume = 2916
                         },
@@ -10276,6 +10453,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEW499",
                             ModelId = 18,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 39,
                             Volume = 2915
                         },
@@ -10298,6 +10476,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEL781",
                             ModelId = 23,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 9,
                             Volume = 2914
                         },
@@ -10321,6 +10500,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CEF872",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 2916
                         },
@@ -10344,6 +10524,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CAJ963",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 2912
                         },
@@ -10367,6 +10548,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CAG654",
                             ModelId = 33,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 27,
                             Volume = 2911
                         },
@@ -10390,6 +10572,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CAD345",
                             ModelId = 16,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 11,
                             Volume = 2916
                         },
@@ -10412,6 +10595,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CZK236",
                             ModelId = 22,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 9,
                             Volume = 2919
                         },
@@ -10434,6 +10618,7 @@ namespace eMenka.Data.Migrations
                             Kilometers = 0.0,
                             LicensePlate = "1CZI127",
                             ModelId = 1,
+                            RegistrationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SeriesId = 1,
                             Volume = 2918
                         });
@@ -10697,6 +10882,10 @@ namespace eMenka.Data.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("EngineTypeId");
 
+                    b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
+                        .WithOne("Vehicle")
+                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "ExteriorColorId");
+
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Vehicle")
                         .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
@@ -10704,6 +10893,10 @@ namespace eMenka.Data.Migrations
                     b.HasOne("eMenka.Domain.Classes.FuelType", "FuelType")
                         .WithMany("Vehicles")
                         .HasForeignKey("FuelTypeId");
+
+                    b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
+                        .WithOne("Vehicle")
+                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")
                         .WithMany("Vehicles")

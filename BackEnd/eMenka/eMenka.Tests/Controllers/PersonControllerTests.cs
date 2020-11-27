@@ -90,9 +90,10 @@ namespace eMenka.Tests.Controllers
         {
             var validModel = new PersonModel();
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((PersonReturnModel)result.Value, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Add(It.IsAny<Person>()), Times.Once);
         }

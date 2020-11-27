@@ -4,7 +4,6 @@ using eMenka.Data.IRepositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using eMenka.API.Mappers.StaticMappers;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
@@ -45,7 +44,7 @@ namespace eMenka.API.Controllers
             AddColors(brand, brandModel);
 
             _brandRepository.Add(brand);
-            return Ok();
+            return Ok(_brandMapper.MapEntityToReturnModel(brand));
         }
 
         [HttpPut("{id}")]

@@ -51,6 +51,8 @@ namespace eMenka.Data
             builder.Entity<Series>().HasKey(s => s.Id);
             builder.Entity<Supplier>().HasKey(s => s.Id);
             builder.Entity<Vehicle>().HasKey(v => v.Id);
+            builder.Entity<ExteriorColor>().HasKey(ec => ec.Id);
+            builder.Entity<InteriorColor>().HasKey(ic => ic.Id);
 
             #endregion
 
@@ -139,6 +141,28 @@ namespace eMenka.Data
                 .HasOne(fc => fc.Record)
                 .WithOne(r => r.FuelCard)
                 .HasForeignKey<Record>(r => r.FuelCardId);
+
+            //Vehicle - ExteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.ExteriorColor)
+                .WithOne(ec => ec.Vehicle)
+                .HasForeignKey<ExteriorColor>(ec => ec.VehicleId);
+
+            builder.Entity<ExteriorColor>()
+                .HasOne(ec => ec.Vehicle)
+                .WithOne(v => v.ExteriorColor)
+                .HasForeignKey<Vehicle>(v => v.ExteriorColorId);
+
+            //Vehicle - InteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.InteriorColor)
+                .WithOne(ic => ic.Vehicle)
+                .HasForeignKey<InteriorColor>(ic => ic.VehicleId);
+
+            builder.Entity<InteriorColor>()
+                .HasOne(ic => ic.Vehicle)
+                .WithOne(v => v.InteriorColor)
+                .HasForeignKey<Vehicle>(v => v.InteriorColorId);
             /***********************************************************/
 
             #endregion

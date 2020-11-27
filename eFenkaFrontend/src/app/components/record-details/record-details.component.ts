@@ -114,8 +114,16 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls['vehicle'].setValue(this.selectedRecord.fuelCard.vehicle.id);
     this.form.controls['buildYear'].setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
     this.form.controls['kilometers'].setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
-    this.form.controls['exteriorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.exteriorColors);
-    this.form.controls['interiorColor'].setValue(this.selectedRecord.fuelCard.vehicle.brand.interiorColors);
+    if (this.selectedRecord.fuelCard.vehicle.exteriorColor == null) {
+      this.form.controls['exteriorColor'].setValue('');
+    } else {
+      this.form.controls['exteriorColor'].setValue(this.selectedRecord.fuelCard.vehicle.exteriorColor.id);
+    }
+    if (this.selectedRecord.fuelCard.vehicle.interiorColor == null) {
+      this.form.controls['interiorColor'].setValue('');
+    } else {
+      this.form.controls['interiorColor'].setValue(this.selectedRecord.fuelCard.vehicle.interiorColor.id);
+    }
   }
 
   disableForm(): void {

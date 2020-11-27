@@ -48,10 +48,13 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.CostAllocation)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
-                .ThenInclude(s => s.Series)
+                .ThenInclude(c => c.Country)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
-                .ThenInclude(c => c.Country)
+                .ThenInclude(c => c.ExteriorColor)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(c => c.InteriorColor)
                 .ToList();
         }
 
@@ -86,17 +89,39 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.CostAllocation)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
-                .ThenInclude(s => s.Series)
+                .ThenInclude(c => c.Country)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
-                .ThenInclude(c => c.Country)
+                .ThenInclude(c => c.ExteriorColor)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(c => c.InteriorColor)
                 .FirstOrDefault(r => r.Id == id);
         }
 
         public override IEnumerable<Record> Find(Expression<Func<Record, bool>> statement)
         {
             return _context.Records
-                .Where(statement)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.Model)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.FuelType)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.EngineType)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.DoorType)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(v => v.Category)
+                .Include(r => r.FuelCard)
+                .ThenInclude(fc => fc.Vehicle)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(v => v.Brand)
@@ -126,6 +151,12 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(c => c.Country)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(c => c.ExteriorColor)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(c => c.InteriorColor)
                 .ToList();
         }
     }

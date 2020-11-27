@@ -36,6 +36,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .ToList();
         }
 
@@ -58,6 +62,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .FirstOrDefault(fc => fc.Id == id);
         }
 
@@ -80,6 +88,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .ToList();
         }
     }
