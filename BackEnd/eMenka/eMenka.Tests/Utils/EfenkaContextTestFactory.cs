@@ -16,12 +16,15 @@ namespace eMenka.Tests.Utils
 
         public static void Create()
         {
-            var dbContextOptions = new DbContextOptionsBuilder<EfenkaContext>().UseSqlServer(EMenka).Options;
-            EfenkaContext = new EfenkaContext(dbContextOptions);
+            if (EfenkaContext == null)
+            {
+                var dbContextOptions = new DbContextOptionsBuilder<EfenkaContext>().UseSqlServer(EMenka).Options;
+                EfenkaContext = new EfenkaContext(dbContextOptions);
 
-            //ensures database is up to date with the latest migration
-            EfenkaContext.Database.EnsureDeleted();
-            EfenkaContext.Database.EnsureCreated();
+                //ensures database is up to date with the latest migration
+                EfenkaContext.Database.EnsureDeleted();
+                EfenkaContext.Database.EnsureCreated();
+            }
         }
     }
 }

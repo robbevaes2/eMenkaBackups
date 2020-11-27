@@ -16,10 +16,7 @@ namespace eMenka.Tests.Repositories
         [OneTimeSetUp]
         public void Init()
         {
-            if (EfenkaContextTestFactory.EfenkaContext == null)
-            {
-                EfenkaContextTestFactory.Create();
-            }
+            EfenkaContextTestFactory.Create();
             _sut = new BrandRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
