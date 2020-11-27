@@ -227,7 +227,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -670,7 +669,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -743,7 +741,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -811,7 +808,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -881,7 +877,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -949,7 +944,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1
             };
 
@@ -987,7 +981,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1
             };
 
@@ -1028,7 +1021,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1
             };
 
@@ -1075,7 +1067,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1
             };
 
@@ -1125,7 +1116,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1
             };
 
@@ -1181,7 +1171,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1
             };
@@ -1241,7 +1230,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1
@@ -1305,7 +1293,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -1373,7 +1360,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -1443,7 +1429,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -1522,7 +1507,6 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
-                Power = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,

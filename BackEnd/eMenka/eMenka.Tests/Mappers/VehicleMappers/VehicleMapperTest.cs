@@ -36,7 +36,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             var emission = 1;
             var fiscalhp = 1;
             var isActive = true;
-            var power = 1;
             var volume = 1;
             var licensePlate = "plate";
             var chassis = "chassis";
@@ -84,7 +83,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             Assert.That(result.Emission, Is.EqualTo(emission));
             Assert.That(result.FiscalHP, Is.EqualTo(fiscalhp));
             Assert.That(result.IsActive, Is.EqualTo(isActive));
-            Assert.That(result.Power, Is.EqualTo(power));
             Assert.That(result.Volume, Is.EqualTo(volume));
             Assert.That(result.LicensePlate, Is.EqualTo(licensePlate));
             Assert.That(result.Chassis, Is.EqualTo(chassis));
@@ -114,7 +112,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
             var emission = 1;
             var fiscalhp = 1;
             var isActive = true;
-            var power = 1;
             var volume = 1;
             var licensePlate = "plate";
             var chassis = "chassis";
@@ -144,7 +141,6 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 Emission = emission,
                 FiscalHP = fiscalhp,
                 IsActive = isActive,
-                Power = power,
                 Volume = volume,
                 LicensePlate = licensePlate,
                 Chassis = chassis,
