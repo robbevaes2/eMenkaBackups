@@ -23,11 +23,6 @@ namespace eMenka.Tests.Repositories
             _sut = new BrandRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
-        [Test]
-        public void UselessBrandTest()
-        {
-            Assert.That(true, Is.EqualTo(true));
-        }
 
     }
 }
