@@ -17,12 +17,11 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int? Volume { get; set; }
         public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
-        public int? Power { get; set; }
         public bool IsActive { get; set; }
         public string LicensePlate { get; set; }
         public string Chassis { get; set; }
         public int? EngineCapacity { get; set; }
-        public int EnginePower { get; set; }
+        public int? EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
         public int? BuildYear { get; set; }

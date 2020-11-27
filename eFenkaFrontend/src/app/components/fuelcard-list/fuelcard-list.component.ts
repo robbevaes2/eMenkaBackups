@@ -23,7 +23,6 @@ export class FuelcardListComponent implements OnInit {
   ngOnInit(): void {
     this.fuelCardService.getAllFuelCards().subscribe(data => {
       this.fuelCards = data;
-      console.log(data);
     });
   }
 

@@ -47,6 +47,12 @@ namespace eMenka.Data.Repositories
         public override FuelCard GetById(int id)
         {
             return _context.FuelCards
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
                 .Include(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Vehicle)

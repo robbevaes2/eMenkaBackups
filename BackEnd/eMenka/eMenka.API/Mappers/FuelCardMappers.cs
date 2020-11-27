@@ -58,7 +58,6 @@ namespace eMenka.API.Mappers
                 Emission = vehicle.Emission,
                 FiscalHP = vehicle.FiscalHP,
                 IsActive = vehicle.IsActive,
-                Power = vehicle.Power,
                 Volume = vehicle.Volume,
                 Model = VehicleMappers.MapModelEntity(vehicle.Model),
                 Category = VehicleMappers.MapCategoryEntity(vehicle.Category),

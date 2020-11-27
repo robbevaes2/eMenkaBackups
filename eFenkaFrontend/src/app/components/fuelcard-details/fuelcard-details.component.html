@@ -1,1 +1,66 @@
-<p>fuelcard-details works!</p>
+<div class="container">
+  <h1 class="col-4">Details tankkaart</h1>
+  <div class="row ml-1 mr-1">
+    <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable"
+            (click)="navigateToListComponent()">Terug
+    </button>
+    <button type="button" class="btn btn-success ml-auto col-md-2" (click)="saveEditFuelCard(form)">
+      <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
+    </button>
+    <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
+  </div>
+  <div>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <label for="licensePlate">License plate:</label>
+            <input type="text" id="licensePlate" min="0" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
+          </div>
+
+          <div>
+            <label for="drivers">Bestuurder:</label>
+            <select name="drivers" id="drivers" formControlName="driver" class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let driver of drivers"
+                      [value]="driver.id">
+                {{ driver.person ? driver.person.firstname + ' ' + driver.person.lastname : ''}}
+              </option>
+            </select><br>
+          </div>
+
+          <div>
+            <label for="companies">Leverancier:</label>
+            <select name="companies" id="companies" formControlName="company"
+                    class="col-md-12 browser-default custom-select">
+              <option [ngValue]="null" disabled>-</option>
+              <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+            </select><br>
+          </div>
+
+          <div>
+            <label for="fuelType">Brandstof:</label>
+            <input type="text" id="fuelType" min="0" formControlName="fuelType"
+                   class="col-md-12 browser-default custom-select">
+          </div>
+
+          <div>
+            <label for="startDate">Start Datum:</label>
+            <input type="date" id="startDate" formControlName="startDate"
+                   class="col-md-12 browser-default custom-select">
+          </div>
+
+          <div>
+            <label for="endDate">Start Datum:</label>
+            <input type="date" id="endDate" formControlName="endDate"
+                   class="col-md-12 browser-default custom-select">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div>
+    <br>
+    <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteFuelCard()">Verwijder</button>
+  </div>
+</div>

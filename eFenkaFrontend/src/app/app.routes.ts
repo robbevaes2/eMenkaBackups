@@ -6,6 +6,7 @@ import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehic
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
+import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -71,5 +72,9 @@ export const appRoutes: Routes = [
   {
     path: 'fuelcards',
     component: FuelcardListComponent
+  },
+  {
+    path: 'fuelcards/:index',
+    component: FuelcardDetailsComponent
   },
 ];
