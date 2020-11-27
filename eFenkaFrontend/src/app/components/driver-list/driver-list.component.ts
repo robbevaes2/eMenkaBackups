@@ -37,10 +37,6 @@ export class DriverListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
-
-    // this.mdbTablePagination.calculateFirstItemIndex();
-    // this.mdbTablePagination.calculateLastItemIndex();
     this.cdRef.detectChanges();
   }
 
