@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers.FuelCardMappers;
-using eMenka.API.Mappers.StaticMappers;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;

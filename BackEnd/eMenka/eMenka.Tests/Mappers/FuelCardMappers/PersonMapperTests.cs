@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using eMenka.API.Mappers.FuelCardMappers;
-using eMenka.API.Mappers.StaticMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;

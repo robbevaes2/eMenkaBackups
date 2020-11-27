@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using eMenka.API.Mappers.RecordMappers;
-using eMenka.API.Mappers.StaticMappers;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Domain.Classes;
 
