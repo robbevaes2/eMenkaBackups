@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201127104757_init")]
+    [Migration("20201127112320_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -2162,9 +2162,6 @@ namespace eMenka.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BrandId");
@@ -2966,9 +2963,6 @@ namespace eMenka.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("VehicleId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -6980,9 +6974,6 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("ModelId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Power")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
@@ -7004,9 +6995,7 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("EngineTypeId");
 
-                    b.HasIndex("ExteriorColorId")
-                        .IsUnique()
-                        .HasFilter("[ExteriorColorId] IS NOT NULL");
+                    b.HasIndex("ExteriorColorId");
 
                     b.HasIndex("FuelCardId")
                         .IsUnique()
@@ -7014,9 +7003,7 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("FuelTypeId");
 
-                    b.HasIndex("InteriorColorId")
-                        .IsUnique()
-                        .HasFilter("[InteriorColorId] IS NOT NULL");
+                    b.HasIndex("InteriorColorId");
 
                     b.HasIndex("ModelId");
 
@@ -10883,8 +10870,8 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("EngineTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
-                        .WithOne("Vehicle")
-                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "ExteriorColorId");
+                        .WithMany("Vehicle")
+                        .HasForeignKey("ExteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Vehicle")
@@ -10895,8 +10882,8 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("FuelTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
-                        .WithOne("Vehicle")
-                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "InteriorColorId");
+                        .WithMany("Vehicle")
+                        .HasForeignKey("InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")
                         .WithMany("Vehicles")
