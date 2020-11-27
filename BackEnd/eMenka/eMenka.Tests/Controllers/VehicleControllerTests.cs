@@ -53,7 +53,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetAll())
                 .Returns(vehicles);
 
-            var result = _sut.GetAllVehicles() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -70,7 +70,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.GetVehicleById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -98,7 +98,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.GetVehicleById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -218,23 +218,69 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostVehicleReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new VehicleModel();
+            var invalidModel = new VehicleModel
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                EngineTypeId = 1,
+                DoorTypeId = 1,
+                Emission = 1,
+                FiscalHP = 1,
+                EnginePower = 1,
+                Volume = 1,
+                CategoryId = 1,
+                FuelCardId = 1,
+                SeriesId = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            var fuelType = new FuelType();
+            var engineType = new EngineType
+            {
+                Brand = new Brand()
+            };
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+            _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(category);
+            _fuelcardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(series);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostVehicle(invalidModel) as BadRequestResult;
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -250,7 +296,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -282,7 +328,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(model);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -321,7 +367,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -364,7 +410,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -414,7 +460,7 @@ namespace eMenka.Tests.Controllers
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -468,7 +514,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -526,7 +572,7 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -588,7 +634,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.PostVehicle(invalidModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(invalidModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -654,7 +700,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.PostVehicle(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -672,46 +718,136 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateVehcileReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new VehicleModel();
+            var invalidModel = new VehicleModel
+            {
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                EngineTypeId = 1,
+                DoorTypeId = 1,
+                Emission = 1,
+                FiscalHP = 1,
+                EnginePower = 1,
+                Volume = 1,
+                CategoryId = 1,
+                FuelCardId = 1,
+                SeriesId = 1
+            };
+
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            var fuelType = new FuelType();
+            var engineType = new EngineType
+            {
+                Brand = new Brand()
+            };
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+            _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(category);
+            _fuelcardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(series);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateVehicle(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
         public void UpdateVehicleReturnsBadRequestWhenIdFromModelDoesNotMatchIdFromQueryParameter()
         {
+
             var invalidModel = new VehicleModel
             {
-                Id = 1
+                BrandId = 1,
+                ModelId = 1,
+                FuelTypeId = 1,
+                EngineTypeId = 1,
+                DoorTypeId = 1,
+                Emission = 1,
+                FiscalHP = 1,
+                EnginePower = 1,
+                Volume = 1,
+                CategoryId = 1,
+                FuelCardId = 1,
+                SeriesId = 1
             };
 
-            var result = _sut.UpdateVehicle(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var brand = new Brand();
+            var model = new Model
+            {
+                Brand = new Brand()
+            };
+            var fuelType = new FuelType();
+            var engineType = new EngineType
+            {
+                Brand = new Brand()
+            };
+            var doorType = new DoorType();
+            var category = new Category();
+            var fuelCard = new FuelCard();
+            var series = new Series();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(model);
+            _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelType);
+            _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(engineType);
+            _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(doorType);
+            _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(category);
+            _fuelcardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(fuelCard);
+            _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(series);
+
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
-            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _modelRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _fuelcardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -736,7 +872,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -776,7 +912,7 @@ namespace eMenka.Tests.Controllers
             _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(model);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -822,7 +958,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -871,7 +1007,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -926,7 +1062,7 @@ namespace eMenka.Tests.Controllers
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -985,7 +1121,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1048,7 +1184,7 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1115,7 +1251,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1184,7 +1320,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1253,7 +1389,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.UpdateVehicle(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1276,7 +1412,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.DeleteVehicle(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1292,7 +1428,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.DeleteVehicle(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

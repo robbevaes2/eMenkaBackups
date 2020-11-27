@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.VehicleModels
 {
-    public class VehicleModel
+    public class VehicleModel : IModelBase
     {
         public int Id { get; set; }
 
@@ -28,5 +28,6 @@ namespace eMenka.API.Models.VehicleModels
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
         public double Kilometers { get; set; }
+        public DateTime RegistrationDate { get; set; }
     }
 }

@@ -1,15 +1,15 @@
-import {Model} from 'src/app/models/model/model';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {Brand} from '../models/brand/brand';
-import {Vehicle} from '../models/vehicle/vehicle';
-import {EngineType} from '../models/engine-type/engine-type';
-import {Serie} from '../models/serie/serie';
-import {FuelType} from '../models/fuel-type/fuel-type';
-import {FuelCard} from '../models/fuel-card/fuel-card';
-import {DoorType} from '../models/door-type/door-type';
-import {Injectable} from '@angular/core';
+import { Model } from 'src/app/models/model/model';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Brand } from '../models/brand/brand';
+import { Vehicle } from '../models/vehicle/vehicle';
+import { EngineType } from '../models/engine-type/engine-type';
+import { Serie } from '../models/serie/serie';
+import { FuelType } from '../models/fuel-type/fuel-type';
+import { FuelCard } from '../models/fuel-card/fuel-card';
+import { DoorType } from '../models/door-type/door-type';
 
 const BASE_API_VEHICLES = 'https://localhost:44356/api/vehicle';
 const BASE_API_BRANDS = 'https://localhost:44356/api/brand';

@@ -1,6 +1,6 @@
 ﻿using eMenka.API.Models.VehicleModels.ReturnModels;
-using System;
 using eMenka.Domain.Classes;
+using System;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
 {

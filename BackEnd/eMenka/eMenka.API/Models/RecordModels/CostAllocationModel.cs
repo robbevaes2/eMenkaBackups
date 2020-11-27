@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.RecordModels
 {
-    public class CostAllocationModel
+    public class CostAllocationModel : IModelBase
     {
         public int Id { get; set; }
 
