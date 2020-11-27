@@ -52,13 +52,13 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
                 IsBlocked = isBlocked,
                 PinCode = pinCode,
                 Number = number,
-                Vehicle = null
+                Vehicle = new Vehicle()
             };
 
             var result = _sut.MapEntityToReturnModel(fuelCard);
 
             Assert.That(result.Driver, Is.Null);
-            Assert.That(result.Vehicle, Is.Null);
+            Assert.That(result.Vehicle, Is.Not.Null);
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.EndDate, Is.EqualTo(endDate));
             Assert.That(result.StartDate, Is.EqualTo(startDate));
