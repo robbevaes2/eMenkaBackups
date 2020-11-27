@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ExteriorColor } from './../../models/exterior-color/exterior-color';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand/brand';
@@ -13,6 +14,7 @@ import { VehicleService } from 'src/app/services/vehicle-service';
 import { FuelType } from '../../models/fuel-type/fuel-type';
 import { ApiService } from '../../services/api.service';
 import { Category } from '../../models/category/category';
+import { InteriorColor } from 'src/app/models/interior-color/interior-color';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -31,6 +33,9 @@ export class VehicleDetailsComponent implements OnInit {
   selectedVehicle: Vehicle;
   isEditable: boolean;
   countries: Country[];
+  interiorColors: InteriorColor[];
+  exteriorColors: ExteriorColor[];
+
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
@@ -51,6 +56,7 @@ export class VehicleDetailsComponent implements OnInit {
       this.setModels(this.selectedVehicle.brand.id);
       this.setSeries(this.selectedVehicle.brand.id);
       this.setEngineTypes(this.selectedVehicle.brand.id);
+      this.setSelectedBrand(this.selectedVehicle.brand.id);
 
       this.form = new FormGroup({
         brand: new FormControl(null, [Validators.required]),
@@ -70,7 +76,9 @@ export class VehicleDetailsComponent implements OnInit {
         country: new FormControl(null, [Validators.required]),
         engineCapacity: new FormControl(null, [Validators.required]),
         buildYear: new FormControl(null, [Validators.required]),
-        kilometers: new FormControl(null, [Validators.required])
+        kilometers: new FormControl(null, [Validators.required]),
+        exteriorColor: new FormControl(null, [Validators.required]),
+        interiorColor: new FormControl(null, [Validators.required]),
       });
 
       this.fillForm();
@@ -97,6 +105,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['engineCapacity'].setValue(this.selectedVehicle.engineCapacity);
     this.form.controls['buildYear'].setValue(this.selectedVehicle.buildYear);
     this.form.controls['kilometers'].setValue(this.selectedVehicle.kilometers);
+    this.form.controls['exteriorColor'].setValue(this.selectedVehicle.exteriorColor.id);
+    this.form.controls['interiorColor'].setValue(this.selectedVehicle.interiorColor.id);
   }
 
   disableForm(): void {
@@ -118,6 +128,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['engineCapacity'].disable();
     this.form.controls['buildYear'].disable();
     this.form.controls['kilometers'].disable();
+    this.form.controls['exteriorColor'].disable();
+    this.form.controls['interiorColor'].disable();
+
     this.isEditable = false;
   }
 
@@ -140,6 +153,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['engineCapacity'].enable();
     this.form.controls['buildYear'].enable();
     this.form.controls['kilometers'].enable();
+    this.form.controls['exteriorColor'].enable();
+    this.form.controls['interiorColor'].enable();
     this.isEditable = true;
   }
 
@@ -153,6 +168,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.setModels(brandId);
     this.setSeries(brandId);
     this.setEngineTypes(brandId);
+    this.setSelectedBrand(brandId);
   }
 
   navigateToListVehicleComponent(): void {
@@ -210,7 +226,9 @@ export class VehicleDetailsComponent implements OnInit {
       endDateDelivery: values.endDate,
       countryId: Number(values.country),
       buildYear: Number(values.buildYear),
-      kilometers: Number(values.kilometers)
+      kilometers: Number(values.kilometers),
+      exteriorColorId: Number(values.exteriorColor),
+      interiorColorId: Number(values.interiorColor)
     };
   }
 
@@ -244,6 +262,13 @@ export class VehicleDetailsComponent implements OnInit {
 
   setCategories(): void {
     this.apiService.getAllCategories().subscribe(data => this.categories = data);
+  }
+
+  setSelectedBrand(brandId: number): void {
+    this.apiService.getBrandById(brandId).subscribe(data => {
+      this.interiorColors = data.interiorColors;
+      this.exteriorColors = data.exteriorColors;
+    });
   }
 
   getCountries(): Country[] {

@@ -223,10 +223,10 @@ export class RecordDetailsComponent implements OnInit {
       fuelCardId: this.selectedRecord.fuelCard.id,
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
-      term: values.type,
+      term: Number(values.type) - 1,
       startDate: values.startDate,
       endDate: values.endDate,
-      usage: values.usage,
+      usage: Number(values.usage) - 1,
     };
   }
 
@@ -246,13 +246,15 @@ export class RecordDetailsComponent implements OnInit {
       enginePower: this.vehicles[values.vehicle - 1].enginePower,
       isActive: true,
       categoryId: this.vehicles[values.vehicle - 1].category.id,
-      licensePlate: values.licensePlate,
-      chassis: values.chassis,
+      licensePlate: this.vehicles[values.vehicle - 1].licensePlate,
+      chassis: this.vehicles[values.vehicle - 1].chassis,
       engineCapacity: this.vehicles[values.vehicle - 1].engineCapacity,
       endDateDelivery: this.vehicles[values.vehicle - 1].endDateDelivery,
       countryId: Number(values.country),
       buildYear: Number(values.buildYear),
       kilometers: this.vehicles[values.vehicle - 1].kilometers,
+      exteriorColorId: this.vehicles[values.vehicle - 1].exteriorColor.id,
+      interiorColorId: this.vehicles[values.vehicle - 1].interiorColor.id
     };
   }
 

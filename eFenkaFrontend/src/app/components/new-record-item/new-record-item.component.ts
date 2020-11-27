@@ -19,6 +19,7 @@ import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 export class NewRecordItemComponent implements OnInit {
   form: FormGroup;
 
+  // TODO: fix a few fields , make a fuelcard
   countries: Country[];
   corporations: Corporation[];
   costAllocations: CostAllocation[];
