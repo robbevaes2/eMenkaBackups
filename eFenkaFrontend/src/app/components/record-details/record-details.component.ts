@@ -31,11 +31,11 @@ export class RecordDetailsComponent implements OnInit {
   countries: Country[];
   corporations: Corporation[];
   costAllocations: CostAllocation[];
-  fuelCards: FuelCard[];
   brands: Brand[];
   fuelTypes: FuelType[];
   models: Model[];
   vehicles: Vehicle[];
+  selectedBrand: Brand;
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
 
@@ -52,11 +52,12 @@ export class RecordDetailsComponent implements OnInit {
 
       this.setCorporatoin();
       this.setCostAllocation();
-      this.setFuelCard();
       this.setBrand();
       this.setFuelType();
       this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
       this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
+      this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
+      console.log(this.vehicles);
 
       this.form = new FormGroup({
         type: new FormControl(null, [Validators.required]),
@@ -67,7 +68,6 @@ export class RecordDetailsComponent implements OnInit {
         startDate: new FormControl(null, [Validators.required]),
         corporation: new FormControl(null, [Validators.required]),
         costAllocation: new FormControl(null, [Validators.required]),
-        fuelCard: new FormControl(null, [Validators.required]),
         usage: new FormControl(null, [Validators.required]),
         driver: new FormControl(null, [Validators.required]),
         brand: new FormControl(null, [Validators.required]),
@@ -86,14 +86,14 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   fillForm(): void {
-    this.form.controls['type'].setValue(this.selectedRecord.term);
+    this.form.controls['type'].setValue(this.selectedRecord.term + 1);
     this.form.controls['licensePlate'].setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
     this.form.controls['chassis'].setValue(this.selectedRecord.fuelCard.vehicle.chassis);
     this.form.controls['registrationDate'].setValue(this.selectedRecord.fuelCard.vehicle.registrationDate);
     if (this.selectedRecord.fuelCard.vehicle.country === null) {
       this.form.controls['country'].setValue('');
     } else {
-      this.form.controls['country'].setValue(this.selectedRecord.fuelCard.vehicle.country.name);
+      this.form.controls['country'].setValue(this.selectedRecord.fuelCard.vehicle.country.id);
     }
     this.form.controls['startDate'].setValue(new Date(this.selectedRecord.startDate).toISOString().substring(0, 10));
     if (this.selectedRecord.corporation === null) {
@@ -106,8 +106,7 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls['costAllocation'].setValue(this.selectedRecord.costAllocation.id);
     }
-    this.form.controls['fuelCard'].setValue(this.selectedRecord.fuelCard.id);
-    this.form.controls['usage'].setValue(this.selectedRecord.usage);
+    this.form.controls['usage'].setValue(this.selectedRecord.usage + 1);
     this.form.controls['driver'].setValue(this.selectedRecord.fuelCard.driver);
     this.form.controls['brand'].setValue(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.form.controls['fuelType'].setValue(this.selectedRecord.fuelCard.vehicle.fuelType.id);
@@ -128,7 +127,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls['startDate'].disable();
     this.form.controls['corporation'].disable();
     this.form.controls['costAllocation'].disable();
-    this.form.controls['fuelCard'].disable();
     this.form.controls['usage'].disable();
     this.form.controls['driver'].disable();
     this.form.controls['brand'].disable();
@@ -165,11 +163,13 @@ export class RecordDetailsComponent implements OnInit {
   onChangedBrand(event): void {
     const brandId = event.target.value;
     this.setAllDropDownsByBrand(brandId);
+
   }
 
   setAllDropDownsByBrand(brandId: number): void {
     this.setModels(brandId);
     this.setVehicle(brandId);
+    this.setSelectedBrand(brandId);
   }
 
   onChangedVehicle(event): void {
@@ -179,7 +179,6 @@ export class RecordDetailsComponent implements OnInit {
     this.apiService.getVehicleById(vehicleId).subscribe(data => {
       this.form.controls['licensePlate'].setValue(data.licensePlate);
       this.form.controls['chassis'].setValue(data.chassis);
-      this.form.controls['fuelCard'].setValue(data.fuelCard.id);
 
     });
   }
@@ -220,28 +219,13 @@ export class RecordDetailsComponent implements OnInit {
   mapToModel(values: any): any {
     return {
       id: this.selectedRecord.id,
-      fuelCardId: Number(values.fuelCard),
+      fuelCardId: this.selectedRecord.fuelCard.id,
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
       term: values.type,
       startDate: values.startDate,
       endDate: values.endDate,
       usage: values.usage
-    };
-  }
-
-  mapToFuelCard(values: any): any {
-    return {
-      id: Number(values.fuelCard),
-      driverId: this.fuelCards[values.fuelCard].driver.id,
-      startDate: this.fuelCards[values.fuelCard].startDate,
-      endDate: this.fuelCards[values.fuelCard].endDate,
-      isBlocked: false,
-      blockingDate: new Date('10-10-2016'),
-      blockingReason: '',
-      pinCode: '1234',
-      vehicleId: Number(values.vehicle),
-      number: this.fuelCards[values.fuelCard].fuelCardNumber,
     };
   }
 
@@ -254,6 +238,7 @@ export class RecordDetailsComponent implements OnInit {
       engineTypeId:  this.vehicles[values.vehicle - 1].engineType.id,
       doorTypeId:  this.vehicles[values.vehicle - 1].doorType.id,
       fuelCardId:  this.vehicles[values.vehicle - 1].fuelCard.id,
+      seriesId: this.vehicles[values.vehicle - 1].serie.id,
       volume: this.vehicles[values.vehicle - 1].volume,
       fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
       emission: this.vehicles[values.vehicle - 1].emission,
@@ -262,9 +247,11 @@ export class RecordDetailsComponent implements OnInit {
       categoryId: this.vehicles[values.vehicle - 1].category.id,
       licensePlate: values.licensePlate,
       chassis: values.chassis,
+      engineCapacity: this.vehicles[values.vehicle - 1].engineCapacity,
       endDateDelivery: this.vehicles[values.vehicle - 1].endDateDelivery,
-      seriesId: this.vehicles[values.vehicle - 1].serie.id,
-      buildYear: values.buildYear,
+      countryId: Number(values.country),
+      buildYear: Number(values.buildYear),
+      kilometers: this.vehicles[values.vehicle - 1].kilometers
     };
   }
 
@@ -274,10 +261,6 @@ export class RecordDetailsComponent implements OnInit {
 
   setCostAllocation(): void {
     this.apiService.getAllCostAllocations().subscribe(data => this.costAllocations = data);
-  }
-
-  setFuelCard(): void {
-    this.apiService.getAllFuelCards().subscribe(data => this.fuelCards = data);
   }
 
   setBrand(): void {
@@ -294,6 +277,10 @@ export class RecordDetailsComponent implements OnInit {
 
   setVehicle(brandId: number): void {
     this.apiService.getAllVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
+  }
+
+  setSelectedBrand(brandId: number): void {
+    this.apiService.getBrandById(brandId).subscribe(data => {this.selectedBrand = data; console.log(this.selectedBrand)});
   }
 
   getCountries(): Country[] {
