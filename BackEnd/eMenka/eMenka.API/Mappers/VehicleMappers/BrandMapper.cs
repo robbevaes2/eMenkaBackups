@@ -7,6 +7,14 @@ namespace eMenka.API.Mappers.VehicleMappers
 {
     public class BrandMapper : IMapper<Brand, BrandModel, BrandReturnModel>
     {
+        private InteriorColorMapper _interiorColorMapper;
+        private ExteriorColorMapper _exteriorColorMapper;
+
+        public BrandMapper()
+        {
+            _interiorColorMapper = new InteriorColorMapper();
+            _exteriorColorMapper = new ExteriorColorMapper();
+        }
         public BrandReturnModel MapEntityToReturnModel(Brand entity)
         {
             if (entity == null)
@@ -15,8 +23,8 @@ namespace eMenka.API.Mappers.VehicleMappers
             {
                 Name = entity.Name,
                 Id = entity.Id,
-                ExteriorColors = entity.ExteriorColors.Select(MapExteriorColorEntity).ToList(),
-                InteriorColors = entity.InteriorColors.Select(MapInteriorColorEntity).ToList()
+                ExteriorColors = entity.ExteriorColors.Select(_exteriorColorMapper.MapExteriorColorEntity).ToList(),
+                InteriorColors = entity.InteriorColors.Select(_interiorColorMapper.MapInteriorColorEntity).ToList()
             };
         }
 
@@ -26,30 +34,6 @@ namespace eMenka.API.Mappers.VehicleMappers
             {
                 Id = model.Id,
                 Name = model.Name
-            };
-        }
-
-        public static InteriorColorReturnModel MapInteriorColorEntity(InteriorColor interiorColor)
-        {
-            if (interiorColor == null)
-                return null;
-            return new InteriorColorReturnModel
-            {
-                Id = interiorColor.Id,
-                Code = interiorColor.Code,
-                Name = interiorColor.Name
-            };
-        }
-
-        public static ExteriorColorReturnModel MapExteriorColorEntity(ExteriorColor exteriorColor)
-        {
-            if (exteriorColor == null)
-                return null;
-            return new ExteriorColorReturnModel
-            {
-                Code = exteriorColor.Code,
-                Id = exteriorColor.Id,
-                Name = exteriorColor.Name
             };
         }
     }
