@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eMenka.API.Mappers.FuelCardMappers;
-using eMenka.API.Mappers.StaticMappers;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -64,7 +63,8 @@ namespace eMenka.API.Mappers.VehicleMappers
                 Serie = _serieMapper.MapEntityToReturnModel(entity.Series),
                 BuildYear = entity.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(entity.Country),
-                Kilometers = entity.Kilometers
+                Kilometers = entity.Kilometers,
+                RegistrationDate = entity.RegistrationDate
             };
         }
 
@@ -94,7 +94,8 @@ namespace eMenka.API.Mappers.VehicleMappers
                 CountryId = model.CountryId,
                 BuildYear = model.BuildYear,
                 CategoryId = model.CategoryId,
-                Kilometers = model.Kilometers
+                Kilometers = model.Kilometers,
+                RegistrationDate = model.RegistrationDate
             };
         }
 

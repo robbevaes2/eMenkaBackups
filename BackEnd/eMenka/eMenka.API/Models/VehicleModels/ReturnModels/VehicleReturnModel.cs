@@ -28,5 +28,6 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int? BuildYear { get; set; }
         public CountryReturnModel Country { get; set; }
         public double Kilometers { get; set; }
+        public DateTime RegistrationDate { get; set; }
     }
 }

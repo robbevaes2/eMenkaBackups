@@ -4,7 +4,6 @@ using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using NUnit.Framework;
 using System;
-using eMenka.API.Mappers.StaticMappers;
 
 namespace eMenka.Tests.Mappers
 {

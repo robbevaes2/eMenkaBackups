@@ -36,5 +36,6 @@ namespace eMenka.Domain.Classes
         public int? BuildYear { get; set; }
         public string Chassis { get; set; }
         public double Kilometers { get; set; }
+        public DateTime RegistrationDate { get; set; }
     }
 }
