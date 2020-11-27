@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FuelCard} from '../../models/fuel-card/fuel-card';
-import {FuelCardService} from '../../services/fuelcard-service';
 import {Person} from '../../models/person/person';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-fuelcard-list',
@@ -17,11 +17,11 @@ export class FuelcardListComponent implements OnInit {
   page = 1;
   selectedAmount = 5;
 
-  constructor(private router: Router, private fuelCardService: FuelCardService) {
+  constructor(private router: Router, private apiService: ApiService) {
   }
 
   ngOnInit(): void {
-    this.fuelCardService.getAllFuelCards().subscribe(data => {
+    this.apiService.getAllFuelCards().subscribe(data => {
       this.fuelCards = data;
     });
   }

@@ -1,19 +1,21 @@
-import { Corporation } from './../models/corporation/corporation';
-import { Record } from 'src/app/models/record/record';
-import { Model } from './../models/model/model';
+import {Corporation} from './../models/corporation/corporation';
+import {Record} from 'src/app/models/record/record';
+import {Model} from './../models/model/model';
 import {Injectable} from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import { Vehicle } from '../models/vehicle/vehicle';
-import { Brand } from '../models/brand/brand';
-import { Serie } from '../models/serie/serie';
-import { EngineType } from '../models/engine-type/engine-type';
-import { FuelType } from '../models/fuel-type/fuel-type';
-import { FuelCard } from '../models/fuel-card/fuel-card';
-import { DoorType } from '../models/door-type/door-type';
-import { Category } from '../models/category/category';
-import { CostAllocation } from '../models/cost-allocatoin/cost-allocation';
+import {Vehicle} from '../models/vehicle/vehicle';
+import {Brand} from '../models/brand/brand';
+import {Serie} from '../models/serie/serie';
+import {EngineType} from '../models/engine-type/engine-type';
+import {FuelType} from '../models/fuel-type/fuel-type';
+import {FuelCard} from '../models/fuel-card/fuel-card';
+import {DoorType} from '../models/door-type/door-type';
+import {Category} from '../models/category/category';
+import {CostAllocation} from '../models/cost-allocatoin/cost-allocation';
+import {Driver} from '../models/driver/driver';
+import {Company} from '../models/company/company';
 
 @Injectable({
   providedIn: 'root',
@@ -158,7 +160,7 @@ export class ApiService {
     return this.getFromAPI<FuelCard>('fuelcard/' + id);
   }
 
-  updateFuelCard(id: number, FuelCardModel: any) {
+  updateFuelCard(id: number, FuelCardModel: any): any {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
 
@@ -190,5 +192,13 @@ export class ApiService {
 
   getAllCostAllocations(): Observable<CostAllocation[]> {
     return this.getFromAPI<CostAllocation[]>('costallocation/');
+  }
+
+  getAllDrivers(): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/');
+  }
+
+  getAllCompanies(): Observable<Company[]> {
+    return this.getFromAPI<Company[]>('company/');
   }
 }

@@ -33,8 +33,8 @@ export class VehicleDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
-    const vehicleId = this.route.snapshot.params['index'];
-    //setVehicle(vehicleId);
+    const vehicleId = this.route.snapshot.params.index;
+    // setVehicle(vehicleId);
     this.apiService.getVehicleById(vehicleId).subscribe(data => {
       this.countries = this.getCountries();
 
@@ -77,67 +77,67 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   fillForm(): void {
-    this.form.controls['brand'].setValue(this.selectedVehicle.brand?.id);
-    this.form.controls['model'].setValue(this.selectedVehicle.model?.id);
-    this.form.controls['serie'].setValue(this.selectedVehicle.serie?.id);
-    this.form.controls['engineType'].setValue(this.selectedVehicle.engineType?.id);
-    this.form.controls['doorType'].setValue(this.selectedVehicle.doorType?.id);
-    this.form.controls['fuelType'].setValue(this.selectedVehicle.fuelType?.id);
-    this.form.controls['volume'].setValue(this.selectedVehicle.volume);
-    this.form.controls['enginePower'].setValue(this.selectedVehicle.enginePower);
-    this.form.controls['fiscalHP'].setValue(this.selectedVehicle.fiscalHP);
-    this.form.controls['emission'].setValue(this.selectedVehicle.emission);
-    this.form.controls['endDate'].setValue(new Date(this.selectedVehicle.endDateDelivery).toISOString().substring(0, 10));
-    this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
-    this.form.controls['chassis'].setValue(this.selectedVehicle.chassis);
-    this.form.controls['category'].setValue(this.selectedVehicle.category?.id);
-    this.form.controls['country'].setValue(this.selectedVehicle.country?.id);
-    this.form.controls['engineCapacity'].setValue(this.selectedVehicle.engineCapacity);
-    this.form.controls['buildYear'].setValue(this.selectedVehicle.buildYear);
-    this.form.controls['kilometers'].setValue(this.selectedVehicle.kilometers);
+    this.form.controls.brand.setValue(this.selectedVehicle.brand?.id);
+    this.form.controls.model.setValue(this.selectedVehicle.model?.id);
+    this.form.controls.serie.setValue(this.selectedVehicle.serie?.id);
+    this.form.controls.engineType.setValue(this.selectedVehicle.engineType?.id);
+    this.form.controls.doorType.setValue(this.selectedVehicle.doorType?.id);
+    this.form.controls.fuelType.setValue(this.selectedVehicle.fuelType?.id);
+    this.form.controls.volume.setValue(this.selectedVehicle.volume);
+    this.form.controls.enginePower.setValue(this.selectedVehicle.enginePower);
+    this.form.controls.fiscalHP.setValue(this.selectedVehicle.fiscalHP);
+    this.form.controls.emission.setValue(this.selectedVehicle.emission);
+    this.form.controls.endDate.setValue(new Date(this.selectedVehicle.endDateDelivery).toISOString().substring(0, 10));
+    this.form.controls.licensePlate.setValue(this.selectedVehicle.licensePlate);
+    this.form.controls.chassis.setValue(this.selectedVehicle.chassis);
+    this.form.controls.category.setValue(this.selectedVehicle.category?.id);
+    this.form.controls.country.setValue(this.selectedVehicle.country?.id);
+    this.form.controls.engineCapacity.setValue(this.selectedVehicle.engineCapacity);
+    this.form.controls.buildYear.setValue(this.selectedVehicle.buildYear);
+    this.form.controls.kilometers.setValue(this.selectedVehicle.kilometers);
   }
 
   disableForm(): void {
-    this.form.controls['brand'].disable();
-    this.form.controls['model'].disable();
-    this.form.controls['serie'].disable();
-    this.form.controls['engineType'].disable();
-    this.form.controls['doorType'].disable();
-    this.form.controls['fuelType'].disable();
-    this.form.controls['volume'].disable();
-    this.form.controls['enginePower'].disable();
-    this.form.controls['fiscalHP'].disable();
-    this.form.controls['emission'].disable();
-    this.form.controls['endDate'].disable();
-    this.form.controls['licensePlate'].disable();
-    this.form.controls['chassis'].disable();
-    this.form.controls['category'].disable();
-    this.form.controls['country'].disable();
-    this.form.controls['engineCapacity'].disable();
-    this.form.controls['buildYear'].disable();
-    this.form.controls['kilometers'].disable();
+    this.form.controls.brand.disable();
+    this.form.controls.model.disable();
+    this.form.controls.serie.disable();
+    this.form.controls.engineType.disable();
+    this.form.controls.doorType.disable();
+    this.form.controls.fuelType.disable();
+    this.form.controls.volume.disable();
+    this.form.controls.enginePower.disable();
+    this.form.controls.fiscalHP.disable();
+    this.form.controls.emission.disable();
+    this.form.controls.endDate.disable();
+    this.form.controls.licensePlate.disable();
+    this.form.controls.chassis.disable();
+    this.form.controls.category.disable();
+    this.form.controls.country.disable();
+    this.form.controls.engineCapacity.disable();
+    this.form.controls.buildYear.disable();
+    this.form.controls.kilometers.disable();
     this.isEditable = false;
   }
 
   enableForm(): void {
-    this.form.controls['brand'].enable();
-    this.form.controls['model'].enable();
-    this.form.controls['serie'].enable();
-    this.form.controls['engineType'].enable();
-    this.form.controls['doorType'].enable();
-    this.form.controls['fuelType'].enable();
-    this.form.controls['volume'].enable();
-    this.form.controls['enginePower'].enable();
-    this.form.controls['fiscalHP'].enable();
-    this.form.controls['emission'].enable();
-    this.form.controls['endDate'].enable();
-    this.form.controls['licensePlate'].enable();
-    this.form.controls['chassis'].enable();
-    this.form.controls['category'].enable();
-    this.form.controls['country'].enable();
-    this.form.controls['engineCapacity'].enable();
-    this.form.controls['buildYear'].enable();
-    this.form.controls['kilometers'].enable();
+    this.form.controls.brand.enable();
+    this.form.controls.model.enable();
+    this.form.controls.serie.enable();
+    this.form.controls.engineType.enable();
+    this.form.controls.doorType.enable();
+    this.form.controls.fuelType.enable();
+    this.form.controls.volume.enable();
+    this.form.controls.enginePower.enable();
+    this.form.controls.fiscalHP.enable();
+    this.form.controls.emission.enable();
+    this.form.controls.endDate.enable();
+    this.form.controls.licensePlate.enable();
+    this.form.controls.chassis.enable();
+    this.form.controls.category.enable();
+    this.form.controls.country.enable();
+    this.form.controls.engineCapacity.enable();
+    this.form.controls.buildYear.enable();
+    this.form.controls.kilometers.enable();
     this.isEditable = true;
   }
 

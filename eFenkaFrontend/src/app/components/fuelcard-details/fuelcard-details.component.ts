@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FuelCardService} from '../../services/fuelcard-service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FuelCard} from '../../models/fuel-card/fuel-card';
 import {Vehicle} from '../../models/vehicle/vehicle';
 import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
-import {DriverService} from '../../services/driver-service';
-import {CompanyService} from '../../services/company-service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-fuelcard-details',
@@ -30,18 +28,16 @@ export class FuelcardDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private fuelCardService: FuelCardService,
-              private driverService: DriverService,
-              private companyService: CompanyService) {
+              private apiService: ApiService) {
   }
 
   ngOnInit(): void {
     const fuelCardId = this.route.snapshot.params.index;
-    this.fuelCardService.getFuelCardById(fuelCardId).subscribe(fc => {
+    this.apiService.getFuelCardById(fuelCardId).subscribe(fc => {
       this.selectedFuelCard = fc;
-      this.driverService.getAllDrivers().subscribe(drivers => {
+      this.apiService.getAllDrivers().subscribe(drivers => {
         this.drivers = drivers;
-        this.companyService.getAllCompanies().subscribe(companies => {
+        this.apiService.getAllCompanies().subscribe(companies => {
           this.companies = companies;
           this.fillForm();
           this.disableForm();
@@ -78,11 +74,15 @@ export class FuelcardDetailsComponent implements OnInit {
     }
   }
 
-  deleteFuelCard(): void {
-    if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
-      this.fuelCardService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
+  /*
+
+    deleteFuelCard(): void {
+      if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
+        this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
+      }
     }
-  }
+
+   */
 
   cancel(): void {
     this.fillForm();
@@ -95,17 +95,18 @@ export class FuelcardDetailsComponent implements OnInit {
       this.form.controls.fuelType.setValue(this.selectedFuelCard.vehicle.fuelType.name);
     }
     if (this.selectedFuelCard.driver) {
-      const fullname = this.selectedFuelCard.driver.person.firstname + ' ' + this.selectedFuelCard.driver.person.lastname;
-      this.form.controls.driver.setValue(fullname);
+      this.form.controls.driver.setValue(this.selectedFuelCard?.driver?.id);
     }
     if (this.selectedFuelCard.company) {
-      this.form.controls.company.setValue(this.selectedFuelCard.company.name);
+      this.form.controls.company.setValue(this.selectedFuelCard?.company?.id);
     }
     if (this.selectedFuelCard.startDate) {
-      this.form.controls.startDate.setValue(new Date(this.selectedFuelCard.startDate).toLocaleDateString('en-GB'));
+      const date = new Date(this.selectedFuelCard.startDate).toISOString().substring(0, 10);
+      this.form.controls.startDate.setValue(date);
     }
     if (this.selectedFuelCard.endDate) {
-      this.form.controls.endDate.setValue(new Date(this.selectedFuelCard.endDate).toLocaleDateString('en-GB'));
+      const date = new Date(this.selectedFuelCard.endDate).toISOString().substring(0, 10);
+      this.form.controls.endDate.setValue(date);
     }
   }
 

@@ -39,6 +39,7 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 Driver = _driverMapper.MapEntityToReturnModel(entity.Driver),
                 EndDate = entity.EndDate,
                 StartDate = entity.StartDate,
+                Company = entity.Company,
                 Id = entity.Id,
                 BlockingDate = entity.BlockingDate,
                 BlockingReason = entity.BlockingReason,
