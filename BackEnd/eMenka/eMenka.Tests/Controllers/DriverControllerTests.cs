@@ -130,9 +130,10 @@ namespace eMenka.Tests.Controllers
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((DriverReturnModel)result.Value, Is.Not.Null);
 
             _driverRepositoryMock.Verify(m => m.Add(It.IsAny<Driver>()), Times.Once);
             _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);

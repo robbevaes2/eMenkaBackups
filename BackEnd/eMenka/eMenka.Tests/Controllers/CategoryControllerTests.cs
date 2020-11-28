@@ -112,9 +112,10 @@ namespace eMenka.Tests.Controllers
                 Name = "name"
             };
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((CategoryReturnModel)result.Value, Is.Not.Null);
 
             _categoryRepositoryMock.Verify(m => m.Add(It.IsAny<Category>()), Times.Once);
         }

@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
             AddColors(brand, brandModel);
 
             _brandRepository.Add(brand);
-            return Ok();
+            return Ok(_brandMapper.MapEntityToReturnModel(brand));
         }
 
         [HttpPut("{id}")]

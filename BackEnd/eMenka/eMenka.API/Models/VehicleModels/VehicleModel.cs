@@ -27,8 +27,6 @@ namespace eMenka.API.Models.VehicleModels
 
         [Required] public int? Emission { get; set; }
 
-        public int Power { get; set; }
-
         [Required] public bool IsActive { get; set; }
 
         [Required] public int? CategoryId { get; set; }
@@ -43,5 +41,7 @@ namespace eMenka.API.Models.VehicleModels
         public int? BuildYear { get; set; }
         public double Kilometers { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public int ExteriorColorId { get; set; }
+        public int InteriorColorId { get; set; }
     }
 }

@@ -34,8 +34,27 @@ namespace eMenka.Tests.Mappers.VehicleMappers
         {
             var name = "name";
             var id = 1;
-            var exteriorColors = new List<ExteriorColor>();
-            var interiorColors= new List<InteriorColor>();
+            var code = "code";
+            var exteriorColors = new List<ExteriorColor>
+            {
+                new ExteriorColor
+                {
+                    Id = id,
+                    Code = code,
+                    Name = name
+                },
+                null
+            };
+            var interiorColors= new List<InteriorColor>
+            {
+                new InteriorColor
+                {
+                    Id = id,
+                    Code = code,
+                    Name = name
+                }, 
+                null
+            };
 
             var brand = new Brand
             {
@@ -49,8 +68,16 @@ namespace eMenka.Tests.Mappers.VehicleMappers
 
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.Name, Is.EqualTo(name));
-            Assert.That(result.InteriorColors, Is.Not.Null);
-            Assert.That(result.ExteriorColors, Is.Not.Null);
+            Assert.That(result.InteriorColors[1], Is.Null);
+            Assert.That(result.ExteriorColors[1], Is.Null);
+
+            Assert.That(result.InteriorColors[0].Id, Is.EqualTo(id));
+            Assert.That(result.InteriorColors[0].Name, Is.EqualTo(name));
+            Assert.That(result.InteriorColors[0].Code, Is.EqualTo(code));
+
+            Assert.That(result.ExteriorColors[0].Id, Is.EqualTo(id));
+            Assert.That(result.ExteriorColors[0].Name, Is.EqualTo(name));
+            Assert.That(result.ExteriorColors[0].Code, Is.EqualTo(code));
         }
 
         [Test]

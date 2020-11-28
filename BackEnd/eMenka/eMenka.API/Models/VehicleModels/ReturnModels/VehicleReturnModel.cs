@@ -17,7 +17,6 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public int? Volume { get; set; }
         public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
-        public int? Power { get; set; }
         public bool IsActive { get; set; }
         public string LicensePlate { get; set; }
         public string Chassis { get; set; }
@@ -29,5 +28,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public CountryReturnModel Country { get; set; }
         public double Kilometers { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public ExteriorColorReturnModel ExteriorColor { get; set; }
+        public InteriorColorReturnModel InteriorColor { get; set; }
     }
 }
