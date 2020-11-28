@@ -58,10 +58,6 @@ export class NewRecordItemComponent implements OnInit {
       fuelType: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       vehicle: new FormControl(null, [Validators.required]),
-      buildYear: new FormControl(null, [Validators.required]),
-      kilometers: new FormControl(null, []),
-      exteriorColor: new FormControl(null, []),
-      interiorColor: new FormControl(null, [])
     });
   }
 

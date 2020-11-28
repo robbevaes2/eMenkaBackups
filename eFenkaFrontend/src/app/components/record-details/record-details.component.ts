@@ -158,8 +158,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.fuelType.enable();
     this.form.controls.model.enable();
     this.form.controls.vehicle.enable();
-    this.form.controls.buildYear.enable();
-    this.form.controls.kilometers.enable();
     this.isEditable = true;
   }
 
@@ -251,7 +249,7 @@ export class RecordDetailsComponent implements OnInit {
       engineCapacity: this.vehicles[values.vehicle - 1].engineCapacity,
       endDateDelivery: this.vehicles[values.vehicle - 1].endDateDelivery,
       countryId: Number(values.country),
-      buildYear: Number(values.buildYear),
+      buildYear: this.vehicles[values.vehicle - 1].buildYear,
       kilometers: this.vehicles[values.vehicle - 1].kilometers,
       exteriorColorId: this.vehicles[values.vehicle - 1].exteriorColor.id,
       interiorColorId: this.vehicles[values.vehicle - 1].interiorColor.id
