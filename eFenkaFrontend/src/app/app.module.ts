@@ -15,7 +15,9 @@ import { RecordListComponent } from './components/record-list/record-list.compon
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { NewRecordItemComponent } from './components/new-record-item/new-record-item.component';
 import { RecordDetailsComponent } from './components/record-details/record-details.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,10 @@ import { HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    MDBBootstrapModule,
     HttpClientModule
   ],
-  providers: [VehicleService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

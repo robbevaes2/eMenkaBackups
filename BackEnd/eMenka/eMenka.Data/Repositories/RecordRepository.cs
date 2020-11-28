@@ -55,6 +55,9 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(c => c.InteriorColor)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .ToList();
         }
 
@@ -96,6 +99,9 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(c => c.InteriorColor)
+                .Include(r => r.FuelCard)
+                .ThenInclude(v => v.Vehicle)
+                .ThenInclude(s => s.Series)
                 .FirstOrDefault(r => r.Id == id);
         }
 

@@ -11,6 +11,7 @@ using eMenka.Domain.Classes;
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
+
     public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
@@ -104,6 +105,7 @@ namespace eMenka.API.Controllers
             {
                 if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
                     return NotFound($"No fuelcard with id {model.FuelCardId}");
+
 
                 if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
                     return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");

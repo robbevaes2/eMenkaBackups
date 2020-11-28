@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201127112320_init")]
+    [Migration("20201128092638_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -6904,7 +6904,7 @@ namespace eMenka.Data.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Vehicles", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Vehicle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -10847,7 +10847,7 @@ namespace eMenka.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("eMenka.Domain.Classes.Vehicles", b =>
+            modelBuilder.Entity("eMenka.Domain.Classes.Vehicle", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Brand", "Brand")
                         .WithMany("Vehicles")
@@ -10874,8 +10874,8 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("ExteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
-                        .WithOne("Vehicles")
-                        .HasForeignKey("eMenka.Domain.Classes.Vehicles", "FuelCardId");
+                        .WithOne("Vehicle")
+                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelType", "FuelType")
                         .WithMany("Vehicles")
