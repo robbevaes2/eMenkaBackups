@@ -132,6 +132,10 @@ export class ApiService {
     return this.getFromAPI<Brand[]>('brand/');
   }
 
+  getBrandById(id: number): Observable<Brand> {
+    return this.getFromAPI<Brand>('brand/' + id);
+  }
+
   getAllModelsByBrandId(id: number): Observable<Model[]> {
     return this.getFromAPI<Model[]>('model/brand/' + id);
   }
@@ -182,7 +186,7 @@ export class ApiService {
 
   // Corporation
 
-  getAllCorporatoins(): Observable<Corporation[]> {
+  getAllCorporations(): Observable<Corporation[]> {
     return this.getFromAPI<Corporation[]>('corporation/');
   }
 

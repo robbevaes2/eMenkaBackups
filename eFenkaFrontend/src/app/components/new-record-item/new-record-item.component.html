@@ -46,30 +46,6 @@
             <option *ngFor="let item of corporations" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
-        <div>
-          <label for="costAllocations">Kostenplaats:</label>
-          <select name="costAllocations" id="costAllocations" formControlName="costAllocation" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of costAllocations" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
-        <div>
-          <label for="fuelCards">Tankkaart:</label>
-          <select disabled name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
-          </select><br>
-        </div>
-        <div>
-          <label for="usages">Gebruik:</label>
-          <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option [value]="1">Pool</option>
-            <option [value]="2">Definitive</option>
-            <option [value]="3">Replacement</option>
-            <option [value]="4">RunIn</option>
-          </select><br>
-        </div>
       </div>
       <div class="col-md-6">
         <div>
@@ -101,20 +77,28 @@
           </select><br>
         </div>
         <div>
-          <label for="buildYear">Bouwjaar:</label>
-          <input type="text" id="buildYear" formControlName="buildYear" class="col-md-12 browser-default custom-select">
+          <label for="costAllocations">Kostenplaats:</label>
+          <select name="costAllocations" id="costAllocations" formControlName="costAllocation" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of costAllocations" [value]="item.id">{{ item.name }}</option>
+          </select><br>
         </div>
         <div>
-          <label for="kilometers">Kilometers:</label>
-          <input type="text" id="kilometers" formControlName="kilometers" class="col-md-12 browser-default custom-select">
+          <label for="fuelCards">Tankkaart:</label>
+          <select disabled name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
+          </select><br>
         </div>
         <div>
-          <label for="exteriorColor">Kleur exterieur:</label>
-          <input type="text" id="exteriorColor" formControlName="interiorColor" class="col-md-12 browser-default custom-select">
-        </div>
-        <div>
-          <label for="interiorColor">Kleur interieur:</label>
-          <input type="text" id="interiorColor" formControlName="interiorColor" class="col-md-12 browser-default custom-select">
+          <label for="usages">Gebruik:</label>
+          <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option [value]="1">Pool</option>
+            <option [value]="2">Definitive</option>
+            <option [value]="3">Replacement</option>
+            <option [value]="4">RunIn</option>
+          </select><br>
         </div>
       </div>
     </div>

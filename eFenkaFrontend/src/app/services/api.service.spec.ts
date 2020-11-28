@@ -368,7 +368,7 @@ describe('ApiService', () => {
     it('should return an Observable<Corporation[]>', () => {
       const corporations = dummyData.getCorporations();
 
-      service.getAllCorporatoins().subscribe(v => {
+      service.getAllCorporations().subscribe(v => {
         expect(v.length).toBe(3);
         expect(v).toEqual(corporations);
       });
@@ -497,7 +497,6 @@ class DummyData {
       category: this.categories[0],
       fiscalHP: 20,
       emission: 20,
-      power: 20,
       licensePlate: '1-abc-123',
       endDateDelivery: new Date('10-10-2010'),
       isActive: true,
@@ -506,7 +505,9 @@ class DummyData {
       country: this.countries[0],
       buildYear: 2008,
       kilometers: 20000,
-      averageFuel: 20
+      averageFuel: 20,
+      interiorColor: null,
+      exteriorColor: null
     },
     {
       id: 2,
@@ -523,7 +524,6 @@ class DummyData {
       category: this.categories[1],
       fiscalHP: 20,
       emission: 20,
-      power: 20,
       licensePlate: '1-abc-123',
       endDateDelivery: new Date('10-10-2010'),
       isActive: true,
@@ -532,7 +532,9 @@ class DummyData {
       country: this.countries[1],
       buildYear: 2008,
       kilometers: 20000,
-      averageFuel: 20
+      averageFuel: 20,
+      interiorColor: null,
+      exteriorColor: null
     }
   ];
 
