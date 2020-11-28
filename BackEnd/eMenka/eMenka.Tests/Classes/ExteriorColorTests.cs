@@ -36,5 +36,15 @@ namespace eMenka.Tests.Classes
 
             Assert.That(_sut.Brand, Is.EqualTo(brand));
         }
+
+        [Test]
+        public void ExteriorColorVehiclesPropertyCorrectlyGetsAndSetsVehicles()
+        {
+            var vehicles = new List<Vehicle>();
+
+            _sut.Vehicles = vehicles;
+
+            Assert.That(_sut.Vehicles, Is.EqualTo(vehicles));
+        }
     }
 }

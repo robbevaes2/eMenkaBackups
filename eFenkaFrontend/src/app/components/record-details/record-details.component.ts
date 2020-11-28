@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Record } from 'src/app/models/record/record';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-record-details',
@@ -33,7 +34,8 @@ export class RecordDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    public datepipe: DatePipe
   ) { }
 
   async ngOnInit(): Promise<any> {
@@ -78,7 +80,7 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.type.setValue(this.selectedRecord.term + 1);
     this.form.controls.licensePlate.setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
     this.form.controls.chassis.setValue(this.selectedRecord.fuelCard.vehicle.chassis);
-    this.form.controls.registrationDate.setValue(this.selectedRecord.fuelCard.vehicle.registrationDate);
+    this.form.controls.registrationDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.fuelCard.vehicle.registrationDate), 'yyyy-MM-dd'));
 
     if (this.selectedRecord.fuelCard.vehicle.country === null) {
       this.form.controls.country.setValue('');
@@ -86,7 +88,7 @@ export class RecordDetailsComponent implements OnInit {
       this.form.controls.country.setValue(this.selectedRecord.fuelCard.vehicle.country.id);
     }
 
-    this.form.controls.startDate.setValue(new Date(this.selectedRecord.startDate).toISOString().substring(0, 10));
+    this.form.controls.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
 
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
@@ -229,6 +231,7 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
+    console.log(new Date(values.registrationDate).toISOString());
     return {
       Id: Number(values.vehicle),
       brandId: this.vehicles[values.vehicle - 1].brand.id,
@@ -242,6 +245,7 @@ export class RecordDetailsComponent implements OnInit {
       fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
       emission: this.vehicles[values.vehicle - 1].emission,
       enginePower: this.vehicles[values.vehicle - 1].enginePower,
+      registrationDate: new Date(values.registrationDate).toISOString(),
       isActive: true,
       categoryId: this.vehicles[values.vehicle - 1].category.id,
       licensePlate: this.vehicles[values.vehicle - 1].licensePlate,

@@ -10,7 +10,7 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201127112628_init")]
+    [Migration("20201128125457_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -10870,7 +10870,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("EngineTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("ExteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
@@ -10882,7 +10882,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("FuelTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")

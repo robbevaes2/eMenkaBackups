@@ -18,6 +18,7 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ApiService } from './services/api.service';
     MDBBootstrapModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

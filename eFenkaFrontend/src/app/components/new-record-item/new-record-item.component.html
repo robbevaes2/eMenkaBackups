@@ -85,7 +85,7 @@
         </div>
         <div>
           <label for="fuelCards">Tankkaart:</label>
-          <select disabled name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
+          <select  name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
             <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
           </select><br>

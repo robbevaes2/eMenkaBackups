@@ -15,6 +15,7 @@ import { FuelType } from '../../models/fuel-type/fuel-type';
 import { ApiService } from '../../services/api.service';
 import { Category } from '../../models/category/category';
 import { InteriorColor } from 'src/app/models/interior-color/interior-color';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -37,7 +38,7 @@ export class VehicleDetailsComponent implements OnInit {
   exteriorColors: ExteriorColor[];
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
     const vehicleId = this.route.snapshot.params['index'];
@@ -97,7 +98,7 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['enginePower'].setValue(this.selectedVehicle.enginePower);
     this.form.controls['fiscalHP'].setValue(this.selectedVehicle.fiscalHP);
     this.form.controls['emission'].setValue(this.selectedVehicle.emission);
-    this.form.controls['endDate'].setValue(new Date(this.selectedVehicle.endDateDelivery).toISOString().substring(0, 10));
+    this.form.controls['endDate'].setValue(this.datepipe.transform(new Date(this.selectedVehicle.endDateDelivery), 'yyyy-MM-dd'));
     this.form.controls['licensePlate'].setValue(this.selectedVehicle.licensePlate);
     this.form.controls['chassis'].setValue(this.selectedVehicle.chassis);
     this.form.controls['category'].setValue(this.selectedVehicle.category?.id);
@@ -105,8 +106,16 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls['engineCapacity'].setValue(this.selectedVehicle.engineCapacity);
     this.form.controls['buildYear'].setValue(this.selectedVehicle.buildYear);
     this.form.controls['kilometers'].setValue(this.selectedVehicle.kilometers);
-    this.form.controls['exteriorColor'].setValue(this.selectedVehicle.exteriorColor.id);
-    this.form.controls['interiorColor'].setValue(this.selectedVehicle.interiorColor.id);
+    if (this.selectedVehicle.exteriorColor === null) {
+      this.form.controls['exteriorColor'].setValue('');
+    } else {
+      this.form.controls['exteriorColor'].setValue(this.selectedVehicle.exteriorColor.id);
+    }
+    if (this.selectedVehicle.interiorColor === null) {
+      this.form.controls['interiorColor'].setValue('');
+    } else {
+      this.form.controls['interiorColor'].setValue(this.selectedVehicle.interiorColor.id);
+    }
   }
 
   disableForm(): void {

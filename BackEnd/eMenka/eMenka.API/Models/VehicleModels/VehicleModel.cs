@@ -27,8 +27,6 @@ namespace eMenka.API.Models.VehicleModels
 
         [Required] public int? Emission { get; set; }
 
-        public int Power { get; set; }
-
         [Required] public bool IsActive { get; set; }
 
         [Required] public int? CategoryId { get; set; }

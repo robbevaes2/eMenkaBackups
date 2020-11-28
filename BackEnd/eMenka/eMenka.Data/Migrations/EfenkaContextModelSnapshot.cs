@@ -10868,7 +10868,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("EngineTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("ExteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
@@ -10880,7 +10880,7 @@ namespace eMenka.Data.Migrations
                         .HasForeignKey("FuelTypeId");
 
                     b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
-                        .WithMany("Vehicle")
+                        .WithMany("Vehicles")
                         .HasForeignKey("InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")

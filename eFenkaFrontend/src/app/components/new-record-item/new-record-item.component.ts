@@ -87,6 +87,11 @@ export class NewRecordItemComponent implements OnInit {
       this.form.controls['licensePlate'].setValue(data.licensePlate);
       this.form.controls['chassis'].setValue(data.chassis);
       this.form.controls['fuelCard'].setValue(data.fuelCard.id);
+      if (data.registrationDate == null) {
+        this.form.controls['registrationDate'].setValue('');
+      } else {
+        this.form.controls['registrationDate'].setValue(data.registrationDate);
+      }
 
     });
   }
@@ -134,10 +139,10 @@ export class NewRecordItemComponent implements OnInit {
       fuelCardId: Number(values.fuelCard),
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
-      term: values.type,
-      startDate: values.startDate,
+      term: values.typ - 1,
+      startDate: new Date(values.startDate).toISOString(),
       endDate: new Date('10-10-2010'),
-      usage: values.usage
+      usage: values.usage - 1
     };
   }
 }
