@@ -231,7 +231,6 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
-    console.log(new Date(values.registrationDate).toISOString());
     return {
       Id: Number(values.vehicle),
       brandId: this.vehicles[values.vehicle - 1].brand.id,
