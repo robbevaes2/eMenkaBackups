@@ -17,7 +17,7 @@ namespace eMenka.API.Controllers
 
         public GenericController() { }
 
-        public GenericController(IGenericRepository<TEntity> genericRepository, IMapper<TEntity, TModel, TReturnModel> mapper)
+        public GenericController(IGenericRepository<TEntity> genericRepository, IMapper<TEntity, TModel, TReturnModel> mapper) : this()
         {
             _genericRepository = genericRepository;
             _mapper = mapper;

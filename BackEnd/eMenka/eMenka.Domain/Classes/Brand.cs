@@ -10,7 +10,7 @@ namespace eMenka.Domain.Classes
         public ICollection<Model> Models { get; set; }
         public ICollection<Series> Series { get; set; }
         public ICollection<EngineType> EngineTypes { get; set; }
-        public ICollection<ExteriorColor> ExteriorColors { get; set; }
-        public ICollection<InteriorColor> InteriorColors { get; set; }
+        public ICollection<ExteriorColor> ExteriorColors { get; set; } = new List<ExteriorColor>();
+        public ICollection<InteriorColor> InteriorColors { get; set; } = new List<InteriorColor>();
     }
 }
