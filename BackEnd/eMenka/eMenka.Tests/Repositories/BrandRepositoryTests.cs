@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using eMenka.Data;
 using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
@@ -11,16 +8,16 @@ using NUnit.Framework;
 namespace eMenka.Tests.Repositories
 {
     [TestFixture]
-    public class BrandRepositoryTests 
+    public class BrandRepositoryTests
     {
-        private BrandRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
             EfenkaContextTestFactory.Create();
             _sut = new BrandRepository(EfenkaContextTestFactory.EfenkaContext);
         }
+
+        private BrandRepository _sut;
 
         [Test]
         public void GetAllIncludesAllRelationsOfBrand()

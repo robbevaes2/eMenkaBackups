@@ -1,12 +1,10 @@
-﻿using eMenka.Domain;
+﻿using System;
+using System.Linq;
+using eMenka.Domain;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
-using System;
-using System.Linq;
 
 namespace eMenka.Data
 {
@@ -39,6 +37,7 @@ namespace eMenka.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System.Collections.Generic;
+using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -6,7 +7,6 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace eMenka.Tests.Controllers
 {
@@ -134,7 +134,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((CorporationReturnModel)result.Value, Is.Not.Null);
+            Assert.That((CorporationReturnModel) result.Value, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Add(It.IsAny<Corporation>()), Times.Once);
             _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);

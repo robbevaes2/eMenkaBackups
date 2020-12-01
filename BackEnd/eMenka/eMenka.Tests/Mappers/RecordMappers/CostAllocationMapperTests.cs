@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Domain.Classes;
@@ -11,13 +9,13 @@ namespace eMenka.Tests.Mappers.RecordMappers
     [TestFixture]
     public class CostAllocationMapperTests
     {
-        private CostAllocationMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new CostAllocationMapper();
         }
+
+        private CostAllocationMapper _sut;
 
         [Test]
         public void MapCostAllocationEntityReturnsNullWhenCostAllocationIsNull()

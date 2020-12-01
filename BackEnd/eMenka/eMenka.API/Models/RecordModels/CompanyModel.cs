@@ -4,8 +4,6 @@ namespace eMenka.API.Models.RecordModels
 {
     public class CompanyModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public string Name { get; set; }
 
         public string Description { get; set; }
@@ -15,5 +13,6 @@ namespace eMenka.API.Models.RecordModels
         public string NonActiveRemark { get; set; }
         public string VAT { get; set; }
         public string AccountNumber { get; set; }
+        public int Id { get; set; }
     }
 }

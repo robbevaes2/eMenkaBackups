@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Mappers.RecordMappers;
+﻿using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
@@ -11,13 +8,13 @@ namespace eMenka.Tests.Mappers.RecordMappers
     [TestFixture]
     public class CompanyMapperTests
     {
-        private CompanyMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new CompanyMapper();
         }
+
+        private CompanyMapper _sut;
 
         [Test]
         public void MapCompanyEntityReturnsNullWhenCompanyIsNull()
@@ -107,5 +104,4 @@ namespace eMenka.Tests.Mappers.RecordMappers
             Assert.That(result.VAT, Is.EqualTo(vat));
         }
     }
-
 }

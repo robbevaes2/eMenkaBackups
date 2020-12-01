@@ -1,25 +1,23 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.VehicleModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
     public class BrandController : GenericController<Brand, BrandModel, BrandReturnModel>
     {
+        private readonly BrandMapper _brandMapper;
         private readonly IBrandRepository _brandRepository;
         private readonly IExteriorColorRepository _exteriorColorRepository;
         private readonly IInteriorColorRepository _interiorColorRepository;
-        private readonly BrandMapper _brandMapper;
 
-        public BrandController(IBrandRepository brandRepository, IExteriorColorRepository exteriorColorRepository, IInteriorColorRepository interiorColorRepository) : base(brandRepository, new BrandMapper())
+        public BrandController(IBrandRepository brandRepository, IExteriorColorRepository exteriorColorRepository,
+            IInteriorColorRepository interiorColorRepository) : base(brandRepository, new BrandMapper())
         {
             _brandRepository = brandRepository;
             _exteriorColorRepository = exteriorColorRepository;

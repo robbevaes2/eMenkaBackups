@@ -4,10 +4,9 @@ namespace eMenka.API.Models.VehicleModels
 {
     public class FuelTypeModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public string Name { get; set; }
 
         public string Code { get; set; }
+        public int Id { get; set; }
     }
 }

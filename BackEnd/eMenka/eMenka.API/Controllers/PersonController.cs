@@ -1,5 +1,4 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Mappers.FuelCardMappers;
+﻿using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;

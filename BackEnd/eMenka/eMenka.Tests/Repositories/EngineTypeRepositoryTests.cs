@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
@@ -12,8 +9,6 @@ namespace eMenka.Tests.Repositories
     [TestFixture]
     public class EngineTypeRepositoryTests
     {
-        private EngineTypeRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
@@ -21,12 +16,14 @@ namespace eMenka.Tests.Repositories
             _sut = new EngineTypeRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
+        private EngineTypeRepository _sut;
+
         [Test]
         public void GetAllIncludesAllRelationsOfEngineType()
         {
             var brand = new Brand();
 
-            var engineType = new EngineType()
+            var engineType = new EngineType
             {
                 Brand = brand
             };
@@ -47,7 +44,7 @@ namespace eMenka.Tests.Repositories
         {
             var brand = new Brand();
 
-            var engineType = new EngineType()
+            var engineType = new EngineType
             {
                 Brand = brand
             };
@@ -64,7 +61,7 @@ namespace eMenka.Tests.Repositories
         {
             var brand = new Brand();
 
-            var engineType = new EngineType()
+            var engineType = new EngineType
             {
                 Brand = brand
             };

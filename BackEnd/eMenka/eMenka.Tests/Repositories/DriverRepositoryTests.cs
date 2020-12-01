@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
@@ -12,8 +9,6 @@ namespace eMenka.Tests.Repositories
     [TestFixture]
     public class DriverRepositoryTests
     {
-        private DriverRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
@@ -21,12 +16,14 @@ namespace eMenka.Tests.Repositories
             _sut = new DriverRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
+        private DriverRepository _sut;
+
         [Test]
         public void GetAllIncludesAllRelationsOfDriver()
         {
             var person = new Person();
 
-            var driver = new Driver()
+            var driver = new Driver
             {
                 Person = person
             };
@@ -47,7 +44,7 @@ namespace eMenka.Tests.Repositories
         {
             var person = new Person();
 
-            var driver = new Driver()
+            var driver = new Driver
             {
                 Person = person
             };
@@ -64,7 +61,7 @@ namespace eMenka.Tests.Repositories
         {
             var person = new Person();
 
-            var driver = new Driver()
+            var driver = new Driver
             {
                 Person = person
             };

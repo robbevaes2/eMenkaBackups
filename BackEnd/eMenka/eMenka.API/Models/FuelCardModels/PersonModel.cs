@@ -1,13 +1,11 @@
-﻿using eMenka.Domain.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
+using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.FuelCardModels
 {
     public class PersonModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public string Firstname { get; set; }
 
         [Required] public string Lastname { get; set; }
@@ -21,5 +19,6 @@ namespace eMenka.API.Models.FuelCardModels
         public string Gender { get; set; }
         public string Title { get; set; }
         public byte[] Picture { get; set; }
+        public int Id { get; set; }
     }
 }

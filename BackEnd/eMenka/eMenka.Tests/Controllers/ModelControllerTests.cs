@@ -1,4 +1,7 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -6,9 +9,6 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -181,7 +181,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((ModelReturnModel)result.Value, Is.Not.Null);
+            Assert.That((ModelReturnModel) result.Value, Is.Not.Null);
 
             _modelRepositoryMock.Verify(m => m.Add(It.IsAny<Model>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);

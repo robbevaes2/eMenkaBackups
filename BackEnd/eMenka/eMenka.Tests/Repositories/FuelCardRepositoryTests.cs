@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
@@ -12,14 +9,14 @@ namespace eMenka.Tests.Repositories
     [TestFixture]
     public class FuelCardRepositoryTests
     {
-        private FuelCardRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
             EfenkaContextTestFactory.Create();
             _sut = new FuelCardRepository(EfenkaContextTestFactory.EfenkaContext);
         }
+
+        private FuelCardRepository _sut;
 
         [Test]
         public void GetAllIncludesAllRelationsOfFuelCard()
@@ -54,7 +51,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,
@@ -129,7 +126,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,
@@ -200,7 +197,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,
