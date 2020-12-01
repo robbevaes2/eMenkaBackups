@@ -34,27 +34,27 @@ namespace eMenka.API.Controllers
         }
 
         [HttpPost]
-        public override IActionResult PostEntity([FromBody] BrandModel brandModel)
+        public override IActionResult PostEntity([FromBody] BrandModel model)
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            var brand = _brandMapper.MapModelToEntity(brandModel);
-            AddColors(brand, brandModel);
+            var brand = _brandMapper.MapModelToEntity(model);
+            AddColors(brand, model);
 
             _brandRepository.Add(brand);
             return Ok(_brandMapper.MapEntityToReturnModel(brand));
         }
 
         [HttpPut("{id}")]
-        public override IActionResult UpdateEntity([FromBody] BrandModel brandModel, int id)
+        public override IActionResult UpdateEntity([FromBody] BrandModel model, int id)
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (id != brandModel.Id)
+            if (id != model.Id)
                 return BadRequest("Id from model does not match id query parameter");
 
-            var brand = _brandMapper.MapModelToEntity(brandModel);
-            AddColors(brand, brandModel);
+            var brand = _brandMapper.MapModelToEntity(model);
+            AddColors(brand, model);
 
             var isUpdated = _brandRepository.Update(id, brand);
 

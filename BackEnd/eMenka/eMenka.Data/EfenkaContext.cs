@@ -32,12 +32,6 @@ namespace eMenka.Data
         public DbSet<InteriorColor> InteriorColors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

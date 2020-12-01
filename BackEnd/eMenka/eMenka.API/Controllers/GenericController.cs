@@ -15,11 +15,11 @@ namespace eMenka.API.Controllers
         private readonly IGenericRepository<TEntity> _genericRepository;
         private readonly IMapper<TEntity, TModel, TReturnModel> _mapper;
 
-        public GenericController()
+        protected GenericController()
         {
         }
 
-        public GenericController(IGenericRepository<TEntity> genericRepository,
+        protected GenericController(IGenericRepository<TEntity> genericRepository,
             IMapper<TEntity, TModel, TReturnModel> mapper) : this()
         {
             _genericRepository = genericRepository;
