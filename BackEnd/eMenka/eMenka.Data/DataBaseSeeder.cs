@@ -4914,23 +4914,36 @@ namespace eMenka.Data
                 new Record
                 {
                     Id = 1, CorporationId = 2, CostAllocationId = 4, FuelCardId = 1, Term = Term.Long,
-                    Usage = Usage.Pool
+                    Usage = Usage.Pool,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2026, 1, 20)
                 },
                 new Record
                 {
                     Id = 2, CorporationId = 3, CostAllocationId = 4, FuelCardId = 4, Term = Term.Long,
-                    Usage = Usage.Definitive
+                    Usage = Usage.Definitive,
+                    StartDate = new DateTime(2018, 1, 20),
+                    EndDate = new DateTime(2023, 1, 20)
                 },
-                new Record {Id = 3, FuelCardId = 5, Term = Term.Long, Usage = Usage.Definitive},
+                new Record {Id = 3,
+                    CorporationId = 1,
+                    FuelCardId = 5, Term = Term.Long, Usage = Usage.Definitive, CostAllocationId = 1,
+                    StartDate = new DateTime(2016, 1, 20),
+                    EndDate = new DateTime(2020, 1, 20)
+                },
                 new Record
                 {
                     Id = 4, CorporationId = 3, CostAllocationId = 2, FuelCardId = 6, Term = Term.Short,
-                    Usage = Usage.RunIn
+                    Usage = Usage.RunIn,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2020, 4, 20)
                 },
                 new Record
                 {
                     Id = 5, CorporationId = 1, CostAllocationId = 2, FuelCardId = 8, Term = Term.Long,
-                    Usage = Usage.Definitive
+                    Usage = Usage.Definitive,
+                    StartDate = new DateTime(2011, 1, 20),
+                    EndDate = new DateTime(2017, 1, 20)
                 },
                 new Record
                 {
@@ -4940,112 +4953,158 @@ namespace eMenka.Data
                 },
                 new Record
                 {
-                    Id = 7, CostAllocationId = 2, FuelCardId = 11, StartDate = new DateTime(2013, 7, 24),
+                    Id = 7,
+                    CorporationId = 3,
+                    CostAllocationId = 2, FuelCardId = 11, StartDate = new DateTime(2013, 7, 24),
                     EndDate = new DateTime(2021, 7, 23), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 8, CostAllocationId = 4, FuelCardId = 3, EndDate = new DateTime(2015, 12, 26),
-                    Term = Term.Short, Usage = Usage.RunIn
+                    Id = 8,
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 3, EndDate = new DateTime(2015, 12, 26),
+                    Term = Term.Short, Usage = Usage.RunIn,
+                    StartDate = new DateTime(2012, 1, 20)
                 },
                 new Record
                 {
-                    Id = 9, CostAllocationId = 4, FuelCardId = 7, StartDate = new DateTime(2014, 11, 28),
+                    Id = 9,
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 7, StartDate = new DateTime(2014, 11, 28),
                     EndDate = new DateTime(2018, 11, 27), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
-                    Id = 10, CostAllocationId = 2, FuelCardId = 2, StartDate = new DateTime(2014, 7, 15),
+                    Id = 10,
+                    CorporationId = 3,
+                    CostAllocationId = 2, FuelCardId = 2, StartDate = new DateTime(2014, 7, 15),
                     EndDate = new DateTime(2022, 7, 14), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 11, CostAllocationId = 4, FuelCardId = 12, StartDate = new DateTime(2014, 7, 2),
+                    Id = 11,
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 12, StartDate = new DateTime(2014, 7, 2),
                     EndDate = new DateTime(2018, 7, 1), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
-                    Id = 12, CostAllocationId = 4, FuelCardId = 19, StartDate = new DateTime(2014, 4, 9),
+                    Id = 12,
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 19, StartDate = new DateTime(2014, 4, 9),
                     EndDate = new DateTime(2018, 4, 8), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 13, CostAllocationId = 3, FuelCardId = 17, StartDate = new DateTime(2014, 3, 5),
+                    Id = 13,
+                    CorporationId = 3,
+                    CostAllocationId = 3, FuelCardId = 17, StartDate = new DateTime(2014, 3, 5),
                     EndDate = new DateTime(2021, 3, 4), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 14, CorporationId = 3, CostAllocationId = 4, FuelCardId = 18,
+                    Id = 14,
+                    CorporationId = 3, CostAllocationId = 4, FuelCardId = 18,
                     StartDate = new DateTime(2014, 3, 5), EndDate = new DateTime(2018, 3, 4), Term = Term.Long,
                     Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 15, CostAllocationId = 1, FuelCardId = 16, StartDate = new DateTime(2013, 7, 24),
+                    Id = 15,
+                    CorporationId = 2,
+                    CostAllocationId = 1, FuelCardId = 16, StartDate = new DateTime(2013, 7, 24),
                     EndDate = new DateTime(2017, 7, 23), Term = Term.Long, Usage = Usage.Replacement
                 },
                 new Record
                 {
-                    Id = 16, CostAllocationId = 4, FuelCardId = 15, StartDate = new DateTime(2013, 5, 7),
+                    Id = 16,
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 15, StartDate = new DateTime(2013, 5, 7),
                     EndDate = new DateTime(2020, 5, 6), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 17, CostAllocationId = 4, FuelCardId = 14, StartDate = new DateTime(2013, 3, 4),
+                    Id = 17,
+                    CorporationId = 3,
+                    CostAllocationId = 4, FuelCardId = 14, StartDate = new DateTime(2013, 3, 4),
                     EndDate = new DateTime(2017, 3, 3), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 18, CostAllocationId = 4, FuelCardId = 13, StartDate = new DateTime(2013, 2, 8),
+                    Id = 18,
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 13, StartDate = new DateTime(2013, 2, 8),
                     EndDate = new DateTime(2017, 2, 7), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 19, CostAllocationId = 2, FuelCardId = 20, StartDate = new DateTime(2013, 1, 18),
+                    Id = 19,
+                    CorporationId = 1,
+                    CostAllocationId = 2, FuelCardId = 20, StartDate = new DateTime(2013, 1, 18),
                     EndDate = new DateTime(2017, 1, 17), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 20, CostAllocationId = 4, FuelCardId = 21, StartDate = new DateTime(2012, 11, 28),
+                    Id = 20,
+                    CorporationId = 3,
+                    CostAllocationId = 4, FuelCardId = 21, StartDate = new DateTime(2012, 11, 28),
                     EndDate = new DateTime(2016, 11, 27), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
-                    Id = 21, CostAllocationId = 4, FuelCardId = 22, StartDate = new DateTime(2012, 6, 28),
+                    Id = 21,
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 22, StartDate = new DateTime(2012, 6, 28),
                     EndDate = new DateTime(2016, 6, 27), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 22, CostAllocationId = 4, FuelCardId = 23, StartDate = new DateTime(2012, 3, 19),
+                    Id = 22,
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 23, StartDate = new DateTime(2012, 3, 19),
                     EndDate = new DateTime(2016, 3, 18), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
-                    Id = 23, CorporationId = 1, CostAllocationId = 4, FuelCardId = 24,
+                    Id = 23,
+                    CorporationId = 1, CostAllocationId = 4, FuelCardId = 24,
                     StartDate = new DateTime(2012, 4, 1), EndDate = new DateTime(2017, 4, 1), Term = Term.Long,
                     Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 24, CostAllocationId = 3, FuelCardId = 25, StartDate = new DateTime(2012, 2, 21),
+                    Id = 24,
+                    CorporationId = 3,
+                    CostAllocationId = 3, FuelCardId = 25, StartDate = new DateTime(2012, 2, 21),
                     EndDate = new DateTime(2016, 2, 20), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 25, CostAllocationId = 2, FuelCardId = 26, StartDate = new DateTime(2012, 1, 15),
+                    Id = 25,
+                    CorporationId = 2,
+                    CostAllocationId = 2, FuelCardId = 26, StartDate = new DateTime(2012, 1, 15),
                     EndDate = new DateTime(2017, 1, 14), Term = Term.Privé, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 26, CostAllocationId = 3, FuelCardId = 27, StartDate = new DateTime(2012, 1, 19),
+                    Id = 26,
+                    CorporationId = 1,
+                    CostAllocationId = 3, FuelCardId = 27, StartDate = new DateTime(2012, 1, 19),
                     EndDate = new DateTime(2017, 1, 18), Term = Term.Privé, Usage = Usage.Definitive
                 },
                 new Record
                 {
-                    Id = 27, CostAllocationId = 4, FuelCardId = 28, StartDate = new DateTime(2012, 10, 27),
+                    Id = 27,
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 28, StartDate = new DateTime(2012, 10, 27),
                     EndDate = new DateTime(2015, 10, 27), Term = Term.Long, Usage = Usage.Definitive
                 },
-                new Record {Id = 28, CostAllocationId = 1, FuelCardId = 29, Term = Term.Privé, Usage = Usage.Definitive}
+                new Record {Id = 28,
+                    CorporationId = 3,
+                    CostAllocationId = 1, FuelCardId = 29, Term = Term.Privé, Usage = Usage.Definitive,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2023, 1, 20)
+                }
             );
 
             #endregion

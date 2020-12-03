@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMenka.Data;
 
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    partial class EfenkaContextModelSnapshot : ModelSnapshot
+    [Migration("20201203105611_completedseedingrecord")]
+    partial class completedseedingrecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -5808,7 +5810,6 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 3,
-                            CorporationId = 1,
                             CostAllocationId = 1,
                             EndDate = new DateTime(2020, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FuelCardId = 5,
