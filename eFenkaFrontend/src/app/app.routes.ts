@@ -10,6 +10,7 @@ import { DriverDetailsComponent } from './components/driver-details/driver-detai
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
+import {NewFuelcardItemComponent} from './components/new-fuelcard-item/new-fuelcard-item.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -63,6 +64,10 @@ export const appRoutes: Routes = [
   {
     path: 'fuelcards',
     component: FuelcardListComponent
+  },
+  {
+    path: 'fuelcards/new',
+    component: NewFuelcardItemComponent
   },
   {
     path: 'fuelcards/:index',

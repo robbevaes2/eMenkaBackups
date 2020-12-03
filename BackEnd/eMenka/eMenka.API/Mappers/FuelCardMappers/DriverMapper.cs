@@ -33,6 +33,7 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 Id = model.Id,
                 EndDate = model.EndDate,
                 PersonId = (int)model.PersonId,
+                FuelCardId = (int)model.FuelCardId,
                 StartDate = model.StartDate
             };
         }

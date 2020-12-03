@@ -165,6 +165,10 @@ export class ApiService {
     return this.getFromAPI<FuelCard>('fuelcard/' + id);
   }
 
+  addFuelcard(fuelCardModel: any): any {
+    return this.postToAPI('fuelcard/', fuelCardModel);
+  }
+
   updateFuelCard(id: number, FuelCardModel: any): any {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
@@ -210,7 +214,9 @@ export class ApiService {
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
   }
-
+  getAllAvailableDrivers(): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/available');
+  }
   getDriverById(id: number): Observable<Driver> {
     return this.getFromAPI<Driver>('driver/' + id);
   }
@@ -240,4 +246,6 @@ export class ApiService {
   addPerson(personModel: any): any {
     return this.postToAPI('person/', personModel);
   }
+
+
 }

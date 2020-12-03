@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Models.FuelCardModels
 {
@@ -7,6 +8,7 @@ namespace eMenka.API.Models.FuelCardModels
     {
         [Required] public int? DriverId { get; set; }
         [Required] public int? VehicleId { get; set; }
+        public Company Company { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsBlocked { get; set; }
