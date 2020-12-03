@@ -16,6 +16,7 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 import {CommonModule, DatePipe} from '@angular/common';
@@ -33,6 +34,7 @@ import { NewDriverItemComponent } from './components/new-driver-item/new-driver-
     VehicleDetailsComponent,
     NewRecordItemComponent,
     RecordDetailsComponent,
+    DashboardComponent,
     FuelcardListComponent,
     FuelcardDetailsComponent,
     DriverListComponent,

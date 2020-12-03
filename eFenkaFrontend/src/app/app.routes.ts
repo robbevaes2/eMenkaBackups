@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { NewVehicleItemComponent } from './components/new-vehicle-item/new-vehicle-item.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
@@ -79,5 +80,13 @@ export const appRoutes: Routes = [
   {
     path: 'drivers/:index',
     component: DriverDetailsComponent
-  }
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard', pathMatch: 'full'
+  },
 ];
