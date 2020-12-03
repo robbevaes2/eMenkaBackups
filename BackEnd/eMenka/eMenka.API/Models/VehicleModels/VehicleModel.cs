@@ -29,8 +29,8 @@ namespace eMenka.API.Models.VehicleModels
 
         [Required] public int? CategoryId { get; set; }
 
-        public string LicensePlate { get; set; }
-        public string Chassis { get; set; }
+        [Required] public string LicensePlate { get; set; }
+        [Required] public string Chassis { get; set; }
         public int? EngineCapacity { get; set; }
         public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }

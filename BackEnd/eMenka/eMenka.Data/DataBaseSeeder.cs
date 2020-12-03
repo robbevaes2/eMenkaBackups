@@ -785,7 +785,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2005, 2, 22, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2015, 2, 22, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr",
@@ -800,7 +800,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 11, 6, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 11, 6, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -815,7 +815,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 10, 14, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 10, 14, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr.",
@@ -830,7 +830,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 7, 20, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 7, 20, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -860,7 +860,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1983, 2, 24, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1993, 2, 24, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -874,9 +874,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1982, 9, 14, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2000, 9, 14, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -889,9 +889,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1989, 5, 22, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2020, 9, 14, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -905,7 +905,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 1, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 1, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -920,7 +920,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1998, 9, 5, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2008, 9, 5, 12, 0, 0),
                     DriversLicenseType = "BCD",
                     Gender = "M",
                     Title = "Dhr",
@@ -935,7 +935,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2009, 3, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2019, 3, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -950,7 +950,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2001, 1, 3, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2011, 1, 3, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -965,7 +965,7 @@ namespace eMenka.Data
                     Language = (Language) 1,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 12, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 12, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr.",
@@ -980,7 +980,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2003, 4, 4, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2013, 4, 4, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -995,7 +995,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1994, 3, 16, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2004, 3, 16, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1025,7 +1025,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2006, 9, 14, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2016, 9, 14, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1040,7 +1040,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1997, 1, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2007, 1, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
@@ -1055,7 +1055,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1993, 12, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2003, 12, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1070,7 +1070,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 10, 29, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 10, 29, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "de heer",
@@ -1085,7 +1085,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2004, 4, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2014, 4, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "V",
                     Title = "",
@@ -1100,7 +1100,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 6, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 6, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1115,7 +1115,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2008, 7, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2018, 7, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1130,7 +1130,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1141,12 +1141,11 @@ namespace eMenka.Data
                     Id = 25,
                     Firstname = "Bart",
                     Lastname = "Billemoons",
-
                     Language = (Language) 1,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1159,9 +1158,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1978, 6, 26, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Meneer",
                     Picture = new byte[] {0x0}
@@ -1175,7 +1174,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1987, 12, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1997, 12, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1190,7 +1189,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2000, 3, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2010, 3, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1205,7 +1204,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 7, 12, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 7, 12, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1220,7 +1219,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1998, 2, 19, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2008, 2, 19, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1235,7 +1234,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2009, 3, 13, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2019, 3, 13, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1250,7 +1249,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2010, 5, 10, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2020, 5, 10, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1265,7 +1264,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2012, 5, 22, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2022, 5, 22, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1280,7 +1279,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2011, 6, 20, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2021, 6, 20, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1295,7 +1294,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1309,8 +1308,8 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1989, 5, 31, 12, 0, 0),
                     Language = (Language) 3,
                     DriversLicenseNumber = "12345678-25",
-
-
+                    StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1324,9 +1323,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1986, 11, 4, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1340,7 +1339,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2011, 7, 18, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2021, 7, 18, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "V",
                     Title = "",
@@ -1370,7 +1369,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1384,8 +1383,8 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1985, 7, 6, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
+                    StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
                     DriversLicenseType = "C",
                     Gender = "M",
                     Title = "",
@@ -1399,9 +1398,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1990, 6, 4, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1415,7 +1414,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1988, 11, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1998, 11, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1430,7 +1429,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "hgjj",
                     StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1444,9 +1443,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1984, 8, 2, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1459,9 +1458,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1999, 9, 9, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "123/123456",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1475,7 +1474,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
                     StartDateDriversLicense = new DateTime(2017, 9, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 9, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1490,7 +1489,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
                     StartDateDriversLicense = new DateTime(2017, 8, 24, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 8, 24, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1505,7 +1504,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2017, 9, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 9, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr",
@@ -1518,11 +1517,9 @@ namespace eMenka.Data
                     Lastname = "string",
                     BirthDate = new DateTime(2019, 9, 30, 12, 0, 0),
                     Language = (Language) 2,
-
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
-                    EndDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1530,10 +1527,10 @@ namespace eMenka.Data
                     Id = 51,
                     Firstname = "string",
                     Lastname = "string",
-
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1541,10 +1538,10 @@ namespace eMenka.Data
                     Id = 52,
                     Firstname = "string",
                     Lastname = "string",
-
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1552,10 +1549,10 @@ namespace eMenka.Data
                     Id = 53,
                     Firstname = "string",
                     Lastname = "string",
-
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1563,10 +1560,10 @@ namespace eMenka.Data
                     Id = 54,
                     Firstname = "string",
                     Lastname = "string",
-
+                    DriversLicenseType = "B",
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     Picture = null
                 },
                 new Person
@@ -1574,12 +1571,11 @@ namespace eMenka.Data
                     Id = 55,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1589,12 +1585,11 @@ namespace eMenka.Data
                     Id = 56,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1604,12 +1599,11 @@ namespace eMenka.Data
                     Id = 57,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1619,12 +1613,11 @@ namespace eMenka.Data
                     Id = 58,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1637,9 +1630,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 3, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1652,9 +1645,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 3, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "string",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1668,8 +1661,8 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "string",
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
-
-                    DriversLicenseType = "",
+                    EndDateDriversLicense = new DateTime(2029, 10, 3, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1684,7 +1677,7 @@ namespace eMenka.Data
                     DriversLicenseNumber = "string",
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
-                    DriversLicenseType = "",
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] {0x0}
@@ -1801,8 +1794,9 @@ namespace eMenka.Data
                     Lastname = "string",
                     BirthDate = new DateTime(2019, 10, 4, 12, 0, 0),
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2019, 10, 1, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "a",
                     Title = "string",
                     Picture = new byte[] {0x0}
@@ -1902,10 +1896,9 @@ namespace eMenka.Data
                     Id = 77,
                     Firstname = "bla",
                     Lastname = "bla",
-
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 10, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2019, 10, 8, 12, 0, 0),
                     DriversLicenseType = "AZERT",
                     Gender = "M",
                     Title = "bla",
@@ -1979,8 +1972,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 9, 12, 0, 0),
                     Language = (Language) 2,
                     DriversLicenseNumber = "23",
-
-
+                    StartDateDriversLicense = new DateTime(1998, 2, 12, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2034, 7, 11, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
                     Picture = new byte[] {0x0}
@@ -2176,7 +2170,6 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     DriversLicenseType = "A",
-
                     Title = "",
                     Picture = new byte[] {0x0}
                 },
@@ -2200,7 +2193,6 @@ namespace eMenka.Data
                     Id = 97,
                     Firstname = "azzeeer",
                     Lastname = "azerty",
-
                     Language = (Language) 1,
                     DriversLicenseNumber = "456",
                     StartDateDriversLicense = new DateTime(2019, 11, 23, 12, 0, 0),
@@ -2264,7 +2256,7 @@ namespace eMenka.Data
                     Language = (Language) 1,
                     DriversLicenseNumber = "123456",
                     StartDateDriversLicense = new DateTime(2020, 1, 11, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2030, 1, 11, 12, 0, 0),
                     DriversLicenseType = "ABC",
                     Gender = "M",
                     Title = "mr",
@@ -2442,10 +2434,9 @@ namespace eMenka.Data
                     Lastname = "lumani",
                     BirthDate = new DateTime(2020, 1, 17, 12, 0, 0),
                     Language = (Language) 1,
-
                     StartDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
-
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
                     Picture = new byte[] {0x0}
@@ -2457,11 +2448,9 @@ namespace eMenka.Data
                     Lastname = "lumani",
                     BirthDate = new DateTime(2020, 1, 10, 12, 0, 0),
                     Language = (Language) 1,
-
                     StartDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
-
-
+                    DriversLicenseType = "B",
                     Picture = new byte[] {0x0}
                 },
                 new Person
@@ -2516,10 +2505,9 @@ namespace eMenka.Data
                     Lastname = "Lenaerts",
                     BirthDate = new DateTime(1993, 6, 18, 12, 0, 0),
                     Language = (Language) 2,
-
                     StartDateDriversLicense = new DateTime(2006, 11, 30, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2016, 11, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "dhr",
                     Picture = new byte[] {0x0}
@@ -2546,8 +2534,9 @@ namespace eMenka.Data
                     Lastname = "test1",
                     BirthDate = new DateTime(2020, 2, 19, 12, 0, 0),
                     Language = (Language) 2,
-
-
+                    StartDateDriversLicense = new DateTime(2000, 5, 20, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2025, 5, 20, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "F",
                     Title = "mr",
                     Picture = new byte[] {0x0}
@@ -2559,12 +2548,10 @@ namespace eMenka.Data
                     Lastname = "test",
                     BirthDate = new DateTime(2020, 2, 18, 12, 0, 0),
                     Language = (Language) 3,
-
                     StartDateDriversLicense = new DateTime(2020, 2, 17, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2030, 2, 17, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
-
                     Picture = new byte[] {0x0}
                 },
                 new Person
@@ -2576,7 +2563,7 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "123456789",
                     StartDateDriversLicense = new DateTime(2015, 9, 19, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2025, 9, 19, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Doctor",
@@ -2591,10 +2578,9 @@ namespace eMenka.Data
                     Language = (Language) 2,
                     DriversLicenseNumber = "e",
                     StartDateDriversLicense = new DateTime(2020, 3, 3, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2030, 3, 3, 12, 0, 0),
                     DriversLicenseType = "b",
                     Gender = "F",
-
                     Picture = new byte[] {0x0}
                 },
                 new Person

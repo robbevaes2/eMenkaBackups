@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMenka.Data;
 
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    partial class EfenkaContextModelSnapshot : ModelSnapshot
+    [Migration("20201203131423_driverslicensetypeseededforallpersons")]
+    partial class driverslicensetypeseededforallpersons
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4131,7 +4133,7 @@ namespace eMenka.Data.Migrations
                             Id = 7,
                             BirthDate = new DateTime(1982, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Mark",
                             Gender = "M",

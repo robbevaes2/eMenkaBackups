@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMenka.Data;
 
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    partial class EfenkaContextModelSnapshot : ModelSnapshot
+    [Migration("20201203130707_startandenddateseededperson")]
+    partial class startandenddateseededperson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4131,7 +4133,7 @@ namespace eMenka.Data.Migrations
                             Id = 7,
                             BirthDate = new DateTime(1982, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Mark",
                             Gender = "M",
@@ -4145,7 +4147,7 @@ namespace eMenka.Data.Migrations
                             Id = 8,
                             BirthDate = new DateTime(1989, 5, 22, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2020, 9, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Peter",
                             Gender = "M",
@@ -4390,7 +4392,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 25,
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Bart",
                             Gender = "M",
@@ -4405,7 +4407,7 @@ namespace eMenka.Data.Migrations
                             Id = 26,
                             BirthDate = new DateTime(1978, 6, 26, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Arnaud",
                             Gender = "M",
@@ -4566,7 +4568,7 @@ namespace eMenka.Data.Migrations
                             Id = 37,
                             BirthDate = new DateTime(1986, 11, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Marco",
                             Gender = "M",
@@ -4637,7 +4639,7 @@ namespace eMenka.Data.Migrations
                             Id = 42,
                             BirthDate = new DateTime(1990, 6, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "12345678-25",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Wouter",
                             Gender = "M",
@@ -4679,7 +4681,7 @@ namespace eMenka.Data.Migrations
                             Id = 45,
                             BirthDate = new DateTime(1984, 8, 2, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Frederik",
                             Gender = "M",
@@ -4693,7 +4695,7 @@ namespace eMenka.Data.Migrations
                             Id = 46,
                             BirthDate = new DateTime(1999, 9, 9, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "123/123456",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Kevin",
                             Gender = "M",
@@ -4748,7 +4750,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 50,
                             BirthDate = new DateTime(2019, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Language = 2,
@@ -4758,7 +4759,6 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 51,
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Language = 2,
@@ -4768,7 +4768,6 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 52,
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Language = 2,
@@ -4778,7 +4777,6 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 53,
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Language = 2,
@@ -4788,7 +4786,6 @@ namespace eMenka.Data.Migrations
                         new
                         {
                             Id = 54,
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Language = 2,
@@ -4799,7 +4796,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 55,
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4813,7 +4810,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 56,
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4827,7 +4824,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 57,
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4841,7 +4838,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 58,
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4856,7 +4853,7 @@ namespace eMenka.Data.Migrations
                             Id = 59,
                             BirthDate = new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4871,7 +4868,7 @@ namespace eMenka.Data.Migrations
                             Id = 60,
                             BirthDate = new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "string",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4886,7 +4883,7 @@ namespace eMenka.Data.Migrations
                             Id = 61,
                             BirthDate = new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "string",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2029, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -4901,7 +4898,7 @@ namespace eMenka.Data.Migrations
                             Id = 62,
                             BirthDate = new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "string",
-                            DriversLicenseType = "B",
+                            DriversLicenseType = "",
                             EndDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "",
@@ -5020,7 +5017,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 70,
                             BirthDate = new DateTime(2019, 10, 4, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2019, 10, 1, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
                             Gender = "a",
@@ -5198,7 +5194,6 @@ namespace eMenka.Data.Migrations
                             Id = 82,
                             BirthDate = new DateTime(2019, 10, 9, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DriversLicenseNumber = "23",
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2034, 7, 11, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Joeri",
                             Gender = "M",
@@ -5660,7 +5655,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 113,
                             BirthDate = new DateTime(2020, 1, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Gender = "M",
@@ -5674,7 +5668,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 114,
                             BirthDate = new DateTime(2020, 1, 10, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "elvin",
                             Language = 1,
@@ -5731,7 +5724,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 118,
                             BirthDate = new DateTime(1993, 6, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2016, 11, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "Stijn",
                             Gender = "M",
@@ -5760,7 +5752,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 120,
                             BirthDate = new DateTime(2020, 2, 19, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2025, 5, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "driver",
                             Gender = "F",
@@ -5774,7 +5765,6 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 121,
                             BirthDate = new DateTime(2020, 2, 18, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2030, 2, 17, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "driver",
                             Gender = "M",
