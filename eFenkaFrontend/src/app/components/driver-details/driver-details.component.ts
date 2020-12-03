@@ -5,6 +5,7 @@ import { Gender } from 'src/app/enums/gender/gender.enum';
 import { Language } from 'src/app/enums/language/language.enum';
 import { ApiService } from 'src/app/services/api.service';
 import { Driver } from '../../models/driver/driver';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-driver-details',
@@ -18,7 +19,7 @@ export class DriverDetailsComponent implements OnInit {
   selectedDriver: Driver;
   isEditable: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     const driverId = this.route.snapshot.params.index;
@@ -49,13 +50,21 @@ export class DriverDetailsComponent implements OnInit {
     this.form.controls.title.setValue(this.selectedDriver.person.title);
     this.form.controls.firstName.setValue(this.selectedDriver.person.firstname);
     this.form.controls.lastName.setValue(this.selectedDriver.person.lastname);
-    this.form.controls.birthDate.setValue(new Date(this.selectedDriver.person.birthDate).toISOString().substring(0, 10));
-    this.form.controls.gender.setValue(this.selectedDriver.person.gender);
+    this.form.controls.birthDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.person.birthDate), 'yyyy-MM-dd'));
+
+    if (this.selectedDriver.person.gender === 'M') {
+      this.form.controls.gender.setValue('Male');
+    } else if (this.selectedDriver.person.gender === 'V') {
+      this.form.controls.gender.setValue('Female');
+    } else if (this.selectedDriver.person.gender === 'A') {
+      this.form.controls.gender.setValue('Other');
+    }
+
     this.form.controls.language.setValue(this.selectedDriver.person.language);
     this.form.controls.driverLicenseNumber.setValue(this.selectedDriver.person.driversLicenseNumber);
     this.form.controls.driverLicenseType.setValue(this.selectedDriver.person.driversLicenseType);
-    this.form.controls.startDate.setValue(new Date(this.selectedDriver.startDate).toISOString().substring(0, 10));
-    this.form.controls.endDate.setValue(new Date(this.selectedDriver.endDate).toISOString().substring(0, 10));
+    this.form.controls.startDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.startDate), 'yyyy-MM-dd'));
+    this.form.controls.endDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.endDate), 'yyyy-MM-dd'));
   }
 
   disableForm(): void {
@@ -91,6 +100,14 @@ export class DriverDetailsComponent implements OnInit {
   }
 
   mapToPersonModel(values: any): any {
+    if (values?.gender === 'Male') {
+      values.gender = 'M';
+    } else if (values?.gender === 'Female') {
+      values.gender = 'V';
+    } else if (values?.gender === 'Other') {
+      values.gender = 'A';
+    }
+
     return {
       id: this.selectedDriver.person.id,
       title: values.title,
