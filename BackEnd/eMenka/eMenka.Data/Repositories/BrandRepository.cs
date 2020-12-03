@@ -20,22 +20,16 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<Brand> GetAll()
         {
             return _context.Brands
-                .Include(b => b.EngineTypes)
-                .Include(b => b.Models)
                 .Include(b => b.ExteriorColors)
                 .Include(b => b.InteriorColors)
-                .Include(b => b.Series)
                 .ToList();
         }
 
         public override Brand GetById(int id)
         {
             return _context.Brands
-                .Include(b => b.EngineTypes)
-                .Include(b => b.Models)
                 .Include(b => b.ExteriorColors)
                 .Include(b => b.InteriorColors)
-                .Include(b => b.Series)
                 .FirstOrDefault(b => b.Id == id);
         }
 

@@ -114,6 +114,6 @@ export class FuelcardListComponent implements OnInit {
   }
 
   getFullName(person: Person): string {
-    return person.firstname + '' + person.lastname;
+    return person.firstname + ' ' + person.lastname;
   }
 }

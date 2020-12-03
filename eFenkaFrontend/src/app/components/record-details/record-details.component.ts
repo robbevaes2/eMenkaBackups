@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-import {FuelCard} from '../../models/fuel-card/fuel-card';
 import {ApiService} from 'src/app/services/api.service';
 import {Corporation} from '../../models/corporation/corporation';
 import {FuelType} from 'src/app/models/fuel-type/fuel-type';
@@ -12,21 +10,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Record} from 'src/app/models/record/record';
 import {CostAllocation} from 'src/app/models/cost-allocatoin/cost-allocation';
-=======
-import { ApiService } from 'src/app/services/api.service';
-import { Corporation } from '../../models/corporation/corporation';
-import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { Brand } from './../../models/brand/brand';
-import { Model } from './../../models/model/model';
-import { Vehicle } from './../../models/vehicle/vehicle';
-import { Country } from './../../models/country/country';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Record } from 'src/app/models/record/record';
-import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
-import { DatePipe } from '@angular/common';
->>>>>>> origin/Development
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-record-details',
@@ -37,10 +21,7 @@ export class RecordDetailsComponent implements OnInit {
   isEditable: boolean;
   form: FormGroup;
   selectedRecord: Record;
-<<<<<<< HEAD
-=======
   isLoaded = false;
->>>>>>> origin/Development
   countries: Country[];
   corporations: Corporation[];
   costAllocations: CostAllocation[];
@@ -48,53 +29,6 @@ export class RecordDetailsComponent implements OnInit {
   fuelTypes: FuelType[];
   models: Model[];
   vehicles: Vehicle[];
-<<<<<<< HEAD
-
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
-
-  }
-
-  ngOnInit(): void {
-    const recordId = this.route.snapshot.params.index;
-    this.apiService.getRecordById(recordId).subscribe(data => {
-      this.countries = this.getCountries();
-
-      this.selectedRecord = data;
-      console.log(this.selectedRecord);
-
-      this.setCorporatoin();
-      this.setCostAllocation();
-      this.setFuelCard();
-      this.setBrand();
-      this.setFuelType();
-      this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
-      this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
-
-      this.form = new FormGroup({
-        type: new FormControl(null, [Validators.required]),
-        licensePlate: new FormControl(null, [Validators.required]),
-        chassis: new FormControl(null, [Validators.required]),
-        registrationDate: new FormControl(null, [Validators.required]),
-        country: new FormControl(null, [Validators.required]),
-        startDate: new FormControl(null, [Validators.required]),
-        corporation: new FormControl(null, [Validators.required]),
-        costAllocation: new FormControl(null, [Validators.required]),
-        fuelCard: new FormControl(null, [Validators.required]),
-        usage: new FormControl(null, [Validators.required]),
-        driver: new FormControl(null, [Validators.required]),
-        brand: new FormControl(null, [Validators.required]),
-        fuelType: new FormControl(null, [Validators.required]),
-        model: new FormControl(null, [Validators.required]),
-        vehicle: new FormControl(null, [Validators.required]),
-        buildYear: new FormControl(null, [Validators.required]),
-        kilometers: new FormControl(null, [Validators.required]),
-        exteriorColor: new FormControl(null, [Validators.required]),
-        interiorColor: new FormControl(null, [Validators.required])
-      });
-
-      this.fillForm();
-      this.disableForm();
-=======
   selectedBrand: Brand;
 
   constructor(
@@ -136,7 +70,6 @@ export class RecordDetailsComponent implements OnInit {
       kilometers: new FormControl(null, [Validators.required]),
       exteriorColor: new FormControl(null, [Validators.required]),
       interiorColor: new FormControl(null, [Validators.required]),
->>>>>>> origin/Development
     });
     this.isLoaded = true;
     this.fillForm();
@@ -144,18 +77,6 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   fillForm(): void {
-<<<<<<< HEAD
-    this.form.controls.type.setValue(this.selectedRecord.term);
-    this.form.controls.licensePlate.setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
-    this.form.controls.chassis.setValue(this.selectedRecord.fuelCard.vehicle.chassis);
-    this.form.controls.registrationDate.setValue(this.selectedRecord.fuelCard.vehicle.registrationDate);
-    if (this.selectedRecord.fuelCard.vehicle.country === null) {
-      this.form.controls.country.setValue('');
-    } else {
-      this.form.controls.country.setValue(this.selectedRecord.fuelCard.vehicle.country.name);
-    }
-    this.form.controls.startDate.setValue(new Date(this.selectedRecord.startDate).toISOString().substring(0, 10));
-=======
     this.form.controls.type.setValue(this.selectedRecord.term + 1);
     this.form.controls.licensePlate.setValue(this.selectedRecord.fuelCard.vehicle.licensePlate);
     this.form.controls.chassis.setValue(this.selectedRecord.fuelCard.vehicle.chassis);
@@ -169,7 +90,6 @@ export class RecordDetailsComponent implements OnInit {
 
     this.form.controls.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
 
->>>>>>> origin/Development
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
     } else {
@@ -181,13 +101,7 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls.costAllocation.setValue(this.selectedRecord.costAllocation.id);
     }
-<<<<<<< HEAD
-    this.form.controls.fuelCard.setValue(this.selectedRecord.fuelCard.id);
-    this.form.controls.usage.setValue(this.selectedRecord.usage);
-=======
-
     this.form.controls.usage.setValue(this.selectedRecord.usage + 1);
->>>>>>> origin/Development
     this.form.controls.driver.setValue(this.selectedRecord.fuelCard.driver);
     this.form.controls.brand.setValue(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.form.controls.fuelType.setValue(this.selectedRecord.fuelCard.vehicle.fuelType.id);
@@ -195,10 +109,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.vehicle.setValue(this.selectedRecord.fuelCard.vehicle.id);
     this.form.controls.buildYear.setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
     this.form.controls.kilometers.setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
-<<<<<<< HEAD
-    this.form.controls.exteriorColor.setValue(this.selectedRecord.fuelCard.vehicle.brand.exteriorColors);
-    this.form.controls.interiorColor.setValue(this.selectedRecord.fuelCard.vehicle.brand.interiorColors);
-=======
 
     if (this.selectedRecord.fuelCard.vehicle.exteriorColor == null) {
       this.form.controls.exteriorColor.setValue('');
@@ -211,8 +121,6 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls.interiorColor.setValue(this.selectedRecord.fuelCard.vehicle.interiorColor.id);
     }
-
->>>>>>> origin/Development
   }
 
   disableForm(): void {
@@ -224,10 +132,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.startDate.disable();
     this.form.controls.corporation.disable();
     this.form.controls.costAllocation.disable();
-<<<<<<< HEAD
-    this.form.controls.fuelCard.disable();
-=======
->>>>>>> origin/Development
     this.form.controls.usage.disable();
     this.form.controls.driver.disable();
     this.form.controls.brand.disable();
@@ -254,13 +158,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.fuelType.enable();
     this.form.controls.model.enable();
     this.form.controls.vehicle.enable();
-<<<<<<< HEAD
-    this.form.controls.buildYear.enable();
-    this.form.controls.kilometers.enable();
-    this.form.controls.exteriorColor.enable();
-    this.form.controls.interiorColor.enable();
-=======
->>>>>>> origin/Development
     this.isEditable = true;
   }
 
@@ -278,18 +175,9 @@ export class RecordDetailsComponent implements OnInit {
   onChangedVehicle(event): void {
     const vehicleId = event.target.value;
     console.log('changed with ' + vehicleId);
-
-<<<<<<< HEAD
-    this.apiService.getVehicleById(vehicleId).subscribe(data => {
-      this.form.controls.licensePlate.setValue(data.licensePlate);
-      this.form.controls.chassis.setValue(data.chassis);
-      this.form.controls.fuelCard.setValue(data.fuelCard.id);
-
-=======
     this.apiService.getVehicleById(vehicleId).subscribe((data) => {
       this.form.controls.licensePlate.setValue(data.licensePlate);
       this.form.controls.chassis.setValue(data.chassis);
->>>>>>> origin/Development
     });
   }
 
@@ -348,10 +236,7 @@ export class RecordDetailsComponent implements OnInit {
       engineTypeId: this.vehicles[values.vehicle - 1].engineType.id,
       doorTypeId: this.vehicles[values.vehicle - 1].doorType.id,
       fuelCardId: this.vehicles[values.vehicle - 1].fuelCard.id,
-<<<<<<< HEAD
-=======
       seriesId: this.vehicles[values.vehicle - 1].serie.id,
->>>>>>> origin/Development
       volume: this.vehicles[values.vehicle - 1].volume,
       fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
       emission: this.vehicles[values.vehicle - 1].emission,

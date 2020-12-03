@@ -97,6 +97,7 @@ export class FuelcardDetailsComponent implements OnInit {
     if (this.selectedFuelCard.driver) {
       this.form.controls.driver.setValue(this.selectedFuelCard?.driver?.id);
     }
+    console.log(this.selectedFuelCard);
     if (this.selectedFuelCard.company) {
       this.form.controls.company.setValue(this.selectedFuelCard?.company?.id);
     }
