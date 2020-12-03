@@ -11,7 +11,8 @@
                 [options]="chartOptions"
                 [legend]="true"
                 (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)">
+                (chartClick)="chartClicked($event)"
+                height="143">
             </canvas>
         </div>
     </div>
@@ -26,11 +27,26 @@
                 [options]="categoryChartOptions"
                 [legend]="true"
                 (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)">
+                (chartClick)="chartClicked($event)"
+                height="100">
             </canvas>
         </div>
     </div>
 </div>
 <div class="row">
-    
+    <div class="col-md-7 offset-md-5">
+        <h3 class="chart-title">Aantal voertuigen per categorie</h3>
+        <div class="graph-container">
+            <canvas mdbChart
+                [chartType]="categoryChartType"
+                [datasets]="categoryChartDatasets"
+                [labels]="categoryChartLabels"
+                [colors]="chartColors"
+                [options]="categoryChartOptions"
+                [legend]="true"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+            </canvas>
+        </div>
+    </div>
 </div>
