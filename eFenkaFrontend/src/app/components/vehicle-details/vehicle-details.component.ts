@@ -221,7 +221,7 @@ export class VehicleDetailsComponent implements OnInit {
       fuelTypeId:  Number(values.fuelType),
       engineTypeId:  Number(values.engineType),
       doorTypeId:  Number(values.doorType),
-      fuelCardId:  this.selectedVehicle.fuelCard.id,
+      fuelCardId:  this.selectedVehicle.fuelCard?.id,
       seriesId: Number(values.serie),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
