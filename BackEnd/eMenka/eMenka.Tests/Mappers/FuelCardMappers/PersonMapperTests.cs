@@ -1,9 +1,9 @@
-﻿using System;
 using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.FuelCardMappers
 {

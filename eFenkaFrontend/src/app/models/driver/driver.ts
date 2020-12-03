@@ -1,5 +1,5 @@
-import { FuelCard } from './../fuel-card/fuel-card';
-import { Person } from '../person/person';
+import {FuelCard} from './../fuel-card/fuel-card';
+import {Person} from '../person/person';
 
 export class Driver {
   id: number;

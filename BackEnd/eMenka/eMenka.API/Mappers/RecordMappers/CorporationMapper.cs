@@ -33,7 +33,7 @@ namespace eMenka.API.Mappers.RecordMappers
             return new Corporation
             {
                 Abbreviation = model.Abbreviation,
-                CompanyId = (int) model.CompanyId,
+                CompanyId = (int)model.CompanyId,
                 EndDate = model.EndDate,
                 Name = model.Name,
                 Id = model.Id,

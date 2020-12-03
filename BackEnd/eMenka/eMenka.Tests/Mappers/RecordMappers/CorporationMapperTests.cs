@@ -1,8 +1,8 @@
-﻿using System;
-using eMenka.API.Mappers.RecordMappers;
+﻿using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.RecordMappers
 {

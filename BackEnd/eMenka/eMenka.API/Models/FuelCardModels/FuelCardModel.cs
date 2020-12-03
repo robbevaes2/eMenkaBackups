@@ -7,7 +7,6 @@ namespace eMenka.API.Models.FuelCardModels
     {
         [Required] public int? DriverId { get; set; }
         [Required] public int? VehicleId { get; set; }
-
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsBlocked { get; set; }

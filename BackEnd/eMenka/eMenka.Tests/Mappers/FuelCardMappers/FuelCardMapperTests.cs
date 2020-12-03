@@ -1,8 +1,8 @@
-﻿using System;
 using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.FuelCardMappers
 {
@@ -50,7 +50,8 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
                 IsBlocked = isBlocked,
                 PinCode = pinCode,
                 Number = number,
-                Vehicle = new Vehicle()
+                Vehicle = new Vehicle(),
+                Company = null
             };
 
             var result = _sut.MapEntityToReturnModel(fuelCard);
@@ -65,6 +66,7 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
             Assert.That(result.IsBlocked, Is.EqualTo(isBlocked));
             Assert.That(result.PinCode, Is.EqualTo(pinCode));
             Assert.That(result.Number, Is.EqualTo(number));
+            Assert.That(result.Company, Is.Null);
         }
 
         [Test]

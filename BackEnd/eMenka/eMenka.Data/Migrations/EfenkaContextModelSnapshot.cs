@@ -4771,7 +4771,7 @@ namespace eMenka.Data.Migrations
                             DriversLicenseType = "B",
                             EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             Firstname = "string",
-                            Language = 2,
+                            Language = 0,
                             Lastname = "string",
                             StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -7076,7 +7076,7 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineCapacity")
                         .HasColumnType("int");
 
-                    b.Property<int>("EnginePower")
+                    b.Property<int?>("EnginePower")
                         .HasColumnType("int");
 
                     b.Property<int?>("EngineTypeId")

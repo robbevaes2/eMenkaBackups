@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace eMenka.Tests.Repositories
 {

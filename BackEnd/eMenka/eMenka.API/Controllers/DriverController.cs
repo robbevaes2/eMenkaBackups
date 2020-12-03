@@ -20,7 +20,7 @@ namespace eMenka.API.Controllers
 
         public override IActionResult PostEntity(DriverModel model)
         {
-            if (_personRepository.GetById((int) model.PersonId) == null)
+            if (_personRepository.GetById((int)model.PersonId) == null)
                 return NotFound($"Person with id {model.PersonId} not found");
 
             return base.PostEntity(model);
@@ -28,7 +28,7 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(DriverModel model, int id)
         {
-            if (_personRepository.GetById((int) model.PersonId) == null)
+            if (_personRepository.GetById((int)model.PersonId) == null)
                 return NotFound($"Person with id {model.PersonId} not found");
 
             return base.UpdateEntity(model, id);

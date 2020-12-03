@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using eMenka.Domain;
+﻿using eMenka.Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.Business.Models
 {

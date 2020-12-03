@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using eMenka.API.Controllers;
+﻿using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -9,6 +6,9 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -227,6 +227,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -741,6 +742,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -782,7 +784,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((VehicleReturnModel) result.Value, Is.Not.Null);
+            Assert.That((VehicleReturnModel)result.Value, Is.Not.Null);
 
             _vehicleRepositoryMock.Verify(m => m.Add(It.IsAny<Vehicle>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -808,6 +810,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -876,6 +879,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -943,6 +947,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1
             };
 
@@ -980,6 +985,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1
             };
 
@@ -1020,6 +1026,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1
             };
 
@@ -1066,6 +1073,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1
             };
 
@@ -1115,6 +1123,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1
             };
 
@@ -1170,6 +1179,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1
             };
@@ -1229,6 +1239,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1
@@ -1289,6 +1300,7 @@ namespace eMenka.Tests.Controllers
                 ModelId = 1,
                 FuelTypeId = 1,
                 EngineTypeId = 1,
+                EnginePower = 1,
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
@@ -1359,6 +1371,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,
@@ -1506,6 +1519,7 @@ namespace eMenka.Tests.Controllers
                 DoorTypeId = 1,
                 Emission = 1,
                 FiscalHP = 1,
+                EnginePower = 1,
                 Volume = 1,
                 CategoryId = 1,
                 FuelCardId = 1,

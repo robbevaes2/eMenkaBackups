@@ -1,5 +1,6 @@
-﻿using System;
 using eMenka.API.Models.VehicleModels.ReturnModels;
+using eMenka.Domain.Classes;
+using System;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
 {
@@ -8,6 +9,7 @@ namespace eMenka.API.Models.FuelCardModels.ReturnModels
         public int Id { get; set; }
         public DriverReturnModel Driver { get; set; }
         public VehicleReturnModel Vehicle { get; set; }
+        public Company Company { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public bool IsBlocked { get; set; }

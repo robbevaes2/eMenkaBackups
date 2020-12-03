@@ -43,7 +43,7 @@ namespace eMenka.API.Mappers.RecordMappers
                 CorporationId = model.CorporationId,
                 CostAllocationId = model.CostAllocationId,
                 EndDate = model.EndDate,
-                FuelCardId = (int) model.FuelCardId,
+                FuelCardId = (int)model.FuelCardId,
                 Id = model.Id,
                 StartDate = model.StartDate,
                 Term = model.Term
