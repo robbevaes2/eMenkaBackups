@@ -15,7 +15,7 @@ export class FuelcardListComponent implements OnInit {
   fuelCards: FuelCard[];
 
   headNames = ['Nummerplaat', 'Bestuurder', 'Leverancier', 'Brandstof', 'Startdatum', 'Einddatum'];
-  headElements = ['vehicle.licensePlate:', 'driver.person', 'fuelCard.company?company.name', 'fuelCard.vehicle?vehicle.fuelType.name', 'startDate', 'endDate'];
+  headElements = ['vehicle.licensePlate:', 'driver.person', 'company.name', 'vehicle.fuelType.name', 'startDate', 'endDate'];
 
   @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, {static: true}) mdbTablePagination: MdbTablePaginationComponent;
