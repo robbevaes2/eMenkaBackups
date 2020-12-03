@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
@@ -7,8 +9,6 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -261,7 +261,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((RecordReturnModel)result.Value, Is.Not.Null);
+            Assert.That((RecordReturnModel) result.Value, Is.Not.Null);
 
             _recordRepositoryMock.Verify(m => m.Add(It.IsAny<Record>()), Times.Once);
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -466,6 +466,7 @@ namespace eMenka.Tests.Controllers
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
+
         [Test]
         public void UpdateRecordReturnsOkWhenEverythingIsCorrect()
         {

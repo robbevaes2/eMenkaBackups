@@ -4,10 +4,9 @@ namespace eMenka.API.Models.VehicleModels
 {
     public class BrandModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public string Name { get; set; }
         public int[] InteriorColorIds { get; set; }
         public int[] ExteriorColorIds { get; set; }
+        public int Id { get; set; }
     }
 }

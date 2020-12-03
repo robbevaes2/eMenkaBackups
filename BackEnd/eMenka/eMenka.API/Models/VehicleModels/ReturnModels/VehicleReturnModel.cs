@@ -1,5 +1,5 @@
-﻿using eMenka.API.Models.FuelCardModels.ReturnModels;
-using System;
+﻿using System;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {

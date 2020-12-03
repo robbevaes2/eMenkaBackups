@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eMenka.Data;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Data.SqlClient;
+﻿using eMenka.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Tests.Utils

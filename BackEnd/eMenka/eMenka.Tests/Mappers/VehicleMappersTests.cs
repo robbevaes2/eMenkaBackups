@@ -1,8 +1,4 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.VehicleModels;
-using eMenka.Domain.Classes;
-using NUnit.Framework;
-using System;
+﻿using NUnit.Framework;
 
 namespace eMenka.Tests.Mappers
 {

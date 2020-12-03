@@ -1,10 +1,10 @@
-﻿using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using eMenka.Data.IRepositories;
+using eMenka.Domain.Classes;
+using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Data.Repositories
 {
@@ -23,11 +23,11 @@ namespace eMenka.Data.Repositories
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(v => v.Brand)
-                .ThenInclude(b=>b.InteriorColors)
+                .ThenInclude(b => b.InteriorColors)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(v => v.Brand)
-                .ThenInclude(b=>b.ExteriorColors)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(r => r.FuelCard)
                 .ThenInclude(v => v.Vehicle)
                 .ThenInclude(v => v.Model)

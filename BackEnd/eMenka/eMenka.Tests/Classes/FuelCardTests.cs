@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.Domain.Classes;
+﻿using eMenka.Domain.Classes;
 using NUnit.Framework;
 
 namespace eMenka.Tests.Classes
@@ -9,13 +6,13 @@ namespace eMenka.Tests.Classes
     [TestFixture]
     public class FuelCardTests
     {
-        private FuelCard _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new FuelCard();
         }
+
+        private FuelCard _sut;
 
         [Test]
         public void FuelCardCompanyIdPropertyGetsAndSetsCompanyId()

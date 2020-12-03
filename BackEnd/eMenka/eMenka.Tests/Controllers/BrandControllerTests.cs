@@ -1,4 +1,7 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -6,28 +9,26 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class BrandControllerTests
     {
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
-        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _interiorColorRepositoryMock = new Mock<IInteriorColorRepository>();
             _exteriorColorRepositoryMock = new Mock<IExteriorColorRepository>();
-            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object, _interiorColorRepositoryMock.Object);
+            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object,
+                _interiorColorRepositoryMock.Object);
         }
+
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
+        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()
@@ -118,8 +119,8 @@ namespace eMenka.Tests.Controllers
             var validModel = new BrandModel
             {
                 Name = "name",
-                ExteriorColorIds = new[] { 1 },
-                InteriorColorIds = new[] { 1 }
+                ExteriorColorIds = new[] {1},
+                InteriorColorIds = new[] {1}
             };
 
             _exteriorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -130,7 +131,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((BrandReturnModel)result.Value, Is.Not.Null);
+            Assert.That((BrandReturnModel) result.Value, Is.Not.Null);
 
             _brandRepositoryMock.Verify(m => m.Add(It.IsAny<Brand>()), Times.Once);
         }
@@ -170,8 +171,8 @@ namespace eMenka.Tests.Controllers
             var invalidModel = new BrandModel
             {
                 Id = 1,
-                ExteriorColorIds = new []{1},
-                InteriorColorIds = new []{1}
+                ExteriorColorIds = new[] {1},
+                InteriorColorIds = new[] {1}
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))
@@ -191,8 +192,8 @@ namespace eMenka.Tests.Controllers
             {
                 Id = 1,
                 Name = "",
-                ExteriorColorIds = new[] { 1 },
-                InteriorColorIds = new[] { 1 }
+                ExteriorColorIds = new[] {1},
+                InteriorColorIds = new[] {1}
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))

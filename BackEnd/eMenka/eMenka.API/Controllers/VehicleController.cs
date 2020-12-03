@@ -1,17 +1,14 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.VehicleModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-
     public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
@@ -23,7 +20,7 @@ namespace eMenka.API.Controllers
         private readonly IModelRepository _modelRepository;
         private readonly ISerieRepository _serieRepository;
         private readonly IVehicleRepository _vehicleRepository;
-        private VehicleMapper _vehicleMapper;
+        private readonly VehicleMapper _vehicleMapper;
 
         public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository,
             IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository,
@@ -83,27 +80,27 @@ namespace eMenka.API.Controllers
 
         public override IActionResult PostEntity(VehicleModel model)
         {
-            if (_brandRepository.GetById((int)model.BrandId) == null)
+            if (_brandRepository.GetById((int) model.BrandId) == null)
                 return NotFound($"No brand with id {model.BrandId}");
 
-            if (_modelRepository.GetById((int)model.ModelId) == null)
+            if (_modelRepository.GetById((int) model.ModelId) == null)
                 return NotFound($"No model with id {model.ModelId}");
 
-            if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
+            if (_fuelTypeRepository.GetById((int) model.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {model.FuelTypeId}");
 
-            if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
+            if (_engineTypeRepository.GetById((int) model.EngineTypeId) == null)
                 return NotFound($"No motortype with id {model.EngineTypeId}");
 
-            if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
+            if (_doorTypeRepository.GetById((int) model.DoorTypeId) == null)
                 return NotFound($"No doortype with id {model.DoorTypeId}");
 
-            if (_categoryRepository.GetById((int)model.CategoryId) == null)
+            if (_categoryRepository.GetById((int) model.CategoryId) == null)
                 return NotFound($"No category with id {model.CategoryId}");
 
             if (model.FuelCardId != null)
             {
-                if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+                if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
                     return NotFound($"No fuelcard with id {model.FuelCardId}");
 
 
@@ -111,7 +108,7 @@ namespace eMenka.API.Controllers
                     return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int)model.SeriesId) == null)
+            if (_serieRepository.GetById((int) model.SeriesId) == null)
                 return NotFound($"No serie with id {model.SeriesId}");
 
             return base.PostEntity(model);
@@ -119,27 +116,27 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(VehicleModel model, int id)
         {
-            if (_brandRepository.GetById((int)model.BrandId) == null)
+            if (_brandRepository.GetById((int) model.BrandId) == null)
                 return NotFound($"No brand with id {model.BrandId}");
 
-            if (_modelRepository.GetById((int)model.ModelId) == null)
+            if (_modelRepository.GetById((int) model.ModelId) == null)
                 return NotFound($"No model with id {model.ModelId}");
 
-            if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
+            if (_fuelTypeRepository.GetById((int) model.FuelTypeId) == null)
                 return NotFound($"No fuelType with id {model.FuelTypeId}");
 
-            if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
+            if (_engineTypeRepository.GetById((int) model.EngineTypeId) == null)
                 return NotFound($"No motortype with id {model.EngineTypeId}");
 
-            if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
+            if (_doorTypeRepository.GetById((int) model.DoorTypeId) == null)
                 return NotFound($"No doortype with id {model.DoorTypeId}");
 
-            if (_categoryRepository.GetById((int)model.CategoryId) == null)
+            if (_categoryRepository.GetById((int) model.CategoryId) == null)
                 return NotFound($"No category with id {model.CategoryId}");
 
             if (model.FuelCardId != null)
             {
-                if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+                if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
                     return NotFound($"No fuelcard with id {model.FuelCardId}");
 
                 var vehicle = _vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault();
@@ -148,7 +145,7 @@ namespace eMenka.API.Controllers
                     return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
             }
 
-            if (_serieRepository.GetById((int)model.SeriesId) == null)
+            if (_serieRepository.GetById((int) model.SeriesId) == null)
                 return NotFound($"No serie with id {model.SeriesId}");
 
             return base.UpdateEntity(model, id);

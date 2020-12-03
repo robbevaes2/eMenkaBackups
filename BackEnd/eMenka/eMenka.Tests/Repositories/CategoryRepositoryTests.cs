@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
@@ -11,14 +8,14 @@ namespace eMenka.Tests.Repositories
     [TestFixture]
     public class CategoryRepositoryTests
     {
-        private CategoryRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
             EfenkaContextTestFactory.Create();
             _sut = new CategoryRepository(EfenkaContextTestFactory.EfenkaContext);
         }
+
+        private CategoryRepository _sut;
 
         [Test]
         public void GetAllReturnsAnEnumarableOfCategories()
@@ -56,9 +53,7 @@ namespace eMenka.Tests.Repositories
             var categories = _sut.Find(c => c.Name == category.Name);
 
             foreach (var categoryFromDatabase in categories)
-            {
                 Assert.That(categoryFromDatabase.Name, Is.EqualTo(category.Name));
-            }
         }
 
         [Test]
@@ -71,7 +66,7 @@ namespace eMenka.Tests.Repositories
 
             _sut.Add(category);
 
-            int id = category.Id;
+            var id = category.Id;
 
             _sut.Remove(category);
 
@@ -90,7 +85,7 @@ namespace eMenka.Tests.Repositories
 
             _sut.Add(category);
 
-            int id = category.Id;
+            var id = category.Id;
 
             _sut.Remove(category);
 
@@ -109,7 +104,7 @@ namespace eMenka.Tests.Repositories
 
             _sut.Add(category);
 
-            int id = category.Id;
+            var id = category.Id;
 
             category.Name = "testname2";
 

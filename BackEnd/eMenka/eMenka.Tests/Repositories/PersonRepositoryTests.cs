@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
@@ -17,7 +14,7 @@ namespace eMenka.Tests.Repositories
         public void ConstructorSetsCorrectEfenkaContext() //done by checking if getbyid works
         {
             EfenkaContextTestFactory.Create();
-            
+
             _sut = new PersonRepository(EfenkaContextTestFactory.EfenkaContext);
 
             var person = new Person();

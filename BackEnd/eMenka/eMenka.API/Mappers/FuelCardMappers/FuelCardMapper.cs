@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Mappers.VehicleMappers;
+﻿using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -13,16 +9,17 @@ namespace eMenka.API.Mappers.FuelCardMappers
     public class FuelCardMapper : IMapper<FuelCard, FuelCardModel, FuelCardReturnModel>
     {
         private readonly BrandMapper _brandMapper;
-        private readonly FuelTypeMapper _fuelTypeMapper;
-        private readonly EngineTypeMapper _engineTypeMapper;
-        private readonly DoorTypeMapper _doorTypeMapper;
-        private readonly ModelMapper _modelMapper;
         private readonly CategoryMapper _categoryMapper;
-        private readonly SerieMapper _serieMapper;
         private readonly CountryMapper _countryMapper;
+        private readonly DoorTypeMapper _doorTypeMapper;
         private readonly DriverMapper _driverMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
         private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly FuelTypeMapper _fuelTypeMapper;
         private readonly InteriorColorMapper _interiorColorMapper;
+        private readonly ModelMapper _modelMapper;
+        private readonly SerieMapper _serieMapper;
+
         public FuelCardMapper()
         {
             _brandMapper = new BrandMapper();
@@ -61,7 +58,7 @@ namespace eMenka.API.Mappers.FuelCardMappers
         {
             return new FuelCard
             {
-                DriverId = (int)model.DriverId,
+                DriverId = (int) model.DriverId,
                 EndDate = model.EndDate,
                 Id = model.Id,
                 StartDate = model.StartDate,

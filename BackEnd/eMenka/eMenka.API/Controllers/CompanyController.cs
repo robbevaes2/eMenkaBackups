@@ -1,12 +1,9 @@
-﻿using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {

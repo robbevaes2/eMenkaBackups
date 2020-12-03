@@ -5,8 +5,6 @@ namespace eMenka.API.Models.VehicleModels
 {
     public class VehicleModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public int? BrandId { get; set; }
 
         [Required] public int? ModelId { get; set; }
@@ -43,5 +41,6 @@ namespace eMenka.API.Models.VehicleModels
         public DateTime RegistrationDate { get; set; }
         public int ExteriorColorId { get; set; }
         public int InteriorColorId { get; set; }
+        public int Id { get; set; }
     }
 }

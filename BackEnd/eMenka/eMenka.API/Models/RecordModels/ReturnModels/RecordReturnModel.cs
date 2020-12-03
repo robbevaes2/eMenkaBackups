@@ -1,6 +1,6 @@
-﻿using eMenka.API.Models.FuelCardModels.ReturnModels;
+﻿using System;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Domain.Enums;
-using System;
 
 namespace eMenka.API.Models.RecordModels.ReturnModels
 {

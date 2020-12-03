@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.VehicleModels;
+﻿using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 
@@ -10,12 +6,13 @@ namespace eMenka.API.Mappers.VehicleMappers
 {
     public class SerieMapper : IMapper<Series, SerieModel, SerieReturnModel>
     {
-        private BrandMapper _brandMapper;
+        private readonly BrandMapper _brandMapper;
 
         public SerieMapper()
         {
             _brandMapper = new BrandMapper();
         }
+
         public SerieReturnModel MapEntityToReturnModel(Series entity)
         {
             if (entity == null)
@@ -32,7 +29,7 @@ namespace eMenka.API.Mappers.VehicleMappers
         {
             return new Series
             {
-                BrandId = (int)model.BrandId,
+                BrandId = (int) model.BrandId,
                 Id = model.Id,
                 Name = model.Name
             };

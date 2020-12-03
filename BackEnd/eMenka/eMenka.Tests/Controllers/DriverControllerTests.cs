@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System.Collections.Generic;
+using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -6,7 +7,6 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace eMenka.Tests.Controllers
 {
@@ -81,7 +81,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
@@ -133,7 +133,7 @@ namespace eMenka.Tests.Controllers
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((DriverReturnModel)result.Value, Is.Not.Null);
+            Assert.That((DriverReturnModel) result.Value, Is.Not.Null);
 
             _driverRepositoryMock.Verify(m => m.Add(It.IsAny<Driver>()), Times.Once);
             _personRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -147,7 +147,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
@@ -171,7 +171,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);

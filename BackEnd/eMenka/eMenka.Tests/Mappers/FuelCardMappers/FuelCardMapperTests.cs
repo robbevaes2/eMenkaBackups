@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
@@ -11,13 +9,13 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
     [TestFixture]
     public class FuelCardMapperTests
     {
-        private FuelCardMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new FuelCardMapper();
         }
+
+        private FuelCardMapper _sut;
 
         [Test]
         public void MapFuelCardEntityReturnNullWhenModelIsNull()

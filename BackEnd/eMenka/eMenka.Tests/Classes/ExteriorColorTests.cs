@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
 
@@ -9,13 +7,13 @@ namespace eMenka.Tests.Classes
     [TestFixture]
     public class ExteriorColorTests
     {
-        private ExteriorColor _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new ExteriorColor();
         }
+
+        private ExteriorColor _sut;
 
         [Test]
         public void ExteriorColorBrandIdPropertyGetsAndSetsBrandId()

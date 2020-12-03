@@ -1,12 +1,10 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.VehicleModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
@@ -14,9 +12,10 @@ namespace eMenka.API.Controllers
     public class CategoryController : GenericController<Category, CategoryModel, CategoryReturnModel>
     {
         private readonly ICategoryRepository _categoryRepository;
-        private CategoryMapper _categoryMapper;
+        private readonly CategoryMapper _categoryMapper;
 
-        public CategoryController(ICategoryRepository categoryRepository) : base(categoryRepository, new CategoryMapper())
+        public CategoryController(ICategoryRepository categoryRepository) : base(categoryRepository,
+            new CategoryMapper())
         {
             _categoryRepository = categoryRepository;
             _categoryMapper = new CategoryMapper();

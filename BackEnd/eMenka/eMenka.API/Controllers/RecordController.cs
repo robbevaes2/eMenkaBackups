@@ -1,12 +1,10 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.RecordModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using System.Linq;
 using eMenka.API.Mappers.RecordMappers;
+using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
@@ -19,7 +17,8 @@ namespace eMenka.API.Controllers
         private readonly IRecordRepository _recordRepository;
 
         public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
-            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(recordRepository, new RecordMapper())
+            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(
+            recordRepository, new RecordMapper())
         {
             _recordRepository = recordRepository;
             _fuelCardRepository = fuelCardRepository;
@@ -29,13 +28,13 @@ namespace eMenka.API.Controllers
 
         public override IActionResult PostEntity(RecordModel model)
         {
-            if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+            if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {model.FuelCardId} not found");
 
-            if (_corporationRepository.GetById((int)model.CorporationId) == null)
+            if (_corporationRepository.GetById((int) model.CorporationId) == null)
                 return NotFound($"Corporation with id {model.CorporationId} not found");
 
-            if (_costAllocationRepository.GetById((int)model.CostAllocationId) == null)
+            if (_costAllocationRepository.GetById((int) model.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
 
             if (_recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
@@ -46,13 +45,13 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(RecordModel model, int id)
         {
-            if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
+            if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
                 return NotFound($"Fuelcard with id {model.FuelCardId} not found");
 
-            if (_corporationRepository.GetById((int)model.CorporationId) == null)
+            if (_corporationRepository.GetById((int) model.CorporationId) == null)
                 return NotFound($"Corporation with id {model.CorporationId} not found");
 
-            if (_costAllocationRepository.GetById((int)model.CostAllocationId) == null)
+            if (_costAllocationRepository.GetById((int) model.CostAllocationId) == null)
                 return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
 
             var record = _recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault();
