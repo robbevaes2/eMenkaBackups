@@ -26,7 +26,6 @@ namespace eMenka.Domain.Classes
         public int? Volume { get; set; }
         public int? FiscalHP { get; set; }
         public int? Emission { get; set; }
-        public int? Power { get; set; }
         public string LicensePlate { get; set; }
         public bool IsActive { get; set; }
         public Category Category { get; set; }
@@ -35,5 +34,11 @@ namespace eMenka.Domain.Classes
         public int? CountryId { get; set; }
         public int? BuildYear { get; set; }
         public string Chassis { get; set; }
+        public double Kilometers { get; set; }
+        public DateTime RegistrationDate { get; set; }
+        public ExteriorColor ExteriorColor { get; set; }
+        public int? ExteriorColorId { get; set; }
+        public InteriorColor InteriorColor { get; set; }
+        public int? InteriorColorId { get; set; }
     }
 }

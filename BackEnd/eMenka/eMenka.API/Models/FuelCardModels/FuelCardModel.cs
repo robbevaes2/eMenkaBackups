@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace eMenka.API.Models.FuelCardModels
 {
-    public class FuelCardModel
+    public class FuelCardModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public int? DriverId { get; set; }
         [Required] public int? VehicleId { get; set; }
 
@@ -17,5 +15,6 @@ namespace eMenka.API.Models.FuelCardModels
         public string BlockingReason { get; set; }
         public string PinCode { get; set; }
         public string Number { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetAll())
                 .Returns(categories);
 
-            var result = _sut.GetAllCategories() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -50,7 +50,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.GetCategoryById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _categoryRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -64,7 +64,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.GetCategoryById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -97,7 +97,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostCategroy(invalidModel) as BadRequestResult;
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -112,9 +112,10 @@ namespace eMenka.Tests.Controllers
                 Name = "name"
             };
 
-            var result = _sut.PostCategroy(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((CategoryReturnModel) result.Value, Is.Not.Null);
 
             _categoryRepositoryMock.Verify(m => m.Add(It.IsAny<Category>()), Times.Once);
         }
@@ -126,7 +127,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateCategory(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -141,7 +142,7 @@ namespace eMenka.Tests.Controllers
                 Id = 1
             };
 
-            var result = _sut.UpdateCategory(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -159,7 +160,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Category>()))
                 .Returns(false);
 
-            var result = _sut.UpdateCategory(invalidModel, invalidModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -178,7 +179,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Category>()))
                 .Returns(true);
 
-            var result = _sut.UpdateCategory(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -193,7 +194,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.DeleteCategory(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -209,7 +210,7 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
 
-            var result = _sut.DeleteCategory(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

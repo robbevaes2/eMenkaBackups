@@ -35,7 +35,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetAll())
                 .Returns(engineTypes);
 
-            var result = _sut.GetAllEngineTypes() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -52,7 +52,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.GetEngineTypesById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _engineTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -69,7 +69,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.GetEngineTypesById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -135,16 +135,24 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void PostEngineTypeReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new EngineTypeModel();
+            var invalidModel = new EngineTypeModel
+            {
+                BrandId = 1
+            };
+
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostEngineType(invalidModel) as BadRequestResult;
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _engineTypeRepositoryMock.Verify(m => m.Add(It.IsAny<EngineType>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -161,7 +169,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.PostEngineType(validModel) as NotFoundObjectResult;
+            var result = _sut.PostEntity(validModel) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -183,9 +191,10 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.PostEngineType(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((EngineTypeReturnModel) result.Value, Is.Not.Null);
 
             _engineTypeRepositoryMock.Verify(m => m.Add(It.IsAny<EngineType>()), Times.Once);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -194,16 +203,24 @@ namespace eMenka.Tests.Controllers
         [Test]
         public void UpdateEngineTypeReturnsBadRequestWhenModelIsInvalid()
         {
-            var invalidModel = new EngineTypeModel();
+            var invalidModel = new EngineTypeModel
+            {
+                BrandId = 1
+            };
+
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateEngineType(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
             _engineTypeRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<EngineType>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -211,15 +228,21 @@ namespace eMenka.Tests.Controllers
         {
             var invalidModel = new EngineTypeModel
             {
-                Id = 1
+                Id = 1,
+                BrandId = 1
             };
 
-            var result = _sut.UpdateEngineType(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var brand = new Brand();
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
             _engineTypeRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<EngineType>()), Times.Never);
-            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Never);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
         }
 
         [Test]
@@ -237,7 +260,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.UpdateEngineType(validModel, validModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -261,7 +284,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.UpdateEngineType(invalidModel, invalidModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -286,7 +309,7 @@ namespace eMenka.Tests.Controllers
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
 
-            var result = _sut.UpdateEngineType(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -302,7 +325,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.DeleteEngineType(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -318,7 +341,7 @@ namespace eMenka.Tests.Controllers
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
 
-            var result = _sut.DeleteEngineType(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

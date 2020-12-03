@@ -4,10 +4,8 @@ using eMenka.Domain.Enums;
 
 namespace eMenka.API.Models.RecordModels
 {
-    public class RecordModel
+    public class RecordModel : IModelBase
     {
-        public int Id { get; set; }
-
         [Required] public int? FuelCardId { get; set; }
 
         [Required] public int? CorporationId { get; set; }
@@ -18,5 +16,6 @@ namespace eMenka.API.Models.RecordModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public Usage Usage { get; set; }
+        public int Id { get; set; }
     }
 }

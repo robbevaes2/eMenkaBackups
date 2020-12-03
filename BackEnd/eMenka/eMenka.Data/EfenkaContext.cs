@@ -2,7 +2,6 @@
 using System.Linq;
 using eMenka.Domain;
 using eMenka.Domain.Classes;
-using eMenka.Domain.Enums;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -52,6 +51,8 @@ namespace eMenka.Data
             builder.Entity<Series>().HasKey(s => s.Id);
             builder.Entity<Supplier>().HasKey(s => s.Id);
             builder.Entity<Vehicle>().HasKey(v => v.Id);
+            builder.Entity<ExteriorColor>().HasKey(ec => ec.Id);
+            builder.Entity<InteriorColor>().HasKey(ic => ic.Id);
 
             #endregion
 
@@ -105,10 +106,24 @@ namespace eMenka.Data
                 .HasMany(f => f.Vehicles)
                 .WithOne(v => v.FuelType)
                 .HasForeignKey(v => v.FuelTypeId);
+
+            //1 Vehicles - x ExteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.ExteriorColor)
+                .WithMany(ec => ec.Vehicles)
+                .HasForeignKey(v => v.ExteriorColorId);
+
+
+            //1 Vehicles - x InteriorColor
+            builder.Entity<Vehicle>()
+                .HasOne(v => v.InteriorColor)
+                .WithMany(ic => ic.Vehicles)
+                .HasForeignKey(v => v.InteriorColorId);
+
             /***********************************************************/
 
             /********************** One To One *************************/
-            //Vehicle - FuelCard
+            //Vehicles - FuelCard
             builder.Entity<Vehicle>()
                 .HasOne(v => v.FuelCard)
                 .WithOne(fc => fc.Vehicle)
@@ -140,10 +155,12 @@ namespace eMenka.Data
                 .HasOne(fc => fc.Record)
                 .WithOne(r => r.FuelCard)
                 .HasForeignKey<Record>(r => r.FuelCardId);
+
+
             /***********************************************************/
 
             #endregion
-            
+
             DataBaseSeeder.SeedData(builder);
 
             //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 

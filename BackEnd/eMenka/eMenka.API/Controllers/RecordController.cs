@@ -1,17 +1,15 @@
 ﻿using System.Linq;
-using eMenka.API.Mappers;
+using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
+using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class RecordController : ControllerBase
+    public class RecordController : GenericController<Record, RecordModel, RecordReturnModel>
     {
         private readonly ICorporationRepository _corporationRepository;
         private readonly ICostAllocationRepository _costAllocationRepository;
@@ -19,7 +17,8 @@ namespace eMenka.API.Controllers
         private readonly IRecordRepository _recordRepository;
 
         public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
-            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository)
+            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(
+            recordRepository, new RecordMapper())
         {
             _recordRepository = recordRepository;
             _fuelCardRepository = fuelCardRepository;
@@ -27,82 +26,40 @@ namespace eMenka.API.Controllers
             _costAllocationRepository = costAllocationRepository;
         }
 
-        [HttpGet]
-        public IActionResult GetAllRecords()
+        public override IActionResult PostEntity(RecordModel model)
         {
-            var records = _recordRepository.GetAll();
+            if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
+                return NotFound($"Fuelcard with id {model.FuelCardId} not found");
 
-            return Ok(records.Select(RecordMappers.MapRecordEntity).ToList());
+            if (_corporationRepository.GetById((int) model.CorporationId) == null)
+                return NotFound($"Corporation with id {model.CorporationId} not found");
+
+            if (_costAllocationRepository.GetById((int) model.CostAllocationId) == null)
+                return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
+
+            if (_recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
+                return BadRequest($"A record already exists with fuelcard id {model.FuelCardId}");
+
+            return base.PostEntity(model);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetRecordById(int id)
+        public override IActionResult UpdateEntity(RecordModel model, int id)
         {
-            var record = _recordRepository.GetById(id);
-            if (record == null)
-                return NotFound();
+            if (_fuelCardRepository.GetById((int) model.FuelCardId) == null)
+                return NotFound($"Fuelcard with id {model.FuelCardId} not found");
 
-            return Ok(RecordMappers.MapRecordEntity(record));
-        }
+            if (_corporationRepository.GetById((int) model.CorporationId) == null)
+                return NotFound($"Corporation with id {model.CorporationId} not found");
 
-        [HttpPost]
-        public IActionResult PostRecord([FromBody] RecordModel recordModel)
-        {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_costAllocationRepository.GetById((int) model.CostAllocationId) == null)
+                return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
 
-            if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
-                return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
+            var record = _recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault();
 
-            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
-                return NotFound($"Corporation with id {recordModel.CorporationId} not found");
+            if (record != null && record.Id != model.Id)
+                return BadRequest($"A record already exists with fuelcard id {model.FuelCardId}");
 
-            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
-                return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
-
-            if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)
-                return BadRequest($"A record already exists with fuelcard id {recordModel.FuelCardId}");
-
-            _recordRepository.Add(RecordMappers.MapRecordModel(recordModel));
-            return Ok();
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateRecord([FromBody] RecordModel recordModel, int id)
-        {
-            if (!ModelState.IsValid) return BadRequest();
-
-            if (id != recordModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
-
-            if (_fuelCardRepository.GetById((int) recordModel.FuelCardId) == null)
-                return NotFound($"Fuelcard with id {recordModel.FuelCardId} not found");
-
-            if (_corporationRepository.GetById((int) recordModel.CorporationId) == null)
-                return NotFound($"Corporation with id {recordModel.CorporationId} not found");
-
-            if (_costAllocationRepository.GetById((int) recordModel.CostAllocationId) == null)
-                return NotFound($"Cost allocation with id {recordModel.CostAllocationId} not found");
-
-            if (_recordRepository.Find(r => r.FuelCard.Id == recordModel.FuelCardId).FirstOrDefault() != null)
-                return BadRequest($"A record already exists with fuelcard id {recordModel.FuelCardId}");
-
-            var isUpdated = _recordRepository.Update(id, RecordMappers.MapRecordModel(recordModel));
-
-            if (!isUpdated)
-                return NotFound($"No Record found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteRecord(int id)
-        {
-            var record = _recordRepository.GetById(id);
-            if (record == null)
-                return NotFound();
-
-            _recordRepository.Remove(record);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }

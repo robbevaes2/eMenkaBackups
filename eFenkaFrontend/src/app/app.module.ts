@@ -18,6 +18,7 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { DatePipe } from '@angular/common';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
@@ -46,7 +47,7 @@ import { NewDriverItemComponent } from './components/new-driver-item/new-driver-
     MDBBootstrapModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -72,6 +72,9 @@ namespace eMenka.API
             services.AddScoped<ICorporationRepository, CorporationRepository>();
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IExteriorColorRepository, ExteriorColorRepository>();
+            services.AddScoped<IInteriorColorRepository, InteriorColorRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
 
             services.AddDbContext<EfenkaContext>(options =>
             {

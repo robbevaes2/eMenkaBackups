@@ -134,6 +134,10 @@ export class ApiService {
     return this.getFromAPI<Brand[]>('brand/');
   }
 
+  getBrandById(id: number): Observable<Brand> {
+    return this.getFromAPI<Brand>('brand/' + id);
+  }
+
   getAllModelsByBrandId(id: number): Observable<Model[]> {
     return this.getFromAPI<Model[]>('model/brand/' + id);
   }
@@ -150,12 +154,6 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
-  // FuelType
-
-  getAllFuelTypes(): Observable<FuelType[]> {
-    return this.getFromAPI<FuelType[]>('fueltype/');
-  }
-
   // FuelCard
 
   getAllFuelCards(): Observable<FuelCard[]> {
@@ -168,6 +166,12 @@ export class ApiService {
 
   updateFuelCard(id: number, FuelCardModel: any) {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
+  }
+
+  // FuelType
+
+  getAllFuelTypes(): Observable<FuelType[]> {
+    return this.getFromAPI<FuelType[]>('fueltype/');
   }
 
   // DoorType
@@ -184,7 +188,7 @@ export class ApiService {
 
   // Corporation
 
-  getAllCorporatoins(): Observable<Corporation[]> {
+  getAllCorporations(): Observable<Corporation[]> {
     return this.getFromAPI<Corporation[]>('corporation/');
   }
 

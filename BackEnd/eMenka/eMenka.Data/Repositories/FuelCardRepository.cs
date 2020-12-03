@@ -24,6 +24,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Model)
                 .Include(fc => fc.Vehicle)
@@ -36,6 +40,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .ToList();
         }
 
@@ -46,6 +54,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Model)
                 .Include(fc => fc.Vehicle)
@@ -58,16 +70,25 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .FirstOrDefault(fc => fc.Id == id);
         }
 
         public override IEnumerable<FuelCard> Find(Expression<Func<FuelCard, bool>> statement)
         {
             return _context.FuelCards
+                .Where(statement)
                 .Include(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Model)
                 .Include(fc => fc.Vehicle)
@@ -80,6 +101,10 @@ namespace eMenka.Data.Repositories
                 .ThenInclude(v => v.DoorType)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Category)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.ExteriorColor)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.InteriorColor)
                 .ToList();
         }
     }

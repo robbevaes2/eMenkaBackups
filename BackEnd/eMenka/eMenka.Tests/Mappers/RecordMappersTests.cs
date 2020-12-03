@@ -1,15 +1,11 @@
-﻿using System;
-using eMenka.API.Mappers;
-using eMenka.API.Models.RecordModels;
-using eMenka.Domain.Classes;
-using eMenka.Domain.Enums;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace eMenka.Tests.Mappers
 {
     [TestFixture]
     public class RecordMappersTests
     {
+        /*
         [Test]
         public void MapRecordEntityReturnNullWhenRecordIsNull()
         {
@@ -308,6 +304,6 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.NonActiveRemark, Is.EqualTo(nonActiveRemark));
             Assert.That(result.Reference, Is.EqualTo(reference));
             Assert.That(result.VAT, Is.EqualTo(vat));
-        }
+        }*/
     }
 }

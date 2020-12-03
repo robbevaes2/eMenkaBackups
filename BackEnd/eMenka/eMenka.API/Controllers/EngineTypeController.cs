@@ -1,33 +1,26 @@
 ﻿using System.Linq;
-using eMenka.API.Mappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class EngineTypeController : ControllerBase
+    public class EngineTypeController : GenericController<EngineType, EngineTypeModel, EngineTypeReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IEngineTypeRepository _engineTypeRepository;
+        private readonly EngineTypeMapper _engineTypeMapper;
 
-        public EngineTypeController(IEngineTypeRepository engineTypeRepository, IBrandRepository brandRepository)
+        public EngineTypeController(IEngineTypeRepository engineTypeRepository, IBrandRepository brandRepository) :
+            base(engineTypeRepository, new EngineTypeMapper())
         {
             _engineTypeRepository = engineTypeRepository;
             _brandRepository = brandRepository;
-        }
-
-        [HttpGet]
-        public IActionResult GetAllEngineTypes()
-        {
-            var engineTypes = _engineTypeRepository.GetAll();
-
-            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
+            _engineTypeMapper = new EngineTypeMapper();
         }
 
         [HttpGet("brand/{brandId}")]
@@ -38,17 +31,7 @@ namespace eMenka.API.Controllers
 
             var engineTypes = _engineTypeRepository.Find(motorType => motorType.Brand.Id == brandId);
 
-            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetEngineTypesById(int id)
-        {
-            var engineType = _engineTypeRepository.GetById(id);
-            if (engineType == null)
-                return NotFound();
-
-            return Ok(VehicleMappers.MapEngineTypeEntity(engineType));
+            return Ok(engineTypes.Select(_engineTypeMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpGet("{engineTypeName}")]
@@ -56,49 +39,23 @@ namespace eMenka.API.Controllers
         {
             var engineTypes = _engineTypeRepository.Find(engineType => engineType.Name == engineTypeName);
 
-            return Ok(engineTypes.Select(VehicleMappers.MapEngineTypeEntity).ToList());
+            return Ok(engineTypes.Select(_engineTypeMapper.MapEntityToReturnModel).ToList());
         }
 
-        [HttpPost]
-        public IActionResult PostEngineType([FromBody] EngineTypeModel engineTypeModel)
+        public override IActionResult PostEntity(EngineTypeModel model)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_brandRepository.GetById((int) model.BrandId) == null)
+                return NotFound($"No brand with id {model.BrandId}");
 
-            if (_brandRepository.GetById((int) engineTypeModel.BrandId) == null)
-                return NotFound($"No brand with id {engineTypeModel.BrandId}");
-
-            _engineTypeRepository.Add(VehicleMappers.MapEngineTypeModel(engineTypeModel));
-            return Ok();
+            return base.PostEntity(model);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateEngineType([FromBody] EngineTypeModel engineTypeModel, int id)
+        public override IActionResult UpdateEntity(EngineTypeModel model, int id)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_brandRepository.GetById((int) model.BrandId) == null)
+                return NotFound($"No brand with id {model.BrandId}");
 
-            if (id != engineTypeModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
-
-            if (_brandRepository.GetById((int) engineTypeModel.BrandId) == null)
-                return NotFound($"No brand with id {engineTypeModel.BrandId}");
-
-            var isUpdated = _engineTypeRepository.Update(id, VehicleMappers.MapEngineTypeModel(engineTypeModel));
-
-            if (!isUpdated)
-                return NotFound($"No motortype found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteEngineType(int id)
-        {
-            var engineType = _engineTypeRepository.GetById(id);
-            if (engineType == null)
-                return NotFound();
-
-            _engineTypeRepository.Remove(engineType);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }

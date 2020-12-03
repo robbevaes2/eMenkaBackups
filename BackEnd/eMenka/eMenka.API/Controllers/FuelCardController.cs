@@ -1,85 +1,60 @@
-﻿using System.Linq;
-using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
+using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class FuelCardController : ControllerBase
+    public class FuelCardController : GenericController<FuelCard, FuelCardModel, FuelCardReturnModel>
     {
         private readonly IDriverRepository _driverRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
+        private readonly IVehicleRepository _vehicleRepository;
+        private readonly FuelCardMapper _fuelCardMapper;
 
-        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository)
+        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository,
+            IVehicleRepository vehicleRepository) : base(fuelCardRepository, new FuelCardMapper())
         {
             _fuelCardRepository = fuelCardRepository;
             _driverRepository = driverRepository;
+            _vehicleRepository = vehicleRepository;
+            _fuelCardMapper = new FuelCardMapper();
         }
 
-        [HttpGet]
-        public IActionResult GetAllFuelCards()
+        public override IActionResult PostEntity(FuelCardModel model)
         {
-            var fuelCards = _fuelCardRepository.GetAll();
+            if (_driverRepository.GetById((int) model.DriverId) == null)
+                return NotFound($"Driver with id {model.DriverId} not found");
 
-            return Ok(fuelCards.Select(FuelCardMappers.MapFuelCardEntity).ToList());
-        }
+            var vehicle = _vehicleRepository.GetById((int) model.VehicleId);
 
-        [HttpGet("{id}")]
-        public IActionResult GetFuelCardById(int id)
-        {
-            var fuelCard = _fuelCardRepository.GetById(id);
-            if (fuelCard == null)
-                return NotFound();
+            if (vehicle == null)
+                return NotFound($"Vehicles with id {model.VehicleId} not found");
 
-            return Ok(FuelCardMappers.MapFuelCardEntity(fuelCard));
-        }
-
-        [HttpPost]
-        public IActionResult PostFuelCard([FromBody] FuelCardModel fuelCardModel)
-        {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (_driverRepository.GetById((int) fuelCardModel.DriverId) == null)
-                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
+            var entity = _fuelCardMapper.MapModelToEntity(model);
 
-            _fuelCardRepository.Add(FuelCardMappers.MapFuelCardModel(fuelCardModel));
-            return Ok();
+            _fuelCardRepository.Add(entity);
+
+            vehicle.FuelCard = entity;
+            _vehicleRepository.Update(vehicle.Id, vehicle);
+
+            return Ok(_fuelCardMapper.MapEntityToReturnModel(entity));
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateFuelCard([FromBody] FuelCardModel fuelCardModel, int id)
+        public override IActionResult UpdateEntity(FuelCardModel model, int id)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (_driverRepository.GetById((int) model.DriverId) == null)
+                return NotFound($"Driver with id {model.DriverId} not found");
 
-            if (id != fuelCardModel.Id)
-                return BadRequest("Id from model does not match query paramater id");
+            if (_vehicleRepository.GetById((int) model.VehicleId) == null)
+                return NotFound($"Vehicles with id {model.VehicleId} not found");
 
-            if (_driverRepository.GetById((int) fuelCardModel.DriverId) == null)
-                return NotFound($"Driver with id {fuelCardModel.DriverId} not found");
-
-            var isUpdated = _fuelCardRepository.Update(id, FuelCardMappers.MapFuelCardModel(fuelCardModel));
-
-            if (!isUpdated)
-                return NotFound($"No Fuel card found with id {id}");
-
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult DeleteFuelCard(int id)
-        {
-            var fuelCard = _fuelCardRepository.GetById(id);
-            if (fuelCard == null)
-                return NotFound();
-
-            _fuelCardRepository.Remove(fuelCard);
-            return Ok();
+            return base.UpdateEntity(model, id);
         }
     }
 }

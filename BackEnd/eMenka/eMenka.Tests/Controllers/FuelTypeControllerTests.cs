@@ -31,7 +31,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetAll())
                 .Returns(fuelTypes);
 
-            var result = _sut.GetAllFuelTypes() as OkObjectResult;
+            var result = _sut.GetAllEntities() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -48,7 +48,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.GetFuelTypeById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
             _fuelTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -62,7 +62,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.GetFuelTypeById(0) as OkObjectResult;
+            var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -78,7 +78,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.PostFuelType(invalidModel) as BadRequestResult;
+            var result = _sut.PostEntity(invalidModel) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -93,9 +93,10 @@ namespace eMenka.Tests.Controllers
                 Name = "name"
             };
 
-            var result = _sut.PostFuelType(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((FuelTypeReturnModel) result.Value, Is.Not.Null);
 
             _fuelTypeRepositoryMock.Verify(m => m.Add(It.IsAny<FuelType>()), Times.Once);
         }
@@ -107,7 +108,7 @@ namespace eMenka.Tests.Controllers
 
             _sut.ModelState.AddModelError("name", "name is required");
 
-            var result = _sut.UpdateFuelType(invalidModel, 1) as BadRequestResult;
+            var result = _sut.UpdateEntity(invalidModel, 1) as BadRequestResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -122,7 +123,7 @@ namespace eMenka.Tests.Controllers
                 Id = 1
             };
 
-            var result = _sut.UpdateFuelType(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id + 1) as BadRequestObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -140,7 +141,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<FuelType>()))
                 .Returns(false);
 
-            var result = _sut.UpdateFuelType(invalidModel, invalidModel.Id) as NotFoundObjectResult;
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -159,7 +160,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<FuelType>()))
                 .Returns(true);
 
-            var result = _sut.UpdateFuelType(validModel, validModel.Id) as OkResult;
+            var result = _sut.UpdateEntity(validModel, validModel.Id) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -174,7 +175,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.DeleteFuelType(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -190,7 +191,7 @@ namespace eMenka.Tests.Controllers
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
 
-            var result = _sut.DeleteFuelType(1) as OkResult;
+            var result = _sut.DeleteEntity(1) as OkResult;
 
             Assert.That(result, Is.Not.Null);
 

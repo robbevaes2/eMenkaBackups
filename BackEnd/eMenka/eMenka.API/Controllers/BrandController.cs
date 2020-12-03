@@ -1,41 +1,28 @@
 ﻿using System.Linq;
-using eMenka.API.Mappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    [EnableCors("MyAllowSpecificOrigins")]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class BrandController : ControllerBase
+    public class BrandController : GenericController<Brand, BrandModel, BrandReturnModel>
     {
+        private readonly BrandMapper _brandMapper;
         private readonly IBrandRepository _brandRepository;
+        private readonly IExteriorColorRepository _exteriorColorRepository;
+        private readonly IInteriorColorRepository _interiorColorRepository;
 
-        public BrandController(IBrandRepository brandRepository)
+        public BrandController(IBrandRepository brandRepository, IExteriorColorRepository exteriorColorRepository,
+            IInteriorColorRepository interiorColorRepository) : base(brandRepository, new BrandMapper())
         {
             _brandRepository = brandRepository;
-        }
-
-        [HttpGet]
-        public IActionResult GetAllBrands()
-        {
-            var brands = _brandRepository.GetAll();
-
-            return Ok(brands.Select(VehicleMappers.MapBrandEntity).ToList());
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetBrandById(int id)
-        {
-            var brand = _brandRepository.GetById(id);
-            if (brand == null)
-                return NotFound();
-
-            return Ok(VehicleMappers.MapBrandEntity(brand));
+            _exteriorColorRepository = exteriorColorRepository;
+            _interiorColorRepository = interiorColorRepository;
+            _brandMapper = new BrandMapper();
         }
 
         [HttpGet("name/{brandName}")]
@@ -43,26 +30,33 @@ namespace eMenka.API.Controllers
         {
             var brands = _brandRepository.Find(brand => brand.Name == brandName);
 
-            return Ok(brands.Select(VehicleMappers.MapBrandEntity).ToList());
+            return Ok(brands.Select(_brandMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpPost]
-        public IActionResult PostBrand([FromBody] BrandModel brandModel)
+        public override IActionResult PostEntity([FromBody] BrandModel model)
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            _brandRepository.Add(VehicleMappers.MapBrandModel(brandModel));
-            return Ok();
+            var brand = _brandMapper.MapModelToEntity(model);
+            AddColors(brand, model);
+
+            _brandRepository.Add(brand);
+            return Ok(_brandMapper.MapEntityToReturnModel(brand));
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBrand([FromBody] BrandModel brandModel, int id)
+        public override IActionResult UpdateEntity([FromBody] BrandModel model, int id)
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            if (id != brandModel.Id)
+            if (id != model.Id)
                 return BadRequest("Id from model does not match id query parameter");
-            var isUpdated = _brandRepository.Update(id, VehicleMappers.MapBrandModel(brandModel));
+
+            var brand = _brandMapper.MapModelToEntity(model);
+            AddColors(brand, model);
+
+            var isUpdated = _brandRepository.Update(id, brand);
 
             if (!isUpdated)
                 return NotFound($"No brand found with id {id}");
@@ -70,15 +64,31 @@ namespace eMenka.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteBrand(int id)
+        private void AddColors(Brand brand, BrandModel brandModel)
         {
-            var brand = _brandRepository.GetById(id);
-            if (brand == null)
-                return NotFound();
+            AddExteriorColors(brand, brandModel);
 
-            _brandRepository.Remove(brand);
-            return Ok();
+            AddInteriorColors(brand, brandModel);
+        }
+
+        private void AddInteriorColors(Brand brand, BrandModel brandModel)
+        {
+            foreach (var brandModelInteriorColorId in brandModel.InteriorColorIds)
+            {
+                var color = _interiorColorRepository.GetById(brandModelInteriorColorId);
+                if (color != null)
+                    brand.InteriorColors.Add(color);
+            }
+        }
+
+        private void AddExteriorColors(Brand brand, BrandModel brandModel)
+        {
+            foreach (var brandModelExteriorColorId in brandModel.ExteriorColorIds)
+            {
+                var color = _exteriorColorRepository.GetById(brandModelExteriorColorId);
+                if (color != null)
+                    brand.ExteriorColors.Add(color);
+            }
         }
     }
 }

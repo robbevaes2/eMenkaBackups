@@ -19,29 +19,42 @@ namespace eMenka.Data.Repositories
 
         public override Vehicle GetById(int id)
         {
-            return _context.Vehicles
+            var vehicle = _context.Vehicles
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
                 .Include(v => v.Series)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
+                .Include(v => v.ExteriorColor)
+                .Include(v => v.InteriorColor)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .FirstOrDefault(v => v.Id == id);
+            return vehicle;
         }
 
         public override IEnumerable<Vehicle> GetAll()
         {
             return _context.Vehicles
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
+                .Include(v => v.ExteriorColor)
+                .Include(v => v.InteriorColor)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
@@ -54,11 +67,17 @@ namespace eMenka.Data.Repositories
             return _context.Vehicles
                 .Where(statement)
                 .Include(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
+                .Include(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
                 .Include(v => v.Model)
                 .Include(v => v.FuelType)
                 .Include(v => v.EngineType)
                 .Include(v => v.DoorType)
                 .Include(v => v.Category)
+                .Include(v => v.Country)
+                .Include(v => v.ExteriorColor)
+                .Include(v => v.InteriorColor)
                 .Include(v => v.FuelCard)
                 .ThenInclude(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
