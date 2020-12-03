@@ -50,6 +50,7 @@ export class RecordDetailsComponent implements OnInit {
     this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
+    console.log(this.selectedRecord);
 
     this.form = new FormGroup({
       type: new FormControl(null, [Validators.required]),
@@ -231,31 +232,32 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
+    console.log(values.vehicle);
     return {
       Id: Number(values.vehicle),
-      brandId: this.vehicles[values.vehicle - 1].brand.id,
-      modelId: this.vehicles[values.vehicle - 1].model.id,
-      fuelTypeId: this.vehicles[values.vehicle - 1].fuelType.id,
-      engineTypeId: this.vehicles[values.vehicle - 1].engineType.id,
-      doorTypeId: this.vehicles[values.vehicle - 1].doorType.id,
-      fuelCardId: this.vehicles[values.vehicle - 1].fuelCard.id,
-      seriesId: this.vehicles[values.vehicle - 1].serie.id,
-      volume: this.vehicles[values.vehicle - 1].volume,
-      fiscalHP: this.vehicles[values.vehicle - 1].fiscalHP,
-      emission: this.vehicles[values.vehicle - 1].emission,
-      enginePower: this.vehicles[values.vehicle - 1].enginePower,
+      brandId: this.vehicles.find(v => v.id === Number(values.vehicle)).brand?.id,
+      modelId: this.vehicles.find(v => v.id === Number(values.vehicle)).model.id,
+      fuelTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelType.id,
+      engineTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).engineType.id,
+      doorTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).doorType.id,
+      fuelCardId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelCard?.id,
+      seriesId: this.vehicles.find(v => v.id === Number(values.vehicle)).serie.id,
+      volume: this.vehicles.find(v => v.id === Number(values.vehicle)).volume,
+      fiscalHP: this.vehicles.find(v => v.id === Number(values.vehicle)).fiscalHP,
+      emission: this.vehicles.find(v => v.id === Number(values.vehicle)).emission,
+      enginePower: this.vehicles.find(v => v.id === Number(values.vehicle)).enginePower,
       registrationDate: new Date(values.registrationDate).toISOString(),
       isActive: true,
-      categoryId: this.vehicles[values.vehicle - 1].category.id,
-      licensePlate: this.vehicles[values.vehicle - 1].licensePlate,
-      chassis: this.vehicles[values.vehicle - 1].chassis,
-      engineCapacity: this.vehicles[values.vehicle - 1].engineCapacity,
-      endDateDelivery: this.vehicles[values.vehicle - 1].endDateDelivery,
+      categoryId: this.vehicles.find(v => v.id === Number(values.vehicle)).category.id,
+      licensePlate: this.vehicles.find(v => v.id === Number(values.vehicle)).licensePlate,
+      chassis: this.vehicles.find(v => v.id === Number(values.vehicle)).chassis,
+      engineCapacity: this.vehicles.find(v => v.id === Number(values.vehicle)).engineCapacity,
+      endDateDelivery: this.vehicles.find(v => v.id === Number(values.vehicle)).endDateDelivery,
       countryId: Number(values.country),
-      buildYear: this.vehicles[values.vehicle - 1].buildYear,
-      kilometers: this.vehicles[values.vehicle - 1].kilometers,
-      exteriorColorId: this.vehicles[values.vehicle - 1].exteriorColor.id,
-      interiorColorId: this.vehicles[values.vehicle - 1].interiorColor.id
+      buildYear: this.vehicles.find(v => v.id === Number(values.vehicle)).buildYear,
+      kilometers: this.vehicles.find(v => v.id === Number(values.vehicle)).kilometers,
+      exteriorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).exteriorColor.id,
+      interiorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).interiorColor.id
     };
   }
 
