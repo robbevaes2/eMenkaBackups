@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   vehicles: Vehicle[];
   public dataArray: Array<number> = [];
 
-  //pie chart
+  // pie chart
   public chartType: string = 'pie';
 
 
@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit {
     responsive: true
   };
 
-  // bar chart
+  // category bar chart
   public categoryChartType: string = 'bar';
 
   public categoryChartDatasets: Array<any> = [{
@@ -56,13 +56,6 @@ export class DashboardComponent implements OnInit {
   }];
 
   public categoryChartLabels: Array<any> = [];
-
-  public categoryChartColors: Array<any> = [
-    {
-      backgroundColor: [],
-      borderWidth: 2,
-    }
-  ];
 
   public categoryChartOptions: any = {
     responsive: true,
@@ -74,6 +67,7 @@ export class DashboardComponent implements OnInit {
       }]
     }
   };
+
 
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
@@ -98,8 +92,8 @@ export class DashboardComponent implements OnInit {
               }             
             });
         
-            this.chartLabels.forEach(j => {
-              this.dataArray.push(this.vehicles.filter((b) => (b.brand.name === j)).length);
+            this.chartLabels.forEach(i => {
+              this.dataArray.push(this.vehicles.filter((b) => (b.brand.name === i)).length);
             });
     
             this.chartDatasets = [{
