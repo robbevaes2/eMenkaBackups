@@ -77,18 +77,19 @@ export class DashboardComponent implements OnInit {
         this.vehicles = data;
 
         this.apiService.getAllBrands().subscribe(
-          data => {
-            data.forEach(element => {
-              this.chartLabels.push(element.name);
+          brandData => {
+            this.dataArray = [];
+
+            brandData.forEach(i => {
+              let test = this.vehicles.filter((b) => (b.brand.name === i.name)).length
+              
+              if(test > 0) {
+                this.chartLabels.push(i.name);
+              }             
             });
         
-            this.chartLabels.forEach(element => {
-              let test = this.vehicles.filter((b) => (b.brand.name === element)).length;
-
-              if(test > 0) {
-                this.dataArray.push(test);
-              }
-              //this.dataArray.push(this.vehicles.filter((b) => (b.brand.name === element)).length);
+            this.chartLabels.forEach(j => {
+              this.dataArray.push(this.vehicles.filter((b) => (b.brand.name === j)).length);
             });
     
             this.chartDatasets = [{

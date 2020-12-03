@@ -1,6 +1,8 @@
 <div class="row">
-    <div class="col-sm">
-        <div style="display: block">
+    <h1 class="col-10" id="page-title">Dashboard</h1>
+    <div class="col-md-5">
+        <h3 class="chart-title">Aantal voertuigen per merk</h3>
+        <div class="graph-container">
             <canvas mdbChart
                 [chartType]="chartType"
                 [datasets]="chartDatasets"
@@ -13,8 +15,9 @@
             </canvas>
         </div>
     </div>
-    <div class="col-sm">
-        <div style="display: block">
+    <div class="col-md-7">
+        <h3 class="chart-title">Aantal voertuigen per categorie</h3>
+        <div class="graph-container">
             <canvas mdbChart
                 [chartType]="categoryChartType"
                 [datasets]="categoryChartDatasets"
