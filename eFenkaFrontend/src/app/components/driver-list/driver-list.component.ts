@@ -4,6 +4,7 @@ import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstra
 import { Driver } from 'src/app/models/driver/driver';
 import { ApiService } from 'src/app/services/api.service';
 import { Language } from '../../enums/language/language.enum';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-driver-list',
@@ -11,6 +12,8 @@ import { Language } from '../../enums/language/language.enum';
   styleUrls: ['./driver-list.component.css']
 })
 export class DriverListComponent implements OnInit, AfterViewInit {
+  faCheck = faCheck;
+  faTimes = faTimes;
   drivers: Driver[];
   headNames  = ['Voornaam', 'Naam', 'Rijbewijs categorie', 'Rijbewijs nummer', 'Taal', 'Actief'];
   headElements  = ['driver.person.firstname', 'driver.person.lastname', 'driver.person.driversLicenseType', 'driver.person.driversLicenseNumber', 'getLanguageName(driver.person.language)', 'isDriverActive(driver)'];
