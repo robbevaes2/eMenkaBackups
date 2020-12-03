@@ -74,16 +74,20 @@ describe('ApiService', () => {
     });
   });
 
-  // describe('#getVehicleById', () => {
-  //   it('should throw an error if vehicle was not found', () => {
-  //     const vehicleId = 1;
+  describe('#getVehicleById', () => {
+    it('should throw an error if vehicle was not found', () => {
+      const vehicleId = 1;
+      let response: any;
+      let errResponse: any;
+      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+      const data = 'Invalid request parameters';
 
-  //     service.getVehicleById(vehicleId).subscribe();
-  //     const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
-  //     const msg = '404 error';
-  //     req.flush(msg, { status: 404, statusText: 'Not Found' });
-  //   });
-  // });
+      service.getVehicleById(vehicleId).subscribe(res => response = res, err => errResponse = err);
+      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
+      //expect(errResponse).toBe(data);
+      req.flush(data, mockErrorResponse);
+    });
+  });
 
   describe('#getVehicleById', () => {
     it('should throw an error if something is wrong with the connection', () => {
