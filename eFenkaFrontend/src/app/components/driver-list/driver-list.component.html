@@ -41,7 +41,8 @@
         <td >{{driver.person.driversLicenseNumber}}</td>
         <td >{{getLanguageName(driver.person.language)}}</td>
         <td >
-          <input type="checkbox" [checked]="isDriverActive(driver)" class="form-check-input">
+          <fa-icon [icon]="faCheck" *ngIf="isDriverActive(driver)"></fa-icon>
+          <fa-icon [icon]="faTimes" *ngIf="!isDriverActive(driver)"></fa-icon>
         </td>
       </tr>
     </tbody>
