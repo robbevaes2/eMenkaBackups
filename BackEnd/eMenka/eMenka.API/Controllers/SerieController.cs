@@ -1,10 +1,10 @@
-﻿using System.Linq;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace eMenka.API.Controllers
 {
@@ -44,7 +44,7 @@ namespace eMenka.API.Controllers
 
         public override IActionResult PostEntity(SerieModel model)
         {
-            if (_brandRepository.GetById((int) model.BrandId) == null)
+            if (_brandRepository.GetById((int)model.BrandId) == null)
                 return NotFound($"No brand with id {model.BrandId}");
 
             return base.PostEntity(model);
@@ -52,7 +52,7 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(SerieModel model, int id)
         {
-            if (_brandRepository.GetById((int) model.BrandId) == null)
+            if (_brandRepository.GetById((int)model.BrandId) == null)
                 return NotFound($"No brand with id {model.BrandId}");
 
             return base.UpdateEntity(model, id);

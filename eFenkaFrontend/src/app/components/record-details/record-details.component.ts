@@ -1,16 +1,16 @@
-import { ApiService } from 'src/app/services/api.service';
-import { Corporation } from '../../models/corporation/corporation';
-import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { Brand } from './../../models/brand/brand';
-import { Model } from './../../models/model/model';
-import { Vehicle } from './../../models/vehicle/vehicle';
-import { Country } from './../../models/country/country';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Record } from 'src/app/models/record/record';
-import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
-import { DatePipe } from '@angular/common';
+import {ApiService} from 'src/app/services/api.service';
+import {Corporation} from '../../models/corporation/corporation';
+import {FuelType} from 'src/app/models/fuel-type/fuel-type';
+import {Brand} from '../../models/brand/brand';
+import {Model} from '../../models/model/model';
+import {Vehicle} from '../../models/vehicle/vehicle';
+import {Country} from '../../models/country/country';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Record} from 'src/app/models/record/record';
+import {CostAllocation} from 'src/app/models/cost-allocatoin/cost-allocation';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-record-details',
@@ -35,7 +35,7 @@ export class RecordDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    public datepipe: DatePipe
+    private datepipe: DatePipe
   ) { }
 
   async ngOnInit(): Promise<any> {
@@ -102,7 +102,6 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls.costAllocation.setValue(this.selectedRecord.costAllocation.id);
     }
-
     this.form.controls.usage.setValue(this.selectedRecord.usage + 1);
     this.form.controls.driver.setValue(this.selectedRecord.fuelCard.driver);
     this.form.controls.brand.setValue(this.selectedRecord.fuelCard.vehicle.brand.id);
@@ -123,7 +122,6 @@ export class RecordDetailsComponent implements OnInit {
     } else {
       this.form.controls.interiorColor.setValue(this.selectedRecord.fuelCard.vehicle.interiorColor.id);
     }
-
   }
 
   disableForm(): void {
@@ -178,7 +176,6 @@ export class RecordDetailsComponent implements OnInit {
   onChangedVehicle(event): void {
     const vehicleId = event.target.value;
     console.log('changed with ' + vehicleId);
-
     this.apiService.getVehicleById(vehicleId).subscribe((data) => {
       this.form.controls.licensePlate.setValue(data.licensePlate);
       this.form.controls.chassis.setValue(data.chassis);
@@ -209,7 +206,7 @@ export class RecordDetailsComponent implements OnInit {
 
   deleteRecord(): void {
     if (confirm('Are you sure you want to delete this vehicle?')) {
-      this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
+        this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
     }
   }
 

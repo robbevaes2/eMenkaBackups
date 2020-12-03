@@ -21,7 +21,7 @@ namespace eMenka.API.Controllers
         [HttpPost]
         public override IActionResult PostEntity([FromBody] CorporationModel model)
         {
-            if (_companyRepository.GetById((int) model.CompanyId) == null)
+            if (_companyRepository.GetById((int)model.CompanyId) == null)
                 return NotFound($"Company with id {model.CompanyId} not found");
 
             return base.PostEntity(model);
@@ -29,7 +29,7 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(CorporationModel model, int id)
         {
-            if (_companyRepository.GetById((int) model.CompanyId) == null)
+            if (_companyRepository.GetById((int)model.CompanyId) == null)
                 return NotFound($"Company with id {model.CompanyId} not found");
 
             return base.UpdateEntity(model, id);

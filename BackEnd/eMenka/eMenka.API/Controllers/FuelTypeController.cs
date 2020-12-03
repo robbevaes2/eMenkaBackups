@@ -13,6 +13,7 @@ namespace eMenka.API.Controllers
         public FuelTypeController(IFuelTypeRepository fuelTypeRepository) : base(fuelTypeRepository,
             new FuelTypeMapper())
         {
+
         }
     }
 }

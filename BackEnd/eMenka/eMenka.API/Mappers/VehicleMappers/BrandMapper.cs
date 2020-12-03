@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using eMenka.API.Models.VehicleModels;
+﻿using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
+using System.Linq;
 
 namespace eMenka.API.Mappers.VehicleMappers
 {

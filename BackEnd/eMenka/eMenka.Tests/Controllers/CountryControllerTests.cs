@@ -31,7 +31,7 @@ namespace eMenka.Tests.Controllers
             var result = countryController.GetEntityById(1) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
-            Assert.That((CountryReturnModel) result.Value, Is.Not.Null);
+            Assert.That((CountryReturnModel)result.Value, Is.Not.Null);
         }
     }
 }

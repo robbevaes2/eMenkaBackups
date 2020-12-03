@@ -32,7 +32,7 @@ namespace eMenka.API.Mappers.FuelCardMappers
             {
                 Id = model.Id,
                 EndDate = model.EndDate,
-                PersonId = (int) model.PersonId,
+                PersonId = (int)model.PersonId,
                 StartDate = model.StartDate
             };
         }
