@@ -15,12 +15,14 @@
         <div class="col-md-6">
           <div>
             <label for="licensePlate">License plate:</label>
-            <input type="text" id="licensePlate" min="0" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
+            <input type="text" id="licensePlate" min="0" formControlName="licensePlate"
+                   class="col-md-12 browser-default custom-select">
           </div>
 
           <div>
             <label for="drivers">Bestuurder:</label>
-            <select name="drivers" id="drivers" formControlName="driver" class="col-md-12 browser-default custom-select">
+            <select name="drivers" id="drivers" formControlName="driver"
+                    class="col-md-12 browser-default custom-select">
               <option [ngValue]="null" disabled>-</option>
               <option *ngFor="let driver of drivers"
                       [value]="driver.id">
@@ -45,19 +47,39 @@
           </div>
 
           <div>
-            <label for="startDate">Start Datum:</label>
+            <label for="startDate">Begindatum:</label>
             <input type="date" id="startDate" formControlName="startDate"
                    class="col-md-12 browser-default custom-select">
           </div>
 
           <div>
-            <label for="endDate">Start Datum:</label>
+            <label for="endDate">Einddatum:</label>
             <input type="date" id="endDate" formControlName="endDate"
                    class="col-md-12 browser-default custom-select">
           </div>
         </div>
         <div class="col-md-6">
-          <div class="form-check"></div>
+          <br>
+
+          <button [disabled]="!isEditable"
+            [ngClass]="{'btn-danger': isBlocked,'btn-success': !isBlocked}"
+            type="button" id="blocked" class="btn btn-primary custom-control-inline"
+            (click)="changeBlocked()">{{this.isBlocked ? "Geblokkeerd" : "Actief"}}
+          </button>
+
+          <div [hidden]="!isBlocked">
+            <div>
+              <label for="blockedDate">Blokkeerdatum:</label>
+              <input type="date" id="blockedDate" formControlName="blockedDate"
+                     class="col-md-12 browser-default custom-select">
+            </div>
+            <div>
+              <label for="blockedReason">Reden:</label>
+              <input type="text" id="blockedReason" formControlName="blockedReason"
+                     class="col-md-12 browser-default custom-select">
+            </div>
+          </div>
+
         </div>
       </div>
     </form>

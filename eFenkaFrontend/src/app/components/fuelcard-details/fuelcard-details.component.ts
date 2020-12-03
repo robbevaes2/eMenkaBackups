@@ -6,6 +6,7 @@ import {Vehicle} from '../../models/vehicle/vehicle';
 import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
 import {ApiService} from '../../services/api.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-fuelcard-details',
@@ -28,13 +29,15 @@ export class FuelcardDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private apiService: ApiService) {
+              private apiService: ApiService,
+              private datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
     const fuelCardId = this.route.snapshot.params.index;
     this.apiService.getFuelCardById(fuelCardId).subscribe(fc => {
       this.selectedFuelCard = fc;
+      this.isBlocked = this.selectedFuelCard.isBlocked;
       this.apiService.getAllDrivers().subscribe(drivers => {
         this.drivers = drivers;
         this.apiService.getAllCompanies().subscribe(companies => {
@@ -55,6 +58,9 @@ export class FuelcardDetailsComponent implements OnInit {
       fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
       startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      blockedDate: new FormControl(null, null),
+      blockedReason: new FormControl(null, null)
+
     });
   }
 
@@ -65,9 +71,16 @@ export class FuelcardDetailsComponent implements OnInit {
   saveEditFuelCard(form: FormGroup): void {
     if (this.isEditable) {
       if (confirm('Bent u zeker dat u deze wijzigingen wil opslaan?')) {
-        // Save vehicle and assign new vehicle (get request by vehicleId) to selectedVehicle
-        // this.fillForm();
-        this.disableForm();
+        const model = this.mapToModel(form.value);
+        console.log(model);
+        this.apiService.updateFuelCard(this.selectedFuelCard.id, model).subscribe(() => {
+          this.apiService.getFuelCardById(this.selectedFuelCard.id).subscribe(fc => {
+            this.selectedFuelCard = fc;
+            this.isBlocked = this.selectedFuelCard.isBlocked;
+            this.fillForm();
+            this.disableForm();
+          });
+        });
       }
     } else {
       this.enableForm();
@@ -102,12 +115,21 @@ export class FuelcardDetailsComponent implements OnInit {
       this.form.controls.company.setValue(this.selectedFuelCard?.company?.id);
     }
     if (this.selectedFuelCard.startDate) {
-      const date = new Date(this.selectedFuelCard.startDate).toISOString().substring(0, 10);
+      const date = this.datepipe.transform(new Date(this.selectedFuelCard.startDate), 'yyyy-MM-dd');
       this.form.controls.startDate.setValue(date);
     }
     if (this.selectedFuelCard.endDate) {
-      const date = new Date(this.selectedFuelCard.endDate).toISOString().substring(0, 10);
+      const date = this.datepipe.transform(new Date(this.selectedFuelCard.endDate), 'yyyy-MM-dd');
       this.form.controls.endDate.setValue(date);
+    }
+    if (this.isBlocked) {
+      const date = this.datepipe.transform(new Date(this.selectedFuelCard.blockingDate), 'yyyy-MM-dd');
+      this.form.controls.blockedDate.setValue(date);
+      this.form.controls.blockedReason.setValue(this.selectedFuelCard.blockingReason);
+    } else {
+      const date = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
+      this.form.controls.blockedDate.setValue(date);
+      this.form.controls.blockedReason.setValue('');
     }
   }
 
@@ -118,13 +140,36 @@ export class FuelcardDetailsComponent implements OnInit {
     this.form.controls.fuelType.disable();
     this.form.controls.startDate.disable();
     this.form.controls.endDate.disable();
+    this.form.controls.blockedReason.disable();
+    this.form.controls.blockedDate.disable();
     this.isEditable = false;
   }
 
   enableForm(): void {
-    this.form.controls.drivers.enable();
+    this.form.controls.driver.enable();
+    this.form.controls.startDate.enable();
     this.form.controls.endDate.enable();
+    this.form.controls.blockedReason.enable();
+    this.form.controls.blockedDate.enable();
     this.isEditable = true;
   }
 
+  private mapToModel(values: any): any {
+    return {
+      DriverId: values.driver,
+      VehicleId: this.selectedFuelCard.vehicle.id,
+      StartDate: values.startDate,
+      EndDate: values.endDate,
+      IsBlocked: this.isBlocked,
+      BlockingDate: this.isBlocked ? values.blockedDate : null,
+      BlockingReason: this.isBlocked ? values.blockedReason : null,
+      PinCode: this.selectedFuelCard.pinCode,
+      Number: this.selectedFuelCard.fuelCardNumber,
+      Id: this.selectedFuelCard.id
+    };
+  }
+
+  changeBlocked(): void {
+    this.isBlocked = !this.isBlocked;
+  }
 }

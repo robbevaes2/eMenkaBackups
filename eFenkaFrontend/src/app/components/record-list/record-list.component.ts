@@ -29,7 +29,7 @@ export class RecordListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerse Registratie', 'Eind Datum'];
+    this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerste Registratie', 'Eind Datum'];
 
     this.apiService.getAllRecords().subscribe(data => {
       this.records = data;

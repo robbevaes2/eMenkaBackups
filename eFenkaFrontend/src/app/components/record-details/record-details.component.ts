@@ -35,7 +35,7 @@ export class RecordDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    public datepipe: DatePipe
+    private datepipe: DatePipe
   ) { }
 
   async ngOnInit(): Promise<any> {

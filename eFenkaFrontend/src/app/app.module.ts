@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
-import { DatePipe } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
@@ -47,7 +47,8 @@ import { NewDriverItemComponent } from './components/new-driver-item/new-driver-
     NgxPaginationModule,
     ReactiveFormsModule,
     MDBBootstrapModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [ApiService, DatePipe],
   bootstrap: [AppComponent]
