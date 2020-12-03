@@ -19,6 +19,7 @@ import { Category } from '../models/category/category';
 import { Country } from '../models/country/country';
 import { Driver } from '../models/driver/driver';
 import { Person } from '../models/person/person';
+import { HttpErrorResponse } from '@angular/common/http';
 
 describe('ApiService', () => {
   let injector: TestBed;
@@ -70,6 +71,28 @@ describe('ApiService', () => {
       const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
       expect(req.request.method).toBe('GET');
       req.flush(vehicle);
+    });
+  });
+
+  // describe('#getVehicleById', () => {
+  //   it('should throw an error if vehicle was not found', () => {
+  //     const vehicleId = 1;
+
+  //     service.getVehicleById(vehicleId).subscribe();
+  //     const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
+  //     const msg = '404 error';
+  //     req.flush(msg, { status: 404, statusText: 'Not Found' });
+  //   });
+  // });
+
+  describe('#getVehicleById', () => {
+    it('should throw an error if something is wrong with the connection', () => {
+      const vehicleId = 1;
+
+      service.getVehicleById(vehicleId).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
+      req.error(new ErrorEvent('error'));
     });
   });
 
@@ -159,8 +182,8 @@ describe('ApiService', () => {
     });
   });
 
-  describe('#addVehicle', () => {
-    it('should add vehicle', () => {
+  describe('#addRecord', () => {
+    it('should add record', () => {
       const newRecord = dummyData.getRecords()[0];
 
       service.addRecord(newRecord).subscribe();
@@ -175,9 +198,9 @@ describe('ApiService', () => {
     it('should delete record', () => {
       const recordId = 1;
 
-      service.deleteVehicle(recordId).subscribe();
+      service.deleteRecord(recordId).subscribe();
 
-      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${recordId}`);
+      const req = httpMock.expectOne(`${service.BASE_API_URL}record/${recordId}`);
       expect(req.request.method).toBe('DELETE');
       req.flush(recordId);
     });
@@ -197,6 +220,21 @@ describe('ApiService', () => {
       const req = httpMock.expectOne(`${service.BASE_API_URL}brand/`);
       expect(req.request.method).toBe('GET');
       req.flush(brands);
+    });
+  });
+
+  describe('#getBrandById', () => {
+    it('should return a record', () => {
+      const brandId = 1;
+      const brand = dummyData.getBrands()[0];
+
+      service.getBrandById(brandId).subscribe(v => {
+        expect(v).toEqual(brand);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}brand/${brandId}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(brand);
     });
   });
 
