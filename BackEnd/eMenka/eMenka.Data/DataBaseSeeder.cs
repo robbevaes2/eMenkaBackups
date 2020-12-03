@@ -5,7 +5,7 @@ using System;
 
 namespace eMenka.Data
 {
-    public class DataBaseSeeder
+    public static class DataBaseSeeder
     {
         public static void SeedData(ModelBuilder builder)
         {
