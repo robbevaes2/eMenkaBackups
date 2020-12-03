@@ -20,7 +20,7 @@ namespace eMenka.Domain.Classes
         public FuelType FuelType { get; set; }
         public int? FuelTypeId { get; set; }
         public int? EngineCapacity { get; set; }
-        public int EnginePower { get; set; }
+        public int? EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
         public int? Volume { get; set; }

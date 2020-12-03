@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using eMenka.Domain.Classes;
+﻿using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace eMenka.Tests.Classes
 {

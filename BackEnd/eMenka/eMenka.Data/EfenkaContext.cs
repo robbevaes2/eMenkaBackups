@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using eMenka.Domain;
+﻿using eMenka.Domain;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
+using System.Linq;
 
 namespace eMenka.Data
 {

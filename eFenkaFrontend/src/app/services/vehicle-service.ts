@@ -21,8 +21,9 @@ const BASE_API_FUEL_CARD = 'https://localhost:44356/api/fuelcard';
 const BASE_API_FUEL_TYPE = 'https://localhost:44356/api/fueltype';
 
 @Injectable()
-export class VehicleService{
-  constructor(private http: HttpClient) { }
+export class VehicleService {
+  constructor(private http: HttpClient) {
+  }
 
   getAllVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(BASE_API_VEHICLES).pipe(
@@ -36,20 +37,20 @@ export class VehicleService{
     );
   }
 
-  updateVehicle(id: number, updatedVehicle: Vehicle) {
+  updateVehicle(id: number, updatedVehicle: Vehicle): any {
     return this.http.put(BASE_API_VEHICLES + '/' + id, updatedVehicle).pipe(
       catchError(this.handleError)
     );
   }
 
-  addVehicle(vehicleModel: any) {
+  addVehicle(vehicleModel: any): any {
     console.log(vehicleModel);
     return this.http.post(BASE_API_VEHICLES, vehicleModel).pipe(
       catchError(this.handleError)
     );
   }
 
-  deleteVehicle(id: string) {
+  deleteVehicle(id: string): any {
     return this.http.delete(BASE_API_VEHICLES + '/' + id).pipe(
       catchError(this.handleError)
     );
@@ -97,7 +98,7 @@ export class VehicleService{
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse): Observable<any> {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {

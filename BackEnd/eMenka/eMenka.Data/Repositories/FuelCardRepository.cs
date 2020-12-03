@@ -1,10 +1,10 @@
-﻿using System;
+﻿using eMenka.Data.IRepositories;
+using eMenka.Domain.Classes;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using eMenka.Data.IRepositories;
-using eMenka.Domain.Classes;
-using Microsoft.EntityFrameworkCore;
 
 namespace eMenka.Data.Repositories
 {
@@ -22,6 +22,7 @@ namespace eMenka.Data.Repositories
             return _context.FuelCards
                 .Include(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
+                .Include(fc => fc.Company)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Brand)
                 .ThenInclude(b => b.InteriorColors)
@@ -50,6 +51,13 @@ namespace eMenka.Data.Repositories
         public override FuelCard GetById(int id)
         {
             return _context.FuelCards
+                .Include(fc=>fc.Company)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.ExteriorColors)
+                .Include(fc => fc.Vehicle)
+                .ThenInclude(v => v.Brand)
+                .ThenInclude(b => b.InteriorColors)
                 .Include(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Vehicle)

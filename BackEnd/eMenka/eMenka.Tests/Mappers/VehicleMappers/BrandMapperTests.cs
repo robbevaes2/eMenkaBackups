@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace eMenka.Tests.Mappers.VehicleMappers
 {

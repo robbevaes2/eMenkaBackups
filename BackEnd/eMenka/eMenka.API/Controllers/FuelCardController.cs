@@ -26,10 +26,10 @@ namespace eMenka.API.Controllers
 
         public override IActionResult PostEntity(FuelCardModel model)
         {
-            if (_driverRepository.GetById((int) model.DriverId) == null)
+            if (_driverRepository.GetById((int)model.DriverId) == null)
                 return NotFound($"Driver with id {model.DriverId} not found");
 
-            var vehicle = _vehicleRepository.GetById((int) model.VehicleId);
+            var vehicle = _vehicleRepository.GetById((int)model.VehicleId);
 
             if (vehicle == null)
                 return NotFound($"Vehicles with id {model.VehicleId} not found");
@@ -48,10 +48,10 @@ namespace eMenka.API.Controllers
 
         public override IActionResult UpdateEntity(FuelCardModel model, int id)
         {
-            if (_driverRepository.GetById((int) model.DriverId) == null)
+            if (_driverRepository.GetById((int)model.DriverId) == null)
                 return NotFound($"Driver with id {model.DriverId} not found");
 
-            if (_vehicleRepository.GetById((int) model.VehicleId) == null)
+            if (_vehicleRepository.GetById((int)model.VehicleId) == null)
                 return NotFound($"Vehicles with id {model.VehicleId} not found");
 
             return base.UpdateEntity(model, id);

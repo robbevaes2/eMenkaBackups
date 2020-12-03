@@ -29,7 +29,7 @@ namespace eMenka.API.Mappers.VehicleMappers
         {
             return new EngineType
             {
-                BrandId = (int) model.BrandId,
+                BrandId = (int)model.BrandId,
                 Id = model.Id,
                 Name = model.Name
             };
