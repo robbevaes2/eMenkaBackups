@@ -23,8 +23,6 @@ export class RecordListComponent implements OnInit, AfterViewInit {
   searchText = '';
   previous: string;
 
-  maxVisibleItems = 3;
-
   constructor(private router: Router, private cdRef: ChangeDetectorRef, private apiService: ApiService) {
   }
 

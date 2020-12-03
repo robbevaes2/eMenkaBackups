@@ -1,41 +1,42 @@
-<div class="container">
-  <div class="row ml-1 mr-1">
-    <h1 class="col-10">Tankkaarten</h1>
-    <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewFuelCardComponent()">
-      toevoegen
-    </button>
-  </div>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th scope="col">Nummerplaat</th>
-        <th scope="col" (click)="sortByDriver()">Bestuurder</th>
-        <th scope="col">Leverancier</th>
-        <th scope="col">Brandstof</th>
-        <th scope="col" (click)="sortByDate('startDate')">Startdatum</th>
-        <th scope="col" (click)="sortByDate('endDate')">Einddatum</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let fuelCard of fuelCards | paginate: { itemsPerPage: selectedAmount, currentPage: page }"
-          (click)="navigateToFuelCardDetailsComponent(fuelCard.id)">
-
-        <td scope="row">{{ fuelCard.vehicle?fuelCard.vehicle.licensePlate:"" }}</td>
-        <td>{{ fuelCard.driver ? getFullName(fuelCard.driver.person) : "" }}</td>
-        <td>{{ fuelCard.company? fuelCard.company.name:"" }}</td>
-        <td>{{ fuelCard.vehicle?fuelCard.vehicle.fuelType.name:"" }}</td>
-        <td>{{ fuelCard.startDate | date: 'dd/MM/yyyy' }}</td>
-        <td>{{ fuelCard.endDate | date: 'dd/MM/yyyy' }}</td>
-
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true"
-                       (pageChange)="switchPage($event)"></pagination-controls>
-  <select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
-    <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount">{{pageAmount}} items per page</option>
-  </select>
+<div class="row mr-1">
+  <h1 class="col-10">Tankkaarten</h1>
+  <button type="button" id="add-button" class="btn btn-primary col-md-2" (click)="navigateToNewFuelCardComponent()">Toevoegen</button>
 </div>
-
+<div class="md-form">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    class="form-control"
+    id="search"
+    (ngModelChange)="searchItems()"
+    mdbInput
+  />
+  <label for="search">Search</label>
+</div>
+<div class="table-responsive">
+  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="fuelCards" [sortBy]="headElements[i]" scope="col">
+          {{head | titlecase}}
+          <mdb-icon fas icon="sort"></mdb-icon>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let fuelCard of fuelCards"(click)="navigateToFuelCardDetailsComponent(fuelCard.id)">
+      <td>{{ fuelCard.vehicle?fuelCard.vehicle.licensePlate:"" }}</td>
+      <td>{{ fuelCard.driver? getFullName(fuelCard.driver.person) : "" }}</td>
+      <td>{{ fuelCard.company?fuelCard.company.name:"" }}</td>
+      <td>{{ fuelCard.vehicle?fuelCard.vehicle.fuelType.name:"" }}</td>
+      <td>{{ fuelCard.startDate | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ fuelCard.endDate | date: 'dd/MM/yyyy' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true"
+                      (pageChange)="switchPage($event)"></pagination-controls>
+<select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
+  <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount">{{pageAmount}} items per page</option>
+</select> -->
