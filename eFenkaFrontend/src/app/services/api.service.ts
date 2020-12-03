@@ -190,30 +190,10 @@ export class ApiService {
   // Company
 
   getAllCompanies(): any {
-    return this.http.get<Company[]>('company/').pipe(
+    return this.getFromAPI<Company[]>('company/').pipe(
       catchError(this.handleError)
     );
   }
-
-  updateCompany(id: number, updatedCompany: Company): any {
-    return this.http.put('company/' + id, updatedCompany).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  addCompany(CompanyModel: any): any {
-    console.log(CompanyModel);
-    return this.http.post('company/', CompanyModel).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  deleteCompany(id: string): any {
-    return this.http.delete('company/' + id).pipe(
-      catchError(this.handleError)
-    );
-  }
-
   // Corporation
 
   getAllCorporations(): Observable<Corporation[]> {
