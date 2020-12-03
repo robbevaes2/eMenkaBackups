@@ -19,6 +19,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
 import { DatePipe } from '@angular/common';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DatePipe } from '@angular/common';
     RecordListComponent,
     VehicleDetailsComponent,
     NewRecordItemComponent,
-    RecordDetailsComponent
+    RecordDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
