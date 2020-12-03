@@ -4037,7 +4037,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 6,
-                    EndDateDelivery = new DateTime(2009, 12, 5)
+                    EndDateDelivery = new DateTime(2009, 12, 5),
+                    FuelCardId = 33
                 },
                 new Vehicle
                 {
@@ -4060,7 +4061,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 7,
-                    EndDateDelivery = new DateTime(2009, 10, 7)
+                    EndDateDelivery = new DateTime(2009, 10, 7),
+                    FuelCardId = 34
                 },
                 new Vehicle
                 {
@@ -4082,7 +4084,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 8,
-                    EndDateDelivery = new DateTime(2009, 7, 5)
+                    EndDateDelivery = new DateTime(2009, 7, 5),
+                    FuelCardId = 35
                 },
                 new Vehicle
                 {
@@ -4105,7 +4108,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 9,
-                    EndDateDelivery = new DateTime(2009, 1, 1)
+                    EndDateDelivery = new DateTime(2009, 1, 1),
+                    FuelCardId = 36
                 },
                 new Vehicle
                 {
@@ -4128,7 +4132,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 10,
-                    EndDateDelivery = new DateTime(2009, 1, 30)
+                    EndDateDelivery = new DateTime(2009, 1, 30),
+                    FuelCardId = 37
                 },
                 new Vehicle
                 {
@@ -4150,7 +4155,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 11,
-                    EndDateDelivery = new DateTime(2021, 1, 30)
+                    EndDateDelivery = new DateTime(2021, 1, 30),
+                    FuelCardId = 38
                 },
                 new Vehicle
                 {
@@ -4173,7 +4179,8 @@ namespace eMenka.Data
                     CategoryId = 1,
                     InteriorColorId = 1,
                     ExteriorColorId = 12,
-                    EndDateDelivery = new DateTime(2020, 1, 30)
+                    EndDateDelivery = new DateTime(2020, 1, 30),
+                    FuelCardId = 39
                 },
                 new Vehicle
                 {
@@ -7175,6 +7182,7 @@ namespace eMenka.Data
                     Number = "0009",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "7008"
@@ -7186,6 +7194,7 @@ namespace eMenka.Data
                     Number = "0002",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "2938"
@@ -7221,6 +7230,7 @@ namespace eMenka.Data
                     Number = "0005",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = true,
                     BlockingDate = new DateTime(2017, 8, 23),
                     BlockingReason = "test",
@@ -7233,6 +7243,7 @@ namespace eMenka.Data
                     Number = "0006",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "4606"
@@ -7244,6 +7255,7 @@ namespace eMenka.Data
                     Number = "0007",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "6491"
@@ -7255,6 +7267,7 @@ namespace eMenka.Data
                     Number = "0008",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "401"
@@ -7266,6 +7279,7 @@ namespace eMenka.Data
                     Number = "0010",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "7861"
@@ -7277,6 +7291,7 @@ namespace eMenka.Data
                     Number = "0011",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = true,
                     BlockingDate = new DateTime(2017, 8, 23),
                     BlockingReason = "ok",
@@ -7289,6 +7304,7 @@ namespace eMenka.Data
                     Number = "0139",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "9183"
@@ -7300,6 +7316,7 @@ namespace eMenka.Data
                     Number = "0014",
                     CompanyId = 4,
                     StartDate = new DateTime(2010, 5, 19),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "6325"
@@ -7311,6 +7328,7 @@ namespace eMenka.Data
                     Number = "0019",
                     CompanyId = 4,
                     StartDate = new DateTime(2012, 8, 13),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "3030"
@@ -7322,6 +7340,7 @@ namespace eMenka.Data
                     Number = "0020",
                     CompanyId = 4,
                     StartDate = new DateTime(2012, 8, 20),
+                    EndDate = new DateTime(2012, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "3315"
@@ -7333,6 +7352,7 @@ namespace eMenka.Data
                     Number = "0100",
                     CompanyId = 4,
                     StartDate = new DateTime(2013, 12, 9),
+                    EndDate = new DateTime(2014, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "7491"
@@ -7344,6 +7364,7 @@ namespace eMenka.Data
                     Number = "0021",
                     CompanyId = 4,
                     StartDate = new DateTime(2013, 9, 12),
+                    EndDate = new DateTime(2014, 12, 20),
                     IsBlocked = false,
                     PinCode = "9363"
                 },
@@ -7354,16 +7375,18 @@ namespace eMenka.Data
                     Number = "0017",
                     CompanyId = 4,
                     StartDate = new DateTime(2012, 2, 24),
+                    EndDate = new DateTime(2014, 12, 20),
                     IsBlocked = false,
                     PinCode = "1312"
                 },
                 new FuelCard
                 {
                     Id = 31,
-                    DriverId = null,
+                    DriverId = 31,
                     Number = "0129",
                     CompanyId = 4,
                     StartDate = new DateTime(2012, 2, 24),
+                    EndDate = new DateTime(2014, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "2765"
@@ -7371,10 +7394,11 @@ namespace eMenka.Data
                 new FuelCard
                 {
                     Id = 32,
-                    DriverId = null,
+                    DriverId = 32,
                     Number = "0016",
                     CompanyId = 4,
                     StartDate = new DateTime(2011, 5, 19),
+                    EndDate = new DateTime(2014, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "535"
@@ -7382,17 +7406,18 @@ namespace eMenka.Data
                 new FuelCard
                 {
                     Id = 33,
-                    DriverId = null,
+                    DriverId = 33,
                     Number = "0023",
                     CompanyId = 4,
                     StartDate = new DateTime(2016, 1, 1),
+                    EndDate = new DateTime(2017, 12, 20),
                     IsBlocked = false,
                     PinCode = "****"
                 },
                 new FuelCard
                 {
                     Id = 34,
-                    DriverId = null,
+                    DriverId = 34,
                     Number = "0001",
                     CompanyId = 15,
                     StartDate = new DateTime(2017, 4, 25),
@@ -7405,10 +7430,11 @@ namespace eMenka.Data
                 new FuelCard
                 {
                     Id = 35,
-                    DriverId = null,
+                    DriverId = 35,
                     Number = "1234",
                     CompanyId = 4,
                     StartDate = new DateTime(2014, 4, 26),
+                    EndDate = new DateTime(2017, 12, 20),
                     IsBlocked = false,
                     BlockingReason = "",
                     PinCode = "1234"
@@ -7416,37 +7442,40 @@ namespace eMenka.Data
                 new FuelCard
                 {
                     Id = 36,
-                    DriverId = null,
+                    DriverId = 36,
                     Number = "Test",
                     CompanyId = 24,
                     StartDate = new DateTime(2020, 4, 3),
+                    EndDate = new DateTime(2021, 12, 20),
                     IsBlocked = false,
                     PinCode = "12345678"
                 },
                 new FuelCard
                 {
                     Id = 37,
-                    DriverId = null,
+                    DriverId = 37,
                     Number = "008",
                     CompanyId = 19,
                     StartDate = new DateTime(2020, 3, 25),
+                    EndDate = new DateTime(2021, 12, 20),
                     IsBlocked = false,
                     PinCode = "88"
                 },
                 new FuelCard
                 {
                     Id = 38,
-                    DriverId = null,
+                    DriverId = 38,
                     Number = "Test Nummer",
                     CompanyId = 19,
                     StartDate = new DateTime(2020, 1, 3),
+                    EndDate = new DateTime(2021, 12, 20),
                     IsBlocked = false,
                     PinCode = "1234"
                 },
                 new FuelCard
                 {
                     Id = 39,
-                    DriverId = null,
+                    DriverId = 39,
                     Number = "123456789",
                     CompanyId = 19,
                     StartDate = new DateTime(2020, 3, 14),
