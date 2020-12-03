@@ -2984,1062 +2984,1222 @@ namespace eMenka.Data
                     Id = 1, Volume = 3112, CountryId = 1, BuildYear = 2005, LicensePlate = "1ABQ121",
                     Chassis = "SJNFDAE11U2117751", Emission = 123, FuelCardId = 1, BrandId = 4, ModelId = 11,
                     SeriesId = 4, EngineTypeId = 8, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 74,
-                    FiscalHP = 9, EndDateDelivery = new DateTime(2009, 12, 31), FuelTypeId = 10
+                    FiscalHP = 9, EndDateDelivery = new DateTime(2009, 12, 31), FuelTypeId = 10, CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 2, Volume = 3117, CountryId = 1, BuildYear = 2001, LicensePlate = "1ACS122",
                     Chassis = "0azerty", Emission = 134, FuelCardId = 3, BrandId = 1, ModelId = 5, SeriesId = 17,
                     EngineTypeId = 13, DoorTypeId = 1, EngineCapacity = 1995, EnginePower = 130, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2013, 12, 1), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2013, 12, 1), FuelTypeId = 10, CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 3, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1ADB123",
                     Chassis = "W0LPE9EM4D2025752", Emission = 145, FuelCardId = 2, BrandId = 3, ModelId = 8,
                     SeriesId = 3, EngineTypeId = 24, DoorTypeId = 2, EngineCapacity = 1577, EnginePower = 80,
-                    FiscalHP = 9, EndDateDelivery = new DateTime(2009, 05, 19), FuelTypeId = 9
+                    FiscalHP = 9, EndDateDelivery = new DateTime(2009, 05, 19), FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 4, Volume = 3116, CountryId = 1, BuildYear = 2003, LicensePlate = "1AEB124",
                     Chassis = "7897456", Emission = 156, FuelCardId = 4, BrandId = 4, ModelId = 12, SeriesId = 5,
                     EngineTypeId = 5, DoorTypeId = 2, EngineCapacity = 1910, EnginePower = 74, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2020, 01, 1), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2020, 01, 1), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 5, Volume = 3114, CountryId = 1, BuildYear = 2004, LicensePlate = "1BFB125",
                     Chassis = "547854", Emission = 167, FuelCardId = 6, BrandId = 4, ModelId = 14, SeriesId = 4,
                     EngineTypeId = 5, DoorTypeId = 1, EngineCapacity = 1990, EnginePower = 124, FiscalHP = 11,
-                    EndDateDelivery = new DateTime(2014, 03, 4), FuelTypeId = 9
+                    EndDateDelivery = new DateTime(2014, 03, 4), FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 6, Volume = 3115, CountryId = 1, BuildYear = 2005, LicensePlate = "1BGB126",
                     Chassis = "MKLI89Y77Y67UI", Emission = 178, FuelCardId = 5, BrandId = 1, ModelId = 2, SeriesId = 2,
                     EngineTypeId = 1, DoorTypeId = 3, EngineCapacity = 1995, EnginePower = 90, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2011, 12, 31), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2011, 12, 31), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 7, Volume = 3116, CountryId = 1, BuildYear = 2006, LicensePlate = "1BHB127",
                     Chassis = "W0L0AHM759G027219", Emission = 189, FuelCardId = 9, BrandId = 1, ModelId = 4,
                     SeriesId = 1, EngineTypeId = 2, DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 165,
-                    FiscalHP = 12, EndDateDelivery = new DateTime(2013, 05, 15), FuelTypeId = 10
+                    FiscalHP = 12, EndDateDelivery = new DateTime(2013, 05, 15), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 8, Volume = 3118, CountryId = 1, BuildYear = 2007, LicensePlate = "1BIB138", Chassis = "nvt",
                     Emission = 196, FuelCardId = 8, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 10,
                     DoorTypeId = 1, EngineCapacity = 2100, EnginePower = 120, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2012, 01, 1), FuelTypeId = 9
+                    EndDateDelivery = new DateTime(2012, 01, 1), FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 9, Volume = 3114, CountryId = 1, BuildYear = 2008, LicensePlate = "1CJB139", Chassis = "100",
                     Emission = 103, FuelCardId = 7, BrandId = 7, ModelId = 18, SeriesId = 18, EngineTypeId = 9,
                     DoorTypeId = 4, EngineCapacity = 1560, EnginePower = 123, FiscalHP = 9,
-                    EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 10, Volume = 3119, CountryId = 1, BuildYear = 2009, LicensePlate = "1CKB130",
                     Chassis = "1515154", Emission = 112, FuelCardId = 10, BrandId = 6, ModelId = 17, SeriesId = 12,
                     EngineTypeId = 14, DoorTypeId = 4, EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 11, Volume = 3117, CountryId = 1, BuildYear = 2000, LicensePlate = "1CLB231",
                     Chassis = "W0LPD6EW6DG097221", Emission = 121, FuelCardId = 12, BrandId = 1, ModelId = 1,
                     SeriesId = 17, EngineTypeId = 13, DoorTypeId = 2, EngineCapacity = 1995, EnginePower = 120,
-                    FiscalHP = 11, EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10
+                    FiscalHP = 11, EndDateDelivery = new DateTime(2013, 01, 1), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 12, Volume = 3112, CountryId = 1, BuildYear = 2001, LicensePlate = "1CMB232", Chassis = "145",
                     Emission = 130, FuelCardId = 11, BrandId = 4, ModelId = 13, SeriesId = 4, EngineTypeId = 15,
-                    DoorTypeId = 2, EngineCapacity = 1248, EnginePower = 66, FiscalHP = 7, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1248, EnginePower = 66, FiscalHP = 7, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 13, Volume = 3113, CountryId = 1, BuildYear = 2002, LicensePlate = "1CAB233",
                     Chassis = "W0L0ZCF3581087846", Emission = 146, FuelCardId = 13, BrandId = 1, ModelId = 2,
                     SeriesId = 1, EngineTypeId = 2, DoorTypeId = 2, EngineCapacity = 1999, EnginePower = 90,
-                    FiscalHP = 11, EndDateDelivery = new DateTime(2014, 01, 1), FuelTypeId = 10
+                    FiscalHP = 11, EndDateDelivery = new DateTime(2014, 01, 1), FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 14, Volume = 3111, CountryId = 1, BuildYear = 2003, LicensePlate = "1DZB234",
                     Chassis = "U5YZU81UABL093503", Emission = 122, FuelCardId = 15, BrandId = 11, ModelId = 24,
                     SeriesId = 22, EngineTypeId = 18, DoorTypeId = 4, EngineCapacity = 2000, EnginePower = 136,
-                    FiscalHP = 11, FuelTypeId = 10
+                    FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 15, Volume = 3130, CountryId = 1, BuildYear = 2004, LicensePlate = "1DEB235",
                     Chassis = "W0LGT8EL1D1035314", Emission = 131, FuelCardId = 14, BrandId = 4, ModelId = 29,
                     SeriesId = 24, EngineTypeId = 20, DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 96,
-                    FiscalHP = 11, FuelTypeId = 10
+                    FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 16, Volume = 3131, CountryId = 1, BuildYear = 2005, LicensePlate = "1DRB236",
                     Chassis = "W0L0AHL4898044253", Emission = 143, FuelCardId = 16, BrandId = 11, ModelId = 27,
                     SeriesId = 23, EngineTypeId = 18, DoorTypeId = 2, EngineCapacity = 3232, EnginePower = 168,
-                    FiscalHP = 13, FuelTypeId = 9
+                    FiscalHP = 13, FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 17, Volume = 3133, CountryId = 1, BuildYear = 2006, LicensePlate = "1DTB247", Chassis = null,
                     Emission = 156, FuelCardId = 17, BrandId = 1, ModelId = 31, SeriesId = 16, EngineTypeId = 1,
-                    DoorTypeId = 4, EngineCapacity = 1800, EnginePower = 8, FiscalHP = 11, FuelTypeId = 9
+                    DoorTypeId = 4, EngineCapacity = 1800, EnginePower = 8, FiscalHP = 11, FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 18, Volume = 3132, CountryId = 1, BuildYear = 2007, LicensePlate = "1EYB349",
                     Chassis = "WBAWY31SDFDSGEGF21", Emission = 165, FuelCardId = 19, BrandId = 12, ModelId = 34,
                     SeriesId = 26, EngineTypeId = 21, DoorTypeId = 3, EngineCapacity = 1560, EnginePower = 66,
-                    FiscalHP = 9, FuelTypeId = 10
+                    FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 19, Volume = 3131, CountryId = 1, BuildYear = 2008, LicensePlate = "1EUB348",
                     Chassis = "NLHBB51RABZ026442", Emission = 184, FuelCardId = 18, BrandId = 5, ModelId = 15,
                     SeriesId = 30, EngineTypeId = 25, DoorTypeId = 4, EngineCapacity = 4500, EnginePower = 233,
-                    FiscalHP = 19, FuelTypeId = 9
+                    FiscalHP = 19, FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 20, Volume = 3135, CountryId = 1, BuildYear = 2009, LicensePlate = "1EIX347", Chassis = null,
                     Emission = 17, FuelCardId = 20, BrandId = 4, ModelId = 12, SeriesId = 4, EngineTypeId = 8,
-                    DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 21, Volume = 3130, CountryId = 1, BuildYear = 2000, LicensePlate = "1EOS346", Chassis = "789",
                     Emission = 111, FuelCardId = 21, BrandId = 4, ModelId = 14, SeriesId = 5, EngineTypeId = 5,
-                    DoorTypeId = 1, EngineCapacity = 1910, EnginePower = 88, FiscalHP = 10, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1910, EnginePower = 88, FiscalHP = 10, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 22, Volume = 3236, CountryId = 1, BuildYear = 2001, LicensePlate = "1FPT345",
                     Chassis = "W0LPF6EG8A8044691", Emission = 0, FuelCardId = 23, BrandId = 4, ModelId = 29,
                     SeriesId = 5, EngineTypeId = 15, DoorTypeId = 1, EngineCapacity = 1296, EnginePower = 66,
-                    FiscalHP = 9, FuelTypeId = 10
+                    FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 23, Volume = 3234, CountryId = 1, BuildYear = 2002, LicensePlate = "1FQR344",
                     Chassis = "123456", Emission = 233, FuelCardId = 22, BrandId = 6, ModelId = 17, SeriesId = 13,
-                    EngineTypeId = 27, DoorTypeId = 3, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10
+                    EngineTypeId = 27, DoorTypeId = 3, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 24, Volume = 3230, CountryId = 1, BuildYear = 2003, LicensePlate = "1FSE343", Chassis = null,
                     Emission = 244, FuelCardId = 24, BrandId = 4, ModelId = 29, SeriesId = 5, EngineTypeId = 16,
-                    DoorTypeId = 1, EngineCapacity = 2999, EnginePower = 150, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 2999, EnginePower = 150, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 25, Volume = 3232, CountryId = 1, BuildYear = 2004, LicensePlate = "1FDZ352", Chassis = "145",
                     Emission = 2532, FuelCardId = 26, BrandId = 4, ModelId = 11, SeriesId = 4, EngineTypeId = 8,
-                    DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 26, Volume = 3233, CountryId = 1, BuildYear = 2005, LicensePlate = "1FFD351",
                     Chassis = "45414521451454125", Emission = 266, FuelCardId = 25, BrandId = 4, ModelId = 11,
                     SeriesId = 37, EngineTypeId = 8, DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81,
-                    FiscalHP = 9, FuelTypeId = 10
+                    FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 27, Volume = 3231, CountryId = 1, BuildYear = 2006, LicensePlate = "1GGF450",
                     Chassis = "SJNFDAE11U2159420", Emission = 217, FuelCardId = 28, BrandId = 4, ModelId = 29,
                     SeriesId = 24, EngineTypeId = 38, DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 96,
-                    FiscalHP = 11, FuelTypeId = 10
+                    FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 28, Volume = 3235, CountryId = 1, BuildYear = 2007, LicensePlate = "1GHG451",
                     Chassis = "123456789", Emission = 2382, FuelCardId = 27, BrandId = 4, ModelId = 11, SeriesId = 5,
                     EngineTypeId = 39, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 29, Volume = 3236, CountryId = 1, BuildYear = 2008, LicensePlate = "1GJ?452",
                     Chassis = "123458", Emission = 2493, FuelCardId = 29, BrandId = 4, ModelId = 11, SeriesId = 5,
                     EngineTypeId = 39, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 96, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 30, Volume = 3234, CountryId = 1, BuildYear = 2009, LicensePlate = "1GKN453",
                     Chassis = "454745747547", Emission = 251, FuelCardId = 30, BrandId = 6, ModelId = 17, SeriesId = 12,
                     EngineTypeId = 40, DoorTypeId = 4, EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 31, Volume = 3239, CountryId = 1, BuildYear = 2000, LicensePlate = "1GLB454", Chassis = null,
                     Emission = 216, FuelCardId = 32, BrandId = 1, ModelId = 1, SeriesId = 16, EngineTypeId = 12,
-                    DoorTypeId = 2, EngineCapacity = 1, EnginePower = 1, FiscalHP = 1, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1, EnginePower = 1, FiscalHP = 1, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 32, Volume = 3237, CountryId = 1, BuildYear = 2001, LicensePlate = "1HMV455",
                     Chassis = "VF30U9HR8BS316981", Emission = 2732, FuelCardId = 31, BrandId = 4, ModelId = 29,
                     SeriesId = 24, EngineTypeId = 20, DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 95,
-                    FiscalHP = 11, FuelTypeId = 10
+                    FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 33, Volume = 3236, CountryId = 1, BuildYear = 2002, LicensePlate = "1HWC456",
                     Chassis = "WBAVC11040VG85589", Emission = 282, BrandId = 4, ModelId = 14, SeriesId = 4,
                     EngineTypeId = 5, DoorTypeId = 1, EngineCapacity = 1910, EnginePower = 100, FiscalHP = 10,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 34, Volume = 3232, CountryId = 1, BuildYear = 2003, LicensePlate = "1HXX457",
                     Chassis = "W0LPE6EW4C1078195", Emission = 293, BrandId = 12, ModelId = 33, SeriesId = 28,
                     EngineTypeId = 21, DoorTypeId = 4, EngineCapacity = 1233, EnginePower = 43, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 35, Volume = 3241, CountryId = 1, BuildYear = 2004, LicensePlate = "1HCG456", Chassis = "123",
                     Emission = 214, BrandId = 4, ModelId = 11, SeriesId = 5, EngineTypeId = 37, DoorTypeId = 1,
-                    EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 36, Volume = 3243, CountryId = 1, BuildYear = 2005, LicensePlate = "1HVB579", Chassis = null,
                     Emission = 2255, BrandId = 3, ModelId = 8, SeriesId = 3, EngineTypeId = 3, DoorTypeId = 2,
-                    EnginePower = 0, FiscalHP = 0, FuelTypeId = 10
+                    EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 37, Volume = 3242, CountryId = 1, BuildYear = 2006, LicensePlate = "1IBA578", Chassis = null,
                     Emission = 2366, BrandId = 1, ModelId = 4, SeriesId = 15, EngineTypeId = 12, DoorTypeId = 2,
-                    EngineCapacity = 1900, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10
+                    EngineCapacity = 1900, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 38, Volume = 3241, CountryId = 1, BuildYear = 2007, LicensePlate = "1ILK577", Chassis = "4521",
                     Emission = 2477, BrandId = 6, ModelId = 21, SeriesId = 12, EngineTypeId = 40, DoorTypeId = 1,
-                    EngineCapacity = 1229, EnginePower = 122, FiscalHP = 11, FuelTypeId = 9
+                    EngineCapacity = 1229, EnginePower = 122, FiscalHP = 11, FuelTypeId = 9,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 39, Volume = 3240, CountryId = 1, BuildYear = 2008, LicensePlate = "1IML575",
                     Chassis = "W0L0SDL6884193058", Emission = 3588, BrandId = 1, ModelId = 4, SeriesId = 2,
-                    EngineTypeId = 12, DoorTypeId = 2, EnginePower = 0, FiscalHP = 0, FuelTypeId = 3
+                    EngineTypeId = 12, DoorTypeId = 2, EnginePower = 0, FiscalHP = 0, FuelTypeId = 3,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 40, Volume = 3244, CountryId = 1, BuildYear = 2009, LicensePlate = "1IOI576",
                     Chassis = "W0LPE8EG2B8045397", Emission = 369, BrandId = 8, ModelId = 30, SeriesId = 49,
                     EngineTypeId = 50, DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 10,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 1
                 },
                 new Vehicle
                 {
                     Id = 41, Volume = 3245, CountryId = 1, BuildYear = 2000, LicensePlate = "1IUM571",
                     Chassis = "W0LGT8ELXD1044444", Emission = 371, BrandId = 8, ModelId = 30, SeriesId = 49,
                     EngineTypeId = 51, DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 75, FiscalHP = 9,
-                    FuelTypeId = 9
+                    FuelTypeId = 9,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 42, Volume = 3346, CountryId = 1, BuildYear = 2001, LicensePlate = "1JYP573", Chassis = null,
                     Emission = 382, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 78, DoorTypeId = 6,
-                    EngineCapacity = 0, EnginePower = 150, FiscalHP = 0, FuelTypeId = 5
+                    EngineCapacity = 0, EnginePower = 150, FiscalHP = 0, FuelTypeId = 5,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 43, Volume = 3347, CountryId = 1, BuildYear = 2002, LicensePlate = "1JTU570",
                     Chassis = "W0LPE8EX7D8050002", Emission = 393, BrandId = 8, ModelId = 30, SeriesId = 51,
                     EngineTypeId = 50, DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 44, Volume = 3348, CountryId = 1, BuildYear = 2003, LicensePlate = "1JRL581",
                     Chassis = "VF3CC8HROET203509", Emission = 314, BrandId = 8, ModelId = 30, SeriesId = 51,
                     EngineTypeId = 10, DoorTypeId = 2, EngineCapacity = 1900, EnginePower = 77, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2019, 05, 15), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2019, 05, 15), FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 45, Volume = 3349, CountryId = 1, BuildYear = 2004, LicensePlate = "1JAO682",
                     Chassis = "789789", Emission = 325, BrandId = 8, ModelId = 30, SeriesId = 52, EngineTypeId = 50,
-                    DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 46, Volume = 3345, CountryId = 1, BuildYear = 2005, LicensePlate = "1KZN683",
                     Chassis = "12354", Emission = 336, BrandId = 8, ModelId = 16, SeriesId = 53, EngineTypeId = 35,
-                    DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 47, Volume = 3446, CountryId = 1, BuildYear = 2006, LicensePlate = "1KEB686",
                     Chassis = "VF3LB9HPAES115707", Emission = 348, BrandId = 8, ModelId = 16, SeriesId = 19,
                     EngineTypeId = 35, DoorTypeId = 2, EngineCapacity = 1999, EnginePower = 100, FiscalHP = 12,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 48, Volume = 3444, CountryId = 1, BuildYear = 2007, LicensePlate = "1KRV685", Chassis = "100",
                     Emission = 356, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 35, DoorTypeId = 1,
-                    EngineCapacity = 2000, EnginePower = 88, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 88, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 49, Volume = 3442, CountryId = 1, BuildYear = 2008, LicensePlate = "1KTC684",
                     Chassis = "14521", Emission = 382, BrandId = 8, ModelId = 16, SeriesId = 19, EngineTypeId = 52,
-                    DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 50, Volume = 3446, CountryId = 1, BuildYear = 2009, LicensePlate = "1LYX684",
                     Chassis = "W0L0AHM758G153913", Emission = 37, BrandId = 8, ModelId = 16, SeriesId = 19,
                     EngineTypeId = 53, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 51, Volume = 3443, CountryId = 1, BuildYear = 2000, LicensePlate = "1LQW687", Chassis = null,
                     Emission = 412, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 54, DoorTypeId = 4,
-                    EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9
+                    EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 52, Volume = 3444, CountryId = 1, BuildYear = 2001, LicensePlate = "1LSD688", Chassis = null,
                     Emission = 4231, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 54, DoorTypeId = 3,
-                    EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9
+                    EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 53, Volume = 3446, CountryId = 1, BuildYear = 2002, LicensePlate = "1LDA689",
                     Chassis = "ezrtrra", Emission = 4322, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10,
-                    DoorTypeId = 3, EngineCapacity = 1900, EnginePower = 85, FiscalHP = 10, FuelTypeId = 10
+                    DoorTypeId = 3, EngineCapacity = 1900, EnginePower = 85, FiscalHP = 10, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 54, Volume = 3443, CountryId = 1, BuildYear = 2003, LicensePlate = "1MFZ696", Chassis = null,
                     Emission = 4513, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10, DoorTypeId = 3,
-                    EngineCapacity = 1900, EnginePower = 84, FiscalHP = 10, FuelTypeId = 10
+                    EngineCapacity = 1900, EnginePower = 84, FiscalHP = 10, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 55, Volume = 3442, CountryId = 1, BuildYear = 2004, LicensePlate = "1MGE695", Chassis = null,
                     Emission = 464, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 35, DoorTypeId = 3,
-                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 56, Volume = 3441, CountryId = 1, BuildYear = 2005, LicensePlate = "1MHR694",
                     Chassis = "W0LPE6EW9DG046079", Emission = 446, BrandId = 8, ModelId = 16, SeriesId = 11,
                     EngineTypeId = 35, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 88, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 57, Volume = 3420, CountryId = 1, BuildYear = 2006, LicensePlate = "1MJT691", Chassis = "nvt",
                     Emission = 476, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 52, DoorTypeId = 3,
-                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 58, Volume = 3421, CountryId = 1, BuildYear = 2007, LicensePlate = "1NAY792",
                     Chassis = "W0LGM8EL3C1068598", Emission = 489, BrandId = 8, ModelId = 16, SeriesId = 11,
                     EngineTypeId = 52, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 59, Volume = 3422, CountryId = 1, BuildYear = 2008, LicensePlate = "1NZS793", Chassis = null,
                     Emission = 498, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 53, DoorTypeId = 3,
-                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 60, Volume = 3425, CountryId = 1, BuildYear = 2009, LicensePlate = "1NES794",
                     Chassis = "W0LGM8ES4E1137406", Emission = 407, BrandId = 8, ModelId = 16, SeriesId = 11,
                     EngineTypeId = 53, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 61, Volume = 3424, CountryId = 1, BuildYear = 2000, LicensePlate = "1NRW795",
                     Chassis = "W0LJD7EL6EB615571", Emission = 414, BrandId = 8, ModelId = 16, SeriesId = 11,
                     EngineTypeId = 53, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 62, Volume = 3428, CountryId = 1, BuildYear = 2001, LicensePlate = "1OTC796", Chassis = "zaer",
                     Emission = 4256, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 53, DoorTypeId = 3,
-                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 63, Volume = 3429, CountryId = 1, BuildYear = 2002, LicensePlate = "1OYV797", Chassis = null,
                     Emission = 432, BrandId = 8, ModelId = 20, SeriesId = 54, EngineTypeId = 55, DoorTypeId = 6,
-                    EngineCapacity = 2700, EnginePower = 120, FiscalHP = 14, FuelTypeId = 10
+                    EngineCapacity = 2700, EnginePower = 120, FiscalHP = 14, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 64, Volume = 3427, CountryId = 1, BuildYear = 2003, LicensePlate = "1OUB798", Chassis = null,
                     Emission = 461, BrandId = 8, ModelId = 20, SeriesId = 25, EngineTypeId = 35, DoorTypeId = 2,
-                    EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 65, Volume = 3426, CountryId = 1, BuildYear = 2004, LicensePlate = "1OIA799", Chassis = "147",
                     Emission = 452, BrandId = 8, ModelId = 20, SeriesId = 25, EngineTypeId = 35, DoorTypeId = 2,
-                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 66, Volume = 3523, CountryId = 1, BuildYear = 2005, LicensePlate = "1POZ793",
                     Chassis = "W0L0AHL3582099371", Emission = 5571, BrandId = 8, ModelId = 20, SeriesId = 25,
                     EngineTypeId = 56, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 67, Volume = 3522, CountryId = 1, BuildYear = 2006, LicensePlate = "1PQT792",
                     Chassis = "W0LPE8EX6C8095933", Emission = 5653, BrandId = 8, ModelId = 20, SeriesId = 55,
                     EngineTypeId = 35, DoorTypeId = 7, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 68, Volume = 3521, CountryId = 1, BuildYear = 2007, LicensePlate = "1PSU761", Chassis = null,
                     Emission = 5685, BrandId = 1, ModelId = 2, SeriesId = 2, EngineTypeId = 61, DoorTypeId = 3,
-                    EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 69, Volume = 3524, CountryId = 1, BuildYear = 2008, LicensePlate = "1PDL764",
                     Chassis = "W0LGM8ES4E1181678", Emission = 5796, BrandId = 1, ModelId = 2, SeriesId = 2,
                     EngineTypeId = 61, DoorTypeId = 3, EngineCapacity = 1800, EnginePower = 85, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 70, Volume = 3525, CountryId = 1, BuildYear = 2009, LicensePlate = "1RFK765", Chassis = null,
                     Emission = 5861, BrandId = 1, ModelId = 2, SeriesId = 2, EngineTypeId = 61, DoorTypeId = 3,
-                    EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 71, Volume = 3526, CountryId = 1, BuildYear = 2000, LicensePlate = "1RGJ766",
                     Chassis = "120142", Emission = 590, BrandId = 1, ModelId = 2, SeriesId = 2, EngineTypeId = 61,
-                    DoorTypeId = 3, EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 3, EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 72, Volume = 3529, CountryId = 1, BuildYear = 2001, LicensePlate = "1RWH764",
                     Chassis = "W0LPD8EW9D8062050", Emission = 587, BrandId = 1, ModelId = 2, SeriesId = 1,
                     EngineTypeId = 61, DoorTypeId = 1, EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 73, Volume = 3528, CountryId = 1, BuildYear = 2002, LicensePlate = "1RXG869",
                     Chassis = "SJNFDAE11U2157331", Emission = 561, BrandId = 1, ModelId = 2, SeriesId = 1,
                     EngineTypeId = 61, DoorTypeId = 1, EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 74, Volume = 3527, CountryId = 1, BuildYear = 2003, LicensePlate = "1SCF868",
                     Chassis = "WBAVU11090K051447", Emission = 534, BrandId = 1, ModelId = 2, SeriesId = 1,
                     EngineTypeId = 2, DoorTypeId = 1, EngineCapacity = 1999, EnginePower = 90, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 75, Volume = 3525, CountryId = 1, BuildYear = 2004, LicensePlate = "1SVD867", Chassis = "100",
                     Emission = 523, BrandId = 1, ModelId = 2, SeriesId = 1, EngineTypeId = 2, DoorTypeId = 1,
-                    EngineCapacity = 1995, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1995, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 76, Volume = 3526, CountryId = 1, BuildYear = 2005, LicensePlate = "1SBN866",
                     Chassis = "W0LGM57K391058231", Emission = 510, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 77, Volume = 3529, CountryId = 1, BuildYear = 2006, LicensePlate = "1SND863",
                     Chassis = "WAUZZZ8R1BA081105", Emission = 691, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 78, Volume = 3628, CountryId = 1, BuildYear = 2007, LicensePlate = "1TAQ862",
                     Chassis = "VF38ERHR8BL085484", Emission = 682, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 79, Volume = 3627, CountryId = 1, BuildYear = 2008, LicensePlate = "1TZG861",
                     Chassis = "W0LPE8E63E8064049", Emission = 673, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 2, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 80, Volume = 3624, CountryId = 1, BuildYear = 2009, LicensePlate = "1TEG864",
                     Chassis = "YV1DZ73CDE2608659", Emission = 664, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 13, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 135, FiscalHP = 10,
-                    EndDateDelivery = new DateTime(2019, 05, 7), FuelTypeId = 10
+                    EndDateDelivery = new DateTime(2019, 05, 7), FuelTypeId = 10,
+                    CategoryId = 2
                 },
                 new Vehicle
                 {
                     Id = 81, Volume = 3625, CountryId = 1, BuildYear = 2000, LicensePlate = "1TRH815",
                     Chassis = "W0L0SDL6884314639", Emission = 655, BrandId = 1, ModelId = 4, SeriesId = 2,
                     EngineTypeId = 13, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 135, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 82, Volume = 3656, CountryId = 1, BuildYear = 2001, LicensePlate = "1UTN818",
                     Chassis = "blablubli", Emission = 646, BrandId = 1, ModelId = 4, SeriesId = 1, EngineTypeId = 2,
-                    DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 130, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 130, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 83, Volume = 3653, CountryId = 1, BuildYear = 2002, LicensePlate = "1UYN819",
                     Chassis = "W0LJD7EL0EB618949", Emission = 617, BrandId = 1, ModelId = 4, SeriesId = 1,
                     EngineTypeId = 13, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 84, Volume = 3652, CountryId = 1, BuildYear = 2003, LicensePlate = "1UUB817", Chassis = "123",
                     Emission = 638, BrandId = 1, ModelId = 1, SeriesId = 16, EngineTypeId = 13, DoorTypeId = 2,
-                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 85, Volume = 3651, CountryId = 1, BuildYear = 2004, LicensePlate = "1UQV816", Chassis = "2541",
                     Emission = 629, BrandId = 1, ModelId = 1, SeriesId = 17, EngineTypeId = 13, DoorTypeId = 2,
-                    EngineCapacity = 2000, EnginePower = 135, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 135, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 86, Volume = 3656, CountryId = 1, BuildYear = 2005, LicensePlate = "1VSC813",
                     Chassis = "JNA1U2117751", Emission = 610, BrandId = 1, ModelId = 5, SeriesId = 17,
                     EngineTypeId = 12, DoorTypeId = 2, EngineCapacity = 3500, EnginePower = 210, FiscalHP = 15,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 87, Volume = 3659, CountryId = 1, BuildYear = 2007, LicensePlate = "1VWX952",
                     Chassis = "0arty", Emission = 601, BrandId = 1, ModelId = 5, SeriesId = 17, EngineTypeId = 12,
-                    DoorTypeId = 2, EngineCapacity = 3500, EnginePower = 240, FiscalHP = 15, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 3500, EnginePower = 240, FiscalHP = 15, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 88, Volume = 3658, CountryId = 1, BuildYear = 2006, LicensePlate = "1VXW951",
                     Chassis = "W09EM4D2025752", Emission = 622, BrandId = 12, ModelId = 34, SeriesId = 60,
                     EngineTypeId = 63, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 110, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 89, Volume = 3657, CountryId = 1, BuildYear = 2007, LicensePlate = "1VCP955", Chassis = "7856",
                     Emission = 633, BrandId = 12, ModelId = 34, SeriesId = 61, EngineTypeId = 22, DoorTypeId = 2,
-                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 90, Volume = 3654, CountryId = 1, BuildYear = 2008, LicensePlate = "1VVO952", Chassis = "5454",
                     Emission = 664, BrandId = 12, ModelId = 34, SeriesId = 62, EngineTypeId = 22, DoorTypeId = 2,
-                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 91, Volume = 3655, CountryId = 1, BuildYear = 2009, LicensePlate = "1WBI951",
                     Chassis = "MK89Y77Y67UI", Emission = 791, BrandId = 12, ModelId = 34, SeriesId = 27,
                     EngineTypeId = 64, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 92, Volume = 3656, CountryId = 1, BuildYear = 2000, LicensePlate = "1WNU952",
                     Chassis = "W0HM759G027219", Emission = 782, BrandId = 12, ModelId = 34, SeriesId = 63,
                     EngineTypeId = 22, DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 93, Volume = 3653, CountryId = 1, BuildYear = 2001, LicensePlate = "1WPY953", Chassis = "nv",
                     Emission = 763, BrandId = 12, ModelId = 34, SeriesId = 64, EngineTypeId = 22, DoorTypeId = 2,
-                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 94, Volume = 3652, CountryId = 1, BuildYear = 2002, LicensePlate = "1WOT956", Chassis = "10",
                     Emission = 774, BrandId = 12, ModelId = 34, SeriesId = 65, EngineTypeId = 22, DoorTypeId = 2,
-                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 95, Volume = 3654, CountryId = 1, BuildYear = 2003, LicensePlate = "1XIR955",
                     Chassis = "155154", Emission = 755, BrandId = 12, ModelId = 34, SeriesId = 66, EngineTypeId = 22,
-                    DoorTypeId = 2, EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 96, Volume = 2656, CountryId = 1, BuildYear = 2004, LicensePlate = "1XUE954",
                     Chassis = "W06EW6DG097221", Emission = 746, BrandId = 2, ModelId = 7, SeriesId = 75,
                     EngineTypeId = 68, DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 85, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 97, Volume = 2655, CountryId = 1, BuildYear = 2005, LicensePlate = "1XYZ957", Chassis = "14",
                     Emission = 737, BrandId = 2, ModelId = 7, SeriesId = 75, EngineTypeId = 70, DoorTypeId = 1,
-                    EngineCapacity = 2000, EnginePower = 84, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 84, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 98, Volume = 2652, CountryId = 2, BuildYear = 2005, LicensePlate = "1XKA958",
                     Chassis = "W00ZC81087846", Emission = 738, BrandId = 2, ModelId = 7, SeriesId = 72,
                     EngineTypeId = 73, DoorTypeId = 2, EngineCapacity = 1800, EnginePower = 92, FiscalHP = 10,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 99, Volume = 2653, CountryId = 2, BuildYear = 2006, LicensePlate = "1YAS956",
                     Chassis = "U5YZUABL093503", Emission = 719, BrandId = 2, ModelId = 7, SeriesId = 72,
                     EngineTypeId = 70, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 102, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 100, Volume = 2651, CountryId = 2, BuildYear = 2004, LicensePlate = "1YZW956",
                     Chassis = "W0LGTL1D1035314", Emission = 710, BrandId = 2, ModelId = 7, SeriesId = 71,
                     EngineTypeId = 72, DoorTypeId = 1, EngineCapacity = 1800, EnginePower = 92, FiscalHP = 10,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 101, Volume = 2654, CountryId = 2, BuildYear = 2006, LicensePlate = "1YEQ949",
                     Chassis = "W0L0A898044253", Emission = 721, BrandId = 2, ModelId = 7, SeriesId = 73,
                     EngineTypeId = 70, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 96, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 102, Volume = 2655, CountryId = 2, BuildYear = 2007, LicensePlate = "1YTA948", Chassis = null,
                     Emission = 722, BrandId = 4, ModelId = 11, SeriesId = 5, EngineTypeId = 94, DoorTypeId = 2,
-                    EngineCapacity = 1686, EnginePower = 92, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1686, EnginePower = 92, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 103, Volume = 2656, CountryId = 2, BuildYear = 2005, LicensePlate = "1ZRZ947",
                     Chassis = "WBA1SDFDSGEGF21", Emission = 851, BrandId = 4, ModelId = 11, SeriesId = 81,
                     EngineTypeId = 94, DoorTypeId = 1, EngineCapacity = 1686, EnginePower = 92, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 104, Volume = 2659, CountryId = 2, BuildYear = 2006, LicensePlate = "1ZQW946",
                     Chassis = "NLHB1BZ026442", Emission = 843, BrandId = 4, ModelId = 11, SeriesId = 4,
                     EngineTypeId = 8, DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 59, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 105, Volume = 2658, CountryId = 2, BuildYear = 2003, LicensePlate = "1ZSZ142", Chassis = null,
                     Emission = 8632, BrandId = 4, ModelId = 11, SeriesId = 4, EngineTypeId = 8, DoorTypeId = 2,
-                    EngineCapacity = 1686, EnginePower = 74, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1686, EnginePower = 74, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 106, Volume = 2657, CountryId = 2, BuildYear = 2002, LicensePlate = "1ZDA149", Chassis = "789",
                     Emission = 834, BrandId = 4, ModelId = 11, SeriesId = 4, EngineTypeId = 8, DoorTypeId = 1,
-                    EngineCapacity = 1700, EnginePower = 73, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1700, EnginePower = 73, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 107, Volume = 2744, CountryId = 2, BuildYear = 2001, LicensePlate = "1QFQ148",
                     Chassis = "W0PE8844691", Emission = 825, BrandId = 4, ModelId = 11, SeriesId = 37, EngineTypeId = 8,
-                    DoorTypeId = 2, EngineCapacity = 1700, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1700, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 108, Volume = 2745, CountryId = 2, BuildYear = 2000, LicensePlate = "1QWB147",
                     Chassis = "1265165134", Emission = 876, BrandId = 4, ModelId = 29, SeriesId = 24, EngineTypeId = 20,
-                    DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 109, Volume = 2746, CountryId = 2, BuildYear = 2007, LicensePlate = "1QXV146",
                     Chassis = "zeaeaz?", Emission = 899, BrandId = 4, ModelId = 29, SeriesId = 24, EngineTypeId = 20,
-                    DoorTypeId = 2, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 110, Volume = 2743, CountryId = 2, BuildYear = 2008, LicensePlate = "1QCC146",
                     Chassis = "1489414", Emission = 828, BrandId = 4, ModelId = 29, SeriesId = 82, EngineTypeId = 20,
-                    DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 111, Volume = 2746, CountryId = 2, BuildYear = 2009, LicensePlate = "1AVX142",
                     Chassis = "45442141454125", Emission = 817, BrandId = 4, ModelId = 12, SeriesId = 5,
                     EngineTypeId = 95, DoorTypeId = 2, EngineCapacity = 1700, EnginePower = 81, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 112, Volume = 2742, CountryId = 2, BuildYear = 2006, LicensePlate = "1AHW143",
                     Chassis = "SJFDEU2159420", Emission = 882, BrandId = 4, ModelId = 12, SeriesId = 4,
                     EngineTypeId = 8, DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 92, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 113, Volume = 2741, CountryId = 2, BuildYear = 2005, LicensePlate = "1AFF141",
                     Chassis = "1246789", Emission = 811, BrandId = 7, ModelId = 23, SeriesId = 86, EngineTypeId = 96,
-                    DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 114, Volume = 2744, CountryId = 2, BuildYear = 2004, LicensePlate = "1AAQ144",
                     Chassis = "12458", Emission = 941, BrandId = 7, ModelId = 23, SeriesId = 87, EngineTypeId = 96,
-                    DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 115, Volume = 2745, CountryId = 2, BuildYear = 2002, LicensePlate = "1AZE135",
                     Chassis = "45745747547", Emission = 942, BrandId = 7, ModelId = 23, SeriesId = 88,
                     EngineTypeId = 96, DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 116, Volume = 2746, CountryId = 2, BuildYear = 2001, LicensePlate = "1AHR136", Chassis = null,
                     Emission = 933, BrandId = 6, ModelId = 17, SeriesId = 91, EngineTypeId = 40, DoorTypeId = 4,
-                    EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10, FuelTypeId = 10
+                    EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 117, Volume = 2749, CountryId = 2, BuildYear = 2003, LicensePlate = "1ABT138",
                     Chassis = "VF09HR8BS316981", Emission = 936, BrandId = 3, ModelId = 10, SeriesId = 112,
                     EngineTypeId = 110, DoorTypeId = 3, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 118, Volume = 2748, CountryId = 2, BuildYear = 2004, LicensePlate = "1ANY231",
                     Chassis = "WBV11040VG85589", Emission = 955, BrandId = 3, ModelId = 10, SeriesId = 112,
                     EngineTypeId = 110, DoorTypeId = 3, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 119, Volume = 2747, CountryId = 2, BuildYear = 2005, LicensePlate = "1AMU233",
                     Chassis = "W0P6EW4C1078195", Emission = 954, BrandId = 3, ModelId = 10, SeriesId = 112,
                     EngineTypeId = 110, DoorTypeId = 3, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 120, Volume = 2744, CountryId = 2, BuildYear = 2006, LicensePlate = "1ALI232",
                     Chassis = "15616512", Emission = 935, BrandId = 3, ModelId = 10, SeriesId = 113, EngineTypeId = 110,
-                    DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 3
                 },
                 new Vehicle
                 {
                     Id = 121, Volume = 2745, CountryId = 2, BuildYear = 2007, LicensePlate = "1AKK231", Chassis = null,
                     Emission = 938, BrandId = 3, ModelId = 10, SeriesId = 113, EngineTypeId = 111, DoorTypeId = 1,
-                    EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 122, Volume = 2746, CountryId = 2, BuildYear = 2008, LicensePlate = "1AJJ236", Chassis = null,
                     Emission = 929, BrandId = 3, ModelId = 10, SeriesId = 114, EngineTypeId = 110, DoorTypeId = 1,
-                    EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 123, Volume = 2749, CountryId = 2, BuildYear = 2009, LicensePlate = "1AHH235", Chassis = "451",
                     Emission = 996, BrandId = 3, ModelId = 10, SeriesId = 115, EngineTypeId = 112, DoorTypeId = 1,
-                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 124, Volume = 2748, CountryId = 2, BuildYear = 2006, LicensePlate = "1AGG234",
                     Chassis = "W00SDL6884193058", Emission = 993, BrandId = 3, ModelId = 10, SeriesId = 115,
                     EngineTypeId = 112, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 125, Volume = 2746, CountryId = 2, BuildYear = 2015, LicensePlate = "1AGW217",
                     Chassis = "W08EG2B8045397", Emission = 962, BrandId = 3, ModelId = 10, SeriesId = 115,
                     EngineTypeId = 111, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 81, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 126, Volume = 2749, CountryId = 2, BuildYear = 2014, LicensePlate = "1AYQ218",
                     Chassis = "W08ELXD1044444", Emission = 961, BrandId = 3, ModelId = 10, SeriesId = 115,
                     EngineTypeId = 108, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 103, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 127, Volume = 2748, CountryId = 2, BuildYear = 2011, LicensePlate = "1AAS219", Chassis = null,
                     Emission = 924, BrandId = 3, ModelId = 10, SeriesId = 109, EngineTypeId = 108, DoorTypeId = 3,
-                    EngineCapacity = 1999, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1999, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 128, Volume = 2727, CountryId = 2, BuildYear = 2012, LicensePlate = "1BZW216",
                     Chassis = "W0EX7850002", Emission = 925, BrandId = 3, ModelId = 10, SeriesId = 109,
                     EngineTypeId = 108, DoorTypeId = 3, EngineCapacity = 1999, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 129, Volume = 2724, CountryId = 2, BuildYear = 2014, LicensePlate = "1BER215",
                     Chassis = "VFROE203509", Emission = 928, BrandId = 3, ModelId = 10, SeriesId = 109,
                     EngineTypeId = 108, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 103, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 130, Volume = 2725, CountryId = 2, BuildYear = 2010, LicensePlate = "1BZU214",
                     Chassis = "797165619", Emission = 929, BrandId = 11, ModelId = 28, SeriesId = 120,
                     EngineTypeId = 114, DoorTypeId = 6, EngineCapacity = 2400, EnginePower = 120, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 131, Volume = 2726, CountryId = 2, BuildYear = 2019, LicensePlate = "1BWY211",
                     Chassis = "1566655614", Emission = 917, BrandId = 11, ModelId = 28, SeriesId = 120,
                     EngineTypeId = 18, DoorTypeId = 9, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 132, Volume = 2823, CountryId = 2, BuildYear = 2018, LicensePlate = "1BST212",
                     Chassis = "VF3LB9ES115707", Emission = 976, BrandId = 11, ModelId = 24, SeriesId = 121,
                     EngineTypeId = 17, DoorTypeId = 3, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 133, Volume = 2822, CountryId = 2, BuildYear = 2017, LicensePlate = "1BQR213",
                     Chassis = "14565100", Emission = 975, BrandId = 11, ModelId = 26, SeriesId = 22, EngineTypeId = 17,
-                    DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 134, Volume = 2821, CountryId = 2, BuildYear = 2016, LicensePlate = "1BGF325",
                     Chassis = "14525611", Emission = 974, BrandId = 11, ModelId = 26, SeriesId = 22, EngineTypeId = 18,
-                    DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 135, Volume = 2825, CountryId = 3, BuildYear = 2015, LicensePlate = "1BHE326",
                     Chassis = "W0HG153913", Emission = 911, BrandId = 11, ModelId = 26, SeriesId = 22,
                     EngineTypeId = 17, DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 136, Volume = 2826, CountryId = 3, BuildYear = 2014, LicensePlate = "1BFZ324", Chassis = null,
                     Emission = 982, BrandId = 11, ModelId = 26, SeriesId = 22, EngineTypeId = 18, DoorTypeId = 1,
-                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 137, Volume = 2824, CountryId = 3, BuildYear = 2011, LicensePlate = "1BDA327", Chassis = null,
                     Emission = 983, BrandId = 11, ModelId = 26, SeriesId = 124, EngineTypeId = 17, DoorTypeId = 1,
-                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 138, Volume = 2822, CountryId = 3, BuildYear = 2012, LicensePlate = "1BQS328",
                     Chassis = "ezrra", Emission = 986, BrandId = 11, ModelId = 26, SeriesId = 121, EngineTypeId = 17,
-                    DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 84, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 84, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 139, Volume = 2823, CountryId = 3, BuildYear = 2016, LicensePlate = "1BAS199", Chassis = null,
                     Emission = 985, BrandId = 11, ModelId = 26, SeriesId = 121, EngineTypeId = 17, DoorTypeId = 1,
-                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 140, Volume = 2826, CountryId = 3, BuildYear = 2013, LicensePlate = "1BZH268", Chassis = null,
                     Emission = 912, BrandId = 11, ModelId = 27, SeriesId = 123, EngineTypeId = 18, DoorTypeId = 1,
-                    EngineCapacity = 1984, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10
+                    EngineCapacity = 1984, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 141, Volume = 2825, CountryId = 4, BuildYear = 2012, LicensePlate = "1BEG357",
                     Chassis = "W0EE9G046079", Emission = 911, BrandId = 11, ModelId = 27, SeriesId = 122,
                     EngineTypeId = 18, DoorTypeId = 2, EngineCapacity = 1984, EnginePower = 120, FiscalHP = 163,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 142, Volume = 2824, CountryId = 4, BuildYear = 2011, LicensePlate = "1BFO446", Chassis = "nvt",
                     Emission = 912, BrandId = 11, ModelId = 27, SeriesId = 122, EngineTypeId = 17, DoorTypeId = 1,
-                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 143, Volume = 2822, CountryId = 4, BuildYear = 2012, LicensePlate = "1BFI535",
                     Chassis = "W0LGM8LC68598", Emission = 131, BrandId = 11, ModelId = 27, SeriesId = 122,
                     EngineTypeId = 17, DoorTypeId = 1, EngineCapacity = 1560, EnginePower = 85, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 144, Volume = 2823, CountryId = 4, BuildYear = 2013, LicensePlate = "1BFU624",
                     Chassis = "nbefzzf", Emission = 1322, BrandId = 11, ModelId = 27, SeriesId = 120, EngineTypeId = 17,
-                    DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 145, Volume = 2816, CountryId = 4, BuildYear = 2014, LicensePlate = "1BFY713",
                     Chassis = "W0LM8E1137406", Emission = 1335, BrandId = 11, ModelId = 27, SeriesId = 127,
                     EngineTypeId = 18, DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 146, Volume = 2815, CountryId = 4, BuildYear = 2015, LicensePlate = "1BFT892",
                     Chassis = "W0LJD7EB615571", Emission = 1357, BrandId = 4, ModelId = 29, SeriesId = 5,
                     EngineTypeId = 38, DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 147, Volume = 2814, CountryId = 4, BuildYear = 2016, LicensePlate = "1BER981",
                     Chassis = "za4561htger", Emission = 1348, BrandId = 4, ModelId = 11, SeriesId = 128,
                     EngineTypeId = 39, DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 148, Volume = 2812, CountryId = 4, BuildYear = 2017, LicensePlate = "1BEE072", Chassis = null,
                     Emission = 1369, BrandId = 4, ModelId = 11, SeriesId = 128, EngineTypeId = 39, DoorTypeId = 1,
-                    EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10
+                    EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 149, Volume = 2813, CountryId = 5, BuildYear = 2018, LicensePlate = "1CEZ163",
                     Chassis = "nfezf654b", Emission = 1399, BrandId = 4, ModelId = 29, SeriesId = 129,
                     EngineTypeId = 38, DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 103, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 150, Volume = 2811, CountryId = 5, BuildYear = 2019, LicensePlate = "1CEA254",
                     Chassis = "146517", Emission = 1385, BrandId = 4, ModelId = 11, SeriesId = 81, EngineTypeId = 115,
-                    DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10
+                    DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 151, Volume = 2917, CountryId = 5, BuildYear = 2016, LicensePlate = "1CEF345",
                     Chassis = "W0L0AH599371", Emission = 137, BrandId = 1, ModelId = 19, SeriesId = 2,
                     EngineTypeId = 11, DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 150, FiscalHP = 11,
-                    FuelTypeId = 10
+                    FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 152, Volume = 2918, CountryId = 5, BuildYear = 2013, LicensePlate = "1CDF436",
                     Chassis = "W0LPEC8095933", Emission = 135, BrandId = 8, ModelId = 16, SeriesId = 11,
                     EngineTypeId = 10, DoorTypeId = 6, EngineCapacity = 1200, EnginePower = 70, FiscalHP = 80,
-                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 05, 2), FuelTypeId = 9
+                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 05, 2), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 153, Volume = 2919, CountryId = 5, BuildYear = 2012, LicensePlate = "1CDD527", Chassis = null,
                     Emission = 131, BrandId = 1, ModelId = 5, SeriesId = 1, EngineTypeId = 1, DoorTypeId = 5,
                     EngineCapacity = 789, EnginePower = 7894, FiscalHP = 7894, AverageFuel = 0,
-                    EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9
+                    EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 154, Volume = 2916, CountryId = 5, BuildYear = 2011, LicensePlate = "1CDX618",
                     Chassis = "W0LME418678", Emission = 122, BrandId = 7, ModelId = 23, SeriesId = 39,
                     EngineTypeId = 117, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 25, FiscalHP = 25,
-                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 30), FuelTypeId = 3
+                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 30), FuelTypeId = 3,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 155, Volume = 2915, CountryId = 5, BuildYear = 2014, LicensePlate = "1CEW499",
                     Chassis = "nf56ez1fb", Emission = 1236, BrandId = 7, ModelId = 18, SeriesId = 39, EngineTypeId = 34,
-                    DoorTypeId = 6, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10
+                    DoorTypeId = 6, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 156, Volume = 2914, CountryId = 5, BuildYear = 2015, LicensePlate = "1CEL781",
                     Chassis = "12056142", Emission = 122, BrandId = 7, ModelId = 23, SeriesId = 9, EngineTypeId = 34,
-                    DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 9
+                    DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 157, Volume = 2916, CountryId = 5, BuildYear = 2016, LicensePlate = "1CEF872",
                     Chassis = "W0LEW9D8062050", Emission = 126, BrandId = 1, ModelId = 1, SeriesId = 1,
                     EngineTypeId = 1, DoorTypeId = 2, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789,
-                    AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9
+                    AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 158, Volume = 2912, CountryId = 5, BuildYear = 2019, LicensePlate = "1CAJ963",
                     Chassis = "SJDE11U2157331", Emission = 128, BrandId = 1, ModelId = 1, SeriesId = 1,
                     EngineTypeId = 1, DoorTypeId = 5, EngineCapacity = 789, EnginePower = 789, FiscalHP = 789,
-                    AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9
+                    AverageFuel = 0, EndDateDelivery = new DateTime(2020, 01, 16), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 159, Volume = 2911, CountryId = 5, BuildYear = 2018, LicensePlate = "1CAG654",
                     Chassis = "WBA1090K051447", Emission = 129, BrandId = 12, ModelId = 33, SeriesId = 27,
                     EngineTypeId = 36, DoorTypeId = 2, EngineCapacity = 0, EnginePower = 100, FiscalHP = 100,
-                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9
+                    AverageFuel = 0, EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 160, Volume = 2916, CountryId = 5, BuildYear = 2017, LicensePlate = "1CAD345",
                     Chassis = "100zda4545", Emission = 128, BrandId = 8, ModelId = 16, SeriesId = 11, EngineTypeId = 10,
                     DoorTypeId = 6, EngineCapacity = 0, EnginePower = 120, FiscalHP = 50, AverageFuel = 0,
-                    EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9
+                    EndDateDelivery = new DateTime(2019, 03, 15), FuelTypeId = 9,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 161, Volume = 2919, CountryId = 5, BuildYear = 2011, LicensePlate = "1CZK236",
                     Chassis = "W0LGM57K39231", Emission = 172, BrandId = 7, ModelId = 22, SeriesId = 9,
                     EngineTypeId = 9, DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0,
-                    AverageFuel = 0, FuelTypeId = 3
+                    AverageFuel = 0, FuelTypeId = 3,
+                    CategoryId = 4
                 },
                 new Vehicle
                 {
                     Id = 162, Volume = 2918, CountryId = 5, BuildYear = 2012, LicensePlate = "1CZI127",
                     Chassis = "WAUZZZ8R81105", Emission = 122, BrandId = 1, ModelId = 1, SeriesId = 1, EngineTypeId = 2,
-                    DoorTypeId = 3, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10
+                    DoorTypeId = 3, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10,
+                    CategoryId = 4
                 }
             );
 
