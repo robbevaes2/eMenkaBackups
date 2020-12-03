@@ -15,19 +15,20 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class BrandControllerTests
     {
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
-        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _interiorColorRepositoryMock = new Mock<IInteriorColorRepository>();
             _exteriorColorRepositoryMock = new Mock<IExteriorColorRepository>();
-            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object, _interiorColorRepositoryMock.Object);
+            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object,
+                _interiorColorRepositoryMock.Object);
         }
+
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
+        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()
@@ -170,8 +171,8 @@ namespace eMenka.Tests.Controllers
             var invalidModel = new BrandModel
             {
                 Id = 1,
-                ExteriorColorIds = new []{1},
-                InteriorColorIds = new []{1}
+                ExteriorColorIds = new[] { 1 },
+                InteriorColorIds = new[] { 1 }
             };
 
             _brandRepositoryMock.Setup(m => m.Update(It.IsAny<int>(), It.IsAny<Brand>()))

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Models.RecordModels;
+﻿using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Domain.Classes;
 
@@ -10,12 +6,13 @@ namespace eMenka.API.Mappers.RecordMappers
 {
     public class CorporationMapper : IMapper<Corporation, CorporationModel, CorporationReturnModel>
     {
-        private CompanyMapper _companyMapper;
+        private readonly CompanyMapper _companyMapper;
 
         public CorporationMapper()
         {
             _companyMapper = new CompanyMapper();
         }
+
         public CorporationReturnModel MapEntityToReturnModel(Corporation entity)
         {
             if (entity == null)

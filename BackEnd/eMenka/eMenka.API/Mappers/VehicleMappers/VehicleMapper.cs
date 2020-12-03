@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using eMenka.API.Mappers.FuelCardMappers;
+﻿using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -13,16 +9,16 @@ namespace eMenka.API.Mappers.VehicleMappers
     public class VehicleMapper : IMapper<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly BrandMapper _brandMapper;
-        private readonly FuelTypeMapper _fuelTypeMapper;
-        private readonly EngineTypeMapper _engineTypeMapper;
-        private readonly DoorTypeMapper _doorTypeMapper;
-        private readonly ModelMapper _modelMapper;
         private readonly CategoryMapper _categoryMapper;
-        private readonly SerieMapper _serieMapper;
         private readonly CountryMapper _countryMapper;
+        private readonly DoorTypeMapper _doorTypeMapper;
         private readonly DriverMapper _driverMapper;
-        private readonly InteriorColorMapper _interiorColorMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
         private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly FuelTypeMapper _fuelTypeMapper;
+        private readonly InteriorColorMapper _interiorColorMapper;
+        private readonly ModelMapper _modelMapper;
+        private readonly SerieMapper _serieMapper;
 
         public VehicleMapper()
         {
@@ -55,7 +51,7 @@ namespace eMenka.API.Mappers.VehicleMappers
                 IsActive = entity.IsActive,
                 Volume = entity.Volume,
                 Model = _modelMapper.MapEntityToReturnModel(entity.Model),
-                FuelCard = MapFuelCardEntity(entity.FuelCard), 
+                FuelCard = MapFuelCardEntity(entity.FuelCard),
                 Category = _categoryMapper.MapEntityToReturnModel(entity.Category),
                 LicensePlate = entity.LicensePlate,
                 Chassis = entity.Chassis,
@@ -111,7 +107,7 @@ namespace eMenka.API.Mappers.VehicleMappers
                 return null;
             return new FuelCardReturnModel
             {
-                Driver = _driverMapper.MapEntityToReturnModel(fuelCard.Driver), 
+                Driver = _driverMapper.MapEntityToReturnModel(fuelCard.Driver),
                 EndDate = fuelCard.EndDate,
                 StartDate = fuelCard.StartDate,
                 Id = fuelCard.Id,

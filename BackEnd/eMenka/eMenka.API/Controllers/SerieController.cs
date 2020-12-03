@@ -1,12 +1,10 @@
-﻿using eMenka.API.Mappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using eMenka.API.Mappers.VehicleMappers;
-using eMenka.API.Models.VehicleModels.ReturnModels;
-using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
@@ -15,9 +13,10 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly ISerieRepository _serieRepository;
-        private SerieMapper _serieMapper;
+        private readonly SerieMapper _serieMapper;
 
-        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(serieRepository, new SerieMapper())
+        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(
+            serieRepository, new SerieMapper())
         {
             _serieRepository = serieRepository;
             _brandRepository = brandRepository;

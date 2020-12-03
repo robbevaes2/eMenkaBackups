@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
+using System.Linq;
 
 namespace eMenka.Tests.Repositories
 {
     [TestFixture]
     public class CorporationRepositoryTests
     {
-        private CorporationRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
@@ -21,12 +16,14 @@ namespace eMenka.Tests.Repositories
             _sut = new CorporationRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
+        private CorporationRepository _sut;
+
         [Test]
         public void GetAllIncludesAllRelationsOfCorporation()
         {
             var company = new Company();
 
-            var corporation = new Corporation()
+            var corporation = new Corporation
             {
                 Company = company
             };
@@ -47,7 +44,7 @@ namespace eMenka.Tests.Repositories
         {
             var company = new Company();
 
-            var corporation = new Corporation()
+            var corporation = new Corporation
             {
                 Company = company
             };
@@ -64,7 +61,7 @@ namespace eMenka.Tests.Repositories
         {
             var company = new Company();
 
-            var corporation = new Corporation()
+            var corporation = new Corporation
             {
                 Company = company
             };

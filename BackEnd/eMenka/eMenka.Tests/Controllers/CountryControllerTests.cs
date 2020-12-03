@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Controllers;
+﻿using eMenka.API.Controllers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -22,10 +18,12 @@ namespace eMenka.Tests.Controllers
         {
             _countryRepositoryMock = new Mock<ICountryRepository>();
         }
+
         [Test]
         public void ConstructorSetsCorrectPropertiesInBaseClass()
         {
-            GenericController<Country, CountryModel, CountryReturnModel> countryController = new CountryController(_countryRepositoryMock.Object);
+            GenericController<Country, CountryModel, CountryReturnModel> countryController =
+                new CountryController(_countryRepositoryMock.Object);
 
             _countryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(new Country());

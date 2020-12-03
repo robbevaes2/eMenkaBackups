@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace eMenka.Tests.Mappers.VehicleMappers
 {
     [TestFixture]
     public class BrandMapperTests
     {
-        private BrandMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new BrandMapper();
         }
+
+        private BrandMapper _sut;
 
         [Test]
         public void MapbrandEntityReturnNullWhenModelIsNull()
@@ -45,14 +43,14 @@ namespace eMenka.Tests.Mappers.VehicleMappers
                 },
                 null
             };
-            var interiorColors= new List<InteriorColor>
+            var interiorColors = new List<InteriorColor>
             {
                 new InteriorColor
                 {
                     Id = id,
                     Code = code,
                     Name = name
-                }, 
+                },
                 null
             };
 

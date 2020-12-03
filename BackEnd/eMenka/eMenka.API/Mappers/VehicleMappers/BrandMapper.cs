@@ -1,20 +1,21 @@
-﻿using System.Linq;
-using eMenka.API.Models.VehicleModels;
+﻿using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
+using System.Linq;
 
 namespace eMenka.API.Mappers.VehicleMappers
 {
     public class BrandMapper : IMapper<Brand, BrandModel, BrandReturnModel>
     {
-        private InteriorColorMapper _interiorColorMapper;
-        private ExteriorColorMapper _exteriorColorMapper;
+        private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly InteriorColorMapper _interiorColorMapper;
 
         public BrandMapper()
         {
             _interiorColorMapper = new InteriorColorMapper();
             _exteriorColorMapper = new ExteriorColorMapper();
         }
+
         public BrandReturnModel MapEntityToReturnModel(Brand entity)
         {
             if (entity == null)

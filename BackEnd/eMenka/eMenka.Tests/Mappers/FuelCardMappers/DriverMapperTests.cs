@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Mappers.FuelCardMappers;
+﻿using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.FuelCardMappers
 {
     [TestFixture]
     public class DriverMapperTests
     {
-        private DriverMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new DriverMapper();
         }
+
+        private DriverMapper _sut;
 
         [Test]
         public void MapDriverEntityReturnNullWhenModelIsNull()
@@ -74,7 +72,6 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
             Assert.That(result.Id, Is.EqualTo(id));
             Assert.That(result.EndDate, Is.EqualTo(endDate));
             Assert.That(result.StartDate, Is.EqualTo(startDate));
-
         }
     }
 }

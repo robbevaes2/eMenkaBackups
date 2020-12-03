@@ -1,12 +1,9 @@
-﻿using eMenka.API.Mappers;
+﻿using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
-using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
+using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eMenka.API.Controllers
 {
@@ -15,7 +12,8 @@ namespace eMenka.API.Controllers
     {
         private readonly IPersonRepository _personRepository;
 
-        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(driverRepository, new DriverMapper())
+        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(
+            driverRepository, new DriverMapper())
         {
             _personRepository = personRepository;
         }

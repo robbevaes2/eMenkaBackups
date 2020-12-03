@@ -5,19 +5,22 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-
 namespace eMenka.API.Controllers
 {
     [ApiController]
     [EnableCors("MyAllowSpecificOrigins")]
-    public abstract class GenericController<TEntity, TModel, TReturnModel> : ControllerBase where TEntity : class where TModel : IModelBase
+    public abstract class GenericController<TEntity, TModel, TReturnModel> : ControllerBase
+        where TEntity : class where TModel : IModelBase
     {
         private readonly IGenericRepository<TEntity> _genericRepository;
         private readonly IMapper<TEntity, TModel, TReturnModel> _mapper;
 
-        public GenericController() { }
+        protected GenericController()
+        {
+        }
 
-        public GenericController(IGenericRepository<TEntity> genericRepository, IMapper<TEntity, TModel, TReturnModel> mapper)
+        protected GenericController(IGenericRepository<TEntity> genericRepository,
+            IMapper<TEntity, TModel, TReturnModel> mapper) : this()
         {
             _genericRepository = genericRepository;
             _mapper = mapper;

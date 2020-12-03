@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Mappers.RecordMappers;
+﻿using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.RecordMappers
 {
     [TestFixture]
     public class RecordMapperTests
     {
-        private RecordMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new RecordMapper();
         }
+
+        private RecordMapper _sut;
+
         [Test]
         public void MapRecordEntityReturnNullWhenRecordIsNull()
         {

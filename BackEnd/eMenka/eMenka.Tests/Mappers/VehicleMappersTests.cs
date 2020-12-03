@@ -1,8 +1,4 @@
-﻿using eMenka.API.Mappers;
-using eMenka.API.Models.VehicleModels;
-using eMenka.Domain.Classes;
-using NUnit.Framework;
-using System;
+﻿using NUnit.Framework;
 
 namespace eMenka.Tests.Mappers
 {
@@ -49,7 +45,6 @@ namespace eMenka.Tests.Mappers
                 Emission = emission,
                 FiscalHP = fiscalhp,
                 IsActive = isActive,
-                Power = power,
                 Volume = volume,
                 Model = null,
                 FuelCard = null,
@@ -70,7 +65,6 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.Emission, Is.EqualTo(emission));
             Assert.That(result.FiscalHP, Is.EqualTo(fiscalhp));
             Assert.That(result.IsActive, Is.EqualTo(isActive));
-            Assert.That(result.Power, Is.EqualTo(power));
             Assert.That(result.Volume, Is.EqualTo(volume));
             Assert.That(result.LicensePlate, Is.EqualTo(licensePlate));
             Assert.That(result.Chassis, Is.EqualTo(chassis));
@@ -96,14 +90,13 @@ namespace eMenka.Tests.Mappers
             var emission = 1;
             var fiscalhp = 1;
             var isActive = true;
-            var power = 1;
+            var enginePower = 1;
             var volume = 1;
             var licensePlate = "plate";
             var chassis = "chassis";
             var averageFuel = 1;
             var enDateDelivery = DateTime.Now;
             var engineCapacity = 1;
-            var enginePower = 1;
             var buildYear = 2000;
             var engineTypeId = 1;
             var brandId = 1;
@@ -122,7 +115,6 @@ namespace eMenka.Tests.Mappers
                 Emission = emission,
                 FiscalHP = fiscalhp,
                 IsActive = isActive,
-                Power = power,
                 Volume = volume,
                 LicensePlate = licensePlate,
                 Chassis = chassis,
@@ -148,7 +140,6 @@ namespace eMenka.Tests.Mappers
             Assert.That(result.Emission, Is.EqualTo(emission));
             Assert.That(result.FiscalHP, Is.EqualTo(fiscalhp));
             Assert.That(result.IsActive, Is.EqualTo(isActive));
-            Assert.That(result.Power, Is.EqualTo(power));
             Assert.That(result.Volume, Is.EqualTo(volume));
             Assert.That(result.LicensePlate, Is.EqualTo(licensePlate));
             Assert.That(result.Chassis, Is.EqualTo(chassis));

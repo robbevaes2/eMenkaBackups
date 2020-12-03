@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
+using System.Linq;
 
 namespace eMenka.Tests.Repositories
 {
     [TestFixture]
     public class RecordRepositoryTests
     {
-        private RecordRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
             EfenkaContextTestFactory.Create();
             _sut = new RecordRepository(EfenkaContextTestFactory.EfenkaContext);
         }
+
+        private RecordRepository _sut;
 
         [Test]
         public void GetAllIncludesAllRelationsOfRecord()
@@ -54,7 +51,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,
@@ -146,7 +143,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,
@@ -234,7 +231,7 @@ namespace eMenka.Tests.Repositories
             {
                 Person = person
             };
-            var vehicle = new Vehicle()
+            var vehicle = new Vehicle
             {
                 Brand = brand,
                 Model = model,

@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.Domain.Classes;
+﻿using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace eMenka.Tests.Classes
 {
     [TestFixture]
     public class BrandTests
     {
-        private Brand _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new Brand();
         }
+
+        private Brand _sut;
 
         [Test]
         public void BrandVehiclesPropertyCorrectlyGetsAndSetsVehicles()

@@ -1,0 +1,57 @@
+
+<div class="row mr-1">
+  <h1 class="col-10">Bestuurders</h1>
+  <button type="button" id="add-button" class="btn btn-primary col-md-2" (click)="navigateToNewDriverComponent()">toevoegen</button>
+</div>
+<div class="md-form">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    class="form-control"
+    id="search"
+    (ngModelChange)="searchItems()"
+    mdbInput
+  />
+  <label for="search">Search</label>
+</div>
+<div class="table-responsive">
+  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <thead class="sticky-top">
+    <tr>
+      <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="drivers" [sortBy]="headElements[i]" scope="col">
+        {{head | titlecase}}
+        <mdb-icon fas icon="sort"></mdb-icon>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let driver of drivers; let i = index" (click)="navigateToDriverDetailsComponent(driver.id)">
+        <!-- <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.brand.name}}</th>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.model.name}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fuelType.name}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.engineType.name}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.doorType.name}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.volume}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalHP}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.power}}</td>
+        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endDateDelivery.toLocaleDateString()}}</td> -->
+        <th >{{driver.person.firstname}}</th>
+        <td >{{driver.person.lastname}}</td>
+        <td >{{driver.person.driversLicenseType}}</td>
+        <td >{{driver.person.driversLicenseNumber}}</td>
+        <td >{{getLanguageName(driver.person.language)}}</td>
+        <td >
+          <fa-icon [icon]="faCheck" *ngIf="isDriverActive(driver)"></fa-icon>
+          <fa-icon [icon]="faTimes" *ngIf="!isDriverActive(driver)"></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+    <!-- <tfoot class="grey lighten-5 w-100">
+    <tr>
+      <td colspan="10">
+        <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="vehicles"></mdb-table-pagination>
+      </td>
+    </tr>
+    </tfoot> -->
+  </table>
+</div>

@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.FuelCardMappers
 {
     [TestFixture]
     public class PersonMapperTests
     {
-        private PersonMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new PersonMapper();
         }
+
+        private PersonMapper _sut;
 
         [Test]
         public void MapPersonEntityReturnNullWhenModelIsNull()

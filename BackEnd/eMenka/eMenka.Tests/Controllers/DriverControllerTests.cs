@@ -81,7 +81,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
@@ -147,7 +147,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
@@ -171,7 +171,7 @@ namespace eMenka.Tests.Controllers
                 PersonId = 1
             };
 
-            Person person = new Person();
+            var person = new Person();
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);

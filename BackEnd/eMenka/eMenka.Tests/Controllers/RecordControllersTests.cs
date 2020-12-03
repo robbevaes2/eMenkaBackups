@@ -1,5 +1,4 @@
-﻿using System;
-using eMenka.API.Controllers;
+﻿using eMenka.API.Controllers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -7,6 +6,7 @@ using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
@@ -466,6 +466,7 @@ namespace eMenka.Tests.Controllers
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
+
         [Test]
         public void UpdateRecordReturnsOkWhenEverythingIsCorrect()
         {

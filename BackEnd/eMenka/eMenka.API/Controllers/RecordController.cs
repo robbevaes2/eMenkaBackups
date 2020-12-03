@@ -1,12 +1,10 @@
-﻿using eMenka.API.Mappers;
+using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
+using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using eMenka.API.Mappers.RecordMappers;
-using eMenka.API.Models.RecordModels.ReturnModels;
-using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
@@ -19,7 +17,8 @@ namespace eMenka.API.Controllers
         private readonly IRecordRepository _recordRepository;
 
         public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
-            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(recordRepository, new RecordMapper())
+            ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(
+            recordRepository, new RecordMapper())
         {
             _recordRepository = recordRepository;
             _fuelCardRepository = fuelCardRepository;

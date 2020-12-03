@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Mappers.FuelCardMappers;
-using eMenka.API.Mappers.RecordMappers;
+﻿using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.RecordMappers
 {
     [TestFixture]
     public class CorporationMapperTests
     {
-        private CorporationMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new CorporationMapper();
         }
+
+        private CorporationMapper _sut;
 
         [Test]
         public void MapCorporationEntityReturnsNullWhenCorporationIsNull()

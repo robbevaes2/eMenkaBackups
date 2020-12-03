@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using eMenka.API.Mappers.VehicleMappers;
+﻿using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.Domain.Classes;
 using NUnit.Framework;
+using System;
 
 namespace eMenka.Tests.Mappers.VehicleMappers
 {
     [TestFixture]
     public class VehicleMapperTest
     {
-        private VehicleMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new VehicleMapper();
         }
+
+        private VehicleMapper _sut;
 
         [Test]
         public void MapVehicleEntityReturnNullWhenVehicleIsNull()

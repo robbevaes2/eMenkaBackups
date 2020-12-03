@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eMenka.Data.Repositories;
+﻿using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
+using System.Linq;
 
 namespace eMenka.Tests.Repositories
 {
     [TestFixture]
     public class SerieRepositoryTests
     {
-        private SerieRepository _sut;
-
         [OneTimeSetUp]
         public void Init()
         {
@@ -21,12 +16,14 @@ namespace eMenka.Tests.Repositories
             _sut = new SerieRepository(EfenkaContextTestFactory.EfenkaContext);
         }
 
+        private SerieRepository _sut;
+
         [Test]
         public void GetAllIncludesAllRelationsOfSerie()
         {
             var brand = new Brand();
 
-            var serie = new Series()
+            var serie = new Series
             {
                 Brand = brand
             };
@@ -47,7 +44,7 @@ namespace eMenka.Tests.Repositories
         {
             var brand = new Brand();
 
-            var series = new Series()
+            var series = new Series
             {
                 Brand = brand
             };
@@ -64,7 +61,7 @@ namespace eMenka.Tests.Repositories
         {
             var brand = new Brand();
 
-            var series = new Series()
+            var series = new Series
             {
                 Brand = brand
             };

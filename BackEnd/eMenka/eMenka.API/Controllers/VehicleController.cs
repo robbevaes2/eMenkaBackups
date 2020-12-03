@@ -1,17 +1,14 @@
-﻿using eMenka.API.Mappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
-using Microsoft.AspNetCore.Cors;
+using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using eMenka.API.Mappers.VehicleMappers;
-using eMenka.API.Models.VehicleModels.ReturnModels;
-using eMenka.Domain.Classes;
 
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-
     public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
@@ -23,7 +20,7 @@ namespace eMenka.API.Controllers
         private readonly IModelRepository _modelRepository;
         private readonly ISerieRepository _serieRepository;
         private readonly IVehicleRepository _vehicleRepository;
-        private VehicleMapper _vehicleMapper;
+        private readonly VehicleMapper _vehicleMapper;
 
         public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository,
             IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository,

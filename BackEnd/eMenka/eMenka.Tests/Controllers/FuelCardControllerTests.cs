@@ -19,7 +19,8 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock = new Mock<IFuelCardRepository>();
             _driverRepositoryMock = new Mock<IDriverRepository>();
             _vehicleRepositoryMock = new Mock<IVehicleRepository>();
-            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object, _vehicleRepositoryMock.Object);
+            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object,
+                _vehicleRepositoryMock.Object);
         }
 
         private FuelCardController _sut;
@@ -85,7 +86,7 @@ namespace eMenka.Tests.Controllers
             };
 
             var driver = new Driver();
-            Vehicle vehicle = new Vehicle();
+            var vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
@@ -134,7 +135,7 @@ namespace eMenka.Tests.Controllers
                 VehicleId = 1
             };
 
-            Driver driver = new Driver();
+            var driver = new Driver();
             Vehicle vehicle = null;
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
@@ -161,7 +162,7 @@ namespace eMenka.Tests.Controllers
             };
 
             var driver = new Driver();
-            Vehicle vehicle = new Vehicle();
+            var vehicle = new Vehicle();
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
@@ -266,7 +267,7 @@ namespace eMenka.Tests.Controllers
                 VehicleId = 1
             };
 
-            Driver driver = new Driver();
+            var driver = new Driver();
             Vehicle vehicle = null;
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
