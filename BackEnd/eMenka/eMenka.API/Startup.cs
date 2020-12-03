@@ -1,20 +1,13 @@
 using eMenka.Data;
 using eMenka.Data.IRepositories;
 using eMenka.Data.Repositories;
-using eMenka.Domain;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using System;
-using System.Text;
-
 namespace eMenka.API
 {
     public class Startup
