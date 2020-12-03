@@ -17,10 +17,10 @@ namespace eMenka.API.Models.VehicleModels
         [Required] public int? Emission { get; set; }
         [Required] public bool IsActive { get; set; }
         [Required] public int? CategoryId { get; set; }
-        [Required] public int? EnginePower { get; set; }
+        [Required] public string LicensePlate { get; set; }
+        [Required] public string Chassis { get; set; }
         public int? EngineCapacity { get; set; }
-        public string LicensePlate { get; set; }
-        public string Chassis { get; set; }
+        public int EnginePower { get; set; }
         public DateTime? EndDateDelivery { get; set; }
         public int? AverageFuel { get; set; }
         public int? CountryId { get; set; }

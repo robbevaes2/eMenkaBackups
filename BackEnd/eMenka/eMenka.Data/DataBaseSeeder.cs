@@ -1023,7 +1023,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2005, 2, 22, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2015, 2, 22, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr",
@@ -1038,7 +1038,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 11, 6, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 11, 6, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -1053,7 +1053,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 10, 14, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 10, 14, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr.",
@@ -1068,7 +1068,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 7, 20, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 7, 20, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -1098,7 +1098,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1983, 2, 24, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1993, 2, 24, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -1112,9 +1112,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1982, 9, 14, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2000, 9, 14, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1127,9 +1127,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1989, 5, 22, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2010, 9, 14, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2020, 9, 14, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1143,7 +1143,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 1, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 1, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr.",
@@ -1158,7 +1158,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1998, 9, 5, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2008, 9, 5, 12, 0, 0),
                     DriversLicenseType = "BCD",
                     Gender = "M",
                     Title = "Dhr",
@@ -1173,7 +1173,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2009, 3, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2019, 3, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1188,7 +1188,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2001, 1, 3, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2011, 1, 3, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1203,7 +1203,7 @@ namespace eMenka.Data
                     Language = (Language)1,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 12, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 12, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr.",
@@ -1218,7 +1218,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2003, 4, 4, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2013, 4, 4, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1233,7 +1233,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1994, 3, 16, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2004, 3, 16, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1263,7 +1263,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2006, 9, 14, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2016, 9, 14, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1278,7 +1278,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1997, 1, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2007, 1, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
@@ -1293,7 +1293,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1993, 12, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2003, 12, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1308,7 +1308,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 10, 29, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 10, 29, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "de heer",
@@ -1323,7 +1323,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2004, 4, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2014, 4, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "V",
                     Title = "",
@@ -1338,7 +1338,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1999, 6, 23, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2009, 6, 23, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1353,7 +1353,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2008, 7, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2018, 7, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1368,7 +1368,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1379,12 +1379,11 @@ namespace eMenka.Data
                     Id = 25,
                     Firstname = "Bart",
                     Lastname = "Billemoons",
-
                     Language = (Language)1,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1397,9 +1396,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1978, 6, 26, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2004, 11, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2014, 11, 8, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Meneer",
                     Picture = new byte[] { 0x0 }
@@ -1413,7 +1412,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1987, 12, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1997, 12, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1428,7 +1427,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2000, 3, 8, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2010, 3, 8, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1443,7 +1442,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 7, 12, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 7, 12, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1458,7 +1457,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1998, 2, 19, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2008, 2, 19, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1473,7 +1472,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2009, 3, 13, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2019, 3, 13, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1488,7 +1487,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2010, 5, 10, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2020, 5, 10, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1503,7 +1502,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2012, 5, 22, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2022, 5, 22, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1518,7 +1517,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2011, 6, 20, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2021, 6, 20, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1533,7 +1532,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1547,8 +1546,8 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1989, 5, 31, 12, 0, 0),
                     Language = (Language)3,
                     DriversLicenseNumber = "12345678-25",
-
-
+                    StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1562,9 +1561,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1986, 11, 4, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2007, 11, 28, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2017, 11, 28, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1578,7 +1577,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2011, 7, 18, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2021, 7, 18, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "V",
                     Title = "",
@@ -1608,7 +1607,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1622,8 +1621,8 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1985, 7, 6, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
+                    StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
                     DriversLicenseType = "C",
                     Gender = "M",
                     Title = "",
@@ -1637,9 +1636,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1990, 6, 4, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(1996, 7, 26, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2006, 7, 26, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1653,7 +1652,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(1988, 11, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(1998, 11, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1668,7 +1667,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "hgjj",
                     StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Dhr",
@@ -1682,9 +1681,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1984, 8, 2, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1697,9 +1696,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(1999, 9, 9, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "123/123456",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2017, 2, 6, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2027, 2, 6, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
                     Picture = null
@@ -1713,7 +1712,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "",
                     StartDateDriversLicense = new DateTime(2017, 9, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 9, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1728,7 +1727,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "",
                     StartDateDriversLicense = new DateTime(2017, 8, 24, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 8, 24, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "",
@@ -1743,7 +1742,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "12345678-25",
                     StartDateDriversLicense = new DateTime(2017, 9, 1, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2027, 9, 1, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Mr",
@@ -1756,11 +1755,9 @@ namespace eMenka.Data
                     Lastname = "string",
                     BirthDate = new DateTime(2019, 9, 30, 12, 0, 0),
                     Language = (Language)2,
-
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
-                    EndDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1768,10 +1765,10 @@ namespace eMenka.Data
                     Id = 51,
                     Firstname = "string",
                     Lastname = "string",
-
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1779,10 +1776,9 @@ namespace eMenka.Data
                     Id = 52,
                     Firstname = "string",
                     Lastname = "string",
-
-                    Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1790,10 +1786,10 @@ namespace eMenka.Data
                     Id = 53,
                     Firstname = "string",
                     Lastname = "string",
-
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Picture = null
                 },
                 new Person
@@ -1801,10 +1797,10 @@ namespace eMenka.Data
                     Id = 54,
                     Firstname = "string",
                     Lastname = "string",
-
+                    DriversLicenseType = "B",
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     Picture = null
                 },
                 new Person
@@ -1812,12 +1808,11 @@ namespace eMenka.Data
                     Id = 55,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1827,12 +1822,11 @@ namespace eMenka.Data
                     Id = 56,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1842,12 +1836,11 @@ namespace eMenka.Data
                     Id = 57,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1857,12 +1850,11 @@ namespace eMenka.Data
                     Id = 58,
                     Firstname = "elvin",
                     Lastname = "lumani",
-
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1875,9 +1867,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 3, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1890,9 +1882,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 3, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "string",
-
-
-                    DriversLicenseType = "",
+                    StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1906,8 +1898,8 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "string",
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
-
-                    DriversLicenseType = "",
+                    EndDateDriversLicense = new DateTime(2029, 10, 3, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -1922,7 +1914,7 @@ namespace eMenka.Data
                     DriversLicenseNumber = "string",
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
-                    DriversLicenseType = "",
+                    DriversLicenseType = "B",
                     Gender = "",
                     Title = "",
                     Picture = new byte[] { 0x0 }
@@ -2039,8 +2031,9 @@ namespace eMenka.Data
                     Lastname = "string",
                     BirthDate = new DateTime(2019, 10, 4, 12, 0, 0),
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2019, 10, 1, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "a",
                     Title = "string",
                     Picture = new byte[] { 0x0 }
@@ -2140,10 +2133,9 @@ namespace eMenka.Data
                     Id = 77,
                     Firstname = "bla",
                     Lastname = "bla",
-
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2019, 10, 8, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2019, 10, 8, 12, 0, 0),
                     DriversLicenseType = "AZERT",
                     Gender = "M",
                     Title = "bla",
@@ -2217,8 +2209,9 @@ namespace eMenka.Data
                     BirthDate = new DateTime(2019, 10, 9, 12, 0, 0),
                     Language = (Language)2,
                     DriversLicenseNumber = "23",
-
-
+                    StartDateDriversLicense = new DateTime(1998, 2, 12, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2034, 7, 11, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
@@ -2414,7 +2407,6 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     DriversLicenseType = "A",
-
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2438,7 +2430,6 @@ namespace eMenka.Data
                     Id = 97,
                     Firstname = "azzeeer",
                     Lastname = "azerty",
-
                     Language = (Language)1,
                     DriversLicenseNumber = "456",
                     StartDateDriversLicense = new DateTime(2019, 11, 23, 12, 0, 0),
@@ -2502,7 +2493,7 @@ namespace eMenka.Data
                     Language = (Language)1,
                     DriversLicenseNumber = "123456",
                     StartDateDriversLicense = new DateTime(2020, 1, 11, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2030, 1, 11, 12, 0, 0),
                     DriversLicenseType = "ABC",
                     Gender = "M",
                     Title = "mr",
@@ -2680,10 +2671,9 @@ namespace eMenka.Data
                     Lastname = "lumani",
                     BirthDate = new DateTime(2020, 1, 17, 12, 0, 0),
                     Language = (Language)1,
-
                     StartDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
-
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
@@ -2695,11 +2685,9 @@ namespace eMenka.Data
                     Lastname = "lumani",
                     BirthDate = new DateTime(2020, 1, 10, 12, 0, 0),
                     Language = (Language)1,
-
                     StartDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 17, 12, 0, 0),
-
-
+                    DriversLicenseType = "B",
                     Picture = new byte[] { 0x0 }
                 },
                 new Person
@@ -2754,10 +2742,9 @@ namespace eMenka.Data
                     Lastname = "Lenaerts",
                     BirthDate = new DateTime(1993, 6, 18, 12, 0, 0),
                     Language = (Language)2,
-
                     StartDateDriversLicense = new DateTime(2006, 11, 30, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2016, 11, 30, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
                     Title = "dhr",
                     Picture = new byte[] { 0x0 }
@@ -2784,8 +2771,9 @@ namespace eMenka.Data
                     Lastname = "test1",
                     BirthDate = new DateTime(2020, 2, 19, 12, 0, 0),
                     Language = (Language)2,
-
-
+                    StartDateDriversLicense = new DateTime(2000, 5, 20, 12, 0, 0),
+                    EndDateDriversLicense = new DateTime(2025, 5, 20, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "F",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
@@ -2797,12 +2785,10 @@ namespace eMenka.Data
                     Lastname = "test",
                     BirthDate = new DateTime(2020, 2, 18, 12, 0, 0),
                     Language = (Language)3,
-
                     StartDateDriversLicense = new DateTime(2020, 2, 17, 12, 0, 0),
-
-
+                    EndDateDriversLicense = new DateTime(2030, 2, 17, 12, 0, 0),
+                    DriversLicenseType = "B",
                     Gender = "M",
-
                     Picture = new byte[] { 0x0 }
                 },
                 new Person
@@ -2814,7 +2800,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "123456789",
                     StartDateDriversLicense = new DateTime(2015, 9, 19, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2025, 9, 19, 12, 0, 0),
                     DriversLicenseType = "B",
                     Gender = "M",
                     Title = "Doctor",
@@ -2829,10 +2815,9 @@ namespace eMenka.Data
                     Language = (Language)2,
                     DriversLicenseNumber = "e",
                     StartDateDriversLicense = new DateTime(2020, 3, 3, 12, 0, 0),
-
+                    EndDateDriversLicense = new DateTime(2030, 3, 3, 12, 0, 0),
                     DriversLicenseType = "b",
                     Gender = "F",
-
                     Picture = new byte[] { 0x0 }
                 },
                 new Person
@@ -3526,7 +3511,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 12,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3573,7 +3559,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 14,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 11, 30)
                 },
                 new Vehicle
                 {
@@ -3596,7 +3583,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 15,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -3619,7 +3607,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 16,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -3642,7 +3631,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 16,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(2009, 8, 27)
                 },
                 new Vehicle
                 {
@@ -3665,7 +3655,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 17,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 7, 20)
                 },
                 new Vehicle
                 {
@@ -3688,7 +3679,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 18,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2008, 6, 21)
                 },
                 new Vehicle
                 {
@@ -3711,7 +3703,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 19,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2007, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3734,7 +3727,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 20,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2019, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3757,7 +3751,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 21,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2010, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3779,7 +3774,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 22,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 25)
                 },
                 new Vehicle
                 {
@@ -3802,7 +3798,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 23,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 11)
                 },
                 new Vehicle
                 {
@@ -3825,7 +3822,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 24,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 5, 30)
                 },
                 new Vehicle
                 {
@@ -3848,7 +3846,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 25,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3871,7 +3870,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 26,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2015, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3894,7 +3894,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 27,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2017, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3917,7 +3918,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 28,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2011, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3940,7 +3942,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2015, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3963,7 +3966,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 12, 29)
                 },
                 new Vehicle
                 {
@@ -3986,7 +3990,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2009, 12, 11)
                 },
                 new Vehicle
                 {
@@ -4008,7 +4013,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2009, 12, 1)
                 },
                 new Vehicle
                 {
@@ -4030,7 +4036,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2009, 12, 5)
                 },
                 new Vehicle
                 {
@@ -4052,7 +4059,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2009, 10, 7)
                 },
                 new Vehicle
                 {
@@ -4073,7 +4081,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2009, 7, 5)
                 },
                 new Vehicle
                 {
@@ -4095,7 +4104,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2009, 1, 1)
                 },
                 new Vehicle
                 {
@@ -4117,7 +4127,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4138,7 +4149,8 @@ namespace eMenka.Data
                     FuelTypeId = 3,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2021, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4160,7 +4172,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2020, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4182,7 +4195,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4204,7 +4218,8 @@ namespace eMenka.Data
                     FuelTypeId = 5,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 14
+                    ExteriorColorId = 14,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -4226,7 +4241,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 15
+                    ExteriorColorId = 15,
+                    EndDateDelivery = new DateTime(2009, 2, 10)
                 },
                 new Vehicle
                 {
@@ -4271,7 +4287,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4293,7 +4310,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2009, 11, 30)
                 },
                 new Vehicle
                 {
@@ -4315,7 +4333,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 19
+                    ExteriorColorId = 19,
+                    EndDateDelivery = new DateTime(2009, 4, 20)
                 },
                 new Vehicle
                 {
@@ -4337,7 +4356,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(1998, 4, 20)
                 },
                 new Vehicle
                 {
@@ -4359,7 +4379,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 21
+                    ExteriorColorId = 21,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4381,7 +4402,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 22
+                    ExteriorColorId = 22,
+                    EndDateDelivery = new DateTime(2011, 5, 30)
                 },
                 new Vehicle
                 {
@@ -4403,7 +4425,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4425,7 +4448,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2009, 5, 8)
                 },
                 new Vehicle
                 {
@@ -4447,7 +4471,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 25
+                    ExteriorColorId = 25,
+                    EndDateDelivery = new DateTime(2009, 7, 30)
                 },
                 new Vehicle
                 {
@@ -4469,7 +4494,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 26
+                    ExteriorColorId = 26,
+                    EndDateDelivery = new DateTime(2014, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4491,7 +4517,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 27
+                    ExteriorColorId = 27,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4513,7 +4540,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 28
+                    ExteriorColorId = 28,
+                    EndDateDelivery = new DateTime(2011, 9, 30)
                 },
                 new Vehicle
                 {
@@ -4535,7 +4563,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 29
+                    ExteriorColorId = 29,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4557,7 +4586,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -4579,7 +4609,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 2,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4601,7 +4632,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 3,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2012, 12, 12)
                 },
                 new Vehicle
                 {
@@ -4623,7 +4655,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 4,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2001, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4645,7 +4678,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 4,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2002, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4667,7 +4701,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 5,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4689,7 +4724,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 6,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4711,7 +4747,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 7,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4733,7 +4770,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 8,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4755,7 +4793,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 9,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4777,7 +4816,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 10,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4799,7 +4839,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 11,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4821,7 +4862,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 12,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4843,7 +4885,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 13,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2001, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4865,7 +4908,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 14,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4887,7 +4931,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 15,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 8)
                 },
                 new Vehicle
                 {
@@ -4909,7 +4954,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 16,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 1)
                 },
                 new Vehicle
                 {
@@ -4931,7 +4977,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 17,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 6, 30)
                 },
                 new Vehicle
                 {
@@ -4953,7 +5000,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 18,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 4, 30)
                 },
                 new Vehicle
                 {
@@ -4975,7 +5023,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 19,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 3, 30)
                 },
                 new Vehicle
                 {
@@ -4997,7 +5046,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 20,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -5019,7 +5069,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 21,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5064,7 +5115,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 23,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5086,7 +5138,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 24,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5108,7 +5161,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 25,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5130,7 +5184,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 26,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2011, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5152,7 +5207,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 27,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5174,7 +5230,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 28,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5196,7 +5253,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 4, 30)
                 },
                 new Vehicle
                 {
@@ -5218,7 +5276,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2009, 1, 11)
                 },
                 new Vehicle
                 {
@@ -5240,7 +5299,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5262,7 +5322,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -5284,7 +5345,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5306,7 +5368,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2009, 8, 30)
                 },
                 new Vehicle
                 {
@@ -5328,7 +5391,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -5350,7 +5414,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5372,7 +5437,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5394,7 +5460,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5416,7 +5483,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5438,7 +5506,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 14
+                    ExteriorColorId = 14,
+                    EndDateDelivery = new DateTime(2009, 8, 30)
                 },
                 new Vehicle
                 {
@@ -5460,7 +5529,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 15
+                    ExteriorColorId = 15,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5482,7 +5552,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 16
+                    ExteriorColorId = 16,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5504,7 +5575,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5526,7 +5598,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5548,7 +5621,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 19
+                    ExteriorColorId = 19,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5570,7 +5644,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5592,7 +5667,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 21
+                    ExteriorColorId = 21,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5614,7 +5690,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 22
+                    ExteriorColorId = 22,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5636,7 +5713,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5658,7 +5736,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5680,7 +5759,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 25
+                    ExteriorColorId = 25,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5702,7 +5782,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 26
+                    ExteriorColorId = 26,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5724,7 +5805,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 27
+                    ExteriorColorId = 27,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5746,7 +5828,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 28
+                    ExteriorColorId = 28,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5768,7 +5851,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 29
+                    ExteriorColorId = 29,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5790,7 +5874,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5812,7 +5897,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 3,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5834,7 +5920,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 4,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5856,7 +5943,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 5,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5878,7 +5966,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 6,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5900,7 +5989,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 7,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5922,7 +6012,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 8,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5944,7 +6035,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 9,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5966,7 +6058,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 10,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -5988,7 +6081,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 11,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6010,7 +6104,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 12,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6032,7 +6127,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 13,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6054,7 +6150,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 14,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6076,7 +6173,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 15,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6098,7 +6196,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 16,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6120,7 +6219,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 17,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6142,7 +6242,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 18,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2012, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6164,7 +6265,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 19,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2020, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6186,7 +6288,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 20,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6208,7 +6311,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 7,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6230,7 +6334,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 21,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6252,7 +6357,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 22,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6274,7 +6380,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 23,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6296,7 +6403,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 24,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6318,7 +6426,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 25,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6340,7 +6449,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 26,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6362,7 +6472,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 27,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6384,7 +6495,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 28,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6406,7 +6518,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6428,7 +6541,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6450,7 +6564,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -6472,7 +6587,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2015, 10, 30)
                 },
                 new Vehicle
                 {
@@ -6494,7 +6610,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2017, 8, 27)
                 },
                 new Vehicle
                 {
@@ -6516,7 +6633,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -6538,7 +6656,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -6560,7 +6679,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2019, 7, 30)
                 },
                 new Vehicle
                 {
@@ -6582,7 +6702,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2020, 9, 30)
                 },
                 new Vehicle
                 {
@@ -6604,7 +6725,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -6699,7 +6821,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2016, 05, 2)
                 },
                 new Vehicle
                 {
@@ -6722,7 +6845,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2017, 05, 2)
                 },
                 new Vehicle
                 {
@@ -6841,7 +6965,8 @@ namespace eMenka.Data
                     FuelTypeId = 3,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2013, 3, 2)
                 },
                 new Vehicle
                 {
@@ -6864,7 +6989,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2015, 05, 2)
                 }
             );
 
@@ -7375,7 +7501,9 @@ namespace eMenka.Data
                     CostAllocationId = 4,
                     FuelCardId = 1,
                     Term = Term.Long,
-                    Usage = Usage.Pool
+                    Usage = Usage.Pool,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2026, 1, 20)
                 },
                 new Record
                 {
@@ -7384,9 +7512,21 @@ namespace eMenka.Data
                     CostAllocationId = 4,
                     FuelCardId = 4,
                     Term = Term.Long,
-                    Usage = Usage.Definitive
+                    Usage = Usage.Definitive,
+                    StartDate = new DateTime(2018, 1, 20),
+                    EndDate = new DateTime(2023, 1, 20)
                 },
-                new Record { Id = 3, FuelCardId = 5, Term = Term.Long, Usage = Usage.Definitive },
+                new Record
+                {
+                    Id = 3,
+                    CorporationId = 1,
+                    FuelCardId = 5,
+                    Term = Term.Long,
+                    Usage = Usage.Definitive,
+                    CostAllocationId = 1,
+                    StartDate = new DateTime(2016, 1, 20),
+                    EndDate = new DateTime(2020, 1, 20)
+                },
                 new Record
                 {
                     Id = 4,
@@ -7394,7 +7534,9 @@ namespace eMenka.Data
                     CostAllocationId = 2,
                     FuelCardId = 6,
                     Term = Term.Short,
-                    Usage = Usage.RunIn
+                    Usage = Usage.RunIn,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2020, 4, 20)
                 },
                 new Record
                 {
@@ -7403,7 +7545,9 @@ namespace eMenka.Data
                     CostAllocationId = 2,
                     FuelCardId = 8,
                     Term = Term.Long,
-                    Usage = Usage.Definitive
+                    Usage = Usage.Definitive,
+                    StartDate = new DateTime(2011, 1, 20),
+                    EndDate = new DateTime(2017, 1, 20)
                 },
                 new Record
                 {
@@ -7419,6 +7563,7 @@ namespace eMenka.Data
                 new Record
                 {
                     Id = 7,
+                    CorporationId = 3,
                     CostAllocationId = 2,
                     FuelCardId = 11,
                     StartDate = new DateTime(2013, 7, 24),
@@ -7429,205 +7574,150 @@ namespace eMenka.Data
                 new Record
                 {
                     Id = 8,
-                    CostAllocationId = 4,
-                    FuelCardId = 3,
-                    EndDate = new DateTime(2015, 12, 26),
-                    Term = Term.Short,
-                    Usage = Usage.RunIn
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 3, EndDate = new DateTime(2015, 12, 26),
+                    Term = Term.Short, Usage = Usage.RunIn,
+                    StartDate = new DateTime(2012, 1, 20)
                 },
                 new Record
                 {
                     Id = 9,
-                    CostAllocationId = 4,
-                    FuelCardId = 7,
-                    StartDate = new DateTime(2014, 11, 28),
-                    EndDate = new DateTime(2018, 11, 27),
-                    Term = Term.Long,
-                    Usage = 0
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 7, StartDate = new DateTime(2014, 11, 28),
+                    EndDate = new DateTime(2018, 11, 27), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
                     Id = 10,
-                    CostAllocationId = 2,
-                    FuelCardId = 2,
-                    StartDate = new DateTime(2014, 7, 15),
-                    EndDate = new DateTime(2022, 7, 14),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 3,
+                    CostAllocationId = 2, FuelCardId = 2, StartDate = new DateTime(2014, 7, 15),
+                    EndDate = new DateTime(2022, 7, 14), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 11,
-                    CostAllocationId = 4,
-                    FuelCardId = 12,
-                    StartDate = new DateTime(2014, 7, 2),
-                    EndDate = new DateTime(2018, 7, 1),
-                    Term = Term.Long,
-                    Usage = 0
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 12, StartDate = new DateTime(2014, 7, 2),
+                    EndDate = new DateTime(2018, 7, 1), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
                     Id = 12,
-                    CostAllocationId = 4,
-                    FuelCardId = 19,
-                    StartDate = new DateTime(2014, 4, 9),
-                    EndDate = new DateTime(2018, 4, 8),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 19, StartDate = new DateTime(2014, 4, 9),
+                    EndDate = new DateTime(2018, 4, 8), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 13,
-                    CostAllocationId = 3,
-                    FuelCardId = 17,
-                    StartDate = new DateTime(2014, 3, 5),
-                    EndDate = new DateTime(2021, 3, 4),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 3,
+                    CostAllocationId = 3, FuelCardId = 17, StartDate = new DateTime(2014, 3, 5),
+                    EndDate = new DateTime(2021, 3, 4), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 14,
-                    CorporationId = 3,
-                    CostAllocationId = 4,
-                    FuelCardId = 18,
-                    StartDate = new DateTime(2014, 3, 5),
-                    EndDate = new DateTime(2018, 3, 4),
-                    Term = Term.Long,
+                    CorporationId = 3, CostAllocationId = 4, FuelCardId = 18,
+                    StartDate = new DateTime(2014, 3, 5), EndDate = new DateTime(2018, 3, 4), Term = Term.Long,
                     Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 15,
-                    CostAllocationId = 1,
-                    FuelCardId = 16,
-                    StartDate = new DateTime(2013, 7, 24),
-                    EndDate = new DateTime(2017, 7, 23),
-                    Term = Term.Long,
-                    Usage = Usage.Replacement
+                    CorporationId = 2,
+                    CostAllocationId = 1, FuelCardId = 16, StartDate = new DateTime(2013, 7, 24),
+                    EndDate = new DateTime(2017, 7, 23), Term = Term.Long, Usage = Usage.Replacement
                 },
                 new Record
                 {
                     Id = 16,
-                    CostAllocationId = 4,
-                    FuelCardId = 15,
-                    StartDate = new DateTime(2013, 5, 7),
-                    EndDate = new DateTime(2020, 5, 6),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 15, StartDate = new DateTime(2013, 5, 7),
+                    EndDate = new DateTime(2020, 5, 6), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 17,
-                    CostAllocationId = 4,
-                    FuelCardId = 14,
-                    StartDate = new DateTime(2013, 3, 4),
-                    EndDate = new DateTime(2017, 3, 3),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 3,
+                    CostAllocationId = 4, FuelCardId = 14, StartDate = new DateTime(2013, 3, 4),
+                    EndDate = new DateTime(2017, 3, 3), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 18,
-                    CostAllocationId = 4,
-                    FuelCardId = 13,
-                    StartDate = new DateTime(2013, 2, 8),
-                    EndDate = new DateTime(2017, 2, 7),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 13, StartDate = new DateTime(2013, 2, 8),
+                    EndDate = new DateTime(2017, 2, 7), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 19,
-                    CostAllocationId = 2,
-                    FuelCardId = 20,
-                    StartDate = new DateTime(2013, 1, 18),
-                    EndDate = new DateTime(2017, 1, 17),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 1,
+                    CostAllocationId = 2, FuelCardId = 20, StartDate = new DateTime(2013, 1, 18),
+                    EndDate = new DateTime(2017, 1, 17), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 20,
-                    CostAllocationId = 4,
-                    FuelCardId = 21,
-                    StartDate = new DateTime(2012, 11, 28),
-                    EndDate = new DateTime(2016, 11, 27),
-                    Term = Term.Long,
-                    Usage = 0
+                    CorporationId = 3,
+                    CostAllocationId = 4, FuelCardId = 21, StartDate = new DateTime(2012, 11, 28),
+                    EndDate = new DateTime(2016, 11, 27), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
                     Id = 21,
-                    CostAllocationId = 4,
-                    FuelCardId = 22,
-                    StartDate = new DateTime(2012, 6, 28),
-                    EndDate = new DateTime(2016, 6, 27),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 22, StartDate = new DateTime(2012, 6, 28),
+                    EndDate = new DateTime(2016, 6, 27), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 22,
-                    CostAllocationId = 4,
-                    FuelCardId = 23,
-                    StartDate = new DateTime(2012, 3, 19),
-                    EndDate = new DateTime(2016, 3, 18),
-                    Term = Term.Long,
-                    Usage = 0
+                    CorporationId = 1,
+                    CostAllocationId = 4, FuelCardId = 23, StartDate = new DateTime(2012, 3, 19),
+                    EndDate = new DateTime(2016, 3, 18), Term = Term.Long, Usage = 0
                 },
                 new Record
                 {
                     Id = 23,
-                    CorporationId = 1,
-                    CostAllocationId = 4,
-                    FuelCardId = 24,
-                    StartDate = new DateTime(2012, 4, 1),
-                    EndDate = new DateTime(2017, 4, 1),
-                    Term = Term.Long,
+                    CorporationId = 1, CostAllocationId = 4, FuelCardId = 24,
+                    StartDate = new DateTime(2012, 4, 1), EndDate = new DateTime(2017, 4, 1), Term = Term.Long,
                     Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 24,
-                    CostAllocationId = 3,
-                    FuelCardId = 25,
-                    StartDate = new DateTime(2012, 2, 21),
-                    EndDate = new DateTime(2016, 2, 20),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 3,
+                    CostAllocationId = 3, FuelCardId = 25, StartDate = new DateTime(2012, 2, 21),
+                    EndDate = new DateTime(2016, 2, 20), Term = Term.Long, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 25,
-                    CostAllocationId = 2,
-                    FuelCardId = 26,
-                    StartDate = new DateTime(2012, 1, 15),
-                    EndDate = new DateTime(2017, 1, 14),
-                    Term = Term.Privé,
-                    Usage = Usage.Definitive
+                    CorporationId = 2,
+                    CostAllocationId = 2, FuelCardId = 26, StartDate = new DateTime(2012, 1, 15),
+                    EndDate = new DateTime(2017, 1, 14), Term = Term.Privé, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 26,
-                    CostAllocationId = 3,
-                    FuelCardId = 27,
-                    StartDate = new DateTime(2012, 1, 19),
-                    EndDate = new DateTime(2017, 1, 18),
-                    Term = Term.Privé,
-                    Usage = Usage.Definitive
+                    CorporationId = 1,
+                    CostAllocationId = 3, FuelCardId = 27, StartDate = new DateTime(2012, 1, 19),
+                    EndDate = new DateTime(2017, 1, 18), Term = Term.Privé, Usage = Usage.Definitive
                 },
                 new Record
                 {
                     Id = 27,
-                    CostAllocationId = 4,
-                    FuelCardId = 28,
-                    StartDate = new DateTime(2012, 10, 27),
-                    EndDate = new DateTime(2015, 10, 27),
-                    Term = Term.Long,
-                    Usage = Usage.Definitive
+                    CorporationId = 2,
+                    CostAllocationId = 4, FuelCardId = 28, StartDate = new DateTime(2012, 10, 27),
+                    EndDate = new DateTime(2015, 10, 27), Term = Term.Long, Usage = Usage.Definitive
                 },
-                new Record { Id = 28, CostAllocationId = 1, FuelCardId = 29, Term = Term.Privé, Usage = Usage.Definitive }
+                new Record {Id = 28,
+                    CorporationId = 3,
+                    CostAllocationId = 1, FuelCardId = 29, Term = Term.Privé, Usage = Usage.Definitive,
+                    StartDate = new DateTime(2020, 1, 20),
+                    EndDate = new DateTime(2023, 1, 20)
+                }
             );
 
             #endregion

@@ -22,7 +22,6 @@
               {{head | titlecase}}
               <mdb-icon fas icon="sort"></mdb-icon>
             </th>
-
         </tr>
     </thead>
     <tbody>
@@ -46,8 +45,8 @@
         <td>{{ record.fuelCard.vehicle.model.name }}</td>
         <td>{{ record.usage }}</td>
         <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
-        <td>{{ record.startDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ record.endDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ record.startDate | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
     <!-- <tfoot>
