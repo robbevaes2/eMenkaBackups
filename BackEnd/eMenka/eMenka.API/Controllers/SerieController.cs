@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -13,9 +13,10 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly ISerieRepository _serieRepository;
-        private SerieMapper _serieMapper;
+        private readonly SerieMapper _serieMapper;
 
-        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(serieRepository, new SerieMapper())
+        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(
+            serieRepository, new SerieMapper())
         {
             _serieRepository = serieRepository;
             _brandRepository = brandRepository;

@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -12,9 +12,10 @@ namespace eMenka.API.Controllers
     public class CategoryController : GenericController<Category, CategoryModel, CategoryReturnModel>
     {
         private readonly ICategoryRepository _categoryRepository;
-        private CategoryMapper _categoryMapper;
+        private readonly CategoryMapper _categoryMapper;
 
-        public CategoryController(ICategoryRepository categoryRepository) : base(categoryRepository, new CategoryMapper())
+        public CategoryController(ICategoryRepository categoryRepository) : base(categoryRepository,
+            new CategoryMapper())
         {
             _categoryRepository = categoryRepository;
             _categoryMapper = new CategoryMapper();

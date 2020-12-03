@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -9,7 +9,6 @@ using System.Linq;
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-
     public class VehicleController : GenericController<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly IBrandRepository _brandRepository;

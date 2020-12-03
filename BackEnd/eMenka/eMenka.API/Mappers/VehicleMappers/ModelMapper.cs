@@ -6,7 +6,8 @@ namespace eMenka.API.Mappers.VehicleMappers
 {
     public class ModelMapper : IMapper<Model, ModelModel, ModelReturnModel>
     {
-        private BrandMapper _brandMapper;
+        private readonly BrandMapper _brandMapper;
+
         public ModelMapper()
         {
             _brandMapper = new BrandMapper();

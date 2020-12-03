@@ -1,3 +1,4 @@
+import { ExteriorColor } from './../../models/exterior-color/exterior-color';
 import { Country } from 'src/app/models/country/country';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,6 +12,7 @@ import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { EngineType } from '../../models/engine-type/engine-type';
 import { ApiService } from '../../services/api.service';
 import { Category } from '../../models/category/category';
+import { InteriorColor } from 'src/app/models/interior-color/interior-color';
 
 @Component({
   selector: 'app-new-vehicle-item',
@@ -28,6 +30,8 @@ export class NewVehicleItemComponent implements OnInit {
   fuelCards: FuelCard[];
   categories: Category[];
   countries: Country[];
+  interiorColors: InteriorColor[];
+  exteriorColors: ExteriorColor[];
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -57,18 +61,20 @@ export class NewVehicleItemComponent implements OnInit {
       country: new FormControl(null, [Validators.required]),
       engineCapacity: new FormControl(null, [Validators.required]),
       buildYear: new FormControl(null, [Validators.required]),
-      kilometers: new FormControl(null, [Validators.required])
+      kilometers: new FormControl(null, [Validators.required]),
+      exteriorColor: new FormControl(null, [Validators.required]),
+      interiorColor: new FormControl(null, [Validators.required])
     });
   }
 
   mapToModel(values: any): any {
     return {
       brandId: Number(values.brand),
-      modelId:  Number(values.model),
-      fuelTypeId:  Number(values.fuelType),
-      engineTypeId:  Number(values.engineType),
-      doorTypeId:  Number(values.doorType),
-      fuelCardId:  null,
+      modelId: Number(values.model),
+      fuelTypeId: Number(values.fuelType),
+      engineTypeId: Number(values.engineType),
+      doorTypeId: Number(values.doorType),
+      fuelCardId: null,
       seriesId: Number(values.serie),
       volume: values.volume,
       fiscalHP: values.fiscalHP,
@@ -82,7 +88,9 @@ export class NewVehicleItemComponent implements OnInit {
       endDateDelivery: values.endDate,
       countryId: Number(values.country),
       buildYear: Number(values.buildYear),
-      kilometers: Number(values.kilometers)
+      kilometers: Number(values.kilometers),
+      exteriorColorId: Number(values.exteriorColor),
+      interiorColorId: Number(values.interiorColor)
     };
   }
 
@@ -93,6 +101,8 @@ export class NewVehicleItemComponent implements OnInit {
     this.setModels(brandId);
     this.setSeries(brandId);
     this.setEngineTypes(brandId);
+    this.setSelectedBrand(brandId);
+
   }
 
   navigateToListVehicleComponent(): void {
@@ -135,6 +145,13 @@ export class NewVehicleItemComponent implements OnInit {
 
   setCategories(): void {
     this.apiService.getAllCategories().subscribe(data => this.categories = data);
+  }
+
+  setSelectedBrand(brandId: number): void {
+    this.apiService.getBrandById(brandId).subscribe(data => {
+      this.interiorColors = data.interiorColors;
+      this.exteriorColors = data.exteriorColors;
+    });
   }
 
   getCountries(): Country[] {

@@ -42,7 +42,11 @@
         <td >{{vehicle.volume}}</td>
         <td >{{vehicle.fiscalHP}}</td>
         <td >{{vehicle.enginePower == null ? 'not set': vehicle.enginePower}}</td>
+<<<<<<< HEAD
         <td>{{vehicle.endDateDelivery| date:'dd/MM/yyyy'}}</td>
+=======
+        <td>{{dateToStringConverter(vehicle.endDateDelivery)}}</td>
+>>>>>>> origin/Development
       </tr>
     </tbody>
     <!-- <tfoot class="grey lighten-5 w-100">

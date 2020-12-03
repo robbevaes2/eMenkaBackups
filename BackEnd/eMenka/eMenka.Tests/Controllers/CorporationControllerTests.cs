@@ -131,9 +131,10 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((CorporationReturnModel)result.Value, Is.Not.Null);
 
             _corporationRepositoryMock.Verify(m => m.Add(It.IsAny<Corporation>()), Times.Once);
             _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);

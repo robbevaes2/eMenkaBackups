@@ -15,19 +15,20 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class BrandControllerTests
     {
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
-        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
-
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _interiorColorRepositoryMock = new Mock<IInteriorColorRepository>();
             _exteriorColorRepositoryMock = new Mock<IExteriorColorRepository>();
-            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object, _interiorColorRepositoryMock.Object);
+            _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object,
+                _interiorColorRepositoryMock.Object);
         }
+
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
+        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()
@@ -122,9 +123,15 @@ namespace eMenka.Tests.Controllers
                 InteriorColorIds = new[] { 1 }
             };
 
-            var result = _sut.PostEntity(validModel) as OkResult;
+            _exteriorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(new ExteriorColor());
+            _interiorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(new InteriorColor());
+
+            var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
+            Assert.That((BrandReturnModel)result.Value, Is.Not.Null);
 
             _brandRepositoryMock.Verify(m => m.Add(It.IsAny<Brand>()), Times.Once);
         }

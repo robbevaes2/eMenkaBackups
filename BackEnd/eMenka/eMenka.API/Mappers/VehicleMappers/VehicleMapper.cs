@@ -9,14 +9,16 @@ namespace eMenka.API.Mappers.VehicleMappers
     public class VehicleMapper : IMapper<Vehicle, VehicleModel, VehicleReturnModel>
     {
         private readonly BrandMapper _brandMapper;
-        private readonly FuelTypeMapper _fuelTypeMapper;
-        private readonly EngineTypeMapper _engineTypeMapper;
-        private readonly DoorTypeMapper _doorTypeMapper;
-        private readonly ModelMapper _modelMapper;
         private readonly CategoryMapper _categoryMapper;
-        private readonly SerieMapper _serieMapper;
         private readonly CountryMapper _countryMapper;
+        private readonly DoorTypeMapper _doorTypeMapper;
         private readonly DriverMapper _driverMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
+        private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly FuelTypeMapper _fuelTypeMapper;
+        private readonly InteriorColorMapper _interiorColorMapper;
+        private readonly ModelMapper _modelMapper;
+        private readonly SerieMapper _serieMapper;
 
         public VehicleMapper()
         {
@@ -29,6 +31,8 @@ namespace eMenka.API.Mappers.VehicleMappers
             _serieMapper = new SerieMapper();
             _countryMapper = new CountryMapper();
             _driverMapper = new DriverMapper();
+            _interiorColorMapper = new InteriorColorMapper();
+            _exteriorColorMapper = new ExteriorColorMapper();
         }
 
         public VehicleReturnModel MapEntityToReturnModel(Vehicle entity)
@@ -59,7 +63,9 @@ namespace eMenka.API.Mappers.VehicleMappers
                 BuildYear = entity.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(entity.Country),
                 Kilometers = entity.Kilometers,
-                RegistrationDate = entity.RegistrationDate
+                RegistrationDate = entity.RegistrationDate,
+                ExteriorColor = _exteriorColorMapper.MapExteriorColorEntity(entity.ExteriorColor),
+                InteriorColor = _interiorColorMapper.MapInteriorColorEntity(entity.InteriorColor)
             };
         }
 
@@ -89,7 +95,9 @@ namespace eMenka.API.Mappers.VehicleMappers
                 BuildYear = model.BuildYear,
                 CategoryId = model.CategoryId,
                 Kilometers = model.Kilometers,
-                RegistrationDate = model.RegistrationDate
+                RegistrationDate = model.RegistrationDate,
+                ExteriorColorId = model.ExteriorColorId,
+                InteriorColorId = model.InteriorColorId
             };
         }
 

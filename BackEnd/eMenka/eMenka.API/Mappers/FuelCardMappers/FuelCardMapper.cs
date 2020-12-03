@@ -9,14 +9,17 @@ namespace eMenka.API.Mappers.FuelCardMappers
     public class FuelCardMapper : IMapper<FuelCard, FuelCardModel, FuelCardReturnModel>
     {
         private readonly BrandMapper _brandMapper;
-        private readonly FuelTypeMapper _fuelTypeMapper;
-        private readonly EngineTypeMapper _engineTypeMapper;
-        private readonly DoorTypeMapper _doorTypeMapper;
-        private readonly ModelMapper _modelMapper;
         private readonly CategoryMapper _categoryMapper;
-        private readonly SerieMapper _serieMapper;
         private readonly CountryMapper _countryMapper;
+        private readonly DoorTypeMapper _doorTypeMapper;
         private readonly DriverMapper _driverMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
+        private readonly ExteriorColorMapper _exteriorColorMapper;
+        private readonly FuelTypeMapper _fuelTypeMapper;
+        private readonly InteriorColorMapper _interiorColorMapper;
+        private readonly ModelMapper _modelMapper;
+        private readonly SerieMapper _serieMapper;
+
         public FuelCardMapper()
         {
             _brandMapper = new BrandMapper();
@@ -28,6 +31,8 @@ namespace eMenka.API.Mappers.FuelCardMappers
             _serieMapper = new SerieMapper();
             _countryMapper = new CountryMapper();
             _driverMapper = new DriverMapper();
+            _exteriorColorMapper = new ExteriorColorMapper();
+            _interiorColorMapper = new InteriorColorMapper();
         }
 
         public FuelCardReturnModel MapEntityToReturnModel(FuelCard entity)
@@ -94,7 +99,9 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 BuildYear = vehicle.BuildYear,
                 Country = _countryMapper.MapEntityToReturnModel(vehicle.Country),
                 Kilometers = vehicle.Kilometers,
-                RegistrationDate = vehicle.RegistrationDate
+                RegistrationDate = vehicle.RegistrationDate,
+                ExteriorColor = _exteriorColorMapper.MapExteriorColorEntity(vehicle.ExteriorColor),
+                InteriorColor = _interiorColorMapper.MapInteriorColorEntity(vehicle.InteriorColor)
             };
         }
     }

@@ -6945,6 +6945,9 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineTypeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ExteriorColorId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("FiscalHP")
                         .HasColumnType("int");
 
@@ -6952,6 +6955,9 @@ namespace eMenka.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("FuelTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InteriorColorId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -6987,11 +6993,15 @@ namespace eMenka.Data.Migrations
 
                     b.HasIndex("EngineTypeId");
 
+                    b.HasIndex("ExteriorColorId");
+
                     b.HasIndex("FuelCardId")
                         .IsUnique()
                         .HasFilter("[FuelCardId] IS NOT NULL");
 
                     b.HasIndex("FuelTypeId");
+
+                    b.HasIndex("InteriorColorId");
 
                     b.HasIndex("ModelId");
 
@@ -10857,6 +10867,10 @@ namespace eMenka.Data.Migrations
                         .WithMany("Vehicles")
                         .HasForeignKey("EngineTypeId");
 
+                    b.HasOne("eMenka.Domain.Classes.ExteriorColor", "ExteriorColor")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("ExteriorColorId");
+
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Vehicle")
                         .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
@@ -10864,6 +10878,10 @@ namespace eMenka.Data.Migrations
                     b.HasOne("eMenka.Domain.Classes.FuelType", "FuelType")
                         .WithMany("Vehicles")
                         .HasForeignKey("FuelTypeId");
+
+                    b.HasOne("eMenka.Domain.Classes.InteriorColor", "InteriorColor")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("InteriorColorId");
 
                     b.HasOne("eMenka.Domain.Classes.Model", "Model")
                         .WithMany("Vehicles")

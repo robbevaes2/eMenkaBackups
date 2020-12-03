@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.FuelCardMappers;
+using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.Domain.Classes;
 using eMenka.Domain.Enums;
@@ -10,13 +10,13 @@ namespace eMenka.Tests.Mappers.FuelCardMappers
     [TestFixture]
     public class PersonMapperTests
     {
-        private PersonMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new PersonMapper();
         }
+
+        private PersonMapper _sut;
 
         [Test]
         public void MapPersonEntityReturnNullWhenModelIsNull()

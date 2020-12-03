@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -12,10 +12,11 @@ namespace eMenka.API.Controllers
     public class ModelController : GenericController<Model, ModelModel, ModelReturnModel>
     {
         private readonly IBrandRepository _brandRepository;
-        private readonly IModelRepository _modelRepository;
         private readonly ModelMapper _modelMapper;
+        private readonly IModelRepository _modelRepository;
 
-        public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository) : base(modelRepository, new ModelMapper())
+        public ModelController(IModelRepository modelRepository, IBrandRepository brandRepository) : base(
+            modelRepository, new ModelMapper())
         {
             _modelRepository = modelRepository;
             _brandRepository = brandRepository;

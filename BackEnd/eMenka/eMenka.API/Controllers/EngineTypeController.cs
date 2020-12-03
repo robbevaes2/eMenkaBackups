@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -13,9 +13,10 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly IEngineTypeRepository _engineTypeRepository;
-        private EngineTypeMapper _engineTypeMapper;
+        private readonly EngineTypeMapper _engineTypeMapper;
 
-        public EngineTypeController(IEngineTypeRepository engineTypeRepository, IBrandRepository brandRepository) : base(engineTypeRepository, new EngineTypeMapper())
+        public EngineTypeController(IEngineTypeRepository engineTypeRepository, IBrandRepository brandRepository) :
+            base(engineTypeRepository, new EngineTypeMapper())
         {
             _engineTypeRepository = engineTypeRepository;
             _brandRepository = brandRepository;

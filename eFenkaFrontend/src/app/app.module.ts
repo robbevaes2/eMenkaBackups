@@ -16,8 +16,12 @@ import { RecordDetailsComponent } from './components/record-details/record-detai
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+<<<<<<< HEAD
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
+=======
+import { DatePipe } from '@angular/common';
+>>>>>>> origin/Development
 
 @NgModule({
   declarations: [
@@ -42,7 +46,7 @@ import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-d
     MDBBootstrapModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

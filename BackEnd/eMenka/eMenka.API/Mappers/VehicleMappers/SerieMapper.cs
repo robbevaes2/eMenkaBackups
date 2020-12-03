@@ -6,12 +6,13 @@ namespace eMenka.API.Mappers.VehicleMappers
 {
     public class SerieMapper : IMapper<Series, SerieModel, SerieReturnModel>
     {
-        private BrandMapper _brandMapper;
+        private readonly BrandMapper _brandMapper;
 
         public SerieMapper()
         {
             _brandMapper = new BrandMapper();
         }
+
         public SerieReturnModel MapEntityToReturnModel(Series entity)
         {
             if (entity == null)

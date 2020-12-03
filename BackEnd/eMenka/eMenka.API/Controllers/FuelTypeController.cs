@@ -10,9 +10,10 @@ namespace eMenka.API.Controllers
     [Route("api/[controller]")]
     public class FuelTypeController : GenericController<FuelType, FuelTypeModel, FuelTypeReturnModel>
     {
-
-        public FuelTypeController(IFuelTypeRepository fuelTypeRepository) : base(fuelTypeRepository, new FuelTypeMapper())
+        public FuelTypeController(IFuelTypeRepository fuelTypeRepository) : base(fuelTypeRepository,
+            new FuelTypeMapper())
         {
+
         }
     }
 }

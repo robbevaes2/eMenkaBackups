@@ -12,7 +12,8 @@ namespace eMenka.API.Controllers
     {
         private readonly IPersonRepository _personRepository;
 
-        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(driverRepository, new DriverMapper())
+        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(
+            driverRepository, new DriverMapper())
         {
             _personRepository = personRepository;
         }

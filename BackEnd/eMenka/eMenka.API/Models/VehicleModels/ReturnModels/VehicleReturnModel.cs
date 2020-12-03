@@ -28,5 +28,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public CountryReturnModel Country { get; set; }
         public double Kilometers { get; set; }
         public DateTime RegistrationDate { get; set; }
+        public ExteriorColorReturnModel ExteriorColor { get; set; }
+        public InteriorColorReturnModel InteriorColor { get; set; }
     }
 }

@@ -6,12 +6,13 @@ namespace eMenka.API.Mappers.RecordMappers
 {
     public class CorporationMapper : IMapper<Corporation, CorporationModel, CorporationReturnModel>
     {
-        private CompanyMapper _companyMapper;
+        private readonly CompanyMapper _companyMapper;
 
         public CorporationMapper()
         {
             _companyMapper = new CompanyMapper();
         }
+
         public CorporationReturnModel MapEntityToReturnModel(Corporation entity)
         {
             if (entity == null)

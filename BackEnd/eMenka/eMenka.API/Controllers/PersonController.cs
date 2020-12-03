@@ -10,11 +10,8 @@ namespace eMenka.API.Controllers
     [Route("api/[controller]")]
     public class PersonController : GenericController<Person, PersonModel, PersonReturnModel>
     {
-        private readonly IPersonRepository _personRepository;
-
         public PersonController(IPersonRepository personRepository) : base(personRepository, new PersonMapper())
         {
-            _personRepository = personRepository;
         }
     }
 }

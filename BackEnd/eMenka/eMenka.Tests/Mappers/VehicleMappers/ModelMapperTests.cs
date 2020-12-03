@@ -8,13 +8,13 @@ namespace eMenka.Tests.Mappers.VehicleMappers
     [TestFixture]
     public class ModelMapperTests
     {
-        private ModelMapper _sut;
-
         [SetUp]
         public void Init()
         {
             _sut = new ModelMapper();
         }
+
+        private ModelMapper _sut;
 
         [Test]
         public void MapModelEntityReturnNullWhenModelIsNull()

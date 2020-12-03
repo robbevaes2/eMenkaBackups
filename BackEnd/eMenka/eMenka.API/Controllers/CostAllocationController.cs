@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace eMenka.API.Controllers
 {
     [Route("api/[controller]")]
-    public class CostAllocationController : GenericController<CostAllocation, CostAllocationModel, CostAllocationReturnModel>
+    public class
+        CostAllocationController : GenericController<CostAllocation, CostAllocationModel, CostAllocationReturnModel>
     {
-
-        public CostAllocationController(ICostAllocationRepository costAllocationRepository) : base(costAllocationRepository, new CostAllocationMapper())
+        public CostAllocationController(ICostAllocationRepository costAllocationRepository) : base(
+            costAllocationRepository, new CostAllocationMapper())
         {
         }
     }

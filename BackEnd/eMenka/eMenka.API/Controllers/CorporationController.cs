@@ -12,18 +12,19 @@ namespace eMenka.API.Controllers
     {
         private readonly ICompanyRepository _companyRepository;
 
-        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository) : base(corporationRepository, new CorporationMapper())
+        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository)
+            : base(corporationRepository, new CorporationMapper())
         {
             _companyRepository = companyRepository;
         }
 
         [HttpPost]
-        public override IActionResult PostEntity([FromBody] CorporationModel corporationModel)
+        public override IActionResult PostEntity([FromBody] CorporationModel model)
         {
-            if (_companyRepository.GetById((int)corporationModel.CompanyId) == null)
-                return NotFound($"Company with id {corporationModel.CompanyId} not found");
+            if (_companyRepository.GetById((int)model.CompanyId) == null)
+                return NotFound($"Company with id {model.CompanyId} not found");
 
-            return base.PostEntity(corporationModel);
+            return base.PostEntity(model);
         }
 
         public override IActionResult UpdateEntity(CorporationModel model, int id)

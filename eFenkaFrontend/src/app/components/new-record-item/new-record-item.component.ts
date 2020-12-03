@@ -3,20 +3,14 @@ import { FuelType } from 'src/app/models/fuel-type/fuel-type';
 import { Brand } from './../../models/brand/brand';
 import { Model } from './../../models/model/model';
 import { Vehicle } from './../../models/vehicle/vehicle';
-import { Usage } from './../../enums/usage/usage.enum';
 import { Country } from './../../models/country/country';
-import { Serie } from './../../models/serie/serie';
-import { DoorType } from './../../models/door-type/door-type';
-import { ExteriorColor } from './../../models/exterior-color/exterior-color';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Record } from 'src/app/models/record/record';
-import { Term } from 'src/app/enums/term/term.enum';
+import { Router } from '@angular/router';
 import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { EngineType } from 'src/app/models/engine-type/engine-type';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-new-record-item',
@@ -35,13 +29,13 @@ export class NewRecordItemComponent implements OnInit {
   models: Model[];
   vehicles: Vehicle[];
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService, public datepipe: DatePipe) {
   }
 
   ngOnInit(): void {
     this.countries = this.getCountries();
 
-    this.setCorporatoin();
+    this.setCorporation();
     this.setCostAllocation();
     this.setFuelCard();
     this.setBrand();
@@ -64,10 +58,6 @@ export class NewRecordItemComponent implements OnInit {
       fuelType: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       vehicle: new FormControl(null, [Validators.required]),
-      buildYear: new FormControl(null, [Validators.required]),
-      kilometers: new FormControl(null, []),
-      exteriorColor: new FormControl(null, []),
-      interiorColor: new FormControl(null, [])
     });
   }
 
@@ -77,7 +67,11 @@ export class NewRecordItemComponent implements OnInit {
 
   saveNewRecord(form: FormGroup): void {
     if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
-      this.apiService.addRecord(this.mapToModel(form.value)).subscribe(() => this.router.navigate(['/record']));
+      this.apiService.addRecord(this.mapToModel(form.value)).subscribe(() => {
+        this.apiService.updateVehicle(Number(form.value.vehicle), this.mapToVehicle(form.value)).subscribe(() =>
+        this.navigateToListRecordComponent()
+        );
+      });
     }
   }
 
@@ -97,12 +91,11 @@ export class NewRecordItemComponent implements OnInit {
       this.form.controls['licensePlate'].setValue(data.licensePlate);
       this.form.controls['chassis'].setValue(data.chassis);
       this.form.controls['fuelCard'].setValue(data.fuelCard.id);
-
     });
   }
 
-  setCorporatoin(): void {
-    this.apiService.getAllCorporatoins().subscribe(data => this.corporations = data);
+  setCorporation(): void {
+    this.apiService.getAllCorporations().subscribe(data => this.corporations = data);
   }
 
   setCostAllocation(): void {
@@ -144,10 +137,40 @@ export class NewRecordItemComponent implements OnInit {
       fuelCardId: Number(values.fuelCard),
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
-      term: values.type,
-      startDate: values.startDate,
+      term: Number(values.type) - 1,
+      startDate: new Date(values.startDate).toISOString(),
       endDate: new Date('10-10-2010'),
-      usage: values.usage
+      usage: Number(values.usage) - 1
+    };
+  }
+
+  mapToVehicle(values: any): any {
+    console.log(this.vehicles.find(v => v.id === Number(values.vehicle)));
+    return {
+      Id: Number(values.vehicle),
+      brandId: this.vehicles.find(v => v.id === Number(values.vehicle)).brand.id,
+      modelId: this.vehicles.find(v => v.id === Number(values.vehicle)).model.id,
+      fuelTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelType.id,
+      engineTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).engineType.id,
+      doorTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).doorType.id,
+      fuelCardId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelCard.id,
+      seriesId: this.vehicles.find(v => v.id === Number(values.vehicle)).serie.id,
+      volume: this.vehicles.find(v => v.id === Number(values.vehicle)).volume,
+      fiscalHP: this.vehicles.find(v => v.id === Number(values.vehicle)).fiscalHP,
+      emission: this.vehicles.find(v => v.id === Number(values.vehicle)).emission,
+      enginePower: this.vehicles.find(v => v.id === Number(values.vehicle)).enginePower,
+      registrationDate: new Date(values.registrationDate).toISOString(),
+      isActive: true,
+      categoryId: this.vehicles.find(v => v.id === Number(values.vehicle)).category.id,
+      licensePlate: this.vehicles.find(v => v.id === Number(values.vehicle)).licensePlate,
+      chassis: this.vehicles.find(v => v.id === Number(values.vehicle)).chassis,
+      engineCapacity: this.vehicles.find(v => v.id === Number(values.vehicle)).engineCapacity,
+      endDateDelivery: this.vehicles.find(v => v.id === Number(values.vehicle)).endDateDelivery,
+      countryId: this.vehicles.find(v => v.id === Number(values.vehicle)).country.id,
+      buildYear: this.vehicles.find(v => v.id === Number(values.vehicle)).buildYear,
+      kilometers: this.vehicles.find(v => v.id === Number(values.vehicle)).kilometers,
+      exteriorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).exteriorColor.id,
+      interiorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).interiorColor.id
     };
   }
 }

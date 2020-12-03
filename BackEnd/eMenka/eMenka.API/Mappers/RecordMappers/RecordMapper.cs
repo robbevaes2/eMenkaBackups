@@ -7,9 +7,9 @@ namespace eMenka.API.Mappers.RecordMappers
 {
     public class RecordMapper : IMapper<Record, RecordModel, RecordReturnModel>
     {
-        private FuelCardMapper _fuelCardMapper;
-        private CorporationMapper _coporationMapper;
-        private CostAllocationMapper _costAllocationMapper;
+        private readonly CorporationMapper _coporationMapper;
+        private readonly CostAllocationMapper _costAllocationMapper;
+        private readonly FuelCardMapper _fuelCardMapper;
 
         public RecordMapper()
         {
@@ -17,6 +17,7 @@ namespace eMenka.API.Mappers.RecordMappers
             _coporationMapper = new CorporationMapper();
             _costAllocationMapper = new CostAllocationMapper();
         }
+
         public RecordReturnModel MapEntityToReturnModel(Record entity)
         {
             if (entity == null)
