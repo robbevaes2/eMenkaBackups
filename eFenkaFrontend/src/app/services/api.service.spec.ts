@@ -77,14 +77,14 @@ describe('ApiService', () => {
   describe('#getVehicleById', () => {
     it('should throw an error if vehicle was not found', () => {
       const vehicleId = 1;
+      let response: any;
+      let errResponse: any;
 
-      service.getVehicleById(vehicleId).subscribe(v => fail('Should have failed with 404 error'),
-      (error: HttpErrorResponse) => {
-        expect(error.status).toEqual(404);
-      });
-
-      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
-      req.flush('404 error', { status: 404, statusText: 'Not Found' });
+      const mockErrorResponse = { status: 404, statusText: 'Not Found' };
+      const data = 'Invalid request parameters';
+      service.getVehicleById(vehicleId).subscribe(res => response = res, err => errResponse = err);
+      httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`).flush(data, mockErrorResponse);
+      expect(errResponse).toBe(data);
     });
   });
 
