@@ -22,19 +22,13 @@ namespace eMenka.Tests.Repositories
         [Test]
         public void GetAllIncludesAllRelationsOfBrand()
         {
-            var enginetypes = new List<EngineType>();
-            var models = new List<Model>();
             var exteriorColors = new List<ExteriorColor>();
             var interiorColors = new List<InteriorColor>();
-            var series = new List<Series>();
 
             var brand = new Brand
             {
-                EngineTypes = enginetypes,
-                Models = models,
                 ExteriorColors = exteriorColors,
-                InteriorColors = interiorColors,
-                Series = series
+                InteriorColors = interiorColors
             };
 
             _sut.Add(brand);
@@ -45,69 +39,48 @@ namespace eMenka.Tests.Repositories
 
             var brandFromDatabase = brands.FirstOrDefault(b => b.Id == brand.Id);
 
-            Assert.That(brandFromDatabase.EngineTypes, Is.EqualTo(enginetypes));
-            Assert.That(brandFromDatabase.Models, Is.EqualTo(models));
             Assert.That(brandFromDatabase.ExteriorColors, Is.EqualTo(exteriorColors));
             Assert.That(brandFromDatabase.InteriorColors, Is.EqualTo(interiorColors));
-            Assert.That(brandFromDatabase.Series, Is.EqualTo(series));
         }
 
         [Test]
         public void GetByIdIncludesAllRelationsOfBrand()
         {
-            var enginetypes = new List<EngineType>();
-            var models = new List<Model>();
             var exteriorColors = new List<ExteriorColor>();
             var interiorColors = new List<InteriorColor>();
-            var series = new List<Series>();
 
             var brand = new Brand
             {
-                EngineTypes = enginetypes,
-                Models = models,
                 ExteriorColors = exteriorColors,
-                InteriorColors = interiorColors,
-                Series = series
+                InteriorColors = interiorColors
             };
 
             _sut.Add(brand);
 
             var brandFromDatabase = _sut.GetById(brand.Id);
 
-            Assert.That(brandFromDatabase.EngineTypes, Is.EqualTo(enginetypes));
-            Assert.That(brandFromDatabase.Models, Is.EqualTo(models));
             Assert.That(brandFromDatabase.ExteriorColors, Is.EqualTo(exteriorColors));
             Assert.That(brandFromDatabase.InteriorColors, Is.EqualTo(interiorColors));
-            Assert.That(brandFromDatabase.Series, Is.EqualTo(series));
         }
 
         [Test]
         public void FindIncludesAllRelationsOfBrand()
         {
-            var enginetypes = new List<EngineType>();
-            var models = new List<Model>();
             var exteriorColors = new List<ExteriorColor>();
             var interiorColors = new List<InteriorColor>();
-            var series = new List<Series>();
 
             var brand = new Brand
             {
-                EngineTypes = enginetypes,
-                Models = models,
                 ExteriorColors = exteriorColors,
-                InteriorColors = interiorColors,
-                Series = series
+                InteriorColors = interiorColors
             };
 
             _sut.Add(brand);
 
             var brandFromDatabase = _sut.Find(b => b.Id == brand.Id).FirstOrDefault();
 
-            Assert.That(brandFromDatabase.EngineTypes, Is.EqualTo(enginetypes));
-            Assert.That(brandFromDatabase.Models, Is.EqualTo(models));
             Assert.That(brandFromDatabase.ExteriorColors, Is.EqualTo(exteriorColors));
             Assert.That(brandFromDatabase.InteriorColors, Is.EqualTo(interiorColors));
-            Assert.That(brandFromDatabase.Series, Is.EqualTo(series));
         }
     }
 }

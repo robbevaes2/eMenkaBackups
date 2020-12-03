@@ -36,11 +36,8 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<Brand> Find(Expression<Func<Brand, bool>> statement)
         {
             return _context.Brands.Where(statement)
-                .Include(b => b.EngineTypes)
-                .Include(b => b.Models)
                 .Include(b => b.ExteriorColors)
                 .Include(b => b.InteriorColors)
-                .Include(b => b.Series)
                 .ToList();
         }
     }

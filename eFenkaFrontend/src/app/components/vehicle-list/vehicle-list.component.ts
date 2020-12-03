@@ -11,8 +11,8 @@ import {ApiService} from '../../services/api.service';
 })
 export class VehicleListComponent implements OnInit, AfterViewInit {
   vehicles: Vehicle[];
-  headNames = ['Merk', 'Model', 'brandstof', 'type motor', 'aantal deuren', 'volume', 'fiscale Pk', 'vermogen', 'Einddatum'];
-  headElements = ['brand.name', 'model.name', 'fuelType.name', 'engineType.name', 'doorType.name', 'volume', 'fiscalHP', 'enginePower', 'endDateDelivery'];
+  headNames  = ['Merk', 'Model', 'brandstof', 'type motor', 'aantal deuren', 'volume', 'fiscale Pk', 'vermogen', 'Einddatum'];
+  headElements  = ['brand.name', 'model.name', 'fuelType.name', 'motorType.name', 'doorType.name', 'volume', 'fiscalHp', 'power', 'endDateDelivery'];
 
   @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective;
   @ViewChild(MdbTablePaginationComponent, {static: true}) mdbTablePagination: MdbTablePaginationComponent;
@@ -36,8 +36,6 @@ export class VehicleListComponent implements OnInit, AfterViewInit {
         this.previous = this.mdbTable.getDataSource();
       }
     );
-    // this.vehicles = this.getVehicleDummyList();
-
   }
 
   ngAfterViewInit(): void {
@@ -70,5 +68,8 @@ export class VehicleListComponent implements OnInit, AfterViewInit {
       this.vehicles = this.mdbTable.searchLocalDataBy(this.searchText);
       this.mdbTable.setDataSource(prev);
     }
+  }
+  dateToStringConverter(date: string): string {
+    return new Date(date).toLocaleDateString();
   }
 }

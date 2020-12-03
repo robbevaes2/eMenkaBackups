@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eMenka.Data;
 
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    partial class EfenkaContextModelSnapshot : ModelSnapshot
+    [Migration("20201203085319_seededcolors")]
+    partial class seededcolors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -6939,7 +6941,7 @@ namespace eMenka.Data.Migrations
                     b.Property<int?>("EngineCapacity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EnginePower")
+                    b.Property<int>("EnginePower")
                         .HasColumnType("int");
 
                     b.Property<int?>("EngineTypeId")
@@ -7450,11 +7452,9 @@ namespace eMenka.Data.Migrations
                             EngineCapacity = 1800,
                             EnginePower = 8,
                             EngineTypeId = 1,
-                            ExteriorColorId = 20,
                             FiscalHP = 11,
                             FuelCardId = 17,
                             FuelTypeId = 9,
-                            InteriorColorId = 16,
                             IsActive = false,
                             Kilometers = 0.0,
                             LicensePlate = "1DTB247",
@@ -10344,10 +10344,8 @@ namespace eMenka.Data.Migrations
                             EngineCapacity = 1600,
                             EnginePower = 80,
                             EngineTypeId = 17,
-                            ExteriorColorId = 30,
                             FiscalHP = 9,
                             FuelTypeId = 10,
-                            InteriorColorId = 7,
                             IsActive = false,
                             Kilometers = 0.0,
                             LicensePlate = "1BQR213",
