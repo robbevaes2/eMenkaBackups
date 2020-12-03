@@ -19,107 +19,6 @@ namespace eMenka.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens");
-                });
-
             modelBuilder.Entity("eMenka.Domain.Classes.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -2593,6 +2492,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 14,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0009",
                             PinCode = "7008",
@@ -2604,6 +2504,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 15,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0002",
                             PinCode = "2938",
@@ -2640,6 +2541,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "test",
                             CompanyId = 4,
                             DriverId = 18,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0005",
                             PinCode = "321",
@@ -2651,6 +2553,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 19,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0006",
                             PinCode = "4606",
@@ -2662,6 +2565,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 20,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0007",
                             PinCode = "6491",
@@ -2673,6 +2577,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 21,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0008",
                             PinCode = "401",
@@ -2684,6 +2589,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 22,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0010",
                             PinCode = "7861",
@@ -2696,6 +2602,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "ok",
                             CompanyId = 4,
                             DriverId = 23,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0011",
                             PinCode = "9714",
@@ -2707,6 +2614,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 24,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0139",
                             PinCode = "9183",
@@ -2718,6 +2626,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 25,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0014",
                             PinCode = "6325",
@@ -2729,6 +2638,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 26,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0019",
                             PinCode = "3030",
@@ -2740,6 +2650,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 27,
+                            EndDate = new DateTime(2012, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0020",
                             PinCode = "3315",
@@ -2751,6 +2662,7 @@ namespace eMenka.Data.Migrations
                             BlockingReason = "",
                             CompanyId = 4,
                             DriverId = 28,
+                            EndDate = new DateTime(2014, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0100",
                             PinCode = "7491",
@@ -2761,6 +2673,7 @@ namespace eMenka.Data.Migrations
                             Id = 29,
                             CompanyId = 4,
                             DriverId = 29,
+                            EndDate = new DateTime(2014, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0021",
                             PinCode = "9363",
@@ -2771,6 +2684,7 @@ namespace eMenka.Data.Migrations
                             Id = 30,
                             CompanyId = 4,
                             DriverId = 30,
+                            EndDate = new DateTime(2014, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0017",
                             PinCode = "1312",
@@ -2781,6 +2695,8 @@ namespace eMenka.Data.Migrations
                             Id = 31,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 31,
+                            EndDate = new DateTime(2014, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0129",
                             PinCode = "2765",
@@ -2791,6 +2707,8 @@ namespace eMenka.Data.Migrations
                             Id = 32,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 32,
+                            EndDate = new DateTime(2014, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0016",
                             PinCode = "535",
@@ -2800,6 +2718,8 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 33,
                             CompanyId = 4,
+                            DriverId = 33,
+                            EndDate = new DateTime(2017, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "0023",
                             PinCode = "****",
@@ -2811,6 +2731,7 @@ namespace eMenka.Data.Migrations
                             BlockingDate = new DateTime(2020, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             BlockingReason = "Vervangen door nieuwe tankkaart",
                             CompanyId = 15,
+                            DriverId = 34,
                             EndDate = new DateTime(2020, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = true,
                             Number = "0001",
@@ -2822,6 +2743,8 @@ namespace eMenka.Data.Migrations
                             Id = 35,
                             BlockingReason = "",
                             CompanyId = 4,
+                            DriverId = 35,
+                            EndDate = new DateTime(2017, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "1234",
                             PinCode = "1234",
@@ -2831,6 +2754,8 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 36,
                             CompanyId = 24,
+                            DriverId = 36,
+                            EndDate = new DateTime(2021, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "Test",
                             PinCode = "12345678",
@@ -2840,6 +2765,8 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 37,
                             CompanyId = 19,
+                            DriverId = 37,
+                            EndDate = new DateTime(2021, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "008",
                             PinCode = "88",
@@ -2849,6 +2776,8 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 38,
                             CompanyId = 19,
+                            DriverId = 38,
+                            EndDate = new DateTime(2021, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "Test Nummer",
                             PinCode = "1234",
@@ -2858,6 +2787,7 @@ namespace eMenka.Data.Migrations
                         {
                             Id = 39,
                             CompanyId = 19,
+                            DriverId = 39,
                             EndDate = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             Number = "123456789",
@@ -8048,6 +7978,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 21,
                             ExteriorColorId = 6,
                             FiscalHP = 11,
+                            FuelCardId = 33,
                             FuelTypeId = 10,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8074,6 +8005,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 37,
                             ExteriorColorId = 7,
                             FiscalHP = 9,
+                            FuelCardId = 34,
                             FuelTypeId = 10,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8098,6 +8030,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 3,
                             ExteriorColorId = 8,
                             FiscalHP = 0,
+                            FuelCardId = 35,
                             FuelTypeId = 10,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8123,6 +8056,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 12,
                             ExteriorColorId = 9,
                             FiscalHP = 0,
+                            FuelCardId = 36,
                             FuelTypeId = 10,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8149,6 +8083,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 40,
                             ExteriorColorId = 10,
                             FiscalHP = 11,
+                            FuelCardId = 37,
                             FuelTypeId = 9,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8174,6 +8109,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 12,
                             ExteriorColorId = 11,
                             FiscalHP = 0,
+                            FuelCardId = 38,
                             FuelTypeId = 3,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -8200,6 +8136,7 @@ namespace eMenka.Data.Migrations
                             EngineTypeId = 50,
                             ExteriorColorId = 12,
                             FiscalHP = 10,
+                            FuelCardId = 39,
                             FuelTypeId = 10,
                             InteriorColorId = 1,
                             IsActive = false,
@@ -11371,153 +11308,6 @@ namespace eMenka.Data.Migrations
                             SeriesId = 1,
                             Volume = 2918
                         });
-                });
-
-            modelBuilder.Entity("eMenka.Domain.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles");
-                });
-
-            modelBuilder.Entity("eMenka.Domain.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
-                {
-                    b.HasOne("eMenka.Domain.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
-                {
-                    b.HasOne("eMenka.Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
-                {
-                    b.HasOne("eMenka.Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
-                {
-                    b.HasOne("eMenka.Domain.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("eMenka.Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
-                {
-                    b.HasOne("eMenka.Domain.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Corporation", b =>
