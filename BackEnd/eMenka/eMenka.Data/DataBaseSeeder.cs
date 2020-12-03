@@ -3093,7 +3093,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1248, EnginePower = 66, FiscalHP = 7, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 12,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3113,7 +3114,7 @@ namespace eMenka.Data
                     FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 14,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,EndDateDelivery = new DateTime(2009, 11, 30)
                 },
                 new Vehicle
                 {
@@ -3123,7 +3124,8 @@ namespace eMenka.Data
                     FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 15,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -3133,7 +3135,8 @@ namespace eMenka.Data
                     FiscalHP = 13, FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 16,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -3142,7 +3145,8 @@ namespace eMenka.Data
                     DoorTypeId = 4, EngineCapacity = 1800, EnginePower = 8, FiscalHP = 11, FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 16,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(2009, 8, 27)
                 },
                 new Vehicle
                 {
@@ -3152,7 +3156,8 @@ namespace eMenka.Data
                     FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 17,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 7, 20)
                 },
                 new Vehicle
                 {
@@ -3162,7 +3167,8 @@ namespace eMenka.Data
                     FiscalHP = 19, FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 18,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2008, 6, 21)
                 },
                 new Vehicle
                 {
@@ -3171,7 +3177,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 19,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2007, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3180,7 +3187,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1910, EnginePower = 88, FiscalHP = 10, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 20,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2019, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3190,7 +3198,8 @@ namespace eMenka.Data
                     FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 21,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2010, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3199,7 +3208,8 @@ namespace eMenka.Data
                     EngineTypeId = 27, DoorTypeId = 3, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 22,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 25)
                 },
                 new Vehicle
                 {
@@ -3208,7 +3218,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 2999, EnginePower = 150, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 23,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 12, 11)
                 },
                 new Vehicle
                 {
@@ -3217,7 +3228,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 24,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 5, 30)
                 },
                 new Vehicle
                 {
@@ -3227,7 +3239,8 @@ namespace eMenka.Data
                     FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 25,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3237,7 +3250,8 @@ namespace eMenka.Data
                     FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 26,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2015, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3247,7 +3261,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 27,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2017, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3257,7 +3272,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 28,
-                    ExteriorColorId = 1
+                    ExteriorColorId = 1,
+                    EndDateDelivery = new DateTime(2011, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3267,7 +3283,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2015, 12, 31)
                 },
                 new Vehicle
                 {
@@ -3276,7 +3293,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1, EnginePower = 1, FiscalHP = 1, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 12, 29)
                 },
                 new Vehicle
                 {
@@ -3286,7 +3304,8 @@ namespace eMenka.Data
                     FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2009, 12, 11)
                 },
                 new Vehicle
                 {
@@ -3296,7 +3315,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2009, 12, 1)
                 },
                 new Vehicle
                 {
@@ -3306,7 +3326,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2009, 12, 5)
                 },
                 new Vehicle
                 {
@@ -3315,7 +3336,8 @@ namespace eMenka.Data
                     EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2009, 10, 7)
                 },
                 new Vehicle
                 {
@@ -3324,7 +3346,8 @@ namespace eMenka.Data
                     EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2009, 7, 5)
                 },
                 new Vehicle
                 {
@@ -3333,7 +3356,8 @@ namespace eMenka.Data
                     EngineCapacity = 1900, EnginePower = 0, FiscalHP = 0, FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2009, 1, 1)
                 },
                 new Vehicle
                 {
@@ -3342,7 +3366,8 @@ namespace eMenka.Data
                     EngineCapacity = 1229, EnginePower = 122, FiscalHP = 11, FuelTypeId = 9,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3351,7 +3376,8 @@ namespace eMenka.Data
                     EngineTypeId = 12, DoorTypeId = 2, EnginePower = 0, FiscalHP = 0, FuelTypeId = 3,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2021, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3361,7 +3387,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 1,
                     InteriorColorId = 1,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2020, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3371,7 +3398,8 @@ namespace eMenka.Data
                     FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3380,7 +3408,8 @@ namespace eMenka.Data
                     EngineCapacity = 0, EnginePower = 150, FiscalHP = 0, FuelTypeId = 5,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 14
+                    ExteriorColorId = 14,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -3390,7 +3419,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 15
+                    ExteriorColorId = 15,
+                    EndDateDelivery = new DateTime(2009, 2, 10)
                 },
                 new Vehicle
                 {
@@ -3409,7 +3439,8 @@ namespace eMenka.Data
                     DoorTypeId = 4, EngineCapacity = 1600, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3418,7 +3449,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2009, 11, 30)
                 },
                 new Vehicle
                 {
@@ -3428,7 +3460,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 19
+                    ExteriorColorId = 19,
+                    EndDateDelivery = new DateTime(2009, 4, 20)
                 },
                 new Vehicle
                 {
@@ -3437,7 +3470,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 88, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(1998, 4, 20)
                 },
                 new Vehicle
                 {
@@ -3446,7 +3480,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 21
+                    ExteriorColorId = 21,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3456,7 +3491,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 22
+                    ExteriorColorId = 22,
+                    EndDateDelivery = new DateTime(2011, 5, 30)
                 },
                 new Vehicle
                 {
@@ -3465,7 +3501,8 @@ namespace eMenka.Data
                     EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3474,7 +3511,8 @@ namespace eMenka.Data
                     EngineCapacity = 1800, EnginePower = 120, FiscalHP = 10, FuelTypeId = 9,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2009, 5, 8)
                 },
                 new Vehicle
                 {
@@ -3483,7 +3521,8 @@ namespace eMenka.Data
                     DoorTypeId = 3, EngineCapacity = 1900, EnginePower = 85, FiscalHP = 10, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 25
+                    ExteriorColorId = 25,
+                    EndDateDelivery = new DateTime(2009, 7, 30)
                 },
                 new Vehicle
                 {
@@ -3492,7 +3531,8 @@ namespace eMenka.Data
                     EngineCapacity = 1900, EnginePower = 84, FiscalHP = 10, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 26
+                    ExteriorColorId = 26,
+                    EndDateDelivery = new DateTime(2014, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3501,7 +3541,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 27
+                    ExteriorColorId = 27,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3511,7 +3552,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 28
+                    ExteriorColorId = 28,
+                    EndDateDelivery = new DateTime(2011, 9, 30)
                 },
                 new Vehicle
                 {
@@ -3520,7 +3562,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 29
+                    ExteriorColorId = 29,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3530,7 +3573,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 1,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -3539,7 +3583,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 2,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3549,7 +3594,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 3,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2012, 12, 12)
                 },
                 new Vehicle
                 {
@@ -3559,7 +3605,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 4,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2001, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3568,7 +3615,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 4,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2002, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3577,7 +3625,8 @@ namespace eMenka.Data
                     EngineCapacity = 2700, EnginePower = 120, FiscalHP = 14, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 5,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3586,7 +3635,8 @@ namespace eMenka.Data
                     EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 6,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3595,7 +3645,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 7,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3605,7 +3656,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 8,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3615,7 +3667,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 9,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3624,7 +3677,8 @@ namespace eMenka.Data
                     EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 10,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3634,7 +3688,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 11,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3643,7 +3698,8 @@ namespace eMenka.Data
                     EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 12,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3652,7 +3708,8 @@ namespace eMenka.Data
                     DoorTypeId = 3, EngineCapacity = 1800, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 13,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2001, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3662,7 +3719,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 14,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3672,7 +3730,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 15,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 8)
                 },
                 new Vehicle
                 {
@@ -3682,7 +3741,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 16,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 1, 1)
                 },
                 new Vehicle
                 {
@@ -3691,7 +3751,8 @@ namespace eMenka.Data
                     EngineCapacity = 1995, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 17,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 6, 30)
                 },
                 new Vehicle
                 {
@@ -3701,7 +3762,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 18,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 4, 30)
                 },
                 new Vehicle
                 {
@@ -3711,7 +3773,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 19,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 3, 30)
                 },
                 new Vehicle
                 {
@@ -3721,7 +3784,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 20,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -3731,7 +3795,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 2,
                     InteriorColorId = 21,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3751,7 +3816,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 23,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3760,7 +3826,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 2001, EnginePower = 130, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 24,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3770,7 +3837,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 25,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3779,7 +3847,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 26,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2011, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3788,7 +3857,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 135, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 27,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3798,7 +3868,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 28,
-                    ExteriorColorId = 2
+                    ExteriorColorId = 2,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3807,7 +3878,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 3500, EnginePower = 240, FiscalHP = 15, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 4, 30)
                 },
                 new Vehicle
                 {
@@ -3817,7 +3889,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2009, 1, 11)
                 },
                 new Vehicle
                 {
@@ -3826,7 +3899,8 @@ namespace eMenka.Data
                     EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3835,7 +3909,8 @@ namespace eMenka.Data
                     EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2009, 9, 30)
                 },
                 new Vehicle
                 {
@@ -3845,7 +3920,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3855,7 +3931,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2009, 8, 30)
                 },
                 new Vehicle
                 {
@@ -3864,7 +3941,8 @@ namespace eMenka.Data
                     EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2009, 10, 30)
                 },
                 new Vehicle
                 {
@@ -3873,7 +3951,8 @@ namespace eMenka.Data
                     EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3882,7 +3961,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1560, EnginePower = 82, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3892,7 +3972,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3901,7 +3982,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 84, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3911,7 +3993,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 14
+                    ExteriorColorId = 14,
+                    EndDateDelivery = new DateTime(2009, 8, 30)
                 },
                 new Vehicle
                 {
@@ -3921,7 +4004,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 15
+                    ExteriorColorId = 15,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3931,7 +4015,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 16
+                    ExteriorColorId = 16,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3941,7 +4026,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3950,7 +4036,8 @@ namespace eMenka.Data
                     EngineCapacity = 1686, EnginePower = 92, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3960,7 +4047,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 19
+                    ExteriorColorId = 19,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3970,7 +4058,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 20
+                    ExteriorColorId = 20,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3979,7 +4068,8 @@ namespace eMenka.Data
                     EngineCapacity = 1686, EnginePower = 74, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 21
+                    ExteriorColorId = 21,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3988,7 +4078,8 @@ namespace eMenka.Data
                     EngineCapacity = 1700, EnginePower = 73, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 22
+                    ExteriorColorId = 22,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -3997,7 +4088,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1700, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4006,7 +4098,8 @@ namespace eMenka.Data
                     DoorTypeId = 3, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2005, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4015,7 +4108,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 25
+                    ExteriorColorId = 25,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4024,7 +4118,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1956, EnginePower = 96, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 26
+                    ExteriorColorId = 26,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4034,7 +4129,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 27
+                    ExteriorColorId = 27,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4044,7 +4140,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 28
+                    ExteriorColorId = 28,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4053,7 +4150,8 @@ namespace eMenka.Data
                     DoorTypeId = 3, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 29
+                    ExteriorColorId = 29,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4062,7 +4160,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 2,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2006, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4072,7 +4171,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 3,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4081,7 +4181,8 @@ namespace eMenka.Data
                     EngineCapacity = 1233, EnginePower = 120, FiscalHP = 10, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 4,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2003, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4091,7 +4192,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 5,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2004, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4101,7 +4203,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 6,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4111,7 +4214,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 7,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2007, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4120,7 +4224,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 3,
                     InteriorColorId = 8,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4129,7 +4234,8 @@ namespace eMenka.Data
                     EngineCapacity = 1968, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 9,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4138,7 +4244,8 @@ namespace eMenka.Data
                     EngineCapacity = 1598, EnginePower = 77, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 10,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4147,7 +4254,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 11,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2010, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4157,7 +4265,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 12,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2008, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4167,7 +4276,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 13,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2017, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4177,7 +4287,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 14,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4186,7 +4297,8 @@ namespace eMenka.Data
                     EngineCapacity = 1999, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 15,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4196,7 +4308,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 16,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4206,7 +4319,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 17,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4216,7 +4330,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 18,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2012, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4226,7 +4341,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 19,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2020, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4236,7 +4352,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 20,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2019, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4245,7 +4362,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 7,
-                    ExteriorColorId = 30
+                    ExteriorColorId = 30,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4254,7 +4372,8 @@ namespace eMenka.Data
                     DoorTypeId = 2, EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 21,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2009, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4264,7 +4383,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 22,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4273,7 +4393,8 @@ namespace eMenka.Data
                     EngineCapacity = 2000, EnginePower = 100, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 23,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2016, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4282,7 +4403,8 @@ namespace eMenka.Data
                     EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 24,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4291,7 +4413,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 84, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 25,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4300,7 +4423,8 @@ namespace eMenka.Data
                     EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 26,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2018, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4309,7 +4433,8 @@ namespace eMenka.Data
                     EngineCapacity = 1984, EnginePower = 120, FiscalHP = 11, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 27,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4319,7 +4444,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 28,
-                    ExteriorColorId = 3
+                    ExteriorColorId = 3,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4328,7 +4454,8 @@ namespace eMenka.Data
                     EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 4
+                    ExteriorColorId = 4,
+                    EndDateDelivery = new DateTime(2013, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4338,7 +4465,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 5
+                    ExteriorColorId = 5,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4347,7 +4475,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1600, EnginePower = 80, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 6
+                    ExteriorColorId = 6,
+                    EndDateDelivery = new DateTime(2015, 1, 30)
                 },
                 new Vehicle
                 {
@@ -4357,7 +4486,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 7
+                    ExteriorColorId = 7,
+                    EndDateDelivery = new DateTime(2015, 10, 30)
                 },
                 new Vehicle
                 {
@@ -4367,7 +4497,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 8
+                    ExteriorColorId = 8,
+                    EndDateDelivery = new DateTime(2017, 8, 27)
                 },
                 new Vehicle
                 {
@@ -4377,7 +4508,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 9
+                    ExteriorColorId = 9,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -4386,7 +4518,8 @@ namespace eMenka.Data
                     EngineCapacity = 1686, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 10
+                    ExteriorColorId = 10,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -4396,7 +4529,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 11
+                    ExteriorColorId = 11,
+                    EndDateDelivery = new DateTime(2019, 7, 30)
                 },
                 new Vehicle
                 {
@@ -4405,7 +4539,8 @@ namespace eMenka.Data
                     DoorTypeId = 1, EngineCapacity = 1598, EnginePower = 81, FiscalHP = 9, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 12
+                    ExteriorColorId = 12,
+                    EndDateDelivery = new DateTime(2020, 9, 30)
                 },
                 new Vehicle
                 {
@@ -4415,7 +4550,8 @@ namespace eMenka.Data
                     FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 13
+                    ExteriorColorId = 13,
+                    EndDateDelivery = new DateTime(2018, 9, 30)
                 },
                 new Vehicle
                 {
@@ -4454,7 +4590,8 @@ namespace eMenka.Data
                     DoorTypeId = 6, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 17
+                    ExteriorColorId = 17,
+                    EndDateDelivery = new DateTime(2016, 05, 2)
                 },
                 new Vehicle
                 {
@@ -4463,7 +4600,8 @@ namespace eMenka.Data
                     DoorTypeId = 4, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 9,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 18
+                    ExteriorColorId = 18,
+                    EndDateDelivery = new DateTime(2017, 05, 2)
                 },
                 new Vehicle
                 {
@@ -4513,7 +4651,8 @@ namespace eMenka.Data
                     AverageFuel = 0, FuelTypeId = 3,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 23
+                    ExteriorColorId = 23,
+                    EndDateDelivery = new DateTime(2013, 3, 2)
                 },
                 new Vehicle
                 {
@@ -4522,7 +4661,8 @@ namespace eMenka.Data
                     DoorTypeId = 3, EngineCapacity = 0, EnginePower = 0, FiscalHP = 0, AverageFuel = 0, FuelTypeId = 10,
                     CategoryId = 4,
                     InteriorColorId = 3,
-                    ExteriorColorId = 24
+                    ExteriorColorId = 24,
+                    EndDateDelivery = new DateTime(2015, 05, 2)
                 }
             );
 
