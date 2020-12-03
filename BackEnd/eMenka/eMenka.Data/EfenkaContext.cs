@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace eMenka.Data
 {
-    public class EfenkaContext : IdentityDbContext<User, Role, int>
+    public class EfenkaContext : DbContext
     {
         public EfenkaContext(DbContextOptions options) : base(options)
         {
