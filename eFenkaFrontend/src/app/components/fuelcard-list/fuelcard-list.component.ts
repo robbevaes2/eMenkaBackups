@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {FuelCard} from '../../models/fuel-card/fuel-card';
 import {Person} from '../../models/person/person';
 import {ApiService} from '../../services/api.service';
+import {MdbTableDirective, MdbTablePaginationComponent} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-fuelcard-list',
@@ -13,9 +14,15 @@ export class FuelcardListComponent implements OnInit {
   ascDescBoolean: boolean;
   fuelCards: FuelCard[];
 
-  pageAmounts = [5, 10, 25];
-  page = 1;
-  selectedAmount = 5;
+  headNames = ['Nummerplaat', 'Bestuurder', 'Leverancier', 'Brandstof', 'Startdatum', 'Einddatum'];
+  headElements = ['vehicle.licensePlate:', 'driver.person', 'fuelCard.company?company.name', 'fuelCard.vehicle?vehicle.fuelType.name', 'startDate', 'endDate'];
+
+  @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective;
+  @ViewChild(MdbTablePaginationComponent, {static: true}) mdbTablePagination: MdbTablePaginationComponent;
+  @ViewChild('row', {static: true}) row: ElementRef;
+
+  searchText = '';
+  previous: string;
 
   constructor(private router: Router, private apiService: ApiService) {
   }
@@ -32,10 +39,6 @@ export class FuelcardListComponent implements OnInit {
 
   navigateToFuelCardDetailsComponent(index: number): void {
     this.router.navigate(['/fuelcards', index]);
-  }
-
-  switchPage(event): void {
-    this.page = event;
   }
 
   sortByDriver(): void {
@@ -111,6 +114,18 @@ export class FuelcardListComponent implements OnInit {
       });
     }
 
+  }
+
+  searchItems(): void {
+    const prev = this.mdbTable.getDataSource();
+    if (!this.searchText) {
+      this.mdbTable.setDataSource(this.previous);
+      this.fuelCards = this.mdbTable.getDataSource();
+    }
+    if (this.searchText) {
+      this.fuelCards = this.mdbTable.searchLocalDataBy(this.searchText);
+      this.mdbTable.setDataSource(prev);
+    }
   }
 
   getFullName(person: Person): string {
