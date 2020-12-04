@@ -13,34 +13,44 @@ namespace eMenka.API.Controllers
         private readonly IDriverRepository _driverRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
         private readonly IVehicleRepository _vehicleRepository;
+        private readonly ICompanyRepository _companyRepository;
         private readonly FuelCardMapper _fuelCardMapper;
 
-        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository,
+        public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository, ICompanyRepository companyRepository,
             IVehicleRepository vehicleRepository) : base(fuelCardRepository, new FuelCardMapper())
         {
             _fuelCardRepository = fuelCardRepository;
             _driverRepository = driverRepository;
             _vehicleRepository = vehicleRepository;
+            _companyRepository = companyRepository;
             _fuelCardMapper = new FuelCardMapper();
         }
 
         public override IActionResult PostEntity(FuelCardModel model)
         {
-            if (_driverRepository.GetById((int)model.DriverId) == null)
+            if (!ModelState.IsValid) return BadRequest();
+            
+            var driver = _driverRepository.GetById((int)model.DriverId);
+
+            if (driver == null)
                 return NotFound($"Driver with id {model.DriverId} not found");
 
             var vehicle = _vehicleRepository.GetById((int)model.VehicleId);
 
             if (vehicle == null)
-                return NotFound($"Vehicles with id {model.VehicleId} not found");
+                return NotFound($"Vehicle with id {model.VehicleId} not found");
 
-            if (!ModelState.IsValid) return BadRequest();
+            var company = _companyRepository.GetById((int)model.CompanyId);
+
+            if (company == null)
+                return NotFound($"Company with id {model.CompanyId} not found");
 
             var entity = _fuelCardMapper.MapModelToEntity(model);
 
             _fuelCardRepository.Add(entity);
 
-            vehicle.FuelCard = entity;
+            vehicle.FuelCardId = entity.Id;
+            driver.FuelCardId = entity.Id;
             _vehicleRepository.Update(vehicle.Id, vehicle);
 
             return Ok(_fuelCardMapper.MapEntityToReturnModel(entity));
