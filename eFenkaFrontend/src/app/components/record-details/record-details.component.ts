@@ -30,6 +30,7 @@ export class RecordDetailsComponent implements OnInit {
   models: Model[];
   vehicles: Vehicle[];
   selectedBrand: Brand;
+  selectedVehicle: Vehicle;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +51,7 @@ export class RecordDetailsComponent implements OnInit {
     this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
+    this.selectedVehicle = this.vehicles.find(v => v.id === this.selectedRecord.fuelCard.vehicle.id);
     console.log(this.selectedRecord);
 
     this.form = new FormGroup({
@@ -59,18 +61,16 @@ export class RecordDetailsComponent implements OnInit {
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
+      endDate: new FormControl(null, [Validators.required]),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       usage: new FormControl(null, [Validators.required]),
-      driver: new FormControl(null, [Validators.required]),
       brand: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required]),
       model: new FormControl(null, [Validators.required]),
       vehicle: new FormControl(null, [Validators.required]),
       buildYear: new FormControl(null, [Validators.required]),
       kilometers: new FormControl(null, [Validators.required]),
-      exteriorColor: new FormControl(null, [Validators.required]),
-      interiorColor: new FormControl(null, [Validators.required]),
     });
     this.isLoaded = true;
     this.fillForm();
@@ -90,6 +90,7 @@ export class RecordDetailsComponent implements OnInit {
     }
 
     this.form.controls.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
+    this.form.controls.endDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd'));
 
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
@@ -103,25 +104,12 @@ export class RecordDetailsComponent implements OnInit {
       this.form.controls.costAllocation.setValue(this.selectedRecord.costAllocation.id);
     }
     this.form.controls.usage.setValue(this.selectedRecord.usage + 1);
-    this.form.controls.driver.setValue(this.selectedRecord.fuelCard.driver);
     this.form.controls.brand.setValue(this.selectedRecord.fuelCard.vehicle.brand.id);
     this.form.controls.fuelType.setValue(this.selectedRecord.fuelCard.vehicle.fuelType.id);
     this.form.controls.model.setValue(this.selectedRecord.fuelCard.vehicle.model.id);
     this.form.controls.vehicle.setValue(this.selectedRecord.fuelCard.vehicle.id);
     this.form.controls.buildYear.setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
     this.form.controls.kilometers.setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
-
-    if (this.selectedRecord.fuelCard.vehicle.exteriorColor == null) {
-      this.form.controls.exteriorColor.setValue('');
-    } else {
-      this.form.controls.exteriorColor.setValue(this.selectedRecord.fuelCard.vehicle.exteriorColor.id);
-    }
-
-    if (this.selectedRecord.fuelCard.vehicle.interiorColor == null) {
-      this.form.controls.interiorColor.setValue('');
-    } else {
-      this.form.controls.interiorColor.setValue(this.selectedRecord.fuelCard.vehicle.interiorColor.id);
-    }
   }
 
   disableForm(): void {
@@ -131,18 +119,16 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.registrationDate.disable();
     this.form.controls.country.disable();
     this.form.controls.startDate.disable();
+    this.form.controls.endDate.disable();
     this.form.controls.corporation.disable();
     this.form.controls.costAllocation.disable();
     this.form.controls.usage.disable();
-    this.form.controls.driver.disable();
     this.form.controls.brand.disable();
     this.form.controls.fuelType.disable();
     this.form.controls.model.disable();
     this.form.controls.vehicle.disable();
     this.form.controls.buildYear.disable();
     this.form.controls.kilometers.disable();
-    this.form.controls.exteriorColor.disable();
-    this.form.controls.interiorColor.disable();
     this.isEditable = false;
   }
 
@@ -151,14 +137,10 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.registrationDate.enable();
     this.form.controls.country.enable();
     this.form.controls.startDate.enable();
+    this.form.controls.endDate.enable();
     this.form.controls.corporation.enable();
     this.form.controls.costAllocation.enable();
     this.form.controls.usage.enable();
-    this.form.controls.driver.enable();
-    this.form.controls.brand.enable();
-    this.form.controls.fuelType.enable();
-    this.form.controls.model.enable();
-    this.form.controls.vehicle.enable();
     this.isEditable = true;
   }
 
@@ -179,6 +161,7 @@ export class RecordDetailsComponent implements OnInit {
     this.apiService.getVehicleById(vehicleId).subscribe((data) => {
       this.form.controls.licensePlate.setValue(data.licensePlate);
       this.form.controls.chassis.setValue(data.chassis);
+      this.form.controls.fuelType.setValue(data.fuelType.id);
     });
   }
 
@@ -188,9 +171,9 @@ export class RecordDetailsComponent implements OnInit {
 
   saveEditRecord(form: FormGroup): void {
     if (this.isEditable) {
-      if (confirm('Are you sure you want to save this vehicle?')) {
+      if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
         this.apiService.updateRecord(this.selectedRecord.id, this.mapToModel(form.value)).subscribe(() => {
-          this.apiService.updateVehicle(form.value.vehicle, this.mapToVehicle(form.value)).subscribe(() => {
+          this.apiService.updateVehicle(this.selectedVehicle.id, this.mapToVehicle(form.value)).subscribe(() => {
             this.apiService.getRecordById(this.selectedRecord.id).subscribe((data) => {
               this.selectedRecord = data;
               this.fillForm();
@@ -205,7 +188,7 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   deleteRecord(): void {
-    if (confirm('Are you sure you want to delete this vehicle?')) {
+    if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
         this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
     }
   }
@@ -229,32 +212,31 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
-    console.log(values.vehicle);
     return {
-      Id: Number(values.vehicle),
-      brandId: this.vehicles.find(v => v.id === Number(values.vehicle)).brand?.id,
-      modelId: this.vehicles.find(v => v.id === Number(values.vehicle)).model.id,
-      fuelTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelType.id,
-      engineTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).engineType.id,
-      doorTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).doorType.id,
-      fuelCardId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelCard?.id,
-      seriesId: this.vehicles.find(v => v.id === Number(values.vehicle)).serie.id,
-      volume: this.vehicles.find(v => v.id === Number(values.vehicle)).volume,
-      fiscalHP: this.vehicles.find(v => v.id === Number(values.vehicle)).fiscalHP,
-      emission: this.vehicles.find(v => v.id === Number(values.vehicle)).emission,
-      enginePower: this.vehicles.find(v => v.id === Number(values.vehicle)).enginePower,
+      Id: this.selectedVehicle.id,
+      brandId: this.selectedVehicle.brand?.id,
+      modelId: this.selectedVehicle.model.id,
+      fuelTypeId: this.selectedVehicle.fuelType.id,
+      engineTypeId: this.selectedVehicle.engineType.id,
+      doorTypeId: this.selectedVehicle.doorType.id,
+      fuelCardId: this.selectedVehicle.fuelCard?.id,
+      seriesId: this.selectedVehicle.serie.id,
+      volume: this.selectedVehicle.volume,
+      fiscalHP: this.selectedVehicle.fiscalHP,
+      emission: this.selectedVehicle.emission,
+      enginePower: this.selectedVehicle.enginePower,
       registrationDate: new Date(values.registrationDate).toISOString(),
       isActive: true,
-      categoryId: this.vehicles.find(v => v.id === Number(values.vehicle)).category.id,
-      licensePlate: this.vehicles.find(v => v.id === Number(values.vehicle)).licensePlate,
-      chassis: this.vehicles.find(v => v.id === Number(values.vehicle)).chassis,
-      engineCapacity: this.vehicles.find(v => v.id === Number(values.vehicle)).engineCapacity,
-      endDateDelivery: this.vehicles.find(v => v.id === Number(values.vehicle)).endDateDelivery,
+      categoryId: this.selectedVehicle.category.id,
+      licensePlate: this.selectedVehicle.licensePlate,
+      chassis: this.selectedVehicle.chassis,
+      engineCapacity: this.selectedVehicle.engineCapacity,
+      endDateDelivery: this.selectedVehicle.endDateDelivery,
       countryId: Number(values.country),
-      buildYear: this.vehicles.find(v => v.id === Number(values.vehicle)).buildYear,
-      kilometers: this.vehicles.find(v => v.id === Number(values.vehicle)).kilometers,
-      exteriorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).exteriorColor.id,
-      interiorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).interiorColor.id
+      buildYear: this.selectedVehicle.buildYear,
+      kilometers: this.selectedVehicle.kilometers,
+      exteriorColorId: this.selectedVehicle.exteriorColor.id,
+      interiorColorId: this.selectedVehicle.interiorColor.id
     };
   }
 

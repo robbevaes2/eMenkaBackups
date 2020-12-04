@@ -1,7 +1,7 @@
 <div class="row mr-1">
   <h1 class="col-8">Nieuw voertuig</h1>
   <button type="button" class="btn btn-secondary col-md-2"  (click)="navigateToListVehicleComponent()">Annuleer</button>
-  <button type="button" class="btn btn-success col-md-2" [disabled]="!form.valid" (click)="saveNewVehicle(form)">Opslaan</button>
+  <button type="button" class="btn btn-primary col-md-2" [disabled]="!form.valid" (click)="saveNewVehicle(form)">Opslaan</button>
 </div>
 <div>
   <form [formGroup]="form">
@@ -73,6 +73,7 @@
             <option [ngValue]="null" disabled>-</option>
             <option *ngFor="let item of interiorColors" [value]="item.id">{{ item.name }}</option>
           </select><br>
+          <span *ngIf="form.get('interiorColor').touched && form.get('interiorColor').hasError('required')" class="alert-danger errorMessage">Vul een kleur interieur in!</span>
         </div>
       </div>
       <div class="col-md-6">
