@@ -68,10 +68,10 @@ namespace eMenka.API.Controllers
         }
 
         [HttpGet("available")]
-        public IEnumerable<Vehicle> GetAllAvailableVehicles()
+        public IActionResult GetAllAvailableVehicles()
         {
             var vehicles = _vehicleRepository.GetAllAvailableVehicles();
-            return vehicles;
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
 
         [HttpGet("brand/name/{brandName}")]
