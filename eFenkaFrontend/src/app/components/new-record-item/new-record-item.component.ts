@@ -28,6 +28,7 @@ export class NewRecordItemComponent implements OnInit {
   fuelTypes: FuelType[];
   models: Model[];
   vehicles: Vehicle[];
+  selectedVehicle: Vehicle;
 
   constructor(private router: Router, private apiService: ApiService, public datepipe: DatePipe) {
   }
@@ -145,31 +146,32 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
+    this.selectedVehicle = this.vehicles.find(v => v.id === Number(values.vehicle));
     return {
       Id: Number(values.vehicle),
-      brandId: this.vehicles.find(v => v.id === Number(values.vehicle)).brand.id,
-      modelId: this.vehicles.find(v => v.id === Number(values.vehicle)).model.id,
-      fuelTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelType.id,
-      engineTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).engineType.id,
-      doorTypeId: this.vehicles.find(v => v.id === Number(values.vehicle)).doorType.id,
-      fuelCardId: this.vehicles.find(v => v.id === Number(values.vehicle)).fuelCard.id,
-      seriesId: this.vehicles.find(v => v.id === Number(values.vehicle)).serie.id,
-      volume: this.vehicles.find(v => v.id === Number(values.vehicle)).volume,
-      fiscalHP: this.vehicles.find(v => v.id === Number(values.vehicle)).fiscalHP,
-      emission: this.vehicles.find(v => v.id === Number(values.vehicle)).emission,
-      enginePower: this.vehicles.find(v => v.id === Number(values.vehicle)).enginePower,
+      brandId: this.selectedVehicle.brand.id,
+      modelId: this.selectedVehicle.model.id,
+      fuelTypeId: this.selectedVehicle.fuelType.id,
+      engineTypeId: this.selectedVehicle.engineType.id,
+      doorTypeId: this.selectedVehicle.doorType.id,
+      fuelCardId: this.selectedVehicle.fuelCard.id,
+      seriesId: this.selectedVehicle.serie.id,
+      volume: this.selectedVehicle.volume,
+      fiscalHP: this.selectedVehicle.fiscalHP,
+      emission: this.selectedVehicle.emission,
+      enginePower: this.selectedVehicle.enginePower,
       registrationDate: new Date(values.registrationDate).toISOString(),
       isActive: true,
-      categoryId: this.vehicles.find(v => v.id === Number(values.vehicle)).category.id,
-      licensePlate: this.vehicles.find(v => v.id === Number(values.vehicle)).licensePlate,
-      chassis: this.vehicles.find(v => v.id === Number(values.vehicle)).chassis,
-      engineCapacity: this.vehicles.find(v => v.id === Number(values.vehicle)).engineCapacity,
-      endDateDelivery: this.vehicles.find(v => v.id === Number(values.vehicle)).endDateDelivery,
-      countryId: this.vehicles.find(v => v.id === Number(values.vehicle)).country.id,
-      buildYear: this.vehicles.find(v => v.id === Number(values.vehicle)).buildYear,
-      kilometers: this.vehicles.find(v => v.id === Number(values.vehicle)).kilometers,
-      exteriorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).exteriorColor.id,
-      interiorColorId: this.vehicles.find(v => v.id === Number(values.vehicle)).interiorColor.id
+      categoryId: this.selectedVehicle.category.id,
+      licensePlate: this.selectedVehicle.licensePlate,
+      chassis: this.selectedVehicle.chassis,
+      engineCapacity: this.selectedVehicle.engineCapacity,
+      endDateDelivery: this.selectedVehicle.endDateDelivery,
+      countryId: this.selectedVehicle.country.id,
+      buildYear: this.selectedVehicle.buildYear,
+      kilometers: this.selectedVehicle.kilometers,
+      exteriorColorId: this.selectedVehicle.exteriorColor.id,
+      interiorColorId: this.selectedVehicle.interiorColor.id
     };
   }
 }
