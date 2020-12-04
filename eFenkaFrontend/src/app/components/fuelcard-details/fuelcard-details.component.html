@@ -4,7 +4,8 @@
     <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable"
             (click)="navigateToListComponent()">Terug
     </button>
-    <button type="button" class="btn btn-success ml-auto col-md-2" [disabled]="isEditable && !form.valid" (click)="saveEditFuelCard(form)">
+    <button type="button" class="btn btn-success ml-auto col-md-2" [disabled]="isEditable && !form.valid"
+            (click)="saveEditFuelCard(form)">
       <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
     </button>
     <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
@@ -62,9 +63,9 @@
           <br>
 
           <button [disabled]="!isEditable"
-            [ngClass]="{'btn-danger': isBlocked,'btn-success': !isBlocked}"
-            type="button" id="blocked" class="btn btn-primary custom-control-inline"
-            (click)="changeBlocked()">{{this.isBlocked ? "Geblokkeerd" : "Actief"}}
+                  [ngClass]="{'btn-danger': isBlocked,'btn-success': !isBlocked}"
+                  type="button" id="blocked" class="btn btn-primary custom-control-inline"
+                  (click)="changeBlocked()">{{this.isBlocked ? "Geblokkeerd" : "Actief"}}
           </button>
 
           <div [hidden]="!isBlocked">
@@ -86,7 +87,6 @@
   </div>
   <div>
     <br>
-    <button type="button" class="btn btn-danger ml-auto col-md-2">Verwijder</button>
-    <!--(click)="deleteFuelCard()-->
+    <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteFuelCard()">Verwijder</button>
   </div>
 </div>

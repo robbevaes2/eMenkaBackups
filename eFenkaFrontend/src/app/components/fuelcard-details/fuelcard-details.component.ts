@@ -172,4 +172,10 @@ export class FuelcardDetailsComponent implements OnInit {
   changeBlocked(): void {
     this.isBlocked = !this.isBlocked;
   }
+
+  deleteFuelCard(): any {
+    this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => {
+      this.navigateToListComponent();
+    });
+  }
 }
