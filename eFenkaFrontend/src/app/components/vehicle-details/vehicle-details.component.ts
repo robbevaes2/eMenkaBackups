@@ -73,9 +73,9 @@ export class VehicleDetailsComponent implements OnInit {
         chassis: new FormControl(null, [Validators.required]),
         category: new FormControl(null, [Validators.required]),
         country: new FormControl(null, [Validators.required]),
-        engineCapacity: new FormControl(null, [Validators.required]),
-        buildYear: new FormControl(null, [Validators.required]),
-        kilometers: new FormControl(null, [Validators.required]),
+        engineCapacity: new FormControl(null, [Validators.required, Validators.min(0)]),
+        buildYear: new FormControl(null, [Validators.required, Validators.min(0)]),
+        kilometers: new FormControl(null, [Validators.required, Validators.min(0)]),
         exteriorColor: new FormControl(null, [Validators.required]),
         interiorColor: new FormControl(null, [Validators.required]),
       });

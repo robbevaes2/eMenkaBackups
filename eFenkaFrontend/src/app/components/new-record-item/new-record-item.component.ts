@@ -143,7 +143,6 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   mapToVehicle(values: any): any {
-    console.log(this.vehicles.find(v => v.id === Number(values.vehicle)));
     return {
       Id: Number(values.vehicle),
       brandId: this.vehicles.find(v => v.id === Number(values.vehicle)).brand.id,

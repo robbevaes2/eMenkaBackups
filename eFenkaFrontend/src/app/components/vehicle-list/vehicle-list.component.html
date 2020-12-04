@@ -1,6 +1,6 @@
 <div class="row mr-1">
   <h1 class="col-10">Voertuigen</h1>
-  <button type="button" id="add-button" class="btn btn-success col-md-2" (click)="navigateToNewVehicleComponent()">toevoegen</button>
+  <button type="button" id="add-button" class="btn btn-primary col-md-2" (click)="navigateToNewVehicleComponent()">toevoegen</button>
 </div>
 <div class="md-form">
   <input
@@ -14,7 +14,7 @@
   <label for="search">Search</label>
 </div>
 <div class="table-responsive">
-  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true">
+  <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
     <thead class="sticky-top">
     <tr>
       <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="vehicles" [sortBy]="headElements[i]" scope="col">

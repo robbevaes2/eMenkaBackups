@@ -1,7 +1,7 @@
 <h1 class="">Details voertuig</h1>
 <div class="row ml-1 mr-1">
   <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListVehicleComponent()">Terug</button>
-  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" (click)="saveEditVehicle(form)">
+  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditVehicle(form)">
     <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
   </button>
   <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>

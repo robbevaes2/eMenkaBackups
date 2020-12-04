@@ -4,7 +4,7 @@
     <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable"
             (click)="navigateToListComponent()">Terug
     </button>
-    <button type="button" class="btn btn-success ml-auto col-md-2" (click)="saveEditFuelCard(form)">
+    <button type="button" class="btn btn-success ml-auto col-md-2" [disabled]="isEditable && !form.valid" (click)="saveEditFuelCard(form)">
       <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
     </button>
     <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
