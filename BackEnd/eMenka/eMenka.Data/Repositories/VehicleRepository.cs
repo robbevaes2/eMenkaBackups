@@ -92,21 +92,7 @@ namespace eMenka.Data.Repositories
         }
         public IEnumerable<Vehicle> GetAllAvailableVehiclesByBrandId(int brandId, List<int?> fuelCardIdsInRecord)
         {
-            var vehicles = _context.Vehicles.Where(v => v.BrandId == brandId && v.FuelCardId != null).Include(v => v.Brand)
-                .ThenInclude(b => b.InteriorColors)
-                .Include(v => v.Brand)
-                .ThenInclude(b => b.ExteriorColors)
-                .Include(v => v.Model)
-                .Include(v => v.FuelType)
-                .Include(v => v.EngineType)
-                .Include(v => v.DoorType)
-                .Include(v => v.Category)
-                .Include(v => v.Country)
-                .Include(v => v.ExteriorColor)
-                .Include(v => v.InteriorColor)
-                .Include(v => v.FuelCard)
-                .ThenInclude(fc => fc.Driver)
-                .ThenInclude(d => d.Person)
+            var vehicles = _context.Vehicles.Where(v => v.BrandId == brandId && v.FuelCardId != null)
                 .Include(s => s.Series)
                 .Where(v => !fuelCardIdsInRecord.Contains(v.FuelCardId));
             return vehicles;
