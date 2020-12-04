@@ -1,6 +1,6 @@
 export enum Language {
-  English,
-  Dutch,
-  French,
-  German
+  Engels,
+  Nederlands,
+  Frans,
+  Duits
 }

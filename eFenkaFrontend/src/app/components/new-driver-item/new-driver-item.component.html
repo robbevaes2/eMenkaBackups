@@ -35,7 +35,10 @@
           <label for="languages">Taal:</label>
           <select name="languages" id="languages" formControlName="language" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of languages; let id = index" [value]="id">{{ item }}</option>
+            <option [value]="1">Engels</option>
+            <option [value]="2">Nederlands</option>
+            <option [value]="3">Frans</option>
+            <option [value]="4">Duits</option>
           </select><br>
         </div>
       </div>
