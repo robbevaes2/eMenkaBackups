@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
@@ -49,6 +50,13 @@ namespace eMenka.API.Controllers
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
 
             return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+        }
+
+        [HttpGet("available")]
+        public IEnumerable<Vehicle> GetAllAvailableVehicles()
+        {
+            var vehicles = _vehicleRepository.GetAllAvailableVehicles();
+            return vehicles;
         }
 
         [HttpGet("brand/name/{brandName}")]

@@ -10,8 +10,8 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201203151505_initial")]
-    partial class initial
+    [Migration("20201204085827_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -13,20 +13,23 @@ namespace eMenka.Tests.Controllers
     [TestFixture]
     public class FuelCardControllerTests
     {
+
+        private FuelCardController _sut;
+        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
+        private Mock<IDriverRepository> _driverRepositoryMock;
+        private Mock<IVehicleRepository> _vehicleRepositoryMock;
+        private Mock<ICompanyRepository> _companyRepositoryMock;
+
         [SetUp]
         public void Init()
         {
             _fuelCardRepositoryMock = new Mock<IFuelCardRepository>();
             _driverRepositoryMock = new Mock<IDriverRepository>();
             _vehicleRepositoryMock = new Mock<IVehicleRepository>();
-            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object,
+            _companyRepositoryMock = new Mock<ICompanyRepository>();
+            _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object, _companyRepositoryMock.Object,
                 _vehicleRepositoryMock.Object);
         }
-
-        private FuelCardController _sut;
-        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
-        private Mock<IDriverRepository> _driverRepositoryMock;
-        private Mock<IVehicleRepository> _vehicleRepositoryMock;
 
         [Test]
         public void GetAllFuelCardsReturnsOkAndListOfAllFuelCardsWhenEverythingIsCorrect()
