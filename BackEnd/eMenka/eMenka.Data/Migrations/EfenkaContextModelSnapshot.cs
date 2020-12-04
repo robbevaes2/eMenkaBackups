@@ -6967,6 +6967,161 @@ namespace eMenka.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Active = true,
+                            Internal = false,
+                            Name = "Autokeuring"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            Internal = false,
+                            Name = "AVIS",
+                            Types = "FinancieleInstelling,Leasingmaatschappij,Verhuurmaatschappij,Transportbedrijf"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            Internal = false,
+                            Name = "AXA",
+                            Types = "Verzekeringmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Active = true,
+                            Internal = false,
+                            Name = "Beerens",
+                            Types = "Carrosier,Garage,Bandencentrale"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Active = true,
+                            Internal = false,
+                            Name = "Carglass",
+                            Types = "Carrosier,Pechverhelping"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Active = true,
+                            Internal = false,
+                            Name = "CIACfleet",
+                            Types = "Verhuurmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Active = true,
+                            Internal = false,
+                            Name = "DAS",
+                            Types = "Verzekeringmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Active = true,
+                            Internal = true,
+                            Name = "eMenka BV"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Active = true,
+                            Internal = true,
+                            Name = "eMenka GmbH"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Active = true,
+                            Internal = true,
+                            Name = "eMenka NV",
+                            Types = "Verhuurmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Active = true,
+                            Internal = false,
+                            Name = "Esso"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Active = true,
+                            Internal = false,
+                            Name = "Euromex",
+                            Types = "Verzekeringmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Active = true,
+                            Internal = false,
+                            Name = "FodFin"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Active = true,
+                            Internal = false,
+                            Name = "GMAN Antwerpen",
+                            Types = "Carrosier,Garage,Bandencentrale"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Active = true,
+                            Internal = false,
+                            Name = "Jespers"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Active = true,
+                            Internal = false,
+                            Name = "KAVEDE NV",
+                            Types = "Verzekeringsmakelaar,Vastgoedmakelaar"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Active = true,
+                            Internal = false,
+                            Name = "KBC Autolease",
+                            Types = "Brandstofleverancier,Leasingmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Active = true,
+                            Internal = false,
+                            Name = "Maecon"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Active = true,
+                            Internal = false,
+                            Name = "Mercator Verzekeringen NV",
+                            Types = "Verzekeringmaatschappij"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Active = true,
+                            Internal = false,
+                            Name = "Mercedes-Benz FS Belux NV",
+                            Types = "Leasingmaatschappij"
+                        });
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Vehicle", b =>
