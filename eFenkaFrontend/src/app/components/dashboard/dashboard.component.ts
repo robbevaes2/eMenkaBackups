@@ -1,10 +1,11 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle/vehicle';
 import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 import { ApiService } from '../../services/api.service';
 import { Serie } from 'src/app/models/serie/serie';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
+import { DashboardModelChartComponent } from '../dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,12 +13,13 @@ import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  vehicles: Vehicle[];
+  public vehicles: Vehicle[];
   public dataArray: Array<number> = [];
+
+  @ViewChild(DashboardModelChartComponent) modelChart;
 
   // pie chart
   public chartType: string = 'pie';
-
 
   public chartDatasets: Array<any> = [{
     data: this.dataArray,
@@ -68,10 +70,6 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-
-  public chartClicked(e: any): void { }
-  public chartHovered(e: any): void { }
-
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -85,9 +83,9 @@ export class DashboardComponent implements OnInit {
             this.dataArray = [];
 
             brandData.forEach(i => {
-              let test = this.vehicles.filter((b) => (b.brand.name === i.name)).length
+              let labels = this.vehicles.filter((b) => (b.brand.name === i.name)).length
               
-              if(test > 0) {
+              if(labels > 0) {
                 this.chartLabels.push(i.name);
               }             
             });
@@ -129,9 +127,52 @@ export class DashboardComponent implements OnInit {
     )
   }
 
-  getRandomColor() {
-    var color = Math.floor(0x1000000 * Math.random()).toString(16);
-    return '#' + ('000000' + color).slice(-6);
+  public chartClicked(e: any): void {
+    const index = e.active[0]._index;
+
+    const vehiclesByBrand = this.vehicles.filter(b => b.brand.name === this.chartLabels[index])
+
+    const brandId = vehiclesByBrand[0].brand.id;
+
+    /*
+    this.dataArray = [];
+
+
+    console.log(e.active[0]._index);
+
+    let brandVehicles = this.vehicles.filter((b) => (b.brand.name === this.chartLabels[index]));
+
+    brandVehicles.forEach(i => {
+      let labels = this.vehicles.filter((b) => (b.model.name === i.model.name)).length
+
+      if(labels > 0) {
+        this.chartLabels.push(i.model.name);
+      }  
+    });
+
+    this.chartLabels.forEach(i => {
+      this.dataArray.push(this.vehicles.filter((b) => (b.brand.name === i)).length);
+    });
+
+    this.chartDatasets = [{
+      data: this.dataArray,
+      label: "Aantal voertuigen per merk"
+    }]
+
+    console.log(brandVehicles);
+    */
+
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree([`/models/${brandId}`])
+    );
+
+    window.open(url, '_blank', 'location=yes,scrollbars=yes,status=yes'); // Open new window
+    window.focus();
+
   }
+
+  public chartHovered(e: any): void { }
+
+  
 
 }

@@ -23,6 +23,7 @@ import {CommonModule, DatePipe} from '@angular/common';
 import { DriverListComponent } from './components/driver-list/driver-list.component';
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
+import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NewDriverItemComponent } from './components/new-driver-item/new-driver-
     FuelcardDetailsComponent,
     DriverListComponent,
     DriverDetailsComponent,
-    NewDriverItemComponent
+    NewDriverItemComponent,
+    DashboardModelChartComponent
   ],
   imports: [
     BrowserModule,

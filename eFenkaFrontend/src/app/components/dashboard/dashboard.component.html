@@ -26,8 +26,8 @@
                 [colors]="chartColors"
                 [options]="categoryChartOptions"
                 [legend]="true"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"
+                (chartHover)="categoryChartHovered($event)"
+                (chartClick)="categoryChartClicked($event)"
                 height="100">
             </canvas>
         </div>

@@ -11,6 +11,7 @@ import { DriverDetailsComponent } from './components/driver-details/driver-detai
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
+import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -80,6 +81,10 @@ export const appRoutes: Routes = [
   {
     path: 'drivers/:index',
     component: DriverDetailsComponent
+  },
+  {
+    path: 'models/:index',
+    component: DashboardModelChartComponent
   },
   {
     path: 'dashboard',
