@@ -139,7 +139,7 @@ export class NewRecordItemComponent implements OnInit {
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
       startDate: new Date(values.startDate).toISOString(),
-      endDate: new Date('10-10-2010'),
+      endDate: new Date(2010, 10, 10).toISOString(),
       usage: Number(values.usage) - 1
     };
   }
