@@ -90,5 +90,12 @@ namespace eMenka.Data.Repositories
             var vehicles = _context.Vehicles.Where(v => v.FuelCardId == null);
             return vehicles;
         }
+        public IEnumerable<Vehicle> GetAllAvailableVehiclesByBrandId(int brandId, List<int?> fuelCardIdsInRecord)
+        {
+            var vehicles = _context.Vehicles.Where(v => v.BrandId == brandId && v.FuelCardId != null)
+                .Include(s => s.Series)
+                .Where(v => !fuelCardIdsInRecord.Contains(v.FuelCardId));
+            return vehicles;
+        }
     }
 }
