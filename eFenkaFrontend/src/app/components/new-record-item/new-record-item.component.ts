@@ -44,14 +44,14 @@ export class NewRecordItemComponent implements OnInit {
 
     this.form = new FormGroup({
       type: new FormControl(null, [Validators.required]),
-      licensePlate: new FormControl(null, []),
-      chassis: new FormControl(null, []),
-      registrationDate: new FormControl(null, []),
+      licensePlate: new FormControl(null, [Validators.required]),
+      chassis: new FormControl(null, [Validators.required]),
+      registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
-      fuelCard: new FormControl(null, []),
+      fuelCard: new FormControl(null, [Validators.required]),
       usage: new FormControl(null, [Validators.required]),
       brand: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required]),
@@ -65,7 +65,7 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   saveNewRecord(form: FormGroup): void {
-    if (confirm('Bent u zeker dat u deze wagen wilt opslaan?')) {
+    if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
       this.apiService.addRecord(this.mapToModel(form.value)).subscribe(() => {
         this.apiService.updateVehicle(Number(form.value.vehicle), this.mapToVehicle(form.value)).subscribe(() =>
         this.navigateToListRecordComponent()
@@ -90,6 +90,7 @@ export class NewRecordItemComponent implements OnInit {
       this.form.controls.licensePlate.setValue(data.licensePlate);
       this.form.controls.chassis.setValue(data.chassis);
       this.form.controls.fuelCard.setValue(data.fuelCard.id);
+      this.form.controls.fuelType.setValue(data.fuelType.id);
     });
   }
 

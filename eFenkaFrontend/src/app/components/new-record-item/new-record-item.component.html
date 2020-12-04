@@ -21,18 +21,6 @@
         </div>
 
         <div class="form-group">
-          <label for="licensePlate">Nummerplaat:</label>
-          <input disabled type="text" id="licensePlate" formControlName="licensePlate"
-                 class="col-md-12 browser-default form-control">
-        </div>
-
-        <div class="form-group">
-          <label for="chassis">Chassisnummer:</label>
-          <input disabled type="text" id="chassis" formControlName="chassis"
-                 class="col-md-12 browser-default form-control">
-        </div>
-
-        <div class="form-group">
           <label for="registrationDate">Eerste registratie:</label>
           <input type="date" id="registrationDate" formControlName="registrationDate"
                  class="col-md-12 browser-default form-control">
@@ -61,6 +49,25 @@
             <option *ngFor="let item of corporations" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
+        <div class="form-group">
+          <label for="costAllocations">Kostenplaats:</label>
+          <select name="costAllocations" id="costAllocations" formControlName="costAllocation"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of costAllocations" [value]="item.id">{{ item.name }}</option>
+          </select><br>
+        </div>
+
+        <div class="form-group">
+          <label for="usages">Gebruik:</label>
+          <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option [value]="1">Pool</option>
+            <option [value]="2">Definitive</option>
+            <option [value]="3">Replacement</option>
+            <option [value]="4">RunIn</option>
+          </select><br>
+        </div>
 
       </div>
       <div class="col-md-6">
@@ -74,14 +81,7 @@
           </select><br>
         </div>
 
-        <div class="form-group">
-          <label for="fuelTypes">Brandstof Type:</label>
-          <select name="fuelTypes" id="fuelTypes" formControlName="fuelType"
-                  class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of fuelTypes" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
+
 
         <div class="form-group">
           <label for="models">Model:</label>
@@ -100,14 +100,24 @@
                     [value]="item.id">{{ item.serie.name }} {{ item.doorType.name }}</option>
           </select><br>
         </div>
-
         <div class="form-group">
-          <label for="costAllocations">Kostenplaats:</label>
-          <select name="costAllocations" id="costAllocations" formControlName="costAllocation"
+          <label for="fuelTypes">Brandstof Type:</label>
+          <select disabled name="fuelTypes" id="fuelTypes" formControlName="fuelType"
                   class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of costAllocations" [value]="item.id">{{ item.name }}</option>
+            <option *ngFor="let item of fuelTypes" [value]="item.id">{{ item.name }}</option>
           </select><br>
+        </div>
+        <div class="form-group">
+          <label for="licensePlate">Nummerplaat:</label>
+          <input disabled type="text" id="licensePlate" formControlName="licensePlate"
+                 class="col-md-12 browser-default form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="chassis">Chassisnummer:</label>
+          <input disabled type="text" id="chassis" formControlName="chassis"
+                 class="col-md-12 browser-default form-control">
         </div>
 
         <div class="form-group">
@@ -119,16 +129,7 @@
           </select><br>
         </div>
 
-        <div class="form-group">
-          <label for="usages">Gebruik:</label>
-          <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option [value]="1">Pool</option>
-            <option [value]="2">Definitive</option>
-            <option [value]="3">Replacement</option>
-            <option [value]="4">RunIn</option>
-          </select><br>
-        </div>
+
 
       </div>
     </div>

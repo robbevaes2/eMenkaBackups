@@ -172,7 +172,7 @@ export class RecordDetailsComponent implements OnInit {
 
   saveEditRecord(form: FormGroup): void {
     if (this.isEditable) {
-      if (confirm('Are you sure you want to save this vehicle?')) {
+      if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
         this.apiService.updateRecord(this.selectedRecord.id, this.mapToModel(form.value)).subscribe(() => {
           this.apiService.updateVehicle(this.selectedVehicle.id, this.mapToVehicle(form.value)).subscribe(() => {
             this.apiService.getRecordById(this.selectedRecord.id).subscribe((data) => {
@@ -189,7 +189,7 @@ export class RecordDetailsComponent implements OnInit {
   }
 
   deleteRecord(): void {
-    if (confirm('Are you sure you want to delete this vehicle?')) {
+    if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
         this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
     }
   }
