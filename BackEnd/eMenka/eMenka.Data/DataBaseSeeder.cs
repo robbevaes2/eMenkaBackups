@@ -1758,6 +1758,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
+                    Gender = "M",
                     Picture = null
                 },
                 new Person
@@ -1769,6 +1770,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
+                    Gender = "M",
                     Picture = null
                 },
                 new Person
@@ -1779,6 +1781,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
+                    Gender = "M",
                     Picture = null
                 },
                 new Person
@@ -1790,6 +1793,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
+                    Gender = "M",
                     Picture = null
                 },
                 new Person
@@ -1801,6 +1805,7 @@ namespace eMenka.Data
                     Language = (Language)2,
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
+                    Gender = "M",
                     Picture = null
                 },
                 new Person
@@ -1813,7 +1818,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1827,7 +1832,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1841,7 +1846,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1855,7 +1860,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1870,7 +1875,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1885,7 +1890,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 9, 30, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 9, 30, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1900,7 +1905,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2029, 10, 3, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1915,7 +1920,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -1930,7 +1935,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     DriversLicenseType = "b",
-                    Gender = "",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2020,7 +2025,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 1, 12, 0, 0),
                     DriversLicenseType = "a",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "mss",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2034,7 +2039,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 1, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "a",
+                    Gender = "A",
                     Title = "string",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2049,7 +2054,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     DriversLicenseType = "a",
-                    Gender = "a",
+                    Gender = "A",
                     Title = "string",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2064,7 +2069,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     DriversLicenseType = "a",
-                    Gender = "a",
+                    Gender = "A",
                     Title = "string",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2079,7 +2084,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 4, 12, 0, 0),
                     DriversLicenseType = "a",
-                    Gender = "a",
+                    Gender = "A",
                     Title = "string",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2152,7 +2157,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 10, 10, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 10, 15, 12, 0, 0),
                     DriversLicenseType = "AZV",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2407,6 +2412,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 11, 22, 12, 0, 0),
                     DriversLicenseType = "A",
+                    Gender = "M",
                     Title = "",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2450,7 +2456,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2020, 1, 12, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 12, 12, 0, 0),
                     DriversLicenseType = "ABC",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "ms",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2510,7 +2516,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2020, 1, 11, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2020, 1, 11, 12, 0, 0),
                     DriversLicenseType = "AB",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2731,7 +2737,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2019, 12, 16, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2019, 12, 17, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2774,7 +2780,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2000, 5, 20, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2025, 5, 20, 12, 0, 0),
                     DriversLicenseType = "B",
-                    Gender = "F",
+                    Gender = "V",
                     Title = "mr",
                     Picture = new byte[] { 0x0 }
                 },
@@ -2817,7 +2823,7 @@ namespace eMenka.Data
                     StartDateDriversLicense = new DateTime(2020, 3, 3, 12, 0, 0),
                     EndDateDriversLicense = new DateTime(2030, 3, 3, 12, 0, 0),
                     DriversLicenseType = "b",
-                    Gender = "F",
+                    Gender = "V",
                     Picture = new byte[] { 0x0 }
                 },
                 new Person
@@ -7760,6 +7766,164 @@ namespace eMenka.Data
                 new Category { Id = 4, Name = "Vrachtwagen" }
             );
 
+            #endregion
+            #region Suppliers
+
+            builder.Entity<Supplier>().HasData(
+                new Supplier
+                {
+                    Id = 1,
+                    Active = true,
+                    Internal = false,
+                    Name = "Autokeuring"
+                },
+                new Supplier
+                {
+                    Id = 2,
+                    Active = true,
+                    Internal = false,
+                    Name = "AVIS",
+                    Types = new SupplierType[]{SupplierType.FinancieleInstelling, SupplierType.Leasingmaatschappij, SupplierType.Verhuurmaatschappij, SupplierType.Transportbedrijf}
+                },
+                new Supplier
+                {
+                    Id = 3,
+                    Active = true,
+                    Internal = false,
+                    Name = "AXA",
+                    Types = new SupplierType[] {SupplierType.Verzekeringmaatschappij}
+                },
+                new Supplier
+                {
+                    Id = 4,
+                    Active = true,
+                    Internal = false,
+                    Name = "Beerens",
+                    Types = new SupplierType[] { SupplierType.Carrosier, SupplierType.Garage, SupplierType.Bandencentrale}
+                },
+                new Supplier
+                {
+                    Id = 5,
+                    Active = true,
+                    Internal = false,
+                    Name = "Carglass",
+                    Types = new SupplierType[] { SupplierType.Carrosier, SupplierType.Pechverhelping }
+                },
+                new Supplier
+                {
+                    Id = 6,
+                    Active = true,
+                    Internal = false,
+                    Name = "CIACfleet",
+                    Types = new SupplierType[] { SupplierType.Verhuurmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 7,
+                    Active = true,
+                    Internal = false,
+                    Name = "DAS",
+                    Types = new SupplierType[] { SupplierType.Verzekeringmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 8,
+                    Active = true,
+                    Internal = true,
+                    Name = "eMenka BV"
+                },
+                new Supplier
+                {
+                    Id = 9,
+                    Active = true,
+                    Internal = true,
+                    Name = "eMenka GmbH"
+                },
+                new Supplier
+                {
+                    Id = 10,
+                    Active = true,
+                    Internal = true,
+                    Name = "eMenka NV",
+                    Types = new SupplierType[] { SupplierType.Verhuurmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 11,
+                    Active = true,
+                    Internal = false,
+                    Name = "Esso"
+                },
+                new Supplier
+                {
+                    Id = 12,
+                    Active = true,
+                    Internal = false,
+                    Name = "Euromex",
+                    Types = new SupplierType[] { SupplierType.Verzekeringmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 13,
+                    Active = true,
+                    Internal = false,
+                    Name = "FodFin"
+                },
+                new Supplier
+                {
+                    Id = 14,
+                    Active = true,
+                    Internal = false,
+                    Name = "GMAN Antwerpen",
+                    Types = new SupplierType[] { SupplierType.Carrosier, SupplierType.Garage, SupplierType.Bandencentrale }
+                },
+                new Supplier
+                {
+                    Id = 15,
+                    Active = true,
+                    Internal = false,
+                    Name = "Jespers"
+                },
+                new Supplier
+                {
+                    Id = 16,
+                    Active = true,
+                    Internal = false,
+                    Name = "KAVEDE NV",
+                    Types = new SupplierType[] { SupplierType.Verzekeringsmakelaar, SupplierType.Vastgoedmakelaar }
+                },
+                new Supplier
+                {
+                    Id = 17,
+                    Active = true,
+                    Internal = false,
+                    Name = "KBC Autolease",
+                    Types = new SupplierType[] { SupplierType.Brandstofleverancier, SupplierType.Leasingmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 18,
+                    Active = true,
+                    Internal = false,
+                    Name = "Maecon"
+                },
+                new Supplier
+                {
+                    Id = 19,
+                    Active = true,
+                    Internal = false,
+                    Name = "Mercator Verzekeringen NV",
+                    Types = new SupplierType[] { SupplierType.Verzekeringmaatschappij }
+                },
+                new Supplier
+                {
+                    Id = 20,
+                    Active = true,
+                    Internal = false,
+                    Name = "Mercedes-Benz FS Belux NV",
+                    Types = new SupplierType[] { SupplierType.Leasingmaatschappij }
+                }
+                );
             #endregion
         }
     }

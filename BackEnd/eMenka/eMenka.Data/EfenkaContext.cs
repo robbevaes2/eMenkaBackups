@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
+using eMenka.Domain.Enums;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eMenka.Data
 {
@@ -170,12 +172,15 @@ namespace eMenka.Data
                 s => s.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                 c => c.ToArray());
 
+            var convertor = new EnumToStringConverter<SupplierType>();
+
             modelBuilder.Entity<Supplier>()
                 .Property(s => s.Types)
                 .HasConversion(
-                    v => string.Join(',', v),
+                    v => string.Join(",", v.Select(a => a.ToString())),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                ).Metadata.SetValueComparer(valueComparer);
+                        .Select(a => (SupplierType) Enum.Parse(typeof(SupplierType), a)).ToArray()
+                ); //.Metadata.SetValueComparer(valueComparer);
         }
 
         /*
