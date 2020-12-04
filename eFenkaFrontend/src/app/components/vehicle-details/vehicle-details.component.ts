@@ -104,6 +104,9 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls.engineCapacity.setValue(this.selectedVehicle.engineCapacity);
     this.form.controls.buildYear.setValue(this.selectedVehicle.buildYear);
     this.form.controls.kilometers.setValue(this.selectedVehicle.kilometers);
+    this.form.controls.exteriorColor.setValue(this.selectedVehicle.exteriorColor.id);
+    this.form.controls.interiorColor.setValue(this.selectedVehicle.interiorColor.id);
+
   }
 
   disableForm(): void {
@@ -125,6 +128,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls.engineCapacity.disable();
     this.form.controls.buildYear.disable();
     this.form.controls.kilometers.disable();
+    this.form.controls.exteriorColor.disable();
+    this.form.controls.interiorColor.disable();
     this.isEditable = false;
   }
 
@@ -147,6 +152,8 @@ export class VehicleDetailsComponent implements OnInit {
     this.form.controls.engineCapacity.enable();
     this.form.controls.buildYear.enable();
     this.form.controls.kilometers.enable();
+    this.form.controls.exteriorColor.enable();
+    this.form.controls.interiorColor.enable();
     this.isEditable = true;
   }
 
