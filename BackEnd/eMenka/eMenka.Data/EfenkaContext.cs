@@ -147,12 +147,15 @@ namespace eMenka.Data
             modelBuilder.Entity<Record>()
                 .HasOne(r => r.FuelCard)
                 .WithOne(fc => fc.Record)
-                .HasForeignKey<FuelCard>(fc => fc.RecordId);
+                .HasForeignKey<FuelCard>(fc => fc.RecordId)
+                .OnDelete(DeleteBehavior.SetNull);
+
 
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Record)
                 .WithOne(r => r.FuelCard)
-                .HasForeignKey<Record>(r => r.FuelCardId);
+                .HasForeignKey<Record>(r => r.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull);
 
 
             /***********************************************************/

@@ -368,7 +368,7 @@ namespace eMenka.Data.Migrations
                         column: x => x.FuelCardId,
                         principalTable: "FuelCards",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(

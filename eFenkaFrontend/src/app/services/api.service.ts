@@ -177,6 +177,10 @@ export class ApiService {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
 
+  deleteFuelCard(id: number): any {
+    return this.deleteFromAPI('fuelcard/' + id);
+  }
+
   // FuelType
 
   getAllFuelTypes(): Observable<FuelType[]> {
@@ -202,6 +206,7 @@ export class ApiService {
       catchError(this.handleError)
     );
   }
+
   // Corporation
 
   getAllCorporations(): Observable<Corporation[]> {
@@ -218,9 +223,11 @@ export class ApiService {
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
   }
+
   getAllAvailableDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/available');
   }
+
   getDriverById(id: number): Observable<Driver> {
     return this.getFromAPI<Driver>('driver/' + id);
   }
