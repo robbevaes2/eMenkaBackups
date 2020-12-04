@@ -1,3 +1,4 @@
+import { Gender } from 'src/app/enums/gender/gender.enum';
 import {Language} from '../../enums/language/language.enum';
 
 export class Person {

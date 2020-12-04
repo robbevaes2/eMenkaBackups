@@ -53,11 +53,11 @@ export class DriverDetailsComponent implements OnInit {
     this.form.controls.birthDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.person.birthDate), 'yyyy-MM-dd'));
 
     if (this.selectedDriver.person.gender === 'M') {
-      this.form.controls.gender.setValue('Male');
+      this.form.controls.gender.setValue('Man');
     } else if (this.selectedDriver.person.gender === 'V') {
-      this.form.controls.gender.setValue('Female');
+      this.form.controls.gender.setValue('Vrouw');
     } else if (this.selectedDriver.person.gender === 'A') {
-      this.form.controls.gender.setValue('Other');
+      this.form.controls.gender.setValue('Ander');
     }
 
     this.form.controls.language.setValue(this.selectedDriver.person.language);
@@ -100,11 +100,11 @@ export class DriverDetailsComponent implements OnInit {
   }
 
   mapToPersonModel(values: any): any {
-    if (values?.gender === 'Male') {
+    if (values?.gender === 'Man') {
       values.gender = 'M';
-    } else if (values?.gender === 'Female') {
+    } else if (values?.gender === 'Vrouw') {
       values.gender = 'V';
-    } else if (values?.gender === 'Other') {
+    } else if (values?.gender === 'Ander') {
       values.gender = 'A';
     }
 

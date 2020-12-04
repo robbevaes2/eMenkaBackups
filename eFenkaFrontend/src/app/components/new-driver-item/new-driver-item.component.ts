@@ -25,7 +25,7 @@ export class NewDriverItemComponent implements OnInit {
       lastName: new FormControl(null, [Validators.required]),
       birthDate: new FormControl(null, [Validators.required]),
       gender: new FormControl(null, [Validators.required]),
-      language: new FormControl(null, [Validators.min(0)]),
+      language: new FormControl(null, [Validators.required]),
       driverLicenseNumber: new FormControl(null, [Validators.required]),
       driverLicenseType: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
@@ -34,6 +34,14 @@ export class NewDriverItemComponent implements OnInit {
   }
 
   mapToPersonModel(values: any): any {
+    if (values?.gender === 'Man') {
+      values.gender = 'M';
+    } else if (values?.gender === 'Vrouw') {
+      values.gender = 'V';
+    } else if (values?.gender === 'Ander') {
+      values.gender = 'A';
+    }
+
     return {
       title: values.title,
       firstName: values.firstName,
