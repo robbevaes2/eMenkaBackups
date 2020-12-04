@@ -120,7 +120,7 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   setVehicle(brandId: number): void {
-    this.apiService.getAllVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
+    this.apiService.getAllAvailableVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
   }
 
   getCountries(): Country[] {

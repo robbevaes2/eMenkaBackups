@@ -17,6 +17,7 @@ namespace eMenka.API.Controllers
         private readonly IDoorTypeRepository _doorTypeRepository;
         private readonly IEngineTypeRepository _engineTypeRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
+        private readonly IRecordRepository _recordRepository;
         private readonly IFuelTypeRepository _fuelTypeRepository;
         private readonly IModelRepository _modelRepository;
         private readonly ISerieRepository _serieRepository;
@@ -27,7 +28,7 @@ namespace eMenka.API.Controllers
             IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository,
             IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository,
             ICategoryRepository categoryRepository, ISerieRepository serieRepository,
-            IFuelCardRepository fuelCardRepository) : base(vehicleRepository, new VehicleMapper())
+            IFuelCardRepository fuelCardRepository, IRecordRepository recordRepository) : base(vehicleRepository, new VehicleMapper())
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -37,6 +38,7 @@ namespace eMenka.API.Controllers
             _doorTypeRepository = doorTypeRepository;
             _categoryRepository = categoryRepository;
             _fuelCardRepository = fuelCardRepository;
+            _recordRepository = recordRepository;
             _serieRepository = serieRepository;
             _vehicleMapper = new VehicleMapper();
         }
@@ -48,6 +50,19 @@ namespace eMenka.API.Controllers
                 return NotFound($"No brand with id {brandId}");
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
+
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+        }
+
+        [HttpGet("available/brand/{brandId}")]
+        public IActionResult GetAvailableVehicleByBrandId(int brandId)
+        {
+            if (_brandRepository.GetById(brandId) == null)
+                return NotFound($"No brand with id {brandId}");
+
+            var records = _recordRepository.GetAll();
+
+            var vehicles = _vehicleRepository.GetAllAvailableVehiclesByBrandId(brandId, records.Select(r => r.FuelCardId).ToList());
 
             return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
