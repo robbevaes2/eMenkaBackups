@@ -27,11 +27,12 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock = new Mock<ICategoryRepository>();
             _fuelcardRepositoryMock = new Mock<IFuelCardRepository>();
             _serieRepositoryMock = new Mock<ISerieRepository>();
+            _recordRepositoryMock = new Mock<IRecordRepository>();
 
             _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object,
                 _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object,
                 _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object,
-                _fuelcardRepositoryMock.Object);
+                _fuelcardRepositoryMock.Object, _recordRepositoryMock.Object);
         }
 
         private VehicleController _sut;
@@ -44,6 +45,7 @@ namespace eMenka.Tests.Controllers
         private Mock<ICategoryRepository> _categoryRepositoryMock;
         private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
         private Mock<ISerieRepository> _serieRepositoryMock;
+        private Mock<IRecordRepository> _recordRepositoryMock;
 
         [Test]
         public void GetAllVehiclesReturnsOkAndListOfAllVehiclesWhenEverythingIsCorrect()
