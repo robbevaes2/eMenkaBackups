@@ -123,7 +123,10 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   setVehicle(brandId: number): void {
-    this.apiService.getAllAvailableVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
+    this.apiService.getAllAvailableVehiclesByBrandId(brandId).subscribe(data => {
+      this.vehicles = data;
+      console.log(this.vehicles);
+    });
   }
 
   getCountries(): Country[] {
@@ -142,8 +145,8 @@ export class NewRecordItemComponent implements OnInit {
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
-      startDate: new Date(values.startDate).toISOString(),
-      endDate: new Date(values.endDate).toISOString(),
+      startDate: new Date(values.duration.startDate).toISOString(),
+      endDate: new Date(values.duration.endDate).toISOString(),
       usage: Number(values.usage) - 1
     };
   }
