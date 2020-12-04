@@ -1,0 +1,8 @@
+button {
+  margin-right: 5px;
+  margin-bottom: 1rem;
+}
+
+input[type=checkbox] {
+  height: 25px;
+}
