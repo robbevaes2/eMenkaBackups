@@ -63,6 +63,7 @@ export class NewFuelcardItemComponent implements OnInit {
     const model = this.mapToModel(form.value);
     console.log(model);
     this.apiService.addFuelcard(model).subscribe();
+    this.navigateToFuelListComponent();
   }
 
   private mapToModel(values: any): any {
