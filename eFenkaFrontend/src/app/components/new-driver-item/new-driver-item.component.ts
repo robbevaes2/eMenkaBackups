@@ -25,7 +25,7 @@ export class NewDriverItemComponent implements OnInit {
       lastName: new FormControl(null, [Validators.required]),
       birthDate: new FormControl(null, [Validators.required]),
       gender: new FormControl(null, [Validators.required]),
-      language: new FormControl(null, [Validators.min(0)]),
+      language: new FormControl(null, [Validators.required]),
       driverLicenseNumber: new FormControl(null, [Validators.required]),
       driverLicenseType: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
