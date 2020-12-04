@@ -11,6 +11,7 @@ import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { DatePipe } from '@angular/common';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-new-record-item',
@@ -48,8 +49,10 @@ export class NewRecordItemComponent implements OnInit {
       chassis: new FormControl(null, [Validators.required]),
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
-      startDate: new FormControl(null, [Validators.required]),
-      endDate: new FormControl(null, [Validators.required]),
+      duration: new FormGroup({
+        startDate: new FormControl(null, [Validators.required]),
+        endDate: new FormControl(null, [Validators.required]),
+      }, {validators: fromToDate}),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required]),

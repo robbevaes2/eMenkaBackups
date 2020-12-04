@@ -34,19 +34,19 @@
             <option *ngFor="let item of countries" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">StartDatum:</label>
+            <input type="Date" id="startDate" formControlName="startDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
 
-        <div class="form-group">
-          <label for="startDate">StartDatum:</label>
-          <input type="Date" id="startDate" formControlName="startDate"
-                 class="col-md-12 browser-default form-control">
+          <div class="form-group">
+            <label for="endDate">EindDatum:</label>
+            <input type="Date" id="endDate" formControlName="endDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="endDate">EindDatum:</label>
-          <input type="Date" id="endDate" formControlName="endDate"
-                 class="col-md-12 browser-default form-control">
-        </div>
-
         <div class="form-group">
           <label for="corporations">Vennootschap:</label>
           <select name="corporations" id="corporations" formControlName="corporation"
