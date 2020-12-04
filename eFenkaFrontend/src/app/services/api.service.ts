@@ -159,6 +159,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
+  getAllAvailableVehiclesByBrandId(id: number): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available/brand/' + id);
+  }
+
   // FuelCard
 
   getAllFuelCards(): Observable<FuelCard[]> {
