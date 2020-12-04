@@ -49,6 +49,7 @@ export class NewRecordItemComponent implements OnInit {
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
+      endDate: new FormControl(null, [Validators.required]),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required]),
@@ -139,7 +140,7 @@ export class NewRecordItemComponent implements OnInit {
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
       startDate: new Date(values.startDate).toISOString(),
-      endDate: new Date(2010, 10, 10).toISOString(),
+      endDate: new Date(values.endDate).toISOString(),
       usage: Number(values.usage) - 1
     };
   }

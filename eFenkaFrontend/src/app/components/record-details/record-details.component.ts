@@ -61,6 +61,7 @@ export class RecordDetailsComponent implements OnInit {
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required]),
+      endDate: new FormControl(null, [Validators.required]),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       usage: new FormControl(null, [Validators.required]),
@@ -89,6 +90,7 @@ export class RecordDetailsComponent implements OnInit {
     }
 
     this.form.controls.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
+    this.form.controls.endDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd'));
 
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
@@ -108,7 +110,6 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.vehicle.setValue(this.selectedRecord.fuelCard.vehicle.id);
     this.form.controls.buildYear.setValue(this.selectedRecord.fuelCard.vehicle.buildYear);
     this.form.controls.kilometers.setValue(this.selectedRecord.fuelCard.vehicle.kilometers);
-
   }
 
   disableForm(): void {
@@ -118,6 +119,7 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.registrationDate.disable();
     this.form.controls.country.disable();
     this.form.controls.startDate.disable();
+    this.form.controls.endDate.disable();
     this.form.controls.corporation.disable();
     this.form.controls.costAllocation.disable();
     this.form.controls.usage.disable();
@@ -135,13 +137,10 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.registrationDate.enable();
     this.form.controls.country.enable();
     this.form.controls.startDate.enable();
+    this.form.controls.endDate.enable();
     this.form.controls.corporation.enable();
     this.form.controls.costAllocation.enable();
     this.form.controls.usage.enable();
-    // this.form.controls.brand.enable();
-    // this.form.controls.fuelType.enable();
-    // this.form.controls.model.enable();
-    // this.form.controls.vehicle.enable();
     this.isEditable = true;
   }
 
