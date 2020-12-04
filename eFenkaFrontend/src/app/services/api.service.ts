@@ -90,6 +90,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/');
   }
 
+  getAllAvailableVehicles(): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available');
+  }
+
   getVehicleById(id: number): Observable<Vehicle> {
     return this.getFromAPI<Vehicle>('vehicle/' + id);
   }
@@ -165,8 +169,16 @@ export class ApiService {
     return this.getFromAPI<FuelCard>('fuelcard/' + id);
   }
 
+  addFuelcard(fuelCardModel: any): any {
+    return this.postToAPI('fuelcard/', fuelCardModel);
+  }
+
   updateFuelCard(id: number, FuelCardModel: any): any {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
+  }
+
+  deleteFuelCard(id: number): any {
+    return this.deleteFromAPI('fuelcard/' + id);
   }
 
   // FuelType
@@ -194,6 +206,7 @@ export class ApiService {
       catchError(this.handleError)
     );
   }
+
   // Corporation
 
   getAllCorporations(): Observable<Corporation[]> {
@@ -209,6 +222,10 @@ export class ApiService {
   // Driver
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
+  }
+
+  getAllAvailableDrivers(): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/available');
   }
 
   getDriverById(id: number): Observable<Driver> {
@@ -240,4 +257,6 @@ export class ApiService {
   addPerson(personModel: any): any {
     return this.postToAPI('person/', personModel);
   }
+
+
 }

@@ -10,8 +10,8 @@ using eMenka.Data;
 namespace eMenka.Data.Migrations
 {
     [DbContext(typeof(EfenkaContext))]
-    [Migration("20201203151505_initial")]
-    partial class initial
+    [Migration("20201204094207_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -11389,7 +11389,8 @@ namespace eMenka.Data.Migrations
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Record")
-                        .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId");
+                        .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>

@@ -1,9 +1,9 @@
-import { Language } from '../../enums/language/language.enum';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
-import { Gender } from '../../enums/gender/gender.enum';
+import {Language} from '../../enums/language/language.enum';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ApiService} from 'src/app/services/api.service';
+import {Gender} from '../../enums/gender/gender.enum';
 
 @Component({
   selector: 'app-new-driver-item',
@@ -15,7 +15,8 @@ export class NewDriverItemComponent implements OnInit {
   genders = Object.values(Gender).filter(value => typeof value === 'string');
   languages = Object.values(Language).filter(value => typeof value === 'string');
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -35,11 +36,11 @@ export class NewDriverItemComponent implements OnInit {
   mapToPersonModel(values: any): any {
     return {
       title: values.title,
-      firstName:  values.firstName,
-      lastName:  values.lastName,
-      birthDate:  values.birthDate,
-      gender:  values.gender,
-      language:  Number(values.language),
+      firstName: values.firstName,
+      lastName: values.lastName,
+      birthDate: values.birthDate,
+      gender: values.gender,
+      language: Number(values.language),
       driversLicenseNumber: values.driverLicenseNumber,
       driversLicenseType: values.driverLicenseType,
       startDateDriversLicense: values.startDate,
@@ -50,8 +51,8 @@ export class NewDriverItemComponent implements OnInit {
   mapToDriverModel(values: any, personId: number): any {
     return {
       personId,
-      startDate:  values.startDate,
-      endDate:  values.endDate
+      startDate: values.startDate,
+      endDate: values.endDate
     };
   }
 

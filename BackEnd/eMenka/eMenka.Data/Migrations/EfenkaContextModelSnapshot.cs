@@ -11387,7 +11387,8 @@ namespace eMenka.Data.Migrations
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Record")
-                        .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId");
+                        .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>

@@ -4,7 +4,8 @@
     <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable"
             (click)="navigateToListComponent()">Terug
     </button>
-    <button type="button" class="btn btn-success ml-auto col-md-2" [disabled]="isEditable && !form.valid" (click)="saveEditFuelCard(form)">
+    <button type="button" class="btn btn-success ml-auto col-md-2" [disabled]="isEditable && !form.valid"
+            (click)="saveEditFuelCard(form)">
       <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
     </button>
     <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
@@ -13,13 +14,13 @@
     <form [formGroup]="form">
       <div class="row">
         <div class="col-md-6">
-          <div>
+          <div class="form-group">
             <label for="licensePlate">License plate:</label>
             <input type="text" id="licensePlate" min="0" formControlName="licensePlate"
-                   class="col-md-12 browser-default custom-select">
+                   class="col-md-12 browser-default form-control">
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="drivers">Bestuurder:</label>
             <select name="drivers" id="drivers" formControlName="driver"
                     class="col-md-12 browser-default custom-select">
@@ -31,7 +32,7 @@
             </select><br>
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="companies">Leverancier:</label>
             <select name="companies" id="companies" formControlName="company"
                     class="col-md-12 browser-default custom-select">
@@ -40,43 +41,43 @@
             </select><br>
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="fuelType">Brandstof:</label>
             <input type="text" id="fuelType" min="0" formControlName="fuelType"
-                   class="col-md-12 browser-default custom-select">
+                   class="col-md-12 browser-default form-control">
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="startDate">Begindatum:</label>
             <input type="date" id="startDate" formControlName="startDate"
-                   class="col-md-12 browser-default custom-select">
+                   class="col-md-12 browser-default form-control">
           </div>
 
-          <div>
+          <div class="form-group">
             <label for="endDate">Einddatum:</label>
             <input type="date" id="endDate" formControlName="endDate"
-                   class="col-md-12 browser-default custom-select">
+                   class="col-md-12 browser-default form-control">
           </div>
         </div>
         <div class="col-md-6">
           <br>
 
           <button [disabled]="!isEditable"
-            [ngClass]="{'btn-danger': isBlocked,'btn-success': !isBlocked}"
-            type="button" id="blocked" class="btn btn-primary custom-control-inline"
-            (click)="changeBlocked()">{{this.isBlocked ? "Geblokkeerd" : "Actief"}}
+                  [ngClass]="{'btn-danger': isBlocked,'btn-success': !isBlocked}"
+                  type="button" id="blocked" class="btn btn-primary custom-control-inline"
+                  (click)="changeBlocked()">{{this.isBlocked ? "Geblokkeerd" : "Actief"}}
           </button>
 
           <div [hidden]="!isBlocked">
-            <div>
+            <div class="form-group">
               <label for="blockedDate">Blokkeerdatum:</label>
               <input type="date" id="blockedDate" formControlName="blockedDate"
-                     class="col-md-12 browser-default custom-select">
+                     class="col-md-12 browser-default form-control">
             </div>
-            <div>
+            <div class="form-group">
               <label for="blockedReason">Reden:</label>
               <input type="text" id="blockedReason" formControlName="blockedReason"
-                     class="col-md-12 browser-default custom-select">
+                     class="col-md-12 browser-default form-control">
             </div>
           </div>
 
@@ -86,7 +87,6 @@
   </div>
   <div>
     <br>
-    <button type="button" class="btn btn-danger ml-auto col-md-2">Verwijder</button>
-    <!--(click)="deleteFuelCard()-->
+    <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteFuelCard()">Verwijder</button>
   </div>
 </div>

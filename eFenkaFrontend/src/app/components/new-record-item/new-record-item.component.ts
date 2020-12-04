@@ -1,9 +1,9 @@
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { Brand } from './../../models/brand/brand';
-import { Model } from './../../models/model/model';
-import { Vehicle } from './../../models/vehicle/vehicle';
-import { Country } from './../../models/country/country';
+import { Brand } from '../../models/brand/brand';
+import { Model } from '../../models/model/model';
+import { Vehicle } from '../../models/vehicle/vehicle';
+import { Country } from '../../models/country/country';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -41,8 +41,6 @@ export class NewRecordItemComponent implements OnInit {
     this.setFuelCard();
     this.setBrand();
     this.setFuelType();
-
-
 
     this.form = new FormGroup({
       type: new FormControl(null, [Validators.required]),
@@ -89,9 +87,9 @@ export class NewRecordItemComponent implements OnInit {
     console.log('changed with ' + vehicleId);
 
     this.apiService.getVehicleById(vehicleId).subscribe(data => {
-      this.form.controls['licensePlate'].setValue(data.licensePlate);
-      this.form.controls['chassis'].setValue(data.chassis);
-      this.form.controls['fuelCard'].setValue(data.fuelCard.id);
+      this.form.controls.licensePlate.setValue(data.licensePlate);
+      this.form.controls.chassis.setValue(data.chassis);
+      this.form.controls.fuelCard.setValue(data.fuelCard.id);
     });
   }
 
@@ -140,7 +138,7 @@ export class NewRecordItemComponent implements OnInit {
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
       startDate: new Date(values.startDate).toISOString(),
-      endDate: new Date('10-10-2010'),
+      endDate: new Date(2010, 10, 10).toISOString(),
       usage: Number(values.usage) - 1
     };
   }
