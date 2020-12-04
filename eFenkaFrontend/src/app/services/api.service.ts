@@ -273,6 +273,10 @@ export class ApiService {
     return this.getFromAPI<Supplier>('supplier/' + id);
   }
 
+  addSupplier(supplierModel: any): any {
+    return this.postToAPI('supplier/', supplierModel);
+  }
+
   updateSupplier(id: number, supplierModel: any): any {
     return this.putToAPI('supplier/' + id, supplierModel);
   }

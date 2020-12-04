@@ -34,12 +34,12 @@ export const appRoutes: Routes = [
     component: SupplierListComponent
   },
   {
-    path: 'suppliers/:index',
-    component: SupplierDetailsComponent
-  },
-  {
     path: 'suppliers/new',
     component: NewSupplierItemComponent
+  },
+  {
+    path: 'suppliers/:index',
+    component: SupplierDetailsComponent
   },
   {
     path: 'vehicles',

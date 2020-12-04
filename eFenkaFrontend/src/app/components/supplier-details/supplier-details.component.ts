@@ -22,13 +22,12 @@ export class SupplierDetailsComponent implements OnInit {
   ngOnInit(): void {
     const supplierId = this.route.snapshot.params.index;
     this.apiService.getSupplierById(supplierId).subscribe(data => {
-
       this.selectedSupplier = data;
 
       this.form = new FormGroup({
         name: new FormControl(null, [Validators.required]),
-        active: new FormControl(null, [Validators.required]),
-        internal: new FormControl(null, [Validators.required]),
+        active: new FormControl(false),
+        internal: new FormControl(false),
         supplierTypes: new FormArray([])
       });
 
@@ -114,7 +113,7 @@ export class SupplierDetailsComponent implements OnInit {
 
   saveEditSupplier(form: FormGroup): void {
     if (this.isEditable) {
-      if (confirm('Bent u zeker dat u deze bestuurder wilt opslaan?')) {
+      if (confirm('Bent u zeker dat u deze leverancier wilt opslaan?')) {
         this.apiService.updateSupplier(this.selectedSupplier.id, this.mapToSupplierModel(form.value)).subscribe(() => {
             this.apiService.getSupplierById(this.selectedSupplier.id).subscribe(data => {
               this.selectedSupplier = data;
@@ -129,7 +128,7 @@ export class SupplierDetailsComponent implements OnInit {
   }
 
   deleteSupplier(): void {
-    if (confirm('Bent u zeker dat u deze bestuurder wilt verwijderen?')) {
+    if (confirm('Bent u zeker dat u deze leverancier wilt verwijderen?')) {
       this.apiService.deleteSupplier(this.selectedSupplier.id).subscribe(() => this.navigateToListSupplierComponent());
     }
   }
