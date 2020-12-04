@@ -84,5 +84,11 @@ namespace eMenka.Data.Repositories
                 .Include(s => s.Series)
                 .ToList();
         }
+
+        public IEnumerable<Vehicle> GetAllAvailableVehicles()
+        {
+            var vehicles = _context.Vehicles.Where(v => v.FuelCardId == null);
+            return vehicles;
+        }
     }
 }

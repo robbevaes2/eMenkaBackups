@@ -26,7 +26,7 @@ namespace eMenka.API.Controllers
         [HttpGet("available")]
         public IActionResult GetAllAvailableDrivers()
         {
-            var entities = _driverRepository.GetAll();
+            var entities = _driverRepository.GetAllAvailableDrivers();
             var models = entities.Select(driver=>_driverMapper.MapEntityToReturnModel(driver));
             return Ok(models);
         }

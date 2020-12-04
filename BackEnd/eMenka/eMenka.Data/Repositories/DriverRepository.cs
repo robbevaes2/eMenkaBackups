@@ -26,7 +26,8 @@ namespace eMenka.Data.Repositories
 
         public IEnumerable<Driver> GetAllAvailableDrivers()
         {
-            return _context.Drivers.Where(d => d.FuelCardId == null).ToList();
+            var drivers = _context.Drivers.Where(d => d.FuelCardId == null).Include(d => d.Person).ToList();
+            return drivers;
         }
 
         public override Driver GetById(int id)

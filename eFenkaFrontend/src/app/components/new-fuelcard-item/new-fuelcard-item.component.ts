@@ -22,11 +22,11 @@ export class NewFuelcardItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getAllDrivers().subscribe(drivers => {
+    this.apiService.getAllAvailableDrivers().subscribe(drivers => {
       this.drivers = drivers;
       this.apiService.getAllCompanies().subscribe(companies => {
         this.companies = companies;
-        this.apiService.getAllVehicles().subscribe((vehicles) => {
+        this.apiService.getAllAvailableVehicles().subscribe((vehicles) => {
           // Alleen de vehicles zonder tankkaart gekoppeld en ze zijn alfabetisch gesorteerd.
           this.vehicles = vehicles.filter(v => v.fuelCard === null).sort((v, v2) => {
             const licensePlate1 = v.licensePlate.toLowerCase();
@@ -44,8 +44,8 @@ export class NewFuelcardItemComponent implements OnInit {
     });
 
     this.form = new FormGroup({
-      vehicle: new FormControl(null, [Validators.required]),
       driver: new FormControl(null, [Validators.required]),
+      vehicle: new FormControl(null, [Validators.required]),
       company: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
@@ -61,13 +61,15 @@ export class NewFuelcardItemComponent implements OnInit {
 
   saveNewFuelcard(form: FormGroup): void {
     const model = this.mapToModel(form.value);
+    console.log(model);
     this.apiService.addFuelcard(model).subscribe();
   }
 
   private mapToModel(values: any): any {
     return {
-      VehicleId: values.vehicle,
       DriverId: values.driver,
+      VehicleId: values.vehicle,
+      CompanyId: values.company,
       StartDate: values.startDate,
       EndDate: values.endDate,
       PinCode: values.pinCode,

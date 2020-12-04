@@ -90,6 +90,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/');
   }
 
+  getAllAvailableVehicles(): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available');
+  }
+
   getVehicleById(id: number): Observable<Vehicle> {
     return this.getFromAPI<Vehicle>('vehicle/' + id);
   }
