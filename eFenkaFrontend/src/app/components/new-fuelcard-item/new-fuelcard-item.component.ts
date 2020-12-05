@@ -68,9 +68,9 @@ export class NewFuelcardItemComponent implements OnInit {
 
   private mapToModel(values: any): any {
     return {
-      DriverId: values.driver,
-      VehicleId: values.vehicle,
-      CompanyId: values.company,
+      DriverId: Number(values.driver),
+      VehicleId: Number(values.vehicle),
+      CompanyId: Number(values.company),
       StartDate: values.startDate,
       EndDate: values.endDate,
       PinCode: values.pinCode,

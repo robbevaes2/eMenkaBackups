@@ -38,7 +38,7 @@ export class FuelcardDetailsComponent implements OnInit {
     this.apiService.getFuelCardById(fuelCardId).subscribe(fc => {
       this.selectedFuelCard = fc;
       this.isBlocked = this.selectedFuelCard.isBlocked;
-      this.apiService.getAllAvailableDrivers().subscribe(drivers => {
+      this.apiService.getAllDrivers().subscribe(drivers => {
         this.drivers = drivers;
         this.apiService.getAllCompanies().subscribe(companies => {
           this.companies = companies;
@@ -165,7 +165,8 @@ export class FuelcardDetailsComponent implements OnInit {
       BlockingReason: this.isBlocked ? values.blockedReason : null,
       PinCode: this.selectedFuelCard.pinCode,
       Number: this.selectedFuelCard.fuelCardNumber,
-      Id: this.selectedFuelCard.id
+      Id: this.selectedFuelCard.id,
+      companyId: this.selectedFuelCard.company.id,
     };
   }
 
