@@ -60,7 +60,7 @@ export class NewFuelcardItemComponent implements OnInit {
   }
 
   navigateToFuelListComponent(): void {
-    this.router.navigate(['fuelcards']);
+    this.router.navigate(['/fuelcards']);
   }
 
   saveNewFuelcard(form: FormGroup): void {
