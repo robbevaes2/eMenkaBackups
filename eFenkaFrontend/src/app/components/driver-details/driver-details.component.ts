@@ -6,6 +6,7 @@ import { Language } from 'src/app/enums/language/language.enum';
 import { ApiService } from 'src/app/services/api.service';
 import { Driver } from '../../models/driver/driver';
 import { DatePipe } from '@angular/common';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-driver-details',
@@ -37,8 +38,10 @@ export class DriverDetailsComponent implements OnInit {
         language: new FormControl(null, [Validators.min(0)]),
         driverLicenseNumber: new FormControl(null, [Validators.required]),
         driverLicenseType: new FormControl(null, [Validators.required]),
-        startDate: new FormControl(null, [Validators.required]),
-        endDate: new FormControl(null, [Validators.required])
+        duration: new FormGroup({
+          startDate: new FormControl(null, [Validators.required]),
+          endDate: new FormControl(null, [Validators.required])
+        }, {validators: fromToDate})
       });
 
       this.fillForm();
@@ -63,8 +66,10 @@ export class DriverDetailsComponent implements OnInit {
     this.form.controls.language.setValue(this.selectedDriver.person.language);
     this.form.controls.driverLicenseNumber.setValue(this.selectedDriver.person.driversLicenseNumber);
     this.form.controls.driverLicenseType.setValue(this.selectedDriver.person.driversLicenseType);
-    this.form.controls.startDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.startDate), 'yyyy-MM-dd'));
-    this.form.controls.endDate.setValue(this.datePipe.transform(new Date(this.selectedDriver.endDate), 'yyyy-MM-dd'));
+    this.form.controls.duration.patchValue({
+      startDate: this.datePipe.transform(new Date(this.selectedDriver.startDate), 'yyyy-MM-dd'),
+      endDate: this.datePipe.transform(new Date(this.selectedDriver.endDate), 'yyyy-MM-dd')
+    });
   }
 
   disableForm(): void {
@@ -76,8 +81,8 @@ export class DriverDetailsComponent implements OnInit {
     this.form.controls.language.disable();
     this.form.controls.driverLicenseNumber.disable();
     this.form.controls.driverLicenseType.disable();
-    this.form.controls.startDate.disable();
-    this.form.controls.endDate.disable();
+    this.form.controls.duration.get('startDate').disable();
+    this.form.controls.duration.get('endDate').disable();
     this.isEditable = false;
   }
 
@@ -90,8 +95,8 @@ export class DriverDetailsComponent implements OnInit {
     this.form.controls.language.enable();
     this.form.controls.driverLicenseNumber.enable();
     this.form.controls.driverLicenseType.enable();
-    this.form.controls.startDate.enable();
-    this.form.controls.endDate.enable();
+    this.form.controls.duration.get('startDate').enable();
+    this.form.controls.duration.get('endDate').enable();
     this.isEditable = true;
   }
 
@@ -118,8 +123,8 @@ export class DriverDetailsComponent implements OnInit {
       language:  Number(values.language),
       driversLicenseNumber: values.driverLicenseNumber,
       driversLicenseType: values.driverLicenseType,
-      startDateDriversLicense: values.startDate,
-      endDateDriversLicense: values.endDate
+      startDateDriversLicense: values.duration.startDate,
+      endDateDriversLicense: values.duration.endDate
     };
   }
 
@@ -127,8 +132,8 @@ export class DriverDetailsComponent implements OnInit {
     return {
       id: this.selectedDriver.id,
       personId,
-      startDate:  values.startDate,
-      endDate:  values.endDate
+      startDate:  values.duration.startDate,
+      endDate:  values.duration.endDate
     };
   }
 

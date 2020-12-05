@@ -97,9 +97,6 @@ export class RecordDetailsComponent implements OnInit {
       endDate: this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd')
     });
 
-    // this.form.controls.duration.value.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
-    // this.form.controls.duration.value.endDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd'));
-
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
     } else {
