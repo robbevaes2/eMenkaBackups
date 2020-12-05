@@ -6,6 +6,7 @@ import {ApiService} from '../../services/api.service';
 import {DatePipe} from '@angular/common';
 import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
+import { pincodeValidator } from 'src/app/services/pincode.validator';
 
 @Component({
   selector: 'app-new-fuelcard-item',
@@ -49,7 +50,7 @@ export class NewFuelcardItemComponent implements OnInit {
       company: new FormControl(null, [Validators.required]),
       startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
       endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      pinCode: new FormControl(null, [Validators.required]),
+      pinCode: new FormControl(null, [Validators.required, pincodeValidator]),
       number: new FormControl(null, [Validators.required])
     });
     this.fillForm();
