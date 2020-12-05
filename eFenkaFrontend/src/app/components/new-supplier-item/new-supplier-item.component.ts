@@ -57,7 +57,6 @@ export class NewSupplierItemComponent implements OnInit {
         numberOfTypes.push(i);
       }
     }
-
     return numberOfTypes;
   }
 

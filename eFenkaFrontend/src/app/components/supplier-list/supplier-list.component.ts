@@ -23,7 +23,6 @@ export class SupplierListComponent implements OnInit {
 
   searchText = '';
   previous: string;
-
   maxVisibleItems = 3;
 
   constructor(private router: Router, private apiService: ApiService, private cdRef: ChangeDetectorRef) {
@@ -69,8 +68,5 @@ export class SupplierListComponent implements OnInit {
       this.suppliers = this.mdbTable.searchLocalDataBy(this.searchText);
       this.mdbTable.setDataSource(prev);
     }
-  }
-  dateToStringConverter(date: string): string {
-    return new Date(date).toLocaleDateString();
   }
 }
