@@ -7,6 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Driver } from '../../models/driver/driver';
 import { DatePipe } from '@angular/common';
 import { fromToDate } from 'src/app/services/from-to-date.validator';
+import { birthDateValidator } from 'src/app/services/birthdate.validator';
 
 @Component({
   selector: 'app-driver-details',
@@ -33,7 +34,7 @@ export class DriverDetailsComponent implements OnInit {
         title: new FormControl(null, [Validators.required]),
         firstName: new FormControl(null, [Validators.required]),
         lastName: new FormControl(null, [Validators.required]),
-        birthDate: new FormControl(null, [Validators.required]),
+        birthDate: new FormControl(null, [Validators.required, birthDateValidator]),
         gender: new FormControl(null, [Validators.required]),
         language: new FormControl(null, [Validators.min(0)]),
         driverLicenseNumber: new FormControl(null, [Validators.required]),

@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ApiService} from 'src/app/services/api.service';
 import {Gender} from '../../enums/gender/gender.enum';
 import { fromToDate } from 'src/app/services/from-to-date.validator';
+import { birthDateValidator } from 'src/app/services/birthdate.validator';
 
 @Component({
   selector: 'app-new-driver-item',
@@ -24,7 +25,7 @@ export class NewDriverItemComponent implements OnInit {
       title: new FormControl(null, [Validators.required]),
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
-      birthDate: new FormControl(null, [Validators.required]),
+      birthDate: new FormControl(null, [Validators.required, birthDateValidator]),
       gender: new FormControl(null, [Validators.required]),
       language: new FormControl(null, [Validators.required]),
       driverLicenseNumber: new FormControl(null, [Validators.required]),
