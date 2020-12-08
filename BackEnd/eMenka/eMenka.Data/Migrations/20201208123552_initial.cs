@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eMenka.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -331,7 +331,7 @@ namespace eMenka.Data.Migrations
                         column: x => x.DriverId,
                         principalTable: "Drivers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -446,7 +446,7 @@ namespace eMenka.Data.Migrations
                         column: x => x.FuelCardId,
                         principalTable: "FuelCards",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_Vehicles_FuelTypes_FuelTypeId",
                         column: x => x.FuelTypeId,

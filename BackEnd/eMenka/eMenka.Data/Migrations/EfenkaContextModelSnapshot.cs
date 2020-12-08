@@ -11524,7 +11524,8 @@ namespace eMenka.Data.Migrations
 
                     b.HasOne("eMenka.Domain.Classes.Driver", "Driver")
                         .WithOne("FuelCard")
-                        .HasForeignKey("eMenka.Domain.Classes.FuelCard", "DriverId");
+                        .HasForeignKey("eMenka.Domain.Classes.FuelCard", "DriverId")
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.InteriorColor", b =>
@@ -11598,7 +11599,8 @@ namespace eMenka.Data.Migrations
 
                     b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
                         .WithOne("Vehicle")
-                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId");
+                        .HasForeignKey("eMenka.Domain.Classes.Vehicle", "FuelCardId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("eMenka.Domain.Classes.FuelType", "FuelType")
                         .WithMany("Vehicles")
