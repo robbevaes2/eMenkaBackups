@@ -7,7 +7,7 @@ import { Vehicle } from './../models/vehicle/vehicle';
 import { DoorType } from './../models/door-type/door-type';
 import { FuelType } from './../models/fuel-type/fuel-type';
 import { ApiService } from './api.service';
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { TestBed, getTestBed, flush } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Model } from '../models/model/model';
 import { Serie } from '../models/serie/serie';
@@ -19,7 +19,7 @@ import { Category } from '../models/category/category';
 import { Country } from '../models/country/country';
 import { Driver } from '../models/driver/driver';
 import { Person } from '../models/person/person';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Gender } from '../enums/gender/gender.enum';
 
 describe('ApiService', () => {
@@ -75,29 +75,34 @@ describe('ApiService', () => {
     });
   });
 
-  // describe('#getVehicleById', () => {
-  //   it('should throw an error if vehicle was not found', () => {
-  //     const vehicleId = 1;
-  //     let response: any;
-  //     let errResponse: any;
-  //     const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
-  //     const data = 'Invalid request parameters';
+  describe('#getVehicleById', () => {
+    it('should throw an error if vehicle was not found', () => {
+      const vehicleId = 1;
 
-  //     service.getVehicleById(vehicleId).subscribe(res => response = res, err => errResponse = err);
-  //     const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
-  //     //expect(errResponse).toBe(data);
-  //     req.flush(data, mockErrorResponse);
-  //   });
-  // });
+      service.getVehicleById(vehicleId).subscribe(
+        data => fail('Should have failed with nothing found'),
+        err => {
+          expect(err.status).toBe(404);
+          expect(err.error).toContain('nothing found');
+        }
+      );
+      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
+
+      const msg = 'nothing found';
+      req.flush(msg, {status: 404, statusText: 'Not Found'});
+    });
+  });
 
   describe('#getVehicleById', () => {
     it('should throw an error if something is wrong with the connection', () => {
       const vehicleId = 1;
 
-      service.getVehicleById(vehicleId).subscribe();
+      service.getVehicleById(vehicleId).subscribe(
+        (res: any) => expect(res.failure.error.type).toBe('error'),
+        err => {}
+      );
 
-      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`);
-      req.error(new ErrorEvent('error'));
+      httpMock.expectOne(`${service.BASE_API_URL}vehicle/${vehicleId}`).error(new ErrorEvent('error'));
     });
   });
 
