@@ -42,15 +42,16 @@
             <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
           </select><br>
         </div>
-
-        <div class="form-group">
-          <label for="startDate">Begindatum</label>
-          <input type="date" id="startDate" formControlName="startDate"
-                 class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
-          <label for="EndDate">EindDatum:</label>
-          <input type="date" id="EndDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">Begindatum</label>
+            <input type="date" id="startDate" formControlName="startDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
+          <div class="form-group">
+            <label for="EndDate">EindDatum:</label>
+            <input type="date" id="EndDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+          </div>
         </div>
 
       </div>
@@ -63,7 +64,7 @@
         <div class="form-group">
           <label for="number">Nummer:</label>
           <input type="number" id="number" formControlName="number"
-                 class="col-md-12 browser-default form-control" placeholder="1234">
+                 class="col-md-12 browser-default form-control">
         </div>
       </div>
     </div>

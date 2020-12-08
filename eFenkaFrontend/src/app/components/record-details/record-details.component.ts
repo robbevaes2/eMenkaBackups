@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Record} from 'src/app/models/record/record';
 import {CostAllocation} from 'src/app/models/cost-allocatoin/cost-allocation';
 import {DatePipe} from '@angular/common';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-record-details',
@@ -60,8 +61,10 @@ export class RecordDetailsComponent implements OnInit {
       chassis: new FormControl(null, [Validators.required]),
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
-      startDate: new FormControl(null, [Validators.required]),
-      endDate: new FormControl(null, [Validators.required]),
+      duration: new FormGroup({
+        startDate: new FormControl(null, [Validators.required]),
+        endDate: new FormControl(null, [Validators.required]),
+      }, {validators: fromToDate}),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       usage: new FormControl(null, [Validators.required]),
@@ -89,8 +92,10 @@ export class RecordDetailsComponent implements OnInit {
       this.form.controls.country.setValue(this.selectedRecord.fuelCard.vehicle.country.id);
     }
 
-    this.form.controls.startDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'));
-    this.form.controls.endDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd'));
+    this.form.controls.duration.patchValue({
+      startDate: this.datepipe.transform(new Date(this.selectedRecord.startDate), 'yyyy-MM-dd'),
+      endDate: this.datepipe.transform(new Date(this.selectedRecord.endDate), 'yyyy-MM-dd')
+    });
 
     if (this.selectedRecord.corporation === null) {
       this.form.controls.corporation.setValue('');
@@ -118,8 +123,8 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.chassis.disable();
     this.form.controls.registrationDate.disable();
     this.form.controls.country.disable();
-    this.form.controls.startDate.disable();
-    this.form.controls.endDate.disable();
+    this.form.controls.duration.get('startDate').disable();
+    this.form.controls.duration.get('endDate').disable();
     this.form.controls.corporation.disable();
     this.form.controls.costAllocation.disable();
     this.form.controls.usage.disable();
@@ -136,8 +141,8 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.type.enable();
     this.form.controls.registrationDate.enable();
     this.form.controls.country.enable();
-    this.form.controls.startDate.enable();
-    this.form.controls.endDate.enable();
+    this.form.controls.duration.get('startDate').enable();
+    this.form.controls.duration.get('endDate').enable();
     this.form.controls.corporation.enable();
     this.form.controls.costAllocation.enable();
     this.form.controls.usage.enable();
@@ -205,8 +210,8 @@ export class RecordDetailsComponent implements OnInit {
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
-      startDate: values.startDate,
-      endDate: values.endDate,
+      startDate: values.duration.startDate,
+      endDate: values.duration.endDate,
       usage: Number(values.usage) - 1,
     };
   }

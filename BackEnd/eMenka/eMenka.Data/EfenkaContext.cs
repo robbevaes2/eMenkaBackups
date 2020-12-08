@@ -127,23 +127,27 @@ namespace eMenka.Data
             modelBuilder.Entity<Vehicle>()
                 .HasOne(v => v.FuelCard)
                 .WithOne(fc => fc.Vehicle)
-                .HasForeignKey<FuelCard>(fc => fc.VehicleId);
+                .HasForeignKey<FuelCard>(fc => fc.VehicleId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Vehicle)
                 .WithOne(v => v.FuelCard)
-                .HasForeignKey<Vehicle>(v => v.FuelCardId);
+                .HasForeignKey<Vehicle>(v => v.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             //Driver - FuelCard
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Driver)
                 .WithOne(d => d.FuelCard)
-                .HasForeignKey<Driver>(d => d.FuelCardId);
+                .HasForeignKey<Driver>(d => d.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             modelBuilder.Entity<Driver>()
                 .HasOne(d => d.FuelCard)
                 .WithOne(fc => fc.Driver)
-                .HasForeignKey<FuelCard>(fc => fc.DriverId);
+                .HasForeignKey<FuelCard>(fc => fc.DriverId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             //Record - FuelCard
             modelBuilder.Entity<Record>()
@@ -163,6 +167,10 @@ namespace eMenka.Data
             /***********************************************************/
 
             #endregion
+            
+            modelBuilder.Entity<Person>()
+                .HasIndex(p => p.DriversLicenseNumber)
+                .IsUnique();
 
             DataBaseSeeder.SeedData(modelBuilder);
 

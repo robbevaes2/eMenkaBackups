@@ -68,7 +68,8 @@ namespace eMenka.API.Mappers.FuelCardMappers
                 IsBlocked = model.IsBlocked,
                 PinCode = model.PinCode,
                 Number = model.Number,
-                VehicleId = model.VehicleId
+                VehicleId = model.VehicleId,
+                CompanyId = model.CompanyId
             };
         }
 
