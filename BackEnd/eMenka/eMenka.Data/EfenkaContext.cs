@@ -167,10 +167,10 @@ namespace eMenka.Data
             /***********************************************************/
 
             #endregion
-            /*
+            
             modelBuilder.Entity<Person>()
                 .HasIndex(p => p.DriversLicenseNumber)
-                .IsUnique();*/
+                .IsUnique();
 
             DataBaseSeeder.SeedData(modelBuilder);
 
