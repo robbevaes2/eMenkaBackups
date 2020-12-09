@@ -60,6 +60,21 @@ describe('ApiService', () => {
     });
   });
 
+  describe('#getAllAvailableVehicles', () => {
+    it('should return an Observable<Vehicle[]>', () => {
+      const vehicles = dummyData.getVehicles();
+
+      service.getAllAvailableVehicles().subscribe(v => {
+        expect(v.length).toBe(2);
+        expect(v).toEqual(vehicles);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/available`);
+      expect(req.request.method).toBe('GET');
+      req.flush(vehicles);
+    });
+  });
+
   describe('#getVehicleById', () => {
     it('should return a vehicle', () => {
       const vehicleId = 1;
@@ -312,6 +327,22 @@ describe('ApiService', () => {
     });
   });
 
+  describe('#getAllAvailableVehiclesByBrandId', () => {
+    it('should return an Observable<Vehicle[]>', () => {
+      const brandId = 1;
+      const vehicles = [dummyData.getVehicles()[0]];
+
+      service.getAllAvailableVehiclesByBrandId(brandId).subscribe(v => {
+        expect(v.length).toBe(1);
+        expect(v).toEqual(vehicles);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}vehicle/available/brand/${brandId}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(vehicles);
+    });
+  });
+
   // FuelCard
 
   describe('#getAllFuelCards', () => {
@@ -344,6 +375,18 @@ describe('ApiService', () => {
     });
   });
 
+  describe('#addFuelcard', () => {
+    it('should add record', () => {
+      const newFuelCard = dummyData.getFuelCards()[0];
+
+      service.addFuelcard(newFuelCard).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}fuelcard/`);
+      expect(req.request.method).toBe('POST');
+      req.flush(newFuelCard);
+    });
+  });
+
   describe('#updateFuelCard', () => {
     it('should update fuelCard', () => {
       const fuelCardId = 1;
@@ -356,6 +399,18 @@ describe('ApiService', () => {
       const req = httpMock.expectOne(`${service.BASE_API_URL}fuelcard/${fuelCardId}`);
       expect(req.request.method).toBe('PUT');
       req.flush(fuelCardToUpdate);
+    });
+  });
+
+  describe('#deleteFuelCard', () => {
+    it('should delete record', () => {
+      const fuelCardId = 1;
+
+      service.deleteFuelCard(fuelCardId).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}fuelcard/${fuelCardId}`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush(fuelCardId);
     });
   });
 
@@ -410,6 +465,23 @@ describe('ApiService', () => {
     });
   });
 
+  // Company
+
+  describe('#getAllCompanies', () => {
+    it('should return an Observable<Company[]>', () => {
+      const companies = dummyData.getCompanies();
+
+      service.getAllCompanies().subscribe(c => {
+        expect(c.length).toBe(3);
+        expect(c).toEqual(companies);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}company/`);
+      expect(req.request.method).toBe('GET');
+      req.flush(companies);
+    });
+  });
+
   // Corporation
 
   describe('#getAllCorporatoins', () => {
@@ -441,6 +513,136 @@ describe('ApiService', () => {
       const req = httpMock.expectOne(`${service.BASE_API_URL}costallocation/`);
       expect(req.request.method).toBe('GET');
       req.flush(costAllocatoins);
+    });
+  });
+
+  // Driver
+
+  describe('#getAllDrivers', () => {
+    it('should return an Observable<Driver[]>', () => {
+      const drivers = dummyData.getDrivers();
+
+      service.getAllDrivers().subscribe(d => {
+        expect(d.length).toBe(2);
+        expect(d).toEqual(drivers);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/`);
+      expect(req.request.method).toBe('GET');
+      req.flush(drivers);
+    });
+  });
+
+  describe('#getAllAvailableDrivers', () => {
+    it('should return an Observable<Driver[]>', () => {
+      const drivers = dummyData.getDrivers();
+
+      service.getAllAvailableDrivers().subscribe(d => {
+        expect(d.length).toBe(2);
+        expect(d).toEqual(drivers);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/available`);
+      expect(req.request.method).toBe('GET');
+      req.flush(drivers);
+    });
+  });
+
+  describe('#getDriverById', () => {
+    it('should return a driver', () => {
+      const driverId = 1;
+      const driver = dummyData.getDrivers()[0];
+
+      service.getDriverById(driverId).subscribe(d => {
+        expect(d).toEqual(driver);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/${driverId}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(driver);
+    });
+  });
+
+  describe('#updateDriver', () => {
+    it('should update driver', () => {
+      const driverId = 1;
+      const driverToUpdate = dummyData.getDrivers()[0];
+      driverToUpdate.endDate = new Date('20-10-2010');
+
+      service.updateDriver(driverId, driverToUpdate).subscribe();
+
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/${driverId}`);
+      expect(req.request.method).toBe('PUT');
+      req.flush(driverToUpdate);
+    });
+  });
+
+  describe('#addDriver', () => {
+    it('should add driver', () => {
+      const newDriver = dummyData.getDrivers()[0];
+
+      service.addDriver(newDriver).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/`);
+      expect(req.request.method).toBe('POST');
+      req.flush(newDriver);
+    });
+  });
+
+  describe('#deleteDriver', () => {
+    it('should delete driver', () => {
+      const driverId = 1;
+
+      service.deleteDriver(driverId).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}driver/${driverId}`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush(driverId);
+    });
+  });
+
+  // Person
+
+  describe('#getPersonById', () => {
+    it('should return a person', () => {
+      const personId = 1;
+      const person = dummyData.getPeople()[0];
+
+      service.getPersonById(personId).subscribe(p => {
+        expect(p).toEqual(person);
+      });
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}person/${personId}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(person);
+    });
+  });
+
+  describe('#updatePerson', () => {
+    it('should update person', () => {
+      const personId = 1;
+      const personToUpdate = dummyData.getPeople()[0];
+      personToUpdate.firstname = 'test';
+
+      service.updatePerson(personId, personToUpdate).subscribe();
+
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}person/${personId}`);
+      expect(req.request.method).toBe('PUT');
+      req.flush(personToUpdate);
+    });
+  });
+
+  describe('#addPerson', () => {
+    it('should add person', () => {
+      const newPerson = dummyData.getPeople()[0];
+
+      service.addPerson(newPerson).subscribe();
+
+      const req = httpMock.expectOne(`${service.BASE_API_URL}person/`);
+      expect(req.request.method).toBe('POST');
+      req.flush(newPerson);
     });
   });
 
@@ -646,11 +848,23 @@ class DummyData {
     return this.categories;
   }
 
+  getCompanies(): Company [] {
+    return this.companies;
+  }
+
   getCorporations(): Corporation[] {
     return this.corporations;
   }
 
   getCostAllocations(): CostAllocation[] {
     return this.costAllocations;
+  }
+
+  getDrivers(): Driver[] {
+    return this.drivers;
+  }
+
+  getPeople(): Person[] {
+    return this.people;
   }
 }
