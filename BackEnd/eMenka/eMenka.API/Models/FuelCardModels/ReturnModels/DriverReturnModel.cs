@@ -6,7 +6,6 @@ namespace eMenka.API.Models.FuelCardModels.ReturnModels
     {
         public int Id { get; set; }
         public PersonReturnModel Person { get; set; }
-        public FuelCardReturnModel FuelCard { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
     }

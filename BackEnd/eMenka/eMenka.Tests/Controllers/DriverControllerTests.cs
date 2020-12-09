@@ -43,6 +43,23 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetAllAvailableDriversReturnsOkAndListOfAllAvailableDriversWhenEverythingIsCorrect()
+        {
+            var drivers = new List<Driver>();
+
+            _driverRepositoryMock.Setup(m => m.GetAllAvailableDrivers())
+                .Returns(drivers);
+
+            var result = _sut.GetAllAvailableDrivers() as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as IEnumerable<DriverReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _driverRepositoryMock.Verify(m => m.GetAllAvailableDrivers(), Times.Once);
+        }
+
+        [Test]
         public void GetDriverByIdReturnsNotFoundWhenDriverDoesNotExist()
         {
             Driver driver = null;

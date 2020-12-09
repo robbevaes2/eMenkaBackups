@@ -65,6 +65,23 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetAllAvailableVehiclesReturnsOkAndListOfAllAvailableVehiclesWhenEverythingIsCorrect()
+        {
+            var vehicles = new List<Vehicle>();
+
+            _vehicleRepositoryMock.Setup(m => m.GetAllAvailableVehicles())
+                .Returns(vehicles);
+
+            var result = _sut.GetAllAvailableVehicles() as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehicles(), Times.Once);
+        }
+
+        [Test]
         public void GetVehicleByIdReturnsNotFoundWhenVehicleDoesNotExist()
         {
             Vehicle vehicle = null;
@@ -144,6 +161,54 @@ namespace eMenka.Tests.Controllers
 
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
             _vehicleRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()), Times.Once);
+        }
+
+        [Test]
+        public void GetAvailableVehiclesByBrandIdReturnsNotFoundWhenBrandDoesNotExist()
+        {
+            Brand brand = null;
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+
+            var result = _sut.GetAvailableVehicleByBrandId(0) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.GetAll(), Times.Never);
+        }
+
+        [Test]
+        public void GetAvailableVehiclesByBrandIdReturnsOkAndVehicleWhenEverythingIsCorrect()
+        {
+            var brand = new Brand();
+            var vehicles = new List<Vehicle>();
+            var records = new List<Record>
+            {
+                new Record
+                {
+                    FuelCardId = 1
+                }
+            };
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _vehicleRepositoryMock.Setup(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()))
+                .Returns(vehicles);
+            _recordRepositoryMock.Setup(m => m.GetAll())
+                .Returns(records);
+
+            var result = _sut.GetAvailableVehicleByBrandId(0) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.GetAll(), Times.Once);
         }
 
         [Test]
