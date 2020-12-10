@@ -24,6 +24,7 @@ import { DriverListComponent } from './components/driver-list/driver-list.compon
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
+import { DashboardChartsComponent } from './components/dashboard-charts/dashboard-charts.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DashboardModelChartComponent } from './components/dashboard-model-chart
     DriverListComponent,
     DriverDetailsComponent,
     NewDriverItemComponent,
-    DashboardModelChartComponent
+    DashboardModelChartComponent,
+    DashboardChartsComponent
   ],
   imports: [
     BrowserModule,

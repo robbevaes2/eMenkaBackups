@@ -1,0 +1,16 @@
+.graph-container {
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e0e0e0;
+    margin-bottom: 5rem;
+}
+
+.chart-title {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+#page-title {
+    margin-bottom: 1rem;
+}
