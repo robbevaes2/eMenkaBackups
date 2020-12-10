@@ -1,10 +1,11 @@
 <h1 class="">Details bestuurder</h1>
 <div class="row ml-1 mr-1">
   <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListDriverComponent()">Terug</button>
-  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditDriver(form)">
+  <button type="button" class="btn btn-primary ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditDriver(form)">
     <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
   </button>
   <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
+
 </div>
 <div>
   <form [formGroup]="form" *ngIf="form">
@@ -38,7 +39,10 @@
           <label for="languages">Taal:</label>
           <select name="languages" id="languages" formControlName="language" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of languages; let id = index" [value]="id">{{ item }}</option>
+            <option [value]="1">Engels</option>
+            <option [value]="2">Nederlands</option>
+            <option [value]="3">Frans</option>
+            <option [value]="4">Duits</option>
           </select><br>
         </div>
       </div>
@@ -52,13 +56,15 @@
           <label for="driverLicenseType">Categorie:</label>
           <input type="text" id="driverLicenseType" min="0" formControlName="driverLicenseType" class="col-md-12 browser-default form-control">
         </div>
-        <div class="form-group">
-          <label for="startDate">Startdatum:</label>
-          <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
-          <label for="endDate">Einddatum:</label>
-          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">Startdatum:</label>
+            <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
+          </div>
+          <div class="form-group">
+            <label for="endDate">Einddatum:</label>
+            <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+          </div>
         </div>
       </div>
     </div>

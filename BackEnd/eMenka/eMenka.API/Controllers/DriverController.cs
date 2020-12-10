@@ -27,8 +27,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllAvailableDrivers()
         {
             var entities = _driverRepository.GetAllAvailableDrivers();
-            var models = entities.Select(driver=>_driverMapper.MapEntityToReturnModel(driver));
-            return Ok(models);
+            return Ok(entities.Select(_driverMapper.MapEntityToReturnModel));
         }
 
         public override IActionResult PostEntity(DriverModel model)

@@ -6,6 +6,8 @@ import {ApiService} from '../../services/api.service';
 import {DatePipe} from '@angular/common';
 import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
+import { pincodeValidator } from 'src/app/services/pincode.validator';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-new-fuelcard-item',
@@ -47,38 +49,44 @@ export class NewFuelcardItemComponent implements OnInit {
       driver: new FormControl(null, [Validators.required]),
       vehicle: new FormControl(null, [Validators.required]),
       company: new FormControl(null, [Validators.required]),
-      startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      pinCode: new FormControl(null, [Validators.required]),
+      duration: new FormGroup({
+        startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+        endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      }, {validators: fromToDate}),
+      pinCode: new FormControl(null, [Validators.required, pincodeValidator]),
       number: new FormControl(null, [Validators.required])
     });
     this.fillForm();
   }
 
   navigateToFuelListComponent(): void {
-    this.router.navigate(['fuelcards']);
+    this.router.navigate(['/fuelcards']);
   }
 
   saveNewFuelcard(form: FormGroup): void {
     const model = this.mapToModel(form.value);
     console.log(model);
-    this.apiService.addFuelcard(model).subscribe();
+    this.apiService.addFuelcard(model).subscribe(() => {
+      this.navigateToFuelListComponent();
+    });
   }
 
   private mapToModel(values: any): any {
     return {
-      DriverId: values.driver,
-      VehicleId: values.vehicle,
-      CompanyId: values.company,
-      StartDate: values.startDate,
-      EndDate: values.endDate,
+      DriverId: Number(values.driver),
+      VehicleId: Number(values.vehicle),
+      CompanyId: Number(values.company),
+      StartDate: values.duration.startDate,
+      EndDate: values.duration.endDate,
       PinCode: values.pinCode,
       Number: values.number
     };
   }
 
   fillForm(): void {
-    this.form.controls.startDate.setValue(this.datepipe.transform(new Date(), 'yyyy-MM-dd'));
-    this.form.controls.endDate.setValue(this.datepipe.transform(new Date(), 'yyyy-MM-dd'));
+    this.form.controls.duration.patchValue({
+      startDate: this.datepipe.transform(new Date(), 'yyyy-MM-dd'),
+      endDate: this.datepipe.transform(new Date(), 'yyyy-MM-dd')
+    });
   }
 }

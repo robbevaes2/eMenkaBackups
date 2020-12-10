@@ -45,8 +45,8 @@
         <td>{{ record.fuelCard.vehicle.model.name }}</td>
         <td>{{ record.usage }}</td>
         <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
+        <td>{{ record.fuelCard.vehicle.registrationDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ record.endDate | date:'dd/MM/yyyy' }}</td>
-        <td>{{ record.startDate | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
     <!-- <tfoot>

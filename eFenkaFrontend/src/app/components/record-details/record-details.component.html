@@ -1,7 +1,7 @@
 <h1 class="">Details dossier</h1>
 <div class="row ml-1 mr-1">
   <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListRecordComponent()">Terug</button>
-  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditRecord(form)">
+  <button type="button" class="btn btn-primary ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditRecord(form)">
     <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
   </button>
   <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
@@ -19,15 +19,7 @@
             <option [value]="3">Privé</option>
           </select><br>
         </div>
-        <div class="form-group">
-          <label for="licensePlate">Nummerplaat:</label>
-          <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
-          <label for="chassis">Chassisnummer:</label>
-          <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
+        <div>
           <label for="registrationDate">Eerste registratie:</label>
           <input type="date" id="registrationDate" formControlName="registrationDate" class="col-md-12 browser-default form-control">
         </div>
@@ -38,9 +30,15 @@
             <option *ngFor="let item of countries" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
-        <div class="form-group">
-          <label for="startDate">StartDatum:</label>
-          <input type="Date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">StartDatum:</label>
+            <input type="Date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
+          </div>
+          <div class="form-group">
+            <label for="endDate">EindDatum:</label>
+            <input type="Date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+          </div>
         </div>
         <div class="form-group">
           <label for="corporations">Vennootschap:</label>
@@ -96,27 +94,21 @@
             <option *ngFor="let item of vehicles" [value]="item.id">{{ item.id }} {{ item.doorType.name }}</option>
           </select><br>
         </div>
-        <div class="form-group">
+        <div>
+          <label for="licensePlate">Nummerplaat:</label>
+          <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default form-control">
+        </div>
+        <div>
+          <label for="chassis">Chassisnummer:</label>
+          <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default form-control">
+        </div>
+        <div>
           <label for="buildYear">Bouwjaar:</label>
           <input type="text" id="buildYear" formControlName="buildYear" class="col-md-12 browser-default form-control">
         </div>
-        <div class="form-group">
+        <div>
           <label for="kilometers">Kilometers:</label>
           <input type="text" id="kilometers" formControlName="kilometers" class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
-          <label for="exteriorColors">Kleur exterieur:</label>
-          <select name="exteriorColors" id="exteriorColors" formControlName="exteriorColor" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of selectedBrand.exteriorColors" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
-        <div class="form-group">
-          <label for="interiorColors">Kleur interieur:</label>
-          <select name="interiorColors" id="interiorColors" formControlName="interiorColor" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of selectedBrand.interiorColors" [value]="item.id">{{ item.name }}</option>
-          </select><br>
         </div>
       </div>
     </div>

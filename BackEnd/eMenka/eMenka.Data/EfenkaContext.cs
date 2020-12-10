@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
+using eMenka.Domain.Enums;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eMenka.Data
 {
@@ -125,39 +127,50 @@ namespace eMenka.Data
             modelBuilder.Entity<Vehicle>()
                 .HasOne(v => v.FuelCard)
                 .WithOne(fc => fc.Vehicle)
-                .HasForeignKey<FuelCard>(fc => fc.VehicleId);
+                .HasForeignKey<FuelCard>(fc => fc.VehicleId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Vehicle)
                 .WithOne(v => v.FuelCard)
-                .HasForeignKey<Vehicle>(v => v.FuelCardId);
+                .HasForeignKey<Vehicle>(v => v.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             //Driver - FuelCard
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Driver)
                 .WithOne(d => d.FuelCard)
-                .HasForeignKey<Driver>(d => d.FuelCardId);
+                .HasForeignKey<Driver>(d => d.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             modelBuilder.Entity<Driver>()
                 .HasOne(d => d.FuelCard)
                 .WithOne(fc => fc.Driver)
-                .HasForeignKey<FuelCard>(fc => fc.DriverId);
+                .HasForeignKey<FuelCard>(fc => fc.DriverId)
+                .OnDelete(DeleteBehavior.SetNull); ;
 
             //Record - FuelCard
             modelBuilder.Entity<Record>()
                 .HasOne(r => r.FuelCard)
                 .WithOne(fc => fc.Record)
-                .HasForeignKey<FuelCard>(fc => fc.RecordId);
+                .HasForeignKey<FuelCard>(fc => fc.RecordId)
+                .OnDelete(DeleteBehavior.SetNull);
+
 
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Record)
                 .WithOne(r => r.FuelCard)
-                .HasForeignKey<Record>(r => r.FuelCardId);
+                .HasForeignKey<Record>(r => r.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull);
 
 
             /***********************************************************/
 
             #endregion
+            
+            modelBuilder.Entity<Person>()
+                .HasIndex(p => p.DriversLicenseNumber)
+                .IsUnique();
 
             DataBaseSeeder.SeedData(modelBuilder);
 
@@ -167,12 +180,15 @@ namespace eMenka.Data
                 s => s.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
                 c => c.ToArray());
 
+            var convertor = new EnumToStringConverter<SupplierType>();
+
             modelBuilder.Entity<Supplier>()
                 .Property(s => s.Types)
                 .HasConversion(
-                    v => string.Join(',', v),
+                    v => string.Join(",", v.Select(a => a.ToString())),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                ).Metadata.SetValueComparer(valueComparer);
+                        .Select(a => (SupplierType) Enum.Parse(typeof(SupplierType), a)).ToArray()
+                ); //.Metadata.SetValueComparer(valueComparer);
         }
 
         /*

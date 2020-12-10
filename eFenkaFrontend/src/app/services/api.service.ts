@@ -159,6 +159,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
+  getAllAvailableVehiclesByBrandId(id: number): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available/brand/' + id);
+  }
+
   // FuelCard
 
   getAllFuelCards(): Observable<FuelCard[]> {
@@ -206,6 +210,7 @@ export class ApiService {
       catchError(this.handleError)
     );
   }
+
   // Corporation
 
   getAllCorporations(): Observable<Corporation[]> {
@@ -222,9 +227,11 @@ export class ApiService {
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
   }
+
   getAllAvailableDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/available');
   }
+
   getDriverById(id: number): Observable<Driver> {
     return this.getFromAPI<Driver>('driver/' + id);
   }

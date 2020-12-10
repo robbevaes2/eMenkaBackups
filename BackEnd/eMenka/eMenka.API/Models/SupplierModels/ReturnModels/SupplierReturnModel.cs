@@ -1,8 +1,12 @@
-﻿using eMenka.Domain.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using eMenka.Domain.Enums;
 
-namespace eMenka.Domain.Classes
+namespace eMenka.API.Models.SupplierModels.ReturnModels
 {
-    public class Supplier
+    public class SupplierReturnModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

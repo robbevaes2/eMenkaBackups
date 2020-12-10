@@ -40,6 +40,17 @@ namespace eMenka.Tests.Repositories
         }
 
         [Test]
+        public void GetAllAvailableDriverReturnsAllDriversWithoutAFuelCard()
+        {
+            var drivers = _sut.GetAllAvailableDrivers();
+
+            foreach (var driver in drivers)
+            {
+                Assert.That(driver.FuelCardId, Is.Null);
+            }
+        }
+
+        [Test]
         public void GetByIdIncludesAllRelationsOfDriver()
         {
             var person = new Person();
