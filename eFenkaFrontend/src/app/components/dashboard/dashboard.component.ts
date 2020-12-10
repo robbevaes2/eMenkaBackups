@@ -1,10 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Vehicle } from '../../models/vehicle/vehicle';
-import { MdbTableDirective, MdbTablePaginationComponent } from 'angular-bootstrap-md';
 import { ApiService } from '../../services/api.service';
-import { Serie } from 'src/app/models/serie/serie';
-import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
 
 @Component({
   selector: 'app-dashboard',
@@ -110,8 +107,8 @@ export class DashboardComponent implements OnInit {
         )   
         
         this.apiService.getAllCategories().subscribe(
-          data => {
-            data.forEach(element => {
+          categoryData => {
+            categoryData.forEach(element => {
               this.categoryChartLabels.push(element.name)
             });
         
