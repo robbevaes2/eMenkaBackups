@@ -29,6 +29,7 @@ import { NewFuelcardItemComponent } from './components/new-fuelcard-item/new-fue
 import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
 import { SupplierDetailsComponent } from './components/supplier-details/supplier-details.component';
 import { NewSupplierItemComponent } from './components/new-supplier-item/new-supplier-item.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NewSupplierItemComponent } from './components/new-supplier-item/new-sup
     NewFuelcardItemComponent,
     SupplierListComponent,
     SupplierDetailsComponent,
-    NewSupplierItemComponent
+    NewSupplierItemComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
