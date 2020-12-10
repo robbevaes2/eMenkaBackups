@@ -1,5 +1,5 @@
 Ä
-VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Brand.cs
+VD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Brand.cs
 
  
 
@@ -20,31 +20,31 @@ VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\B
 * 8
 
 * 8
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Category.cs
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Category.cs
 
  
 
  
 
  «
-UD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\City.cs
+UD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\City.cs
 
- 
+ 
 
- 
+ 
 
-		 
+ 
+
+		 
 
 
 
- 
+ 
 
- 
+ 
 
- 
-
-# *Ò
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Company.cs
+# *Ò
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Company.cs
 
  
 
@@ -67,7 +67,7 @@ XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
  
 
  #¾
-\D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Corporation.cs
+\D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Corporation.cs
 
  
 
@@ -86,7 +86,7 @@ XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
  !
 
   ©
-_D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\CostAllocation.cs
+_D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\CostAllocation.cs
 
  
 
@@ -101,26 +101,26 @@ _D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
  !
 
   º
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Country.cs
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Country.cs
 
- 
+ 
 
- 
+ 
+
+ 
 
 		 
 
 
 
- 
+ !
 
- !
+ 
 
- 
+ 
 
- 
-
-! '‹
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\DoorType.cs
+! '‹
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\DoorType.cs
 
  
 
@@ -129,7 +129,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\D
  
 
 		$ ,¹
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Driver.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Driver.cs
 
  
 
@@ -148,7 +148,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\D
  !
 
   ¥
-[D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\EngineType.cs
+[D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\EngineType.cs
 
  
 
@@ -163,7 +163,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\D
  
 
  ´
-^D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\ExteriorColor.cs
+^D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\ExteriorColor.cs
 
  
 
@@ -180,46 +180,46 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\D
  
 
 $ ,³
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelCard.cs
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelCard.cs
 
- 
+ 
 
-		 
+ 
+
+		 
 
 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ %
 
- %
+ $
 
- $
+ 
 
- 
+ !
 
- !
+  
 
-  
-
-# *—
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelType.cs
+# *—
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelType.cs
 
  
 
@@ -232,7 +232,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\F
 
 
 $ ,´
-^D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\InteriorColor.cs
+^D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\InteriorColor.cs
 
  
 
@@ -249,7 +249,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\F
  
 
 $ , 
-VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Model.cs
+VD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Model.cs
 
  
 
@@ -264,7 +264,7 @@ VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\M
  
 
  õ
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Person.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Person.cs
 
  
 
@@ -293,7 +293,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\P
  
 
  é
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Record.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Record.cs
 
  
 
@@ -320,7 +320,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\R
   
 
  é
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Refill.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Refill.cs
 
  
 
@@ -347,7 +347,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\R
  
 
   •
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Series.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Series.cs
 
  
 
@@ -358,7 +358,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\S
  
 
  £
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Supplier.cs
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Supplier.cs
 
  
 
@@ -373,7 +373,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\S
  
 
  –
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Vehicle.cs
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Vehicle.cs
 
  
 
@@ -450,7 +450,7 @@ XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\V
 )) *
 
 ** #•
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Language.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Language.cs
 
  
 
@@ -461,36 +461,36 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Lan
  
 
  ù
-[D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\SupplierType.cs
+[D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\SupplierType.cs
 
- 
+ 
 
-		 
+ 
+
+ 
+
+ 
+
+ 
+
+		 
 
 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
+ 
 
- 
-
- 
-
- 
-
- 
-
- …
-SD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Term.cs
+ …
+SD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Term.cs
 
  
 
@@ -499,7 +499,7 @@ SD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Ter
  
 
  ’
-TD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Usage.cs
+TD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Usage.cs
 
  
 

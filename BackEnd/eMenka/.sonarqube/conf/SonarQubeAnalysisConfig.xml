@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <SonarConfigDir>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf</SonarConfigDir>
-  <SonarOutputDir>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\out</SonarOutputDir>
-  <SonarBinDir>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\bin</SonarBinDir>
-  <SonarScannerWorkingDirectory>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka</SonarScannerWorkingDirectory>
+  <SonarConfigDir>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka</SonarScannerWorkingDirectory>
   <HasBeginStepCommandLineCredentials>false</HasBeginStepCommandLineCredentials>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>8.5.1.38104</SonarQubeVersion>
@@ -106,8 +106,8 @@
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RuleSetFilePath>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
+      <RuleSetFilePath>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.13.1.21947" StaticResourceName="SonarAnalyzer-8.13.1.21947.zip">
           <AssemblyPaths>
@@ -126,13 +126,13 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\cs\SonarLint.xml</Path>
+        <Path>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\cs\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RuleSetFilePath>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
-      <TestProjectRuleSetFilePath>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
+      <RuleSetFilePath>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.13.1.21947" StaticResourceName="SonarAnalyzer-8.13.1.21947.zip">
           <AssemblyPaths>
@@ -151,7 +151,7 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\vbnet\SonarLint.xml</Path>
+        <Path>D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\.sonarqube\conf\vbnet\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
   </AnalyzersSettings>

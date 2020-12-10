@@ -1,5 +1,5 @@
 ¤
-VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Brand.cs
+VD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Brand.cs
 	namespace 	
 eMenka
  
@@ -148,7 +148,7 @@ EngineType %
 ;b c
 } 
 } ë
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Category.cs
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Category.cs
 	namespace 	
 eMenka
  
@@ -183,32 +183,41 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
 } 
 } ƒ
 
-UD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\City.cs
-	namespace 	
-eMenka
+UD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\City.cs
+	namespace 	
+eMenka
  
-. 
-Domain 
-. 
-Classes 
-{ 
-public 
+. 
+Domain 
+. 
+Classes 
+{ 
+public 
 
-class 
-City 
-{ 
-public 
-int 
-Id 
-{ 
-get 
-; 
-set  
-;  !
-}" #
-public		 
-string		 
-Name		 
+class 
+City 
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public		 
+int		 
+ZipCode		 
 {		 
 get		  
 ;		  !
@@ -217,64 +226,55 @@ UD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
 }		' (
 public
 
- 
-int
+ 
+Country
 
- 
-ZipCode
+ 
+Country
 
- 
+ 
 {
 
- 
+  
 get
 
-  
+! $
 ;
 
-  !
+$ %
 set
 
-" %
+& )
 ;
 
-% &
+) *
 }
 
-' (
-public 
-Country 
-Country 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-int 
-	CountryId 
-{ 
-get "
-;" #
-set$ '
-;' (
-}) *
-public 
-IEnumerable 
-< 
-Refill !
->! "
-Refills# *
-{+ ,
-get- 0
-;0 1
-set2 5
-;5 6
-}7 8
-} 
-} Ô
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Company.cs
++ ,
+public 
+int 
+	CountryId 
+{ 
+get "
+;" #
+set$ '
+;' (
+}) *
+public 
+IEnumerable 
+< 
+Refill !
+>! "
+Refills# *
+{+ ,
+get- 0
+;0 1
+set2 5
+;5 6
+}7 8
+} 
+} Ô
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Company.cs
 	namespace 	
 eMenka
  
@@ -394,7 +394,7 @@ IsInternal		 
 }0 1
 } 
 } ’
-\D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Corporation.cs
+\D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Corporation.cs
 	namespace 	
 eMenka
  
@@ -492,7 +492,7 @@ IsInternal		 
 }- .
 } 
 } â
-_D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\CostAllocation.cs
+_D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\CostAllocation.cs
 	namespace 	
 eMenka
  
@@ -572,32 +572,41 @@ _D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
 }- .
 } 
 } ž
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Country.cs
-	namespace 	
-eMenka
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Country.cs
+	namespace 	
+eMenka
  
-. 
-Domain 
-. 
-Classes 
-{ 
-public 
+. 
+Domain 
+. 
+Classes 
+{ 
+public 
 
-class 
-Country 
-{ 
-public 
-int 
-Id 
-{ 
-get 
-; 
-set  
-;  !
-}" #
+class 
+Country 
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
 public		 
 string		 
-Name		 
+Code		 
 {		 
 get		  
 ;		  !
@@ -609,70 +618,61 @@ XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\C
  
 string
 
- 
-Code
+ 
+Nationality
 
- 
+ !
 {
 
- 
+" #
 get
 
-  
+$ '
 ;
 
-  !
+' (
 set
 
-" %
+) ,
 ;
 
-% &
+, -
 }
 
-' (
-public 
-string 
-Nationality !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
+. /
+public 
+bool 
+POD 
+{ 
+get 
+; 
+set "
+;" #
+}$ %
 public 
-bool 
-POD 
-{ 
-get 
-; 
-set "
-;" #
-}$ %
-public 
-bool 
-IsActive 
-{ 
-get "
-;" #
-set$ '
-;' (
-}) *
-public 
-IEnumerable 
-< 
-City 
->  
-Cities! '
-{( )
-get* -
-;- .
-set/ 2
-;2 3
-}4 5
-} 
-} ¿
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\DoorType.cs
+bool 
+IsActive 
+{ 
+get "
+;" #
+set$ '
+;' (
+}) *
+public 
+IEnumerable 
+< 
+City 
+>  
+Cities! '
+{( )
+get* -
+;- .
+set/ 2
+;2 3
+}4 5
+} 
+} ¿
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\DoorType.cs
 	namespace 	
 eMenka
  
@@ -720,7 +720,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\D
 
  
 } •
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Driver.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Driver.cs
 	namespace 	
 eMenka
  
@@ -820,7 +820,7 @@ FuelCardId 
 }- .
 } 
 } ó
-[D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\EngineType.cs
+[D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\EngineType.cs
 	namespace 	
 eMenka
  
@@ -904,7 +904,7 @@ EngineType 
 } 
 } ‘
 
-^D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\ExteriorColor.cs
+^D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\ExteriorColor.cs
 	namespace 	
 eMenka
  
@@ -995,203 +995,203 @@ EngineType 
 }9 :
 } 
 } ¡
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelCard.cs
-	namespace 	
-eMenka
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelCard.cs
+	namespace 	
+eMenka
  
-. 
-Domain 
-. 
-Classes 
-{ 
-public 
+. 
+Domain 
+. 
+Classes 
+{ 
+public 
 
-class 
-FuelCard 
-{ 
-public		 
-int		 
-Id		 
-{		 
-get		 
-;		 
-set		  
-;		  !
-}		" #
+class 
+FuelCard 
+{ 
+public 
+int 
+Id 
+{ 
+get 
+; 
+set  
+;  !
+}" #
+public		 
+string		 
+Number		 
+{		 
+get		 "
+;		" #
+set		$ '
+;		' (
+}		) *
 public
 
- 
-string
+ 
+Company
 
- 
-Number
+ 
+Company
 
- 
+ 
 {
 
- 
+  
 get
 
- "
+! $
 ;
 
-" #
+$ %
 set
 
-$ '
+& )
 ;
 
-' (
+) *
 }
 
-) *
-public 
-Company 
-Company 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-int 
-? 
-	CompanyId 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public 
-Vehicle 
-Vehicle 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-int 
-? 
-	VehicleId 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public 
-Driver 
-Driver 
++ ,
+public 
+int 
+? 
+	CompanyId 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+Vehicle 
+Vehicle 
+{  
+get! $
+;$ %
+set& )
+;) *
+}+ ,
+public 
+int 
+? 
+	VehicleId 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+Driver 
+Driver 
+{ 
+get "
+;" #
+set$ '
+;' (
+}) *
+public 
+int 
+? 
+DriverId 
 { 
 get "
 ;" #
 set$ '
 ;' (
 }) *
-public 
-int 
-? 
-DriverId 
+public 
+Record 
+Record 
 { 
 get "
 ;" #
 set$ '
 ;' (
 }) *
-public 
-Record 
-Record 
+public 
+int 
+? 
+RecordId 
 { 
 get "
 ;" #
 set$ '
 ;' (
 }) *
-public 
-int 
-? 
-RecordId 
-{ 
-get "
-;" #
-set$ '
-;' (
-}) *
-public 
-bool 
-	IsBlocked 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public 
-DateTime 
-? 
-BlockingDate %
-{& '
-get( +
-;+ ,
-set- 0
-;0 1
-}2 3
+public 
+bool 
+	IsBlocked 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+DateTime 
+? 
+BlockingDate %
+{& '
+get( +
+;+ ,
+set- 0
+;0 1
+}2 3
+public 
+string 
+BlockingReason $
+{% &
+get' *
+;* +
+set, /
+;/ 0
+}1 2
 public 
-string 
-BlockingReason $
-{% &
-get' *
-;* +
-set, /
-;/ 0
-}1 2
-public 
-string 
-PinCode 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
+string 
+PinCode 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+DateTime 
+	StartDate !
+{" #
+get$ '
+;' (
+set) ,
+;, -
+}. /
 public 
-DateTime 
-	StartDate !
-{" #
-get$ '
-;' (
-set) ,
-;, -
-}. /
-public 
-DateTime 
-? 
-EndDate  
-{! "
-get# &
-;& '
-set( +
-;+ ,
-}- .
-public 
-IEnumerable 
-< 
-Refill !
->! "
-Refills# *
-{+ ,
-get- 0
-;0 1
-set2 5
-;5 6
-}7 8
-} 
-} ×
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelType.cs
+DateTime 
+? 
+EndDate  
+{! "
+get# &
+;& '
+set( +
+;+ ,
+}- .
+public 
+IEnumerable 
+< 
+Refill !
+>! "
+Refills# *
+{+ ,
+get- 0
+;0 1
+set2 5
+;5 6
+}7 8
+} 
+} ×
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\FuelType.cs
 	namespace 	
 eMenka
  
@@ -1271,7 +1271,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\F
 } 
 } ‘
 
-^D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\InteriorColor.cs
+^D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\InteriorColor.cs
 	namespace 	
 eMenka
  
@@ -1362,7 +1362,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\F
 }9 :
 } 
 } é
-VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Model.cs
+VD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Model.cs
 	namespace 	
 eMenka
  
@@ -1444,7 +1444,7 @@ VD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\M
 }' (
 } 
 } ‚
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Person.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Person.cs
 	namespace 	
 eMenka
  
@@ -1591,7 +1591,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\P
 }* +
 } 
 } Ê
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Record.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Record.cs
 	namespace 	
 eMenka
  
@@ -1732,7 +1732,7 @@ FuelCardId
 }' (
 } 
 } ×
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Refill.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Refill.cs
 	namespace 	
 eMenka
  
@@ -1868,7 +1868,7 @@ TotalPrice  
 }- .
 } 
 } —
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Series.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Series.cs
 	namespace 	
 eMenka
  
@@ -1922,7 +1922,7 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\S
 }
 
  Ú
-YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Supplier.cs
+YD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Supplier.cs
 	namespace 	
 eMenka
  
@@ -2003,7 +2003,7 @@ YD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\S
 }) *
 } 
 } â0
-XD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Vehicle.cs
+XD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Classes\Vehicle.cs
 	namespace 	
 eMenka
  
@@ -2387,7 +2387,7 @@ Kilometers%%  
 }**0 1
 }++ 
 },, ¸
-WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Language.cs
+WD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Language.cs
 	namespace 	
 eMenka
  
@@ -2412,50 +2412,50 @@ WD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Lan
 }
 
  Ô
-[D:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\SupplierType.cs
-	namespace 	
-eMenka
+[D:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\SupplierType.cs
+	namespace 	
+eMenka
  
-. 
-Domain 
-. 
-Enums 
-{ 
-public 
+. 
+Domain 
+. 
+Enums 
+{ 
+public 
 
-enum 
-SupplierType 
-{  
-FinancieleInstelling		 
-,		 
-Leasingmaatschappij
+enum 
+SupplierType 
+{  
+FinancieleInstelling 
+, 
+Leasingmaatschappij 
+, 
+Verhuurmaatschappij 
+, 
+Transportbedrijf 
+, #
+Verzekeringmaatschappij		 
+,		  
+	Carrosier
 
- 
+ 
 ,
 
- 
-Verhuurmaatschappij 
-, 
-Transportbedrijf 
-, #
-Verzekeringmaatschappij 
-,  
-	Carrosier 
-, 
-Garage 
-, 
-Bandencentrale 
-, 
-Pechverhelping 
-,  
-Verzekeringsmakelaar 
-, 
-Vastgoedmakelaar 
-,  
-Brandstofleverancier 
-} 
-} Š
-SD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Term.cs
+ 
+Garage 
+, 
+Bandencentrale 
+, 
+Pechverhelping 
+,  
+Verzekeringsmakelaar 
+, 
+Vastgoedmakelaar 
+,  
+Brandstofleverancier 
+} 
+} Š
+SD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Term.cs
 	namespace 	
 eMenka
  
@@ -2476,7 +2476,7 @@ SD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Ter
 PrivÃ© 
 } 
 }		 ¸
-TD:\pxl\workspace_project\eMenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Usage.cs
+TD:\pxl\workspace_project\emenka20\eMenka\BackEnd\eMenka\eMenka.Domain\Enums\Usage.cs
 	namespace 	
 eMenka
  
