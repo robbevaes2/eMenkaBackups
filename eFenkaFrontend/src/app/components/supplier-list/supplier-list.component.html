@@ -25,7 +25,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let supplier of suppliers; let i = index" (click)="navigateToSupplierDetailsComponent(supplier.id)">
-        <th >{{supplier.name}}</th>
+        <th scope="row">{{supplier.name}}</th>
         <td >
           <fa-icon [icon]="faCheck" *ngIf="supplier.active"></fa-icon>
           <fa-icon [icon]="faTimes" *ngIf="!supplier.active"></fa-icon>

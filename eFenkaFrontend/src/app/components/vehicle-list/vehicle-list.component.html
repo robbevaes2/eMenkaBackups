@@ -25,7 +25,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let vehicle of vehicles; let i = index" (click)="navigateToVehicleDetailsComponent(vehicle.id)">
-        <th >{{vehicle.brand.name}}</th>
+        <th scope="row">{{vehicle.brand.name}}</th>
         <td >{{vehicle.model.name}}</td>
         <td >{{vehicle.fuelType.name}}</td>
         <td >{{vehicle.engineType.name}}</td>

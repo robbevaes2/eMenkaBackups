@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let driver of drivers; let i = index" (click)="navigateToDriverDetailsComponent(driver.id)">
-        <th >{{driver.person.firstname}}</th>
+        <th scope="row"{{driver.person.firstname}}</th>
         <td >{{driver.person.lastname}}</td>
         <td >{{driver.person.driversLicenseType}}</td>
         <td >{{driver.person.driversLicenseNumber}}</td>
