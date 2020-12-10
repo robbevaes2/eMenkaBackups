@@ -105,8 +105,8 @@ export class DashboardChartsComponent implements OnInit {
         )   
         
         this.apiService.getAllCategories().subscribe(
-          data => {
-            data.forEach(element => {
+          categoryData => {
+            categoryData.forEach(element => {
               this.categoryChartLabels.push(element.name)
             });
         
