@@ -91,6 +91,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/');
   }
 
+  getAllVehiclesByEndDate(range: number): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/enddate/' + range);
+  }
+
   getAllAvailableVehicles(): Observable<Vehicle[]> {
     return this.getFromAPI<Vehicle[]>('vehicle/available');
   }
@@ -115,6 +119,10 @@ export class ApiService {
 
   getAllRecords(): Observable<Record[]> {
     return this.getFromAPI<Record[]>('record/');
+  }
+
+  getAllRecordsByEndDate(range: number): Observable<Record[]> {
+    return this.getFromAPI<Record[]>('record/enddate/' + range);
   }
 
   getRecordById(id: number): Observable<Record> {
@@ -168,6 +176,10 @@ export class ApiService {
 
   getAllFuelCards(): Observable<FuelCard[]> {
     return this.getFromAPI<FuelCard[]>('fuelcard/');
+  }
+
+  getAllFuelCardsByEndDate(range: number): Observable<FuelCard[]> {
+    return this.getFromAPI<FuelCard[]>('fuelcard/enddate/' + range);
   }
 
   getFuelCardById(id: number): Observable<FuelCard> {
@@ -227,6 +239,10 @@ export class ApiService {
   // Driver
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
+  }
+
+  getAllDriversByEndDate(range: number): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/enddate/' + range);
   }
 
   getAllAvailableDrivers(): Observable<Driver[]> {
