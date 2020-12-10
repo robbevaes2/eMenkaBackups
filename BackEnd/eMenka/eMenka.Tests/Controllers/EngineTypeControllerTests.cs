@@ -9,23 +9,27 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class EngineTypeControllerTests
     {
+        private EngineTypeController _sut;
+        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _engineTypeRepositoryMock = new Mock<IEngineTypeRepository>();
-            _brandRepositoryMock = new Mock<IBrandRepository>();
-            _sut = new EngineTypeController(_engineTypeRepositoryMock.Object, _brandRepositoryMock.Object);
-        }
+            _brandRepositoryMock = new Mock<IBrandRepository>(); 
+            _mapperMock = new Mock<IMapper>();
 
-        private EngineTypeController _sut;
-        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
+        _sut = new EngineTypeController(_engineTypeRepositoryMock.Object, _brandRepositoryMock.Object, _mapperMock.Object);
+        }
 
         [Test]
         public void GetAllEngineTypesReturnsOkAndListOfAllEngineTypesWhenEverythingIsCorrect()
@@ -68,7 +72,8 @@ namespace eMenka.Tests.Controllers
 
             _engineTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(engineType);
-
+            _mapperMock.Setup(m => m.Map<EngineTypeReturnModel>(It.IsAny<EngineType>()))
+                .Returns(new EngineTypeReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -103,7 +108,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(brand);
             _engineTypeRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<EngineType, bool>>>()))
                 .Returns(engineTypes);
-
+            _mapperMock.Setup(m => m.Map<EngineTypeReturnModel>(It.IsAny<EngineType>()))
+                .Returns(new EngineTypeReturnModel());
             var result = _sut.GetEngineTypesByBrandId(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -122,7 +128,8 @@ namespace eMenka.Tests.Controllers
 
             _engineTypeRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<EngineType, bool>>>()))
                 .Returns(engineTypes);
-
+            _mapperMock.Setup(m => m.Map<EngineTypeReturnModel>(It.IsAny<EngineType>()))
+                .Returns(new EngineTypeReturnModel());
             var result = _sut.GetEngineTypeByName("name") as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -190,7 +197,10 @@ namespace eMenka.Tests.Controllers
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
-
+            _mapperMock.Setup(m => m.Map<EngineTypeReturnModel>(It.IsAny<EngineType>()))
+                .Returns(new EngineTypeReturnModel());
+            _mapperMock.Setup(m => m.Map<EngineType>(It.IsAny<EngineTypeModel>()))
+                .Returns(new EngineType());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

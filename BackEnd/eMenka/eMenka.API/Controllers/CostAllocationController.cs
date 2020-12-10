@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.RecordMappers;
+﻿using AutoMapper;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -11,8 +11,8 @@ namespace eMenka.API.Controllers
     public class
         CostAllocationController : GenericController<CostAllocation, CostAllocationModel, CostAllocationReturnModel>
     {
-        public CostAllocationController(ICostAllocationRepository costAllocationRepository) : base(
-            costAllocationRepository, new CostAllocationMapper())
+        public CostAllocationController(ICostAllocationRepository costAllocationRepository, IMapper mapper) : base(
+            costAllocationRepository, mapper)
         {
         }
     }

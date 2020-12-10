@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using eMenka.API.Mappers.FuelCardMappers;
+using AutoMapper;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -14,21 +14,21 @@ namespace eMenka.API.Controllers
     {
         private readonly IPersonRepository _personRepository;
         private readonly IDriverRepository _driverRepository;
-        private readonly DriverMapper _driverMapper;
+        private readonly IMapper _mapper;
 
-        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(
-            driverRepository, new DriverMapper())
+        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository, IMapper mapper) : base(
+            driverRepository, mapper)
         {
             _personRepository = personRepository;
             _driverRepository = driverRepository;
-            _driverMapper = new DriverMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("available")]
         public IActionResult GetAllAvailableDrivers()
         {
-            var entities = _driverRepository.GetAllAvailableDrivers();
-            return Ok(entities.Select(_driverMapper.MapEntityToReturnModel));
+            var drivers = _driverRepository.GetAllAvailableDrivers();
+            return Ok(drivers.Select(d=>_mapper.Map<DriverReturnModel>(d)).ToList());
         }
 
         [HttpGet("enddate/{range}")]
@@ -36,7 +36,7 @@ namespace eMenka.API.Controllers
         {
             var drivers = _driverRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(drivers.Select(_driverMapper.MapEntityToReturnModel).ToList());
+            return Ok(drivers.Select(d=>_mapper.Map<DriverReturnModel>(d)).ToList());
         }
 
         public override IActionResult PostEntity(DriverModel model)

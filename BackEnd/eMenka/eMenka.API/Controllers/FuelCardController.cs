@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using eMenka.API.Mappers.FuelCardMappers;
+using AutoMapper;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -16,16 +16,16 @@ namespace eMenka.API.Controllers
         private readonly IFuelCardRepository _fuelCardRepository;
         private readonly IVehicleRepository _vehicleRepository;
         private readonly ICompanyRepository _companyRepository;
-        private readonly FuelCardMapper _fuelCardMapper;
+        private readonly IMapper _mapper;
 
         public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository, ICompanyRepository companyRepository,
-            IVehicleRepository vehicleRepository) : base(fuelCardRepository, new FuelCardMapper())
+            IVehicleRepository vehicleRepository, IMapper mapper) : base(fuelCardRepository, mapper)
         {
             _fuelCardRepository = fuelCardRepository;
             _driverRepository = driverRepository;
             _vehicleRepository = vehicleRepository;
             _companyRepository = companyRepository;
-            _fuelCardMapper = new FuelCardMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("enddate/{range}")]
@@ -33,7 +33,7 @@ namespace eMenka.API.Controllers
         {
             var fuelcards = _fuelCardRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(fuelcards.Select(_fuelCardMapper.MapEntityToReturnModel).ToList());
+            return Ok(fuelcards.Select(fc=>_mapper.Map<FuelCardReturnModel>(fc)).ToList());
         }
 
         public override IActionResult PostEntity(FuelCardModel model)
@@ -61,7 +61,7 @@ namespace eMenka.API.Controllers
             if (company == null)
                 return NotFound($"Bedrijf met id {model.CompanyId} niet gevonden");
 
-            var entity = _fuelCardMapper.MapModelToEntity(model);
+            var entity = _mapper.Map<FuelCard>(model);
 
             _fuelCardRepository.Add(entity);
 
@@ -69,7 +69,7 @@ namespace eMenka.API.Controllers
             driver.FuelCardId = entity.Id;
             _vehicleRepository.Update(vehicle.Id, vehicle);
 
-            return Ok(_fuelCardMapper.MapEntityToReturnModel(entity));
+            return Ok(_mapper.Map<FuelCardReturnModel>(entity));
         }
 
         public override IActionResult UpdateEntity(FuelCardModel model, int id)

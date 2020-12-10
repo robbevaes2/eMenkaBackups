@@ -9,12 +9,26 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class VehicleControllerTests
     {
+        private VehicleController _sut;
+        private Mock<IVehicleRepository> _vehicleRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IModelRepository> _modelRepositoryMock;
+        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
+        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
+        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
+        private Mock<ICategoryRepository> _categoryRepositoryMock;
+        private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
+        private Mock<ISerieRepository> _serieRepositoryMock;
+        private Mock<IRecordRepository> _recordRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+        
         [SetUp]
         public void Init()
         {
@@ -28,24 +42,14 @@ namespace eMenka.Tests.Controllers
             _fuelcardRepositoryMock = new Mock<IFuelCardRepository>();
             _serieRepositoryMock = new Mock<ISerieRepository>();
             _recordRepositoryMock = new Mock<IRecordRepository>();
+            _mapperMock = new Mock<IMapper>();
 
-            _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object,
+        _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object,
                 _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object,
                 _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object,
-                _fuelcardRepositoryMock.Object, _recordRepositoryMock.Object);
+                _fuelcardRepositoryMock.Object, _recordRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private VehicleController _sut;
-        private Mock<IVehicleRepository> _vehicleRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IModelRepository> _modelRepositoryMock;
-        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
-        private Mock<IEngineTypeRepository> _engineTypeRepositoryMock;
-        private Mock<IDoorTypeRepository> _doorTypeRepositoryMock;
-        private Mock<ICategoryRepository> _categoryRepositoryMock;
-        private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
-        private Mock<ISerieRepository> _serieRepositoryMock;
-        private Mock<IRecordRepository> _recordRepositoryMock;
 
         [Test]
         public void GetAllVehiclesReturnsOkAndListOfAllVehiclesWhenEverythingIsCorrect()
@@ -116,7 +120,8 @@ namespace eMenka.Tests.Controllers
 
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
-
+            _mapperMock.Setup(m => m.Map<VehicleReturnModel>(It.IsAny<Vehicle>()))
+                .Returns(new VehicleReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -847,7 +852,10 @@ namespace eMenka.Tests.Controllers
             var category = new Category();
             var fuelCard = new FuelCard();
             var series = new Series();
-
+            _mapperMock.Setup(m => m.Map<Vehicle>(It.IsAny<VehicleModel>()))
+                .Returns(new Vehicle());
+            _mapperMock.Setup(m => m.Map<VehicleReturnModel>(It.IsAny<Vehicle>()))
+                .Returns(new VehicleReturnModel());
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
             _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))

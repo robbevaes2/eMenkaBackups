@@ -9,23 +9,28 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class ModelControllerTests
     {
+        private ModelController _sut;
+        private Mock<IModelRepository> _modelRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _modelRepositoryMock = new Mock<IModelRepository>();
             _brandRepositoryMock = new Mock<IBrandRepository>();
-            _sut = new ModelController(_modelRepositoryMock.Object, _brandRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new ModelController(_modelRepositoryMock.Object, _brandRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private ModelController _sut;
-        private Mock<IModelRepository> _modelRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
+
 
         [Test]
         public void GetAllModelsReturnsOkAndListOfAllModelsWhenEverythingIsCorrect()
@@ -72,6 +77,8 @@ namespace eMenka.Tests.Controllers
 
             _modelRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(model);
+            _mapperMock.Setup(m => m.Map<ModelReturnModel>(It.IsAny<Model>()))
+                .Returns(new ModelReturnModel());
 
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
@@ -107,6 +114,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(brand);
             _modelRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Model, bool>>>()))
                 .Returns(models);
+            _mapperMock.Setup(m => m.Map<ModelReturnModel>(It.IsAny<Model>()))
+                .Returns(new ModelReturnModel());
 
             var result = _sut.GetByBrandId(0) as OkObjectResult;
 
@@ -177,7 +186,10 @@ namespace eMenka.Tests.Controllers
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
-
+            _mapperMock.Setup(m => m.Map<ModelReturnModel>(It.IsAny<Model>()))
+                .Returns(new ModelReturnModel());
+            _mapperMock.Setup(m => m.Map<Model>(It.IsAny<ModelModel>()))
+                .Returns(new Model());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

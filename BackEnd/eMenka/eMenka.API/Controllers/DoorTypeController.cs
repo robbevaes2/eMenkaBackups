@@ -1,10 +1,10 @@
-using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using AutoMapper;
 
 namespace eMenka.API.Controllers
 {
@@ -12,13 +12,13 @@ namespace eMenka.API.Controllers
     public class DoorTypeController : GenericController<DoorType, DoorTypeModel, DoorTypeReturnModel>
     {
         private readonly IDoorTypeRepository _doorTypeRepository;
-        private readonly DoorTypeMapper _doortypeMapper;
+        private readonly IMapper _mapper;
 
-        public DoorTypeController(IDoorTypeRepository doorTypeRepository) : base(doorTypeRepository,
-            new DoorTypeMapper())
+        public DoorTypeController(IDoorTypeRepository doorTypeRepository, IMapper mapper) : base(doorTypeRepository,
+            mapper)
         {
             _doorTypeRepository = doorTypeRepository;
-            _doortypeMapper = new DoorTypeMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("name/{doorTypeName}")]
@@ -26,7 +26,7 @@ namespace eMenka.API.Controllers
         {
             var doorTypes = _doorTypeRepository.Find(doorType => doorType.Name == doorTypeName);
 
-            return Ok(doorTypes.Select(_doortypeMapper.MapEntityToReturnModel).ToList());
+            return Ok(doorTypes.Select(dt=>_mapper.Map<DoorTypeReturnModel>(dt)).ToList());
         }
     }
 }

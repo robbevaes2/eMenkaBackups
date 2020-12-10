@@ -9,21 +9,25 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class CategoryControllerTests
     {
+        private CategoryController _sut;
+        private Mock<ICategoryRepository> _categoryRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _categoryRepositoryMock = new Mock<ICategoryRepository>();
-            _sut = new CategoryController(_categoryRepositoryMock.Object);
+            _mapperMock= new Mock<IMapper>();
+            _sut = new CategoryController(_categoryRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private CategoryController _sut;
-        private Mock<ICategoryRepository> _categoryRepositoryMock;
 
         [Test]
         public void GetAllCatgeoriesReturnsOkAndListOfAllCatgeoriesWhenEverythingIsCorrect()
@@ -63,6 +67,8 @@ namespace eMenka.Tests.Controllers
 
             _categoryRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(category);
+            _mapperMock.Setup(m => m.Map<CategoryReturnModel>(It.IsAny<Category>()))
+                .Returns(new CategoryReturnModel());
 
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
@@ -80,6 +86,8 @@ namespace eMenka.Tests.Controllers
 
             _categoryRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Category, bool>>>()))
                 .Returns(categories);
+            _mapperMock.Setup(m => m.Map<CategoryReturnModel>(It.IsAny<Category>()))
+                .Returns(new CategoryReturnModel());
 
             var result = _sut.GetCategoryByName("name") as OkObjectResult;
 
@@ -111,7 +119,10 @@ namespace eMenka.Tests.Controllers
             {
                 Name = "name"
             };
-
+            _mapperMock.Setup(m => m.Map<Category>(It.IsAny<CategoryModel>()))
+                .Returns(new Category());
+            _mapperMock.Setup(m => m.Map<CategoryReturnModel>(It.IsAny<Category>()))
+                .Returns(new CategoryReturnModel());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

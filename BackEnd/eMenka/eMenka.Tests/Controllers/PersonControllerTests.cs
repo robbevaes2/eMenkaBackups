@@ -9,21 +9,25 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class PersonControllerTests
     {
+        private PersonController _sut;
+        private Mock<IPersonRepository> _personRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _personRepositoryMock = new Mock<IPersonRepository>();
-            _sut = new PersonController(_personRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new PersonController(_personRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private PersonController _sut;
-        private Mock<IPersonRepository> _personRepositoryMock;
 
         [Test]
         public void GetAllPersonsReturnsOkAndListOfAllPersonsWhenEverythingIsCorrect()
@@ -63,7 +67,8 @@ namespace eMenka.Tests.Controllers
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
-
+            _mapperMock.Setup(m => m.Map<PersonReturnModel>(It.IsAny<Person>()))
+                .Returns(new PersonReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -116,7 +121,10 @@ namespace eMenka.Tests.Controllers
         public void PostPersonReturnsOkWhenModelIsValid()
         {
             var validModel = new PersonModel();
-
+            _mapperMock.Setup(m => m.Map<PersonReturnModel>(It.IsAny<Person>()))
+                .Returns(new PersonReturnModel());
+            _mapperMock.Setup(m => m.Map<Person>(It.IsAny<PersonModel>()))
+                .Returns(new Person());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

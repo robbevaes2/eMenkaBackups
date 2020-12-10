@@ -1,6 +1,8 @@
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Domain.Classes;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace eMenka.API.Models.FuelCardModels.ReturnModels
 {
@@ -17,5 +19,6 @@ namespace eMenka.API.Models.FuelCardModels.ReturnModels
         public string BlockingReason { get; set; }
         public string PinCode { get; set; }
         public string Number { get; set; }
+        public List<Refill> Refills { get; set; }
     }
 }

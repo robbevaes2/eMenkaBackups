@@ -9,6 +9,7 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
@@ -21,6 +22,8 @@ namespace eMenka.Tests.Controllers
         private Mock<IDriverRepository> _driverRepositoryMock;
         private Mock<IVehicleRepository> _vehicleRepositoryMock;
         private Mock<ICompanyRepository> _companyRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
 
         [SetUp]
         public void Init()
@@ -29,8 +32,9 @@ namespace eMenka.Tests.Controllers
             _driverRepositoryMock = new Mock<IDriverRepository>();
             _vehicleRepositoryMock = new Mock<IVehicleRepository>();
             _companyRepositoryMock = new Mock<ICompanyRepository>();
+            _mapperMock = new Mock<IMapper>();
             _sut = new FuelCardController(_fuelCardRepositoryMock.Object, _driverRepositoryMock.Object, _companyRepositoryMock.Object,
-                _vehicleRepositoryMock.Object);
+                _vehicleRepositoryMock.Object, _mapperMock.Object);
         }
 
         [Test]
@@ -71,7 +75,8 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelCard);
-
+            _mapperMock.Setup(m => m.Map<FuelCardReturnModel>(It.IsAny<FuelCard>()))
+                .Returns(new FuelCardReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -88,7 +93,8 @@ namespace eMenka.Tests.Controllers
 
             _fuelCardRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<FuelCard, bool>>>()))
                 .Returns(fuelCards);
-
+            _mapperMock.Setup(m => m.Map<FuelCardReturnModel>(It.IsAny<FuelCard>()))
+                .Returns(new FuelCardReturnModel());
             var result = _sut.GetFuelcardByEndDate(10) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -287,10 +293,13 @@ namespace eMenka.Tests.Controllers
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
-                .Returns(vehicle);           
+                .Returns(vehicle);
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
-
+            _mapperMock.Setup(m => m.Map<FuelCardReturnModel>(It.IsAny<FuelCard>()))
+                .Returns(new FuelCardReturnModel());
+            _mapperMock.Setup(m => m.Map<FuelCard>(It.IsAny<FuelCardModel>()))
+                .Returns(new FuelCard());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
