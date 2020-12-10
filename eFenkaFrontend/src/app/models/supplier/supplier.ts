@@ -1,4 +1,3 @@
-import { Type } from '@angular/core';
 import { SupplierType } from '../../enums/supplier-type/supplier-type.enum';
 
 export class Supplier {

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Model } from 'src/app/models/model/model';
 import { Vehicle } from 'src/app/models/vehicle/vehicle';
@@ -6,8 +6,7 @@ import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-dashboard-model-chart',
-  templateUrl: './dashboard-model-chart.component.html',
-  styleUrls: ['./dashboard-model-chart.component.css']
+  templateUrl: './dashboard-model-chart.component.html'
 })
 export class DashboardModelChartComponent implements OnInit {
   vehicles: Vehicle[];
