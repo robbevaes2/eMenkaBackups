@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -77,6 +79,23 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as FuelCardReturnModel;
             Assert.That(value, Is.Not.Null);
             _fuelCardRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void GetFuelCardsByEndDateReturnsOkAndFuelCardsWhenEverythingIsCorrect()
+        {
+            var fuelCards = new List<FuelCard>();
+
+            _fuelCardRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<FuelCard, bool>>>()))
+                .Returns(fuelCards);
+
+            var result = _sut.GetFuelcardByEndDate(10) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<FuelCardReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _fuelCardRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<FuelCard, bool>>>()), Times.Once);
         }
 
         [Test]

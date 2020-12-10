@@ -1,3 +1,4 @@
+using System;
 using eMenka.API.Mappers.RecordMappers;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
@@ -15,6 +16,7 @@ namespace eMenka.API.Controllers
         private readonly ICostAllocationRepository _costAllocationRepository;
         private readonly IFuelCardRepository _fuelCardRepository;
         private readonly IRecordRepository _recordRepository;
+        private RecordMapper _recordMapper;
 
         public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
             ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository) : base(
@@ -24,6 +26,15 @@ namespace eMenka.API.Controllers
             _fuelCardRepository = fuelCardRepository;
             _corporationRepository = corporationRepository;
             _costAllocationRepository = costAllocationRepository;
+            _recordMapper = new RecordMapper();
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetRecordByEndDate(int range)
+        {
+            var records = _recordRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(records.Select(_recordMapper.MapEntityToReturnModel).ToList());
         }
 
         public override IActionResult PostEntity(RecordModel model)

@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -88,6 +90,23 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as DriverReturnModel;
             Assert.That(value, Is.Not.Null);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void GetDriversByEndDateReturnsOkAndDriversWhenEverythingIsCorrect()
+        {
+            var drivers = new List<Driver>();
+
+            _driverRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Driver, bool>>>()))
+                .Returns(drivers);
+
+            var result = _sut.GetDriverByEndDate(10) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<DriverReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _driverRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Driver, bool>>>()), Times.Once);
         }
 
         [Test]

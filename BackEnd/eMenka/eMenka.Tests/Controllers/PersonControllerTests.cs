@@ -1,4 +1,5 @@
-﻿using eMenka.API.Controllers;
+﻿using System;
+using eMenka.API.Controllers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace eMenka.Tests.Controllers
 {
@@ -72,6 +74,30 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void PostPersonReturnsBadRequestWhenPersonWithDriversLicenseAlreadyExists()
+        {
+            var invalidModel = new PersonModel
+            {
+                DriversLicenseNumber = "123"
+            };
+
+            var persons = new List<Person>
+            {
+                new Person()
+            };
+
+            _personRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()))
+                .Returns(persons);
+
+            var result = _sut.PostEntity(invalidModel) as BadRequestObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _personRepositoryMock.Verify(m => m.Add(It.IsAny<Person>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
+        }
+
+        [Test]
         public void PostPersonReturnsBadRequestWhenModelIsInvalid()
         {
             var invalidModel = new PersonModel();
@@ -83,6 +109,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Add(It.IsAny<Person>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -96,6 +123,35 @@ namespace eMenka.Tests.Controllers
             Assert.That((PersonReturnModel)result.Value, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Add(It.IsAny<Person>()), Times.Once);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
+        }
+
+        [Test]
+        public void UpdatePersonReturnsBadRequestWhenPersonWithDriversLicenseAlreadyExistsAndIsntDriversLicenseFromUpdatingPerson()
+        {
+            var invalidModel = new PersonModel
+            {
+                DriversLicenseNumber = "123",
+                Id = 1
+            };
+
+            var persons = new List<Person>
+            {
+                new Person
+                {
+                    Id = invalidModel.Id + 1
+                }
+            };
+
+            _personRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()))
+                .Returns(persons);
+
+            var result = _sut.UpdateEntity(invalidModel, invalidModel.Id) as BadRequestObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            _personRepositoryMock.Verify(m => m.Add(It.IsAny<Person>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -110,6 +166,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Person>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -125,6 +182,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Person>()), Times.Never);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -143,6 +201,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Person>()), Times.Once);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -161,6 +220,7 @@ namespace eMenka.Tests.Controllers
             Assert.That(result, Is.Not.Null);
 
             _personRepositoryMock.Verify(m => m.Update(It.IsAny<int>(), It.IsAny<Person>()), Times.Once);
+            _personRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Person, bool>>>()), Times.Once);
         }
 
         [Test]

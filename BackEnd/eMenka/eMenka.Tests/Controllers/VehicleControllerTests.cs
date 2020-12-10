@@ -283,6 +283,23 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetVehiclesByEndDateReturnsOkAndVehicleWhenEverythingIsCorrect()
+        {
+            var vehicles = new List<Vehicle>();
+
+            _vehicleRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()))
+                .Returns(vehicles);
+
+            var result = _sut.GetVehiclesByEndDate(10) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _vehicleRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()), Times.Once);
+        }
+
+        [Test]
         public void PostVehicleReturnsBadRequestWhenModelIsInvalid()
         {
             var invalidModel = new VehicleModel

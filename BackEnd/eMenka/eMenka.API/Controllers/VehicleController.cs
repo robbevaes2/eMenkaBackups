@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
@@ -97,6 +98,14 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByStatus(bool isActive)
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
+
+            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetVehiclesByEndDate(int range)
+        {
+            var vehicles = _vehicleRepository.Find(v => v.EndDateDelivery >= DateTime.Now.Date && v.EndDateDelivery <= DateTime.Now.Date.AddDays(range));
 
             return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
         }
