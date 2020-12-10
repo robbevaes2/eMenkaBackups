@@ -1,5 +1,5 @@
-import { FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
-export function pincodeValidator(control: FormGroup) {
-  return control.value?.toString().length !== 4 ? { validPincode: true } : null;
+export function pincodeValidator(control: FormControl) {
+  return control.value.toString().length !== 4 ? { validPincode: true } : null;
 }

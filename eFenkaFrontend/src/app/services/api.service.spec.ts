@@ -88,9 +88,7 @@ describe('ApiService', () => {
       expect(req.request.method).toBe('GET');
       req.flush(vehicle);
     });
-  });
 
-  describe('#getVehicleById', () => {
     it('should throw an error if vehicle was not found', () => {
       const vehicleId = 1;
 
@@ -106,9 +104,7 @@ describe('ApiService', () => {
       const msg = 'nothing found';
       req.flush(msg, {status: 404, statusText: 'Not Found'});
     });
-  });
 
-  describe('#getVehicleById', () => {
     it('should throw an error if something is wrong with the connection', () => {
       const vehicleId = 1;
 

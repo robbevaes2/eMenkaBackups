@@ -46,25 +46,9 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  private patchToAPI(url, data, headers?: HttpHeaders): any {
-    return this.http.patch(this.BASE_API_URL + url, data, {headers}).pipe(
-      catchError((err, caught) => {
-        console.error(err);
-        console.error(caught);
-        return throwError('Something bad happened; please try again later.');
-      })
-    );
-  }
-
   private deleteFromAPI(url): any {
     return this.http
       .delete(this.BASE_API_URL + url)
-      .pipe(catchError(this.handleError));
-  }
-
-  private deleteMultipleFromAPI(url, options): any {
-    return this.http
-      .delete(this.BASE_API_URL + url, options)
       .pipe(catchError(this.handleError));
   }
 
