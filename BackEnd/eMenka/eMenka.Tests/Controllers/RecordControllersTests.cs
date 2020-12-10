@@ -82,6 +82,23 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetRecordsByEndDateReturnsOkAndRecordsWhenEverythingIsCorrect()
+        {
+            var records = new List<Record>();
+
+            _recordRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()))
+                .Returns(records);
+
+            var result = _sut.GetRecordByEndDate(10) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<RecordReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
+        }
+
+        [Test]
         public void PostRecordReturnsBadRequestWhenModelIsInvalid()
         {
             var invalidModel = new RecordModel
