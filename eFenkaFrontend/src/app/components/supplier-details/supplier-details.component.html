@@ -1,0 +1,46 @@
+<h1 class="">Details leverancier</h1>
+<div class="row ml-1 mr-1">
+  <button type="button" class="btn btn-secondary col-md-2" id="back-button" [disabled]="isEditable" (click)="navigateToListSupplierComponent()">Terug</button>
+  <button type="button" class="btn btn-primary ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditSupplier(form)">
+    <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
+  </button>
+  <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
+</div>
+<div>
+  <form [formGroup]="form" *ngIf="form">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Leverancier</h2>
+        <div class="form-group">
+          <label for="name">Naam:</label>
+          <input type="text" id="name" formControlName="name" class="col-md-12 browser-default form-control">
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label for="active" class="col-8">Actief:</label>
+            <input type="checkbox" id="active" formControlName="active" class="ml-auto col-md-1 col-2 browser-default form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label for="internal" class="col-8">Intern:</label>
+            <input type="checkbox" id="internal" formControlName="internal" class="ml-auto col-md-1 col-2 browser-default form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>Types</h2>
+        <div formArrayName="supplierTypes" *ngFor="let order of typesFormArray.controls; let i = index">
+          <div class="row">
+            <label class="col-8" for="type">{{types[i]}}:</label>
+            <input type="checkbox" class="ml-auto col-md-1 col-2 browser-default form-control" [formControlName]="i">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <br>
+  <button type="button" class="btn btn-danger ml-auto col-md-2" (click)="deleteSupplier()">Verwijder</button>
+</div>

@@ -1,0 +1,14 @@
+#add-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pagination {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+}
