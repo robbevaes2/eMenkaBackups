@@ -45,10 +45,16 @@ namespace eMenka.API.Controllers
             if (driver == null)
                 return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
 
+            if (_fuelCardRepository.Find(r => r.Driver.Id == model.DriverId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met bestuurder id {model.DriverId} bestaat al");
+
             var vehicle = _vehicleRepository.GetById((int)model.VehicleId);
 
             if (vehicle == null)
                 return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Vehicle.Id == model.VehicleId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met voertuig id {model.VehicleId} bestaat al");
 
             var company = _companyRepository.GetById((int)model.CompanyId);
 
@@ -71,8 +77,14 @@ namespace eMenka.API.Controllers
             if (_driverRepository.GetById((int)model.DriverId) == null)
                 return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
 
+            if (_fuelCardRepository.Find(r => r.Driver.Id == model.DriverId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met bestuurder id {model.DriverId} bestaat al");
+
             if (_vehicleRepository.GetById((int)model.VehicleId) == null)
                 return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Vehicle.Id == model.VehicleId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met voertuig id {model.VehicleId} bestaat al");
 
             return base.UpdateEntity(model, id);
         }
