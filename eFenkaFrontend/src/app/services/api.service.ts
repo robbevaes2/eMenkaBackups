@@ -177,6 +177,10 @@ export class ApiService {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
   }
 
+  deleteFuelCard(id: number): any {
+    return this.deleteFromAPI('fuelcard/' + id);
+  }
+
   // FuelType
 
   getAllFuelTypes(): Observable<FuelType[]> {
