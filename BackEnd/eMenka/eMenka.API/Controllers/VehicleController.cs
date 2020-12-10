@@ -47,7 +47,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return NotFound($"No brand with id {brandId}");
+                return NotFound($"Merk met id {brandId} niet gevonden");
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
 
@@ -58,7 +58,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetAvailableVehicleByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return NotFound($"No brand with id {brandId}");
+                return NotFound($"Merk met id {brandId} niet gevonden");
 
             var records = _recordRepository.GetAll();
 
@@ -86,7 +86,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetVehicleByModelId(int modelId)
         {
             if (_modelRepository.GetById(modelId) == null)
-                return NotFound($"No model with id {modelId}");
+                return NotFound($"Model met id {modelId} niet gevonden");
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
 
@@ -104,35 +104,35 @@ namespace eMenka.API.Controllers
         public override IActionResult PostEntity(VehicleModel model)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             if (_modelRepository.GetById((int)model.ModelId) == null)
-                return NotFound($"No model with id {model.ModelId}");
+                return NotFound($"Model met id {model.ModelId} niet gevonden");
 
             if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
-                return NotFound($"No fuelType with id {model.FuelTypeId}");
+                return NotFound($"Brandstoftype met id {model.FuelTypeId} niet gevonden");
 
             if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
-                return NotFound($"No motortype with id {model.EngineTypeId}");
+                return NotFound($"Motortype met id {model.EngineTypeId} niet gevonden");
 
             if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
-                return NotFound($"No doortype with id {model.DoorTypeId}");
+                return NotFound($"Deurtype met id {model.DoorTypeId} niet gevonden");
 
             if (_categoryRepository.GetById((int)model.CategoryId) == null)
-                return NotFound($"No category with id {model.CategoryId}");
+                return NotFound($"Categorie met id {model.CategoryId} niet gevonden");
 
             if (model.FuelCardId != null)
             {
                 if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
-                    return NotFound($"No fuelcard with id {model.FuelCardId}");
+                    return NotFound($"Tankkaart met id {model.FuelCardId} niet gevonden");
 
 
                 if (_vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
-                    return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
+                    return BadRequest($"Een voertuig met tankkaart id {model.FuelCardId} bestaat al");
             }
 
             if (_serieRepository.GetById((int)model.SeriesId) == null)
-                return NotFound($"No serie with id {model.SeriesId}");
+                return NotFound($"Serie met id {model.SeriesId} niet gevonden");
 
             return base.PostEntity(model);
         }
@@ -140,36 +140,36 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(VehicleModel model, int id)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             if (_modelRepository.GetById((int)model.ModelId) == null)
-                return NotFound($"No model with id {model.ModelId}");
+                return NotFound($"Model met id {model.ModelId} niet gevonden");
 
             if (_fuelTypeRepository.GetById((int)model.FuelTypeId) == null)
-                return NotFound($"No fuelType with id {model.FuelTypeId}");
+                return NotFound($"Brandstoftype met id {model.FuelTypeId} niet gevonden");
 
             if (_engineTypeRepository.GetById((int)model.EngineTypeId) == null)
-                return NotFound($"No motortype with id {model.EngineTypeId}");
+                return NotFound($"Motortype met id {model.EngineTypeId} niet gevonden");
 
             if (_doorTypeRepository.GetById((int)model.DoorTypeId) == null)
-                return NotFound($"No doortype with id {model.DoorTypeId}");
+                return NotFound($"Deurtype met id {model.DoorTypeId} niet gevonden");
 
             if (_categoryRepository.GetById((int)model.CategoryId) == null)
-                return NotFound($"No category with id {model.CategoryId}");
+                return NotFound($"Categorie met id {model.CategoryId} niet gevonden");
 
             if (model.FuelCardId != null)
             {
                 if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
-                    return NotFound($"No fuelcard with id {model.FuelCardId}");
+                    return NotFound($"Tankkaart met id {model.FuelCardId} niet gevonden");
 
                 var vehicle = _vehicleRepository.Find(v => v.FuelCard.Id == model.FuelCardId).FirstOrDefault();
 
                 if (vehicle != null && vehicle.Id != model.Id)
-                    return BadRequest($"A vehicle already exists with fuelcard id {model.FuelCardId}");
+                    return BadRequest($"Een voertuig met tankkaart id {model.FuelCardId} bestaat al");
             }
 
             if (_serieRepository.GetById((int)model.SeriesId) == null)
-                return NotFound($"No serie with id {model.SeriesId}");
+                return NotFound($"Serie met id {model.SeriesId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }

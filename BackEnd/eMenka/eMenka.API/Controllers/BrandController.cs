@@ -51,7 +51,7 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != model.Id)
-                return BadRequest("Id from model does not match id query parameter");
+                return BadRequest("Id van model komt niet overeen met id van query parameter");
 
             var brand = _brandMapper.MapModelToEntity(model);
             AddColors(brand, model);
@@ -59,7 +59,7 @@ namespace eMenka.API.Controllers
             var isUpdated = _brandRepository.Update(id, brand);
 
             if (!isUpdated)
-                return NotFound($"No brand found with id {id}");
+                return NotFound($"Geen merk gevonden met id {id}");
 
             return Ok();
         }

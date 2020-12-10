@@ -27,7 +27,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetSeriesByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return NotFound($"No brand with id {brandId}");
+                return NotFound($"Merk met id {brandId} niet gevonden");
 
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
 
@@ -45,7 +45,7 @@ namespace eMenka.API.Controllers
         public override IActionResult PostEntity(SerieModel model)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             return base.PostEntity(model);
         }
@@ -53,7 +53,7 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(SerieModel model, int id)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }
