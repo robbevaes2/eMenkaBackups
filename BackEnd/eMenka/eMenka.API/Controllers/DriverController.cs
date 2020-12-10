@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
@@ -28,6 +29,14 @@ namespace eMenka.API.Controllers
         {
             var entities = _driverRepository.GetAllAvailableDrivers();
             return Ok(entities.Select(_driverMapper.MapEntityToReturnModel));
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetDriverByEndDate(int range)
+        {
+            var drivers = _driverRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(drivers.Select(_driverMapper.MapEntityToReturnModel).ToList());
         }
 
         public override IActionResult PostEntity(DriverModel model)

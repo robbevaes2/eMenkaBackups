@@ -1,4 +1,6 @@
-﻿using eMenka.API.Mappers.FuelCardMappers;
+﻿using System;
+using System.Linq;
+using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -24,6 +26,14 @@ namespace eMenka.API.Controllers
             _vehicleRepository = vehicleRepository;
             _companyRepository = companyRepository;
             _fuelCardMapper = new FuelCardMapper();
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetFuelcardByEndDate(int range)
+        {
+            var fuelcards = _fuelCardRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(fuelcards.Select(_fuelCardMapper.MapEntityToReturnModel).ToList());
         }
 
         public override IActionResult PostEntity(FuelCardModel model)
