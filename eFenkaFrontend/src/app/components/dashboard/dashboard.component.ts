@@ -1,15 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Vehicle } from '../../models/vehicle/vehicle';
 import { ApiService } from '../../services/api.service';
-import { Serie } from 'src/app/models/serie/serie';
-import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
-import { DashboardModelChartComponent } from '../dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
