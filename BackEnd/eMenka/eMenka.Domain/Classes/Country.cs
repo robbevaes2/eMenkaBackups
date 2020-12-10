@@ -1,4 +1,7 @@
-﻿namespace eMenka.Domain.Classes
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace eMenka.Domain.Classes
 {
     public class Country
     {
@@ -8,5 +11,6 @@
         public string Nationality { get; set; }
         public bool POD { get; set; }
         public bool IsActive { get; set; }
+        public IEnumerable<City> Cities { get; set; }
     }
 }
