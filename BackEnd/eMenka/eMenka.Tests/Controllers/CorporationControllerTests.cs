@@ -7,23 +7,27 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class CorporationControllerTests
     {
+        private CorporationController _sut;
+        private Mock<ICorporationRepository> _corporationRepositoryMock;
+        private Mock<ICompanyRepository> _companyRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _corporationRepositoryMock = new Mock<ICorporationRepository>();
             _companyRepositoryMock = new Mock<ICompanyRepository>();
-            _sut = new CorporationController(_corporationRepositoryMock.Object, _companyRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new CorporationController(_corporationRepositoryMock.Object, _companyRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private CorporationController _sut;
-        private Mock<ICorporationRepository> _corporationRepositoryMock;
-        private Mock<ICompanyRepository> _companyRepositoryMock;
 
         [Test]
         public void GetAllCorporationsReturnsOkAndListOfAllCorporationsWhenEverythingIsCorrect()
@@ -63,7 +67,8 @@ namespace eMenka.Tests.Controllers
 
             _corporationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(corporation);
-
+            _mapperMock.Setup(m => m.Map<CorporationReturnModel>(It.IsAny<Corporation>()))
+                .Returns(new CorporationReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -127,7 +132,10 @@ namespace eMenka.Tests.Controllers
             };
 
             var company = new Company();
-
+            _mapperMock.Setup(m => m.Map<CorporationReturnModel>(It.IsAny<Corporation>()))
+                .Returns(new CorporationReturnModel());
+            _mapperMock.Setup(m => m.Map<Corporation>(It.IsAny<CorporationModel>()))
+                .Returns(new Corporation());
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 

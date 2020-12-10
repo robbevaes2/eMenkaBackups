@@ -9,12 +9,21 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class RecordControllersTests
     {
+        private RecordController _sut;
+        private Mock<IRecordRepository> _recordRepositoryMock;
+        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
+        private Mock<ICorporationRepository> _corporationRepositoryMock;
+        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
@@ -22,16 +31,13 @@ namespace eMenka.Tests.Controllers
             _fuelCardRepositoryMock = new Mock<IFuelCardRepository>();
             _corporationRepositoryMock = new Mock<ICorporationRepository>();
             _costAllocationRepositoryMock = new Mock<ICostAllocationRepository>();
+            _mapperMock = new Mock<IMapper>();
 
             _sut = new RecordController(_recordRepositoryMock.Object, _fuelCardRepositoryMock.Object,
-                _corporationRepositoryMock.Object, _costAllocationRepositoryMock.Object);
+                _corporationRepositoryMock.Object, _costAllocationRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private RecordController _sut;
-        private Mock<IRecordRepository> _recordRepositoryMock;
-        private Mock<IFuelCardRepository> _fuelCardRepositoryMock;
-        private Mock<ICorporationRepository> _corporationRepositoryMock;
-        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
+
 
         [Test]
         public void GetAllRecordsReturnsOkAndListOfAllRecordsWhenEverythingIsCorrect()
@@ -71,7 +77,8 @@ namespace eMenka.Tests.Controllers
 
             _recordRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(record);
-
+            _mapperMock.Setup(m => m.Map<RecordReturnModel>(It.IsAny<Record>()))
+                .Returns(new RecordReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -88,6 +95,9 @@ namespace eMenka.Tests.Controllers
 
             _recordRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()))
                 .Returns(records);
+
+            _mapperMock.Setup(m => m.Map<RecordReturnModel>(It.IsAny<Record>()))
+                .Returns(new RecordReturnModel());
 
             var result = _sut.GetRecordByEndDate(10) as OkObjectResult;
 
@@ -274,7 +284,10 @@ namespace eMenka.Tests.Controllers
                 .Returns(corporation);
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
-
+            _mapperMock.Setup(m => m.Map<RecordReturnModel>(It.IsAny<Record>()))
+                .Returns(new RecordReturnModel());
+            _mapperMock.Setup(m => m.Map<Record>(It.IsAny<RecordModel>()))
+                .Returns(new Record());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

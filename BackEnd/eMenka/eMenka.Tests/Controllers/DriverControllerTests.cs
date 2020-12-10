@@ -9,23 +9,28 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
+using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class DriverControllerTests
     {
+        private DriverController _sut;
+        private Mock<IDriverRepository> _driverRepositoryMock;
+        private Mock<IPersonRepository> _personRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _driverRepositoryMock = new Mock<IDriverRepository>();
             _personRepositoryMock = new Mock<IPersonRepository>();
-            _sut = new DriverController(_driverRepositoryMock.Object, _personRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new DriverController(_driverRepositoryMock.Object, _personRepositoryMock.Object, _mapperMock.Object);
         }
-
-        private DriverController _sut;
-        private Mock<IDriverRepository> _driverRepositoryMock;
-        private Mock<IPersonRepository> _personRepositoryMock;
 
         [Test]
         public void GetAllDriversReturnsOkAndListOfAllDriversWhenEverythingIsCorrect()
@@ -51,7 +56,8 @@ namespace eMenka.Tests.Controllers
 
             _driverRepositoryMock.Setup(m => m.GetAllAvailableDrivers())
                 .Returns(drivers);
-
+            _mapperMock.Setup(m => m.Map<DriverReturnModel>(It.IsAny<Driver>()))
+                .Returns(new DriverReturnModel());
             var result = _sut.GetAllAvailableDrivers() as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -82,7 +88,8 @@ namespace eMenka.Tests.Controllers
 
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
-
+            _mapperMock.Setup(m => m.Map<DriverReturnModel>(It.IsAny<Driver>()))
+                .Returns(new DriverReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -99,7 +106,8 @@ namespace eMenka.Tests.Controllers
 
             _driverRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Driver, bool>>>()))
                 .Returns(drivers);
-
+            _mapperMock.Setup(m => m.Map<DriverReturnModel>(It.IsAny<Driver>()))
+                .Returns(new DriverReturnModel());
             var result = _sut.GetDriverByEndDate(10) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -165,7 +173,10 @@ namespace eMenka.Tests.Controllers
 
             _personRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(person);
-
+            _mapperMock.Setup(m => m.Map<DriverReturnModel>(It.IsAny<Driver>()))
+                .Returns(new DriverReturnModel());
+            _mapperMock.Setup(m => m.Map<Driver>(It.IsAny<DriverModel>()))
+                .Returns(new Driver());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);

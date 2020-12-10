@@ -1,10 +1,10 @@
-using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using AutoMapper;
 
 namespace eMenka.API.Controllers
 {
@@ -13,14 +13,14 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly ISerieRepository _serieRepository;
-        private readonly SerieMapper _serieMapper;
+        private readonly IMapper _mapper;
 
-        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(
-            serieRepository, new SerieMapper())
+        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository, IMapper mapper) : base(
+            serieRepository, mapper)
         {
             _serieRepository = serieRepository;
             _brandRepository = brandRepository;
-            _serieMapper = new SerieMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("brand/{brandId}")]
@@ -31,7 +31,7 @@ namespace eMenka.API.Controllers
 
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
 
-            return Ok(series.Select(_serieMapper.MapEntityToReturnModel).ToList());
+            return Ok(series.Select(s=>_mapper.Map<SerieReturnModel>(s)).ToList());
         }
 
         [HttpGet("name/{serieName}")]
@@ -39,7 +39,7 @@ namespace eMenka.API.Controllers
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);
 
-            return Ok(series.Select(_serieMapper.MapEntityToReturnModel).ToList());
+            return Ok(series.Select(s=>_mapper.Map<SerieReturnModel>(s)).ToList());
         }
 
         public override IActionResult PostEntity(SerieModel model)

@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+﻿using AutoMapper;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -10,7 +10,7 @@ namespace eMenka.API.Controllers
     [Route("api/[controller]")]
     public class CountryController : GenericController<Country, CountryModel, CountryReturnModel>
     {
-        public CountryController(ICountryRepository countryRepository) : base(countryRepository, new CountryMapper())
+        public CountryController(ICountryRepository countryRepository, IMapper mapper) : base(countryRepository, mapper)
         {
         }
     }

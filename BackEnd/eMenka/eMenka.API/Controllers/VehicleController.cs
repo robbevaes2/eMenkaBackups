@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
-using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using AutoMapper;
 
 namespace eMenka.API.Controllers
 {
@@ -23,13 +22,12 @@ namespace eMenka.API.Controllers
         private readonly IModelRepository _modelRepository;
         private readonly ISerieRepository _serieRepository;
         private readonly IVehicleRepository _vehicleRepository;
-        private readonly VehicleMapper _vehicleMapper;
-
+        private readonly IMapper _mapper;
         public VehicleController(IVehicleRepository vehicleRepository, IBrandRepository brandRepository,
             IModelRepository modelRepository, IFuelTypeRepository fuelTypeRepository,
             IEngineTypeRepository engineTypeRepository, IDoorTypeRepository doorTypeRepository,
             ICategoryRepository categoryRepository, ISerieRepository serieRepository,
-            IFuelCardRepository fuelCardRepository, IRecordRepository recordRepository) : base(vehicleRepository, new VehicleMapper())
+            IFuelCardRepository fuelCardRepository, IRecordRepository recordRepository, IMapper mapper) : base(vehicleRepository, mapper)
         {
             _vehicleRepository = vehicleRepository;
             _brandRepository = brandRepository;
@@ -41,7 +39,7 @@ namespace eMenka.API.Controllers
             _fuelCardRepository = fuelCardRepository;
             _recordRepository = recordRepository;
             _serieRepository = serieRepository;
-            _vehicleMapper = new VehicleMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("brand/{brandId}")]
@@ -52,7 +50,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.BrandId == brandId);
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("available/brand/{brandId}")]
@@ -63,16 +61,16 @@ namespace eMenka.API.Controllers
 
             var records = _recordRepository.GetAll();
 
-            var vehicles = _vehicleRepository.GetAllAvailableVehiclesByBrandId(brandId, records.Select(r => r.FuelCardId).ToList());
+            var vehicles = _vehicleRepository.GetAllAvailableVehiclesByBrandId(brandId, records.Select(r => r.FuelCardId).ToList()).ToList();
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("available")]
         public IActionResult GetAllAvailableVehicles()
         {
             var vehicles = _vehicleRepository.GetAllAvailableVehicles();
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("brand/name/{brandName}")]
@@ -80,7 +78,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.Brand.Name == brandName);
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("model/{modelId}")]
@@ -91,7 +89,7 @@ namespace eMenka.API.Controllers
 
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.ModelId == modelId);
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("isActive/{isActive}")]
@@ -99,7 +97,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(vehicle => vehicle.IsActive == isActive);
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         [HttpGet("enddate/{range}")]
@@ -107,7 +105,7 @@ namespace eMenka.API.Controllers
         {
             var vehicles = _vehicleRepository.Find(v => v.EndDateDelivery >= DateTime.Now.Date && v.EndDateDelivery <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(vehicles.Select(_vehicleMapper.MapEntityToReturnModel).ToList());
+            return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(VehicleModel model)

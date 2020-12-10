@@ -1,3 +1,4 @@
+using AutoMapper;
 using eMenka.Data;
 using eMenka.Data.IRepositories;
 using eMenka.Data.Repositories;
@@ -37,6 +38,7 @@ namespace eMenka.API
                     });
             });
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IModelRepository, ModelRepository>();

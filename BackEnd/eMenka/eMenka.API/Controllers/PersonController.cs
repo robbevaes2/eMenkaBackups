@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using eMenka.API.Mappers.FuelCardMappers;
+using AutoMapper;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -13,7 +13,7 @@ namespace eMenka.API.Controllers
     {
         private readonly IPersonRepository _personRepository;
 
-        public PersonController(IPersonRepository personRepository) : base(personRepository, new PersonMapper())
+        public PersonController(IPersonRepository personRepository, IMapper mapper) : base(personRepository, mapper)
         {
             _personRepository = personRepository;
         }

@@ -9,26 +9,30 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class BrandControllerTests
     {
+        private BrandController _sut;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
+        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _brandRepositoryMock = new Mock<IBrandRepository>();
             _interiorColorRepositoryMock = new Mock<IInteriorColorRepository>();
             _exteriorColorRepositoryMock = new Mock<IExteriorColorRepository>();
+            _mapperMock = new Mock<IMapper>();
             _sut = new BrandController(_brandRepositoryMock.Object, _exteriorColorRepositoryMock.Object,
-                _interiorColorRepositoryMock.Object);
+                _interiorColorRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private BrandController _sut;
-        private Mock<IBrandRepository> _brandRepositoryMock;
-        private Mock<IExteriorColorRepository> _exteriorColorRepositoryMock;
-        private Mock<IInteriorColorRepository> _interiorColorRepositoryMock;
 
         [Test]
         public void GetAllBrandsReturnsOkAndListOfAllBrandsWhenEverythingIsCorrect()
@@ -69,9 +73,12 @@ namespace eMenka.Tests.Controllers
                 ExteriorColors = new List<ExteriorColor>(),
                 InteriorColors = new List<InteriorColor>()
             };
+            var brandReturnModel = new BrandReturnModel();
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
+            _mapperMock.Setup(m => m.Map<BrandReturnModel>(brand))
+                .Returns(brandReturnModel);
 
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
@@ -80,15 +87,19 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as BrandReturnModel;
             Assert.That(value, Is.Not.Null);
             _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _mapperMock.Verify(m => m.Map<BrandReturnModel>(brand), Times.Once);
         }
 
         [Test]
         public void GetBrandsByNameReturnsOkAndBrandWhenEverythingIsCorrect()
         {
-            var brands = new List<Brand>();
+            var brands = new List<Brand>(){new Brand(){Id = 0}};
+            var brandReturnModel = new BrandReturnModel();
 
             _brandRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Brand, bool>>>()))
                 .Returns(brands);
+            _mapperMock.Setup(m => m.Map<BrandReturnModel>(It.IsAny<Brand>()))
+                .Returns(brandReturnModel);
 
             var result = _sut.GetBrandsByName("name") as OkObjectResult;
 
@@ -97,6 +108,7 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as List<BrandReturnModel>;
             Assert.That(value, Is.Not.Null);
             _brandRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Brand, bool>>>()), Times.Once);
+            _brandRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Brand, bool>>>()), Times.Exactly(brands.Count));
         }
 
         [Test]
@@ -127,6 +139,10 @@ namespace eMenka.Tests.Controllers
                 .Returns(new ExteriorColor());
             _interiorColorRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(new InteriorColor());
+            _mapperMock.Setup(m => m.Map<Brand>(It.IsAny<BrandModel>()))
+                .Returns(new Brand());
+            _mapperMock.Setup(m => m.Map<BrandReturnModel>(It.IsAny<Brand>()))
+                .Returns(new BrandReturnModel());
 
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
@@ -134,6 +150,8 @@ namespace eMenka.Tests.Controllers
             Assert.That((BrandReturnModel)result.Value, Is.Not.Null);
 
             _brandRepositoryMock.Verify(m => m.Add(It.IsAny<Brand>()), Times.Once);
+            _mapperMock.Verify(m => m.Map<Brand>(It.IsAny<BrandModel>()), Times.Once);
+            _mapperMock.Verify(m => m.Map<BrandReturnModel>(It.IsAny<Brand>()), Times.Once);
         }
 
         [Test]

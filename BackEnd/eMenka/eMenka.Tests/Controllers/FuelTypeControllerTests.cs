@@ -7,21 +7,25 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class FuelTypeControllerTests
     {
+        private FuelTypeController _sut;
+        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _fuelTypeRepositoryMock = new Mock<IFuelTypeRepository>();
-            _sut = new FuelTypeController(_fuelTypeRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new FuelTypeController(_fuelTypeRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private FuelTypeController _sut;
-        private Mock<IFuelTypeRepository> _fuelTypeRepositoryMock;
 
         [Test]
         public void GetAllFuelTypesReturnsOkAndListOfAllFueltypesWhenEverythingIsCorrect()
@@ -61,7 +65,8 @@ namespace eMenka.Tests.Controllers
 
             _fuelTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(fuelType);
-
+            _mapperMock.Setup(m => m.Map<FuelTypeReturnModel>(It.IsAny<FuelType>()))
+                .Returns(new FuelTypeReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -92,7 +97,10 @@ namespace eMenka.Tests.Controllers
             {
                 Name = "name"
             };
-
+            _mapperMock.Setup(m => m.Map<FuelTypeReturnModel>(It.IsAny<FuelType>()))
+                .Returns(new FuelTypeReturnModel());
+            _mapperMock.Setup(m => m.Map<FuelType>(It.IsAny<FuelTypeModel>()))
+                .Returns(new FuelType());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
