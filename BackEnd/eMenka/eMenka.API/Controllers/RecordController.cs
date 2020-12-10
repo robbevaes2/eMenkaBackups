@@ -18,6 +18,7 @@ namespace eMenka.API.Controllers
         private readonly IRecordRepository _recordRepository;
         private readonly IMapper _mapper;
 
+
         public RecordController(IRecordRepository recordRepository, IFuelCardRepository fuelCardRepository,
             ICorporationRepository corporationRepository, ICostAllocationRepository costAllocationRepository, IMapper mapper) : base(
             recordRepository, mapper)

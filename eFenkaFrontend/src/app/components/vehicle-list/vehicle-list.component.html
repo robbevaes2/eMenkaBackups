@@ -15,6 +15,7 @@
 </div>
 <div class="table-responsive">
   <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <caption>Lijst van alle voertuigen</caption>
     <thead class="sticky-top">
     <tr>
       <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="vehicles" [sortBy]="headElements[i]" scope="col">

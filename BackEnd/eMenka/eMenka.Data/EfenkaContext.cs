@@ -1,10 +1,8 @@
 ﻿using eMenka.Domain.Classes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
 using eMenka.Domain.Enums;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eMenka.Data
 {
@@ -62,26 +60,26 @@ namespace eMenka.Data
                 .HasOne(v => v.FuelCard)
                 .WithOne(fc => fc.Vehicle)
                 .HasForeignKey<FuelCard>(fc => fc.VehicleId)
-                .OnDelete(DeleteBehavior.SetNull); ;
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Vehicle)
                 .WithOne(v => v.FuelCard)
                 .HasForeignKey<Vehicle>(v => v.FuelCardId)
-                .OnDelete(DeleteBehavior.SetNull); ;
+                .OnDelete(DeleteBehavior.SetNull);
 
             //Driver - FuelCard
             modelBuilder.Entity<FuelCard>()
                 .HasOne(fc => fc.Driver)
                 .WithOne(d => d.FuelCard)
                 .HasForeignKey<Driver>(d => d.FuelCardId)
-                .OnDelete(DeleteBehavior.SetNull); ;
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Driver>()
                 .HasOne(d => d.FuelCard)
                 .WithOne(fc => fc.Driver)
                 .HasForeignKey<FuelCard>(fc => fc.DriverId)
-                .OnDelete(DeleteBehavior.SetNull); ;
+                .OnDelete(DeleteBehavior.SetNull);
 
             //Record - FuelCard
             modelBuilder.Entity<Record>()
@@ -188,21 +186,13 @@ namespace eMenka.Data
 
             DataBaseSeeder.SeedData(modelBuilder);
 
-            //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 
-            var valueComparer = new ValueComparer<string[]>(
-                (s1, s2) => s1.SequenceEqual(s2),
-                s => s.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                c => c.ToArray());
-
-            var convertor = new EnumToStringConverter<SupplierType>();
-
             modelBuilder.Entity<Supplier>()
                 .Property(s => s.Types)
                 .HasConversion(
                     v => string.Join(",", v.Select(a => a.ToString())),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
                         .Select(a => (SupplierType)Enum.Parse(typeof(SupplierType), a)).ToArray()
-                ); //.Metadata.SetValueComparer(valueComparer);
+                );
             #endregion
 
         }

@@ -81,7 +81,7 @@ export class ApiService {
       );
     }
     console.log(error);
-    window.alert('Er ging iets verkeerd!');
+    window.alert(`${error.error}`);
     return throwError(error);
   }
 
