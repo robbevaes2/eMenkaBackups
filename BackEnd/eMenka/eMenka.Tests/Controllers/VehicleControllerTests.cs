@@ -27,11 +27,12 @@ namespace eMenka.Tests.Controllers
             _categoryRepositoryMock = new Mock<ICategoryRepository>();
             _fuelcardRepositoryMock = new Mock<IFuelCardRepository>();
             _serieRepositoryMock = new Mock<ISerieRepository>();
+            _recordRepositoryMock = new Mock<IRecordRepository>();
 
             _sut = new VehicleController(_vehicleRepositoryMock.Object, _brandRepositoryMock.Object,
                 _modelRepositoryMock.Object, _fuelTypeRepositoryMock.Object, _engineTypeRepositoryMock.Object,
                 _doorTypeRepositoryMock.Object, _categoryRepositoryMock.Object, _serieRepositoryMock.Object,
-                _fuelcardRepositoryMock.Object);
+                _fuelcardRepositoryMock.Object, _recordRepositoryMock.Object);
         }
 
         private VehicleController _sut;
@@ -44,6 +45,7 @@ namespace eMenka.Tests.Controllers
         private Mock<ICategoryRepository> _categoryRepositoryMock;
         private Mock<IFuelCardRepository> _fuelcardRepositoryMock;
         private Mock<ISerieRepository> _serieRepositoryMock;
+        private Mock<IRecordRepository> _recordRepositoryMock;
 
         [Test]
         public void GetAllVehiclesReturnsOkAndListOfAllVehiclesWhenEverythingIsCorrect()
@@ -63,6 +65,23 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetAllAvailableVehiclesReturnsOkAndListOfAllAvailableVehiclesWhenEverythingIsCorrect()
+        {
+            var vehicles = new List<Vehicle>();
+
+            _vehicleRepositoryMock.Setup(m => m.GetAllAvailableVehicles())
+                .Returns(vehicles);
+
+            var result = _sut.GetAllAvailableVehicles() as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehicles(), Times.Once);
+        }
+
+        [Test]
         public void GetVehicleByIdReturnsNotFoundWhenVehicleDoesNotExist()
         {
             Vehicle vehicle = null;
@@ -70,7 +89,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _vehicleRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -145,6 +164,54 @@ namespace eMenka.Tests.Controllers
         }
 
         [Test]
+        public void GetAvailableVehiclesByBrandIdReturnsNotFoundWhenBrandDoesNotExist()
+        {
+            Brand brand = null;
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+
+            var result = _sut.GetAvailableVehicleByBrandId(0) as NotFoundObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()), Times.Never);
+            _recordRepositoryMock.Verify(m => m.GetAll(), Times.Never);
+        }
+
+        [Test]
+        public void GetAvailableVehiclesByBrandIdReturnsOkAndVehicleWhenEverythingIsCorrect()
+        {
+            var brand = new Brand();
+            var vehicles = new List<Vehicle>();
+            var records = new List<Record>
+            {
+                new Record
+                {
+                    FuelCardId = 1
+                }
+            };
+
+            _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
+                .Returns(brand);
+            _vehicleRepositoryMock.Setup(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()))
+                .Returns(vehicles);
+            _recordRepositoryMock.Setup(m => m.GetAll())
+                .Returns(records);
+
+            var result = _sut.GetAvailableVehicleByBrandId(0) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+
+            _brandRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+            _vehicleRepositoryMock.Verify(m => m.GetAllAvailableVehiclesByBrandId(It.IsAny<int>(), It.IsAny<List<int?>>()), Times.Once);
+            _recordRepositoryMock.Verify(m => m.GetAll(), Times.Once);
+        }
+
+        [Test]
         public void GetVehiclesByBrandNameReturnsOkAndVehicleWhenEverythingIsCorrect()
         {
             var vehicles = new List<Vehicle>();
@@ -207,6 +274,23 @@ namespace eMenka.Tests.Controllers
                 .Returns(vehicles);
 
             var result = _sut.GetVehicleByStatus(true) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<VehicleReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _vehicleRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()), Times.Once);
+        }
+
+        [Test]
+        public void GetVehiclesByEndDateReturnsOkAndVehicleWhenEverythingIsCorrect()
+        {
+            var vehicles = new List<Vehicle>();
+
+            _vehicleRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Vehicle, bool>>>()))
+                .Returns(vehicles);
+
+            var result = _sut.GetVehiclesByEndDate(10) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
@@ -1584,7 +1668,7 @@ namespace eMenka.Tests.Controllers
             _vehicleRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(vehicle);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 

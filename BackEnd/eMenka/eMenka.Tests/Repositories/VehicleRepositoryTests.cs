@@ -1,4 +1,5 @@
-﻿using eMenka.Data.Repositories;
+﻿using System.Collections.Generic;
+using eMenka.Data.Repositories;
 using eMenka.Domain.Classes;
 using eMenka.Tests.Utils;
 using NUnit.Framework;
@@ -91,6 +92,36 @@ namespace eMenka.Tests.Repositories
             Assert.That(vehicleFromDatabase.FuelCard, Is.EqualTo(fuelCard));
             Assert.That(vehicleFromDatabase.FuelCard.Driver, Is.EqualTo(driver));
             Assert.That(vehicleFromDatabase.FuelCard.Driver.Person, Is.EqualTo(person));
+        }
+
+        [Test]
+        public void GetAllAvailableDriverReturnsAllDriversWithoutAFuelCard()
+        {
+            var vehicles = _sut.GetAllAvailableVehicles();
+
+            foreach (var vehicle in vehicles)
+            {
+                Assert.That(vehicle.FuelCardId, Is.Null);
+            }
+        }
+
+        [Test]
+        public void GetAllAvailableVehiclesByBrandIdReturnsAllDriversFromBrandWithAFuelCardThatIsNotInUse()
+        {
+            int brandid = 1;
+            int usedFuelCardId = 1;
+            var fuelCardsInRecord = new List<int?>
+            {
+                usedFuelCardId
+            };
+            var vehicles = _sut.GetAllAvailableVehiclesByBrandId(brandid, fuelCardsInRecord);
+
+            foreach (var vehicle in vehicles)
+            {
+                Assert.That(vehicle.FuelCardId, Is.Not.Null);
+                Assert.That(vehicle.BrandId, Is.EqualTo(brandid));
+                Assert.That(vehicle.FuelCardId, Is.Not.EqualTo(usedFuelCardId));
+            }
         }
 
         [Test]

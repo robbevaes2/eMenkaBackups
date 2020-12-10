@@ -17,6 +17,7 @@ import {CostAllocation} from '../models/cost-allocatoin/cost-allocation';
 import {Driver} from '../models/driver/driver';
 import {Person} from '../models/person/person';
 import {Company} from '../models/company/company';
+import { Supplier } from '../models/supplier/supplier';
 
 @Injectable({
   providedIn: 'root',
@@ -90,6 +91,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/');
   }
 
+  getAllAvailableVehicles(): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available');
+  }
+
   getVehicleById(id: number): Observable<Vehicle> {
     return this.getFromAPI<Vehicle>('vehicle/' + id);
   }
@@ -155,6 +160,10 @@ export class ApiService {
     return this.getFromAPI<Vehicle[]>('vehicle/brand/' + id);
   }
 
+  getAllAvailableVehiclesByBrandId(id: number): Observable<Vehicle[]> {
+    return this.getFromAPI<Vehicle[]>('vehicle/available/brand/' + id);
+  }
+
   // FuelCard
 
   getAllFuelCards(): Observable<FuelCard[]> {
@@ -165,8 +174,16 @@ export class ApiService {
     return this.getFromAPI<FuelCard>('fuelcard/' + id);
   }
 
+  addFuelcard(fuelCardModel: any): any {
+    return this.postToAPI('fuelcard/', fuelCardModel);
+  }
+
   updateFuelCard(id: number, FuelCardModel: any): any {
     return this.putToAPI('fuelcard/' + id, FuelCardModel);
+  }
+
+  deleteFuelCard(id: number): any {
+    return this.deleteFromAPI('fuelcard/' + id);
   }
 
   // FuelType
@@ -194,6 +211,7 @@ export class ApiService {
       catchError(this.handleError)
     );
   }
+
   // Corporation
 
   getAllCorporations(): Observable<Corporation[]> {
@@ -209,6 +227,10 @@ export class ApiService {
   // Driver
   getAllDrivers(): Observable<Driver[]> {
     return this.getFromAPI<Driver[]>('driver/');
+  }
+
+  getAllAvailableDrivers(): Observable<Driver[]> {
+    return this.getFromAPI<Driver[]>('driver/available');
   }
 
   getDriverById(id: number): Observable<Driver> {
@@ -239,5 +261,27 @@ export class ApiService {
 
   addPerson(personModel: any): any {
     return this.postToAPI('person/', personModel);
+  }
+
+  // Supplier
+
+  getAllSuppliers(): Observable<Supplier[]> {
+    return this.getFromAPI<Supplier[]>('supplier/');
+  }
+
+  getSupplierById(id: number): Observable<Supplier> {
+    return this.getFromAPI<Supplier>('supplier/' + id);
+  }
+
+  addSupplier(supplierModel: any): any {
+    return this.postToAPI('supplier/', supplierModel);
+  }
+
+  updateSupplier(id: number, supplierModel: any): any {
+    return this.putToAPI('supplier/' + id, supplierModel);
+  }
+
+  deleteSupplier(id: number): any {
+    return this.deleteFromAPI('supplier/' + id);
   }
 }

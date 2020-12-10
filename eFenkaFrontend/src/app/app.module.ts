@@ -25,6 +25,10 @@ import { DriverDetailsComponent } from './components/driver-details/driver-detai
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
 import { DashboardChartsComponent } from './components/dashboard-charts/dashboard-charts.component';
+import { NewFuelcardItemComponent } from './components/new-fuelcard-item/new-fuelcard-item.component';
+import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
+import { SupplierDetailsComponent } from './components/supplier-details/supplier-details.component';
+import { NewSupplierItemComponent } from './components/new-supplier-item/new-supplier-item.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { DashboardChartsComponent } from './components/dashboard-charts/dashboar
     DriverDetailsComponent,
     NewDriverItemComponent,
     DashboardModelChartComponent,
-    DashboardChartsComponent
+    DashboardChartsComponent,
+    NewFuelcardItemComponent,
+    SupplierListComponent,
+    SupplierDetailsComponent,
+    NewSupplierItemComponent
   ],
   imports: [
     BrowserModule,

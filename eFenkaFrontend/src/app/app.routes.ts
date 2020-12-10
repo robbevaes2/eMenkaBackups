@@ -12,6 +12,10 @@ import { NewDriverItemComponent } from './components/new-driver-item/new-driver-
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
 import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
+import {NewFuelcardItemComponent} from './components/new-fuelcard-item/new-fuelcard-item.component';
+import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
+import { SupplierDetailsComponent } from './components/supplier-details/supplier-details.component';
+import { NewSupplierItemComponent } from './components/new-supplier-item/new-supplier-item.component';
 
 export const appRoutes: Routes = [
   /*{
@@ -25,19 +29,19 @@ export const appRoutes: Routes = [
   {
     path: 'files/new',
     component: FileCreateComponent
-  },
+  },*/
   {
     path: 'suppliers',
     component: SupplierListComponent
   },
   {
+    path: 'suppliers/new',
+    component: NewSupplierItemComponent
+  },
+  {
     path: 'suppliers/:index',
     component: SupplierDetailsComponent
   },
-  {
-    path: 'suppliers/new',
-    component: SupplierCreateComponent
-  },*/
   {
     path: 'vehicles',
     component: VehicleListComponent
@@ -65,6 +69,10 @@ export const appRoutes: Routes = [
   {
     path: 'fuelcards',
     component: FuelcardListComponent
+  },
+  {
+    path: 'fuelcards/new',
+    component: NewFuelcardItemComponent
   },
   {
     path: 'fuelcards/:index',

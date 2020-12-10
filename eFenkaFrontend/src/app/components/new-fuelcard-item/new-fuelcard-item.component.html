@@ -1,0 +1,72 @@
+<div class="row mr-1">
+  <h1 class="col-8">Nieuwe tankkaart</h1>
+  <button type="button" class="btn btn-secondary col-md-2" (click)="navigateToFuelListComponent()">Annuleer</button>
+  <button type="button" class="btn btn-primary col-md-2" [disabled]="!form.valid" (click)="saveNewFuelcard(form)">
+    Opslaan
+  </button>
+</div>
+<div>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <label for="drivers">Bestuurder:</label>
+          <select name="drivers" id="drivers" formControlName="driver"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let driver of drivers"
+                    [value]="driver.id">
+              {{ driver.person ? driver.person.firstname + ' ' + driver.person.lastname : ''}}
+            </option>
+          </select><br>
+        </div>
+
+        <div class="form-group">
+          <label for="vehicles">Voertuig:</label>
+          <select name="vehicles" id="vehicles" formControlName="vehicle"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let vehicle of vehicles"
+                    [value]="vehicle.id">
+              {{ vehicle.licensePlate}}
+            </option>
+          </select><br>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Leverancier:</label>
+          <select name="company" id="company" formControlName="company"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+          </select><br>
+        </div>
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">Begindatum</label>
+            <input type="date" id="startDate" formControlName="startDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
+          <div class="form-group">
+            <label for="EndDate">EindDatum:</label>
+            <input type="date" id="EndDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pinCode">PIN Code:</label>
+          <input type="number" id="pinCode" formControlName="pinCode"
+                 class="col-md-12 browser-default form-control" placeholder="1234">
+        </div>
+        <div class="form-group">
+          <label for="number">Nummer:</label>
+          <input type="number" id="number" formControlName="number"
+                 class="col-md-12 browser-default form-control">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

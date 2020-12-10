@@ -1,13 +1,16 @@
 <div class="row mr-1">
   <h1 class="col-8">Nieuw dossier</h1>
-  <button type="button" class="btn btn-secondary col-md-2"  (click)="navigateToListRecordComponent()">Annuleer</button>
-  <button type="button" class="btn btn-success col-md-2" [disabled]="!form.valid" (click)="saveNewRecord(form)">Opslaan</button>
+  <button type="button" class="btn btn-secondary col-md-2" (click)="navigateToListRecordComponent()">Annuleer</button>
+  <button type="button" class="btn btn-primary col-md-2" [disabled]="!form.valid" (click)="saveNewRecord(form)">
+    Opslaan
+  </button>
 </div>
 <div>
   <form [formGroup]="form">
     <div class="row">
       <div class="col-md-6">
-        <div>
+
+        <div class="form-group">
           <label for="types">Type:</label>
           <select name="types" id="types" formControlName="type" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
@@ -16,81 +19,52 @@
             <option [value]="3">Privé</option>
           </select><br>
         </div>
-        <div>
-          <label for="licensePlate">Nummerplaat:</label>
-          <input disabled type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
-        </div>
-        <div>
-          <label for="chassis">Chassisnummer:</label>
-          <input disabled type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default custom-select">
-        </div>
-        <div>
+
+        <div class="form-group">
           <label for="registrationDate">Eerste registratie:</label>
-          <input type="date" id="registrationDate" formControlName="registrationDate" class="col-md-12 browser-default custom-select">
+          <input type="date" id="registrationDate" formControlName="registrationDate"
+                 class="col-md-12 browser-default form-control">
         </div>
-        <div>
+
+        <div class="form-group">
           <label for="countries">Land:</label>
-          <select name="countries" id="countries" formControlName="country" class="col-md-12 browser-default custom-select">
+          <select name="countries" id="countries" formControlName="country"
+                  class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
             <option *ngFor="let item of countries" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
-        <div>
-          <label for="startDate">StartDatum:</label>
-          <input type="Date" id="startDate" formControlName="startDate" class="col-md-12 browser-default custom-select">
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">StartDatum:</label>
+            <input type="Date" id="startDate" formControlName="startDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="endDate">EindDatum:</label>
+            <input type="Date" id="endDate" formControlName="endDate"
+                   class="col-md-12 browser-default form-control">
+          </div>
         </div>
-        <div>
+        <div class="form-group">
           <label for="corporations">Vennootschap:</label>
-          <select name="corporations" id="corporations" formControlName="corporation" class="col-md-12 browser-default custom-select">
+          <select name="corporations" id="corporations" formControlName="corporation"
+                  class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
             <option *ngFor="let item of corporations" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div>
-          <label for="brands">Merk:</label>
-          <select name="brands" id="brands" formControlName="brand" (change)="onChangedBrand($event)" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
-        <div>
-          <label for="fuelTypes">Brandstof Type:</label>
-          <select name="fuelTypes" id="fuelTypes" formControlName="fuelType" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of fuelTypes" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
-        <div>
-          <label for="models">Model:</label>
-          <select name="models" id="models" formControlName="model" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of models" [value]="item.id">{{ item.name }}</option>
-          </select><br>
-        </div>
-        <div>
-          <label for="vehicles">Voertuig:</label>
-          <select name="vehicles" id="vehicles" formControlName="vehicle" (change)="onChangedVehicle($event)" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of vehicles" [value]="item.id">{{ item.serie.name }} {{ item.doorType.name }}</option>
-          </select><br>
-        </div>
-        <div>
+        <div class="form-group">
           <label for="costAllocations">Kostenplaats:</label>
-          <select name="costAllocations" id="costAllocations" formControlName="costAllocation" class="col-md-12 browser-default custom-select">
+          <select name="costAllocations" id="costAllocations" formControlName="costAllocation"
+                  class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
             <option *ngFor="let item of costAllocations" [value]="item.id">{{ item.name }}</option>
           </select><br>
         </div>
-        <div>
-          <label for="fuelCards">Tankkaart:</label>
-          <select disabled name="fuelCards" id="fuelCards" formControlName="fuelCard" class="col-md-12 browser-default custom-select">
-            <option [ngValue]="null" disabled>-</option>
-            <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
-          </select><br>
-        </div>
-        <div>
+
+        <div class="form-group">
           <label for="usages">Gebruik:</label>
           <select name="usages" id="usages" formControlName="usage" class="col-md-12 browser-default custom-select">
             <option [ngValue]="null" disabled>-</option>
@@ -100,6 +74,69 @@
             <option [value]="4">RunIn</option>
           </select><br>
         </div>
+
+      </div>
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <label for="brands">Merk:</label>
+          <select name="brands" id="brands" formControlName="brand" (change)="onChangedBrand($event)"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of brands" [value]="item.id">{{ item.name }}</option>
+          </select><br>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="models">Model:</label>
+          <select name="models" id="models" formControlName="model" class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of models" [value]="item.id">{{ item.name }}</option>
+          </select><br>
+        </div>
+
+        <div class="form-group">
+          <label for="vehicles">Voertuig:</label>
+          <select name="vehicles" id="vehicles" formControlName="vehicle" (change)="onChangedVehicle($event)"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of vehicles"
+                    [value]="item.id">{{ item.serie.name }} {{ item.doorType.name }}</option>
+          </select><br>
+        </div>
+        <div class="form-group">
+          <label for="fuelTypes">Brandstof Type:</label>
+          <select disabled name="fuelTypes" id="fuelTypes" formControlName="fuelType"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of fuelTypes" [value]="item.id">{{ item.name }}</option>
+          </select><br>
+        </div>
+        <div class="form-group">
+          <label for="licensePlate">Nummerplaat:</label>
+          <input disabled type="text" id="licensePlate" formControlName="licensePlate"
+                 class="col-md-12 browser-default form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="chassis">Chassisnummer:</label>
+          <input disabled type="text" id="chassis" formControlName="chassis"
+                 class="col-md-12 browser-default form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="fuelCards">Tankkaart:</label>
+          <select disabled name="fuelCards" id="fuelCards" formControlName="fuelCard"
+                  class="col-md-12 browser-default custom-select">
+            <option [ngValue]="null" disabled>-</option>
+            <option *ngFor="let item of fuelCards" [value]="item.id">{{ item.id }}</option>
+          </select><br>
+        </div>
+
+
+
       </div>
     </div>
   </form>

@@ -1,7 +1,7 @@
 <h1 class="">Details voertuig</h1>
 <div class="row ml-1 mr-1">
   <button type="button" class="btn btn-secondary col-md-2" [disabled]="isEditable" (click)="navigateToListVehicleComponent()">Terug</button>
-  <button type="button" class="btn btn-success ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditVehicle(form)">
+  <button type="button" class="btn btn-primary ml-auto col-md-2" id="save-button" [disabled]="isEditable && !form.valid" (click)="saveEditVehicle(form)">
     <span>{{ isEditable ? 'Opslaan' : 'Bewerken' }}</span>
   </button>
   <button type="button" class="btn btn-danger col-md-2" *ngIf="isEditable" (click)="cancel()">Annuleer</button>
@@ -68,7 +68,7 @@
           </div>
           <div>
             <label for="kilometers">Kilometers:</label>
-            <input type="number" id="kilometers" min="0" formControlName="kilometers" class="col-md-12 browser-default custom-select">
+            <input type="number" id="kilometers" min="0" formControlName="kilometers" class="col-md-12 browser-default form-control">
           </div>
           <div>
             <label for="interiorColors">Kleur Interieur:</label>
@@ -81,39 +81,39 @@
       <div class="col-md-6">
         <div>
           <label for="volume">Volume:</label>
-          <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default custom-select">
+          <input type="number" id="volume" min="0" formControlName="volume" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="engineCapacity">Motor CC:</label>
-          <input type="number" id="engineCapacity" min="0" formControlName="engineCapacity" class="col-md-12 browser-default custom-select">
+          <input type="number" id="engineCapacity" min="0" formControlName="engineCapacity" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="enginePower">Vermogen PK:</label>
-          <input type="number" id="enginePower" min="0" formControlName="enginePower" class="col-md-12 browser-default custom-select">
+          <input type="number" id="enginePower" min="0" formControlName="enginePower" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="fiscalHP">Fiscale PK:</label>
-          <input type="number" id="fiscalHP" min="0" formControlName="fiscalHP" class="col-md-12 browser-default custom-select">
+          <input type="number" id="fiscalHP" min="0" formControlName="fiscalHP" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="emission">Emissie:</label>
-          <input type="number" id="emission" min="0" formControlName="emission" class="col-md-12 browser-default custom-select">
+          <input type="number" id="emission" min="0" formControlName="emission" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="endDate">Afleveringsdatum:</label>
-          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default custom-select">
+          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="licensePlate">Nummerplaat:</label>
-          <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default custom-select">
+          <input type="text" id="licensePlate" formControlName="licensePlate" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="chassis">Chassis:</label>
-          <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default custom-select">
+          <input type="text" id="chassis" formControlName="chassis" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="buildYear">Bouw Jaar:</label>
-          <input type="number" id="buildYear" min="0" formControlName="buildYear" class="col-md-12 browser-default custom-select">
+          <input type="number" id="buildYear" min="0" formControlName="buildYear" class="col-md-12 browser-default form-control">
         </div>
         <div>
           <label for="exteriorColors">Kleur Exterieur:</label>

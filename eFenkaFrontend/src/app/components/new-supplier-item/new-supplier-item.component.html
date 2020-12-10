@@ -1,0 +1,39 @@
+<div class="row mr-1">
+  <h1 class="col-8">Nieuwe leverancier</h1>
+  <button type="button" class="btn btn-danger col-md-2"  (click)="navigateToListSupplierComponent()">Annuleer</button>
+  <button type="button" class="btn btn-primary col-md-2" [disabled]="!form.valid" (click)="saveNewSupplier(form)">Opslaan</button>
+</div>
+<div>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Leverancier</h2>
+        <div class="form-group">
+          <label for="name">Naam:</label>
+          <input type="text" id="name" formControlName="name" class="col-md-12 browser-default form-control">
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label for="active" class="col-8">Actief:</label>
+            <input type="checkbox" id="active" formControlName="active" class="ml-auto col-md-1 col-2 browser-default form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label for="internal" class="col-8">Intern:</label>
+            <input type="checkbox" id="internal" formControlName="internal" class="ml-auto col-md-1 col-2 browser-default form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2>Types</h2>
+        <div formArrayName="supplierTypes" *ngFor="let order of typesFormArray.controls; let i = index">
+          <div class="row">
+            <label class="col-8" for="type">{{types[i]}}:</label>
+            <input type="checkbox" class="ml-auto col-md-1 col-2 browser-default form-control" [formControlName]="i">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
