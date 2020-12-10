@@ -28,7 +28,7 @@ namespace eMenka.API.Mapping
             CreateMap<FuelType,FuelTypeReturnModel>().MaxDepth(1);
             CreateMap<InteriorColor,InteriorColorReturnModel>().MaxDepth(1);
             CreateMap<Model,ModelReturnModel>().MaxDepth(1);
-            CreateMap<Series,SerieReturnModel>().MaxDepth(1);
+            CreateMap<Series, SerieReturnModel>();
             CreateMap<Vehicle, VehicleReturnModel>().PreserveReferences();
         }
     }

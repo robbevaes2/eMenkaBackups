@@ -1,17 +1,17 @@
-import { ApiService } from '../../services/api.service';
-import { FuelType } from 'src/app/models/fuel-type/fuel-type';
-import { Brand } from '../../models/brand/brand';
-import { Model } from '../../models/model/model';
-import { Vehicle } from '../../models/vehicle/vehicle';
-import { Country } from '../../models/country/country';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Corporation } from 'src/app/models/corporation/corporation';
-import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
-import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
-import { DatePipe } from '@angular/common';
-import { fromToDate } from 'src/app/services/from-to-date.validator';
+import {ApiService} from '../../services/api.service';
+import {FuelType} from 'src/app/models/fuel-type/fuel-type';
+import {Brand} from '../../models/brand/brand';
+import {Model} from '../../models/model/model';
+import {Vehicle} from '../../models/vehicle/vehicle';
+import {Country} from '../../models/country/country';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Corporation} from 'src/app/models/corporation/corporation';
+import {CostAllocation} from 'src/app/models/cost-allocatoin/cost-allocation';
+import {FuelCard} from 'src/app/models/fuel-card/fuel-card';
+import {DatePipe} from '@angular/common';
+import {fromToDate} from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-new-record-item',
@@ -72,7 +72,7 @@ export class NewRecordItemComponent implements OnInit {
     if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
       this.apiService.addRecord(this.mapToModel(form.value)).subscribe(() => {
         this.apiService.updateVehicle(Number(form.value.vehicle), this.mapToVehicle(form.value)).subscribe(() =>
-        this.navigateToListRecordComponent()
+          this.navigateToListRecordComponent()
         );
       });
     }
@@ -161,7 +161,7 @@ export class NewRecordItemComponent implements OnInit {
       engineTypeId: this.selectedVehicle.engineType.id,
       doorTypeId: this.selectedVehicle.doorType.id,
       fuelCardId: this.selectedVehicle.fuelCard.id,
-      seriesId: this.selectedVehicle.serie.id,
+      seriesId: this.selectedVehicle.series.id,
       volume: this.selectedVehicle.volume,
       fiscalHP: this.selectedVehicle.fiscalHP,
       emission: this.selectedVehicle.emission,

@@ -1,5 +1,6 @@
 ﻿using eMenka.API.Models.FuelCardModels.ReturnModels;
 using System;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
@@ -13,7 +14,7 @@ namespace eMenka.API.Models.VehicleModels.ReturnModels
         public DoorTypeReturnModel DoorType { get; set; }
         public CategoryReturnModel Category { get; set; }
         public FuelCardReturnModel FuelCard { get; set; }
-        public SerieReturnModel Serie { get; set; }
+        public SerieReturnModel Series { get; set; }
         public int? Volume { get; set; }
         public int? FiscalHP { get; set; }
         public int? Emission { get; set; }

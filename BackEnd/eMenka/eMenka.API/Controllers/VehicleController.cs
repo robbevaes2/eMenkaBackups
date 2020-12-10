@@ -61,7 +61,7 @@ namespace eMenka.API.Controllers
 
             var records = _recordRepository.GetAll();
 
-            var vehicles = _vehicleRepository.GetAllAvailableVehiclesByBrandId(brandId, records.Select(r => r.FuelCardId).ToList());
+            var vehicles = _vehicleRepository.GetAllAvailableVehiclesByBrandId(brandId, records.Select(r => r.FuelCardId).ToList()).ToList();
 
             return Ok(vehicles.Select(_mapper.Map<VehicleReturnModel>).ToList());
         }

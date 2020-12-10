@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using eMenka.Domain.Classes;
 
 namespace eMenka.API.Models.VehicleModels.ReturnModels
 {
