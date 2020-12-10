@@ -37,15 +37,15 @@
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.fuelType.name }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.startDate.toLocaleDateString() }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.endDate.toLocaleDateString() }}</td> -->
-        <td>{{ record.fuelCard.vehicle.licensePlate }}</td>
-        <td>{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
+        <td>{{ record.fuelCard?.vehicle.licensePlate }}</td>
+        <td>{{ record.fuelCard?.driver.person.firstname }} {{ record.fuelCard?.driver.person.lastname }}</td>
         <td>{{ record.corporation == null ? '': record.corporation.name }}</td>
         <td>{{ record.costAllocation == null ? '': record.costAllocation.name }}</td>
-        <td>{{ record.fuelCard.vehicle.brand.name }}</td>
-        <td>{{ record.fuelCard.vehicle.model.name }}</td>
+        <td>{{ record.fuelCard?.vehicle.brand.name }}</td>
+        <td>{{ record.fuelCard?.vehicle.model.name }}</td>
         <td>{{ record.usage }}</td>
-        <td>{{ record.fuelCard.vehicle.fuelType.name }}</td>
-        <td>{{ record.fuelCard.vehicle.registrationDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ record.fuelCard?.vehicle.fuelType.name }}</td>
+        <td>{{ record.fuelCard?.vehicle.registrationDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ record.endDate | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
