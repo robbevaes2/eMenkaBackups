@@ -90,15 +90,11 @@ export class FuelcardDetailsComponent implements OnInit {
     }
   }
 
-  /*
-
-    deleteFuelCard(): void {
-      if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
-        this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
-      }
+  deleteFuelCard(): void {
+    if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
+      this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
     }
-
-   */
+  }
 
   cancel(): void {
     this.fillForm();
@@ -172,11 +168,5 @@ export class FuelcardDetailsComponent implements OnInit {
 
   changeBlocked(): void {
     this.isBlocked = !this.isBlocked;
-  }
-
-  deleteFuelCard(): any {
-    this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => {
-      this.navigateToListComponent();
-    });
   }
 }
