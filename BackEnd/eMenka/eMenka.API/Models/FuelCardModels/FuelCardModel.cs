@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using eMenka.Domain.Classes;
 
 namespace eMenka.API.Models.FuelCardModels
 {
