@@ -33,7 +33,6 @@ export class DriverListComponent implements OnInit, AfterViewInit {
     this.apiService.getAllDrivers().subscribe(data => {
         this.drivers = data;
         this.mdbTable.setDataSource(this.drivers);
-        this.drivers = this.mdbTable.getDataSource();
         this.previous = this.mdbTable.getDataSource();
       }
     );
