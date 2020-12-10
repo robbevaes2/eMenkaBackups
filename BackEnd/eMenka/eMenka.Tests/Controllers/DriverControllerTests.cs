@@ -67,7 +67,7 @@ namespace eMenka.Tests.Controllers
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _driverRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -279,7 +279,7 @@ namespace eMenka.Tests.Controllers
             _driverRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(driver);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
