@@ -7,6 +7,7 @@ import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
 import {ApiService} from '../../services/api.service';
 import {DatePipe} from '@angular/common';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-fuelcard-details',
@@ -38,7 +39,7 @@ export class FuelcardDetailsComponent implements OnInit {
     this.apiService.getFuelCardById(fuelCardId).subscribe(fc => {
       this.selectedFuelCard = fc;
       this.isBlocked = this.selectedFuelCard.isBlocked;
-      this.apiService.getAllAvailableDrivers().subscribe(drivers => {
+      this.apiService.getAllDrivers().subscribe(drivers => {
         this.drivers = drivers;
         this.apiService.getAllCompanies().subscribe(companies => {
           this.companies = companies;
@@ -56,8 +57,10 @@ export class FuelcardDetailsComponent implements OnInit {
       driver: new FormControl(null, [Validators.required]),
       company: new FormControl(null, [Validators.required]),
       fuelType: new FormControl(null, [Validators.required, Validators.min(0)]),
-      startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
-      endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      duration: new FormGroup({
+        startDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+        endDate: new FormControl(null, [Validators.required, Validators.min(0)]),
+      }, {validators: fromToDate}),
       blockedDate: new FormControl(null, null),
       blockedReason: new FormControl(null, null)
 
@@ -87,15 +90,11 @@ export class FuelcardDetailsComponent implements OnInit {
     }
   }
 
-  /*
-
-    deleteFuelCard(): void {
-      if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
-        this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
-      }
+  deleteFuelCard(): void {
+    if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
+      this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
     }
-
-   */
+  }
 
   cancel(): void {
     this.fillForm();
@@ -114,14 +113,11 @@ export class FuelcardDetailsComponent implements OnInit {
     if (this.selectedFuelCard.company) {
       this.form.controls.company.setValue(this.selectedFuelCard?.company?.id);
     }
-    if (this.selectedFuelCard.startDate) {
-      const date = this.datepipe.transform(new Date(this.selectedFuelCard.startDate), 'yyyy-MM-dd');
-      this.form.controls.startDate.setValue(date);
-    }
-    if (this.selectedFuelCard.endDate) {
-      const date = this.datepipe.transform(new Date(this.selectedFuelCard.endDate), 'yyyy-MM-dd');
-      this.form.controls.endDate.setValue(date);
-    }
+    this.form.controls.duration.patchValue({
+      startDate: this.datepipe.transform(new Date(this.selectedFuelCard.startDate), 'yyyy-MM-dd'),
+      endDate: this.datepipe.transform(new Date(this.selectedFuelCard.endDate), 'yyyy-MM-dd')
+    });
+
     if (this.isBlocked) {
       const date = this.datepipe.transform(new Date(this.selectedFuelCard.blockingDate), 'yyyy-MM-dd');
       this.form.controls.blockedDate.setValue(date);
@@ -138,8 +134,8 @@ export class FuelcardDetailsComponent implements OnInit {
     this.form.controls.driver.disable();
     this.form.controls.company.disable();
     this.form.controls.fuelType.disable();
-    this.form.controls.startDate.disable();
-    this.form.controls.endDate.disable();
+    this.form.controls.duration.get('startDate').disable();
+    this.form.controls.duration.get('endDate').disable();
     this.form.controls.blockedReason.disable();
     this.form.controls.blockedDate.disable();
     this.isEditable = false;
@@ -147,8 +143,8 @@ export class FuelcardDetailsComponent implements OnInit {
 
   enableForm(): void {
     this.form.controls.driver.enable();
-    this.form.controls.startDate.enable();
-    this.form.controls.endDate.enable();
+    this.form.controls.duration.get('startDate').enable();
+    this.form.controls.duration.get('endDate').enable();
     this.form.controls.blockedReason.enable();
     this.form.controls.blockedDate.enable();
     this.isEditable = true;
@@ -158,24 +154,19 @@ export class FuelcardDetailsComponent implements OnInit {
     return {
       DriverId: values.driver,
       VehicleId: this.selectedFuelCard.vehicle.id,
-      StartDate: values.startDate,
-      EndDate: values.endDate,
+      StartDate: values.duration.startDate,
+      EndDate: values.duration.endDate,
       IsBlocked: this.isBlocked,
       BlockingDate: this.isBlocked ? values.blockedDate : null,
       BlockingReason: this.isBlocked ? values.blockedReason : null,
       PinCode: this.selectedFuelCard.pinCode,
       Number: this.selectedFuelCard.fuelCardNumber,
-      Id: this.selectedFuelCard.id
+      Id: this.selectedFuelCard.id,
+      companyId: this.selectedFuelCard.company.id,
     };
   }
 
   changeBlocked(): void {
     this.isBlocked = !this.isBlocked;
-  }
-
-  deleteFuelCard(): any {
-    this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => {
-      this.navigateToListComponent();
-    });
   }
 }

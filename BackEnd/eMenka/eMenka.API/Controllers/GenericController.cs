@@ -39,7 +39,7 @@ namespace eMenka.API.Controllers
         {
             var entity = _genericRepository.GetById(id);
             if (entity == null)
-                return NotFound();
+                return NotFound($"Geen {typeof(TEntity)} gevonden met id {id}");
 
             return Ok(_mapper.MapEntityToReturnModel(entity));
         }
@@ -62,12 +62,12 @@ namespace eMenka.API.Controllers
             if (!ModelState.IsValid) return BadRequest();
 
             if (id != model.Id)
-                return BadRequest("Id from model does not match query parameter id");
+                return BadRequest("Id van model komt niet overeen met id van query parameter");
 
             var isUpdated = _genericRepository.Update(id, _mapper.MapModelToEntity(model));
 
             if (!isUpdated)
-                return NotFound($"No {typeof(TEntity)} found with id {id}");
+                return NotFound($"Geen {typeof(TEntity)} gevonden met id {id}");
 
             return Ok();
         }
@@ -77,7 +77,7 @@ namespace eMenka.API.Controllers
         {
             var entity = _genericRepository.GetById(id);
             if (entity == null)
-                return NotFound();
+                return NotFound($"Geen {typeof(TEntity)} gevonden met id {id}");
 
             _genericRepository.Remove(entity);
             return Ok();

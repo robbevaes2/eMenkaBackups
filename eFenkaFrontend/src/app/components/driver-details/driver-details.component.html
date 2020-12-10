@@ -56,13 +56,15 @@
           <label for="driverLicenseType">Categorie:</label>
           <input type="text" id="driverLicenseType" min="0" formControlName="driverLicenseType" class="col-md-12 browser-default form-control">
         </div>
-        <div class="form-group">
-          <label for="startDate">Startdatum:</label>
-          <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
-        </div>
-        <div class="form-group">
-          <label for="endDate">Einddatum:</label>
-          <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+        <div formGroupName="duration">
+          <div class="form-group">
+            <label for="startDate">Startdatum:</label>
+            <input type="date" id="startDate" formControlName="startDate" class="col-md-12 browser-default form-control">
+          </div>
+          <div class="form-group">
+            <label for="endDate">Einddatum:</label>
+            <input type="date" id="endDate" formControlName="endDate" class="col-md-12 browser-default form-control">
+          </div>
         </div>
       </div>
     </div>

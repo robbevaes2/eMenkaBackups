@@ -11,6 +11,7 @@ import { Corporation } from 'src/app/models/corporation/corporation';
 import { CostAllocation } from 'src/app/models/cost-allocatoin/cost-allocation';
 import { FuelCard } from 'src/app/models/fuel-card/fuel-card';
 import { DatePipe } from '@angular/common';
+import { fromToDate } from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-new-record-item',
@@ -48,8 +49,10 @@ export class NewRecordItemComponent implements OnInit {
       chassis: new FormControl(null, [Validators.required]),
       registrationDate: new FormControl(null, [Validators.required]),
       country: new FormControl(null, [Validators.required]),
-      startDate: new FormControl(null, [Validators.required]),
-      endDate: new FormControl(null, [Validators.required]),
+      duration: new FormGroup({
+        startDate: new FormControl(null, [Validators.required]),
+        endDate: new FormControl(null, [Validators.required]),
+      }, {validators: fromToDate}),
       corporation: new FormControl(null, [Validators.required]),
       costAllocation: new FormControl(null, [Validators.required]),
       fuelCard: new FormControl(null, [Validators.required]),
@@ -120,7 +123,10 @@ export class NewRecordItemComponent implements OnInit {
   }
 
   setVehicle(brandId: number): void {
-    this.apiService.getAllAvailableVehiclesByBrandId(brandId).subscribe(data => this.vehicles = data);
+    this.apiService.getAllAvailableVehiclesByBrandId(brandId).subscribe(data => {
+      this.vehicles = data;
+      console.log(this.vehicles);
+    });
   }
 
   getCountries(): Country[] {
@@ -139,8 +145,8 @@ export class NewRecordItemComponent implements OnInit {
       corporationId: Number(values.corporation),
       costAllocationId: Number(values.costAllocation),
       term: Number(values.type) - 1,
-      startDate: new Date(values.startDate).toISOString(),
-      endDate: new Date(values.endDate).toISOString(),
+      startDate: new Date(values.duration.startDate).toISOString(),
+      endDate: new Date(values.duration.endDate).toISOString(),
       usage: Number(values.usage) - 1
     };
   }

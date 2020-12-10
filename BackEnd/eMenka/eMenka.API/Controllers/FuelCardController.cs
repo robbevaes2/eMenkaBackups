@@ -1,4 +1,6 @@
-﻿using eMenka.API.Mappers.FuelCardMappers;
+﻿using System;
+using System.Linq;
+using eMenka.API.Mappers.FuelCardMappers;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -26,6 +28,14 @@ namespace eMenka.API.Controllers
             _fuelCardMapper = new FuelCardMapper();
         }
 
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetFuelcardByEndDate(int range)
+        {
+            var fuelcards = _fuelCardRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(fuelcards.Select(_fuelCardMapper.MapEntityToReturnModel).ToList());
+        }
+
         public override IActionResult PostEntity(FuelCardModel model)
         {
             if (!ModelState.IsValid) return BadRequest();
@@ -33,17 +43,17 @@ namespace eMenka.API.Controllers
             var driver = _driverRepository.GetById((int)model.DriverId);
 
             if (driver == null)
-                return NotFound($"Driver with id {model.DriverId} not found");
+                return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
 
             var vehicle = _vehicleRepository.GetById((int)model.VehicleId);
 
             if (vehicle == null)
-                return NotFound($"Vehicle with id {model.VehicleId} not found");
+                return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
 
             var company = _companyRepository.GetById((int)model.CompanyId);
 
             if (company == null)
-                return NotFound($"Company with id {model.CompanyId} not found");
+                return NotFound($"Bedrijf met id {model.CompanyId} niet gevonden");
 
             var entity = _fuelCardMapper.MapModelToEntity(model);
 
@@ -59,10 +69,10 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(FuelCardModel model, int id)
         {
             if (_driverRepository.GetById((int)model.DriverId) == null)
-                return NotFound($"Driver with id {model.DriverId} not found");
+                return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
 
             if (_vehicleRepository.GetById((int)model.VehicleId) == null)
-                return NotFound($"Vehicles with id {model.VehicleId} not found");
+                return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }

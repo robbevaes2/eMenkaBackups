@@ -58,7 +58,7 @@ namespace eMenka.Tests.Controllers
             _recordRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(record);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _recordRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -79,6 +79,23 @@ namespace eMenka.Tests.Controllers
             var value = result.Value as RecordReturnModel;
             Assert.That(value, Is.Not.Null);
             _recordRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public void GetRecordsByEndDateReturnsOkAndRecordsWhenEverythingIsCorrect()
+        {
+            var records = new List<Record>();
+
+            _recordRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()))
+                .Returns(records);
+
+            var result = _sut.GetRecordByEndDate(10) as OkObjectResult;
+
+            Assert.That(result, Is.Not.Null);
+
+            var value = result.Value as List<RecordReturnModel>;
+            Assert.That(value, Is.Not.Null);
+            _recordRepositoryMock.Verify(m => m.Find(It.IsAny<Expression<Func<Record, bool>>>()), Times.Once);
         }
 
         [Test]
@@ -510,7 +527,7 @@ namespace eMenka.Tests.Controllers
             _recordRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(record);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 

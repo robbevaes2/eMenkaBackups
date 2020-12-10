@@ -50,7 +50,7 @@ namespace eMenka.Tests.Controllers
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _doorTypeRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -194,7 +194,7 @@ namespace eMenka.Tests.Controllers
             _doorTypeRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(doorType);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 
