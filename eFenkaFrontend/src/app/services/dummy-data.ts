@@ -126,8 +126,8 @@ export class DummyData {
       buildYear: 2008,
       kilometers: 20000,
       averageFuel: 20,
-      interiorColor: null,
-      exteriorColor: null
+      interiorColor: this.interiorColors[0],
+      exteriorColor: this.exteriorColors[0]
     },
     {
       id: 2,
@@ -144,7 +144,7 @@ export class DummyData {
       category: this.categories[1],
       fiscalHP: 20,
       emission: 20,
-      licensePlate: '1-abc-123',
+      licensePlate: '1-abc-124',
       endDateDelivery: new Date('10-10-2010'),
       isActive: true,
       chassis: 'SJNFDAE11U2117752',
@@ -153,8 +153,8 @@ export class DummyData {
       buildYear: 2008,
       kilometers: 20000,
       averageFuel: 20,
-      interiorColor: null,
-      exteriorColor: null
+      interiorColor: this.interiorColors[2],
+      exteriorColor: this.exteriorColors[2]
     }
   ];
 
@@ -165,7 +165,7 @@ export class DummyData {
 
   drivers = [
     new Driver(1, this.people[0], null, new Date('10-10-2010'), new Date('12-10-2010')),
-    new Driver(2, this.people[2], null, new Date('10-10-2010'), new Date('12-10-2010'))
+    new Driver(2, this.people[1], null, new Date('10-10-2010'), new Date('12-10-2010'))
   ];
 
   records = [
@@ -175,7 +175,7 @@ export class DummyData {
 
   fuelCards = [
     new FuelCard(1, 'number1', this.vehicles[0], this.drivers[0], this.records[0], this.companies[0], new Date('10-10-2010'), new Date('12-10-2010'), true),
-    new FuelCard(1, 'number1', this.vehicles[1], this.drivers[1], this.records[1], this.companies[1], new Date('10-10-2010'), new Date('12-10-2010'), true)
+    new FuelCard(1, 'number2', this.vehicles[1], this.drivers[1], this.records[1], this.companies[1], new Date('10-10-2010'), new Date('12-10-2010'), true)
   ];
 
   getBrands(): Brand[] {
