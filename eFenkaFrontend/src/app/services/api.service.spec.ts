@@ -7,7 +7,7 @@ import { Vehicle } from './../models/vehicle/vehicle';
 import { DoorType } from './../models/door-type/door-type';
 import { FuelType } from './../models/fuel-type/fuel-type';
 import { ApiService } from './api.service';
-import { TestBed, getTestBed, flush } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Model } from '../models/model/model';
 import { Serie } from '../models/serie/serie';
@@ -19,8 +19,6 @@ import { Category } from '../models/category/category';
 import { Country } from '../models/country/country';
 import { Driver } from '../models/driver/driver';
 import { Person } from '../models/person/person';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Gender } from '../enums/gender/gender.enum';
 
 describe('ApiService', () => {
   let injector: TestBed;

@@ -1,7 +1,7 @@
 import { Vehicle } from './vehicle';
 
-/*describe('Vehicle', () => {
+describe('Vehicle', () => {
   it('should create an instance', () => {
     expect(new Vehicle()).toBeTruthy();
   });
-});*/
+});
