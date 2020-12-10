@@ -1,0 +1,16 @@
+<div>
+    <h3 class="chart-title">Aantal voertuigen per model</h3>
+    <div class="graph-container">
+        <canvas mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasets"
+            [labels]="chartLabels"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+            height="143">
+        </canvas>
+    </div>
+</div>
