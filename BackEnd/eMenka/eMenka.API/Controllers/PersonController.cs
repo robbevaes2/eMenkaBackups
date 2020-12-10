@@ -24,7 +24,7 @@ namespace eMenka.API.Controllers
 
             if (person != null)
             {
-                return BadRequest($"Person with driverslicense {model.DriversLicenseNumber} already exists");
+                return BadRequest($"Een persoon met rijbewijs nummer {model.DriversLicenseNumber} bestaat al");
             }
 
             return base.PostEntity(model);
@@ -36,7 +36,7 @@ namespace eMenka.API.Controllers
 
             if (person != null && person.Id != model.Id)
             {
-                return BadRequest($"Person with driverslicense {model.DriversLicenseNumber} already exists");
+                return BadRequest($"Een persoon met rijbewijs nummer {model.DriversLicenseNumber} bestaat al");
             }
             return base.UpdateEntity(model, id);
         }

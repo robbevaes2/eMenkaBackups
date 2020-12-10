@@ -29,16 +29,16 @@ namespace eMenka.API.Controllers
         public override IActionResult PostEntity(RecordModel model)
         {
             if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
-                return NotFound($"Fuelcard with id {model.FuelCardId} not found");
+                return NotFound($"Tankkaart met id {model.FuelCardId} niet gevonden");
 
             if (_corporationRepository.GetById((int)model.CorporationId) == null)
-                return NotFound($"Corporation with id {model.CorporationId} not found");
+                return NotFound($"Vennootschap met id {model.CorporationId} niet gevonden");
 
             if (_costAllocationRepository.GetById((int)model.CostAllocationId) == null)
-                return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
+                return NotFound($"Kosten allocatie met id {model.CostAllocationId} niet gevonden");
 
             if (_recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault() != null)
-                return BadRequest($"A record already exists with fuelcard id {model.FuelCardId}");
+                return BadRequest($"Een dossier met tankkaart id {model.FuelCardId} bestaat al");
 
             return base.PostEntity(model);
         }
@@ -46,18 +46,18 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(RecordModel model, int id)
         {
             if (_fuelCardRepository.GetById((int)model.FuelCardId) == null)
-                return NotFound($"Fuelcard with id {model.FuelCardId} not found");
+                return NotFound($"Tankkaart met id {model.FuelCardId} niet gevonden");
 
             if (_corporationRepository.GetById((int)model.CorporationId) == null)
-                return NotFound($"Corporation with id {model.CorporationId} not found");
+                return NotFound($"Vennootschap met id {model.CorporationId} niet gevonden");
 
             if (_costAllocationRepository.GetById((int)model.CostAllocationId) == null)
-                return NotFound($"Cost allocation with id {model.CostAllocationId} not found");
+                return NotFound($"Kosten allocatie met id {model.CostAllocationId} niet gevonden");
 
             var record = _recordRepository.Find(r => r.FuelCard.Id == model.FuelCardId).FirstOrDefault();
 
             if (record != null && record.Id != model.Id)
-                return BadRequest($"A record already exists with fuelcard id {model.FuelCardId}");
+                return BadRequest($"Een dossier met tankkaart id {model.FuelCardId} bestaat al");
 
             return base.UpdateEntity(model, id);
         }
