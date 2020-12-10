@@ -17,6 +17,7 @@ import {CostAllocation} from '../models/cost-allocatoin/cost-allocation';
 import {Driver} from '../models/driver/driver';
 import {Person} from '../models/person/person';
 import {Company} from '../models/company/company';
+import { Supplier } from '../models/supplier/supplier';
 
 @Injectable({
   providedIn: 'root',
@@ -262,5 +263,25 @@ export class ApiService {
     return this.postToAPI('person/', personModel);
   }
 
+  // Supplier
 
+  getAllSuppliers(): Observable<Supplier[]> {
+    return this.getFromAPI<Supplier[]>('supplier/');
+  }
+
+  getSupplierById(id: number): Observable<Supplier> {
+    return this.getFromAPI<Supplier>('supplier/' + id);
+  }
+
+  addSupplier(supplierModel: any): any {
+    return this.postToAPI('supplier/', supplierModel);
+  }
+
+  updateSupplier(id: number, supplierModel: any): any {
+    return this.putToAPI('supplier/' + id, supplierModel);
+  }
+
+  deleteSupplier(id: number): any {
+    return this.deleteFromAPI('supplier/' + id);
+  }
 }

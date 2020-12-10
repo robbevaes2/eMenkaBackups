@@ -24,6 +24,9 @@ import { DriverListComponent } from './components/driver-list/driver-list.compon
 import { DriverDetailsComponent } from './components/driver-details/driver-details.component';
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import { NewFuelcardItemComponent } from './components/new-fuelcard-item/new-fuelcard-item.component';
+import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
+import { SupplierDetailsComponent } from './components/supplier-details/supplier-details.component';
+import { NewSupplierItemComponent } from './components/new-supplier-item/new-supplier-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { NewFuelcardItemComponent } from './components/new-fuelcard-item/new-fue
     DriverListComponent,
     DriverDetailsComponent,
     NewDriverItemComponent,
-    NewFuelcardItemComponent
+    NewFuelcardItemComponent,
+    SupplierListComponent,
+    SupplierDetailsComponent,
+    NewSupplierItemComponent
   ],
   imports: [
     BrowserModule,
