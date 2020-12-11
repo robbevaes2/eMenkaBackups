@@ -183,6 +183,9 @@ namespace eMenka.Data
             modelBuilder.Entity<Person>()
                 .HasIndex(p => p.DriversLicenseNumber)
                 .IsUnique();
+            modelBuilder.Entity<Supplier>()
+                .HasIndex(supplier => supplier.Name)
+                .IsUnique();
 
             DataBaseSeeder.SeedData(modelBuilder);
 

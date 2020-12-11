@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Record} from 'src/app/models/record/record';
 import {CostAllocation} from 'src/app/models/cost-allocatoin/cost-allocation';
 import {DatePipe} from '@angular/common';
-import { fromToDate } from 'src/app/services/from-to-date.validator';
+import {fromToDate} from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-record-details',
@@ -38,7 +38,8 @@ export class RecordDetailsComponent implements OnInit {
     private router: Router,
     private apiService: ApiService,
     private datepipe: DatePipe
-  ) { }
+  ) {
+  }
 
   async ngOnInit(): Promise<any> {
     const recordId = this.route.snapshot.params.index;
@@ -49,10 +50,17 @@ export class RecordDetailsComponent implements OnInit {
     this.costAllocations = await this.setCostAllocation();
     this.brands = await this.setBrand();
     this.fuelTypes = await this.setFuelType();
-    this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
-    this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
-    this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
-    this.selectedVehicle = this.vehicles.find(v => v.id === this.selectedRecord.fuelCard.vehicle.id);
+    if (this.selectedRecord.fuelCard) {
+      this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
+      this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
+      this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
+      this.selectedVehicle = this.vehicles.find(v => v.id === this.selectedRecord.fuelCard.vehicle.id);
+    } else {
+      this.models = [];
+      this.vehicles = [];
+      this.selectedBrand = null;
+      this.selectedVehicle = null;
+    }
     console.log(this.selectedRecord);
 
     this.form = new FormGroup({
@@ -86,7 +94,7 @@ export class RecordDetailsComponent implements OnInit {
     this.form.controls.chassis.setValue(this.selectedRecord.fuelCard.vehicle.chassis);
     this.form.controls.registrationDate.setValue(this.datepipe.transform(new Date(this.selectedRecord.fuelCard.vehicle.registrationDate), 'yyyy-MM-dd'));
 
-    if (this.selectedRecord.fuelCard.vehicle.country === null) {
+    if (this.selectedRecord.fuelCard?.vehicle.country === null) {
       this.form.controls.country.setValue('');
     } else {
       this.form.controls.country.setValue(this.selectedRecord.fuelCard.vehicle.country.id);
@@ -194,7 +202,7 @@ export class RecordDetailsComponent implements OnInit {
 
   deleteRecord(): void {
     if (confirm('Bent u zeker dat u dit dossier wilt opslaan?')) {
-        this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
+      this.apiService.deleteRecord(this.selectedRecord.id).subscribe(() => this.navigateToListRecordComponent());
     }
   }
 
