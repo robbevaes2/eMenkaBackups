@@ -88,7 +88,7 @@ export class VehicleDetailsComponent implements OnInit {
   fillForm(): void {
     this.form.controls.brand.setValue(this.selectedVehicle.brand?.id);
     this.form.controls.model.setValue(this.selectedVehicle.model?.id);
-    this.form.controls.serie.setValue(this.selectedVehicle.serie?.id);
+    this.form.controls.serie.setValue(this.selectedVehicle.series?.id);
     this.form.controls.engineType.setValue(this.selectedVehicle.engineType?.id);
     this.form.controls.doorType.setValue(this.selectedVehicle.doorType?.id);
     this.form.controls.fuelType.setValue(this.selectedVehicle.fuelType?.id);
