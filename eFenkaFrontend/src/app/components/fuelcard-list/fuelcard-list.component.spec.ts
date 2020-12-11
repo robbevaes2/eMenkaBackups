@@ -59,15 +59,15 @@ describe('FuelcardListComponent', () => {
   describe('#ngOnInit', () => {
     it('should set fuelCards  to all fuelCards  in database', () => {
       const fuelCards  = dummyData.getFuelCards();
-      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards))
+      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards));
 
       component.ngOnInit();
 
       expect(component.fuelCards ).toEqual(fuelCards);
       expect(component.mdbTable.getDataSource()).toEqual(fuelCards);
       expect(component.previous).toEqual(component.mdbTable.getDataSource());
-    })
-  })
+    });
+  });
 
   describe('#navigateToNewFuelCardComponent', () => {
     it('should navigate to new-fuelcard-item component', fakeAsync(() => {
@@ -81,7 +81,7 @@ describe('FuelcardListComponent', () => {
   describe('#navigateToFuelCardDetailsComponent', () => {
     it('should navigate to fuelcard-details component of the selected fuelcard', fakeAsync(() => {
       let fuelCardId = 1;
-      component.navigateToFuelCardDetailsComponent(1);
+      component.navigateToFuelCardDetailsComponent(fuelCardId);
 
       tick();
       expect(location.path()).toBe(`/fuelcards/${fuelCardId}`);
@@ -91,7 +91,7 @@ describe('FuelcardListComponent', () => {
   describe('#searchItems', () => {
     it('should only display fuelcards depending on the licenceplate', () => {
       const fuelCards = dummyData.getFuelCards();
-      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards))
+      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards));
       component.ngOnInit();
 
       component.searchText = '1-abc-123';
@@ -105,7 +105,7 @@ describe('FuelcardListComponent', () => {
 
     it('should display all fuelcards if you empty the search bar', () => {
       const fuelCards = dummyData.getFuelCards();
-      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards))
+      spy = spyOn(apiService, 'getAllFuelCards').and.returnValue(of(fuelCards));
       component.ngOnInit();
 
       component.searchText = '1-abc-123';
@@ -116,13 +116,13 @@ describe('FuelcardListComponent', () => {
       component.searchItems();
       expect(component.fuelCards).toEqual(fuelCards);
     });
-  })
+  });
 
   describe('#getFullName', () => {
     it('should return fullname of person', () => {
       let person = dummyData.getPeople()[0];
 
-      expect(component.getFullName(person)).toBe("joren vanderzande")
+      expect(component.getFullName(person)).toBe("joren vanderzande");
     });
   });
 });

@@ -27,8 +27,7 @@ export class VehicleListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getAllVehicles().subscribe(
-      data => {
+    this.apiService.getAllVehicles().subscribe(data => {
         this.vehicles = data;
 
         this.mdbTable.setDataSource(this.vehicles);
@@ -39,14 +38,6 @@ export class VehicleListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
-
-    /*
-    this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
-
-    this.mdbTablePagination.calculateFirstItemIndex();
-    this.mdbTablePagination.calculateLastItemIndex();
-    */
     this.cdRef.detectChanges();
   }
 
@@ -68,8 +59,5 @@ export class VehicleListComponent implements OnInit, AfterViewInit {
       this.vehicles = this.mdbTable.searchLocalDataBy(this.searchText);
       this.mdbTable.setDataSource(prev);
     }
-  }
-  dateToStringConverter(date: string): string {
-    return new Date(date).toLocaleDateString();
   }
 }

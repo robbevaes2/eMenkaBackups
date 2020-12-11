@@ -80,7 +80,7 @@ describe('DriverListComponent', () => {
   describe('#navigateToDriverDetailsComponent', () => {
     it('should navigate to driver-details component of the selected driver', fakeAsync(() => {
       let driverId = 1;
-      component.navigateToDriverDetailsComponent(1);
+      component.navigateToDriverDetailsComponent(driverId);
 
       tick();
       expect(location.path()).toBe(`/drivers/${driverId}`);

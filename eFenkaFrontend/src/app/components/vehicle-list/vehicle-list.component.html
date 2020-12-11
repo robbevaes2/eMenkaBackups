@@ -34,11 +34,11 @@
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalHP}}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.power}}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endDateDelivery.toLocaleDateString()}}</td> -->
-        <th >{{vehicle.brand.name}}</th>
-        <td >{{vehicle.model.name}}</td>
-        <td >{{vehicle.fuelType.name}}</td>
-        <td >{{vehicle.engineType.name}}</td>
-        <td >{{vehicle.doorType.name}}</td>
+        <th >{{vehicle.brand?.name}}</th>
+        <td >{{vehicle.model?.name}}</td>
+        <td >{{vehicle.fuelType?.name}}</td>
+        <td >{{vehicle.engineType?.name}}</td>
+        <td >{{vehicle.doorType?.name}}</td>
         <td >{{vehicle.volume}}</td>
         <td >{{vehicle.fiscalHP}}</td>
         <td >{{vehicle.enginePower == null ? 'not set': vehicle.enginePower}}</td>

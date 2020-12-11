@@ -12,7 +12,7 @@ import {ApiService} from 'src/app/services/api.service';
 export class RecordListComponent implements OnInit, AfterViewInit {
   records: Record[];
 
-  headNames: string[];
+  headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerste Registratie', 'Eind Datum'];
   headElements = ['fuelCard.vehicle.licensePlate', 'fuelCard.driver.person.firstname', 'corporation.name', 'costAllocatoin.name', 'fuelCard.vehicle.brand.name', 'fuelCard.vehicle.model.name', 'usage', 'fuelCard.vehicle.fuelType.name', 'startDate', 'endDate'];
 
   @ViewChild(MdbTableDirective, {static: true}) mdbTable: MdbTableDirective;
@@ -27,8 +27,6 @@ export class RecordListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.headNames = ['Nummerplaat', 'Bestuurder', 'Vennootschap', 'Kostenplaats', 'Merk', 'Wagen', 'Gebruik', 'Brandstof', 'Eerste Registratie', 'Eind Datum'];
-
     this.apiService.getAllRecords().subscribe(data => {
       this.records = data;
 
@@ -39,11 +37,6 @@ export class RecordListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.mdbTablePagination.setMaxVisibleItemsNumberTo(this.maxVisibleItems);
-
-    // this.mdbTablePagination.calculateFirstItemIndex();
-    // this.mdbTablePagination.calculateLastItemIndex();
-
     this.cdRef.detectChanges();
   }
 

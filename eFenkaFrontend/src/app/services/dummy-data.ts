@@ -85,15 +85,15 @@ export class DummyData {
 
   corporations = [
     new Corporation(1, 'eMenKa BV', 'Holland', this.companies[0], new Date('10-10-2010'), new Date('12-10-2010')),
-    new Corporation(1, 'eMenKa GmbH', 'Keulen', this.companies[1], new Date('10-10-2010'), new Date('12-10-2010')),
-    new Corporation(1, 'eMenKa NV', 'Antwerpen', this.companies[2], new Date('10-10-2010'), new Date('12-10-2010')),
+    new Corporation(2, 'eMenKa GmbH', 'Keulen', this.companies[1], new Date('10-10-2010'), new Date('12-10-2010')),
+    new Corporation(3, 'eMenKa NV', 'Antwerpen', this.companies[2], new Date('10-10-2010'), new Date('12-10-2010')),
   ];
 
   costAllocations = [
     new CostAllocation(1, 'Gent', 'VL', new Date('10-10-2010'), new Date('12-10-2010')),
-    new CostAllocation(1, 'Hasselt', 'Lim', new Date('10-10-2010'), new Date('12-10-2010')),
-    new CostAllocation(1, 'Brussel', 'Bxl', new Date('10-10-2010'), new Date('12-10-2010')),
-    new CostAllocation(1, 'Antwerpe', 'HQ', new Date('10-10-2010'), new Date('12-10-2010')),
+    new CostAllocation(2, 'Hasselt', 'Lim', new Date('10-10-2010'), new Date('12-10-2010')),
+    new CostAllocation(3, 'Brussel', 'Bxl', new Date('10-10-2010'), new Date('12-10-2010')),
+    new CostAllocation(4, 'Antwerpe', 'HQ', new Date('10-10-2010'), new Date('12-10-2010')),
   ];
 
   brands = [
