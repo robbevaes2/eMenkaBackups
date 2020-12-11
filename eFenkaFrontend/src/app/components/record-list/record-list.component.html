@@ -16,6 +16,7 @@
 </div>
 <div class="table-responsive">
   <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <caption>Lijst van alle dossiers</caption>
       <thead class="sticky-top">
         <tr>
             <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="records" [sortBy]="headElements[i]" scope="col">
@@ -26,6 +27,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let record of records; let i = index" (click)="navigateToRecordDetailsComponent(record.id)">
+<<<<<<< HEAD
         <!-- <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.licensePlate }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.driver.person.firstname }} {{ record.fuelCard.driver.person.lastname }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.corporation.name }}</td>
@@ -37,6 +39,8 @@
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.fuelCard.vehicle.fuelType.name }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.startDate.toLocaleDateString() }}</td>
         <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{ record.endDate.toLocaleDateString() }}</td> -->
+=======
+>>>>>>> origin/Development
         <td>{{ record.fuelCard?.vehicle.licensePlate }}</td>
         <td>{{ record.fuelCard?.driver.person.firstname }} {{ record.fuelCard?.driver.person.lastname }}</td>
         <td>{{ record.corporation == null ? '': record.corporation.name }}</td>
@@ -49,13 +53,6 @@
         <td>{{ record.endDate | date:'dd/MM/yyyy' }}</td>
       </tr>
     </tbody>
-    <!-- <tfoot>
-      <tr>
-        <td colspan="10">
-          <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="records"></mdb-table-pagination>
-        </td>
-      </tr>
-      </tfoot> -->
   </table>
 </div>
 

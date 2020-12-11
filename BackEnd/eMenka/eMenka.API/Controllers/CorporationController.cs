@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.RecordMappers;
+﻿using AutoMapper;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -12,8 +12,8 @@ namespace eMenka.API.Controllers
     {
         private readonly ICompanyRepository _companyRepository;
 
-        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository)
-            : base(corporationRepository, new CorporationMapper())
+        public CorporationController(ICorporationRepository corporationRepository, ICompanyRepository companyRepository, IMapper mapper)
+            : base(corporationRepository, mapper)
         {
             _companyRepository = companyRepository;
         }
@@ -22,7 +22,7 @@ namespace eMenka.API.Controllers
         public override IActionResult PostEntity([FromBody] CorporationModel model)
         {
             if (_companyRepository.GetById((int)model.CompanyId) == null)
-                return NotFound($"Company with id {model.CompanyId} not found");
+                return NotFound($"Bedrijf met id {model.CompanyId} niet gevonden");
 
             return base.PostEntity(model);
         }
@@ -30,7 +30,7 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(CorporationModel model, int id)
         {
             if (_companyRepository.GetById((int)model.CompanyId) == null)
-                return NotFound($"Company with id {model.CompanyId} not found");
+                return NotFound($"Bedrijf met id {model.CompanyId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }

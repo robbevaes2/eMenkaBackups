@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.VehicleMappers;
+﻿using AutoMapper;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -10,8 +10,8 @@ namespace eMenka.API.Controllers
     [Route("api/[controller]")]
     public class FuelTypeController : GenericController<FuelType, FuelTypeModel, FuelTypeReturnModel>
     {
-        public FuelTypeController(IFuelTypeRepository fuelTypeRepository) : base(fuelTypeRepository,
-            new FuelTypeMapper())
+        public FuelTypeController(IFuelTypeRepository fuelTypeRepository, IMapper mapper) : base(fuelTypeRepository,
+            mapper)
         {
 
         }

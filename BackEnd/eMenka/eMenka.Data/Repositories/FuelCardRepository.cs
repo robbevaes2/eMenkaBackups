@@ -20,15 +20,12 @@ namespace eMenka.Data.Repositories
         public override IEnumerable<FuelCard> GetAll()
         {
             return _context.FuelCards
+                .Include(fc=>fc.Refills)
                 .Include(fc => fc.Driver)
                 .ThenInclude(d => d.Person)
                 .Include(fc => fc.Company)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Brand)
-                .ThenInclude(b => b.InteriorColors)
-                .Include(fc => fc.Vehicle)
-                .ThenInclude(v => v.Brand)
-                .ThenInclude(b => b.ExteriorColors)
                 .Include(fc => fc.Vehicle)
                 .ThenInclude(v => v.Model)
                 .Include(fc => fc.Vehicle)

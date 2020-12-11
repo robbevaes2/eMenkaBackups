@@ -7,21 +7,27 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using AutoMapper;
+using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class CostAllocationControllerTests
     {
+        private CostAllocationController _sut;
+        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _costAllocationRepositoryMock = new Mock<ICostAllocationRepository>();
-            _sut = new CostAllocationController(_costAllocationRepositoryMock.Object);
+            _mapperMock= new Mock<IMapper>();
+            _sut = new CostAllocationController(_costAllocationRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private CostAllocationController _sut;
-        private Mock<ICostAllocationRepository> _costAllocationRepositoryMock;
 
         [Test]
         public void GetAllCostAllocationsReturnsOkAndListOfAllCostAllocationsWhenEverythingIsCorrect()
@@ -48,7 +54,7 @@ namespace eMenka.Tests.Controllers
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _costAllocationRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -61,7 +67,8 @@ namespace eMenka.Tests.Controllers
 
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
-
+            _mapperMock.Setup(m => m.Map<CostAllocationReturnModel>(It.IsAny<CostAllocation>()))
+                .Returns(new CostAllocationReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -92,7 +99,10 @@ namespace eMenka.Tests.Controllers
             {
                 Name = "name"
             };
-
+            _mapperMock.Setup(m => m.Map<CostAllocationReturnModel>(It.IsAny<CostAllocation>()))
+                .Returns(new CostAllocationReturnModel());
+            _mapperMock.Setup(m => m.Map<CostAllocation>(It.IsAny<CostAllocationModel>()))
+                .Returns(new CostAllocation());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -179,7 +189,7 @@ namespace eMenka.Tests.Controllers
             _costAllocationRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(costAllocation);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 

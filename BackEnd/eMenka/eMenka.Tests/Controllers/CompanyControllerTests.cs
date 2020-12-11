@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using AutoMapper;
+using eMenka.API.Models.VehicleModels;
+using eMenka.API.Models.VehicleModels.ReturnModels;
 
 namespace eMenka.Tests.Controllers
 {
@@ -17,11 +20,14 @@ namespace eMenka.Tests.Controllers
         public void Init()
         {
             _companyRepositoryMock = new Mock<ICompanyRepository>();
-            _sut = new CompanyController(_companyRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new CompanyController(_companyRepositoryMock.Object, _mapperMock.Object);
         }
 
         private CompanyController _sut;
         private Mock<ICompanyRepository> _companyRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
 
         [Test]
         public void GetAllCompaniesReturnsOkAndListOfAllCompaniesWhenEverythingIsCorrect()
@@ -48,7 +54,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _companyRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -61,7 +67,8 @@ namespace eMenka.Tests.Controllers
 
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
-
+            _mapperMock.Setup(m => m.Map<CompanyReturnModel>(It.IsAny<Company>()))
+                .Returns(new CompanyReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -92,7 +99,10 @@ namespace eMenka.Tests.Controllers
             {
                 Name = "name"
             };
-
+            _mapperMock.Setup(m => m.Map<CompanyReturnModel>(It.IsAny<Company>()))
+                .Returns(new CompanyReturnModel());
+            _mapperMock.Setup(m => m.Map<Company>(It.IsAny<CompanyModel>()))
+                .Returns(new Company());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -175,7 +185,7 @@ namespace eMenka.Tests.Controllers
             _companyRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(company);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 

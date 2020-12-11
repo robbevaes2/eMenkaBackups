@@ -1,4 +1,6 @@
-﻿using eMenka.API.Mappers.FuelCardMappers;
+﻿using System;
+using System.Linq;
+using AutoMapper;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -14,16 +16,24 @@ namespace eMenka.API.Controllers
         private readonly IFuelCardRepository _fuelCardRepository;
         private readonly IVehicleRepository _vehicleRepository;
         private readonly ICompanyRepository _companyRepository;
-        private readonly FuelCardMapper _fuelCardMapper;
+        private readonly IMapper _mapper;
 
         public FuelCardController(IFuelCardRepository fuelCardRepository, IDriverRepository driverRepository, ICompanyRepository companyRepository,
-            IVehicleRepository vehicleRepository) : base(fuelCardRepository, new FuelCardMapper())
+            IVehicleRepository vehicleRepository, IMapper mapper) : base(fuelCardRepository, mapper)
         {
             _fuelCardRepository = fuelCardRepository;
             _driverRepository = driverRepository;
             _vehicleRepository = vehicleRepository;
             _companyRepository = companyRepository;
-            _fuelCardMapper = new FuelCardMapper();
+            _mapper = mapper;
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetFuelcardByEndDate(int range)
+        {
+            var fuelcards = _fuelCardRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(fuelcards.Select(_mapper.Map<FuelCardReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(FuelCardModel model)
@@ -33,19 +43,25 @@ namespace eMenka.API.Controllers
             var driver = _driverRepository.GetById((int)model.DriverId);
 
             if (driver == null)
-                return NotFound($"Driver with id {model.DriverId} not found");
+                return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Driver.Id == model.DriverId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met bestuurder id {model.DriverId} bestaat al");
 
             var vehicle = _vehicleRepository.GetById((int)model.VehicleId);
 
             if (vehicle == null)
-                return NotFound($"Vehicle with id {model.VehicleId} not found");
+                return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Vehicle.Id == model.VehicleId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met voertuig id {model.VehicleId} bestaat al");
 
             var company = _companyRepository.GetById((int)model.CompanyId);
 
             if (company == null)
-                return NotFound($"Company with id {model.CompanyId} not found");
+                return NotFound($"Bedrijf met id {model.CompanyId} niet gevonden");
 
-            var entity = _fuelCardMapper.MapModelToEntity(model);
+            var entity = _mapper.Map<FuelCard>(model);
 
             _fuelCardRepository.Add(entity);
 
@@ -53,16 +69,22 @@ namespace eMenka.API.Controllers
             driver.FuelCardId = entity.Id;
             _vehicleRepository.Update(vehicle.Id, vehicle);
 
-            return Ok(_fuelCardMapper.MapEntityToReturnModel(entity));
+            return Ok(_mapper.Map<FuelCardReturnModel>(entity));
         }
 
         public override IActionResult UpdateEntity(FuelCardModel model, int id)
         {
             if (_driverRepository.GetById((int)model.DriverId) == null)
-                return NotFound($"Driver with id {model.DriverId} not found");
+                return NotFound($"Bestuurder met id {model.DriverId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Driver.Id == model.DriverId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met bestuurder id {model.DriverId} bestaat al");
 
             if (_vehicleRepository.GetById((int)model.VehicleId) == null)
-                return NotFound($"Vehicles with id {model.VehicleId} not found");
+                return NotFound($"Voertuig met id {model.VehicleId} niet gevonden");
+
+            if (_fuelCardRepository.Find(r => r.Vehicle.Id == model.VehicleId).FirstOrDefault() != null)
+                return BadRequest($"Een tankkaart met voertuig id {model.VehicleId} bestaat al");
 
             return base.UpdateEntity(model, id);
         }

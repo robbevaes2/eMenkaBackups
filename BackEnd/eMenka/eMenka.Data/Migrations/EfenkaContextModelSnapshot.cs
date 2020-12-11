@@ -213,6 +213,7528 @@ namespace eMenka.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("eMenka.Domain.Classes.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("City");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2000
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CountryId = 2,
+                            Name = "Amsterdam",
+                            ZipCode = 1077
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CountryId = 1,
+                            Name = "Aaigem",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CountryId = 1,
+                            Name = "Aalbeke",
+                            ZipCode = 8511
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CountryId = 1,
+                            Name = "Aalst",
+                            ZipCode = 9300
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CountryId = 1,
+                            Name = "Aalst (Limb.)",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CountryId = 1,
+                            Name = "Aalter",
+                            ZipCode = 9880
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CountryId = 1,
+                            Name = "Aarschot",
+                            ZipCode = 3200
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CountryId = 1,
+                            Name = "Aarsele",
+                            ZipCode = 8700
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CountryId = 1,
+                            Name = "Aartrijke",
+                            ZipCode = 8211
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CountryId = 1,
+                            Name = "Aartselaar",
+                            ZipCode = 2630
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CountryId = 1,
+                            Name = "Abée",
+                            ZipCode = 4557
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CountryId = 1,
+                            Name = "Abolens",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CountryId = 1,
+                            Name = "Achel",
+                            ZipCode = 3930
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CountryId = 1,
+                            Name = "Achêne",
+                            ZipCode = 5590
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CountryId = 1,
+                            Name = "Achet",
+                            ZipCode = 5362
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CountryId = 1,
+                            Name = "Acosse",
+                            ZipCode = 4219
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CountryId = 1,
+                            Name = "Acoz",
+                            ZipCode = 6280
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CountryId = 1,
+                            Name = "Adegem",
+                            ZipCode = 9991
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CountryId = 1,
+                            Name = "Adinkerke",
+                            ZipCode = 8660
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CountryId = 1,
+                            Name = "Affligem",
+                            ZipCode = 1790
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CountryId = 1,
+                            Name = "Afsnee",
+                            ZipCode = 9051
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CountryId = 1,
+                            Name = "Agimont",
+                            ZipCode = 5544
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CountryId = 1,
+                            Name = "Aineffe",
+                            ZipCode = 4317
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CountryId = 1,
+                            Name = "Aische-en-Refail",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CountryId = 1,
+                            Name = "Aiseau",
+                            ZipCode = 6250
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CountryId = 1,
+                            Name = "Aiseau-Presles",
+                            ZipCode = 6250
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CountryId = 1,
+                            Name = "Aisemont",
+                            ZipCode = 5070
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CountryId = 1,
+                            Name = "Alken",
+                            ZipCode = 3570
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CountryId = 1,
+                            Name = "Alle",
+                            ZipCode = 5550
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CountryId = 1,
+                            Name = "Alleur",
+                            ZipCode = 4432
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CountryId = 1,
+                            Name = "Alsemberg",
+                            ZipCode = 1652
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CountryId = 1,
+                            Name = "Alveringem",
+                            ZipCode = 8690
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CountryId = 1,
+                            Name = "Amay",
+                            ZipCode = 4540
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CountryId = 1,
+                            Name = "Amberloup",
+                            ZipCode = 6680
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CountryId = 1,
+                            Name = "Amblève",
+                            ZipCode = 4770
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CountryId = 1,
+                            Name = "Ambly",
+                            ZipCode = 6953
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CountryId = 1,
+                            Name = "Ambresin",
+                            ZipCode = 4219
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CountryId = 1,
+                            Name = "Amel",
+                            ZipCode = 4770
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CountryId = 1,
+                            Name = "Amonines",
+                            ZipCode = 6997
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CountryId = 1,
+                            Name = "Amougies",
+                            ZipCode = 7750
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CountryId = 1,
+                            Name = "Ampsin",
+                            ZipCode = 4540
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CountryId = 1,
+                            Name = "Andenne",
+                            ZipCode = 5300
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CountryId = 1,
+                            Name = "Anderlecht",
+                            ZipCode = 1070
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CountryId = 1,
+                            Name = "Anderlues",
+                            ZipCode = 6150
+                        },
+                        new
+                        {
+                            Id = 47,
+                            CountryId = 1,
+                            Name = "Andrimont",
+                            ZipCode = 4821
+                        },
+                        new
+                        {
+                            Id = 48,
+                            CountryId = 1,
+                            Name = "Angleur",
+                            ZipCode = 4031
+                        },
+                        new
+                        {
+                            Id = 49,
+                            CountryId = 1,
+                            Name = "Angre",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 50,
+                            CountryId = 1,
+                            Name = "Angreau",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 51,
+                            CountryId = 1,
+                            Name = "Anhée",
+                            ZipCode = 5537
+                        },
+                        new
+                        {
+                            Id = 52,
+                            CountryId = 1,
+                            Name = "Anlier",
+                            ZipCode = 6721
+                        },
+                        new
+                        {
+                            Id = 53,
+                            CountryId = 1,
+                            Name = "Anloy",
+                            ZipCode = 6890
+                        },
+                        new
+                        {
+                            Id = 54,
+                            CountryId = 1,
+                            Name = "Annevoie-Rouillon",
+                            ZipCode = 5537
+                        },
+                        new
+                        {
+                            Id = 55,
+                            CountryId = 1,
+                            Name = "Ans",
+                            ZipCode = 4430
+                        },
+                        new
+                        {
+                            Id = 56,
+                            CountryId = 1,
+                            Name = "Anseremme",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 57,
+                            CountryId = 1,
+                            Name = "Anseroeul",
+                            ZipCode = 7750
+                        },
+                        new
+                        {
+                            Id = 58,
+                            CountryId = 1,
+                            Name = "Anthée",
+                            ZipCode = 5520
+                        },
+                        new
+                        {
+                            Id = 59,
+                            CountryId = 1,
+                            Name = "Antheit",
+                            ZipCode = 4520
+                        },
+                        new
+                        {
+                            Id = 60,
+                            CountryId = 1,
+                            Name = "Anthisnes",
+                            ZipCode = 4160
+                        },
+                        new
+                        {
+                            Id = 61,
+                            CountryId = 1,
+                            Name = "Antoing",
+                            ZipCode = 7640
+                        },
+                        new
+                        {
+                            Id = 63,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2018
+                        },
+                        new
+                        {
+                            Id = 64,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2020
+                        },
+                        new
+                        {
+                            Id = 65,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2030
+                        },
+                        new
+                        {
+                            Id = 66,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2040
+                        },
+                        new
+                        {
+                            Id = 67,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2050
+                        },
+                        new
+                        {
+                            Id = 68,
+                            CountryId = 1,
+                            Name = "Antwerpen",
+                            ZipCode = 2060
+                        },
+                        new
+                        {
+                            Id = 69,
+                            CountryId = 1,
+                            Name = "Anvaing",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 70,
+                            CountryId = 1,
+                            Name = "Anzegem",
+                            ZipCode = 8570
+                        },
+                        new
+                        {
+                            Id = 71,
+                            CountryId = 1,
+                            Name = "Appels",
+                            ZipCode = 9200
+                        },
+                        new
+                        {
+                            Id = 72,
+                            CountryId = 1,
+                            Name = "Appelterre-Eichem",
+                            ZipCode = 9400
+                        },
+                        new
+                        {
+                            Id = 73,
+                            CountryId = 1,
+                            Name = "Arbre (Ht.)",
+                            ZipCode = 7811
+                        },
+                        new
+                        {
+                            Id = 74,
+                            CountryId = 1,
+                            Name = "Arbre (Nam.)",
+                            ZipCode = 5170
+                        },
+                        new
+                        {
+                            Id = 75,
+                            CountryId = 1,
+                            Name = "Arbrefontaine",
+                            ZipCode = 4990
+                        },
+                        new
+                        {
+                            Id = 76,
+                            CountryId = 1,
+                            Name = "Arc-Ainières",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 77,
+                            CountryId = 1,
+                            Name = "Archennes",
+                            ZipCode = 1390
+                        },
+                        new
+                        {
+                            Id = 78,
+                            CountryId = 1,
+                            Name = "Arc-Wattripont",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 79,
+                            CountryId = 1,
+                            Name = "Ardooie",
+                            ZipCode = 8850
+                        },
+                        new
+                        {
+                            Id = 80,
+                            CountryId = 1,
+                            Name = "Arendonk",
+                            ZipCode = 2370
+                        },
+                        new
+                        {
+                            Id = 81,
+                            CountryId = 1,
+                            Name = "Argenteau",
+                            ZipCode = 4601
+                        },
+                        new
+                        {
+                            Id = 82,
+                            CountryId = 1,
+                            Name = "Arlon",
+                            ZipCode = 6700
+                        },
+                        new
+                        {
+                            Id = 83,
+                            CountryId = 1,
+                            Name = "Arquennes",
+                            ZipCode = 7181
+                        },
+                        new
+                        {
+                            Id = 84,
+                            CountryId = 1,
+                            Name = "Arsimont",
+                            ZipCode = 5060
+                        },
+                        new
+                        {
+                            Id = 85,
+                            CountryId = 1,
+                            Name = "Arville",
+                            ZipCode = 6870
+                        },
+                        new
+                        {
+                            Id = 86,
+                            CountryId = 1,
+                            Name = "As",
+                            ZipCode = 3665
+                        },
+                        new
+                        {
+                            Id = 87,
+                            CountryId = 1,
+                            Name = "Aspelare",
+                            ZipCode = 9404
+                        },
+                        new
+                        {
+                            Id = 88,
+                            CountryId = 1,
+                            Name = "Asper",
+                            ZipCode = 9890
+                        },
+                        new
+                        {
+                            Id = 89,
+                            CountryId = 1,
+                            Name = "Asquillies",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 92,
+                            CountryId = 1,
+                            Name = "Asse",
+                            ZipCode = 1730
+                        },
+                        new
+                        {
+                            Id = 93,
+                            CountryId = 1,
+                            Name = "Assebroek",
+                            ZipCode = 8310
+                        },
+                        new
+                        {
+                            Id = 94,
+                            CountryId = 1,
+                            Name = "Assenede",
+                            ZipCode = 9960
+                        },
+                        new
+                        {
+                            Id = 95,
+                            CountryId = 1,
+                            Name = "Assenois",
+                            ZipCode = 6860
+                        },
+                        new
+                        {
+                            Id = 96,
+                            CountryId = 1,
+                            Name = "Assent",
+                            ZipCode = 3460
+                        },
+                        new
+                        {
+                            Id = 97,
+                            CountryId = 1,
+                            Name = "Assesse",
+                            ZipCode = 5330
+                        },
+                        new
+                        {
+                            Id = 98,
+                            CountryId = 1,
+                            Name = "Astene",
+                            ZipCode = 9800
+                        },
+                        new
+                        {
+                            Id = 99,
+                            CountryId = 1,
+                            Name = "Ath",
+                            ZipCode = 7800
+                        },
+                        new
+                        {
+                            Id = 100,
+                            CountryId = 1,
+                            Name = "Athis",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 101,
+                            CountryId = 1,
+                            Name = "Athus",
+                            ZipCode = 6791
+                        },
+                        new
+                        {
+                            Id = 102,
+                            CountryId = 1,
+                            Name = "Attenhoven",
+                            ZipCode = 3404
+                        },
+                        new
+                        {
+                            Id = 103,
+                            CountryId = 1,
+                            Name = "Attenrode",
+                            ZipCode = 3384
+                        },
+                        new
+                        {
+                            Id = 104,
+                            CountryId = 1,
+                            Name = "Attert",
+                            ZipCode = 6717
+                        },
+                        new
+                        {
+                            Id = 105,
+                            CountryId = 1,
+                            Name = "Attre",
+                            ZipCode = 7941
+                        },
+                        new
+                        {
+                            Id = 106,
+                            CountryId = 1,
+                            Name = "Aubange",
+                            ZipCode = 6790
+                        },
+                        new
+                        {
+                            Id = 107,
+                            CountryId = 1,
+                            Name = "Aubechies",
+                            ZipCode = 7972
+                        },
+                        new
+                        {
+                            Id = 108,
+                            CountryId = 1,
+                            Name = "Aubel",
+                            ZipCode = 4880
+                        },
+                        new
+                        {
+                            Id = 109,
+                            CountryId = 1,
+                            Name = "Aublain",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 110,
+                            CountryId = 1,
+                            Name = "Auby-sur-Semois",
+                            ZipCode = 6880
+                        },
+                        new
+                        {
+                            Id = 112,
+                            CountryId = 1,
+                            Name = "Audregnies",
+                            ZipCode = 7382
+                        },
+                        new
+                        {
+                            Id = 113,
+                            CountryId = 1,
+                            Name = "Aulnois",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 114,
+                            CountryId = 1,
+                            Name = "Autelbas",
+                            ZipCode = 6706
+                        },
+                        new
+                        {
+                            Id = 115,
+                            CountryId = 1,
+                            Name = "Autre-Eglise",
+                            ZipCode = 1367
+                        },
+                        new
+                        {
+                            Id = 116,
+                            CountryId = 1,
+                            Name = "Autreppe",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 117,
+                            CountryId = 1,
+                            Name = "Auvelais",
+                            ZipCode = 5060
+                        },
+                        new
+                        {
+                            Id = 118,
+                            CountryId = 1,
+                            Name = "Ave-et-Auffe",
+                            ZipCode = 5580
+                        },
+                        new
+                        {
+                            Id = 119,
+                            CountryId = 1,
+                            Name = "Avekapelle",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 120,
+                            CountryId = 1,
+                            Name = "Avelgem",
+                            ZipCode = 8580
+                        },
+                        new
+                        {
+                            Id = 121,
+                            CountryId = 1,
+                            Name = "Avennes",
+                            ZipCode = 4260
+                        },
+                        new
+                        {
+                            Id = 122,
+                            CountryId = 1,
+                            Name = "Averbode",
+                            ZipCode = 3271
+                        },
+                        new
+                        {
+                            Id = 123,
+                            CountryId = 1,
+                            Name = "Avernas-le-Bauduin",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 124,
+                            CountryId = 1,
+                            Name = "Avin",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 125,
+                            CountryId = 1,
+                            Name = "Awans",
+                            ZipCode = 4340
+                        },
+                        new
+                        {
+                            Id = 126,
+                            CountryId = 1,
+                            Name = "Awenne",
+                            ZipCode = 6870
+                        },
+                        new
+                        {
+                            Id = 127,
+                            CountryId = 1,
+                            Name = "Awirs",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 128,
+                            CountryId = 1,
+                            Name = "Aye",
+                            ZipCode = 6900
+                        },
+                        new
+                        {
+                            Id = 129,
+                            CountryId = 1,
+                            Name = "Ayeneux",
+                            ZipCode = 4630
+                        },
+                        new
+                        {
+                            Id = 130,
+                            CountryId = 1,
+                            Name = "Aywaille",
+                            ZipCode = 4920
+                        },
+                        new
+                        {
+                            Id = 132,
+                            CountryId = 1,
+                            Name = "Baaigem",
+                            ZipCode = 9890
+                        },
+                        new
+                        {
+                            Id = 133,
+                            CountryId = 1,
+                            Name = "Baal",
+                            ZipCode = 3128
+                        },
+                        new
+                        {
+                            Id = 134,
+                            CountryId = 1,
+                            Name = "Baardegem",
+                            ZipCode = 9310
+                        },
+                        new
+                        {
+                            Id = 135,
+                            CountryId = 1,
+                            Name = "Baarle-Hertog",
+                            ZipCode = 2387
+                        },
+                        new
+                        {
+                            Id = 136,
+                            CountryId = 1,
+                            Name = "Baasrode",
+                            ZipCode = 9200
+                        },
+                        new
+                        {
+                            Id = 137,
+                            CountryId = 1,
+                            Name = "Bachte-Maria-Leerne",
+                            ZipCode = 9800
+                        },
+                        new
+                        {
+                            Id = 138,
+                            CountryId = 1,
+                            Name = "Baelen (Lg.)",
+                            ZipCode = 4837
+                        },
+                        new
+                        {
+                            Id = 139,
+                            CountryId = 1,
+                            Name = "Bagimont",
+                            ZipCode = 5550
+                        },
+                        new
+                        {
+                            Id = 140,
+                            CountryId = 1,
+                            Name = "Baileux",
+                            ZipCode = 6464
+                        },
+                        new
+                        {
+                            Id = 141,
+                            CountryId = 1,
+                            Name = "Bailièvre",
+                            ZipCode = 6460
+                        },
+                        new
+                        {
+                            Id = 142,
+                            CountryId = 1,
+                            Name = "Baillamont",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 143,
+                            CountryId = 1,
+                            Name = "Bailleul",
+                            ZipCode = 7730
+                        },
+                        new
+                        {
+                            Id = 144,
+                            CountryId = 1,
+                            Name = "Baillonville",
+                            ZipCode = 5377
+                        },
+                        new
+                        {
+                            Id = 145,
+                            CountryId = 1,
+                            Name = "Baisieux",
+                            ZipCode = 7380
+                        },
+                        new
+                        {
+                            Id = 146,
+                            CountryId = 1,
+                            Name = "Baisy-Thy",
+                            ZipCode = 1470
+                        },
+                        new
+                        {
+                            Id = 147,
+                            CountryId = 1,
+                            Name = "Balâtre",
+                            ZipCode = 5190
+                        },
+                        new
+                        {
+                            Id = 148,
+                            CountryId = 1,
+                            Name = "Balegem",
+                            ZipCode = 9860
+                        },
+                        new
+                        {
+                            Id = 149,
+                            CountryId = 1,
+                            Name = "Balen",
+                            ZipCode = 2490
+                        },
+                        new
+                        {
+                            Id = 150,
+                            CountryId = 1,
+                            Name = "Bambrugge",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 151,
+                            CountryId = 1,
+                            Name = "Bande",
+                            ZipCode = 6951
+                        },
+                        new
+                        {
+                            Id = 152,
+                            CountryId = 1,
+                            Name = "Barbençon",
+                            ZipCode = 6500
+                        },
+                        new
+                        {
+                            Id = 153,
+                            CountryId = 1,
+                            Name = "Barchon",
+                            ZipCode = 4671
+                        },
+                        new
+                        {
+                            Id = 154,
+                            CountryId = 1,
+                            Name = "Baronville",
+                            ZipCode = 5570
+                        },
+                        new
+                        {
+                            Id = 155,
+                            CountryId = 1,
+                            Name = "Barry",
+                            ZipCode = 7534
+                        },
+                        new
+                        {
+                            Id = 156,
+                            CountryId = 1,
+                            Name = "Barvaux-Condroz",
+                            ZipCode = 5370
+                        },
+                        new
+                        {
+                            Id = 157,
+                            CountryId = 1,
+                            Name = "Barvaux-sur-Ourthe",
+                            ZipCode = 6940
+                        },
+                        new
+                        {
+                            Id = 158,
+                            CountryId = 1,
+                            Name = "Basècles",
+                            ZipCode = 7971
+                        },
+                        new
+                        {
+                            Id = 159,
+                            CountryId = 1,
+                            Name = "Bas-Oha",
+                            ZipCode = 4520
+                        },
+                        new
+                        {
+                            Id = 160,
+                            CountryId = 1,
+                            Name = "Basse-Bodeux",
+                            ZipCode = 4983
+                        },
+                        new
+                        {
+                            Id = 161,
+                            CountryId = 1,
+                            Name = "Bassenge",
+                            ZipCode = 4690
+                        },
+                        new
+                        {
+                            Id = 162,
+                            CountryId = 1,
+                            Name = "Bassevelde",
+                            ZipCode = 9968
+                        },
+                        new
+                        {
+                            Id = 163,
+                            CountryId = 1,
+                            Name = "Bassilly",
+                            ZipCode = 7830
+                        },
+                        new
+                        {
+                            Id = 164,
+                            CountryId = 1,
+                            Name = "Bastogne",
+                            ZipCode = 6600
+                        },
+                        new
+                        {
+                            Id = 165,
+                            CountryId = 1,
+                            Name = "Bas-Warneton",
+                            ZipCode = 7784
+                        },
+                        new
+                        {
+                            Id = 166,
+                            CountryId = 1,
+                            Name = "Batsheers",
+                            ZipCode = 3870
+                        },
+                        new
+                        {
+                            Id = 167,
+                            CountryId = 1,
+                            Name = "Battice",
+                            ZipCode = 4651
+                        },
+                        new
+                        {
+                            Id = 168,
+                            CountryId = 1,
+                            Name = "Battignies",
+                            ZipCode = 7130
+                        },
+                        new
+                        {
+                            Id = 169,
+                            CountryId = 1,
+                            Name = "Baudour",
+                            ZipCode = 7331
+                        },
+                        new
+                        {
+                            Id = 170,
+                            CountryId = 1,
+                            Name = "Bauffe",
+                            ZipCode = 7870
+                        },
+                        new
+                        {
+                            Id = 171,
+                            CountryId = 1,
+                            Name = "Baugnies",
+                            ZipCode = 7604
+                        },
+                        new
+                        {
+                            Id = 172,
+                            CountryId = 1,
+                            Name = "Baulers",
+                            ZipCode = 1401
+                        },
+                        new
+                        {
+                            Id = 173,
+                            CountryId = 1,
+                            Name = "Bavegem",
+                            ZipCode = 9520
+                        },
+                        new
+                        {
+                            Id = 174,
+                            CountryId = 1,
+                            Name = "Bavikhove",
+                            ZipCode = 8531
+                        },
+                        new
+                        {
+                            Id = 175,
+                            CountryId = 1,
+                            Name = "Bazel",
+                            ZipCode = 9150
+                        },
+                        new
+                        {
+                            Id = 176,
+                            CountryId = 1,
+                            Name = "Beaufays",
+                            ZipCode = 4052
+                        },
+                        new
+                        {
+                            Id = 177,
+                            CountryId = 1,
+                            Name = "Beaumont",
+                            ZipCode = 6500
+                        },
+                        new
+                        {
+                            Id = 178,
+                            CountryId = 1,
+                            Name = "Beauraing",
+                            ZipCode = 5570
+                        },
+                        new
+                        {
+                            Id = 179,
+                            CountryId = 1,
+                            Name = "Beausaint",
+                            ZipCode = 6980
+                        },
+                        new
+                        {
+                            Id = 180,
+                            CountryId = 1,
+                            Name = "Beauvechain",
+                            ZipCode = 1320
+                        },
+                        new
+                        {
+                            Id = 181,
+                            CountryId = 1,
+                            Name = "Beauvoorde",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 182,
+                            CountryId = 1,
+                            Name = "Beauwelz",
+                            ZipCode = 6594
+                        },
+                        new
+                        {
+                            Id = 183,
+                            CountryId = 1,
+                            Name = "Beclers",
+                            ZipCode = 7532
+                        },
+                        new
+                        {
+                            Id = 184,
+                            CountryId = 1,
+                            Name = "Beek",
+                            ZipCode = 3960
+                        },
+                        new
+                        {
+                            Id = 185,
+                            CountryId = 1,
+                            Name = "Beerlegem",
+                            ZipCode = 9630
+                        },
+                        new
+                        {
+                            Id = 186,
+                            CountryId = 1,
+                            Name = "Beernem",
+                            ZipCode = 8730
+                        },
+                        new
+                        {
+                            Id = 187,
+                            CountryId = 1,
+                            Name = "Beerse",
+                            ZipCode = 2340
+                        },
+                        new
+                        {
+                            Id = 188,
+                            CountryId = 1,
+                            Name = "Beersel",
+                            ZipCode = 1650
+                        },
+                        new
+                        {
+                            Id = 189,
+                            CountryId = 1,
+                            Name = "Beerst",
+                            ZipCode = 8600
+                        },
+                        new
+                        {
+                            Id = 190,
+                            CountryId = 1,
+                            Name = "Beert",
+                            ZipCode = 1673
+                        },
+                        new
+                        {
+                            Id = 191,
+                            CountryId = 1,
+                            Name = "Beervelde",
+                            ZipCode = 9080
+                        },
+                        new
+                        {
+                            Id = 192,
+                            CountryId = 1,
+                            Name = "Beerzel",
+                            ZipCode = 2580
+                        },
+                        new
+                        {
+                            Id = 193,
+                            CountryId = 1,
+                            Name = "Beez",
+                            ZipCode = 5000
+                        },
+                        new
+                        {
+                            Id = 194,
+                            CountryId = 1,
+                            Name = "Beffe",
+                            ZipCode = 6987
+                        },
+                        new
+                        {
+                            Id = 195,
+                            CountryId = 1,
+                            Name = "Begijnendijk",
+                            ZipCode = 3130
+                        },
+                        new
+                        {
+                            Id = 196,
+                            CountryId = 1,
+                            Name = "Beho",
+                            ZipCode = 6672
+                        },
+                        new
+                        {
+                            Id = 197,
+                            CountryId = 1,
+                            Name = "Beigem",
+                            ZipCode = 1852
+                        },
+                        new
+                        {
+                            Id = 198,
+                            CountryId = 1,
+                            Name = "Bekegem",
+                            ZipCode = 8480
+                        },
+                        new
+                        {
+                            Id = 199,
+                            CountryId = 1,
+                            Name = "Bekkerzeel",
+                            ZipCode = 1730
+                        },
+                        new
+                        {
+                            Id = 200,
+                            CountryId = 1,
+                            Name = "Bekkevoort",
+                            ZipCode = 3460
+                        },
+                        new
+                        {
+                            Id = 201,
+                            CountryId = 1,
+                            Name = "Belgische Senaat",
+                            ZipCode = 1009
+                        },
+                        new
+                        {
+                            Id = 202,
+                            CountryId = 1,
+                            Name = "Belgrade",
+                            ZipCode = 5001
+                        },
+                        new
+                        {
+                            Id = 203,
+                            CountryId = 1,
+                            Name = "Bellaire",
+                            ZipCode = 4610
+                        },
+                        new
+                        {
+                            Id = 204,
+                            CountryId = 1,
+                            Name = "Bellecourt",
+                            ZipCode = 7170
+                        },
+                        new
+                        {
+                            Id = 205,
+                            CountryId = 1,
+                            Name = "Bellefontaine (Lux.)",
+                            ZipCode = 6730
+                        },
+                        new
+                        {
+                            Id = 206,
+                            CountryId = 1,
+                            Name = "Bellefontaine (Nam.)",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 207,
+                            CountryId = 1,
+                            Name = "Bellegem",
+                            ZipCode = 8510
+                        },
+                        new
+                        {
+                            Id = 208,
+                            CountryId = 1,
+                            Name = "Bellem",
+                            ZipCode = 9881
+                        },
+                        new
+                        {
+                            Id = 209,
+                            CountryId = 1,
+                            Name = "Bellevaux",
+                            ZipCode = 6834
+                        },
+                        new
+                        {
+                            Id = 210,
+                            CountryId = 1,
+                            Name = "Bellevaux-Ligneuville",
+                            ZipCode = 4960
+                        },
+                        new
+                        {
+                            Id = 211,
+                            CountryId = 1,
+                            Name = "Bellingen",
+                            ZipCode = 1674
+                        },
+                        new
+                        {
+                            Id = 212,
+                            CountryId = 1,
+                            Name = "Beloeil",
+                            ZipCode = 7970
+                        },
+                        new
+                        {
+                            Id = 213,
+                            CountryId = 1,
+                            Name = "Belsele (Sint-Niklaas)",
+                            ZipCode = 9111
+                        },
+                        new
+                        {
+                            Id = 214,
+                            CountryId = 1,
+                            Name = "Ben-Ahin",
+                            ZipCode = 4500
+                        },
+                        new
+                        {
+                            Id = 215,
+                            CountryId = 1,
+                            Name = "Bende",
+                            ZipCode = 6941
+                        },
+                        new
+                        {
+                            Id = 216,
+                            CountryId = 1,
+                            Name = "Berbroek",
+                            ZipCode = 3540
+                        },
+                        new
+                        {
+                            Id = 217,
+                            CountryId = 1,
+                            Name = "Berchem (Antwerpen)",
+                            ZipCode = 2600
+                        },
+                        new
+                        {
+                            Id = 218,
+                            CountryId = 1,
+                            Name = "Berchem (O.-Vl.)",
+                            ZipCode = 9690
+                        },
+                        new
+                        {
+                            Id = 220,
+                            CountryId = 1,
+                            Name = "Berendrecht",
+                            ZipCode = 2040
+                        },
+                        new
+                        {
+                            Id = 221,
+                            CountryId = 1,
+                            Name = "Berg (Bt.)",
+                            ZipCode = 1910
+                        },
+                        new
+                        {
+                            Id = 222,
+                            CountryId = 1,
+                            Name = "Berg (Limb.)",
+                            ZipCode = 3700
+                        },
+                        new
+                        {
+                            Id = 223,
+                            CountryId = 1,
+                            Name = "Bergilers",
+                            ZipCode = 4360
+                        },
+                        new
+                        {
+                            Id = 224,
+                            CountryId = 1,
+                            Name = "Beringen",
+                            ZipCode = 3580
+                        },
+                        new
+                        {
+                            Id = 225,
+                            CountryId = 1,
+                            Name = "Berlaar",
+                            ZipCode = 2590
+                        },
+                        new
+                        {
+                            Id = 226,
+                            CountryId = 1,
+                            Name = "Berlare",
+                            ZipCode = 9290
+                        },
+                        new
+                        {
+                            Id = 227,
+                            CountryId = 1,
+                            Name = "Berlingen",
+                            ZipCode = 3830
+                        },
+                        new
+                        {
+                            Id = 228,
+                            CountryId = 1,
+                            Name = "Berloz",
+                            ZipCode = 4257
+                        },
+                        new
+                        {
+                            Id = 229,
+                            CountryId = 1,
+                            Name = "Berneau",
+                            ZipCode = 4607
+                        },
+                        new
+                        {
+                            Id = 230,
+                            CountryId = 1,
+                            Name = "Bernissart",
+                            ZipCode = 7320
+                        },
+                        new
+                        {
+                            Id = 231,
+                            CountryId = 1,
+                            Name = "Bersillies-l'Abbaye",
+                            ZipCode = 6560
+                        },
+                        new
+                        {
+                            Id = 232,
+                            CountryId = 1,
+                            Name = "Bertem",
+                            ZipCode = 3060
+                        },
+                        new
+                        {
+                            Id = 233,
+                            CountryId = 1,
+                            Name = "Bertogne",
+                            ZipCode = 6687
+                        },
+                        new
+                        {
+                            Id = 234,
+                            CountryId = 1,
+                            Name = "Bertrée",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 235,
+                            CountryId = 1,
+                            Name = "Bertrix",
+                            ZipCode = 6880
+                        },
+                        new
+                        {
+                            Id = 236,
+                            CountryId = 1,
+                            Name = "Berzée",
+                            ZipCode = 5651
+                        },
+                        new
+                        {
+                            Id = 237,
+                            CountryId = 1,
+                            Name = "Beselare",
+                            ZipCode = 8980
+                        },
+                        new
+                        {
+                            Id = 238,
+                            CountryId = 1,
+                            Name = "Betekom",
+                            ZipCode = 3130
+                        },
+                        new
+                        {
+                            Id = 239,
+                            CountryId = 1,
+                            Name = "Bettincourt",
+                            ZipCode = 4300
+                        },
+                        new
+                        {
+                            Id = 240,
+                            CountryId = 1,
+                            Name = "Beuzet",
+                            ZipCode = 5030
+                        },
+                        new
+                        {
+                            Id = 241,
+                            CountryId = 1,
+                            Name = "Bevel",
+                            ZipCode = 2560
+                        },
+                        new
+                        {
+                            Id = 242,
+                            CountryId = 1,
+                            Name = "Bever",
+                            ZipCode = 1547
+                        },
+                        new
+                        {
+                            Id = 243,
+                            CountryId = 1,
+                            Name = "Bevercé",
+                            ZipCode = 4960
+                        },
+                        new
+                        {
+                            Id = 244,
+                            CountryId = 1,
+                            Name = "Bevere",
+                            ZipCode = 9700
+                        },
+                        new
+                        {
+                            Id = 245,
+                            CountryId = 1,
+                            Name = "Beveren (Leie)",
+                            ZipCode = 8791
+                        },
+                        new
+                        {
+                            Id = 246,
+                            CountryId = 1,
+                            Name = "Beveren (Roeselare)",
+                            ZipCode = 8800
+                        },
+                        new
+                        {
+                            Id = 247,
+                            CountryId = 1,
+                            Name = "Beveren-aan-den-Ijzer",
+                            ZipCode = 8691
+                        },
+                        new
+                        {
+                            Id = 248,
+                            CountryId = 1,
+                            Name = "Beveren-Waas",
+                            ZipCode = 9120
+                        },
+                        new
+                        {
+                            Id = 249,
+                            CountryId = 1,
+                            Name = "Beverlo",
+                            ZipCode = 3581
+                        },
+                        new
+                        {
+                            Id = 250,
+                            CountryId = 1,
+                            Name = "Beverst",
+                            ZipCode = 3740
+                        },
+                        new
+                        {
+                            Id = 251,
+                            CountryId = 1,
+                            Name = "Beyne-Heusay",
+                            ZipCode = 4610
+                        },
+                        new
+                        {
+                            Id = 252,
+                            CountryId = 1,
+                            Name = "Bienne-lez-Happart",
+                            ZipCode = 6543
+                        },
+                        new
+                        {
+                            Id = 253,
+                            CountryId = 1,
+                            Name = "Bierbeek",
+                            ZipCode = 3360
+                        },
+                        new
+                        {
+                            Id = 254,
+                            CountryId = 1,
+                            Name = "Biercée",
+                            ZipCode = 6533
+                        },
+                        new
+                        {
+                            Id = 255,
+                            CountryId = 1,
+                            Name = "Bierges",
+                            ZipCode = 1301
+                        },
+                        new
+                        {
+                            Id = 256,
+                            CountryId = 1,
+                            Name = "Bierghes",
+                            ZipCode = 1430
+                        },
+                        new
+                        {
+                            Id = 257,
+                            CountryId = 1,
+                            Name = "Bierset",
+                            ZipCode = 4460
+                        },
+                        new
+                        {
+                            Id = 258,
+                            CountryId = 1,
+                            Name = "Bierwart",
+                            ZipCode = 5380
+                        },
+                        new
+                        {
+                            Id = 259,
+                            CountryId = 1,
+                            Name = "Biesme",
+                            ZipCode = 5640
+                        },
+                        new
+                        {
+                            Id = 260,
+                            CountryId = 1,
+                            Name = "Biesmerée",
+                            ZipCode = 5640
+                        },
+                        new
+                        {
+                            Id = 261,
+                            CountryId = 1,
+                            Name = "Biesme-sous-Thuin",
+                            ZipCode = 6531
+                        },
+                        new
+                        {
+                            Id = 262,
+                            CountryId = 1,
+                            Name = "Bievene",
+                            ZipCode = 1547
+                        },
+                        new
+                        {
+                            Id = 263,
+                            CountryId = 1,
+                            Name = "Bievre",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 264,
+                            CountryId = 1,
+                            Name = "Biez",
+                            ZipCode = 1390
+                        },
+                        new
+                        {
+                            Id = 265,
+                            CountryId = 1,
+                            Name = "Bihain",
+                            ZipCode = 6690
+                        },
+                        new
+                        {
+                            Id = 266,
+                            CountryId = 1,
+                            Name = "Bikschote",
+                            ZipCode = 8920
+                        },
+                        new
+                        {
+                            Id = 267,
+                            CountryId = 1,
+                            Name = "Bilstain",
+                            ZipCode = 4831
+                        },
+                        new
+                        {
+                            Id = 268,
+                            CountryId = 1,
+                            Name = "Bilzen",
+                            ZipCode = 3740
+                        },
+                        new
+                        {
+                            Id = 269,
+                            CountryId = 1,
+                            Name = "Binche",
+                            ZipCode = 7130
+                        },
+                        new
+                        {
+                            Id = 270,
+                            CountryId = 1,
+                            Name = "Binderveld",
+                            ZipCode = 3850
+                        },
+                        new
+                        {
+                            Id = 271,
+                            CountryId = 1,
+                            Name = "Binkom",
+                            ZipCode = 3211
+                        },
+                        new
+                        {
+                            Id = 272,
+                            CountryId = 1,
+                            Name = "Bioul",
+                            ZipCode = 5537
+                        },
+                        new
+                        {
+                            Id = 273,
+                            CountryId = 1,
+                            Name = "Bissegem",
+                            ZipCode = 8501
+                        },
+                        new
+                        {
+                            Id = 274,
+                            CountryId = 1,
+                            Name = "Bizet",
+                            ZipCode = 7783
+                        },
+                        new
+                        {
+                            Id = 275,
+                            CountryId = 1,
+                            Name = "Blaasveld",
+                            ZipCode = 2830
+                        },
+                        new
+                        {
+                            Id = 276,
+                            CountryId = 1,
+                            Name = "Blaimont",
+                            ZipCode = 5542
+                        },
+                        new
+                        {
+                            Id = 277,
+                            CountryId = 1,
+                            Name = "Blandain",
+                            ZipCode = 7522
+                        },
+                        new
+                        {
+                            Id = 278,
+                            CountryId = 1,
+                            Name = "Blanden",
+                            ZipCode = 3052
+                        },
+                        new
+                        {
+                            Id = 279,
+                            CountryId = 1,
+                            Name = "Blankenberge",
+                            ZipCode = 8370
+                        },
+                        new
+                        {
+                            Id = 280,
+                            CountryId = 1,
+                            Name = "Blaregnies",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 281,
+                            CountryId = 1,
+                            Name = "Blaton",
+                            ZipCode = 7321
+                        },
+                        new
+                        {
+                            Id = 282,
+                            CountryId = 1,
+                            Name = "Blaugies",
+                            ZipCode = 7370
+                        },
+                        new
+                        {
+                            Id = 283,
+                            CountryId = 1,
+                            Name = "Blégny",
+                            ZipCode = 4670
+                        },
+                        new
+                        {
+                            Id = 284,
+                            CountryId = 1,
+                            Name = "Bléharies",
+                            ZipCode = 7620
+                        },
+                        new
+                        {
+                            Id = 285,
+                            CountryId = 1,
+                            Name = "Blehen",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 286,
+                            CountryId = 1,
+                            Name = "Bleid",
+                            ZipCode = 6760
+                        },
+                        new
+                        {
+                            Id = 287,
+                            CountryId = 1,
+                            Name = "Bleret",
+                            ZipCode = 4300
+                        },
+                        new
+                        {
+                            Id = 288,
+                            CountryId = 1,
+                            Name = "Blicquy",
+                            ZipCode = 7903
+                        },
+                        new
+                        {
+                            Id = 289,
+                            CountryId = 1,
+                            Name = "Bocholt",
+                            ZipCode = 3950
+                        },
+                        new
+                        {
+                            Id = 290,
+                            CountryId = 1,
+                            Name = "Boechout",
+                            ZipCode = 2530
+                        },
+                        new
+                        {
+                            Id = 291,
+                            CountryId = 1,
+                            Name = "Boekhout",
+                            ZipCode = 3890
+                        },
+                        new
+                        {
+                            Id = 292,
+                            CountryId = 1,
+                            Name = "Boekhoute",
+                            ZipCode = 9961
+                        },
+                        new
+                        {
+                            Id = 293,
+                            CountryId = 1,
+                            Name = "Boëlhe",
+                            ZipCode = 4250
+                        },
+                        new
+                        {
+                            Id = 294,
+                            CountryId = 1,
+                            Name = "Boezinge",
+                            ZipCode = 8904
+                        },
+                        new
+                        {
+                            Id = 295,
+                            CountryId = 1,
+                            Name = "Bogaarden",
+                            ZipCode = 1670
+                        },
+                        new
+                        {
+                            Id = 296,
+                            CountryId = 1,
+                            Name = "Bohan",
+                            ZipCode = 5550
+                        },
+                        new
+                        {
+                            Id = 297,
+                            CountryId = 1,
+                            Name = "Boignée",
+                            ZipCode = 5140
+                        },
+                        new
+                        {
+                            Id = 298,
+                            CountryId = 1,
+                            Name = "Boirs",
+                            ZipCode = 4690
+                        },
+                        new
+                        {
+                            Id = 299,
+                            CountryId = 1,
+                            Name = "Bois-de-Lessines",
+                            ZipCode = 7866
+                        },
+                        new
+                        {
+                            Id = 300,
+                            CountryId = 1,
+                            Name = "Bois-de-Villers",
+                            ZipCode = 5170
+                        },
+                        new
+                        {
+                            Id = 301,
+                            CountryId = 1,
+                            Name = "Bois-d'Haine",
+                            ZipCode = 7170
+                        },
+                        new
+                        {
+                            Id = 302,
+                            CountryId = 1,
+                            Name = "Bois-et-Borsu",
+                            ZipCode = 4560
+                        },
+                        new
+                        {
+                            Id = 303,
+                            CountryId = 1,
+                            Name = "Bolinne",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 304,
+                            CountryId = 1,
+                            Name = "Bolland",
+                            ZipCode = 4653
+                        },
+                        new
+                        {
+                            Id = 305,
+                            CountryId = 1,
+                            Name = "Bomal (Bt.)",
+                            ZipCode = 1367
+                        },
+                        new
+                        {
+                            Id = 306,
+                            CountryId = 1,
+                            Name = "Bomal-sur-Ourthe",
+                            ZipCode = 6941
+                        },
+                        new
+                        {
+                            Id = 307,
+                            CountryId = 1,
+                            Name = "Bombaye",
+                            ZipCode = 4607
+                        },
+                        new
+                        {
+                            Id = 308,
+                            CountryId = 1,
+                            Name = "Bommershoven (Haren)",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 309,
+                            CountryId = 1,
+                            Name = "Boncelles",
+                            ZipCode = 4100
+                        },
+                        new
+                        {
+                            Id = 310,
+                            CountryId = 1,
+                            Name = "Boneffe",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 311,
+                            CountryId = 1,
+                            Name = "Bonheiden",
+                            ZipCode = 2820
+                        },
+                        new
+                        {
+                            Id = 312,
+                            CountryId = 1,
+                            Name = "Boninne",
+                            ZipCode = 5021
+                        },
+                        new
+                        {
+                            Id = 313,
+                            CountryId = 1,
+                            Name = "Bonlez",
+                            ZipCode = 1325
+                        },
+                        new
+                        {
+                            Id = 314,
+                            CountryId = 1,
+                            Name = "Bonnert",
+                            ZipCode = 6700
+                        },
+                        new
+                        {
+                            Id = 315,
+                            CountryId = 1,
+                            Name = "Bonneville",
+                            ZipCode = 5300
+                        },
+                        new
+                        {
+                            Id = 316,
+                            CountryId = 1,
+                            Name = "Bon-Secours",
+                            ZipCode = 7603
+                        },
+                        new
+                        {
+                            Id = 317,
+                            CountryId = 1,
+                            Name = "Bonsin",
+                            ZipCode = 5377
+                        },
+                        new
+                        {
+                            Id = 318,
+                            CountryId = 1,
+                            Name = "Booischot",
+                            ZipCode = 2221
+                        },
+                        new
+                        {
+                            Id = 319,
+                            CountryId = 1,
+                            Name = "Booitshoeke",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 320,
+                            CountryId = 1,
+                            Name = "Boom",
+                            ZipCode = 2850
+                        },
+                        new
+                        {
+                            Id = 321,
+                            CountryId = 1,
+                            Name = "Boorsem",
+                            ZipCode = 3631
+                        },
+                        new
+                        {
+                            Id = 322,
+                            CountryId = 1,
+                            Name = "Boortmeerbeek",
+                            ZipCode = 3190
+                        },
+                        new
+                        {
+                            Id = 323,
+                            CountryId = 1,
+                            Name = "Borchtlombeek",
+                            ZipCode = 1761
+                        },
+                        new
+                        {
+                            Id = 324,
+                            CountryId = 1,
+                            Name = "Borgerhout (Antwerpen)",
+                            ZipCode = 2140
+                        },
+                        new
+                        {
+                            Id = 325,
+                            CountryId = 1,
+                            Name = "Borgloon",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 326,
+                            CountryId = 1,
+                            Name = "Borlez",
+                            ZipCode = 4317
+                        },
+                        new
+                        {
+                            Id = 327,
+                            CountryId = 1,
+                            Name = "Borlo",
+                            ZipCode = 3891
+                        },
+                        new
+                        {
+                            Id = 328,
+                            CountryId = 1,
+                            Name = "Borlon",
+                            ZipCode = 6941
+                        },
+                        new
+                        {
+                            Id = 329,
+                            CountryId = 1,
+                            Name = "Bornem",
+                            ZipCode = 2880
+                        },
+                        new
+                        {
+                            Id = 330,
+                            CountryId = 1,
+                            Name = "Bornival",
+                            ZipCode = 1404
+                        },
+                        new
+                        {
+                            Id = 331,
+                            CountryId = 1,
+                            Name = "Borsbeek (Antw.)",
+                            ZipCode = 2150
+                        },
+                        new
+                        {
+                            Id = 332,
+                            CountryId = 1,
+                            Name = "Borsbeke",
+                            ZipCode = 9552
+                        },
+                        new
+                        {
+                            Id = 333,
+                            CountryId = 1,
+                            Name = "Bossière",
+                            ZipCode = 5032
+                        },
+                        new
+                        {
+                            Id = 334,
+                            CountryId = 1,
+                            Name = "Bossuit",
+                            ZipCode = 8583
+                        },
+                        new
+                        {
+                            Id = 335,
+                            CountryId = 1,
+                            Name = "Bossut-Gottechain",
+                            ZipCode = 1390
+                        },
+                        new
+                        {
+                            Id = 336,
+                            CountryId = 1,
+                            Name = "Bost",
+                            ZipCode = 3300
+                        },
+                        new
+                        {
+                            Id = 337,
+                            CountryId = 1,
+                            Name = "Bothey",
+                            ZipCode = 5032
+                        },
+                        new
+                        {
+                            Id = 338,
+                            CountryId = 1,
+                            Name = "Bottelare",
+                            ZipCode = 9820
+                        },
+                        new
+                        {
+                            Id = 339,
+                            CountryId = 1,
+                            Name = "Bouffioulx",
+                            ZipCode = 6200
+                        },
+                        new
+                        {
+                            Id = 340,
+                            CountryId = 1,
+                            Name = "Bouge",
+                            ZipCode = 5004
+                        },
+                        new
+                        {
+                            Id = 341,
+                            CountryId = 1,
+                            Name = "Bougnies",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 342,
+                            CountryId = 1,
+                            Name = "Bouillon",
+                            ZipCode = 6830
+                        },
+                        new
+                        {
+                            Id = 343,
+                            CountryId = 1,
+                            Name = "Bourlers",
+                            ZipCode = 6464
+                        },
+                        new
+                        {
+                            Id = 344,
+                            CountryId = 1,
+                            Name = "Bourseigne-Neuve",
+                            ZipCode = 5575
+                        },
+                        new
+                        {
+                            Id = 345,
+                            CountryId = 1,
+                            Name = "Bourseigne-Vieille",
+                            ZipCode = 5575
+                        },
+                        new
+                        {
+                            Id = 346,
+                            CountryId = 1,
+                            Name = "Boussoit",
+                            ZipCode = 7110
+                        },
+                        new
+                        {
+                            Id = 347,
+                            CountryId = 1,
+                            Name = "Boussu",
+                            ZipCode = 7300
+                        },
+                        new
+                        {
+                            Id = 348,
+                            CountryId = 1,
+                            Name = "Boussu-en-Fagne",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 349,
+                            CountryId = 1,
+                            Name = "Boussu-lez-Walcourt",
+                            ZipCode = 6440
+                        },
+                        new
+                        {
+                            Id = 350,
+                            CountryId = 1,
+                            Name = "Bousval",
+                            ZipCode = 1470
+                        },
+                        new
+                        {
+                            Id = 351,
+                            CountryId = 1,
+                            Name = "Boutersem",
+                            ZipCode = 3370
+                        },
+                        new
+                        {
+                            Id = 352,
+                            CountryId = 1,
+                            Name = "Bouvignes-sur-Meuse",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 353,
+                            CountryId = 1,
+                            Name = "Bouvignies",
+                            ZipCode = 7803
+                        },
+                        new
+                        {
+                            Id = 354,
+                            CountryId = 1,
+                            Name = "Bouwel",
+                            ZipCode = 2288
+                        },
+                        new
+                        {
+                            Id = 355,
+                            CountryId = 1,
+                            Name = "Bovekerke",
+                            ZipCode = 8680
+                        },
+                        new
+                        {
+                            Id = 356,
+                            CountryId = 1,
+                            Name = "Bovelingen",
+                            ZipCode = 3870
+                        },
+                        new
+                        {
+                            Id = 357,
+                            CountryId = 1,
+                            Name = "Bovenistier",
+                            ZipCode = 4300
+                        },
+                        new
+                        {
+                            Id = 358,
+                            CountryId = 1,
+                            Name = "Bovesse",
+                            ZipCode = 5081
+                        },
+                        new
+                        {
+                            Id = 359,
+                            CountryId = 1,
+                            Name = "Bovigny",
+                            ZipCode = 6671
+                        },
+                        new
+                        {
+                            Id = 360,
+                            CountryId = 1,
+                            Name = "Bra",
+                            ZipCode = 4990
+                        },
+                        new
+                        {
+                            Id = 361,
+                            CountryId = 1,
+                            Name = "Braffe",
+                            ZipCode = 7604
+                        },
+                        new
+                        {
+                            Id = 362,
+                            CountryId = 1,
+                            Name = "Braibant",
+                            ZipCode = 5590
+                        },
+                        new
+                        {
+                            Id = 363,
+                            CountryId = 1,
+                            Name = "Braine-l'Alleud",
+                            ZipCode = 1420
+                        },
+                        new
+                        {
+                            Id = 364,
+                            CountryId = 1,
+                            Name = "Braine-le-Château",
+                            ZipCode = 1440
+                        },
+                        new
+                        {
+                            Id = 365,
+                            CountryId = 1,
+                            Name = "Braine-le-Comte",
+                            ZipCode = 7090
+                        },
+                        new
+                        {
+                            Id = 366,
+                            CountryId = 1,
+                            Name = "Braives",
+                            ZipCode = 4260
+                        },
+                        new
+                        {
+                            Id = 367,
+                            CountryId = 1,
+                            Name = "Brakel",
+                            ZipCode = 9660
+                        },
+                        new
+                        {
+                            Id = 368,
+                            CountryId = 1,
+                            Name = "Branchon",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 369,
+                            CountryId = 1,
+                            Name = "Bras",
+                            ZipCode = 6800
+                        },
+                        new
+                        {
+                            Id = 370,
+                            CountryId = 1,
+                            Name = "Brasmenil",
+                            ZipCode = 7604
+                        },
+                        new
+                        {
+                            Id = 371,
+                            CountryId = 1,
+                            Name = "Brasschaat",
+                            ZipCode = 2930
+                        },
+                        new
+                        {
+                            Id = 372,
+                            CountryId = 1,
+                            Name = "Bray",
+                            ZipCode = 7130
+                        },
+                        new
+                        {
+                            Id = 373,
+                            CountryId = 1,
+                            Name = "Brecht",
+                            ZipCode = 2960
+                        },
+                        new
+                        {
+                            Id = 374,
+                            CountryId = 1,
+                            Name = "Bredene",
+                            ZipCode = 8450
+                        },
+                        new
+                        {
+                            Id = 375,
+                            CountryId = 1,
+                            Name = "Bree",
+                            ZipCode = 3960
+                        },
+                        new
+                        {
+                            Id = 376,
+                            CountryId = 1,
+                            Name = "Breendonk",
+                            ZipCode = 2870
+                        },
+                        new
+                        {
+                            Id = 377,
+                            CountryId = 1,
+                            Name = "Bressoux",
+                            ZipCode = 4020
+                        },
+                        new
+                        {
+                            Id = 378,
+                            CountryId = 1,
+                            Name = "Brielen",
+                            ZipCode = 8900
+                        },
+                        new
+                        {
+                            Id = 379,
+                            CountryId = 1,
+                            Name = "Broechem",
+                            ZipCode = 2520
+                        },
+                        new
+                        {
+                            Id = 380,
+                            CountryId = 1,
+                            Name = "Broekom",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 381,
+                            CountryId = 1,
+                            Name = "Brucargo",
+                            ZipCode = 1931
+                        },
+                        new
+                        {
+                            Id = 382,
+                            CountryId = 1,
+                            Name = "Brugelette",
+                            ZipCode = 7940
+                        },
+                        new
+                        {
+                            Id = 383,
+                            CountryId = 1,
+                            Name = "Brugge",
+                            ZipCode = 8000
+                        },
+                        new
+                        {
+                            Id = 384,
+                            CountryId = 1,
+                            Name = "Brûly",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 385,
+                            CountryId = 1,
+                            Name = "Brûly-de-Pesche",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 386,
+                            CountryId = 1,
+                            Name = "Brunehaut",
+                            ZipCode = 7620
+                        },
+                        new
+                        {
+                            Id = 387,
+                            CountryId = 1,
+                            Name = "Brussegem",
+                            ZipCode = 1785
+                        },
+                        new
+                        {
+                            Id = 388,
+                            CountryId = 1,
+                            Name = "Brussel",
+                            ZipCode = 1000
+                        },
+                        new
+                        {
+                            Id = 389,
+                            CountryId = 1,
+                            Name = "Brussel (Anderlecht)",
+                            ZipCode = 1070
+                        },
+                        new
+                        {
+                            Id = 390,
+                            CountryId = 1,
+                            Name = "Brussel (Elsene)",
+                            ZipCode = 1050
+                        },
+                        new
+                        {
+                            Id = 391,
+                            CountryId = 1,
+                            Name = "Brussel (Etterbeek)",
+                            ZipCode = 1040
+                        },
+                        new
+                        {
+                            Id = 392,
+                            CountryId = 1,
+                            Name = "Brussel (Evere)",
+                            ZipCode = 1140
+                        },
+                        new
+                        {
+                            Id = 393,
+                            CountryId = 1,
+                            Name = "Brussel (Ganshoren)",
+                            ZipCode = 1083
+                        },
+                        new
+                        {
+                            Id = 394,
+                            CountryId = 1,
+                            Name = "Brussel (Haren)",
+                            ZipCode = 1130
+                        },
+                        new
+                        {
+                            Id = 395,
+                            CountryId = 1,
+                            Name = "Brussel (Jette)",
+                            ZipCode = 1090
+                        },
+                        new
+                        {
+                            Id = 396,
+                            CountryId = 1,
+                            Name = "Brussel (Koekelberg)",
+                            ZipCode = 1081
+                        },
+                        new
+                        {
+                            Id = 397,
+                            CountryId = 1,
+                            Name = "Brussel (Laken)",
+                            ZipCode = 1020
+                        },
+                        new
+                        {
+                            Id = 398,
+                            CountryId = 1,
+                            Name = "Brussel (Neder-Over-Heembeek)",
+                            ZipCode = 1120
+                        },
+                        new
+                        {
+                            Id = 399,
+                            CountryId = 1,
+                            Name = "Brussel (Oudergem)",
+                            ZipCode = 1160
+                        },
+                        new
+                        {
+                            Id = 400,
+                            CountryId = 1,
+                            Name = "Brussel (Schaarbeek)",
+                            ZipCode = 1030
+                        },
+                        new
+                        {
+                            Id = 401,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Agatha-Berchem)",
+                            ZipCode = 1082
+                        },
+                        new
+                        {
+                            Id = 402,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Gillis)",
+                            ZipCode = 1060
+                        },
+                        new
+                        {
+                            Id = 403,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Jans-Molenbeek)",
+                            ZipCode = 1080
+                        },
+                        new
+                        {
+                            Id = 404,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Joost-ten-Node)",
+                            ZipCode = 1210
+                        },
+                        new
+                        {
+                            Id = 405,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Lambrechts-Woluwe)",
+                            ZipCode = 1200
+                        },
+                        new
+                        {
+                            Id = 406,
+                            CountryId = 1,
+                            Name = "Brussel (Sint-Pieters-Woluwe)",
+                            ZipCode = 1150
+                        },
+                        new
+                        {
+                            Id = 407,
+                            CountryId = 1,
+                            Name = "Brussel (Ukkel)",
+                            ZipCode = 1180
+                        },
+                        new
+                        {
+                            Id = 408,
+                            CountryId = 1,
+                            Name = "Brussel (Vorst)",
+                            ZipCode = 1190
+                        },
+                        new
+                        {
+                            Id = 409,
+                            CountryId = 1,
+                            Name = "Brussel (Watermaal-Bosvoorde)",
+                            ZipCode = 1170
+                        },
+                        new
+                        {
+                            Id = 410,
+                            CountryId = 1,
+                            Name = "Brussel X-Luchthaven Remailing",
+                            ZipCode = 1934
+                        },
+                        new
+                        {
+                            Id = 411,
+                            CountryId = 1,
+                            Name = "Brusselse Hoofdstedelijke Raad",
+                            ZipCode = 1005
+                        },
+                        new
+                        {
+                            Id = 412,
+                            CountryId = 1,
+                            Name = "Brustem",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 436,
+                            CountryId = 1,
+                            Name = "Bruyelle",
+                            ZipCode = 7641
+                        },
+                        new
+                        {
+                            Id = 437,
+                            CountryId = 1,
+                            Name = "Brye",
+                            ZipCode = 6222
+                        },
+                        new
+                        {
+                            Id = 438,
+                            CountryId = 1,
+                            Name = "Budingen",
+                            ZipCode = 3440
+                        },
+                        new
+                        {
+                            Id = 439,
+                            CountryId = 1,
+                            Name = "Buggenhout",
+                            ZipCode = 9255
+                        },
+                        new
+                        {
+                            Id = 440,
+                            CountryId = 1,
+                            Name = "Buissenal",
+                            ZipCode = 7911
+                        },
+                        new
+                        {
+                            Id = 441,
+                            CountryId = 1,
+                            Name = "Buissonville",
+                            ZipCode = 5580
+                        },
+                        new
+                        {
+                            Id = 442,
+                            CountryId = 1,
+                            Name = "Buizingen",
+                            ZipCode = 1501
+                        },
+                        new
+                        {
+                            Id = 443,
+                            CountryId = 1,
+                            Name = "Buken",
+                            ZipCode = 1910
+                        },
+                        new
+                        {
+                            Id = 444,
+                            CountryId = 1,
+                            Name = "Bullange",
+                            ZipCode = 4760
+                        },
+                        new
+                        {
+                            Id = 445,
+                            CountryId = 1,
+                            Name = "Büllingen",
+                            ZipCode = 4760
+                        },
+                        new
+                        {
+                            Id = 446,
+                            CountryId = 1,
+                            Name = "Bulskamp",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 447,
+                            CountryId = 1,
+                            Name = "Bunsbeek",
+                            ZipCode = 3380
+                        },
+                        new
+                        {
+                            Id = 448,
+                            CountryId = 1,
+                            Name = "Burcht",
+                            ZipCode = 2070
+                        },
+                        new
+                        {
+                            Id = 449,
+                            CountryId = 1,
+                            Name = "Burdinne",
+                            ZipCode = 4210
+                        },
+                        new
+                        {
+                            Id = 450,
+                            CountryId = 1,
+                            Name = "Bure",
+                            ZipCode = 6927
+                        },
+                        new
+                        {
+                            Id = 451,
+                            CountryId = 1,
+                            Name = "Burg-Reuland",
+                            ZipCode = 4790
+                        },
+                        new
+                        {
+                            Id = 452,
+                            CountryId = 1,
+                            Name = "Burst",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 453,
+                            CountryId = 1,
+                            Name = "Bury",
+                            ZipCode = 7602
+                        },
+                        new
+                        {
+                            Id = 454,
+                            CountryId = 1,
+                            Name = "Bütgenbach",
+                            ZipCode = 4750
+                        },
+                        new
+                        {
+                            Id = 456,
+                            CountryId = 1,
+                            Name = "Buvingen",
+                            ZipCode = 3891
+                        },
+                        new
+                        {
+                            Id = 457,
+                            CountryId = 1,
+                            Name = "Buvrinnes",
+                            ZipCode = 7133
+                        },
+                        new
+                        {
+                            Id = 458,
+                            CountryId = 1,
+                            Name = "Buzenol",
+                            ZipCode = 6743
+                        },
+                        new
+                        {
+                            Id = 459,
+                            CountryId = 1,
+                            Name = "Buzet",
+                            ZipCode = 6230
+                        },
+                        new
+                        {
+                            Id = 460,
+                            CountryId = 1,
+                            Name = "Callenelle",
+                            ZipCode = 7604
+                        },
+                        new
+                        {
+                            Id = 461,
+                            CountryId = 1,
+                            Name = "Calonne",
+                            ZipCode = 7642
+                        },
+                        new
+                        {
+                            Id = 462,
+                            CountryId = 1,
+                            Name = "Cambron-Casteau",
+                            ZipCode = 7940
+                        },
+                        new
+                        {
+                            Id = 463,
+                            CountryId = 1,
+                            Name = "Cambron-Saint-Vincent",
+                            ZipCode = 7870
+                        },
+                        new
+                        {
+                            Id = 464,
+                            CountryId = 1,
+                            Name = "Cargovil",
+                            ZipCode = 1804
+                        },
+                        new
+                        {
+                            Id = 465,
+                            CountryId = 1,
+                            Name = "Carlsbourg",
+                            ZipCode = 6850
+                        },
+                        new
+                        {
+                            Id = 466,
+                            CountryId = 1,
+                            Name = "Carnières",
+                            ZipCode = 7141
+                        },
+                        new
+                        {
+                            Id = 467,
+                            CountryId = 1,
+                            Name = "Casteau (Soignies)",
+                            ZipCode = 7061
+                        },
+                        new
+                        {
+                            Id = 468,
+                            CountryId = 1,
+                            Name = "Castillon",
+                            ZipCode = 5650
+                        },
+                        new
+                        {
+                            Id = 469,
+                            CountryId = 1,
+                            Name = "Celles (Ht.)",
+                            ZipCode = 7760
+                        },
+                        new
+                        {
+                            Id = 470,
+                            CountryId = 1,
+                            Name = "Celles (Lg.)",
+                            ZipCode = 4317
+                        },
+                        new
+                        {
+                            Id = 471,
+                            CountryId = 1,
+                            Name = "Celles (Nam.)",
+                            ZipCode = 5561
+                        },
+                        new
+                        {
+                            Id = 472,
+                            CountryId = 1,
+                            Name = "Cérexhe-Heuseux",
+                            ZipCode = 4632
+                        },
+                        new
+                        {
+                            Id = 473,
+                            CountryId = 1,
+                            Name = "Cerfontaine",
+                            ZipCode = 5630
+                        },
+                        new
+                        {
+                            Id = 474,
+                            CountryId = 1,
+                            Name = "Céroux-Mousty",
+                            ZipCode = 1341
+                        },
+                        new
+                        {
+                            Id = 475,
+                            CountryId = 1,
+                            Name = "Chaineux",
+                            ZipCode = 4650
+                        },
+                        new
+                        {
+                            Id = 476,
+                            CountryId = 1,
+                            Name = "Chairière",
+                            ZipCode = 5550
+                        },
+                        new
+                        {
+                            Id = 477,
+                            CountryId = 1,
+                            Name = "Chambre des Représentants",
+                            ZipCode = 1008
+                        },
+                        new
+                        {
+                            Id = 478,
+                            CountryId = 1,
+                            Name = "Champion",
+                            ZipCode = 5020
+                        },
+                        new
+                        {
+                            Id = 479,
+                            CountryId = 1,
+                            Name = "Champlon",
+                            ZipCode = 6971
+                        },
+                        new
+                        {
+                            Id = 480,
+                            CountryId = 1,
+                            Name = "Chanly",
+                            ZipCode = 6921
+                        },
+                        new
+                        {
+                            Id = 481,
+                            CountryId = 1,
+                            Name = "Chantemelle",
+                            ZipCode = 6742
+                        },
+                        new
+                        {
+                            Id = 482,
+                            CountryId = 1,
+                            Name = "Chapelle-à-Oie",
+                            ZipCode = 7903
+                        },
+                        new
+                        {
+                            Id = 483,
+                            CountryId = 1,
+                            Name = "Chapelle-à-Wattines",
+                            ZipCode = 7903
+                        },
+                        new
+                        {
+                            Id = 484,
+                            CountryId = 1,
+                            Name = "Chapelle-lez-Herlaimont",
+                            ZipCode = 7160
+                        },
+                        new
+                        {
+                            Id = 485,
+                            CountryId = 1,
+                            Name = "Chapon-Seraing",
+                            ZipCode = 4537
+                        },
+                        new
+                        {
+                            Id = 486,
+                            CountryId = 1,
+                            Name = "Charleroi",
+                            ZipCode = 6000
+                        },
+                        new
+                        {
+                            Id = 487,
+                            CountryId = 1,
+                            Name = "Charneux",
+                            ZipCode = 4654
+                        },
+                        new
+                        {
+                            Id = 488,
+                            CountryId = 1,
+                            Name = "Chassepierre",
+                            ZipCode = 6824
+                        },
+                        new
+                        {
+                            Id = 489,
+                            CountryId = 1,
+                            Name = "Chastre",
+                            ZipCode = 1450
+                        },
+                        new
+                        {
+                            Id = 490,
+                            CountryId = 1,
+                            Name = "Chastrès",
+                            ZipCode = 5650
+                        },
+                        new
+                        {
+                            Id = 491,
+                            CountryId = 1,
+                            Name = "Chastre-Villeroux-Blanmont",
+                            ZipCode = 1450
+                        },
+                        new
+                        {
+                            Id = 492,
+                            CountryId = 1,
+                            Name = "Châtelet",
+                            ZipCode = 6200
+                        },
+                        new
+                        {
+                            Id = 493,
+                            CountryId = 1,
+                            Name = "Châtelineau",
+                            ZipCode = 6200
+                        },
+                        new
+                        {
+                            Id = 494,
+                            CountryId = 1,
+                            Name = "Châtillon",
+                            ZipCode = 6747
+                        },
+                        new
+                        {
+                            Id = 495,
+                            CountryId = 1,
+                            Name = "Chaudfontaine",
+                            ZipCode = 4050
+                        },
+                        new
+                        {
+                            Id = 496,
+                            CountryId = 1,
+                            Name = "Chaumont-Gistoux",
+                            ZipCode = 1325
+                        },
+                        new
+                        {
+                            Id = 497,
+                            CountryId = 1,
+                            Name = "Chaussée-Notre-Dame-Louvignies",
+                            ZipCode = 7063
+                        },
+                        new
+                        {
+                            Id = 498,
+                            CountryId = 1,
+                            Name = "Chênée",
+                            ZipCode = 4032
+                        },
+                        new
+                        {
+                            Id = 499,
+                            CountryId = 1,
+                            Name = "Cherain",
+                            ZipCode = 6673
+                        },
+                        new
+                        {
+                            Id = 500,
+                            CountryId = 1,
+                            Name = "Cheratte",
+                            ZipCode = 4602
+                        },
+                        new
+                        {
+                            Id = 501,
+                            CountryId = 1,
+                            Name = "Chercq",
+                            ZipCode = 7521
+                        },
+                        new
+                        {
+                            Id = 502,
+                            CountryId = 1,
+                            Name = "Chevetogne",
+                            ZipCode = 5590
+                        },
+                        new
+                        {
+                            Id = 503,
+                            CountryId = 1,
+                            Name = "Chevron",
+                            ZipCode = 4987
+                        },
+                        new
+                        {
+                            Id = 504,
+                            CountryId = 1,
+                            Name = "Chièvres",
+                            ZipCode = 7950
+                        },
+                        new
+                        {
+                            Id = 505,
+                            CountryId = 1,
+                            Name = "Chimay",
+                            ZipCode = 6460
+                        },
+                        new
+                        {
+                            Id = 506,
+                            CountryId = 1,
+                            Name = "Chiny",
+                            ZipCode = 6810
+                        },
+                        new
+                        {
+                            Id = 507,
+                            CountryId = 1,
+                            Name = "Chokier",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 509,
+                            CountryId = 1,
+                            Name = "Ciergnon",
+                            ZipCode = 5560
+                        },
+                        new
+                        {
+                            Id = 510,
+                            CountryId = 1,
+                            Name = "Ciney",
+                            ZipCode = 5590
+                        },
+                        new
+                        {
+                            Id = 511,
+                            CountryId = 1,
+                            Name = "Ciplet",
+                            ZipCode = 4260
+                        },
+                        new
+                        {
+                            Id = 512,
+                            CountryId = 1,
+                            Name = "Ciply",
+                            ZipCode = 7024
+                        },
+                        new
+                        {
+                            Id = 513,
+                            CountryId = 1,
+                            Name = "Cité Administrative de l'Etat",
+                            ZipCode = 1010
+                        },
+                        new
+                        {
+                            Id = 514,
+                            CountryId = 1,
+                            Name = "Clabecq",
+                            ZipCode = 1480
+                        },
+                        new
+                        {
+                            Id = 515,
+                            CountryId = 1,
+                            Name = "Clavier",
+                            ZipCode = 4560
+                        },
+                        new
+                        {
+                            Id = 516,
+                            CountryId = 1,
+                            Name = "Clermont (Lg.)",
+                            ZipCode = 4890
+                        },
+                        new
+                        {
+                            Id = 517,
+                            CountryId = 1,
+                            Name = "Clermont (Nam.)",
+                            ZipCode = 5650
+                        },
+                        new
+                        {
+                            Id = 518,
+                            CountryId = 1,
+                            Name = "Clermont-sous-Huy",
+                            ZipCode = 4480
+                        },
+                        new
+                        {
+                            Id = 519,
+                            CountryId = 1,
+                            Name = "Cognelée",
+                            ZipCode = 5022
+                        },
+                        new
+                        {
+                            Id = 520,
+                            CountryId = 1,
+                            Name = "Colfontaine",
+                            ZipCode = 7340
+                        },
+                        new
+                        {
+                            Id = 521,
+                            CountryId = 1,
+                            Name = "Comblain-au-Pont",
+                            ZipCode = 4170
+                        },
+                        new
+                        {
+                            Id = 522,
+                            CountryId = 1,
+                            Name = "Comblain-Fairon",
+                            ZipCode = 4180
+                        },
+                        new
+                        {
+                            Id = 523,
+                            CountryId = 1,
+                            Name = "Comblain-la-Tour",
+                            ZipCode = 4180
+                        },
+                        new
+                        {
+                            Id = 524,
+                            CountryId = 1,
+                            Name = "Comines",
+                            ZipCode = 7780
+                        },
+                        new
+                        {
+                            Id = 525,
+                            CountryId = 1,
+                            Name = "Comines-Warneton",
+                            ZipCode = 7780
+                        },
+                        new
+                        {
+                            Id = 526,
+                            CountryId = 1,
+                            Name = "Conneux",
+                            ZipCode = 5590
+                        },
+                        new
+                        {
+                            Id = 528,
+                            CountryId = 1,
+                            Name = "Corbais",
+                            ZipCode = 1435
+                        },
+                        new
+                        {
+                            Id = 529,
+                            CountryId = 1,
+                            Name = "Corbion",
+                            ZipCode = 6838
+                        },
+                        new
+                        {
+                            Id = 530,
+                            CountryId = 1,
+                            Name = "Cordes",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 531,
+                            CountryId = 1,
+                            Name = "Corenne",
+                            ZipCode = 5620
+                        },
+                        new
+                        {
+                            Id = 532,
+                            CountryId = 1,
+                            Name = "Cornesse",
+                            ZipCode = 4860
+                        },
+                        new
+                        {
+                            Id = 533,
+                            CountryId = 1,
+                            Name = "Cornimont",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 534,
+                            CountryId = 1,
+                            Name = "Corroy-le-Château",
+                            ZipCode = 5032
+                        },
+                        new
+                        {
+                            Id = 535,
+                            CountryId = 1,
+                            Name = "Corroy-le-Grand",
+                            ZipCode = 1325
+                        },
+                        new
+                        {
+                            Id = 536,
+                            CountryId = 1,
+                            Name = "Corswarem",
+                            ZipCode = 4257
+                        },
+                        new
+                        {
+                            Id = 537,
+                            CountryId = 1,
+                            Name = "Cortil-Noirmont",
+                            ZipCode = 1450
+                        },
+                        new
+                        {
+                            Id = 538,
+                            CountryId = 1,
+                            Name = "Cortil-Wodon",
+                            ZipCode = 5380
+                        },
+                        new
+                        {
+                            Id = 539,
+                            CountryId = 1,
+                            Name = "Couillet",
+                            ZipCode = 6010
+                        },
+                        new
+                        {
+                            Id = 540,
+                            CountryId = 1,
+                            Name = "Courcelles",
+                            ZipCode = 6180
+                        },
+                        new
+                        {
+                            Id = 541,
+                            CountryId = 1,
+                            Name = "Courrière",
+                            ZipCode = 5336
+                        },
+                        new
+                        {
+                            Id = 542,
+                            CountryId = 1,
+                            Name = "Cour-sur-Heure",
+                            ZipCode = 6120
+                        },
+                        new
+                        {
+                            Id = 543,
+                            CountryId = 1,
+                            Name = "Court-Saint-Etienne",
+                            ZipCode = 1490
+                        },
+                        new
+                        {
+                            Id = 544,
+                            CountryId = 1,
+                            Name = "Couthuin",
+                            ZipCode = 4218
+                        },
+                        new
+                        {
+                            Id = 545,
+                            CountryId = 1,
+                            Name = "Coutisse",
+                            ZipCode = 5300
+                        },
+                        new
+                        {
+                            Id = 546,
+                            CountryId = 1,
+                            Name = "Couture-Saint-Germain",
+                            ZipCode = 1380
+                        },
+                        new
+                        {
+                            Id = 547,
+                            CountryId = 1,
+                            Name = "Couvin",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 548,
+                            CountryId = 1,
+                            Name = "Cras-Avernas",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 549,
+                            CountryId = 1,
+                            Name = "Crehen",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 550,
+                            CountryId = 1,
+                            Name = "Crisnée",
+                            ZipCode = 4367
+                        },
+                        new
+                        {
+                            Id = 551,
+                            CountryId = 1,
+                            Name = "Croix-lez-Rouveroy",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 552,
+                            CountryId = 1,
+                            Name = "Crombach",
+                            ZipCode = 4784
+                        },
+                        new
+                        {
+                            Id = 553,
+                            CountryId = 1,
+                            Name = "Crupet",
+                            ZipCode = 5332
+                        },
+                        new
+                        {
+                            Id = 554,
+                            CountryId = 1,
+                            Name = "Cuesmes",
+                            ZipCode = 7033
+                        },
+                        new
+                        {
+                            Id = 555,
+                            CountryId = 1,
+                            Name = "Cugnon",
+                            ZipCode = 6880
+                        },
+                        new
+                        {
+                            Id = 556,
+                            CountryId = 1,
+                            Name = "Cul-des-Sarts",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 557,
+                            CountryId = 1,
+                            Name = "Custinne",
+                            ZipCode = 5562
+                        },
+                        new
+                        {
+                            Id = 558,
+                            CountryId = 1,
+                            Name = "D.I.V.",
+                            ZipCode = 1045
+                        },
+                        new
+                        {
+                            Id = 559,
+                            CountryId = 1,
+                            Name = "Dadizele",
+                            ZipCode = 8890
+                        },
+                        new
+                        {
+                            Id = 560,
+                            CountryId = 1,
+                            Name = "Dailly",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 561,
+                            CountryId = 1,
+                            Name = "Daknam",
+                            ZipCode = 9160
+                        },
+                        new
+                        {
+                            Id = 562,
+                            CountryId = 1,
+                            Name = "Dalhem",
+                            ZipCode = 4607
+                        },
+                        new
+                        {
+                            Id = 563,
+                            CountryId = 1,
+                            Name = "Damme",
+                            ZipCode = 8340
+                        },
+                        new
+                        {
+                            Id = 564,
+                            CountryId = 1,
+                            Name = "Dampicourt",
+                            ZipCode = 6767
+                        },
+                        new
+                        {
+                            Id = 565,
+                            CountryId = 1,
+                            Name = "Dampremy",
+                            ZipCode = 6020
+                        },
+                        new
+                        {
+                            Id = 566,
+                            CountryId = 1,
+                            Name = "Darion",
+                            ZipCode = 4253
+                        },
+                        new
+                        {
+                            Id = 567,
+                            CountryId = 1,
+                            Name = "Daussois",
+                            ZipCode = 5630
+                        },
+                        new
+                        {
+                            Id = 568,
+                            CountryId = 1,
+                            Name = "Daussoulx",
+                            ZipCode = 5020
+                        },
+                        new
+                        {
+                            Id = 569,
+                            CountryId = 1,
+                            Name = "Dave",
+                            ZipCode = 5100
+                        },
+                        new
+                        {
+                            Id = 570,
+                            CountryId = 1,
+                            Name = "Daverdisse",
+                            ZipCode = 6929
+                        },
+                        new
+                        {
+                            Id = 571,
+                            CountryId = 1,
+                            Name = "De Haan",
+                            ZipCode = 8420
+                        },
+                        new
+                        {
+                            Id = 572,
+                            CountryId = 1,
+                            Name = "De Klinge",
+                            ZipCode = 9170
+                        },
+                        new
+                        {
+                            Id = 573,
+                            CountryId = 1,
+                            Name = "De Moeren",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 574,
+                            CountryId = 1,
+                            Name = "De Panne",
+                            ZipCode = 8660
+                        },
+                        new
+                        {
+                            Id = 575,
+                            CountryId = 1,
+                            Name = "De Pinte",
+                            ZipCode = 9840
+                        },
+                        new
+                        {
+                            Id = 576,
+                            CountryId = 1,
+                            Name = "Deerlijk",
+                            ZipCode = 8540
+                        },
+                        new
+                        {
+                            Id = 577,
+                            CountryId = 1,
+                            Name = "Deftinge",
+                            ZipCode = 9570
+                        },
+                        new
+                        {
+                            Id = 578,
+                            CountryId = 1,
+                            Name = "Deinze",
+                            ZipCode = 9800
+                        },
+                        new
+                        {
+                            Id = 579,
+                            CountryId = 1,
+                            Name = "Denderbelle",
+                            ZipCode = 9280
+                        },
+                        new
+                        {
+                            Id = 580,
+                            CountryId = 1,
+                            Name = "Denderhoutem",
+                            ZipCode = 9450
+                        },
+                        new
+                        {
+                            Id = 581,
+                            CountryId = 1,
+                            Name = "Denderleeuw",
+                            ZipCode = 9470
+                        },
+                        new
+                        {
+                            Id = 582,
+                            CountryId = 1,
+                            Name = "Dendermonde",
+                            ZipCode = 9200
+                        },
+                        new
+                        {
+                            Id = 583,
+                            CountryId = 1,
+                            Name = "Denderwindeke",
+                            ZipCode = 9400
+                        },
+                        new
+                        {
+                            Id = 584,
+                            CountryId = 1,
+                            Name = "Denée",
+                            ZipCode = 5537
+                        },
+                        new
+                        {
+                            Id = 585,
+                            CountryId = 1,
+                            Name = "Dentergem",
+                            ZipCode = 8720
+                        },
+                        new
+                        {
+                            Id = 586,
+                            CountryId = 1,
+                            Name = "Dergneau",
+                            ZipCode = 7912
+                        },
+                        new
+                        {
+                            Id = 587,
+                            CountryId = 1,
+                            Name = "Dessel",
+                            ZipCode = 2480
+                        },
+                        new
+                        {
+                            Id = 588,
+                            CountryId = 1,
+                            Name = "Desselgem",
+                            ZipCode = 8792
+                        },
+                        new
+                        {
+                            Id = 589,
+                            CountryId = 1,
+                            Name = "Destelbergen",
+                            ZipCode = 9070
+                        },
+                        new
+                        {
+                            Id = 590,
+                            CountryId = 1,
+                            Name = "Desteldonk",
+                            ZipCode = 9042
+                        },
+                        new
+                        {
+                            Id = 591,
+                            CountryId = 1,
+                            Name = "Deurle",
+                            ZipCode = 9831
+                        },
+                        new
+                        {
+                            Id = 592,
+                            CountryId = 1,
+                            Name = "Deurne (Antwerpen)",
+                            ZipCode = 2100
+                        },
+                        new
+                        {
+                            Id = 593,
+                            CountryId = 1,
+                            Name = "Deurne (Bt.)",
+                            ZipCode = 3290
+                        },
+                        new
+                        {
+                            Id = 594,
+                            CountryId = 1,
+                            Name = "Deux-Acren",
+                            ZipCode = 7864
+                        },
+                        new
+                        {
+                            Id = 595,
+                            CountryId = 1,
+                            Name = "Dhuy",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 596,
+                            CountryId = 1,
+                            Name = "Diegem",
+                            ZipCode = 1831
+                        },
+                        new
+                        {
+                            Id = 597,
+                            CountryId = 1,
+                            Name = "Diepenbeek",
+                            ZipCode = 3590
+                        },
+                        new
+                        {
+                            Id = 598,
+                            CountryId = 1,
+                            Name = "Diest",
+                            ZipCode = 3290
+                        },
+                        new
+                        {
+                            Id = 599,
+                            CountryId = 1,
+                            Name = "Diets-Heur",
+                            ZipCode = 3700
+                        },
+                        new
+                        {
+                            Id = 600,
+                            CountryId = 1,
+                            Name = "Dikkebus",
+                            ZipCode = 8900
+                        },
+                        new
+                        {
+                            Id = 601,
+                            CountryId = 1,
+                            Name = "Dikkele",
+                            ZipCode = 9630
+                        },
+                        new
+                        {
+                            Id = 602,
+                            CountryId = 1,
+                            Name = "Dikkelvenne",
+                            ZipCode = 9890
+                        },
+                        new
+                        {
+                            Id = 603,
+                            CountryId = 1,
+                            Name = "Diksmuide",
+                            ZipCode = 8600
+                        },
+                        new
+                        {
+                            Id = 604,
+                            CountryId = 1,
+                            Name = "Dilbeek",
+                            ZipCode = 1700
+                        },
+                        new
+                        {
+                            Id = 605,
+                            CountryId = 1,
+                            Name = "Dilsen-Stokkem",
+                            ZipCode = 3650
+                        },
+                        new
+                        {
+                            Id = 606,
+                            CountryId = 1,
+                            Name = "Dinant",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 607,
+                            CountryId = 1,
+                            Name = "Dion",
+                            ZipCode = 5570
+                        },
+                        new
+                        {
+                            Id = 608,
+                            CountryId = 1,
+                            Name = "Dion-Valmont",
+                            ZipCode = 1325
+                        },
+                        new
+                        {
+                            Id = 609,
+                            CountryId = 1,
+                            Name = "Dison",
+                            ZipCode = 4820
+                        },
+                        new
+                        {
+                            Id = 610,
+                            CountryId = 1,
+                            Name = "Dochamps",
+                            ZipCode = 6960
+                        },
+                        new
+                        {
+                            Id = 611,
+                            CountryId = 1,
+                            Name = "Doel",
+                            ZipCode = 9130
+                        },
+                        new
+                        {
+                            Id = 612,
+                            CountryId = 1,
+                            Name = "Dohan",
+                            ZipCode = 6836
+                        },
+                        new
+                        {
+                            Id = 613,
+                            CountryId = 1,
+                            Name = "Doische",
+                            ZipCode = 5680
+                        },
+                        new
+                        {
+                            Id = 614,
+                            CountryId = 1,
+                            Name = "Dolembreux",
+                            ZipCode = 4140
+                        },
+                        new
+                        {
+                            Id = 615,
+                            CountryId = 1,
+                            Name = "Donceel",
+                            ZipCode = 4357
+                        },
+                        new
+                        {
+                            Id = 616,
+                            CountryId = 1,
+                            Name = "Dongelberg",
+                            ZipCode = 1370
+                        },
+                        new
+                        {
+                            Id = 617,
+                            CountryId = 1,
+                            Name = "Donk",
+                            ZipCode = 3540
+                        },
+                        new
+                        {
+                            Id = 618,
+                            CountryId = 1,
+                            Name = "Donstiennes",
+                            ZipCode = 6536
+                        },
+                        new
+                        {
+                            Id = 619,
+                            CountryId = 1,
+                            Name = "Dorinne",
+                            ZipCode = 5530
+                        },
+                        new
+                        {
+                            Id = 620,
+                            CountryId = 1,
+                            Name = "Dormaal",
+                            ZipCode = 3440
+                        },
+                        new
+                        {
+                            Id = 621,
+                            CountryId = 1,
+                            Name = "Dottenijs",
+                            ZipCode = 7711
+                        },
+                        new
+                        {
+                            Id = 622,
+                            CountryId = 1,
+                            Name = "Dottignies",
+                            ZipCode = 7711
+                        },
+                        new
+                        {
+                            Id = 623,
+                            CountryId = 1,
+                            Name = "Dour",
+                            ZipCode = 7370
+                        },
+                        new
+                        {
+                            Id = 624,
+                            CountryId = 1,
+                            Name = "Dourbes",
+                            ZipCode = 5670
+                        },
+                        new
+                        {
+                            Id = 625,
+                            CountryId = 1,
+                            Name = "Dranouter",
+                            ZipCode = 8951
+                        },
+                        new
+                        {
+                            Id = 626,
+                            CountryId = 1,
+                            Name = "Dréhance",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 627,
+                            CountryId = 1,
+                            Name = "Driekapellen",
+                            ZipCode = 8600
+                        },
+                        new
+                        {
+                            Id = 628,
+                            CountryId = 1,
+                            Name = "Drieslinter",
+                            ZipCode = 3350
+                        },
+                        new
+                        {
+                            Id = 629,
+                            CountryId = 1,
+                            Name = "Drogenbos",
+                            ZipCode = 1620
+                        },
+                        new
+                        {
+                            Id = 630,
+                            CountryId = 1,
+                            Name = "Drongen",
+                            ZipCode = 9031
+                        },
+                        new
+                        {
+                            Id = 631,
+                            CountryId = 1,
+                            Name = "Dudzele",
+                            ZipCode = 8380
+                        },
+                        new
+                        {
+                            Id = 632,
+                            CountryId = 1,
+                            Name = "Duffel",
+                            ZipCode = 2570
+                        },
+                        new
+                        {
+                            Id = 633,
+                            CountryId = 1,
+                            Name = "Duisburg",
+                            ZipCode = 3080
+                        },
+                        new
+                        {
+                            Id = 634,
+                            CountryId = 1,
+                            Name = "Duras",
+                            ZipCode = 3803
+                        },
+                        new
+                        {
+                            Id = 635,
+                            CountryId = 1,
+                            Name = "Durbuy",
+                            ZipCode = 6940
+                        },
+                        new
+                        {
+                            Id = 636,
+                            CountryId = 1,
+                            Name = "Durnal",
+                            ZipCode = 5530
+                        },
+                        new
+                        {
+                            Id = 637,
+                            CountryId = 1,
+                            Name = "Dworp",
+                            ZipCode = 1653
+                        },
+                        new
+                        {
+                            Id = 638,
+                            CountryId = 1,
+                            Name = "E.U.-Commissie",
+                            ZipCode = 1049
+                        },
+                        new
+                        {
+                            Id = 639,
+                            CountryId = 1,
+                            Name = "E.U.-Raad",
+                            ZipCode = 1048
+                        },
+                        new
+                        {
+                            Id = 640,
+                            CountryId = 1,
+                            Name = "Eben-Emael",
+                            ZipCode = 4690
+                        },
+                        new
+                        {
+                            Id = 641,
+                            CountryId = 1,
+                            Name = "Ebly",
+                            ZipCode = 6860
+                        },
+                        new
+                        {
+                            Id = 642,
+                            CountryId = 1,
+                            Name = "Ecaussinnes",
+                            ZipCode = 7190
+                        },
+                        new
+                        {
+                            Id = 643,
+                            CountryId = 1,
+                            Name = "Ecaussinnes-d'Enghien",
+                            ZipCode = 7190
+                        },
+                        new
+                        {
+                            Id = 644,
+                            CountryId = 1,
+                            Name = "Ecaussinnes-Lalaing",
+                            ZipCode = 7191
+                        },
+                        new
+                        {
+                            Id = 645,
+                            CountryId = 1,
+                            Name = "Edegem",
+                            ZipCode = 2650
+                        },
+                        new
+                        {
+                            Id = 646,
+                            CountryId = 1,
+                            Name = "Edelare",
+                            ZipCode = 9700
+                        },
+                        new
+                        {
+                            Id = 647,
+                            CountryId = 1,
+                            Name = "Edingen",
+                            ZipCode = 7850
+                        },
+                        new
+                        {
+                            Id = 648,
+                            CountryId = 1,
+                            Name = "Eeklo",
+                            ZipCode = 9900
+                        },
+                        new
+                        {
+                            Id = 649,
+                            CountryId = 1,
+                            Name = "Eernegem",
+                            ZipCode = 8480
+                        },
+                        new
+                        {
+                            Id = 650,
+                            CountryId = 1,
+                            Name = "Egem",
+                            ZipCode = 8740
+                        },
+                        new
+                        {
+                            Id = 651,
+                            CountryId = 1,
+                            Name = "Eggewaartskapelle",
+                            ZipCode = 8630
+                        },
+                        new
+                        {
+                            Id = 652,
+                            CountryId = 1,
+                            Name = "Eghezée",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 653,
+                            CountryId = 1,
+                            Name = "Ehein",
+                            ZipCode = 4120
+                        },
+                        new
+                        {
+                            Id = 654,
+                            CountryId = 1,
+                            Name = "Eigenbilzen",
+                            ZipCode = 3740
+                        },
+                        new
+                        {
+                            Id = 655,
+                            CountryId = 1,
+                            Name = "Eindhout",
+                            ZipCode = 2430
+                        },
+                        new
+                        {
+                            Id = 656,
+                            CountryId = 1,
+                            Name = "Eine",
+                            ZipCode = 9700
+                        },
+                        new
+                        {
+                            Id = 657,
+                            CountryId = 1,
+                            Name = "Eisden",
+                            ZipCode = 3630
+                        },
+                        new
+                        {
+                            Id = 658,
+                            CountryId = 1,
+                            Name = "Eke",
+                            ZipCode = 9810
+                        },
+                        new
+                        {
+                            Id = 659,
+                            CountryId = 1,
+                            Name = "Ekeren (Antwerpen)",
+                            ZipCode = 2180
+                        },
+                        new
+                        {
+                            Id = 660,
+                            CountryId = 1,
+                            Name = "Eksaarde",
+                            ZipCode = 9160
+                        },
+                        new
+                        {
+                            Id = 661,
+                            CountryId = 1,
+                            Name = "Eksel",
+                            ZipCode = 3941
+                        },
+                        new
+                        {
+                            Id = 662,
+                            CountryId = 1,
+                            Name = "Elen",
+                            ZipCode = 3650
+                        },
+                        new
+                        {
+                            Id = 663,
+                            CountryId = 1,
+                            Name = "Elene",
+                            ZipCode = 9620
+                        },
+                        new
+                        {
+                            Id = 664,
+                            CountryId = 1,
+                            Name = "Elewijt",
+                            ZipCode = 1982
+                        },
+                        new
+                        {
+                            Id = 665,
+                            CountryId = 1,
+                            Name = "Eliksem",
+                            ZipCode = 3400
+                        },
+                        new
+                        {
+                            Id = 666,
+                            CountryId = 1,
+                            Name = "Elingen",
+                            ZipCode = 1671
+                        },
+                        new
+                        {
+                            Id = 667,
+                            CountryId = 1,
+                            Name = "Ellemelle",
+                            ZipCode = 4590
+                        },
+                        new
+                        {
+                            Id = 668,
+                            CountryId = 1,
+                            Name = "Ellezelles",
+                            ZipCode = 7890
+                        },
+                        new
+                        {
+                            Id = 669,
+                            CountryId = 1,
+                            Name = "Ellignies-lez-Frasnes",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 670,
+                            CountryId = 1,
+                            Name = "Ellignies-Sainte-Anne",
+                            ZipCode = 7972
+                        },
+                        new
+                        {
+                            Id = 671,
+                            CountryId = 1,
+                            Name = "Ellikom",
+                            ZipCode = 3670
+                        },
+                        new
+                        {
+                            Id = 672,
+                            CountryId = 1,
+                            Name = "Elouges",
+                            ZipCode = 7370
+                        },
+                        new
+                        {
+                            Id = 673,
+                            CountryId = 1,
+                            Name = "Elsegem",
+                            ZipCode = 9790
+                        },
+                        new
+                        {
+                            Id = 674,
+                            CountryId = 1,
+                            Name = "Elsenborn",
+                            ZipCode = 4750
+                        },
+                        new
+                        {
+                            Id = 675,
+                            CountryId = 1,
+                            Name = "Elsene",
+                            ZipCode = 1050
+                        },
+                        new
+                        {
+                            Id = 676,
+                            CountryId = 1,
+                            Name = "Elst",
+                            ZipCode = 9660
+                        },
+                        new
+                        {
+                            Id = 677,
+                            CountryId = 1,
+                            Name = "Elverdinge",
+                            ZipCode = 8906
+                        },
+                        new
+                        {
+                            Id = 678,
+                            CountryId = 1,
+                            Name = "Elversele",
+                            ZipCode = 9140
+                        },
+                        new
+                        {
+                            Id = 679,
+                            CountryId = 1,
+                            Name = "Emblem",
+                            ZipCode = 2520
+                        },
+                        new
+                        {
+                            Id = 680,
+                            CountryId = 1,
+                            Name = "Embourg",
+                            ZipCode = 4053
+                        },
+                        new
+                        {
+                            Id = 681,
+                            CountryId = 1,
+                            Name = "Emelgem",
+                            ZipCode = 8870
+                        },
+                        new
+                        {
+                            Id = 682,
+                            CountryId = 1,
+                            Name = "Emines",
+                            ZipCode = 5080
+                        },
+                        new
+                        {
+                            Id = 683,
+                            CountryId = 1,
+                            Name = "Emptinne",
+                            ZipCode = 5363
+                        },
+                        new
+                        {
+                            Id = 684,
+                            CountryId = 1,
+                            Name = "Ename",
+                            ZipCode = 9700
+                        },
+                        new
+                        {
+                            Id = 685,
+                            CountryId = 1,
+                            Name = "Engelmanshoven",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 686,
+                            CountryId = 1,
+                            Name = "Enghien",
+                            ZipCode = 7850
+                        },
+                        new
+                        {
+                            Id = 687,
+                            CountryId = 1,
+                            Name = "Engis",
+                            ZipCode = 4480
+                        },
+                        new
+                        {
+                            Id = 688,
+                            CountryId = 1,
+                            Name = "Enines",
+                            ZipCode = 1350
+                        },
+                        new
+                        {
+                            Id = 689,
+                            CountryId = 1,
+                            Name = "Ensival",
+                            ZipCode = 4800
+                        },
+                        new
+                        {
+                            Id = 690,
+                            CountryId = 1,
+                            Name = "Epinois",
+                            ZipCode = 7134
+                        },
+                        new
+                        {
+                            Id = 691,
+                            CountryId = 1,
+                            Name = "Eppegem",
+                            ZipCode = 1980
+                        },
+                        new
+                        {
+                            Id = 692,
+                            CountryId = 1,
+                            Name = "Eprave",
+                            ZipCode = 5580
+                        },
+                        new
+                        {
+                            Id = 693,
+                            CountryId = 1,
+                            Name = "Erbaut",
+                            ZipCode = 7050
+                        },
+                        new
+                        {
+                            Id = 694,
+                            CountryId = 1,
+                            Name = "Erbisoeul",
+                            ZipCode = 7050
+                        },
+                        new
+                        {
+                            Id = 695,
+                            CountryId = 1,
+                            Name = "Ere",
+                            ZipCode = 7500
+                        },
+                        new
+                        {
+                            Id = 696,
+                            CountryId = 1,
+                            Name = "Erembodegem (Aalst)",
+                            ZipCode = 9320
+                        },
+                        new
+                        {
+                            Id = 697,
+                            CountryId = 1,
+                            Name = "Erezée",
+                            ZipCode = 6997
+                        },
+                        new
+                        {
+                            Id = 698,
+                            CountryId = 1,
+                            Name = "Ermeton-sur-Biert",
+                            ZipCode = 5644
+                        },
+                        new
+                        {
+                            Id = 699,
+                            CountryId = 1,
+                            Name = "Ernage",
+                            ZipCode = 5030
+                        },
+                        new
+                        {
+                            Id = 700,
+                            CountryId = 1,
+                            Name = "Erneuville",
+                            ZipCode = 6972
+                        },
+                        new
+                        {
+                            Id = 701,
+                            CountryId = 1,
+                            Name = "Ernonheid",
+                            ZipCode = 4920
+                        },
+                        new
+                        {
+                            Id = 702,
+                            CountryId = 1,
+                            Name = "Erondegem",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 703,
+                            CountryId = 1,
+                            Name = "Erpe",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 704,
+                            CountryId = 1,
+                            Name = "Erpe-Mere",
+                            ZipCode = 9420
+                        },
+                        new
+                        {
+                            Id = 705,
+                            CountryId = 1,
+                            Name = "Erpent",
+                            ZipCode = 5101
+                        },
+                        new
+                        {
+                            Id = 706,
+                            CountryId = 1,
+                            Name = "Erpion",
+                            ZipCode = 6441
+                        },
+                        new
+                        {
+                            Id = 707,
+                            CountryId = 1,
+                            Name = "Erps-Kwerps",
+                            ZipCode = 3071
+                        },
+                        new
+                        {
+                            Id = 708,
+                            CountryId = 1,
+                            Name = "Erquelinnes",
+                            ZipCode = 6560
+                        },
+                        new
+                        {
+                            Id = 709,
+                            CountryId = 1,
+                            Name = "Erquennes",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 710,
+                            CountryId = 1,
+                            Name = "Ertvelde",
+                            ZipCode = 9940
+                        },
+                        new
+                        {
+                            Id = 711,
+                            CountryId = 1,
+                            Name = "Erwetegem",
+                            ZipCode = 9620
+                        },
+                        new
+                        {
+                            Id = 712,
+                            CountryId = 1,
+                            Name = "Escanaffles",
+                            ZipCode = 7760
+                        },
+                        new
+                        {
+                            Id = 713,
+                            CountryId = 1,
+                            Name = "Esen",
+                            ZipCode = 8600
+                        },
+                        new
+                        {
+                            Id = 714,
+                            CountryId = 1,
+                            Name = "Esneux",
+                            ZipCode = 4130
+                        },
+                        new
+                        {
+                            Id = 715,
+                            CountryId = 1,
+                            Name = "Espierres",
+                            ZipCode = 8587
+                        },
+                        new
+                        {
+                            Id = 716,
+                            CountryId = 1,
+                            Name = "Espierres-Helchin",
+                            ZipCode = 8587
+                        },
+                        new
+                        {
+                            Id = 717,
+                            CountryId = 1,
+                            Name = "Esplechin",
+                            ZipCode = 7502
+                        },
+                        new
+                        {
+                            Id = 718,
+                            CountryId = 1,
+                            Name = "Esquelmes",
+                            ZipCode = 7743
+                        },
+                        new
+                        {
+                            Id = 719,
+                            CountryId = 1,
+                            Name = "Essen",
+                            ZipCode = 2910
+                        },
+                        new
+                        {
+                            Id = 720,
+                            CountryId = 1,
+                            Name = "Essene",
+                            ZipCode = 1790
+                        },
+                        new
+                        {
+                            Id = 721,
+                            CountryId = 1,
+                            Name = "Estaimbourg",
+                            ZipCode = 7730
+                        },
+                        new
+                        {
+                            Id = 722,
+                            CountryId = 1,
+                            Name = "Estaimpuis",
+                            ZipCode = 7730
+                        },
+                        new
+                        {
+                            Id = 723,
+                            CountryId = 1,
+                            Name = "Estinnes",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 724,
+                            CountryId = 1,
+                            Name = "Estinnes-au-Mont",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 725,
+                            CountryId = 1,
+                            Name = "Estinnes-au-Val",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 726,
+                            CountryId = 1,
+                            Name = "Etalle",
+                            ZipCode = 6740
+                        },
+                        new
+                        {
+                            Id = 727,
+                            CountryId = 1,
+                            Name = "Ethe",
+                            ZipCode = 6760
+                        },
+                        new
+                        {
+                            Id = 728,
+                            CountryId = 1,
+                            Name = "Etikhove",
+                            ZipCode = 9680
+                        },
+                        new
+                        {
+                            Id = 729,
+                            CountryId = 1,
+                            Name = "Ettelgem",
+                            ZipCode = 8460
+                        },
+                        new
+                        {
+                            Id = 730,
+                            CountryId = 1,
+                            Name = "Etterbeek",
+                            ZipCode = 1040
+                        },
+                        new
+                        {
+                            Id = 731,
+                            CountryId = 1,
+                            Name = "Eugies (Frameries)",
+                            ZipCode = 7080
+                        },
+                        new
+                        {
+                            Id = 732,
+                            CountryId = 1,
+                            Name = "Eupen",
+                            ZipCode = 4700
+                        },
+                        new
+                        {
+                            Id = 733,
+                            CountryId = 1,
+                            Name = "Europees Parlement",
+                            ZipCode = 1047
+                        },
+                        new
+                        {
+                            Id = 734,
+                            CountryId = 1,
+                            Name = "Evegnée",
+                            ZipCode = 4631
+                        },
+                        new
+                        {
+                            Id = 735,
+                            CountryId = 1,
+                            Name = "Evelette",
+                            ZipCode = 5350
+                        },
+                        new
+                        {
+                            Id = 736,
+                            CountryId = 1,
+                            Name = "Everbeek",
+                            ZipCode = 9660
+                        },
+                        new
+                        {
+                            Id = 737,
+                            CountryId = 1,
+                            Name = "Everberg",
+                            ZipCode = 3078
+                        },
+                        new
+                        {
+                            Id = 738,
+                            CountryId = 1,
+                            Name = "Evere",
+                            ZipCode = 1140
+                        },
+                        new
+                        {
+                            Id = 739,
+                            CountryId = 1,
+                            Name = "Evergem",
+                            ZipCode = 9940
+                        },
+                        new
+                        {
+                            Id = 740,
+                            CountryId = 1,
+                            Name = "Evregnies",
+                            ZipCode = 7730
+                        },
+                        new
+                        {
+                            Id = 741,
+                            CountryId = 1,
+                            Name = "Evrehailles",
+                            ZipCode = 5530
+                        },
+                        new
+                        {
+                            Id = 742,
+                            CountryId = 1,
+                            Name = "Eynatten",
+                            ZipCode = 4731
+                        },
+                        new
+                        {
+                            Id = 743,
+                            CountryId = 1,
+                            Name = "Ezemaal",
+                            ZipCode = 3400
+                        },
+                        new
+                        {
+                            Id = 745,
+                            CountryId = 1,
+                            Name = "Fagnolle",
+                            ZipCode = 5600
+                        },
+                        new
+                        {
+                            Id = 746,
+                            CountryId = 1,
+                            Name = "Faimes",
+                            ZipCode = 4317
+                        },
+                        new
+                        {
+                            Id = 747,
+                            CountryId = 1,
+                            Name = "Falaën",
+                            ZipCode = 5522
+                        },
+                        new
+                        {
+                            Id = 748,
+                            CountryId = 1,
+                            Name = "Falisolle",
+                            ZipCode = 5060
+                        },
+                        new
+                        {
+                            Id = 749,
+                            CountryId = 1,
+                            Name = "Fallais",
+                            ZipCode = 4260
+                        },
+                        new
+                        {
+                            Id = 750,
+                            CountryId = 1,
+                            Name = "Falmagne",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 751,
+                            CountryId = 1,
+                            Name = "Falmignoul",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 752,
+                            CountryId = 1,
+                            Name = "Familleureux",
+                            ZipCode = 7181
+                        },
+                        new
+                        {
+                            Id = 753,
+                            CountryId = 1,
+                            Name = "Farciennes",
+                            ZipCode = 6240
+                        },
+                        new
+                        {
+                            Id = 754,
+                            CountryId = 1,
+                            Name = "Faulx-les-Tombes",
+                            ZipCode = 5340
+                        },
+                        new
+                        {
+                            Id = 755,
+                            CountryId = 1,
+                            Name = "Fauroeulx",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 756,
+                            CountryId = 1,
+                            Name = "Fauvillers",
+                            ZipCode = 6637
+                        },
+                        new
+                        {
+                            Id = 757,
+                            CountryId = 1,
+                            Name = "Faymonville",
+                            ZipCode = 4950
+                        },
+                        new
+                        {
+                            Id = 758,
+                            CountryId = 1,
+                            Name = "Fays-les-Veneurs",
+                            ZipCode = 6856
+                        },
+                        new
+                        {
+                            Id = 759,
+                            CountryId = 1,
+                            Name = "Fayt-le-Franc",
+                            ZipCode = 7387
+                        },
+                        new
+                        {
+                            Id = 760,
+                            CountryId = 1,
+                            Name = "Fayt-lez-Manage",
+                            ZipCode = 7170
+                        },
+                        new
+                        {
+                            Id = 761,
+                            CountryId = 1,
+                            Name = "Felenne",
+                            ZipCode = 5570
+                        },
+                        new
+                        {
+                            Id = 762,
+                            CountryId = 1,
+                            Name = "Feluy",
+                            ZipCode = 7181
+                        },
+                        new
+                        {
+                            Id = 763,
+                            CountryId = 1,
+                            Name = "Feneur",
+                            ZipCode = 4607
+                        },
+                        new
+                        {
+                            Id = 764,
+                            CountryId = 1,
+                            Name = "Fernelmont",
+                            ZipCode = 5380
+                        },
+                        new
+                        {
+                            Id = 765,
+                            CountryId = 1,
+                            Name = "Ferrières",
+                            ZipCode = 4190
+                        },
+                        new
+                        {
+                            Id = 766,
+                            CountryId = 1,
+                            Name = "Feschaux",
+                            ZipCode = 5570
+                        },
+                        new
+                        {
+                            Id = 767,
+                            CountryId = 1,
+                            Name = "Fexhe-le-Haut-Clocher",
+                            ZipCode = 4347
+                        },
+                        new
+                        {
+                            Id = 768,
+                            CountryId = 1,
+                            Name = "Fexhe-Slins",
+                            ZipCode = 4458
+                        },
+                        new
+                        {
+                            Id = 769,
+                            CountryId = 1,
+                            Name = "Filot",
+                            ZipCode = 4181
+                        },
+                        new
+                        {
+                            Id = 770,
+                            CountryId = 1,
+                            Name = "Finnevaux",
+                            ZipCode = 5560
+                        },
+                        new
+                        {
+                            Id = 771,
+                            CountryId = 1,
+                            Name = "Fize-Fontaine",
+                            ZipCode = 4530
+                        },
+                        new
+                        {
+                            Id = 772,
+                            CountryId = 1,
+                            Name = "Fize-le-Marsal",
+                            ZipCode = 4367
+                        },
+                        new
+                        {
+                            Id = 773,
+                            CountryId = 1,
+                            Name = "Flamierge",
+                            ZipCode = 6686
+                        },
+                        new
+                        {
+                            Id = 774,
+                            CountryId = 1,
+                            Name = "Flavion",
+                            ZipCode = 5620
+                        },
+                        new
+                        {
+                            Id = 775,
+                            CountryId = 1,
+                            Name = "Flawinne",
+                            ZipCode = 5020
+                        },
+                        new
+                        {
+                            Id = 776,
+                            CountryId = 1,
+                            Name = "Flémalle",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 777,
+                            CountryId = 1,
+                            Name = "Flémalle-Grande",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 778,
+                            CountryId = 1,
+                            Name = "Flémalle-Haute",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 779,
+                            CountryId = 1,
+                            Name = "Flénu",
+                            ZipCode = 7012
+                        },
+                        new
+                        {
+                            Id = 780,
+                            CountryId = 1,
+                            Name = "Fléron",
+                            ZipCode = 4620
+                        },
+                        new
+                        {
+                            Id = 781,
+                            CountryId = 1,
+                            Name = "Fleurus",
+                            ZipCode = 6220
+                        },
+                        new
+                        {
+                            Id = 782,
+                            CountryId = 1,
+                            Name = "Flobecq",
+                            ZipCode = 7880
+                        },
+                        new
+                        {
+                            Id = 783,
+                            CountryId = 1,
+                            Name = "Flône",
+                            ZipCode = 4540
+                        },
+                        new
+                        {
+                            Id = 784,
+                            CountryId = 1,
+                            Name = "Florée",
+                            ZipCode = 5334
+                        },
+                        new
+                        {
+                            Id = 785,
+                            CountryId = 1,
+                            Name = "Floreffe",
+                            ZipCode = 5150
+                        },
+                        new
+                        {
+                            Id = 786,
+                            CountryId = 1,
+                            Name = "Florennes",
+                            ZipCode = 5620
+                        },
+                        new
+                        {
+                            Id = 787,
+                            CountryId = 1,
+                            Name = "Florenville",
+                            ZipCode = 6820
+                        },
+                        new
+                        {
+                            Id = 788,
+                            CountryId = 1,
+                            Name = "Floriffoux",
+                            ZipCode = 5150
+                        },
+                        new
+                        {
+                            Id = 789,
+                            CountryId = 1,
+                            Name = "Flostoy",
+                            ZipCode = 5370
+                        },
+                        new
+                        {
+                            Id = 790,
+                            CountryId = 1,
+                            Name = "Focant",
+                            ZipCode = 5572
+                        },
+                        new
+                        {
+                            Id = 791,
+                            CountryId = 1,
+                            Name = "Folx-les-Caves",
+                            ZipCode = 1350
+                        },
+                        new
+                        {
+                            Id = 792,
+                            CountryId = 1,
+                            Name = "Fontaine-l'Evêque",
+                            ZipCode = 6140
+                        },
+                        new
+                        {
+                            Id = 793,
+                            CountryId = 1,
+                            Name = "Fontaine-Valmont",
+                            ZipCode = 6567
+                        },
+                        new
+                        {
+                            Id = 794,
+                            CountryId = 1,
+                            Name = "Fontenelle",
+                            ZipCode = 5650
+                        },
+                        new
+                        {
+                            Id = 795,
+                            CountryId = 1,
+                            Name = "Fontenoille",
+                            ZipCode = 6820
+                        },
+                        new
+                        {
+                            Id = 796,
+                            CountryId = 1,
+                            Name = "Fontenoy",
+                            ZipCode = 7643
+                        },
+                        new
+                        {
+                            Id = 797,
+                            CountryId = 1,
+                            Name = "Fooz",
+                            ZipCode = 4340
+                        },
+                        new
+                        {
+                            Id = 798,
+                            CountryId = 1,
+                            Name = "Forchies-la-Marche",
+                            ZipCode = 6141
+                        },
+                        new
+                        {
+                            Id = 800,
+                            CountryId = 1,
+                            Name = "Forest (Ht.)",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 801,
+                            CountryId = 1,
+                            Name = "Forêt",
+                            ZipCode = 4870
+                        },
+                        new
+                        {
+                            Id = 802,
+                            CountryId = 1,
+                            Name = "Forge-Philippe",
+                            ZipCode = 6596
+                        },
+                        new
+                        {
+                            Id = 803,
+                            CountryId = 1,
+                            Name = "Forges",
+                            ZipCode = 6464
+                        },
+                        new
+                        {
+                            Id = 804,
+                            CountryId = 1,
+                            Name = "Forrières",
+                            ZipCode = 6953
+                        },
+                        new
+                        {
+                            Id = 805,
+                            CountryId = 1,
+                            Name = "Forville",
+                            ZipCode = 5380
+                        },
+                        new
+                        {
+                            Id = 806,
+                            CountryId = 1,
+                            Name = "Fosse (Lg.)",
+                            ZipCode = 4980
+                        },
+                        new
+                        {
+                            Id = 807,
+                            CountryId = 1,
+                            Name = "Fosses-la-Ville",
+                            ZipCode = 5070
+                        },
+                        new
+                        {
+                            Id = 808,
+                            CountryId = 1,
+                            Name = "Fouleng",
+                            ZipCode = 7830
+                        },
+                        new
+                        {
+                            Id = 809,
+                            CountryId = 1,
+                            Name = "Fourbechies",
+                            ZipCode = 6440
+                        },
+                        new
+                        {
+                            Id = 810,
+                            CountryId = 1,
+                            Name = "Fouron-le-Comte",
+                            ZipCode = 3798
+                        },
+                        new
+                        {
+                            Id = 811,
+                            CountryId = 1,
+                            Name = "Fourons",
+                            ZipCode = 3790
+                        },
+                        new
+                        {
+                            Id = 812,
+                            CountryId = 1,
+                            Name = "Fouron-Saint-Martin",
+                            ZipCode = 3790
+                        },
+                        new
+                        {
+                            Id = 813,
+                            CountryId = 1,
+                            Name = "Fouron-Saint-Pierre",
+                            ZipCode = 3792
+                        },
+                        new
+                        {
+                            Id = 814,
+                            CountryId = 1,
+                            Name = "Foy-Notre-Dame",
+                            ZipCode = 5504
+                        },
+                        new
+                        {
+                            Id = 815,
+                            CountryId = 1,
+                            Name = "Fraipont",
+                            ZipCode = 4870
+                        },
+                        new
+                        {
+                            Id = 816,
+                            CountryId = 1,
+                            Name = "Fraire",
+                            ZipCode = 5650
+                        },
+                        new
+                        {
+                            Id = 817,
+                            CountryId = 1,
+                            Name = "Fraiture",
+                            ZipCode = 4557
+                        },
+                        new
+                        {
+                            Id = 818,
+                            CountryId = 1,
+                            Name = "Frameries",
+                            ZipCode = 7080
+                        },
+                        new
+                        {
+                            Id = 819,
+                            CountryId = 1,
+                            Name = "Framont",
+                            ZipCode = 6853
+                        },
+                        new
+                        {
+                            Id = 820,
+                            CountryId = 1,
+                            Name = "Franchimont",
+                            ZipCode = 5600
+                        },
+                        new
+                        {
+                            Id = 821,
+                            CountryId = 1,
+                            Name = "Francorchamps",
+                            ZipCode = 4970
+                        },
+                        new
+                        {
+                            Id = 822,
+                            CountryId = 1,
+                            Name = "Franc-Waret",
+                            ZipCode = 5380
+                        },
+                        new
+                        {
+                            Id = 823,
+                            CountryId = 1,
+                            Name = "Franière",
+                            ZipCode = 5150
+                        },
+                        new
+                        {
+                            Id = 824,
+                            CountryId = 1,
+                            Name = "Frasnes (Nam.)",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 825,
+                            CountryId = 1,
+                            Name = "Frasnes-lez-Anvaing",
+                            ZipCode = 7910
+                        },
+                        new
+                        {
+                            Id = 826,
+                            CountryId = 1,
+                            Name = "Frasnes-lez-Buissenal",
+                            ZipCode = 7911
+                        },
+                        new
+                        {
+                            Id = 827,
+                            CountryId = 1,
+                            Name = "Frasnes-lez-Gosselies",
+                            ZipCode = 6210
+                        },
+                        new
+                        {
+                            Id = 828,
+                            CountryId = 1,
+                            Name = "Freloux",
+                            ZipCode = 4347
+                        },
+                        new
+                        {
+                            Id = 829,
+                            CountryId = 1,
+                            Name = "Freux",
+                            ZipCode = 6800
+                        },
+                        new
+                        {
+                            Id = 830,
+                            CountryId = 1,
+                            Name = "Froidchapelle",
+                            ZipCode = 6440
+                        },
+                        new
+                        {
+                            Id = 831,
+                            CountryId = 1,
+                            Name = "Froidfontaine",
+                            ZipCode = 5576
+                        },
+                        new
+                        {
+                            Id = 832,
+                            CountryId = 1,
+                            Name = "Froidmont",
+                            ZipCode = 7504
+                        },
+                        new
+                        {
+                            Id = 833,
+                            CountryId = 1,
+                            Name = "Fronville",
+                            ZipCode = 6990
+                        },
+                        new
+                        {
+                            Id = 834,
+                            CountryId = 1,
+                            Name = "Froyennes",
+                            ZipCode = 7503
+                        },
+                        new
+                        {
+                            Id = 835,
+                            CountryId = 1,
+                            Name = "Fumal",
+                            ZipCode = 4260
+                        },
+                        new
+                        {
+                            Id = 836,
+                            CountryId = 1,
+                            Name = "Furfooz",
+                            ZipCode = 5500
+                        },
+                        new
+                        {
+                            Id = 837,
+                            CountryId = 1,
+                            Name = "Furnaux",
+                            ZipCode = 5641
+                        },
+                        new
+                        {
+                            Id = 838,
+                            CountryId = 1,
+                            Name = "Gaasbeek",
+                            ZipCode = 1750
+                        },
+                        new
+                        {
+                            Id = 839,
+                            CountryId = 1,
+                            Name = "Gages",
+                            ZipCode = 7943
+                        },
+                        new
+                        {
+                            Id = 840,
+                            CountryId = 1,
+                            Name = "Gallaix",
+                            ZipCode = 7906
+                        },
+                        new
+                        {
+                            Id = 841,
+                            CountryId = 1,
+                            Name = "Galmaarden",
+                            ZipCode = 1570
+                        },
+                        new
+                        {
+                            Id = 842,
+                            CountryId = 1,
+                            Name = "Ganshoren",
+                            ZipCode = 1083
+                        },
+                        new
+                        {
+                            Id = 843,
+                            CountryId = 1,
+                            Name = "Gaurain-Ramecroix (Tournai)",
+                            ZipCode = 7530
+                        },
+                        new
+                        {
+                            Id = 844,
+                            CountryId = 1,
+                            Name = "Gavere",
+                            ZipCode = 9890
+                        },
+                        new
+                        {
+                            Id = 845,
+                            CountryId = 1,
+                            Name = "Gedinne",
+                            ZipCode = 5575
+                        },
+                        new
+                        {
+                            Id = 846,
+                            CountryId = 1,
+                            Name = "Geel",
+                            ZipCode = 2440
+                        },
+                        new
+                        {
+                            Id = 847,
+                            CountryId = 1,
+                            Name = "Geer",
+                            ZipCode = 4250
+                        },
+                        new
+                        {
+                            Id = 848,
+                            CountryId = 1,
+                            Name = "Geest-Gérompont-Petit-Rosière",
+                            ZipCode = 1367
+                        },
+                        new
+                        {
+                            Id = 849,
+                            CountryId = 1,
+                            Name = "Geetbets",
+                            ZipCode = 3450
+                        },
+                        new
+                        {
+                            Id = 850,
+                            CountryId = 1,
+                            Name = "Gelbressée",
+                            ZipCode = 5024
+                        },
+                        new
+                        {
+                            Id = 851,
+                            CountryId = 1,
+                            Name = "Gelinden",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 852,
+                            CountryId = 1,
+                            Name = "Gellik",
+                            ZipCode = 3620
+                        },
+                        new
+                        {
+                            Id = 853,
+                            CountryId = 1,
+                            Name = "Gelrode",
+                            ZipCode = 3200
+                        },
+                        new
+                        {
+                            Id = 854,
+                            CountryId = 1,
+                            Name = "Geluveld",
+                            ZipCode = 8980
+                        },
+                        new
+                        {
+                            Id = 855,
+                            CountryId = 1,
+                            Name = "Geluwe",
+                            ZipCode = 8940
+                        },
+                        new
+                        {
+                            Id = 856,
+                            CountryId = 1,
+                            Name = "Gembes",
+                            ZipCode = 6929
+                        },
+                        new
+                        {
+                            Id = 857,
+                            CountryId = 1,
+                            Name = "Gembloux",
+                            ZipCode = 5030
+                        },
+                        new
+                        {
+                            Id = 858,
+                            CountryId = 1,
+                            Name = "Gemmenich",
+                            ZipCode = 4851
+                        },
+                        new
+                        {
+                            Id = 859,
+                            CountryId = 1,
+                            Name = "Genappe",
+                            ZipCode = 1470
+                        },
+                        new
+                        {
+                            Id = 860,
+                            CountryId = 1,
+                            Name = "Genk",
+                            ZipCode = 3600
+                        },
+                        new
+                        {
+                            Id = 861,
+                            CountryId = 1,
+                            Name = "Genly",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 862,
+                            CountryId = 1,
+                            Name = "Genoelselderen",
+                            ZipCode = 3770
+                        },
+                        new
+                        {
+                            Id = 863,
+                            CountryId = 1,
+                            Name = "Gent",
+                            ZipCode = 9000
+                        },
+                        new
+                        {
+                            Id = 864,
+                            CountryId = 1,
+                            Name = "Gentbrugge",
+                            ZipCode = 9050
+                        },
+                        new
+                        {
+                            Id = 865,
+                            CountryId = 1,
+                            Name = "Gentinnes",
+                            ZipCode = 1450
+                        },
+                        new
+                        {
+                            Id = 866,
+                            CountryId = 1,
+                            Name = "Genval",
+                            ZipCode = 1332
+                        },
+                        new
+                        {
+                            Id = 867,
+                            CountryId = 1,
+                            Name = "Geraardsbergen",
+                            ZipCode = 9500
+                        },
+                        new
+                        {
+                            Id = 868,
+                            CountryId = 1,
+                            Name = "Gerdingen",
+                            ZipCode = 3960
+                        },
+                        new
+                        {
+                            Id = 869,
+                            CountryId = 1,
+                            Name = "Gerin",
+                            ZipCode = 5524
+                        },
+                        new
+                        {
+                            Id = 870,
+                            CountryId = 1,
+                            Name = "Gérompont",
+                            ZipCode = 1367
+                        },
+                        new
+                        {
+                            Id = 871,
+                            CountryId = 1,
+                            Name = "Gérouville",
+                            ZipCode = 6769
+                        },
+                        new
+                        {
+                            Id = 872,
+                            CountryId = 1,
+                            Name = "Gerpinnes",
+                            ZipCode = 6280
+                        },
+                        new
+                        {
+                            Id = 873,
+                            CountryId = 1,
+                            Name = "Gestel",
+                            ZipCode = 2590
+                        },
+                        new
+                        {
+                            Id = 874,
+                            CountryId = 1,
+                            Name = "Gesves",
+                            ZipCode = 5340
+                        },
+                        new
+                        {
+                            Id = 875,
+                            CountryId = 1,
+                            Name = "Ghislenghien",
+                            ZipCode = 7822
+                        },
+                        new
+                        {
+                            Id = 876,
+                            CountryId = 1,
+                            Name = "Ghlin",
+                            ZipCode = 7011
+                        },
+                        new
+                        {
+                            Id = 877,
+                            CountryId = 1,
+                            Name = "Ghoy",
+                            ZipCode = 7863
+                        },
+                        new
+                        {
+                            Id = 878,
+                            CountryId = 1,
+                            Name = "Gibecq",
+                            ZipCode = 7823
+                        },
+                        new
+                        {
+                            Id = 879,
+                            CountryId = 1,
+                            Name = "Gierle",
+                            ZipCode = 2275
+                        },
+                        new
+                        {
+                            Id = 880,
+                            CountryId = 1,
+                            Name = "Gijverinkhove",
+                            ZipCode = 8691
+                        },
+                        new
+                        {
+                            Id = 881,
+                            CountryId = 1,
+                            Name = "Gijzegem",
+                            ZipCode = 9308
+                        },
+                        new
+                        {
+                            Id = 882,
+                            CountryId = 1,
+                            Name = "Gijzelbrechtegem",
+                            ZipCode = 8570
+                        },
+                        new
+                        {
+                            Id = 883,
+                            CountryId = 1,
+                            Name = "Gijzenzele",
+                            ZipCode = 9860
+                        },
+                        new
+                        {
+                            Id = 884,
+                            CountryId = 1,
+                            Name = "Gilly (Charleroi)",
+                            ZipCode = 6060
+                        },
+                        new
+                        {
+                            Id = 885,
+                            CountryId = 1,
+                            Name = "Gimnée",
+                            ZipCode = 5680
+                        },
+                        new
+                        {
+                            Id = 886,
+                            CountryId = 1,
+                            Name = "Gingelom",
+                            ZipCode = 3890
+                        },
+                        new
+                        {
+                            Id = 887,
+                            CountryId = 1,
+                            Name = "Gistel",
+                            ZipCode = 8470
+                        },
+                        new
+                        {
+                            Id = 888,
+                            CountryId = 1,
+                            Name = "Gits",
+                            ZipCode = 8830
+                        },
+                        new
+                        {
+                            Id = 889,
+                            CountryId = 1,
+                            Name = "Givry",
+                            ZipCode = 7041
+                        },
+                        new
+                        {
+                            Id = 890,
+                            CountryId = 1,
+                            Name = "Glabais",
+                            ZipCode = 1473
+                        },
+                        new
+                        {
+                            Id = 891,
+                            CountryId = 1,
+                            Name = "Glabbeek-Zuurbemde",
+                            ZipCode = 3380
+                        },
+                        new
+                        {
+                            Id = 892,
+                            CountryId = 1,
+                            Name = "Glain",
+                            ZipCode = 4000
+                        },
+                        new
+                        {
+                            Id = 893,
+                            CountryId = 1,
+                            Name = "Gleixhe",
+                            ZipCode = 4400
+                        },
+                        new
+                        {
+                            Id = 894,
+                            CountryId = 1,
+                            Name = "Glimes",
+                            ZipCode = 1315
+                        },
+                        new
+                        {
+                            Id = 895,
+                            CountryId = 1,
+                            Name = "Glons",
+                            ZipCode = 4690
+                        },
+                        new
+                        {
+                            Id = 896,
+                            CountryId = 1,
+                            Name = "Gochenée",
+                            ZipCode = 5680
+                        },
+                        new
+                        {
+                            Id = 897,
+                            CountryId = 1,
+                            Name = "Godarville",
+                            ZipCode = 7160
+                        },
+                        new
+                        {
+                            Id = 898,
+                            CountryId = 1,
+                            Name = "Godinne",
+                            ZipCode = 5530
+                        },
+                        new
+                        {
+                            Id = 899,
+                            CountryId = 1,
+                            Name = "Godveerdegem",
+                            ZipCode = 9620
+                        },
+                        new
+                        {
+                            Id = 900,
+                            CountryId = 1,
+                            Name = "Goé",
+                            ZipCode = 4834
+                        },
+                        new
+                        {
+                            Id = 901,
+                            CountryId = 1,
+                            Name = "Goeferdinge",
+                            ZipCode = 9500
+                        },
+                        new
+                        {
+                            Id = 902,
+                            CountryId = 1,
+                            Name = "Goegnies-Chaussée",
+                            ZipCode = 7040
+                        },
+                        new
+                        {
+                            Id = 903,
+                            CountryId = 1,
+                            Name = "Goesnes",
+                            ZipCode = 5353
+                        },
+                        new
+                        {
+                            Id = 904,
+                            CountryId = 1,
+                            Name = "Goetsenhoven",
+                            ZipCode = 3300
+                        },
+                        new
+                        {
+                            Id = 905,
+                            CountryId = 1,
+                            Name = "Gomzé-Andoumont",
+                            ZipCode = 4140
+                        },
+                        new
+                        {
+                            Id = 906,
+                            CountryId = 1,
+                            Name = "Gondregnies",
+                            ZipCode = 7830
+                        },
+                        new
+                        {
+                            Id = 907,
+                            CountryId = 1,
+                            Name = "Gonrieux",
+                            ZipCode = 5660
+                        },
+                        new
+                        {
+                            Id = 908,
+                            CountryId = 1,
+                            Name = "Gontrode",
+                            ZipCode = 9090
+                        },
+                        new
+                        {
+                            Id = 909,
+                            CountryId = 1,
+                            Name = "Gooik",
+                            ZipCode = 1755
+                        },
+                        new
+                        {
+                            Id = 910,
+                            CountryId = 1,
+                            Name = "Gorsem",
+                            ZipCode = 3803
+                        },
+                        new
+                        {
+                            Id = 911,
+                            CountryId = 1,
+                            Name = "Gors-Opleeuw",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 912,
+                            CountryId = 1,
+                            Name = "Gosselies",
+                            ZipCode = 6041
+                        },
+                        new
+                        {
+                            Id = 913,
+                            CountryId = 1,
+                            Name = "Gotem",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 914,
+                            CountryId = 1,
+                            Name = "Gottem",
+                            ZipCode = 9800
+                        },
+                        new
+                        {
+                            Id = 915,
+                            CountryId = 1,
+                            Name = "Gottignies",
+                            ZipCode = 7070
+                        },
+                        new
+                        {
+                            Id = 916,
+                            CountryId = 1,
+                            Name = "Gougnies",
+                            ZipCode = 6280
+                        },
+                        new
+                        {
+                            Id = 917,
+                            CountryId = 1,
+                            Name = "Gourdinne",
+                            ZipCode = 5651
+                        },
+                        new
+                        {
+                            Id = 918,
+                            CountryId = 1,
+                            Name = "Goutroux",
+                            ZipCode = 6030
+                        },
+                        new
+                        {
+                            Id = 919,
+                            CountryId = 1,
+                            Name = "Gouvy",
+                            ZipCode = 6670
+                        },
+                        new
+                        {
+                            Id = 920,
+                            CountryId = 1,
+                            Name = "Gouy-lez-Piéton",
+                            ZipCode = 6181
+                        },
+                        new
+                        {
+                            Id = 921,
+                            CountryId = 1,
+                            Name = "Gozée",
+                            ZipCode = 6534
+                        },
+                        new
+                        {
+                            Id = 922,
+                            CountryId = 1,
+                            Name = "Grâce-Berleur",
+                            ZipCode = 4460
+                        },
+                        new
+                        {
+                            Id = 923,
+                            CountryId = 1,
+                            Name = "Grâce-Hollogne",
+                            ZipCode = 4460
+                        },
+                        new
+                        {
+                            Id = 924,
+                            CountryId = 1,
+                            Name = "Graide",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 925,
+                            CountryId = 1,
+                            Name = "Grammene",
+                            ZipCode = 9800
+                        },
+                        new
+                        {
+                            Id = 926,
+                            CountryId = 1,
+                            Name = "Grand-Axhe",
+                            ZipCode = 4300
+                        },
+                        new
+                        {
+                            Id = 927,
+                            CountryId = 1,
+                            Name = "Grandglise",
+                            ZipCode = 7973
+                        },
+                        new
+                        {
+                            Id = 928,
+                            CountryId = 1,
+                            Name = "Grand-Hallet",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 929,
+                            CountryId = 1,
+                            Name = "Grand-Halleux",
+                            ZipCode = 6698
+                        },
+                        new
+                        {
+                            Id = 930,
+                            CountryId = 1,
+                            Name = "Grandhan",
+                            ZipCode = 6940
+                        },
+                        new
+                        {
+                            Id = 931,
+                            CountryId = 1,
+                            Name = "Grand-Leez",
+                            ZipCode = 5031
+                        },
+                        new
+                        {
+                            Id = 932,
+                            CountryId = 1,
+                            Name = "Grand-Manil",
+                            ZipCode = 5030
+                        },
+                        new
+                        {
+                            Id = 933,
+                            CountryId = 1,
+                            Name = "Grandmenil",
+                            ZipCode = 6960
+                        },
+                        new
+                        {
+                            Id = 934,
+                            CountryId = 1,
+                            Name = "Grandmetz",
+                            ZipCode = 7900
+                        },
+                        new
+                        {
+                            Id = 935,
+                            CountryId = 1,
+                            Name = "Grand-Rechain",
+                            ZipCode = 4650
+                        },
+                        new
+                        {
+                            Id = 936,
+                            CountryId = 1,
+                            Name = "Grand-Reng",
+                            ZipCode = 6560
+                        },
+                        new
+                        {
+                            Id = 937,
+                            CountryId = 1,
+                            Name = "Grandrieu",
+                            ZipCode = 6470
+                        },
+                        new
+                        {
+                            Id = 938,
+                            CountryId = 1,
+                            Name = "Grand-Rosière-Hottomont",
+                            ZipCode = 1367
+                        },
+                        new
+                        {
+                            Id = 939,
+                            CountryId = 1,
+                            Name = "Grandville",
+                            ZipCode = 4360
+                        },
+                        new
+                        {
+                            Id = 940,
+                            CountryId = 1,
+                            Name = "Grandvoir",
+                            ZipCode = 6840
+                        },
+                        new
+                        {
+                            Id = 941,
+                            CountryId = 1,
+                            Name = "Grapfontaine",
+                            ZipCode = 6840
+                        },
+                        new
+                        {
+                            Id = 942,
+                            CountryId = 1,
+                            Name = "Graty",
+                            ZipCode = 7830
+                        },
+                        new
+                        {
+                            Id = 943,
+                            CountryId = 1,
+                            Name = "Graux",
+                            ZipCode = 5640
+                        },
+                        new
+                        {
+                            Id = 944,
+                            CountryId = 1,
+                            Name = "Grazen",
+                            ZipCode = 3450
+                        },
+                        new
+                        {
+                            Id = 945,
+                            CountryId = 1,
+                            Name = "Grembergen",
+                            ZipCode = 9200
+                        },
+                        new
+                        {
+                            Id = 946,
+                            CountryId = 1,
+                            Name = "Grez-Doiceau",
+                            ZipCode = 1390
+                        },
+                        new
+                        {
+                            Id = 947,
+                            CountryId = 1,
+                            Name = "Grimbergen",
+                            ZipCode = 1850
+                        },
+                        new
+                        {
+                            Id = 948,
+                            CountryId = 1,
+                            Name = "Grimminge",
+                            ZipCode = 9506
+                        },
+                        new
+                        {
+                            Id = 949,
+                            CountryId = 1,
+                            Name = "Grivegnée",
+                            ZipCode = 4030
+                        },
+                        new
+                        {
+                            Id = 950,
+                            CountryId = 1,
+                            Name = "Grobbendonk",
+                            ZipCode = 2280
+                        },
+                        new
+                        {
+                            Id = 951,
+                            CountryId = 1,
+                            Name = "Groot-Bijgaarden",
+                            ZipCode = 1702
+                        },
+                        new
+                        {
+                            Id = 952,
+                            CountryId = 1,
+                            Name = "Groot-Gelmen",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 953,
+                            CountryId = 1,
+                            Name = "Groot-Loon",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 954,
+                            CountryId = 1,
+                            Name = "Grosage",
+                            ZipCode = 7950
+                        },
+                        new
+                        {
+                            Id = 955,
+                            CountryId = 1,
+                            Name = "Gros-Fays",
+                            ZipCode = 5555
+                        },
+                        new
+                        {
+                            Id = 956,
+                            CountryId = 1,
+                            Name = "Grote-Brogel",
+                            ZipCode = 3990
+                        },
+                        new
+                        {
+                            Id = 957,
+                            CountryId = 1,
+                            Name = "Grotenberge",
+                            ZipCode = 9620
+                        },
+                        new
+                        {
+                            Id = 958,
+                            CountryId = 1,
+                            Name = "Grote-Spouwen",
+                            ZipCode = 3740
+                        },
+                        new
+                        {
+                            Id = 959,
+                            CountryId = 1,
+                            Name = "Gruitrode",
+                            ZipCode = 3670
+                        },
+                        new
+                        {
+                            Id = 960,
+                            CountryId = 1,
+                            Name = "Grune",
+                            ZipCode = 6952
+                        },
+                        new
+                        {
+                            Id = 961,
+                            CountryId = 1,
+                            Name = "Grupont",
+                            ZipCode = 6927
+                        },
+                        new
+                        {
+                            Id = 962,
+                            CountryId = 1,
+                            Name = "Guignies",
+                            ZipCode = 7620
+                        },
+                        new
+                        {
+                            Id = 963,
+                            CountryId = 1,
+                            Name = "Guigoven",
+                            ZipCode = 3723
+                        },
+                        new
+                        {
+                            Id = 964,
+                            CountryId = 1,
+                            Name = "Guirsch",
+                            ZipCode = 6704
+                        },
+                        new
+                        {
+                            Id = 965,
+                            CountryId = 1,
+                            Name = "Gullegem",
+                            ZipCode = 8560
+                        },
+                        new
+                        {
+                            Id = 966,
+                            CountryId = 1,
+                            Name = "Gutschoven",
+                            ZipCode = 3870
+                        },
+                        new
+                        {
+                            Id = 967,
+                            CountryId = 1,
+                            Name = "Haacht",
+                            ZipCode = 3150
+                        },
+                        new
+                        {
+                            Id = 968,
+                            CountryId = 1,
+                            Name = "Haaltert",
+                            ZipCode = 9450
+                        },
+                        new
+                        {
+                            Id = 969,
+                            CountryId = 1,
+                            Name = "Haasdonk",
+                            ZipCode = 9120
+                        },
+                        new
+                        {
+                            Id = 970,
+                            CountryId = 1,
+                            Name = "Haasrode",
+                            ZipCode = 3053
+                        },
+                        new
+                        {
+                            Id = 971,
+                            CountryId = 1,
+                            Name = "Habay",
+                            ZipCode = 6720
+                        },
+                        new
+                        {
+                            Id = 972,
+                            CountryId = 1,
+                            Name = "Habay-la-Neuve",
+                            ZipCode = 6720
+                        },
+                        new
+                        {
+                            Id = 973,
+                            CountryId = 1,
+                            Name = "Habay-la-Vieille",
+                            ZipCode = 6723
+                        },
+                        new
+                        {
+                            Id = 974,
+                            CountryId = 1,
+                            Name = "Habergy",
+                            ZipCode = 6782
+                        },
+                        new
+                        {
+                            Id = 975,
+                            CountryId = 1,
+                            Name = "Haccourt",
+                            ZipCode = 4684
+                        },
+                        new
+                        {
+                            Id = 976,
+                            CountryId = 1,
+                            Name = "Hachy",
+                            ZipCode = 6720
+                        },
+                        new
+                        {
+                            Id = 977,
+                            CountryId = 1,
+                            Name = "Hacquegnies",
+                            ZipCode = 7911
+                        },
+                        new
+                        {
+                            Id = 978,
+                            CountryId = 1,
+                            Name = "Haren (Bruxelles)",
+                            ZipCode = 1130
+                        },
+                        new
+                        {
+                            Id = 979,
+                            CountryId = 1,
+                            Name = "Haillot",
+                            ZipCode = 5351
+                        },
+                        new
+                        {
+                            Id = 980,
+                            CountryId = 1,
+                            Name = "Haine-Saint-Paul",
+                            ZipCode = 7100
+                        },
+                        new
+                        {
+                            Id = 981,
+                            CountryId = 1,
+                            Name = "Haine-Saint-Pierre",
+                            ZipCode = 7100
+                        },
+                        new
+                        {
+                            Id = 982,
+                            CountryId = 1,
+                            Name = "Hainin",
+                            ZipCode = 7350
+                        },
+                        new
+                        {
+                            Id = 983,
+                            CountryId = 1,
+                            Name = "Hakendover",
+                            ZipCode = 3300
+                        },
+                        new
+                        {
+                            Id = 984,
+                            CountryId = 1,
+                            Name = "Halanzy",
+                            ZipCode = 6792
+                        },
+                        new
+                        {
+                            Id = 985,
+                            CountryId = 1,
+                            Name = "Halen",
+                            ZipCode = 3545
+                        },
+                        new
+                        {
+                            Id = 986,
+                            CountryId = 1,
+                            Name = "Hallaar",
+                            ZipCode = 2220
+                        },
+                        new
+                        {
+                            Id = 987,
+                            CountryId = 1,
+                            Name = "Halle",
+                            ZipCode = 1500
+                        },
+                        new
+                        {
+                            Id = 988,
+                            CountryId = 1,
+                            Name = "Halle (Kempen)",
+                            ZipCode = 2980
+                        },
+                        new
+                        {
+                            Id = 989,
+                            CountryId = 1,
+                            Name = "Halle-Booienhoven",
+                            ZipCode = 3440
+                        },
+                        new
+                        {
+                            Id = 990,
+                            CountryId = 1,
+                            Name = "Halleux",
+                            ZipCode = 6986
+                        },
+                        new
+                        {
+                            Id = 991,
+                            CountryId = 1,
+                            Name = "Halma",
+                            ZipCode = 6922
+                        },
+                        new
+                        {
+                            Id = 992,
+                            CountryId = 1,
+                            Name = "Halmaal",
+                            ZipCode = 3800
+                        },
+                        new
+                        {
+                            Id = 993,
+                            CountryId = 1,
+                            Name = "Haltinne",
+                            ZipCode = 5340
+                        },
+                        new
+                        {
+                            Id = 994,
+                            CountryId = 1,
+                            Name = "Ham",
+                            ZipCode = 3945
+                        },
+                        new
+                        {
+                            Id = 995,
+                            CountryId = 1,
+                            Name = "Hamipré",
+                            ZipCode = 6840
+                        },
+                        new
+                        {
+                            Id = 996,
+                            CountryId = 1,
+                            Name = "Hamme (Bt.)",
+                            ZipCode = 1785
+                        },
+                        new
+                        {
+                            Id = 997,
+                            CountryId = 1,
+                            Name = "Hamme (O.-Vl.)",
+                            ZipCode = 9220
+                        },
+                        new
+                        {
+                            Id = 998,
+                            CountryId = 1,
+                            Name = "Hamme-Mille",
+                            ZipCode = 1320
+                        },
+                        new
+                        {
+                            Id = 999,
+                            CountryId = 1,
+                            Name = "Hamoir",
+                            ZipCode = 4180
+                        },
+                        new
+                        {
+                            Id = 1000,
+                            CountryId = 1,
+                            Name = "Hamois",
+                            ZipCode = 5360
+                        },
+                        new
+                        {
+                            Id = 1001,
+                            CountryId = 1,
+                            Name = "Hamont",
+                            ZipCode = 3930
+                        },
+                        new
+                        {
+                            Id = 1002,
+                            CountryId = 1,
+                            Name = "Hamont-Achel",
+                            ZipCode = 3930
+                        },
+                        new
+                        {
+                            Id = 1003,
+                            CountryId = 1,
+                            Name = "Hampteau",
+                            ZipCode = 6990
+                        },
+                        new
+                        {
+                            Id = 1004,
+                            CountryId = 1,
+                            Name = "Ham-sur-Heure",
+                            ZipCode = 6120
+                        },
+                        new
+                        {
+                            Id = 1005,
+                            CountryId = 1,
+                            Name = "Ham-sur-Heure-Nalinnes",
+                            ZipCode = 6120
+                        },
+                        new
+                        {
+                            Id = 1006,
+                            CountryId = 1,
+                            Name = "Ham-sur-Sambre",
+                            ZipCode = 5190
+                        },
+                        new
+                        {
+                            Id = 1007,
+                            CountryId = 1,
+                            Name = "Handzame",
+                            ZipCode = 8610
+                        },
+                        new
+                        {
+                            Id = 1008,
+                            CountryId = 1,
+                            Name = "Haneffe",
+                            ZipCode = 4357
+                        },
+                        new
+                        {
+                            Id = 1009,
+                            CountryId = 1,
+                            Name = "Hannêche",
+                            ZipCode = 4210
+                        },
+                        new
+                        {
+                            Id = 1010,
+                            CountryId = 1,
+                            Name = "Hannut",
+                            ZipCode = 4280
+                        },
+                        new
+                        {
+                            Id = 1011,
+                            CountryId = 1,
+                            Name = "Hanret",
+                            ZipCode = 5310
+                        },
+                        new
+                        {
+                            Id = 1012,
+                            CountryId = 1,
+                            Name = "Hansbeke",
+                            ZipCode = 9850
+                        },
+                        new
+                        {
+                            Id = 1013,
+                            CountryId = 1,
+                            Name = "Han-sur-Lesse",
+                            ZipCode = 5580
+                        },
+                        new
+                        {
+                            Id = 1014,
+                            CountryId = 1,
+                            Name = "Hantes-Wihéries",
+                            ZipCode = 6560
+                        },
+                        new
+                        {
+                            Id = 1015,
+                            CountryId = 1,
+                            Name = "Hanzinelle",
+                            ZipCode = 5621
+                        },
+                        new
+                        {
+                            Id = 1016,
+                            CountryId = 1,
+                            Name = "Hanzinne",
+                            ZipCode = 5621
+                        },
+                        new
+                        {
+                            Id = 1017,
+                            CountryId = 1,
+                            Name = "Harchies",
+                            ZipCode = 7321
+                        },
+                        new
+                        {
+                            Id = 1018,
+                            CountryId = 1,
+                            Name = "Harelbeke",
+                            ZipCode = 8530
+                        },
+                        new
+                        {
+                            Id = 1019,
+                            CountryId = 1,
+                            Name = "Haren (Borgloon)",
+                            ZipCode = 3840
+                        },
+                        new
+                        {
+                            Id = 1020,
+                            CountryId = 1,
+                            Name = "Haren (Brussel)",
+                            ZipCode = 1130
+                        },
+                        new
+                        {
+                            Id = 1021,
+                            CountryId = 1,
+                            Name = "Haren (Tongeren)",
+                            ZipCode = 3700
+                        },
+                        new
+                        {
+                            Id = 1022,
+                            CountryId = 1,
+                            Name = "Hargimont",
+                            ZipCode = 6900
+                        },
+                        new
+                        {
+                            Id = 1023,
+                            CountryId = 1,
+                            Name = "Harmignies",
+                            ZipCode = 7022
+                        },
+                        new
+                        {
+                            Id = 1024,
+                            CountryId = 1,
+                            Name = "Harnoncourt",
+                            ZipCode = 6767
+                        },
+                        new
+                        {
+                            Id = 1025,
+                            CountryId = 1,
+                            Name = "Harre",
+                            ZipCode = 6960
+                        },
+                        new
+                        {
+                            Id = 1026,
+                            CountryId = 1,
+                            Name = "Harsin",
+                            ZipCode = 6950
+                        },
+                        new
+                        {
+                            Id = 1027,
+                            CountryId = 1,
+                            Name = "Harveng",
+                            ZipCode = 7022
+                        },
+                        new
+                        {
+                            Id = 1028,
+                            CountryId = 1,
+                            Name = "Harzé",
+                            ZipCode = 4920
+                        },
+                        new
+                        {
+                            Id = 1029,
+                            CountryId = 1,
+                            Name = "Hasselt",
+                            ZipCode = 3500
+                        },
+                        new
+                        {
+                            Id = 1030,
+                            CountryId = 1,
+                            Name = "Hastière",
+                            ZipCode = 5540
+                        },
+                        new
+                        {
+                            Id = 1031,
+                            CountryId = 1,
+                            Name = "Hastière-Lavaux",
+                            ZipCode = 5540
+                        },
+                        new
+                        {
+                            Id = 1032,
+                            CountryId = 1,
+                            Name = "Hastière-par-Delà",
+                            ZipCode = 5541
+                        },
+                        new
+                        {
+                            Id = 1033,
+                            CountryId = 1,
+                            Name = "Hatrival",
+                            ZipCode = 6870
+                        },
+                        new
+                        {
+                            Id = 1034,
+                            CountryId = 1,
+                            Name = "Haulchin",
+                            ZipCode = 7120
+                        },
+                        new
+                        {
+                            Id = 1035,
+                            CountryId = 1,
+                            Name = "Hauset",
+                            ZipCode = 4730
+                        },
+                        new
+                        {
+                            Id = 1036,
+                            CountryId = 1,
+                            Name = "Leuven",
+                            ZipCode = 3000
+                        },
+                        new
+                        {
+                            Id = 1037,
+                            CountryId = 1,
+                            Name = "Kortrijk",
+                            ZipCode = 8500
+                        },
+                        new
+                        {
+                            Id = 1038,
+                            CountryId = 1,
+                            Name = "Ternat",
+                            ZipCode = 1740
+                        },
+                        new
+                        {
+                            Id = 1039,
+                            CountryId = 1,
+                            Name = "Sint-Martens-Latem",
+                            ZipCode = 9830
+                        },
+                        new
+                        {
+                            Id = 1040,
+                            CountryId = 1,
+                            Name = "Jabbeke",
+                            ZipCode = 8490
+                        },
+                        new
+                        {
+                            Id = 1041,
+                            CountryId = 1,
+                            Name = "Lille",
+                            ZipCode = 59000
+                        },
+                        new
+                        {
+                            Id = 1042,
+                            CountryId = 1,
+                            Name = "Wevelgem",
+                            ZipCode = 8560
+                        },
+                        new
+                        {
+                            Id = 1043,
+                            CountryId = 1,
+                            Name = "Marche",
+                            ZipCode = 6900
+                        },
+                        new
+                        {
+                            Id = 1044,
+                            CountryId = 1,
+                            Name = "Wetteren",
+                            ZipCode = 9230
+                        },
+                        new
+                        {
+                            Id = 1045,
+                            CountryId = 1,
+                            Name = "Sint-Gillis-Waas",
+                            ZipCode = 4567
+                        },
+                        new
+                        {
+                            Id = 1046,
+                            CountryId = 1,
+                            Name = "Wezembeek-Oppem",
+                            ZipCode = 1970
+                        },
+                        new
+                        {
+                            Id = 1047,
+                            CountryId = 1,
+                            Name = "Wanlin",
+                            ZipCode = 5564
+                        },
+                        new
+                        {
+                            Id = 1048,
+                            CountryId = 1,
+                            Name = "Hellebecq",
+                            ZipCode = 7830
+                        },
+                        new
+                        {
+                            Id = 1049,
+                            CountryId = 1,
+                            Name = "Kalken",
+                            ZipCode = 9270
+                        },
+                        new
+                        {
+                            Id = 1050,
+                            CountryId = 1,
+                            Name = "Merelbeke",
+                            ZipCode = 9820
+                        },
+                        new
+                        {
+                            Id = 1051,
+                            CountryId = 1,
+                            Name = "Zelzate",
+                            ZipCode = 9060
+                        },
+                        new
+                        {
+                            Id = 1052,
+                            CountryId = 1,
+                            Name = "Landegem",
+                            ZipCode = 9850
+                        },
+                        new
+                        {
+                            Id = 1053,
+                            CountryId = 1,
+                            Name = "Herentals",
+                            ZipCode = 2200
+                        },
+                        new
+                        {
+                            Id = 1054,
+                            CountryId = 1,
+                            Name = "Oombergen",
+                            ZipCode = 9620
+                        },
+                        new
+                        {
+                            Id = 1055,
+                            CountryId = 1,
+                            Name = "Tessenderlo",
+                            ZipCode = 3980
+                        },
+                        new
+                        {
+                            Id = 1056,
+                            CountryId = 1,
+                            Name = "Woluwe-Saint-Pierre",
+                            ZipCode = 1150
+                        },
+                        new
+                        {
+                            Id = 1057,
+                            CountryId = 1,
+                            Name = "Hoeselt",
+                            ZipCode = 3730
+                        },
+                        new
+                        {
+                            Id = 1058,
+                            CountryId = 1,
+                            Name = "Torhout",
+                            ZipCode = 8820
+                        },
+                        new
+                        {
+                            Id = 1059,
+                            CountryId = 1,
+                            Name = "Wommelgem",
+                            ZipCode = 2160
+                        },
+                        new
+                        {
+                            Id = 1060,
+                            CountryId = 1,
+                            Name = "Wingene",
+                            ZipCode = 8750
+                        },
+                        new
+                        {
+                            Id = 1061,
+                            CountryId = 1,
+                            Name = "Ieper",
+                            ZipCode = 8900
+                        },
+                        new
+                        {
+                            Id = 1062,
+                            CountryId = 1,
+                            Name = "Melle",
+                            ZipCode = 9090
+                        },
+                        new
+                        {
+                            Id = 1063,
+                            CountryId = 1,
+                            Name = "Waregem",
+                            ZipCode = 8710
+                        },
+                        new
+                        {
+                            Id = 1064,
+                            CountryId = 1,
+                            Name = "Olen",
+                            ZipCode = 2250
+                        },
+                        new
+                        {
+                            Id = 1065,
+                            CountryId = 1,
+                            Name = "Maldegem",
+                            ZipCode = 4529
+                        },
+                        new
+                        {
+                            Id = 1066,
+                            CountryId = 1,
+                            Name = "Massenhoven",
+                            ZipCode = 2240
+                        },
+                        new
+                        {
+                            Id = 1067,
+                            CountryId = 1,
+                            Name = "Merkem",
+                            ZipCode = 8650
+                        },
+                        new
+                        {
+                            Id = 1068,
+                            CountryId = 1,
+                            Name = "Kruishoutem",
+                            ZipCode = 9770
+                        },
+                        new
+                        {
+                            Id = 1069,
+                            CountryId = 1,
+                            Name = "Oostakker",
+                            ZipCode = 9041
+                        },
+                        new
+                        {
+                            Id = 1070,
+                            CountryId = 1,
+                            Name = "Malle",
+                            ZipCode = 2390
+                        },
+                        new
+                        {
+                            Id = 1071,
+                            CountryId = 1,
+                            Name = "Heusden-Zolder",
+                            ZipCode = 3550
+                        },
+                        new
+                        {
+                            Id = 1072,
+                            CountryId = 1,
+                            Name = "Sint-Lenaarts",
+                            ZipCode = 2960
+                        },
+                        new
+                        {
+                            Id = 1073,
+                            CountryId = 1,
+                            Name = "Poperinge",
+                            ZipCode = 8970
+                        },
+                        new
+                        {
+                            Id = 1074,
+                            CountryId = 1,
+                            Name = "Roeselare",
+                            ZipCode = 8800
+                        },
+                        new
+                        {
+                            Id = 1075,
+                            CountryId = 1,
+                            Name = "Maasmechelen",
+                            ZipCode = 3630
+                        },
+                        new
+                        {
+                            Id = 1076,
+                            CountryId = 1,
+                            Name = "Zingem",
+                            ZipCode = 9750
+                        },
+                        new
+                        {
+                            Id = 1077,
+                            CountryId = 1,
+                            Name = "Oostkamp",
+                            ZipCode = 8020
+                        },
+                        new
+                        {
+                            Id = 1078,
+                            CountryId = 1,
+                            Name = "Hekelgem",
+                            ZipCode = 1790
+                        },
+                        new
+                        {
+                            Id = 1079,
+                            CountryId = 1,
+                            Name = "Lier",
+                            ZipCode = 2500
+                        },
+                        new
+                        {
+                            Id = 1080,
+                            CountryId = 1,
+                            Name = "Houthulst",
+                            ZipCode = 8650
+                        },
+                        new
+                        {
+                            Id = 1081,
+                            CountryId = 1,
+                            Name = "Waarloos",
+                            ZipCode = 2550
+                        },
+                        new
+                        {
+                            Id = 1082,
+                            CountryId = 1,
+                            Name = "Ledegem",
+                            ZipCode = 8880
+                        },
+                        new
+                        {
+                            Id = 1083,
+                            CountryId = 1,
+                            Name = "Vilvoorde",
+                            ZipCode = 1800
+                        },
+                        new
+                        {
+                            Id = 1084,
+                            CountryId = 1,
+                            Name = "Nazareth",
+                            ZipCode = 9810
+                        },
+                        new
+                        {
+                            Id = 1085,
+                            CountryId = 1,
+                            Name = "Herselt",
+                            ZipCode = 2230
+                        },
+                        new
+                        {
+                            Id = 1086,
+                            CountryId = 1,
+                            Name = "Zevendonk",
+                            ZipCode = 2300
+                        },
+                        new
+                        {
+                            Id = 1087,
+                            CountryId = 1,
+                            Name = "Wavre",
+                            ZipCode = 1300
+                        },
+                        new
+                        {
+                            Id = 1088,
+                            CountryId = 1,
+                            Name = "Winksele",
+                            ZipCode = 3020
+                        },
+                        new
+                        {
+                            Id = 1089,
+                            CountryId = 1,
+                            Name = "Opwijk",
+                            ZipCode = 1745
+                        },
+                        new
+                        {
+                            Id = 1090,
+                            CountryId = 1,
+                            Name = "Hoegaarden",
+                            ZipCode = 3320
+                        },
+                        new
+                        {
+                            Id = 1091,
+                            CountryId = 1,
+                            Name = "Turnhout",
+                            ZipCode = 2300
+                        },
+                        new
+                        {
+                            Id = 1092,
+                            CountryId = 2,
+                            Name = "Hoogveld",
+                            ZipCode = 5405
+                        },
+                        new
+                        {
+                            Id = 1093,
+                            CountryId = 1,
+                            Name = "Nivelles",
+                            ZipCode = 1400
+                        },
+                        new
+                        {
+                            Id = 1094,
+                            CountryId = 1,
+                            Name = "Kessel-Lo",
+                            ZipCode = 3010
+                        },
+                        new
+                        {
+                            Id = 1095,
+                            CountryId = 1,
+                            Name = "Verlaine",
+                            ZipCode = 4537
+                        },
+                        new
+                        {
+                            Id = 1096,
+                            CountryId = 1,
+                            Name = "Schaerbeek",
+                            ZipCode = 1030
+                        },
+                        new
+                        {
+                            Id = 1097,
+                            CountryId = 1,
+                            Name = "Stevoort",
+                            ZipCode = 3512
+                        },
+                        new
+                        {
+                            Id = 1098,
+                            CountryId = 1,
+                            Name = "Lummen",
+                            ZipCode = 3560
+                        },
+                        new
+                        {
+                            Id = 1099,
+                            CountryId = 1,
+                            Name = "Châtelineau",
+                            ZipCode = 6200
+                        },
+                        new
+                        {
+                            Id = 1100,
+                            CountryId = 1,
+                            Name = "Veltem-Beisem",
+                            ZipCode = 3020
+                        },
+                        new
+                        {
+                            Id = 1101,
+                            CountryId = 1,
+                            Name = "Sint-Niklaas",
+                            ZipCode = 9100
+                        },
+                        new
+                        {
+                            Id = 1102,
+                            CountryId = 1,
+                            Name = "Rotselaar",
+                            ZipCode = 3110
+                        },
+                        new
+                        {
+                            Id = 1103,
+                            CountryId = 1,
+                            Name = "Warnant-Dreye",
+                            ZipCode = 4530
+                        },
+                        new
+                        {
+                            Id = 1104,
+                            CountryId = 1,
+                            Name = "Louvain-la-Neuve",
+                            ZipCode = 1348
+                        },
+                        new
+                        {
+                            Id = 1105,
+                            CountryId = 1,
+                            Name = "Rijmenam",
+                            ZipCode = 2820
+                        },
+                        new
+                        {
+                            Id = 1106,
+                            CountryId = 1,
+                            Name = "Heist-op-den-Berg",
+                            ZipCode = 2220
+                        });
+                });
+
             modelBuilder.Entity("eMenka.Domain.Classes.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -6093,6 +13615,11016 @@ namespace eMenka.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("eMenka.Domain.Classes.Refill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("FuelCardId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Kilometers")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Liters")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("FuelCardId");
+
+                    b.ToTable("Refill");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 1540,
+                            Liters = 51.0,
+                            Price = 1.0,
+                            TotalPrice = 48.450000000000003
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CityId = 1036,
+                            Date = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 2419,
+                            Liters = 45.0,
+                            Price = 1.02,
+                            TotalPrice = 43.649999999999999
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 3040,
+                            Liters = 46.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 43.240000000000002
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 3915,
+                            Liters = 51.0,
+                            Price = 0.93999999999999995,
+                            TotalPrice = 45.390000000000001
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 4545,
+                            Liters = 44.0,
+                            Price = 0.92000000000000004,
+                            TotalPrice = 38.280000000000001
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 5405,
+                            Liters = 49.0,
+                            Price = 0.93999999999999995,
+                            TotalPrice = 43.609999999999999
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 1,
+                            Kilometers = 6055,
+                            Liters = 50.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 47.0
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CityId = 1,
+                            Date = new DateTime(2020, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 6500,
+                            Liters = 48.0,
+                            Price = 0.93999999999999995,
+                            TotalPrice = 42.719999999999999
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CityId = 1,
+                            Date = new DateTime(2020, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 7330,
+                            Liters = 44.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 40.920000000000002
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CityId = 1,
+                            Date = new DateTime(2008, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 7907,
+                            Liters = 51.0,
+                            Price = 1.02,
+                            TotalPrice = 49.469999999999999
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CityId = 1,
+                            Date = new DateTime(2008, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 8742,
+                            Liters = 45.0,
+                            Price = 1.04,
+                            TotalPrice = 44.549999999999997
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CityId = 1,
+                            Date = new DateTime(2008, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 9318,
+                            Liters = 46.0,
+                            Price = 1.01,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CityId = 1,
+                            Date = new DateTime(2008, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 10149,
+                            Liters = 51.0,
+                            Price = 0.95999999999999996,
+                            TotalPrice = 46.409999999999997
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CityId = 1,
+                            Date = new DateTime(2008, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 10735,
+                            Liters = 44.0,
+                            Price = 0.93999999999999995,
+                            TotalPrice = 39.159999999999997
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CityId = 1,
+                            Date = new DateTime(2008, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 11551,
+                            Liters = 49.0,
+                            Price = 0.95999999999999996,
+                            TotalPrice = 44.590000000000003
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CityId = 1,
+                            Date = new DateTime(2008, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 12157,
+                            Liters = 50.0,
+                            Price = 1.01,
+                            TotalPrice = 48.0
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CityId = 1,
+                            Date = new DateTime(2008, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 12950,
+                            Liters = 44.0,
+                            Price = 1.04,
+                            TotalPrice = 43.560000000000002
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CityId = 1,
+                            Date = new DateTime(2008, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 13583,
+                            Liters = 50.0,
+                            Price = 1.02,
+                            TotalPrice = 48.5
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CityId = 1,
+                            Date = new DateTime(2008, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 14345,
+                            Liters = 48.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 44.640000000000001
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CityId = 1,
+                            Date = new DateTime(2008, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 15011,
+                            Liters = 44.0,
+                            Price = 0.93999999999999995,
+                            TotalPrice = 39.159999999999997
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CityId = 1,
+                            Date = new DateTime(2008, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 2,
+                            Kilometers = 15738,
+                            Liters = 51.0,
+                            Price = 0.94999999999999996,
+                            TotalPrice = 45.899999999999999
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CityId = 6,
+                            Date = new DateTime(2008, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 16500,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CityId = 6,
+                            Date = new DateTime(2008, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 17319,
+                            Liters = 44.0,
+                            Price = 1.01,
+                            TotalPrice = 42.240000000000002
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CityId = 6,
+                            Date = new DateTime(2008, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 17886,
+                            Liters = 51.0,
+                            Price = 1.05,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CityId = 6,
+                            Date = new DateTime(2008, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 18711,
+                            Liters = 45.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 45.899999999999999
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CityId = 6,
+                            Date = new DateTime(2009, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 19277,
+                            Liters = 46.0,
+                            Price = 1.04,
+                            TotalPrice = 45.539999999999999
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CityId = 6,
+                            Date = new DateTime(2009, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 20097,
+                            Liters = 51.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 47.939999999999998
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CityId = 6,
+                            Date = new DateTime(2009, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 20673,
+                            Liters = 44.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 40.479999999999997
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CityId = 6,
+                            Date = new DateTime(2009, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 21479,
+                            Liters = 49.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 46.060000000000002
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CityId = 6,
+                            Date = new DateTime(2009, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 22074,
+                            Liters = 50.0,
+                            Price = 1.04,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CityId = 6,
+                            Date = new DateTime(2009, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 22856,
+                            Liters = 44.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 44.880000000000003
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CityId = 6,
+                            Date = new DateTime(2009, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 23479,
+                            Liters = 50.0,
+                            Price = 1.05,
+                            TotalPrice = 50.0
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CityId = 6,
+                            Date = new DateTime(2009, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 24231,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CityId = 6,
+                            Date = new DateTime(2009, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 24887,
+                            Liters = 44.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 40.479999999999997
+                        },
+                        new
+                        {
+                            Id = 35,
+                            CityId = 6,
+                            Date = new DateTime(2009, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 3,
+                            Kilometers = 25604,
+                            Liters = 51.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 47.43
+                        },
+                        new
+                        {
+                            Id = 36,
+                            CityId = 582,
+                            Date = new DateTime(2020, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 26976,
+                            Liters = 46.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 46.920000000000002
+                        },
+                        new
+                        {
+                            Id = 37,
+                            CityId = 582,
+                            Date = new DateTime(2009, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 27704,
+                            Liters = 51.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 51.509999999999998
+                        },
+                        new
+                        {
+                            Id = 38,
+                            CityId = 582,
+                            Date = new DateTime(2009, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 28349,
+                            Liters = 44.0,
+                            Price = 1.02,
+                            TotalPrice = 42.68
+                        },
+                        new
+                        {
+                            Id = 39,
+                            CityId = 582,
+                            Date = new DateTime(2009, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 29111,
+                            Liters = 48.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 44.640000000000001
+                        },
+                        new
+                        {
+                            Id = 40,
+                            CityId = 582,
+                            Date = new DateTime(2009, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 29724,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 41,
+                            CityId = 582,
+                            Date = new DateTime(2009, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 30514,
+                            Liters = 44.0,
+                            Price = 1.01,
+                            TotalPrice = 42.240000000000002
+                        },
+                        new
+                        {
+                            Id = 42,
+                            CityId = 582,
+                            Date = new DateTime(2009, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 31102,
+                            Liters = 50.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 50.5
+                        },
+                        new
+                        {
+                            Id = 43,
+                            CityId = 582,
+                            Date = new DateTime(2009, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 31913,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 44,
+                            CityId = 582,
+                            Date = new DateTime(2009, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 32485,
+                            Liters = 44.0,
+                            Price = 1.03,
+                            TotalPrice = 43.119999999999997
+                        },
+                        new
+                        {
+                            Id = 45,
+                            CityId = 582,
+                            Date = new DateTime(2009, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 33308,
+                            Liters = 51.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 47.939999999999998
+                        },
+                        new
+                        {
+                            Id = 46,
+                            CityId = 582,
+                            Date = new DateTime(2009, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 33873,
+                            Liters = 46.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 42.32
+                        },
+                        new
+                        {
+                            Id = 47,
+                            CityId = 582,
+                            Date = new DateTime(2009, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 34697,
+                            Liters = 46.0,
+                            Price = 1.0,
+                            TotalPrice = 43.700000000000003
+                        },
+                        new
+                        {
+                            Id = 48,
+                            CityId = 582,
+                            Date = new DateTime(2009, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 35266,
+                            Liters = 51.0,
+                            Price = 1.05,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 49,
+                            CityId = 582,
+                            Date = new DateTime(2009, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 36082,
+                            Liters = 44.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 44.880000000000003
+                        },
+                        new
+                        {
+                            Id = 50,
+                            CityId = 582,
+                            Date = new DateTime(2009, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 36665,
+                            Liters = 48.0,
+                            Price = 1.05,
+                            TotalPrice = 48.0
+                        },
+                        new
+                        {
+                            Id = 51,
+                            CityId = 582,
+                            Date = new DateTime(2009, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 37462,
+                            Liters = 50.0,
+                            Price = 1.0,
+                            TotalPrice = 47.5
+                        },
+                        new
+                        {
+                            Id = 52,
+                            CityId = 582,
+                            Date = new DateTime(2009, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 38067,
+                            Liters = 44.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 40.479999999999997
+                        },
+                        new
+                        {
+                            Id = 53,
+                            CityId = 582,
+                            Date = new DateTime(2009, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 38838,
+                            Liters = 50.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 47.0
+                        },
+                        new
+                        {
+                            Id = 54,
+                            CityId = 582,
+                            Date = new DateTime(2009, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 39473,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 55,
+                            CityId = 582,
+                            Date = new DateTime(2009, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 4,
+                            Kilometers = 40211,
+                            Liters = 44.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 44.880000000000003
+                        },
+                        new
+                        {
+                            Id = 56,
+                            CityId = 863,
+                            Date = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 45,
+                            Liters = 52.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 47.840000000000003
+                        },
+                        new
+                        {
+                            Id = 57,
+                            CityId = 863,
+                            Date = new DateTime(2007, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 872,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 58,
+                            CityId = 863,
+                            Date = new DateTime(2007, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 1446,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 59,
+                            CityId = 863,
+                            Date = new DateTime(2007, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 2278,
+                            Liters = 49.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 49.979999999999997
+                        },
+                        new
+                        {
+                            Id = 60,
+                            CityId = 863,
+                            Date = new DateTime(2020, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 2851,
+                            Liters = 50.0,
+                            Price = 1.04,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 61,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 3678,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 62,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 4261,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 63,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 5074,
+                            Liters = 53.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 49.82
+                        },
+                        new
+                        {
+                            Id = 64,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 5676,
+                            Liters = 54.0,
+                            Price = 1.04,
+                            TotalPrice = 53.460000000000001
+                        },
+                        new
+                        {
+                            Id = 65,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 6465,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 66,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 7095,
+                            Liters = 54.0,
+                            Price = 1.05,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 67,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 7854,
+                            Liters = 52.0,
+                            Price = 1.01,
+                            TotalPrice = 49.920000000000002
+                        },
+                        new
+                        {
+                            Id = 68,
+                            CityId = 863,
+                            Date = new DateTime(2007, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 8517,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 69,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 9241,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 70,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 9940,
+                            Liters = 49.0,
+                            Price = 1.03,
+                            TotalPrice = 48.020000000000003
+                        },
+                        new
+                        {
+                            Id = 71,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 10627,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 72,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 11362,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 73,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 12014,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 74,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 12783,
+                            Liters = 52.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 48.359999999999999
+                        },
+                        new
+                        {
+                            Id = 75,
+                            CityId = 863,
+                            Date = new DateTime(2007, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 13403,
+                            Liters = 54.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 49.68
+                        },
+                        new
+                        {
+                            Id = 76,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 14201,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 77,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 14796,
+                            Liters = 54.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 54.539999999999999
+                        },
+                        new
+                        {
+                            Id = 78,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 15614,
+                            Liters = 52.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 53.039999999999999
+                        },
+                        new
+                        {
+                            Id = 79,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 16193,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 80,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 17023,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 81,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 17595,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 82,
+                            CityId = 863,
+                            Date = new DateTime(2007, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 18427,
+                            Liters = 50.0,
+                            Price = 1.0,
+                            TotalPrice = 47.5
+                        },
+                        new
+                        {
+                            Id = 83,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 19003,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 84,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 19826,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 85,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 20416,
+                            Liters = 52.0,
+                            Price = 1.05,
+                            TotalPrice = 52.0
+                        },
+                        new
+                        {
+                            Id = 86,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 21220,
+                            Liters = 54.0,
+                            Price = 1.0,
+                            TotalPrice = 51.299999999999997
+                        },
+                        new
+                        {
+                            Id = 87,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 21833,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 88,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 22611,
+                            Liters = 54.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 50.759999999999998
+                        },
+                        new
+                        {
+                            Id = 89,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 23253,
+                            Liters = 52.0,
+                            Price = 1.03,
+                            TotalPrice = 50.960000000000001
+                        },
+                        new
+                        {
+                            Id = 90,
+                            CityId = 863,
+                            Date = new DateTime(2007, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 23998,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 91,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 24675,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 92,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 25384,
+                            Liters = 50.0,
+                            Price = 1.01,
+                            TotalPrice = 48.0
+                        },
+                        new
+                        {
+                            Id = 93,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 26098,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 94,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 26771,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 95,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 27520,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 96,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 28158,
+                            Liters = 52.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 52.520000000000003
+                        },
+                        new
+                        {
+                            Id = 97,
+                            CityId = 863,
+                            Date = new DateTime(2008, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 28939,
+                            Liters = 54.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 55.079999999999998
+                        },
+                        new
+                        {
+                            Id = 98,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 29548,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 99,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 30355,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 100,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 30943,
+                            Liters = 52.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 47.840000000000003
+                        },
+                        new
+                        {
+                            Id = 101,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 31767,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 102,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 32342,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 103,
+                            CityId = 863,
+                            Date = new DateTime(2008, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 33174,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 104,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 33747,
+                            Liters = 50.0,
+                            Price = 1.04,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 105,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 34576,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 106,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 35156,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 107,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 35972,
+                            Liters = 52.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 48.880000000000003
+                        },
+                        new
+                        {
+                            Id = 108,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 36570,
+                            Liters = 54.0,
+                            Price = 1.04,
+                            TotalPrice = 53.460000000000001
+                        },
+                        new
+                        {
+                            Id = 109,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 37364,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 110,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 37988,
+                            Liters = 54.0,
+                            Price = 1.05,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 111,
+                            CityId = 863,
+                            Date = new DateTime(2008, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 38753,
+                            Liters = 52.0,
+                            Price = 1.0,
+                            TotalPrice = 49.399999999999999
+                        },
+                        new
+                        {
+                            Id = 112,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 39409,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 113,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 40140,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 114,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 40832,
+                            Liters = 50.0,
+                            Price = 1.03,
+                            TotalPrice = 49.0
+                        },
+                        new
+                        {
+                            Id = 115,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 41526,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 116,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 42254,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 117,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 42912,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 118,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 43675,
+                            Liters = 52.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 48.359999999999999
+                        },
+                        new
+                        {
+                            Id = 119,
+                            CityId = 863,
+                            Date = new DateTime(2008, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 44301,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 120,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 45094,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 121,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 45693,
+                            Liters = 54.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 54.539999999999999
+                        },
+                        new
+                        {
+                            Id = 122,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 46508,
+                            Liters = 52.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 53.039999999999999
+                        },
+                        new
+                        {
+                            Id = 123,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 47089,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 124,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 47918,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 125,
+                            CityId = 863,
+                            Date = new DateTime(2008, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 48491,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 126,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 49323,
+                            Liters = 50.0,
+                            Price = 1.0,
+                            TotalPrice = 47.5
+                        },
+                        new
+                        {
+                            Id = 127,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 49898,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 128,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 50723,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 129,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 51310,
+                            Liters = 52.0,
+                            Price = 1.05,
+                            TotalPrice = 52.0
+                        },
+                        new
+                        {
+                            Id = 130,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 52118,
+                            Liters = 54.0,
+                            Price = 1.0,
+                            TotalPrice = 51.299999999999997
+                        },
+                        new
+                        {
+                            Id = 131,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 52726,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 132,
+                            CityId = 863,
+                            Date = new DateTime(2008, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 53509,
+                            Liters = 54.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 50.759999999999998
+                        },
+                        new
+                        {
+                            Id = 133,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 54145,
+                            Liters = 52.0,
+                            Price = 1.04,
+                            TotalPrice = 51.479999999999997
+                        },
+                        new
+                        {
+                            Id = 134,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 54897,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 135,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 55567,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 136,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 56283,
+                            Liters = 50.0,
+                            Price = 1.01,
+                            TotalPrice = 48.0
+                        },
+                        new
+                        {
+                            Id = 137,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 56990,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 138,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 57669,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 139,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 58412,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 140,
+                            CityId = 863,
+                            Date = new DateTime(2008, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 59056,
+                            Liters = 52.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 52.520000000000003
+                        },
+                        new
+                        {
+                            Id = 141,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 59832,
+                            Liters = 54.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 54.539999999999999
+                        },
+                        new
+                        {
+                            Id = 142,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 60446,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 143,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 61249,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 144,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 61840,
+                            Liters = 52.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 47.840000000000003
+                        },
+                        new
+                        {
+                            Id = 145,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 62662,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 146,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 63239,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 147,
+                            CityId = 863,
+                            Date = new DateTime(2008, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 64070,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 148,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 64642,
+                            Liters = 50.0,
+                            Price = 1.04,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 149,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 65472,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 150,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 66050,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 151,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 66869,
+                            Liters = 52.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 48.880000000000003
+                        },
+                        new
+                        {
+                            Id = 152,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 67463,
+                            Liters = 54.0,
+                            Price = 1.04,
+                            TotalPrice = 53.460000000000001
+                        },
+                        new
+                        {
+                            Id = 153,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 68262,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 154,
+                            CityId = 863,
+                            Date = new DateTime(2008, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 68881,
+                            Liters = 54.0,
+                            Price = 1.05,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 155,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 69652,
+                            Liters = 52.0,
+                            Price = 1.0,
+                            TotalPrice = 49.399999999999999
+                        },
+                        new
+                        {
+                            Id = 156,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 70302,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 157,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 71039,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 158,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 71724,
+                            Liters = 50.0,
+                            Price = 1.03,
+                            TotalPrice = 49.0
+                        },
+                        new
+                        {
+                            Id = 159,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 72425,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 160,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 73147,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 161,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 73812,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 162,
+                            CityId = 863,
+                            Date = new DateTime(2008, 10, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 74569,
+                            Liters = 52.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 48.359999999999999
+                        },
+                        new
+                        {
+                            Id = 163,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 75200,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 164,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 75988,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 165,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 76592,
+                            Liters = 54.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 54.539999999999999
+                        },
+                        new
+                        {
+                            Id = 166,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 77404,
+                            Liters = 52.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 53.039999999999999
+                        },
+                        new
+                        {
+                            Id = 167,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 77988,
+                            Liters = 48.0,
+                            Price = 1.03,
+                            TotalPrice = 47.039999999999999
+                        },
+                        new
+                        {
+                            Id = 168,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 78815,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 169,
+                            CityId = 863,
+                            Date = new DateTime(2008, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 79389,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 170,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 80221,
+                            Liters = 50.0,
+                            Price = 1.0,
+                            TotalPrice = 47.5
+                        },
+                        new
+                        {
+                            Id = 171,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 80794,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 172,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 81621,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 173,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 82205,
+                            Liters = 52.0,
+                            Price = 1.04,
+                            TotalPrice = 51.479999999999997
+                        },
+                        new
+                        {
+                            Id = 174,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 83017,
+                            Liters = 54.0,
+                            Price = 1.0,
+                            TotalPrice = 51.299999999999997
+                        },
+                        new
+                        {
+                            Id = 175,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 83620,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 176,
+                            CityId = 863,
+                            Date = new DateTime(2008, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 84408,
+                            Liters = 54.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 50.759999999999998
+                        },
+                        new
+                        {
+                            Id = 177,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 85039,
+                            Liters = 52.0,
+                            Price = 1.04,
+                            TotalPrice = 51.479999999999997
+                        },
+                        new
+                        {
+                            Id = 178,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 85797,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 179,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 86461,
+                            Liters = 55.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 55.549999999999997
+                        },
+                        new
+                        {
+                            Id = 180,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 87184,
+                            Liters = 50.0,
+                            Price = 1.01,
+                            TotalPrice = 48.0
+                        },
+                        new
+                        {
+                            Id = 181,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 87884,
+                            Liters = 50.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 46.0
+                        },
+                        new
+                        {
+                            Id = 182,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 88570,
+                            Liters = 55.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 51.149999999999999
+                        },
+                        new
+                        {
+                            Id = 183,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 89306,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 184,
+                            CityId = 863,
+                            Date = new DateTime(2009, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 89957,
+                            Liters = 52.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 52.520000000000003
+                        },
+                        new
+                        {
+                            Id = 185,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 90727,
+                            Liters = 54.0,
+                            Price = 1.0600000000000001,
+                            TotalPrice = 54.539999999999999
+                        },
+                        new
+                        {
+                            Id = 186,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 91346,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 187,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 92144,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 188,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 92739,
+                            Liters = 52.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 47.840000000000003
+                        },
+                        new
+                        {
+                            Id = 189,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 93558,
+                            Liters = 48.0,
+                            Price = 1.01,
+                            TotalPrice = 46.079999999999998
+                        },
+                        new
+                        {
+                            Id = 190,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 94137,
+                            Liters = 55.0,
+                            Price = 1.05,
+                            TotalPrice = 55.0
+                        },
+                        new
+                        {
+                            Id = 191,
+                            CityId = 863,
+                            Date = new DateTime(2009, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 94967,
+                            Liters = 50.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 192,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 95539,
+                            Liters = 50.0,
+                            Price = 1.04,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 193,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 96370,
+                            Liters = 55.0,
+                            Price = 0.98999999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 194,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 96946,
+                            Liters = 48.0,
+                            Price = 0.96999999999999997,
+                            TotalPrice = 44.159999999999997
+                        },
+                        new
+                        {
+                            Id = 195,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 97768,
+                            Liters = 52.0,
+                            Price = 1.0,
+                            TotalPrice = 49.399999999999999
+                        },
+                        new
+                        {
+                            Id = 196,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 98358,
+                            Liters = 54.0,
+                            Price = 1.04,
+                            TotalPrice = 53.460000000000001
+                        },
+                        new
+                        {
+                            Id = 197,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 99162,
+                            Liters = 48.0,
+                            Price = 1.0700000000000001,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 198,
+                            CityId = 863,
+                            Date = new DateTime(2009, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 99775,
+                            Liters = 54.0,
+                            Price = 1.05,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 199,
+                            CityId = 863,
+                            Date = new DateTime(2009, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 104711,
+                            Liters = 48.0,
+                            Price = 1.02,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 200,
+                            CityId = 863,
+                            Date = new DateTime(2009, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 105461,
+                            Liters = 52.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 48.359999999999999
+                        },
+                        new
+                        {
+                            Id = 201,
+                            CityId = 863,
+                            Date = new DateTime(2009, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 5,
+                            Kilometers = 106098,
+                            Liters = 54.0,
+                            Price = 0.97999999999999998,
+                            TotalPrice = 50.219999999999999
+                        },
+                        new
+                        {
+                            Id = 202,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 24,
+                            Liters = 45.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 203,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 862,
+                            Liters = 41.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 204,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 1447,
+                            Liters = 48.799999999999997,
+                            Price = 1.23,
+                            TotalPrice = 57.584000000000003
+                        },
+                        new
+                        {
+                            Id = 205,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 2291,
+                            Liters = 42.0,
+                            Price = 1.25,
+                            TotalPrice = 50.399999999999999
+                        },
+                        new
+                        {
+                            Id = 206,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 2876,
+                            Liters = 43.0,
+                            Price = 1.22,
+                            TotalPrice = 50.310000000000002
+                        },
+                        new
+                        {
+                            Id = 207,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 3715,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 208,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 4310,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 209,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 5134,
+                            Liters = 46.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 51.520000000000003
+                        },
+                        new
+                        {
+                            Id = 210,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 5748,
+                            Liters = 47.0,
+                            Price = 1.22,
+                            TotalPrice = 54.990000000000002
+                        },
+                        new
+                        {
+                            Id = 211,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 6549,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 212,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 7190,
+                            Liters = 47.0,
+                            Price = 1.23,
+                            TotalPrice = 55.460000000000001
+                        },
+                        new
+                        {
+                            Id = 213,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 7960,
+                            Liters = 45.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 51.299999999999997
+                        },
+                        new
+                        {
+                            Id = 214,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 8634,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 215,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 9370,
+                            Liters = 48.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 53.280000000000001
+                        },
+                        new
+                        {
+                            Id = 216,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 10080,
+                            Liters = 42.0,
+                            Price = 1.21,
+                            TotalPrice = 48.719999999999999
+                        },
+                        new
+                        {
+                            Id = 217,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 10779,
+                            Liters = 43.0,
+                            Price = 1.25,
+                            TotalPrice = 51.600000000000001
+                        },
+                        new
+                        {
+                            Id = 218,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 11526,
+                            Liters = 48.0,
+                            Price = 1.24,
+                            TotalPrice = 57.119999999999997
+                        },
+                        new
+                        {
+                            Id = 219,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 12189,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 220,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 12970,
+                            Liters = 45.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 49.950000000000003
+                        },
+                        new
+                        {
+                            Id = 221,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 13602,
+                            Liters = 47.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 51.700000000000003
+                        },
+                        new
+                        {
+                            Id = 222,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 14411,
+                            Liters = 41.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 223,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 15018,
+                            Liters = 47.0,
+                            Price = 1.24,
+                            TotalPrice = 55.93
+                        },
+                        new
+                        {
+                            Id = 224,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 15848,
+                            Liters = 45.0,
+                            Price = 1.25,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 225,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 16439,
+                            Liters = 41.0,
+                            Price = 1.21,
+                            TotalPrice = 47.560000000000002
+                        },
+                        new
+                        {
+                            Id = 226,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 17281,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 227,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 17865,
+                            Liters = 43.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 47.299999999999997
+                        },
+                        new
+                        {
+                            Id = 228,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 18708,
+                            Liters = 43.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 48.590000000000003
+                        },
+                        new
+                        {
+                            Id = 229,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 19296,
+                            Liters = 48.0,
+                            Price = 1.23,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 230,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 20130,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 231,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 20731,
+                            Liters = 45.0,
+                            Price = 1.23,
+                            TotalPrice = 53.100000000000001
+                        },
+                        new
+                        {
+                            Id = 232,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 21547,
+                            Liters = 47.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 53.109999999999999
+                        },
+                        new
+                        {
+                            Id = 233,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 22171,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 234,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 22960,
+                            Liters = 47.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 52.640000000000001
+                        },
+                        new
+                        {
+                            Id = 235,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 23614,
+                            Liters = 45.0,
+                            Price = 1.21,
+                            TotalPrice = 52.200000000000003
+                        },
+                        new
+                        {
+                            Id = 236,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 24371,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 237,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 25060,
+                            Liters = 48.0,
+                            Price = 1.24,
+                            TotalPrice = 57.119999999999997
+                        },
+                        new
+                        {
+                            Id = 238,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 25781,
+                            Liters = 43.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 49.020000000000003
+                        },
+                        new
+                        {
+                            Id = 239,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 26506,
+                            Liters = 43.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 47.299999999999997
+                        },
+                        new
+                        {
+                            Id = 240,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 27190,
+                            Liters = 48.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 53.280000000000001
+                        },
+                        new
+                        {
+                            Id = 241,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 27951,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 242,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 28601,
+                            Liters = 45.0,
+                            Price = 1.24,
+                            TotalPrice = 53.549999999999997
+                        },
+                        new
+                        {
+                            Id = 243,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 29394,
+                            Liters = 47.0,
+                            Price = 1.25,
+                            TotalPrice = 56.399999999999999
+                        },
+                        new
+                        {
+                            Id = 244,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 30015,
+                            Liters = 41.0,
+                            Price = 1.21,
+                            TotalPrice = 47.560000000000002
+                        },
+                        new
+                        {
+                            Id = 245,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 30834,
+                            Liters = 47.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 52.170000000000002
+                        },
+                        new
+                        {
+                            Id = 246,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 31433,
+                            Liters = 45.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 247,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 32269,
+                            Liters = 41.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 248,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 32856,
+                            Liters = 48.0,
+                            Price = 1.23,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 249,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 33699,
+                            Liters = 43.0,
+                            Price = 1.25,
+                            TotalPrice = 51.600000000000001
+                        },
+                        new
+                        {
+                            Id = 250,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 34283,
+                            Liters = 43.0,
+                            Price = 1.22,
+                            TotalPrice = 50.310000000000002
+                        },
+                        new
+                        {
+                            Id = 251,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 35124,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 252,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 35716,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 253,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 36544,
+                            Liters = 45.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 50.399999999999999
+                        },
+                        new
+                        {
+                            Id = 254,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 37154,
+                            Liters = 47.0,
+                            Price = 1.22,
+                            TotalPrice = 54.990000000000002
+                        },
+                        new
+                        {
+                            Id = 255,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 37960,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 256,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 38596,
+                            Liters = 47.0,
+                            Price = 1.23,
+                            TotalPrice = 55.460000000000001
+                        },
+                        new
+                        {
+                            Id = 257,
+                            CityId = 1036,
+                            Date = new DateTime(2008, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 39373,
+                            Liters = 45.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 50.850000000000001
+                        },
+                        new
+                        {
+                            Id = 258,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 40041,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 259,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 40783,
+                            Liters = 48.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 53.280000000000001
+                        },
+                        new
+                        {
+                            Id = 260,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 41486,
+                            Liters = 43.0,
+                            Price = 1.21,
+                            TotalPrice = 49.880000000000003
+                        },
+                        new
+                        {
+                            Id = 261,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 42192,
+                            Liters = 43.0,
+                            Price = 1.25,
+                            TotalPrice = 51.600000000000001
+                        },
+                        new
+                        {
+                            Id = 262,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 42932,
+                            Liters = 48.0,
+                            Price = 1.24,
+                            TotalPrice = 57.119999999999997
+                        },
+                        new
+                        {
+                            Id = 263,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 43602,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 264,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 44377,
+                            Liters = 45.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 49.950000000000003
+                        },
+                        new
+                        {
+                            Id = 265,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 45014,
+                            Liters = 47.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 52.170000000000002
+                        },
+                        new
+                        {
+                            Id = 266,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 45818,
+                            Liters = 41.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 267,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 46429,
+                            Liters = 47.0,
+                            Price = 1.24,
+                            TotalPrice = 55.93
+                        },
+                        new
+                        {
+                            Id = 268,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 47256,
+                            Liters = 45.0,
+                            Price = 1.25,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 269,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 47849,
+                            Liters = 41.0,
+                            Price = 1.21,
+                            TotalPrice = 47.560000000000002
+                        },
+                        new
+                        {
+                            Id = 270,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 48689,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 271,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 49273,
+                            Liters = 43.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 47.299999999999997
+                        },
+                        new
+                        {
+                            Id = 272,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 50117,
+                            Liters = 43.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 48.590000000000003
+                        },
+                        new
+                        {
+                            Id = 273,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 50703,
+                            Liters = 48.0,
+                            Price = 1.23,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 274,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 51540,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 275,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 52138,
+                            Liters = 45.0,
+                            Price = 1.23,
+                            TotalPrice = 53.100000000000001
+                        },
+                        new
+                        {
+                            Id = 276,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 52958,
+                            Liters = 47.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 53.109999999999999
+                        },
+                        new
+                        {
+                            Id = 277,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 53577,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 278,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 54372,
+                            Liters = 47.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 52.640000000000001
+                        },
+                        new
+                        {
+                            Id = 279,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 55020,
+                            Liters = 45.0,
+                            Price = 1.22,
+                            TotalPrice = 52.649999999999999
+                        },
+                        new
+                        {
+                            Id = 280,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 55783,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 281,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 56465,
+                            Liters = 48.0,
+                            Price = 1.24,
+                            TotalPrice = 57.119999999999997
+                        },
+                        new
+                        {
+                            Id = 282,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 57193,
+                            Liters = 43.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 49.020000000000003
+                        },
+                        new
+                        {
+                            Id = 283,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 57911,
+                            Liters = 43.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 47.299999999999997
+                        },
+                        new
+                        {
+                            Id = 284,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 58602,
+                            Liters = 48.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 53.280000000000001
+                        },
+                        new
+                        {
+                            Id = 285,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 59357,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 286,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 60013,
+                            Liters = 45.0,
+                            Price = 1.24,
+                            TotalPrice = 53.549999999999997
+                        },
+                        new
+                        {
+                            Id = 287,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 60800,
+                            Liters = 47.0,
+                            Price = 1.24,
+                            TotalPrice = 55.93
+                        },
+                        new
+                        {
+                            Id = 288,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 61426,
+                            Liters = 41.0,
+                            Price = 1.21,
+                            TotalPrice = 47.560000000000002
+                        },
+                        new
+                        {
+                            Id = 289,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 62240,
+                            Liters = 47.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 52.170000000000002
+                        },
+                        new
+                        {
+                            Id = 290,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 62843,
+                            Liters = 45.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 49.5
+                        },
+                        new
+                        {
+                            Id = 291,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 63676,
+                            Liters = 41.0,
+                            Price = 1.1899999999999999,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 292,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 64264,
+                            Liters = 48.0,
+                            Price = 1.23,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 293,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 65107,
+                            Liters = 43.0,
+                            Price = 1.25,
+                            TotalPrice = 51.600000000000001
+                        },
+                        new
+                        {
+                            Id = 294,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 65691,
+                            Liters = 43.0,
+                            Price = 1.22,
+                            TotalPrice = 50.310000000000002
+                        },
+                        new
+                        {
+                            Id = 295,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 66533,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 296,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 67123,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 297,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 67954,
+                            Liters = 45.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 50.399999999999999
+                        },
+                        new
+                        {
+                            Id = 298,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 68560,
+                            Liters = 47.0,
+                            Price = 1.22,
+                            TotalPrice = 54.990000000000002
+                        },
+                        new
+                        {
+                            Id = 299,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 69371,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 300,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 70001,
+                            Liters = 47.0,
+                            Price = 1.23,
+                            TotalPrice = 55.460000000000001
+                        },
+                        new
+                        {
+                            Id = 301,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 70784,
+                            Liters = 45.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 50.850000000000001
+                        },
+                        new
+                        {
+                            Id = 302,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 71445,
+                            Liters = 41.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 45.100000000000001
+                        },
+                        new
+                        {
+                            Id = 303,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 72194,
+                            Liters = 48.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 53.280000000000001
+                        },
+                        new
+                        {
+                            Id = 304,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 72891,
+                            Liters = 43.0,
+                            Price = 1.21,
+                            TotalPrice = 49.880000000000003
+                        },
+                        new
+                        {
+                            Id = 305,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 73604,
+                            Liters = 43.0,
+                            Price = 1.25,
+                            TotalPrice = 51.600000000000001
+                        },
+                        new
+                        {
+                            Id = 306,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 74337,
+                            Liters = 48.0,
+                            Price = 1.24,
+                            TotalPrice = 57.119999999999997
+                        },
+                        new
+                        {
+                            Id = 307,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 75013,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 308,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 75781,
+                            Liters = 45.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 49.950000000000003
+                        },
+                        new
+                        {
+                            Id = 309,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 76424,
+                            Liters = 47.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 52.170000000000002
+                        },
+                        new
+                        {
+                            Id = 310,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 77223,
+                            Liters = 41.0,
+                            Price = 1.2,
+                            TotalPrice = 47.149999999999999
+                        },
+                        new
+                        {
+                            Id = 311,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 77838,
+                            Liters = 47.0,
+                            Price = 1.24,
+                            TotalPrice = 55.93
+                        },
+                        new
+                        {
+                            Id = 312,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 78661,
+                            Liters = 45.0,
+                            Price = 1.25,
+                            TotalPrice = 54.0
+                        },
+                        new
+                        {
+                            Id = 313,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 79257,
+                            Liters = 41.0,
+                            Price = 1.21,
+                            TotalPrice = 47.560000000000002
+                        },
+                        new
+                        {
+                            Id = 314,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 80095,
+                            Liters = 48.0,
+                            Price = 1.1699999999999999,
+                            TotalPrice = 53.759999999999998
+                        },
+                        new
+                        {
+                            Id = 315,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 80680,
+                            Liters = 43.0,
+                            Price = 1.1499999999999999,
+                            TotalPrice = 47.299999999999997
+                        },
+                        new
+                        {
+                            Id = 316,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 81524,
+                            Liters = 43.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 48.590000000000003
+                        },
+                        new
+                        {
+                            Id = 317,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 82109,
+                            Liters = 48.0,
+                            Price = 1.23,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 318,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 82948,
+                            Liters = 41.0,
+                            Price = 1.25,
+                            TotalPrice = 49.200000000000003
+                        },
+                        new
+                        {
+                            Id = 319,
+                            CityId = 1036,
+                            Date = new DateTime(2009, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050000000000000003,
+                            FuelCardId = 6,
+                            Kilometers = 83543,
+                            Liters = 45.0,
+                            Price = 1.22,
+                            TotalPrice = 52.649999999999999
+                        },
+                        new
+                        {
+                            Id = 320,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 7,
+                            Kilometers = 47653,
+                            Liters = 47.280000000000001,
+                            Price = 1.20621827411168,
+                            TotalPrice = 47.130000000000003
+                        },
+                        new
+                        {
+                            Id = 321,
+                            CityId = 1038,
+                            Date = new DateTime(2015, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 7,
+                            Kilometers = 48473,
+                            Liters = 61.130000000000003,
+                            Price = 1.20235563553084,
+                            TotalPrice = 60.740000000000002
+                        },
+                        new
+                        {
+                            Id = 322,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 8,
+                            Kilometers = 42635,
+                            Liters = 53.130000000000003,
+                            Price = 1.2264257481648799,
+                            TotalPrice = 53.850000000000001
+                        },
+                        new
+                        {
+                            Id = 323,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 9,
+                            Kilometers = 94244,
+                            Liters = 48.950000000000003,
+                            Price = 1.20224719101124,
+                            TotalPrice = 48.640000000000001
+                        },
+                        new
+                        {
+                            Id = 324,
+                            CityId = 972,
+                            Date = new DateTime(2015, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 10,
+                            Kilometers = 84000,
+                            Liters = 64.409999999999997,
+                            Price = 1.2248000000000001,
+                            TotalPrice = 65.200000000000003
+                        },
+                        new
+                        {
+                            Id = 325,
+                            CityId = 652,
+                            Date = new DateTime(2015, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 12,
+                            Kilometers = 89662,
+                            Liters = 64.25,
+                            Price = 1.2062256809338501,
+                            TotalPrice = 64.049999999999997
+                        },
+                        new
+                        {
+                            Id = 326,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 13,
+                            Kilometers = 131069,
+                            Liters = 61.600000000000001,
+                            Price = 1.20633116883117,
+                            TotalPrice = 61.409999999999997
+                        },
+                        new
+                        {
+                            Id = 327,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 13,
+                            Kilometers = 132176,
+                            Liters = 66.939999999999998,
+                            Price = 1.2263220794741601,
+                            TotalPrice = 67.840000000000003
+                        },
+                        new
+                        {
+                            Id = 328,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 14,
+                            Kilometers = 47509,
+                            Liters = 39.32,
+                            Price = 1.2062563580874901,
+                            TotalPrice = 39.200000000000003
+                        },
+                        new
+                        {
+                            Id = 329,
+                            CityId = 1041,
+                            Date = new DateTime(2015, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 14,
+                            Kilometers = 48167,
+                            Liters = 44.039999999999999,
+                            Price = 1.22615803814714,
+                            TotalPrice = 44.630000000000003
+                        },
+                        new
+                        {
+                            Id = 330,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 17,
+                            Kilometers = 97100,
+                            Liters = 63.109999999999999,
+                            Price = 1.2262715892885401,
+                            TotalPrice = 63.960000000000001
+                        },
+                        new
+                        {
+                            Id = 331,
+                            CityId = 1043,
+                            Date = new DateTime(2015, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 59.670000000000002,
+                            Price = 1.2061337355455,
+                            TotalPrice = 59.479999999999997
+                        },
+                        new
+                        {
+                            Id = 332,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 0,
+                            Liters = 62.219999999999999,
+                            Price = 1.2261330761812901,
+                            TotalPrice = 63.049999999999997
+                        },
+                        new
+                        {
+                            Id = 333,
+                            CityId = 703,
+                            Date = new DateTime(2015, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 19,
+                            Kilometers = 20590,
+                            Liters = 65.5,
+                            Price = 1.20625954198473,
+                            TotalPrice = 65.299999999999997
+                        },
+                        new
+                        {
+                            Id = 334,
+                            CityId = 8,
+                            Date = new DateTime(2015, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 20,
+                            Kilometers = 13650,
+                            Liters = 62.109999999999999,
+                            Price = 1.2262115601352399,
+                            TotalPrice = 62.939999999999998
+                        },
+                        new
+                        {
+                            Id = 335,
+                            CityId = 655,
+                            Date = new DateTime(2015, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 21,
+                            Kilometers = 108009,
+                            Liters = 50.869999999999997,
+                            Price = 1.2062119127186901,
+                            TotalPrice = 50.710000000000001
+                        },
+                        new
+                        {
+                            Id = 336,
+                            CityId = 1045,
+                            Date = new DateTime(2015, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 21,
+                            Kilometers = 108574,
+                            Liters = 34.859999999999999,
+                            Price = 1.2263339070568,
+                            TotalPrice = 35.329999999999998
+                        },
+                        new
+                        {
+                            Id = 337,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 21,
+                            Kilometers = 109344,
+                            Liters = 52.0,
+                            Price = 1.22634615384615,
+                            TotalPrice = 52.700000000000003
+                        },
+                        new
+                        {
+                            Id = 338,
+                            CityId = 1046,
+                            Date = new DateTime(2015, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 21,
+                            Kilometers = 110171,
+                            Liters = 51.399999999999999,
+                            Price = 1.2021400778210101,
+                            TotalPrice = 51.07
+                        },
+                        new
+                        {
+                            Id = 339,
+                            CityId = 1047,
+                            Date = new DateTime(2015, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 7,
+                            Kilometers = 46980,
+                            Liters = 69.260000000000005,
+                            Price = 1.2063239965348,
+                            TotalPrice = 69.049999999999997
+                        },
+                        new
+                        {
+                            Id = 340,
+                            CityId = 1048,
+                            Date = new DateTime(2015, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 22,
+                            Kilometers = 112111,
+                            Liters = 50.07,
+                            Price = 1.20611144397843,
+                            TotalPrice = 49.909999999999997
+                        },
+                        new
+                        {
+                            Id = 341,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 22,
+                            Kilometers = 112899,
+                            Liters = 50.780000000000001,
+                            Price = 1.2262701851122499,
+                            TotalPrice = 51.460000000000001
+                        },
+                        new
+                        {
+                            Id = 342,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 22,
+                            Kilometers = 113311,
+                            Liters = 28.649999999999999,
+                            Price = 1.20244328097731,
+                            TotalPrice = 28.469999999999999
+                        },
+                        new
+                        {
+                            Id = 343,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 23,
+                            Kilometers = 26156,
+                            Liters = 51.079999999999998,
+                            Price = 1.20614722004699,
+                            TotalPrice = 50.920000000000002
+                        },
+                        new
+                        {
+                            Id = 344,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 23,
+                            Kilometers = 27005,
+                            Liters = 46.240000000000002,
+                            Price = 1.20220588235294,
+                            TotalPrice = 45.939999999999998
+                        },
+                        new
+                        {
+                            Id = 345,
+                            CityId = 1050,
+                            Date = new DateTime(2015, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 24,
+                            Kilometers = 85400,
+                            Liters = 45.270000000000003,
+                            Price = 1.2060967528164299,
+                            TotalPrice = 45.119999999999997
+                        },
+                        new
+                        {
+                            Id = 346,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 24,
+                            Kilometers = 87008,
+                            Liters = 42.979999999999997,
+                            Price = 1.2024197301070301,
+                            TotalPrice = 42.710000000000001
+                        },
+                        new
+                        {
+                            Id = 347,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 26,
+                            Kilometers = 18988,
+                            Liters = 53.359999999999999,
+                            Price = 1.20633433283358,
+                            TotalPrice = 53.200000000000003
+                        },
+                        new
+                        {
+                            Id = 348,
+                            CityId = 589,
+                            Date = new DateTime(2015, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074999999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 65781,
+                            Liters = 52.719999999999999,
+                            Price = 1.20637329286798,
+                            TotalPrice = 52.560000000000002
+                        },
+                        new
+                        {
+                            Id = 349,
+                            CityId = 1047,
+                            Date = new DateTime(2015, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054999999999999903,
+                            FuelCardId = 7,
+                            Kilometers = 49380,
+                            Liters = 67.269999999999996,
+                            Price = 1.2021703582577701,
+                            TotalPrice = 66.829999999999998
+                        },
+                        new
+                        {
+                            Id = 350,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051200000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 50214,
+                            Liters = 60.859999999999999,
+                            Price = 1.19635228393033,
+                            TotalPrice = 60.170000000000002
+                        },
+                        new
+                        {
+                            Id = 351,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061699999999999998,
+                            FuelCardId = 8,
+                            Kilometers = 43393,
+                            Liters = 55.649999999999999,
+                            Price = 1.21940700808625,
+                            TotalPrice = 56.079999999999998
+                        },
+                        new
+                        {
+                            Id = 352,
+                            CityId = 972,
+                            Date = new DateTime(2015, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061199999999999997,
+                            FuelCardId = 10,
+                            Kilometers = 85000,
+                            Liters = 59.880000000000003,
+                            Price = 1.2193000000000001,
+                            TotalPrice = 60.340000000000003
+                        },
+                        new
+                        {
+                            Id = 353,
+                            CityId = 652,
+                            Date = new DateTime(2015, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059599999999999903,
+                            FuelCardId = 12,
+                            Kilometers = 90500,
+                            Liters = 62.340000000000003,
+                            Price = 1.20227783124799,
+                            TotalPrice = 61.939999999999998
+                        },
+                        new
+                        {
+                            Id = 354,
+                            CityId = 652,
+                            Date = new DateTime(2015, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059599999999999903,
+                            FuelCardId = 12,
+                            Kilometers = 91415,
+                            Liters = 63.100000000000001,
+                            Price = 1.1963549920760701,
+                            TotalPrice = 62.390000000000001
+                        },
+                        new
+                        {
+                            Id = 355,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044499999999999998,
+                            FuelCardId = 13,
+                            Kilometers = 133174,
+                            Liters = 64.780000000000001,
+                            Price = 1.2192034578573601,
+                            TotalPrice = 65.269999999999996
+                        },
+                        new
+                        {
+                            Id = 356,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036600000000000001,
+                            FuelCardId = 14,
+                            Kilometers = 48980,
+                            Liters = 48.729999999999997,
+                            Price = 1.2023394213010501,
+                            TotalPrice = 48.420000000000002
+                        },
+                        new
+                        {
+                            Id = 357,
+                            CityId = 1041,
+                            Date = new DateTime(2015, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065000000000000002,
+                            FuelCardId = 14,
+                            Kilometers = 49646,
+                            Liters = 43.509999999999998,
+                            Price = 1.2194897724661,
+                            TotalPrice = 43.850000000000001
+                        },
+                        new
+                        {
+                            Id = 358,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039,
+                            FuelCardId = 17,
+                            Kilometers = 98200,
+                            Liters = 5.3799999999999999,
+                            Price = 1.21933085501859,
+                            TotalPrice = 5.4199999999999999
+                        },
+                        new
+                        {
+                            Id = 359,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039,
+                            FuelCardId = 17,
+                            Kilometers = 98200,
+                            Liters = 44.57,
+                            Price = 1.2192057437738399,
+                            TotalPrice = 44.909999999999997
+                        },
+                        new
+                        {
+                            Id = 360,
+                            CityId = 1043,
+                            Date = new DateTime(2015, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.062699999999999895,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 62.369999999999997,
+                            Price = 1.2021805355138699,
+                            TotalPrice = 61.969999999999999
+                        },
+                        new
+                        {
+                            Id = 361,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046100000000000002,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 57.829999999999998,
+                            Price = 1.2023171364343801,
+                            TotalPrice = 57.460000000000001
+                        },
+                        new
+                        {
+                            Id = 362,
+                            CityId = 1043,
+                            Date = new DateTime(2015, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.062699999999999895,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 59.600000000000001,
+                            Price = 1.2192953020134201,
+                            TotalPrice = 60.060000000000002
+                        },
+                        new
+                        {
+                            Id = 363,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046100000000000002,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 61.840000000000003,
+                            Price = 1.1963130659767101,
+                            TotalPrice = 61.140000000000001
+                        },
+                        new
+                        {
+                            Id = 364,
+                            CityId = 703,
+                            Date = new DateTime(2015, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054100000000000002,
+                            FuelCardId = 19,
+                            Kilometers = 21665,
+                            Liters = 67.579999999999998,
+                            Price = 1.20227878070435,
+                            TotalPrice = 67.150000000000006
+                        },
+                        new
+                        {
+                            Id = 365,
+                            CityId = 1048,
+                            Date = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 22,
+                            Kilometers = 113987,
+                            Liters = 48.700000000000003,
+                            Price = 1.2022587268993801,
+                            TotalPrice = 48.390000000000001
+                        },
+                        new
+                        {
+                            Id = 366,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0533,
+                            FuelCardId = 22,
+                            Kilometers = 114751,
+                            Liters = 52.0,
+                            Price = 1.19634615384615,
+                            TotalPrice = 51.409999999999997
+                        },
+                        new
+                        {
+                            Id = 367,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042099999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 27839,
+                            Liters = 46.93,
+                            Price = 1.2022160664819901,
+                            TotalPrice = 46.630000000000003
+                        },
+                        new
+                        {
+                            Id = 368,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042099999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 28775,
+                            Liters = 51.549999999999997,
+                            Price = 1.19612027158099,
+                            TotalPrice = 50.960000000000001
+                        },
+                        new
+                        {
+                            Id = 369,
+                            CityId = 1050,
+                            Date = new DateTime(2015, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057599999999999998,
+                            FuelCardId = 24,
+                            Kilometers = 87928,
+                            Liters = 49.310000000000002,
+                            Price = 1.20219022510647,
+                            TotalPrice = 48.990000000000002
+                        },
+                        new
+                        {
+                            Id = 370,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050700000000000002,
+                            FuelCardId = 24,
+                            Kilometers = 88715,
+                            Liters = 43.829999999999998,
+                            Price = 1.1962126397444699,
+                            TotalPrice = 43.329999999999998
+                        },
+                        new
+                        {
+                            Id = 371,
+                            CityId = 8,
+                            Date = new DateTime(2015, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0545,
+                            FuelCardId = 20,
+                            Kilometers = 14531,
+                            Liters = 50.810000000000002,
+                            Price = 1.20232237748475,
+                            TotalPrice = 50.490000000000002
+                        },
+                        new
+                        {
+                            Id = 372,
+                            CityId = 655,
+                            Date = new DateTime(2015, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047599999999999899,
+                            FuelCardId = 21,
+                            Kilometers = 110028,
+                            Liters = 49.75,
+                            Price = 1.21929648241206,
+                            TotalPrice = 50.130000000000003
+                        },
+                        new
+                        {
+                            Id = 373,
+                            CityId = 1045,
+                            Date = new DateTime(2015, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0465,
+                            FuelCardId = 21,
+                            Kilometers = 111848,
+                            Liters = 49.200000000000003,
+                            Price = 1.19613821138211,
+                            TotalPrice = 48.640000000000001
+                        },
+                        new
+                        {
+                            Id = 374,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0611999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 19750,
+                            Liters = 50.920000000000002,
+                            Price = 1.2191673212883001,
+                            TotalPrice = 51.310000000000002
+                        },
+                        new
+                        {
+                            Id = 375,
+                            CityId = 589,
+                            Date = new DateTime(2015, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041799999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 66654,
+                            Liters = 51.009999999999998,
+                            Price = 1.2021172319153099,
+                            TotalPrice = 50.859999999999999
+                        },
+                        new
+                        {
+                            Id = 376,
+                            CityId = 589,
+                            Date = new DateTime(2015, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041799999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 67554,
+                            Liters = 53.5,
+                            Price = 1.1962616822429899,
+                            TotalPrice = 52.890000000000001
+                        },
+                        new
+                        {
+                            Id = 377,
+                            CityId = 1047,
+                            Date = new DateTime(2015, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054999999999999903,
+                            FuelCardId = 7,
+                            Kilometers = 51053,
+                            Liters = 61.130000000000003,
+                            Price = 1.1982659905120201,
+                            TotalPrice = 60.539999999999999
+                        },
+                        new
+                        {
+                            Id = 378,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061699999999999998,
+                            FuelCardId = 8,
+                            Kilometers = 44171,
+                            Liters = 54.539999999999999,
+                            Price = 1.1982031536486999,
+                            TotalPrice = 54.009999999999998
+                        },
+                        new
+                        {
+                            Id = 379,
+                            CityId = 652,
+                            Date = new DateTime(2015, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059599999999999903,
+                            FuelCardId = 12,
+                            Kilometers = 92291,
+                            Liters = 59.969999999999999,
+                            Price = 1.1982657995664501,
+                            TotalPrice = 59.390000000000001
+                        },
+                        new
+                        {
+                            Id = 380,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036600000000000001,
+                            FuelCardId = 14,
+                            Kilometers = 50397,
+                            Liters = 44.289999999999999,
+                            Price = 1.1964326032964601,
+                            TotalPrice = 43.789999999999999
+                        },
+                        new
+                        {
+                            Id = 381,
+                            CityId = 1041,
+                            Date = new DateTime(2015, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065000000000000002,
+                            FuelCardId = 14,
+                            Kilometers = 50909,
+                            Liters = 32.93,
+                            Price = 1.2153051928332801,
+                            TotalPrice = 33.07
+                        },
+                        new
+                        {
+                            Id = 382,
+                            CityId = 1041,
+                            Date = new DateTime(2015, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065000000000000002,
+                            FuelCardId = 14,
+                            Kilometers = 51528,
+                            Liters = 37.240000000000002,
+                            Price = 1.1984425349087,
+                            TotalPrice = 36.880000000000003
+                        },
+                        new
+                        {
+                            Id = 383,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039,
+                            FuelCardId = 17,
+                            Kilometers = 99100,
+                            Liters = 61.270000000000003,
+                            Price = 1.1961808389097399,
+                            TotalPrice = 60.57
+                        },
+                        new
+                        {
+                            Id = 384,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039,
+                            FuelCardId = 17,
+                            Kilometers = 99650,
+                            Liters = 30.18,
+                            Price = 1.2153744201457899,
+                            TotalPrice = 30.309999999999999
+                        },
+                        new
+                        {
+                            Id = 385,
+                            CityId = 1042,
+                            Date = new DateTime(2015, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039,
+                            FuelCardId = 17,
+                            Kilometers = 100500,
+                            Liters = 50.189999999999998,
+                            Price = 1.1984459055588801,
+                            TotalPrice = 49.710000000000001
+                        },
+                        new
+                        {
+                            Id = 386,
+                            CityId = 1043,
+                            Date = new DateTime(2015, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.062699999999999895,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 68.319999999999993,
+                            Price = 1.21531030444965,
+                            TotalPrice = 68.620000000000005
+                        },
+                        new
+                        {
+                            Id = 387,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046100000000000002,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 57.310000000000002,
+                            Price = 1.19822020589775,
+                            TotalPrice = 56.75
+                        },
+                        new
+                        {
+                            Id = 388,
+                            CityId = 703,
+                            Date = new DateTime(2015, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054100000000000002,
+                            FuelCardId = 19,
+                            Kilometers = 22789,
+                            Liters = 68.629999999999995,
+                            Price = 1.21521200641119,
+                            TotalPrice = 68.930000000000007
+                        },
+                        new
+                        {
+                            Id = 389,
+                            CityId = 1048,
+                            Date = new DateTime(2015, 6, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 22,
+                            Kilometers = 115452,
+                            Liters = 48.850000000000001,
+                            Price = 1.21535312180143,
+                            TotalPrice = 49.07
+                        },
+                        new
+                        {
+                            Id = 390,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0533,
+                            FuelCardId = 22,
+                            Kilometers = 115972,
+                            Liters = 32.5,
+                            Price = 1.1981538461538499,
+                            TotalPrice = 32.18
+                        },
+                        new
+                        {
+                            Id = 391,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042099999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 29678,
+                            Liters = 50.18,
+                            Price = 1.18134715025907,
+                            TotalPrice = 48.990000000000002
+                        },
+                        new
+                        {
+                            Id = 392,
+                            CityId = 1050,
+                            Date = new DateTime(2015, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057599999999999998,
+                            FuelCardId = 24,
+                            Kilometers = 89586,
+                            Liters = 48.359999999999999,
+                            Price = 1.18114143920596,
+                            TotalPrice = 47.210000000000001
+                        },
+                        new
+                        {
+                            Id = 393,
+                            CityId = 8,
+                            Date = new DateTime(2015, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0545,
+                            FuelCardId = 20,
+                            Kilometers = 15480,
+                            Liters = 60.289999999999999,
+                            Price = 1.21529275170012,
+                            TotalPrice = 60.549999999999997
+                        },
+                        new
+                        {
+                            Id = 394,
+                            CityId = 8,
+                            Date = new DateTime(2015, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0545,
+                            FuelCardId = 20,
+                            Kilometers = 16424,
+                            Liters = 62.420000000000002,
+                            Price = 1.19833386735021,
+                            TotalPrice = 61.82
+                        },
+                        new
+                        {
+                            Id = 395,
+                            CityId = 655,
+                            Date = new DateTime(2015, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047599999999999899,
+                            FuelCardId = 21,
+                            Kilometers = 112616,
+                            Liters = 48.689999999999998,
+                            Price = 1.1963442185253601,
+                            TotalPrice = 48.140000000000001
+                        },
+                        new
+                        {
+                            Id = 396,
+                            CityId = 1045,
+                            Date = new DateTime(2015, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0465,
+                            FuelCardId = 21,
+                            Kilometers = 113485,
+                            Liters = 49.530000000000001,
+                            Price = 1.21542499495255,
+                            TotalPrice = 49.75
+                        },
+                        new
+                        {
+                            Id = 397,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0611999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 20550,
+                            Liters = 37.609999999999999,
+                            Price = 1.18133475139591,
+                            TotalPrice = 36.719999999999999
+                        },
+                        new
+                        {
+                            Id = 398,
+                            CityId = 589,
+                            Date = new DateTime(2015, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041799999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 68393,
+                            Liters = 50.0,
+                            Price = 1.1981999999999999,
+                            TotalPrice = 49.509999999999998
+                        },
+                        new
+                        {
+                            Id = 399,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057299999999999997,
+                            FuelCardId = 7,
+                            Kilometers = 53890,
+                            Liters = 63.079999999999998,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 62.049999999999997
+                        },
+                        new
+                        {
+                            Id = 400,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042199999999999897,
+                            FuelCardId = 23,
+                            Kilometers = 31508,
+                            Liters = 46.539999999999999,
+                            Price = 1.2709999999999999,
+                            TotalPrice = 45.399999999999999
+                        },
+                        new
+                        {
+                            Id = 401,
+                            CityId = 1052,
+                            Date = new DateTime(2015, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052599999999999897,
+                            FuelCardId = 20,
+                            Kilometers = 18000,
+                            Liters = 57.82,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 56.869999999999997
+                        },
+                        new
+                        {
+                            Id = 402,
+                            CityId = 648,
+                            Date = new DateTime(2015, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0548999999999999,
+                            FuelCardId = 12,
+                            Kilometers = 93823,
+                            Liters = 60.490000000000002,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 57.600000000000001
+                        },
+                        new
+                        {
+                            Id = 403,
+                            CityId = 1053,
+                            Date = new DateTime(2015, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041599999999999998,
+                            FuelCardId = 14,
+                            Kilometers = 54617,
+                            Liters = 45.899999999999999,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 43.710000000000001
+                        },
+                        new
+                        {
+                            Id = 404,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 7, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.037100000000000001,
+                            FuelCardId = 9,
+                            Kilometers = 96085,
+                            Liters = 40.899999999999999,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 40.229999999999997
+                        },
+                        new
+                        {
+                            Id = 405,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047100000000000003,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 52.030000000000001,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 49.549999999999997
+                        },
+                        new
+                        {
+                            Id = 406,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056099999999999997,
+                            FuelCardId = 17,
+                            Kilometers = 101500,
+                            Liters = 61.700000000000003,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 60.689999999999998
+                        },
+                        new
+                        {
+                            Id = 407,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047399999999999901,
+                            FuelCardId = 23,
+                            Kilometers = 32466,
+                            Liters = 52.170000000000002,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 49.68
+                        },
+                        new
+                        {
+                            Id = 408,
+                            CityId = 1056,
+                            Date = new DateTime(2015, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055599999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 61.18,
+                            Price = 1.2709999999999999,
+                            TotalPrice = 59.670000000000002
+                        },
+                        new
+                        {
+                            Id = 409,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047699999999999902,
+                            FuelCardId = 21,
+                            Kilometers = 115959,
+                            Liters = 52.57,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 51.710000000000001
+                        },
+                        new
+                        {
+                            Id = 410,
+                            CityId = 645,
+                            Date = new DateTime(2015, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048300000000000003,
+                            FuelCardId = 16,
+                            Kilometers = 49500,
+                            Liters = 53.280000000000001,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 52.409999999999997
+                        },
+                        new
+                        {
+                            Id = 411,
+                            CityId = 324,
+                            Date = new DateTime(2015, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052199999999999899,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 57.469999999999999,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 56.530000000000001
+                        },
+                        new
+                        {
+                            Id = 412,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060499999999999998,
+                            FuelCardId = 19,
+                            Kilometers = 25042,
+                            Liters = 66.620000000000005,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 65.530000000000001
+                        },
+                        new
+                        {
+                            Id = 413,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041799999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 71924,
+                            Liters = 46.0,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 45.25
+                        },
+                        new
+                        {
+                            Id = 414,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047,
+                            FuelCardId = 25,
+                            Kilometers = 72915,
+                            Liters = 51.75,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 49.280000000000001
+                        },
+                        new
+                        {
+                            Id = 415,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057000000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 54712,
+                            Liters = 62.789999999999999,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 59.789999999999999
+                        },
+                        new
+                        {
+                            Id = 416,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049099999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 22900,
+                            Liters = 54.060000000000002,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 51.479999999999997
+                        },
+                        new
+                        {
+                            Id = 417,
+                            CityId = 1059,
+                            Date = new DateTime(2015, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0419,
+                            FuelCardId = 14,
+                            Kilometers = 53851,
+                            Liters = 46.18,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 45.43
+                        },
+                        new
+                        {
+                            Id = 418,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0434999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 73823,
+                            Liters = 48.0,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 45.710000000000001
+                        },
+                        new
+                        {
+                            Id = 419,
+                            CityId = 1060,
+                            Date = new DateTime(2015, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054399999999999997,
+                            FuelCardId = 20,
+                            Kilometers = 18955,
+                            Liters = 59.950000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 57.090000000000003
+                        },
+                        new
+                        {
+                            Id = 420,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040000000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 119156,
+                            Liters = 43.979999999999997,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 43.259999999999998
+                        },
+                        new
+                        {
+                            Id = 421,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.023199999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 22600,
+                            Liters = 25.550000000000001,
+                            Price = 1.2809999999999999,
+                            TotalPrice = 25.129999999999999
+                        },
+                        new
+                        {
+                            Id = 422,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0109,
+                            FuelCardId = 25,
+                            Kilometers = 75774,
+                            Liters = 12.01,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 11.44
+                        },
+                        new
+                        {
+                            Id = 423,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0548999999999999,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 60.490000000000002,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 57.600000000000001
+                        },
+                        new
+                        {
+                            Id = 424,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.023599999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 33858,
+                            Liters = 26.059999999999999,
+                            Price = 1.224,
+                            TotalPrice = 24.41
+                        },
+                        new
+                        {
+                            Id = 425,
+                            CityId = 645,
+                            Date = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999901,
+                            FuelCardId = 16,
+                            Kilometers = 51177,
+                            Liters = 51.399999999999999,
+                            Price = 1.224,
+                            TotalPrice = 48.130000000000003
+                        },
+                        new
+                        {
+                            Id = 426,
+                            CityId = 1062,
+                            Date = new DateTime(2015, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.026800000000000001,
+                            FuelCardId = 24,
+                            Kilometers = 0,
+                            Liters = 29.550000000000001,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 28.140000000000001
+                        },
+                        new
+                        {
+                            Id = 427,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058000000000000003,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 63.869999999999997,
+                            Price = 1.224,
+                            TotalPrice = 59.82
+                        },
+                        new
+                        {
+                            Id = 428,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.030099999999999998,
+                            FuelCardId = 9,
+                            Kilometers = 96558,
+                            Liters = 33.07,
+                            Price = 1.224,
+                            TotalPrice = 30.969999999999999
+                        },
+                        new
+                        {
+                            Id = 429,
+                            CityId = 1063,
+                            Date = new DateTime(2015, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060499999999999998,
+                            FuelCardId = 13,
+                            Kilometers = 136945,
+                            Liters = 66.700000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 63.520000000000003
+                        },
+                        new
+                        {
+                            Id = 430,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055399999999999901,
+                            FuelCardId = 17,
+                            Kilometers = 104500,
+                            Liters = 60.920000000000002,
+                            Price = 1.224,
+                            TotalPrice = 57.049999999999997
+                        },
+                        new
+                        {
+                            Id = 431,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059300000000000103,
+                            FuelCardId = 19,
+                            Kilometers = 26121,
+                            Liters = 65.280000000000001,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 62.159999999999997
+                        },
+                        new
+                        {
+                            Id = 432,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0395,
+                            FuelCardId = 14,
+                            Kilometers = 56000,
+                            Liters = 43.590000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 41.509999999999998
+                        },
+                        new
+                        {
+                            Id = 433,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0441,
+                            FuelCardId = 23,
+                            Kilometers = 33403,
+                            Liters = 48.509999999999998,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 46.189999999999998
+                        },
+                        new
+                        {
+                            Id = 434,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0448,
+                            FuelCardId = 22,
+                            Kilometers = 121535,
+                            Liters = 49.270000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 46.909999999999997
+                        },
+                        new
+                        {
+                            Id = 435,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 7, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035900000000000001,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 39.640000000000001,
+                            Price = 1.224,
+                            TotalPrice = 37.130000000000003
+                        },
+                        new
+                        {
+                            Id = 436,
+                            CityId = 645,
+                            Date = new DateTime(2015, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047,
+                            FuelCardId = 16,
+                            Kilometers = 50300,
+                            Liters = 51.770000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 49.299999999999997
+                        },
+                        new
+                        {
+                            Id = 437,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0408000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 14500,
+                            Liters = 44.979999999999997,
+                            Price = 1.224,
+                            TotalPrice = 42.130000000000003
+                        },
+                        new
+                        {
+                            Id = 438,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043499999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 76678,
+                            Liters = 48.009999999999998,
+                            Price = 1.224,
+                            TotalPrice = 44.969999999999999
+                        },
+                        new
+                        {
+                            Id = 439,
+                            CityId = 8,
+                            Date = new DateTime(2015, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043799999999999999,
+                            FuelCardId = 22,
+                            Kilometers = 120745,
+                            Liters = 48.229999999999997,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 45.93
+                        },
+                        new
+                        {
+                            Id = 440,
+                            CityId = 603,
+                            Date = new DateTime(2015, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047899999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 23500,
+                            Liters = 52.789999999999999,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 50.270000000000003
+                        },
+                        new
+                        {
+                            Id = 441,
+                            CityId = 80,
+                            Date = new DateTime(2015, 7, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0436,
+                            FuelCardId = 25,
+                            Kilometers = 75581,
+                            Liters = 48.009999999999998,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 45.719999999999999
+                        },
+                        new
+                        {
+                            Id = 442,
+                            CityId = 1066,
+                            Date = new DateTime(2015, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040899999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 74664,
+                            Liters = 45.020000000000003,
+                            Price = 1.2430000000000001,
+                            TotalPrice = 42.869999999999997
+                        },
+                        new
+                        {
+                            Id = 443,
+                            CityId = 1053,
+                            Date = new DateTime(2015, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038699999999999998,
+                            FuelCardId = 14,
+                            Kilometers = 56684,
+                            Liters = 42.479999999999997,
+                            Price = 1.224,
+                            TotalPrice = 39.780000000000001
+                        },
+                        new
+                        {
+                            Id = 444,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038800000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 26374,
+                            Liters = 42.799999999999997,
+                            Price = 1.224,
+                            TotalPrice = 40.090000000000003
+                        },
+                        new
+                        {
+                            Id = 445,
+                            CityId = 1038,
+                            Date = new DateTime(2015, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055,
+                            FuelCardId = 20,
+                            Kilometers = 19890,
+                            Liters = 60.479999999999997,
+                            Price = 1.224,
+                            TotalPrice = 56.640000000000001
+                        },
+                        new
+                        {
+                            Id = 446,
+                            CityId = 648,
+                            Date = new DateTime(2015, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059400000000000001,
+                            FuelCardId = 12,
+                            Kilometers = 94665,
+                            Liters = 65.5,
+                            Price = 1.224,
+                            TotalPrice = 61.350000000000001
+                        },
+                        new
+                        {
+                            Id = 447,
+                            CityId = 844,
+                            Date = new DateTime(2015, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0178,
+                            FuelCardId = 9,
+                            Kilometers = 96844,
+                            Liters = 19.600000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 17.949999999999999
+                        },
+                        new
+                        {
+                            Id = 448,
+                            CityId = 603,
+                            Date = new DateTime(2015, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047399999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 26000,
+                            Liters = 52.280000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 47.880000000000003
+                        },
+                        new
+                        {
+                            Id = 449,
+                            CityId = 80,
+                            Date = new DateTime(2015, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0482,
+                            FuelCardId = 25,
+                            Kilometers = 78589,
+                            Liters = 53.0,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 48.539999999999999
+                        },
+                        new
+                        {
+                            Id = 450,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0424,
+                            FuelCardId = 23,
+                            Kilometers = 34735,
+                            Liters = 46.609999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 42.689999999999998
+                        },
+                        new
+                        {
+                            Id = 451,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036299999999999999,
+                            FuelCardId = 9,
+                            Kilometers = 97565,
+                            Liters = 40.030000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 36.670000000000002
+                        },
+                        new
+                        {
+                            Id = 452,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044199999999999899,
+                            FuelCardId = 14,
+                            Kilometers = 58150,
+                            Liters = 48.810000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 44.710000000000001
+                        },
+                        new
+                        {
+                            Id = 453,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055,
+                            FuelCardId = 18,
+                            Kilometers = 0,
+                            Liters = 60.710000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 55.609999999999999
+                        },
+                        new
+                        {
+                            Id = 454,
+                            CityId = 1067,
+                            Date = new DateTime(2015, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0458,
+                            FuelCardId = 24,
+                            Kilometers = 95252,
+                            Liters = 50.57,
+                            Price = 1.224,
+                            TotalPrice = 47.369999999999997
+                        },
+                        new
+                        {
+                            Id = 455,
+                            CityId = 80,
+                            Date = new DateTime(2015, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 77632,
+                            Liters = 51.5,
+                            Price = 1.224,
+                            TotalPrice = 48.240000000000002
+                        },
+                        new
+                        {
+                            Id = 456,
+                            CityId = 8,
+                            Date = new DateTime(2015, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043799999999999999,
+                            FuelCardId = 22,
+                            Kilometers = 123156,
+                            Liters = 48.310000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 44.25
+                        },
+                        new
+                        {
+                            Id = 457,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057999999999999899,
+                            FuelCardId = 7,
+                            Kilometers = 55575,
+                            Liters = 63.909999999999997,
+                            Price = 1.224,
+                            TotalPrice = 59.859999999999999
+                        },
+                        new
+                        {
+                            Id = 458,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.033599999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 25400,
+                            Liters = 36.890000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 33.780000000000001
+                        },
+                        new
+                        {
+                            Id = 459,
+                            CityId = 383,
+                            Date = new DateTime(2015, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036699999999999899,
+                            FuelCardId = 11,
+                            Kilometers = 27326,
+                            Liters = 40.399999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 37.0
+                        },
+                        new
+                        {
+                            Id = 460,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039000000000000097,
+                            FuelCardId = 11,
+                            Kilometers = 28083,
+                            Liters = 43.030000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 39.409999999999997
+                        },
+                        new
+                        {
+                            Id = 461,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.063700000000000007,
+                            FuelCardId = 13,
+                            Kilometers = 137469,
+                            Liters = 70.219999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 64.310000000000002
+                        },
+                        new
+                        {
+                            Id = 462,
+                            CityId = 603,
+                            Date = new DateTime(2015, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0223,
+                            FuelCardId = 26,
+                            Kilometers = 25000,
+                            Liters = 24.530000000000001,
+                            Price = 1.224,
+                            TotalPrice = 22.969999999999999
+                        },
+                        new
+                        {
+                            Id = 463,
+                            CityId = 648,
+                            Date = new DateTime(2015, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044299999999999999,
+                            FuelCardId = 24,
+                            Kilometers = 96182,
+                            Liters = 48.789999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 44.689999999999998
+                        },
+                        new
+                        {
+                            Id = 464,
+                            CityId = 1053,
+                            Date = new DateTime(2015, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040199999999999902,
+                            FuelCardId = 14,
+                            Kilometers = 57374,
+                            Liters = 44.200000000000003,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 40.479999999999997
+                        },
+                        new
+                        {
+                            Id = 465,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 22,
+                            Kilometers = 122363,
+                            Liters = 51.369999999999997,
+                            Price = 1.224,
+                            TotalPrice = 48.109999999999999
+                        },
+                        new
+                        {
+                            Id = 466,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061100000000000002,
+                            FuelCardId = 19,
+                            Kilometers = 27401,
+                            Liters = 67.359999999999999,
+                            Price = 1.224,
+                            TotalPrice = 63.090000000000003
+                        },
+                        new
+                        {
+                            Id = 467,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057500000000000002,
+                            FuelCardId = 10,
+                            Kilometers = 92740,
+                            Liters = 63.390000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 58.060000000000002
+                        },
+                        new
+                        {
+                            Id = 468,
+                            CityId = 1076,
+                            Date = new DateTime(2015, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060699999999999803,
+                            FuelCardId = 13,
+                            Kilometers = 138526,
+                            Liters = 66.810000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 61.189999999999998
+                        },
+                        new
+                        {
+                            Id = 469,
+                            CityId = 645,
+                            Date = new DateTime(2015, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047699999999999902,
+                            FuelCardId = 16,
+                            Kilometers = 52100,
+                            Liters = 52.57,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 48.149999999999999
+                        },
+                        new
+                        {
+                            Id = 470,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056499999999999898,
+                            FuelCardId = 17,
+                            Kilometers = 106000,
+                            Liters = 62.189999999999998,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 56.960000000000001
+                        },
+                        new
+                        {
+                            Id = 471,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046100000000000002,
+                            FuelCardId = 21,
+                            Kilometers = 116815,
+                            Liters = 50.810000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 46.539999999999999
+                        },
+                        new
+                        {
+                            Id = 472,
+                            CityId = 383,
+                            Date = new DateTime(2015, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0546000000000001,
+                            FuelCardId = 20,
+                            Kilometers = 20822,
+                            Liters = 60.100000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 55.039999999999999
+                        },
+                        new
+                        {
+                            Id = 473,
+                            CityId = 648,
+                            Date = new DateTime(2015, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049699999999999897,
+                            FuelCardId = 12,
+                            Kilometers = 95414,
+                            Liters = 54.600000000000001,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 50.0
+                        },
+                        new
+                        {
+                            Id = 474,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055899999999999998,
+                            FuelCardId = 7,
+                            Kilometers = 57303,
+                            Liters = 61.630000000000003,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 53.850000000000001
+                        },
+                        new
+                        {
+                            Id = 475,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043099999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 35650,
+                            Liters = 47.649999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 43.649999999999999
+                        },
+                        new
+                        {
+                            Id = 476,
+                            CityId = 80,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 80506,
+                            Liters = 51.5,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 47.170000000000002
+                        },
+                        new
+                        {
+                            Id = 477,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056599999999999998,
+                            FuelCardId = 12,
+                            Kilometers = 96321,
+                            Liters = 62.259999999999998,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 56.299999999999997
+                        },
+                        new
+                        {
+                            Id = 478,
+                            CityId = 80,
+                            Date = new DateTime(2015, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 79547,
+                            Liters = 51.5,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 47.170000000000002
+                        },
+                        new
+                        {
+                            Id = 479,
+                            CityId = 1068,
+                            Date = new DateTime(2015, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059100000000000097,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 65.129999999999995,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 58.899999999999999
+                        },
+                        new
+                        {
+                            Id = 480,
+                            CityId = 383,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051900000000000002,
+                            FuelCardId = 20,
+                            Kilometers = 21718,
+                            Liters = 57.200000000000003,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 52.390000000000001
+                        },
+                        new
+                        {
+                            Id = 481,
+                            CityId = 1063,
+                            Date = new DateTime(2015, 8, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065200000000000105,
+                            FuelCardId = 13,
+                            Kilometers = 139735,
+                            Liters = 71.829999999999998,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 64.959999999999994
+                        },
+                        new
+                        {
+                            Id = 482,
+                            CityId = 1053,
+                            Date = new DateTime(2015, 8, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039100000000000003,
+                            FuelCardId = 14,
+                            Kilometers = 58866,
+                            Liters = 43.039999999999999,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 38.920000000000002
+                        },
+                        new
+                        {
+                            Id = 483,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 8, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.020400000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 27850,
+                            Liters = 22.5,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 19.66
+                        },
+                        new
+                        {
+                            Id = 484,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052399999999999898,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 57.68,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 52.159999999999997
+                        },
+                        new
+                        {
+                            Id = 485,
+                            CityId = 1069,
+                            Date = new DateTime(2015, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 24,
+                            Kilometers = 97800,
+                            Liters = 49.109999999999999,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 42.909999999999997
+                        },
+                        new
+                        {
+                            Id = 486,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0453,
+                            FuelCardId = 22,
+                            Kilometers = 124766,
+                            Liters = 50.0,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 45.219999999999999
+                        },
+                        new
+                        {
+                            Id = 487,
+                            CityId = 80,
+                            Date = new DateTime(2015, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 81470,
+                            Liters = 51.5,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 46.579999999999998
+                        },
+                        new
+                        {
+                            Id = 488,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.028899999999999801,
+                            FuelCardId = 15,
+                            Kilometers = 2750,
+                            Liters = 31.829999999999998,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 29.149999999999999
+                        },
+                        new
+                        {
+                            Id = 489,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0465,
+                            FuelCardId = 22,
+                            Kilometers = 123945,
+                            Liters = 51.170000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 46.859999999999999
+                        },
+                        new
+                        {
+                            Id = 490,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0361,
+                            FuelCardId = 11,
+                            Kilometers = 29730,
+                            Liters = 39.810000000000002,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 36.0
+                        },
+                        new
+                        {
+                            Id = 491,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047300000000000002,
+                            FuelCardId = 21,
+                            Kilometers = 118300,
+                            Liters = 52.079999999999998,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 45.5
+                        },
+                        new
+                        {
+                            Id = 492,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0184,
+                            FuelCardId = 26,
+                            Kilometers = 17600,
+                            Liters = 20.199999999999999,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 17.640000000000001
+                        },
+                        new
+                        {
+                            Id = 493,
+                            CityId = 603,
+                            Date = new DateTime(2015, 8, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047300000000000002,
+                            FuelCardId = 26,
+                            Kilometers = 26800,
+                            Liters = 52.079999999999998,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 47.090000000000003
+                        },
+                        new
+                        {
+                            Id = 494,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055399999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 108000,
+                            Liters = 61.079999999999998,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 55.939999999999998
+                        },
+                        new
+                        {
+                            Id = 495,
+                            CityId = 383,
+                            Date = new DateTime(2015, 8, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043700000000000003,
+                            FuelCardId = 11,
+                            Kilometers = 30559,
+                            Liters = 48.149999999999999,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 42.07
+                        },
+                        new
+                        {
+                            Id = 496,
+                            CityId = 645,
+                            Date = new DateTime(2015, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048300000000000003,
+                            FuelCardId = 16,
+                            Kilometers = 53000,
+                            Liters = 53.270000000000003,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 48.170000000000002
+                        },
+                        new
+                        {
+                            Id = 497,
+                            CityId = 576,
+                            Date = new DateTime(2015, 8, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047,
+                            FuelCardId = 21,
+                            Kilometers = 117800,
+                            Liters = 51.850000000000001,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 46.890000000000001
+                        },
+                        new
+                        {
+                            Id = 498,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055800000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 56410,
+                            Liters = 61.399999999999999,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 56.229999999999997
+                        },
+                        new
+                        {
+                            Id = 499,
+                            CityId = 1071,
+                            Date = new DateTime(2015, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061600000000000002,
+                            FuelCardId = 19,
+                            Kilometers = 28434,
+                            Liters = 67.829999999999998,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 62.119999999999997
+                        },
+                        new
+                        {
+                            Id = 500,
+                            CityId = 1068,
+                            Date = new DateTime(2015, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057899999999999903,
+                            FuelCardId = 17,
+                            Kilometers = 109500,
+                            Liters = 63.880000000000003,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 55.82
+                        },
+                        new
+                        {
+                            Id = 501,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0448,
+                            FuelCardId = 23,
+                            Kilometers = 36750,
+                            Liters = 49.420000000000002,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 43.18
+                        },
+                        new
+                        {
+                            Id = 502,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039899999999999901,
+                            FuelCardId = 11,
+                            Kilometers = 28959,
+                            Liters = 44.060000000000002,
+                            Price = 1.1990000000000001,
+                            TotalPrice = 40.359999999999999
+                        },
+                        new
+                        {
+                            Id = 503,
+                            CityId = 1052,
+                            Date = new DateTime(2015, 8, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056399999999999999,
+                            FuelCardId = 20,
+                            Kilometers = 22663,
+                            Liters = 62.149999999999999,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 54.310000000000002
+                        },
+                        new
+                        {
+                            Id = 504,
+                            CityId = 648,
+                            Date = new DateTime(2015, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0563000000000001,
+                            FuelCardId = 12,
+                            Kilometers = 97120,
+                            Liters = 62.060000000000002,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 56.490000000000002
+                        },
+                        new
+                        {
+                            Id = 505,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050599999999999999,
+                            FuelCardId = 7,
+                            Kilometers = 58100,
+                            Liters = 55.670000000000002,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 50.659999999999997
+                        },
+                        new
+                        {
+                            Id = 506,
+                            CityId = 8,
+                            Date = new DateTime(2015, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 125566,
+                            Liters = 49.170000000000002,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 44.75
+                        },
+                        new
+                        {
+                            Id = 507,
+                            CityId = 603,
+                            Date = new DateTime(2015, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048099999999999997,
+                            FuelCardId = 26,
+                            Kilometers = 28300,
+                            Liters = 52.880000000000003,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 46.200000000000003
+                        },
+                        new
+                        {
+                            Id = 508,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058799999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 110500,
+                            Liters = 64.840000000000003,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 59.020000000000003
+                        },
+                        new
+                        {
+                            Id = 509,
+                            CityId = 98,
+                            Date = new DateTime(2015, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0436,
+                            FuelCardId = 21,
+                            Kilometers = 120057,
+                            Liters = 48.0,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 43.689999999999998
+                        },
+                        new
+                        {
+                            Id = 510,
+                            CityId = 603,
+                            Date = new DateTime(2015, 9, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048899999999999902,
+                            FuelCardId = 26,
+                            Kilometers = 29200,
+                            Liters = 53.799999999999997,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 48.960000000000001
+                        },
+                        new
+                        {
+                            Id = 511,
+                            CityId = 887,
+                            Date = new DateTime(2015, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042000000000000003,
+                            FuelCardId = 11,
+                            Kilometers = 32227,
+                            Liters = 46.32,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 42.159999999999997
+                        },
+                        new
+                        {
+                            Id = 512,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056399999999999999,
+                            FuelCardId = 10,
+                            Kilometers = 94440,
+                            Liters = 62.109999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 56.530000000000001
+                        },
+                        new
+                        {
+                            Id = 513,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054399999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 60.009999999999998,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 54.619999999999997
+                        },
+                        new
+                        {
+                            Id = 514,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.032500000000000001,
+                            FuelCardId = 9,
+                            Kilometers = 99424,
+                            Liters = 35.799999999999997,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 32.579999999999998
+                        },
+                        new
+                        {
+                            Id = 515,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038399999999999997,
+                            FuelCardId = 11,
+                            Kilometers = 31404,
+                            Liters = 42.219999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 38.420000000000002
+                        },
+                        new
+                        {
+                            Id = 516,
+                            CityId = 1067,
+                            Date = new DateTime(2015, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043299999999999998,
+                            FuelCardId = 24,
+                            Kilometers = 100620,
+                            Liters = 47.670000000000002,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 43.380000000000003
+                        },
+                        new
+                        {
+                            Id = 517,
+                            CityId = 80,
+                            Date = new DateTime(2015, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048599999999999997,
+                            FuelCardId = 16,
+                            Kilometers = 54000,
+                            Liters = 53.609999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 48.789999999999999
+                        },
+                        new
+                        {
+                            Id = 518,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.015599999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 29900,
+                            Liters = 17.190000000000001,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 15.640000000000001
+                        },
+                        new
+                        {
+                            Id = 519,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035099999999999999,
+                            FuelCardId = 9,
+                            Kilometers = 98156,
+                            Liters = 38.609999999999999,
+                            Price = 1.1479999999999999,
+                            TotalPrice = 33.729999999999997
+                        },
+                        new
+                        {
+                            Id = 520,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060299999999999999,
+                            FuelCardId = 19,
+                            Kilometers = 32150,
+                            Liters = 66.359999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 60.390000000000001
+                        },
+                        new
+                        {
+                            Id = 521,
+                            CityId = 1068,
+                            Date = new DateTime(2015, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055700000000000097,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 61.409999999999997,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 55.890000000000001
+                        },
+                        new
+                        {
+                            Id = 522,
+                            CityId = 1072,
+                            Date = new DateTime(2015, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036799999999999999,
+                            FuelCardId = 9,
+                            Kilometers = 98818,
+                            Liters = 40.520000000000003,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 36.880000000000003
+                        },
+                        new
+                        {
+                            Id = 523,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055599999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 61.359999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 55.850000000000001
+                        },
+                        new
+                        {
+                            Id = 524,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.019199999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 3437,
+                            Liters = 21.149999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 19.25
+                        },
+                        new
+                        {
+                            Id = 525,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0441,
+                            FuelCardId = 22,
+                            Kilometers = 126336,
+                            Liters = 48.57,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 44.210000000000001
+                        },
+                        new
+                        {
+                            Id = 526,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044400000000000002,
+                            FuelCardId = 23,
+                            Kilometers = 37510,
+                            Liters = 48.880000000000003,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 44.479999999999997
+                        },
+                        new
+                        {
+                            Id = 527,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053400000000000003,
+                            FuelCardId = 20,
+                            Kilometers = 23218,
+                            Liters = 58.840000000000003,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 53.549999999999997
+                        },
+                        new
+                        {
+                            Id = 528,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058499999999999899,
+                            FuelCardId = 19,
+                            Kilometers = 29955,
+                            Liters = 64.349999999999994,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 58.560000000000002
+                        },
+                        new
+                        {
+                            Id = 529,
+                            CityId = 1073,
+                            Date = new DateTime(2015, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.023699999999999999,
+                            FuelCardId = 24,
+                            Kilometers = 98939,
+                            Liters = 26.149999999999999,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 23.800000000000001
+                        },
+                        new
+                        {
+                            Id = 530,
+                            CityId = 1063,
+                            Date = new DateTime(2015, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060899999999999899,
+                            FuelCardId = 13,
+                            Kilometers = 140819,
+                            Liters = 67.040000000000006,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 61.009999999999998
+                        },
+                        new
+                        {
+                            Id = 531,
+                            CityId = 80,
+                            Date = new DateTime(2015, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047100000000000003,
+                            FuelCardId = 25,
+                            Kilometers = 71069,
+                            Liters = 51.799999999999997,
+                            Price = 1.27,
+                            TotalPrice = 50.520000000000003
+                        },
+                        new
+                        {
+                            Id = 532,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.032599999999999997,
+                            FuelCardId = 9,
+                            Kilometers = 100576,
+                            Liters = 35.939999999999998,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 32.469999999999999
+                        },
+                        new
+                        {
+                            Id = 533,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 9, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045299999999999799,
+                            FuelCardId = 22,
+                            Kilometers = 127149,
+                            Liters = 49.909999999999997,
+                            Price = 1.163,
+                            TotalPrice = 44.229999999999997
+                        },
+                        new
+                        {
+                            Id = 534,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057399999999999902,
+                            FuelCardId = 7,
+                            Kilometers = 58959,
+                            Liters = 63.390000000000001,
+                            Price = 1.163,
+                            TotalPrice = 56.18
+                        },
+                        new
+                        {
+                            Id = 535,
+                            CityId = 80,
+                            Date = new DateTime(2015, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044900000000000002,
+                            FuelCardId = 25,
+                            Kilometers = 85175,
+                            Liters = 49.5,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 44.729999999999997
+                        },
+                        new
+                        {
+                            Id = 536,
+                            CityId = 1074,
+                            Date = new DateTime(2015, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038800000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 61149,
+                            Liters = 42.840000000000003,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 38.710000000000001
+                        },
+                        new
+                        {
+                            Id = 537,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039300000000000002,
+                            FuelCardId = 22,
+                            Kilometers = 127858,
+                            Liters = 43.329999999999998,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 39.149999999999999
+                        },
+                        new
+                        {
+                            Id = 538,
+                            CityId = 1059,
+                            Date = new DateTime(2015, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.022700000000000001,
+                            FuelCardId = 14,
+                            Kilometers = 99999,
+                            Liters = 25.0,
+                            Price = 1.163,
+                            TotalPrice = 22.149999999999999
+                        },
+                        new
+                        {
+                            Id = 539,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048399999999999999,
+                            FuelCardId = 7,
+                            Kilometers = 59675,
+                            Liters = 53.390000000000001,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 48.240000000000002
+                        },
+                        new
+                        {
+                            Id = 540,
+                            CityId = 603,
+                            Date = new DateTime(2015, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.017600000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 30500,
+                            Liters = 19.300000000000001,
+                            Price = 1.163,
+                            TotalPrice = 17.100000000000001
+                        },
+                        new
+                        {
+                            Id = 541,
+                            CityId = 80,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0482,
+                            FuelCardId = 25,
+                            Kilometers = 82467,
+                            Liters = 53.0,
+                            Price = 1.163,
+                            TotalPrice = 46.960000000000001
+                        },
+                        new
+                        {
+                            Id = 542,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043700000000000003,
+                            FuelCardId = 23,
+                            Kilometers = 38403,
+                            Liters = 48.240000000000002,
+                            Price = 1.163,
+                            TotalPrice = 42.75
+                        },
+                        new
+                        {
+                            Id = 543,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056099999999999997,
+                            FuelCardId = 10,
+                            Kilometers = 96130,
+                            Liters = 61.869999999999997,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 55.899999999999999
+                        },
+                        new
+                        {
+                            Id = 544,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 9, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047399999999999998,
+                            FuelCardId = 21,
+                            Kilometers = 120944,
+                            Liters = 52.329999999999998,
+                            Price = 1.163,
+                            TotalPrice = 46.380000000000003
+                        },
+                        new
+                        {
+                            Id = 545,
+                            CityId = 603,
+                            Date = new DateTime(2015, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038899999999999997,
+                            FuelCardId = 26,
+                            Kilometers = 31000,
+                            Liters = 42.799999999999997,
+                            Price = 1.163,
+                            TotalPrice = 37.93
+                        },
+                        new
+                        {
+                            Id = 546,
+                            CityId = 1075,
+                            Date = new DateTime(2015, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058699999999999898,
+                            FuelCardId = 20,
+                            Kilometers = 28500,
+                            Liters = 64.650000000000006,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 58.409999999999997
+                        },
+                        new
+                        {
+                            Id = 547,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041200000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 60438,
+                            Liters = 45.399999999999999,
+                            Price = 1.163,
+                            TotalPrice = 40.229999999999997
+                        },
+                        new
+                        {
+                            Id = 548,
+                            CityId = 1076,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.062799999999999995,
+                            FuelCardId = 13,
+                            Kilometers = 141916,
+                            Liters = 69.349999999999994,
+                            Price = 1.163,
+                            TotalPrice = 61.460000000000001
+                        },
+                        new
+                        {
+                            Id = 549,
+                            CityId = 1077,
+                            Date = new DateTime(2015, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045999999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 31800,
+                            Liters = 50.619999999999997,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 45.729999999999997
+                        },
+                        new
+                        {
+                            Id = 550,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054100000000000002,
+                            FuelCardId = 18,
+                            Kilometers = 0,
+                            Liters = 59.619999999999997,
+                            Price = 1.1919999999999999,
+                            TotalPrice = 54.259999999999998
+                        },
+                        new
+                        {
+                            Id = 551,
+                            CityId = 1075,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045800000000000098,
+                            FuelCardId = 20,
+                            Kilometers = 24360,
+                            Liters = 50.509999999999998,
+                            Price = 1.163,
+                            TotalPrice = 44.759999999999998
+                        },
+                        new
+                        {
+                            Id = 552,
+                            CityId = 1058,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0482,
+                            FuelCardId = 11,
+                            Kilometers = 59719,
+                            Liters = 53.009999999999998,
+                            Price = 1.163,
+                            TotalPrice = 46.969999999999999
+                        },
+                        new
+                        {
+                            Id = 553,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 9, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.033799999999999997,
+                            FuelCardId = 9,
+                            Kilometers = 100005,
+                            Liters = 37.240000000000002,
+                            Price = 1.163,
+                            TotalPrice = 33.0
+                        },
+                        new
+                        {
+                            Id = 554,
+                            CityId = 80,
+                            Date = new DateTime(2015, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043400000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 84260,
+                            Liters = 47.890000000000001,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 43.270000000000003
+                        },
+                        new
+                        {
+                            Id = 555,
+                            CityId = 645,
+                            Date = new DateTime(2015, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046399999999999997,
+                            FuelCardId = 16,
+                            Kilometers = 55600,
+                            Liters = 51.219999999999999,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 46.280000000000001
+                        },
+                        new
+                        {
+                            Id = 556,
+                            CityId = 703,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053199999999999997,
+                            FuelCardId = 8,
+                            Kilometers = 48317,
+                            Liters = 58.590000000000003,
+                            Price = 1.163,
+                            TotalPrice = 51.920000000000002
+                        },
+                        new
+                        {
+                            Id = 557,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043499999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 16500,
+                            Liters = 48.0,
+                            Price = 1.163,
+                            TotalPrice = 42.539999999999999
+                        },
+                        new
+                        {
+                            Id = 558,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.019400000000000001,
+                            FuelCardId = 15,
+                            Kilometers = 3826,
+                            Liters = 21.359999999999999,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 19.300000000000001
+                        },
+                        new
+                        {
+                            Id = 559,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049899999999999903,
+                            FuelCardId = 26,
+                            Kilometers = 30200,
+                            Liters = 55.119999999999997,
+                            Price = 1.163,
+                            TotalPrice = 48.850000000000001
+                        },
+                        new
+                        {
+                            Id = 560,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056599999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 111700,
+                            Liters = 62.399999999999999,
+                            Price = 1.163,
+                            TotalPrice = 55.299999999999997
+                        },
+                        new
+                        {
+                            Id = 561,
+                            CityId = 648,
+                            Date = new DateTime(2015, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055599999999999997,
+                            FuelCardId = 12,
+                            Kilometers = 97912,
+                            Liters = 61.369999999999997,
+                            Price = 1.163,
+                            TotalPrice = 54.390000000000001
+                        },
+                        new
+                        {
+                            Id = 562,
+                            CityId = 632,
+                            Date = new DateTime(2015, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049799999999999997,
+                            FuelCardId = 16,
+                            Kilometers = 54800,
+                            Liters = 54.829999999999998,
+                            Price = 1.163,
+                            TotalPrice = 48.590000000000003
+                        },
+                        new
+                        {
+                            Id = 563,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060400000000000002,
+                            FuelCardId = 19,
+                            Kilometers = 33800,
+                            Liters = 66.480000000000004,
+                            Price = 1.1839999999999999,
+                            TotalPrice = 60.060000000000002
+                        },
+                        new
+                        {
+                            Id = 564,
+                            CityId = 80,
+                            Date = new DateTime(2015, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045400000000000003,
+                            FuelCardId = 25,
+                            Kilometers = 83386,
+                            Liters = 50.0,
+                            Price = 1.163,
+                            TotalPrice = 44.310000000000002
+                        },
+                        new
+                        {
+                            Id = 565,
+                            CityId = 645,
+                            Date = new DateTime(2015, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 16,
+                            Kilometers = 56271,
+                            Liters = 49.090000000000003,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 44.189999999999998
+                        },
+                        new
+                        {
+                            Id = 566,
+                            CityId = 1071,
+                            Date = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061199999999999997,
+                            FuelCardId = 19,
+                            Kilometers = 33494,
+                            Liters = 67.459999999999994,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 61.009999999999998
+                        },
+                        new
+                        {
+                            Id = 567,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035200000000000002,
+                            FuelCardId = 22,
+                            Kilometers = 130152,
+                            Liters = 38.75,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 35.039999999999999
+                        },
+                        new
+                        {
+                            Id = 568,
+                            CityId = 887,
+                            Date = new DateTime(2015, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043499999999999997,
+                            FuelCardId = 11,
+                            Kilometers = 63392,
+                            Liters = 47.880000000000003,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 43.299999999999997
+                        },
+                        new
+                        {
+                            Id = 569,
+                            CityId = 98,
+                            Date = new DateTime(2015, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045100000000000001,
+                            FuelCardId = 21,
+                            Kilometers = 121742,
+                            Liters = 49.770000000000003,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 43.979999999999997
+                        },
+                        new
+                        {
+                            Id = 570,
+                            CityId = 1054,
+                            Date = new DateTime(2015, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036299999999999999,
+                            FuelCardId = 9,
+                            Kilometers = 101250,
+                            Liters = 40.0,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 35.350000000000001
+                        },
+                        new
+                        {
+                            Id = 571,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0407,
+                            FuelCardId = 23,
+                            Kilometers = 39256,
+                            Liters = 44.890000000000001,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 40.409999999999997
+                        },
+                        new
+                        {
+                            Id = 572,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039399999999999998,
+                            FuelCardId = 11,
+                            Kilometers = 62604,
+                            Liters = 43.289999999999999,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 38.25
+                        },
+                        new
+                        {
+                            Id = 573,
+                            CityId = 703,
+                            Date = new DateTime(2015, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047500000000000001,
+                            FuelCardId = 8,
+                            Kilometers = 49919,
+                            Liters = 52.259999999999998,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 47.259999999999998
+                        },
+                        new
+                        {
+                            Id = 574,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050299999999999803,
+                            FuelCardId = 7,
+                            Kilometers = 61226,
+                            Liters = 55.310000000000002,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 48.869999999999997
+                        },
+                        new
+                        {
+                            Id = 575,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047699999999999902,
+                            FuelCardId = 22,
+                            Kilometers = 128704,
+                            Liters = 52.5,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 47.259999999999998
+                        },
+                        new
+                        {
+                            Id = 576,
+                            CityId = 603,
+                            Date = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0166,
+                            FuelCardId = 26,
+                            Kilometers = 34000,
+                            Liters = 18.289999999999999,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 16.539999999999999
+                        },
+                        new
+                        {
+                            Id = 577,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055399999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 112800,
+                            Liters = 61.0,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 54.909999999999997
+                        },
+                        new
+                        {
+                            Id = 578,
+                            CityId = 1076,
+                            Date = new DateTime(2015, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065400000000000097,
+                            FuelCardId = 13,
+                            Kilometers = 143057,
+                            Liters = 72.180000000000007,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 63.789999999999999
+                        },
+                        new
+                        {
+                            Id = 579,
+                            CityId = 603,
+                            Date = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.025399999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 33700,
+                            Liters = 27.940000000000001,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 25.260000000000002
+                        },
+                        new
+                        {
+                            Id = 580,
+                            CityId = 1018,
+                            Date = new DateTime(2015, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056099999999999997,
+                            FuelCardId = 17,
+                            Kilometers = 113900,
+                            Liters = 61.719999999999999,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 55.810000000000002
+                        },
+                        new
+                        {
+                            Id = 581,
+                            CityId = 603,
+                            Date = new DateTime(2015, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.028399999999999901,
+                            FuelCardId = 26,
+                            Kilometers = 23700,
+                            Liters = 31.300000000000001,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 27.66
+                        },
+                        new
+                        {
+                            Id = 582,
+                            CityId = 648,
+                            Date = new DateTime(2015, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055299999999999898,
+                            FuelCardId = 12,
+                            Kilometers = 98692,
+                            Liters = 60.939999999999998,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 55.109999999999999
+                        },
+                        new
+                        {
+                            Id = 583,
+                            CityId = 80,
+                            Date = new DateTime(2015, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0483000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 87102,
+                            Liters = 53.0,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 47.920000000000002
+                        },
+                        new
+                        {
+                            Id = 584,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.018599999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 4236,
+                            Liters = 20.550000000000001,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 18.59
+                        },
+                        new
+                        {
+                            Id = 585,
+                            CityId = 80,
+                            Date = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049000000000000002,
+                            FuelCardId = 25,
+                            Kilometers = 88074,
+                            Liters = 54.0,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 48.829999999999998
+                        },
+                        new
+                        {
+                            Id = 586,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053099999999999897,
+                            FuelCardId = 18,
+                            Kilometers = 267000,
+                            Liters = 58.369999999999997,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 52.780000000000001
+                        },
+                        new
+                        {
+                            Id = 587,
+                            CityId = 603,
+                            Date = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.026200000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 33700,
+                            Liters = 28.809999999999999,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 26.050000000000001
+                        },
+                        new
+                        {
+                            Id = 588,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.033000000000000002,
+                            FuelCardId = 14,
+                            Kilometers = 41550,
+                            Liters = 36.200000000000003,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 32.579999999999998
+                        },
+                        new
+                        {
+                            Id = 589,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.020400000000000001,
+                            FuelCardId = 23,
+                            Kilometers = 39683,
+                            Liters = 22.390000000000001,
+                            Price = 1.1599999999999999,
+                            TotalPrice = 19.780000000000001
+                        },
+                        new
+                        {
+                            Id = 590,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0528,
+                            FuelCardId = 18,
+                            Kilometers = 264000,
+                            Liters = 58.149999999999999,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 52.350000000000001
+                        },
+                        new
+                        {
+                            Id = 591,
+                            CityId = 8,
+                            Date = new DateTime(2015, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045999999999999999,
+                            FuelCardId = 22,
+                            Kilometers = 129545,
+                            Liters = 50.609999999999999,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 45.759999999999998
+                        },
+                        new
+                        {
+                            Id = 592,
+                            CityId = 645,
+                            Date = new DateTime(2015, 10, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047800000000000002,
+                            FuelCardId = 16,
+                            Kilometers = 57144,
+                            Liters = 52.640000000000001,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 47.600000000000001
+                        },
+                        new
+                        {
+                            Id = 593,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059400000000000001,
+                            FuelCardId = 7,
+                            Kilometers = 62138,
+                            Liters = 65.420000000000002,
+                            Price = 1.1850000000000001,
+                            TotalPrice = 59.159999999999997
+                        },
+                        new
+                        {
+                            Id = 594,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042399999999999903,
+                            FuelCardId = 24,
+                            Kilometers = 103219,
+                            Liters = 46.649999999999999,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 41.990000000000002
+                        },
+                        new
+                        {
+                            Id = 595,
+                            CityId = 80,
+                            Date = new DateTime(2015, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045400000000000003,
+                            FuelCardId = 25,
+                            Kilometers = 86104,
+                            Liters = 50.009999999999998,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 45.020000000000003
+                        },
+                        new
+                        {
+                            Id = 596,
+                            CityId = 1077,
+                            Date = new DateTime(2015, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.025000000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 22222,
+                            Liters = 27.579999999999998,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 24.829999999999998
+                        },
+                        new
+                        {
+                            Id = 597,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050300000000000102,
+                            FuelCardId = 7,
+                            Kilometers = 60475,
+                            Liters = 55.520000000000003,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 49.979999999999997
+                        },
+                        new
+                        {
+                            Id = 598,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0424,
+                            FuelCardId = 11,
+                            Kilometers = 61902,
+                            Liters = 46.719999999999999,
+                            Price = 1.1799999999999999,
+                            TotalPrice = 42.060000000000002
+                        },
+                        new
+                        {
+                            Id = 599,
+                            CityId = 383,
+                            Date = new DateTime(2015, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.064799999999999996,
+                            FuelCardId = 13,
+                            Kilometers = 144121,
+                            Liters = 71.409999999999997,
+                            Price = 1.151,
+                            TotalPrice = 62.57
+                        },
+                        new
+                        {
+                            Id = 600,
+                            CityId = 80,
+                            Date = new DateTime(2015, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047199999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 89056,
+                            Liters = 52.0,
+                            Price = 1.151,
+                            TotalPrice = 45.560000000000002
+                        },
+                        new
+                        {
+                            Id = 601,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041399999999999999,
+                            FuelCardId = 11,
+                            Kilometers = 65485,
+                            Liters = 45.659999999999997,
+                            Price = 1.151,
+                            TotalPrice = 40.009999999999998
+                        },
+                        new
+                        {
+                            Id = 602,
+                            CityId = 1067,
+                            Date = new DateTime(2015, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0448,
+                            FuelCardId = 24,
+                            Kilometers = 105868,
+                            Liters = 49.479999999999997,
+                            Price = 1.151,
+                            TotalPrice = 43.359999999999999
+                        },
+                        new
+                        {
+                            Id = 603,
+                            CityId = 448,
+                            Date = new DateTime(2015, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055699999999999798,
+                            FuelCardId = 18,
+                            Kilometers = 1,
+                            Liters = 61.270000000000003,
+                            Price = 1.151,
+                            TotalPrice = 53.68
+                        },
+                        new
+                        {
+                            Id = 604,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043400000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 131744,
+                            Liters = 47.789999999999999,
+                            Price = 1.151,
+                            TotalPrice = 41.880000000000003
+                        },
+                        new
+                        {
+                            Id = 605,
+                            CityId = 1078,
+                            Date = new DateTime(2015, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047599999999999899,
+                            FuelCardId = 8,
+                            Kilometers = 50692,
+                            Liters = 52.539999999999999,
+                            Price = 1.151,
+                            TotalPrice = 46.039999999999999
+                        },
+                        new
+                        {
+                            Id = 606,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.027199999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 4607,
+                            Liters = 30.010000000000002,
+                            Price = 1.151,
+                            TotalPrice = 26.300000000000001
+                        },
+                        new
+                        {
+                            Id = 607,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0441,
+                            FuelCardId = 11,
+                            Kilometers = 64138,
+                            Liters = 48.520000000000003,
+                            Price = 1.151,
+                            TotalPrice = 42.509999999999998
+                        },
+                        new
+                        {
+                            Id = 608,
+                            CityId = 8,
+                            Date = new DateTime(2015, 10, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043400000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 130960,
+                            Liters = 47.829999999999998,
+                            Price = 1.151,
+                            TotalPrice = 41.909999999999997
+                        },
+                        new
+                        {
+                            Id = 609,
+                            CityId = 603,
+                            Date = new DateTime(2015, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045699999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 34300,
+                            Liters = 50.420000000000002,
+                            Price = 1.151,
+                            TotalPrice = 44.18
+                        },
+                        new
+                        {
+                            Id = 610,
+                            CityId = 648,
+                            Date = new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055899999999999998,
+                            FuelCardId = 12,
+                            Kilometers = 99519,
+                            Liters = 61.57,
+                            Price = 1.151,
+                            TotalPrice = 53.950000000000003
+                        },
+                        new
+                        {
+                            Id = 611,
+                            CityId = 70,
+                            Date = new DateTime(2015, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036499999999999998,
+                            FuelCardId = 9,
+                            Kilometers = 101818,
+                            Liters = 40.170000000000002,
+                            Price = 1.151,
+                            TotalPrice = 35.200000000000003
+                        },
+                        new
+                        {
+                            Id = 612,
+                            CityId = 1074,
+                            Date = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0293,
+                            FuelCardId = 26,
+                            Kilometers = 36000,
+                            Liters = 32.310000000000002,
+                            Price = 1.151,
+                            TotalPrice = 28.309999999999999
+                        },
+                        new
+                        {
+                            Id = 613,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045100000000000098,
+                            FuelCardId = 21,
+                            Kilometers = 122557,
+                            Liters = 49.57,
+                            Price = 1.151,
+                            TotalPrice = 43.43
+                        },
+                        new
+                        {
+                            Id = 614,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053600000000000099,
+                            FuelCardId = 26,
+                            Kilometers = 35300,
+                            Liters = 59.020000000000003,
+                            Price = 1.151,
+                            TotalPrice = 51.710000000000001
+                        },
+                        new
+                        {
+                            Id = 615,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061800000000000098,
+                            FuelCardId = 19,
+                            Kilometers = 34697,
+                            Liters = 68.010000000000005,
+                            Price = 1.151,
+                            TotalPrice = 59.590000000000003
+                        },
+                        new
+                        {
+                            Id = 616,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 10, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057200000000000001,
+                            FuelCardId = 17,
+                            Kilometers = 116100,
+                            Liters = 63.119999999999997,
+                            Price = 1.151,
+                            TotalPrice = 55.310000000000002
+                        },
+                        new
+                        {
+                            Id = 617,
+                            CityId = 448,
+                            Date = new DateTime(2015, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047699999999999902,
+                            FuelCardId = 21,
+                            Kilometers = 123479,
+                            Liters = 52.600000000000001,
+                            Price = 1.151,
+                            TotalPrice = 46.090000000000003
+                        },
+                        new
+                        {
+                            Id = 618,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055,
+                            FuelCardId = 18,
+                            Kilometers = 268000,
+                            Liters = 60.5,
+                            Price = 1.151,
+                            TotalPrice = 53.009999999999998
+                        },
+                        new
+                        {
+                            Id = 619,
+                            CityId = 645,
+                            Date = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040199999999999902,
+                            FuelCardId = 16,
+                            Kilometers = 59000,
+                            Liters = 44.289999999999999,
+                            Price = 1.151,
+                            TotalPrice = 38.810000000000002
+                        },
+                        new
+                        {
+                            Id = 620,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0385,
+                            FuelCardId = 23,
+                            Kilometers = 41371,
+                            Liters = 42.479999999999997,
+                            Price = 1.151,
+                            TotalPrice = 37.219999999999999
+                        },
+                        new
+                        {
+                            Id = 621,
+                            CityId = 645,
+                            Date = new DateTime(2015, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048399999999999999,
+                            FuelCardId = 16,
+                            Kilometers = 57986,
+                            Liters = 53.399999999999999,
+                            Price = 1.151,
+                            TotalPrice = 46.789999999999999
+                        },
+                        new
+                        {
+                            Id = 622,
+                            CityId = 80,
+                            Date = new DateTime(2015, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039899999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 89866,
+                            Liters = 44.0,
+                            Price = 1.151,
+                            TotalPrice = 38.549999999999997
+                        },
+                        new
+                        {
+                            Id = 623,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042000000000000003,
+                            FuelCardId = 11,
+                            Kilometers = 64857,
+                            Liters = 46.310000000000002,
+                            Price = 1.151,
+                            TotalPrice = 40.579999999999998
+                        },
+                        new
+                        {
+                            Id = 624,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043499999999999997,
+                            FuelCardId = 23,
+                            Kilometers = 40577,
+                            Liters = 47.979999999999997,
+                            Price = 1.151,
+                            TotalPrice = 42.039999999999999
+                        },
+                        new
+                        {
+                            Id = 625,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 10, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0568000000000001,
+                            FuelCardId = 7,
+                            Kilometers = 63030,
+                            Liters = 62.560000000000002,
+                            Price = 1.151,
+                            TotalPrice = 54.82
+                        },
+                        new
+                        {
+                            Id = 626,
+                            CityId = 1067,
+                            Date = new DateTime(2015, 10, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0361,
+                            FuelCardId = 24,
+                            Kilometers = 106571,
+                            Liters = 39.729999999999997,
+                            Price = 1.151,
+                            TotalPrice = 34.810000000000002
+                        },
+                        new
+                        {
+                            Id = 627,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0419,
+                            FuelCardId = 25,
+                            Kilometers = 92698,
+                            Liters = 46.149999999999999,
+                            Price = 1.181,
+                            TotalPrice = 41.579999999999998
+                        },
+                        new
+                        {
+                            Id = 628,
+                            CityId = 703,
+                            Date = new DateTime(2015, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047,
+                            FuelCardId = 8,
+                            Kilometers = 51466,
+                            Liters = 51.75,
+                            Price = 1.181,
+                            TotalPrice = 46.630000000000003
+                        },
+                        new
+                        {
+                            Id = 629,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0482,
+                            FuelCardId = 22,
+                            Kilometers = 133405,
+                            Liters = 53.130000000000003,
+                            Price = 1.181,
+                            TotalPrice = 47.880000000000003
+                        },
+                        new
+                        {
+                            Id = 630,
+                            CityId = 603,
+                            Date = new DateTime(2015, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035100000000000103,
+                            FuelCardId = 26,
+                            Kilometers = 36000,
+                            Liters = 38.649999999999999,
+                            Price = 1.151,
+                            TotalPrice = 33.869999999999997
+                        },
+                        new
+                        {
+                            Id = 631,
+                            CityId = 1018,
+                            Date = new DateTime(2015, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.037400000000000003,
+                            FuelCardId = 21,
+                            Kilometers = 124850,
+                            Liters = 41.149999999999999,
+                            Price = 1.181,
+                            TotalPrice = 37.07
+                        },
+                        new
+                        {
+                            Id = 632,
+                            CityId = 603,
+                            Date = new DateTime(2015, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040399999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 37000,
+                            Liters = 44.590000000000003,
+                            Price = 1.181,
+                            TotalPrice = 40.18
+                        },
+                        new
+                        {
+                            Id = 633,
+                            CityId = 383,
+                            Date = new DateTime(2015, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048099999999999997,
+                            FuelCardId = 11,
+                            Kilometers = 66381,
+                            Liters = 52.920000000000002,
+                            Price = 1.181,
+                            TotalPrice = 47.68
+                        },
+                        new
+                        {
+                            Id = 634,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 11, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039800000000000002,
+                            FuelCardId = 24,
+                            Kilometers = 107383,
+                            Liters = 43.840000000000003,
+                            Price = 1.151,
+                            TotalPrice = 38.409999999999997
+                        },
+                        new
+                        {
+                            Id = 635,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057200000000000001,
+                            FuelCardId = 18,
+                            Kilometers = 170000,
+                            Liters = 63.079999999999998,
+                            Price = 1.181,
+                            TotalPrice = 56.840000000000003
+                        },
+                        new
+                        {
+                            Id = 636,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0454000000000001,
+                            FuelCardId = 24,
+                            Kilometers = 108263,
+                            Liters = 50.130000000000003,
+                            Price = 1.181,
+                            TotalPrice = 45.170000000000002
+                        },
+                        new
+                        {
+                            Id = 637,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035099999999999999,
+                            FuelCardId = 21,
+                            Kilometers = 124142,
+                            Liters = 38.609999999999999,
+                            Price = 1.151,
+                            TotalPrice = 33.829999999999998
+                        },
+                        new
+                        {
+                            Id = 638,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048499999999999897,
+                            FuelCardId = 25,
+                            Kilometers = 91841,
+                            Liters = 53.5,
+                            Price = 1.181,
+                            TotalPrice = 48.210000000000001
+                        },
+                        new
+                        {
+                            Id = 639,
+                            CityId = 1079,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.031699999999999999,
+                            FuelCardId = 14,
+                            Kilometers = 42893,
+                            Liters = 34.920000000000002,
+                            Price = 1.181,
+                            TotalPrice = 31.460000000000001
+                        },
+                        new
+                        {
+                            Id = 640,
+                            CityId = 645,
+                            Date = new DateTime(2015, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049999999999999899,
+                            FuelCardId = 16,
+                            Kilometers = 60500,
+                            Liters = 55.030000000000001,
+                            Price = 1.181,
+                            TotalPrice = 49.579999999999998
+                        },
+                        new
+                        {
+                            Id = 641,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054799999999999897,
+                            FuelCardId = 10,
+                            Kilometers = 99010,
+                            Liters = 60.390000000000001,
+                            Price = 1.181,
+                            TotalPrice = 54.409999999999997
+                        },
+                        new
+                        {
+                            Id = 642,
+                            CityId = 1049,
+                            Date = new DateTime(2015, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054900000000000101,
+                            FuelCardId = 18,
+                            Kilometers = 269000,
+                            Liters = 60.539999999999999,
+                            Price = 1.151,
+                            TotalPrice = 53.049999999999997
+                        },
+                        new
+                        {
+                            Id = 643,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0548999999999999,
+                            FuelCardId = 7,
+                            Kilometers = 65178,
+                            Liters = 60.490000000000002,
+                            Price = 1.181,
+                            TotalPrice = 54.5
+                        },
+                        new
+                        {
+                            Id = 644,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046300000000000001,
+                            FuelCardId = 7,
+                            Kilometers = 63713,
+                            Liters = 51.009999999999998,
+                            Price = 1.151,
+                            TotalPrice = 44.689999999999998
+                        },
+                        new
+                        {
+                            Id = 645,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048099999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 90843,
+                            Liters = 53.0,
+                            Price = 1.151,
+                            TotalPrice = 46.439999999999998
+                        },
+                        new
+                        {
+                            Id = 646,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.029999999999999999,
+                            FuelCardId = 15,
+                            Kilometers = 5192,
+                            Liters = 33.0,
+                            Price = 1.181,
+                            TotalPrice = 29.73
+                        },
+                        new
+                        {
+                            Id = 647,
+                            CityId = 1050,
+                            Date = new DateTime(2015, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059300000000000103,
+                            FuelCardId = 13,
+                            Kilometers = 145167,
+                            Liters = 65.370000000000005,
+                            Price = 1.181,
+                            TotalPrice = 58.899999999999999
+                        },
+                        new
+                        {
+                            Id = 648,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039300000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 64248,
+                            Liters = 43.189999999999998,
+                            Price = 1.181,
+                            TotalPrice = 38.909999999999997
+                        },
+                        new
+                        {
+                            Id = 649,
+                            CityId = 1079,
+                            Date = new DateTime(2015, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044999999999999998,
+                            FuelCardId = 16,
+                            Kilometers = 59500,
+                            Liters = 49.630000000000003,
+                            Price = 1.181,
+                            TotalPrice = 44.719999999999999
+                        },
+                        new
+                        {
+                            Id = 650,
+                            CityId = 383,
+                            Date = new DateTime(2015, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044299999999999999,
+                            FuelCardId = 11,
+                            Kilometers = 67165,
+                            Liters = 48.799999999999997,
+                            Price = 1.181,
+                            TotalPrice = 43.969999999999999
+                        },
+                        new
+                        {
+                            Id = 651,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045599999999999898,
+                            FuelCardId = 23,
+                            Kilometers = 42289,
+                            Liters = 50.259999999999998,
+                            Price = 1.181,
+                            TotalPrice = 45.289999999999999
+                        },
+                        new
+                        {
+                            Id = 652,
+                            CityId = 844,
+                            Date = new DateTime(2015, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.034500000000000003,
+                            FuelCardId = 9,
+                            Kilometers = 102273,
+                            Liters = 38.009999999999998,
+                            Price = 1.151,
+                            TotalPrice = 33.310000000000002
+                        },
+                        new
+                        {
+                            Id = 653,
+                            CityId = 1068,
+                            Date = new DateTime(2015, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038199999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 116800,
+                            Liters = 42.030000000000001,
+                            Price = 1.181,
+                            TotalPrice = 37.869999999999997
+                        },
+                        new
+                        {
+                            Id = 654,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 11, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044400000000000002,
+                            FuelCardId = 22,
+                            Kilometers = 132544,
+                            Liters = 48.939999999999998,
+                            Price = 1.181,
+                            TotalPrice = 44.100000000000001
+                        },
+                        new
+                        {
+                            Id = 655,
+                            CityId = 603,
+                            Date = new DateTime(2015, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.019400000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 38000,
+                            Liters = 21.27,
+                            Price = 1.181,
+                            TotalPrice = 19.16
+                        },
+                        new
+                        {
+                            Id = 656,
+                            CityId = 1076,
+                            Date = new DateTime(2015, 11, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061100000000000002,
+                            FuelCardId = 13,
+                            Kilometers = 146169,
+                            Liters = 67.209999999999994,
+                            Price = 1.173001,
+                            TotalPrice = 60.109999999999999
+                        },
+                        new
+                        {
+                            Id = 657,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043299999999999998,
+                            FuelCardId = 21,
+                            Kilometers = 125868,
+                            Liters = 47.68,
+                            Price = 1.181,
+                            TotalPrice = 42.960000000000001
+                        },
+                        new
+                        {
+                            Id = 658,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057500000000000002,
+                            FuelCardId = 17,
+                            Kilometers = 118900,
+                            Liters = 63.359999999999999,
+                            Price = 1.173001,
+                            TotalPrice = 56.670000000000002
+                        },
+                        new
+                        {
+                            Id = 659,
+                            CityId = 1064,
+                            Date = new DateTime(2015, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056500000000000099,
+                            FuelCardId = 10,
+                            Kilometers = 100550,
+                            Liters = 62.210000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 55.640000000000001
+                        },
+                        new
+                        {
+                            Id = 660,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052899999999999898,
+                            FuelCardId = 7,
+                            Kilometers = 66822,
+                            Liters = 58.240000000000002,
+                            Price = 1.173001,
+                            TotalPrice = 52.090000000000003
+                        },
+                        new
+                        {
+                            Id = 661,
+                            CityId = 8,
+                            Date = new DateTime(2015, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044400000000000002,
+                            FuelCardId = 22,
+                            Kilometers = 135048,
+                            Liters = 48.880000000000003,
+                            Price = 1.173001,
+                            TotalPrice = 43.719999999999999
+                        },
+                        new
+                        {
+                            Id = 662,
+                            CityId = 844,
+                            Date = new DateTime(2015, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035000000000000003,
+                            FuelCardId = 9,
+                            Kilometers = 102954,
+                            Liters = 38.490000000000002,
+                            Price = 1.181,
+                            TotalPrice = 34.68
+                        },
+                        new
+                        {
+                            Id = 663,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0434999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 94388,
+                            Liters = 48.0,
+                            Price = 1.173001,
+                            TotalPrice = 42.93
+                        },
+                        new
+                        {
+                            Id = 664,
+                            CityId = 1080,
+                            Date = new DateTime(2015, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0155,
+                            FuelCardId = 26,
+                            Kilometers = 2750,
+                            Liters = 17.0,
+                            Price = 1.181,
+                            TotalPrice = 15.31
+                        },
+                        new
+                        {
+                            Id = 665,
+                            CityId = 1078,
+                            Date = new DateTime(2015, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051900000000000002,
+                            FuelCardId = 8,
+                            Kilometers = 52326,
+                            Liters = 57.32,
+                            Price = 1.181,
+                            TotalPrice = 51.649999999999999
+                        },
+                        new
+                        {
+                            Id = 666,
+                            CityId = 1079,
+                            Date = new DateTime(2015, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047100000000000003,
+                            FuelCardId = 16,
+                            Kilometers = 61350,
+                            Liters = 51.840000000000003,
+                            Price = 1.173001,
+                            TotalPrice = 46.359999999999999
+                        },
+                        new
+                        {
+                            Id = 667,
+                            CityId = 1068,
+                            Date = new DateTime(2015, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053899999999999899,
+                            FuelCardId = 17,
+                            Kilometers = 117500,
+                            Liters = 59.439999999999998,
+                            Price = 1.181,
+                            TotalPrice = 53.560000000000002
+                        },
+                        new
+                        {
+                            Id = 668,
+                            CityId = 648,
+                            Date = new DateTime(2015, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060199999999999997,
+                            FuelCardId = 12,
+                            Kilometers = 100378,
+                            Liters = 66.459999999999994,
+                            Price = 1.181,
+                            TotalPrice = 59.890000000000001
+                        },
+                        new
+                        {
+                            Id = 669,
+                            CityId = 1080,
+                            Date = new DateTime(2015, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.048399999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 38200,
+                            Liters = 53.350000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 47.719999999999999
+                        },
+                        new
+                        {
+                            Id = 670,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044400000000000002,
+                            FuelCardId = 21,
+                            Kilometers = 126470,
+                            Liters = 48.960000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 43.789999999999999
+                        },
+                        new
+                        {
+                            Id = 671,
+                            CityId = 383,
+                            Date = new DateTime(2015, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0453,
+                            FuelCardId = 11,
+                            Kilometers = 67894,
+                            Liters = 49.920000000000002,
+                            Price = 1.173001,
+                            TotalPrice = 44.649999999999999
+                        },
+                        new
+                        {
+                            Id = 672,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046199999999999998,
+                            FuelCardId = 24,
+                            Kilometers = 109089,
+                            Liters = 50.859999999999999,
+                            Price = 1.173001,
+                            TotalPrice = 45.490000000000002
+                        },
+                        new
+                        {
+                            Id = 673,
+                            CityId = 1081,
+                            Date = new DateTime(2015, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044499999999999998,
+                            FuelCardId = 23,
+                            Kilometers = 43152,
+                            Liters = 49.100000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 43.920000000000002
+                        },
+                        new
+                        {
+                            Id = 674,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058000000000000003,
+                            FuelCardId = 7,
+                            Kilometers = 66061,
+                            Liters = 63.939999999999998,
+                            Price = 1.181,
+                            TotalPrice = 57.609999999999999
+                        },
+                        new
+                        {
+                            Id = 675,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041799999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 93533,
+                            Liters = 46.0,
+                            Price = 1.181,
+                            TotalPrice = 41.450000000000003
+                        },
+                        new
+                        {
+                            Id = 676,
+                            CityId = 383,
+                            Date = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.032599999999999997,
+                            FuelCardId = 9,
+                            Kilometers = 103451,
+                            Liters = 35.829999999999998,
+                            Price = 1.173001,
+                            TotalPrice = 32.039999999999999
+                        },
+                        new
+                        {
+                            Id = 677,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058799999999999998,
+                            FuelCardId = 19,
+                            Kilometers = 36560,
+                            Liters = 64.849999999999994,
+                            Price = 1.181,
+                            TotalPrice = 58.439999999999998
+                        },
+                        new
+                        {
+                            Id = 678,
+                            CityId = 603,
+                            Date = new DateTime(2015, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0284999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 37800,
+                            Liters = 31.280000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 27.969999999999999
+                        },
+                        new
+                        {
+                            Id = 679,
+                            CityId = 80,
+                            Date = new DateTime(2015, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040099999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 95183,
+                            Liters = 44.100000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 39.439999999999998
+                        },
+                        new
+                        {
+                            Id = 680,
+                            CityId = 648,
+                            Date = new DateTime(2015, 11, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051299999999999998,
+                            FuelCardId = 12,
+                            Kilometers = 101082,
+                            Liters = 56.450000000000003,
+                            Price = 1.173001,
+                            TotalPrice = 50.490000000000002
+                        },
+                        new
+                        {
+                            Id = 681,
+                            CityId = 383,
+                            Date = new DateTime(2015, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043999999999999997,
+                            FuelCardId = 11,
+                            Kilometers = 68595,
+                            Liters = 48.509999999999998,
+                            Price = 1.173001,
+                            TotalPrice = 43.390000000000001
+                        },
+                        new
+                        {
+                            Id = 682,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 11, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055399999999999901,
+                            FuelCardId = 18,
+                            Kilometers = 270000,
+                            Liters = 61.009999999999998,
+                            Price = 1.181,
+                            TotalPrice = 54.969999999999999
+                        },
+                        new
+                        {
+                            Id = 683,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 134311,
+                            Liters = 49.18,
+                            Price = 1.173001,
+                            TotalPrice = 43.990000000000002
+                        },
+                        new
+                        {
+                            Id = 684,
+                            CityId = 1082,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054599999999999899,
+                            FuelCardId = 18,
+                            Kilometers = 27700,
+                            Liters = 60.18,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 52.979999999999997
+                        },
+                        new
+                        {
+                            Id = 685,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.057099999999999998,
+                            FuelCardId = 7,
+                            Kilometers = 68484,
+                            Liters = 62.960000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 55.43
+                        },
+                        new
+                        {
+                            Id = 686,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042999999999999997,
+                            FuelCardId = 21,
+                            Kilometers = 127173,
+                            Liters = 47.479999999999997,
+                            Price = 1.173001,
+                            TotalPrice = 42.469999999999999
+                        },
+                        new
+                        {
+                            Id = 687,
+                            CityId = 383,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040500000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 69889,
+                            Liters = 44.590000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 39.259999999999998
+                        },
+                        new
+                        {
+                            Id = 688,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046600000000000003,
+                            FuelCardId = 21,
+                            Kilometers = 128003,
+                            Liters = 51.289999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 45.149999999999999
+                        },
+                        new
+                        {
+                            Id = 689,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056099999999999997,
+                            FuelCardId = 7,
+                            Kilometers = 67655,
+                            Liters = 61.859999999999999,
+                            Price = 1.173001,
+                            TotalPrice = 55.329999999999998
+                        },
+                        new
+                        {
+                            Id = 690,
+                            CityId = 8,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045400000000000003,
+                            FuelCardId = 22,
+                            Kilometers = 135775,
+                            Liters = 50.030000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 44.75
+                        },
+                        new
+                        {
+                            Id = 691,
+                            CityId = 1052,
+                            Date = new DateTime(2015, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045699999999999998,
+                            FuelCardId = 26,
+                            Kilometers = 39150,
+                            Liters = 50.460000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 44.43
+                        },
+                        new
+                        {
+                            Id = 692,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 97935,
+                            Liters = 49.0,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 42.399999999999999
+                        },
+                        new
+                        {
+                            Id = 693,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051900000000000002,
+                            FuelCardId = 17,
+                            Kilometers = 119800,
+                            Liters = 57.170000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 50.329999999999998
+                        },
+                        new
+                        {
+                            Id = 694,
+                            CityId = 645,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047100000000000003,
+                            FuelCardId = 16,
+                            Kilometers = 63000,
+                            Liters = 52.060000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 45.840000000000003
+                        },
+                        new
+                        {
+                            Id = 695,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058399999999999903,
+                            FuelCardId = 18,
+                            Kilometers = 278000,
+                            Liters = 64.430000000000007,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 55.770000000000003
+                        },
+                        new
+                        {
+                            Id = 696,
+                            CityId = 1083,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049099999999999998,
+                            FuelCardId = 16,
+                            Kilometers = 63000,
+                            Liters = 54.030000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 46.759999999999998
+                        },
+                        new
+                        {
+                            Id = 697,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0608,
+                            FuelCardId = 19,
+                            Kilometers = 37660,
+                            Liters = 66.930000000000007,
+                            Price = 1.173001,
+                            TotalPrice = 59.859999999999999
+                        },
+                        new
+                        {
+                            Id = 698,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047399999999999901,
+                            FuelCardId = 22,
+                            Kilometers = 137265,
+                            Liters = 52.270000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 45.240000000000002
+                        },
+                        new
+                        {
+                            Id = 699,
+                            CityId = 844,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.024199999999999999,
+                            FuelCardId = 9,
+                            Kilometers = 103853,
+                            Liters = 26.579999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 23.399999999999999
+                        },
+                        new
+                        {
+                            Id = 700,
+                            CityId = 1062,
+                            Date = new DateTime(2015, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045199999999999997,
+                            FuelCardId = 23,
+                            Kilometers = 44038,
+                            Liters = 49.68,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.729999999999997
+                        },
+                        new
+                        {
+                            Id = 701,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045400000000000003,
+                            FuelCardId = 21,
+                            Kilometers = 128872,
+                            Liters = 50.0,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 43.270000000000003
+                        },
+                        new
+                        {
+                            Id = 702,
+                            CityId = 648,
+                            Date = new DateTime(2015, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056399999999999999,
+                            FuelCardId = 12,
+                            Kilometers = 101807,
+                            Liters = 62.090000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 53.740000000000002
+                        },
+                        new
+                        {
+                            Id = 703,
+                            CityId = 648,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.038899999999999997,
+                            FuelCardId = 24,
+                            Kilometers = 109846,
+                            Liters = 42.960000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 38.43
+                        },
+                        new
+                        {
+                            Id = 704,
+                            CityId = 383,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045400000000000003,
+                            FuelCardId = 11,
+                            Kilometers = 70620,
+                            Liters = 49.979999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 43.259999999999998
+                        },
+                        new
+                        {
+                            Id = 705,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0482,
+                            FuelCardId = 25,
+                            Kilometers = 97074,
+                            Liters = 53.0,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 46.649999999999999
+                        },
+                        new
+                        {
+                            Id = 706,
+                            CityId = 1078,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052400000000000099,
+                            FuelCardId = 8,
+                            Kilometers = 53124,
+                            Liters = 57.68,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 50.780000000000001
+                        },
+                        new
+                        {
+                            Id = 707,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046300000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 96111,
+                            Liters = 51.009999999999998,
+                            Price = 1.173001,
+                            TotalPrice = 45.619999999999997
+                        },
+                        new
+                        {
+                            Id = 708,
+                            CityId = 603,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.020199999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 38500,
+                            Liters = 22.300000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 19.949999999999999
+                        },
+                        new
+                        {
+                            Id = 709,
+                            CityId = 8,
+                            Date = new DateTime(2015, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043400000000000001,
+                            FuelCardId = 22,
+                            Kilometers = 136500,
+                            Liters = 47.829999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 42.109999999999999
+                        },
+                        new
+                        {
+                            Id = 710,
+                            CityId = 383,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0434999999999999,
+                            FuelCardId = 11,
+                            Kilometers = 69255,
+                            Liters = 48.060000000000002,
+                            Price = 1.173001,
+                            TotalPrice = 42.990000000000002
+                        },
+                        new
+                        {
+                            Id = 711,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.036799999999999999,
+                            FuelCardId = 26,
+                            Kilometers = 38000,
+                            Liters = 40.5,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 35.049999999999997
+                        },
+                        new
+                        {
+                            Id = 712,
+                            CityId = 648,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050499999999999899,
+                            FuelCardId = 12,
+                            Kilometers = 102445,
+                            Liters = 55.590000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 47.009999999999998
+                        },
+                        new
+                        {
+                            Id = 713,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.042000000000000003,
+                            FuelCardId = 23,
+                            Kilometers = 45725,
+                            Liters = 46.289999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.149999999999999
+                        },
+                        new
+                        {
+                            Id = 714,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041299999999999899,
+                            FuelCardId = 25,
+                            Kilometers = 98759,
+                            Liters = 45.5,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 38.479999999999997
+                        },
+                        new
+                        {
+                            Id = 715,
+                            CityId = 383,
+                            Date = new DateTime(2015, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045100000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 71349,
+                            Liters = 49.770000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.090000000000003
+                        },
+                        new
+                        {
+                            Id = 716,
+                            CityId = 1051,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043799999999999999,
+                            FuelCardId = 23,
+                            Kilometers = 44944,
+                            Liters = 48.270000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 41.780000000000001
+                        },
+                        new
+                        {
+                            Id = 717,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0499,
+                            FuelCardId = 25,
+                            Kilometers = 99725,
+                            Liters = 55.009999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 46.520000000000003
+                        },
+                        new
+                        {
+                            Id = 718,
+                            CityId = 1039,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059699999999999899,
+                            FuelCardId = 7,
+                            Kilometers = 70382,
+                            Liters = 65.819999999999993,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 55.659999999999997
+                        },
+                        new
+                        {
+                            Id = 719,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052499999999999998,
+                            FuelCardId = 18,
+                            Kilometers = 278100,
+                            Liters = 57.880000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 50.100000000000001
+                        },
+                        new
+                        {
+                            Id = 720,
+                            CityId = 645,
+                            Date = new DateTime(2015, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045999999999999999,
+                            FuelCardId = 16,
+                            Kilometers = 63850,
+                            Liters = 50.670000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.850000000000001
+                        },
+                        new
+                        {
+                            Id = 721,
+                            CityId = 80,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0454000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 100613,
+                            Liters = 50.0,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.280000000000001
+                        },
+                        new
+                        {
+                            Id = 722,
+                            CityId = 1078,
+                            Date = new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052299999999999999,
+                            FuelCardId = 8,
+                            Kilometers = 53922,
+                            Liters = 57.630000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 48.740000000000002
+                        },
+                        new
+                        {
+                            Id = 723,
+                            CityId = 1074,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.031800000000000002,
+                            FuelCardId = 26,
+                            Kilometers = 40700,
+                            Liters = 35.100000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 29.690000000000001
+                        },
+                        new
+                        {
+                            Id = 724,
+                            CityId = 844,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.031699999999999902,
+                            FuelCardId = 9,
+                            Kilometers = 104351,
+                            Liters = 34.939999999999998,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 30.239999999999998
+                        },
+                        new
+                        {
+                            Id = 725,
+                            CityId = 1057,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060299999999999798,
+                            FuelCardId = 19,
+                            Kilometers = 38757,
+                            Liters = 66.390000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 56.140000000000001
+                        },
+                        new
+                        {
+                            Id = 726,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045599999999999898,
+                            FuelCardId = 22,
+                            Kilometers = 138762,
+                            Liters = 50.270000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.509999999999998
+                        },
+                        new
+                        {
+                            Id = 727,
+                            CityId = 1037,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055199999999999999,
+                            FuelCardId = 17,
+                            Kilometers = 121800,
+                            Liters = 60.909999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.509999999999998
+                        },
+                        new
+                        {
+                            Id = 728,
+                            CityId = 383,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045699999999999998,
+                            FuelCardId = 11,
+                            Kilometers = 72052,
+                            Liters = 50.439999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.659999999999997
+                        },
+                        new
+                        {
+                            Id = 729,
+                            CityId = 1065,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040999999999999898,
+                            FuelCardId = 22,
+                            Kilometers = 137981,
+                            Liters = 45.149999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 38.18
+                        },
+                        new
+                        {
+                            Id = 730,
+                            CityId = 1084,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054600000000000003,
+                            FuelCardId = 17,
+                            Kilometers = 120800,
+                            Liters = 60.100000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 52.009999999999998
+                        },
+                        new
+                        {
+                            Id = 731,
+                            CityId = 1079,
+                            Date = new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.028799999999999999,
+                            FuelCardId = 14,
+                            Kilometers = 43455,
+                            Liters = 31.760000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 26.859999999999999
+                        },
+                        new
+                        {
+                            Id = 732,
+                            CityId = 1070,
+                            Date = new DateTime(2015, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.030099999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 5789,
+                            Liters = 33.130000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 28.02
+                        },
+                        new
+                        {
+                            Id = 733,
+                            CityId = 92,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061699999999999901,
+                            FuelCardId = 7,
+                            Kilometers = 69420,
+                            Liters = 67.969999999999999,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 58.829999999999998
+                        },
+                        new
+                        {
+                            Id = 734,
+                            CityId = 1074,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054100000000000002,
+                            FuelCardId = 18,
+                            Kilometers = 0,
+                            Liters = 59.770000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 50.549999999999997
+                        },
+                        new
+                        {
+                            Id = 735,
+                            CityId = 1040,
+                            Date = new DateTime(2016, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.039300000000000002,
+                            FuelCardId = 26,
+                            Kilometers = 42200,
+                            Liters = 43.32,
+                            Price = 1.113,
+                            TotalPrice = 36.600000000000001
+                        },
+                        new
+                        {
+                            Id = 736,
+                            CityId = 1037,
+                            Date = new DateTime(2016, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0436,
+                            FuelCardId = 21,
+                            Kilometers = 129697,
+                            Liters = 48.07,
+                            Price = 1.113,
+                            TotalPrice = 40.609999999999999
+                        },
+                        new
+                        {
+                            Id = 737,
+                            CityId = 632,
+                            Date = new DateTime(2016, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050199999999999897,
+                            FuelCardId = 16,
+                            Kilometers = 64729,
+                            Liters = 55.329999999999998,
+                            Price = 1.113,
+                            TotalPrice = 46.740000000000002
+                        },
+                        new
+                        {
+                            Id = 738,
+                            CityId = 844,
+                            Date = new DateTime(2016, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.064500000000000002,
+                            FuelCardId = 13,
+                            Kilometers = 147247,
+                            Liters = 71.109999999999999,
+                            Price = 1.113,
+                            TotalPrice = 60.079999999999998
+                        },
+                        new
+                        {
+                            Id = 739,
+                            CityId = 1051,
+                            Date = new DateTime(2016, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043999999999999997,
+                            FuelCardId = 23,
+                            Kilometers = 46572,
+                            Liters = 48.579999999999998,
+                            Price = 1.113,
+                            TotalPrice = 41.049999999999997
+                        },
+                        new
+                        {
+                            Id = 740,
+                            CityId = 1067,
+                            Date = new DateTime(2016, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046600000000000003,
+                            FuelCardId = 24,
+                            Kilometers = 112264,
+                            Liters = 51.350000000000001,
+                            Price = 1.113,
+                            TotalPrice = 43.380000000000003
+                        },
+                        new
+                        {
+                            Id = 741,
+                            CityId = 1085,
+                            Date = new DateTime(2016, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054700000000000103,
+                            FuelCardId = 10,
+                            Kilometers = 103500,
+                            Liters = 60.210000000000001,
+                            Price = 1.113,
+                            TotalPrice = 50.859999999999999
+                        },
+                        new
+                        {
+                            Id = 742,
+                            CityId = 603,
+                            Date = new DateTime(2016, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.024500000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 41900,
+                            Liters = 26.960000000000001,
+                            Price = 1.113,
+                            TotalPrice = 22.780000000000001
+                        },
+                        new
+                        {
+                            Id = 743,
+                            CityId = 648,
+                            Date = new DateTime(2016, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043799999999999999,
+                            FuelCardId = 12,
+                            Kilometers = 103028,
+                            Liters = 48.210000000000001,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 39.369999999999997
+                        },
+                        new
+                        {
+                            Id = 744,
+                            CityId = 844,
+                            Date = new DateTime(2016, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035400000000000001,
+                            FuelCardId = 9,
+                            Kilometers = 104928,
+                            Liters = 39.060000000000002,
+                            Price = 1.113,
+                            TotalPrice = 33.0
+                        },
+                        new
+                        {
+                            Id = 745,
+                            CityId = 1018,
+                            Date = new DateTime(2016, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0378,
+                            FuelCardId = 21,
+                            Kilometers = 130381,
+                            Liters = 41.780000000000001,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 34.130000000000003
+                        },
+                        new
+                        {
+                            Id = 746,
+                            CityId = 383,
+                            Date = new DateTime(2016, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046699999999999998,
+                            FuelCardId = 11,
+                            Kilometers = 72803,
+                            Liters = 51.460000000000001,
+                            Price = 1.113,
+                            TotalPrice = 43.469999999999999
+                        },
+                        new
+                        {
+                            Id = 747,
+                            CityId = 1040,
+                            Date = new DateTime(2016, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0408000000000001,
+                            FuelCardId = 26,
+                            Kilometers = 41250,
+                            Liters = 44.979999999999997,
+                            Price = 1.113,
+                            TotalPrice = 38.0
+                        },
+                        new
+                        {
+                            Id = 748,
+                            CityId = 1084,
+                            Date = new DateTime(2016, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058799999999999998,
+                            FuelCardId = 18,
+                            Kilometers = 279000,
+                            Liters = 64.790000000000006,
+                            Price = 1.113,
+                            TotalPrice = 54.740000000000002
+                        },
+                        new
+                        {
+                            Id = 749,
+                            CityId = 1040,
+                            Date = new DateTime(2016, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044400000000000002,
+                            FuelCardId = 24,
+                            Kilometers = 113076,
+                            Liters = 48.909999999999997,
+                            Price = 1.113,
+                            TotalPrice = 41.32
+                        },
+                        new
+                        {
+                            Id = 750,
+                            CityId = 80,
+                            Date = new DateTime(2016, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044600000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 101476,
+                            Liters = 49.0,
+                            Price = 1.113,
+                            TotalPrice = 41.390000000000001
+                        },
+                        new
+                        {
+                            Id = 751,
+                            CityId = 1057,
+                            Date = new DateTime(2016, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059999999999999998,
+                            FuelCardId = 19,
+                            Kilometers = 39867,
+                            Liters = 66.159999999999997,
+                            Price = 1.113,
+                            TotalPrice = 55.899999999999999
+                        },
+                        new
+                        {
+                            Id = 752,
+                            CityId = 80,
+                            Date = new DateTime(2016, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043099999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 102313,
+                            Liters = 47.420000000000002,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 38.729999999999997
+                        },
+                        new
+                        {
+                            Id = 753,
+                            CityId = 645,
+                            Date = new DateTime(2016, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046300000000000001,
+                            FuelCardId = 16,
+                            Kilometers = 65750,
+                            Liters = 51.0,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 41.649999999999999
+                        },
+                        new
+                        {
+                            Id = 754,
+                            CityId = 1049,
+                            Date = new DateTime(2016, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055599999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 275000,
+                            Liters = 61.270000000000003,
+                            Price = 1.113,
+                            TotalPrice = 51.759999999999998
+                        },
+                        new
+                        {
+                            Id = 755,
+                            CityId = 324,
+                            Date = new DateTime(2016, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0557,
+                            FuelCardId = 22,
+                            Kilometers = 139400,
+                            Liters = 61.299999999999997,
+                            Price = 1.079,
+                            TotalPrice = 50.060000000000002
+                        },
+                        new
+                        {
+                            Id = 756,
+                            CityId = 1084,
+                            Date = new DateTime(2016, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051999999999999998,
+                            FuelCardId = 18,
+                            Kilometers = 178000,
+                            Liters = 57.270000000000003,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 46.770000000000003
+                        },
+                        new
+                        {
+                            Id = 757,
+                            CityId = 8,
+                            Date = new DateTime(2016, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060499999999999998,
+                            FuelCardId = 7,
+                            Kilometers = 72164,
+                            Liters = 66.609999999999999,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 54.399999999999999
+                        },
+                        new
+                        {
+                            Id = 758,
+                            CityId = 1039,
+                            Date = new DateTime(2016, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.059899999999999898,
+                            FuelCardId = 7,
+                            Kilometers = 71293,
+                            Liters = 65.980000000000004,
+                            Price = 1.113,
+                            TotalPrice = 55.740000000000002
+                        },
+                        new
+                        {
+                            Id = 759,
+                            CityId = 1078,
+                            Date = new DateTime(2016, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.025499999999999998,
+                            FuelCardId = 8,
+                            Kilometers = 54316,
+                            Liters = 28.079999999999998,
+                            Price = 1.113,
+                            TotalPrice = 23.719999999999999
+                        },
+                        new
+                        {
+                            Id = 760,
+                            CityId = 383,
+                            Date = new DateTime(2016, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.040399999999999998,
+                            FuelCardId = 11,
+                            Kilometers = 73458,
+                            Liters = 44.520000000000003,
+                            Price = 1.113,
+                            TotalPrice = 37.609999999999999
+                        },
+                        new
+                        {
+                            Id = 761,
+                            CityId = 1037,
+                            Date = new DateTime(2014, 10, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058799999999999998,
+                            FuelCardId = 17,
+                            Kilometers = 122900,
+                            Liters = 64.620000000000005,
+                            Price = 1.0790010000000001,
+                            TotalPrice = 52.770000000000003
+                        },
+                        new
+                        {
+                            Id = 762,
+                            CityId = 1064,
+                            Date = new DateTime(2016, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.020400000000000001,
+                            FuelCardId = 10,
+                            Kilometers = 103000,
+                            Liters = 22.510000000000002,
+                            Price = 1.113,
+                            TotalPrice = 19.02
+                        },
+                        new
+                        {
+                            Id = 763,
+                            CityId = 863,
+                            Date = new DateTime(2017, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0,
+                            FuelCardId = 22,
+                            Kilometers = 500,
+                            Liters = 5.0,
+                            Price = 1.0,
+                            TotalPrice = 5.0
+                        },
+                        new
+                        {
+                            Id = 764,
+                            CityId = 1044,
+                            Date = new DateTime(2015, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060899999999999899,
+                            FuelCardId = 12,
+                            Kilometers = 125600,
+                            Liters = 60.759999999999998,
+                            Price = 1.282,
+                            TotalPrice = 59.340000000000003
+                        },
+                        new
+                        {
+                            Id = 765,
+                            CityId = 1086,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.094399999999999998,
+                            FuelCardId = 25,
+                            Kilometers = 115500,
+                            Liters = 62.359999999999999,
+                            Price = 1.173001,
+                            TotalPrice = 52.649999999999999
+                        },
+                        new
+                        {
+                            Id = 766,
+                            CityId = 1087,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.041200000000000001,
+                            FuelCardId = 19,
+                            Kilometers = 45880,
+                            Liters = 32.350000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 27.960000000000001
+                        },
+                        new
+                        {
+                            Id = 767,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0499,
+                            FuelCardId = 20,
+                            Kilometers = 77761,
+                            Liters = 32.920000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 27.329999999999998
+                        },
+                        new
+                        {
+                            Id = 768,
+                            CityId = 1089,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053099999999999897,
+                            FuelCardId = 14,
+                            Kilometers = 127837,
+                            Liters = 35.079999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 29.120000000000001
+                        },
+                        new
+                        {
+                            Id = 769,
+                            CityId = 1090,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.087899999999999895,
+                            FuelCardId = 9,
+                            Kilometers = 7000,
+                            Liters = 58.049999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 48.200000000000003
+                        },
+                        new
+                        {
+                            Id = 770,
+                            CityId = 891,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.095600000000000004,
+                            FuelCardId = 17,
+                            Kilometers = 188731,
+                            Liters = 63.18,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 52.460000000000001
+                        },
+                        new
+                        {
+                            Id = 771,
+                            CityId = 232,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.079299999999999995,
+                            FuelCardId = 17,
+                            Kilometers = 146117,
+                            Liters = 52.509999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.609999999999999
+                        },
+                        new
+                        {
+                            Id = 772,
+                            CityId = 1091,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080299999999999996,
+                            FuelCardId = 20,
+                            Kilometers = 43651,
+                            Liters = 53.060000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 44.060000000000002
+                        },
+                        new
+                        {
+                            Id = 773,
+                            CityId = 1092,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076100000000000001,
+                            FuelCardId = 25,
+                            Kilometers = 1542,
+                            Liters = 50.299999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 41.770000000000003
+                        },
+                        new
+                        {
+                            Id = 774,
+                            CityId = 1093,
+                            Date = new DateTime(2015, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.034599999999999999,
+                            FuelCardId = 24,
+                            Kilometers = 531,
+                            Liters = 22.879999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 19.0
+                        },
+                        new
+                        {
+                            Id = 775,
+                            CityId = 528,
+                            Date = new DateTime(2015, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061199999999999997,
+                            FuelCardId = 14,
+                            Kilometers = 159470,
+                            Liters = 48.119999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 40.920000000000002
+                        },
+                        new
+                        {
+                            Id = 776,
+                            CityId = 366,
+                            Date = new DateTime(2015, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.047599999999999899,
+                            FuelCardId = 25,
+                            Kilometers = 155162,
+                            Liters = 37.409999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 31.25
+                        },
+                        new
+                        {
+                            Id = 777,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.082699999999999996,
+                            FuelCardId = 23,
+                            Kilometers = 43028,
+                            Liters = 54.619999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 44.539999999999999
+                        },
+                        new
+                        {
+                            Id = 778,
+                            CityId = 985,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058899999999999897,
+                            FuelCardId = 19,
+                            Kilometers = 103548,
+                            Liters = 38.990000000000002,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 31.800000000000001
+                        },
+                        new
+                        {
+                            Id = 779,
+                            CityId = 605,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.089700000000000099,
+                            FuelCardId = 27,
+                            Kilometers = 128236,
+                            Liters = 59.25,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 48.310000000000002
+                        },
+                        new
+                        {
+                            Id = 780,
+                            CityId = 1094,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.086599999999999996,
+                            FuelCardId = 13,
+                            Kilometers = 108548,
+                            Liters = 57.18,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 45.490000000000002
+                        },
+                        new
+                        {
+                            Id = 781,
+                            CityId = 1083,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049099999999999998,
+                            FuelCardId = 20,
+                            Kilometers = 78316,
+                            Liters = 32.450000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 25.82
+                        },
+                        new
+                        {
+                            Id = 782,
+                            CityId = 1095,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.062699999999999895,
+                            FuelCardId = 11,
+                            Kilometers = 96267,
+                            Liters = 41.469999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 33.0
+                        },
+                        new
+                        {
+                            Id = 783,
+                            CityId = 528,
+                            Date = new DateTime(2015, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.066699999999999898,
+                            FuelCardId = 14,
+                            Kilometers = 160891,
+                            Liters = 52.520000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.840000000000003
+                        },
+                        new
+                        {
+                            Id = 784,
+                            CityId = 1096,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.066600000000000006,
+                            FuelCardId = 23,
+                            Kilometers = 51176,
+                            Liters = 44.0,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 35.009999999999998
+                        },
+                        new
+                        {
+                            Id = 785,
+                            CityId = 1079,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.090399999999999994,
+                            FuelCardId = 18,
+                            Kilometers = 46000,
+                            Liters = 59.729999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 47.520000000000003
+                        },
+                        new
+                        {
+                            Id = 786,
+                            CityId = 606,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076299999999999896,
+                            FuelCardId = 19,
+                            Kilometers = 161718,
+                            Liters = 50.460000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 40.149999999999999
+                        },
+                        new
+                        {
+                            Id = 787,
+                            CityId = 1097,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.056899999999999999,
+                            FuelCardId = 20,
+                            Kilometers = 21344,
+                            Liters = 37.710000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 31.850000000000001
+                        },
+                        new
+                        {
+                            Id = 788,
+                            CityId = 1098,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.046799999999999897,
+                            FuelCardId = 24,
+                            Kilometers = 78550,
+                            Liters = 30.969999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 25.719999999999999
+                        },
+                        new
+                        {
+                            Id = 789,
+                            CityId = 1099,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.073899999999999993,
+                            FuelCardId = 20,
+                            Kilometers = 28495,
+                            Liters = 48.759999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 40.479999999999997
+                        },
+                        new
+                        {
+                            Id = 790,
+                            CityId = 632,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.090000000000000094,
+                            FuelCardId = 18,
+                            Kilometers = 44300,
+                            Liters = 59.509999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 49.409999999999997
+                        },
+                        new
+                        {
+                            Id = 791,
+                            CityId = 1100,
+                            Date = new DateTime(2015, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.094299999999999995,
+                            FuelCardId = 26,
+                            Kilometers = 67466,
+                            Liters = 62.280000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 51.710000000000001
+                        },
+                        new
+                        {
+                            Id = 792,
+                            CityId = 1101,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061699999999999998,
+                            FuelCardId = 7,
+                            Kilometers = 123056,
+                            Liters = 40.740000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 33.829999999999998
+                        },
+                        new
+                        {
+                            Id = 793,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060599999999999897,
+                            FuelCardId = 15,
+                            Kilometers = 2132,
+                            Liters = 40.049999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 32.659999999999997
+                        },
+                        new
+                        {
+                            Id = 794,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.068099999999999994,
+                            FuelCardId = 11,
+                            Kilometers = 95701,
+                            Liters = 45.049999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 36.740000000000002
+                        },
+                        new
+                        {
+                            Id = 795,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.066600000000000006,
+                            FuelCardId = 9,
+                            Kilometers = 82773,
+                            Liters = 44.090000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 35.960000000000001
+                        },
+                        new
+                        {
+                            Id = 796,
+                            CityId = 1087,
+                            Date = new DateTime(2015, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0129,
+                            FuelCardId = 19,
+                            Kilometers = 1,
+                            Liters = 10.09,
+                            Price = 1.2989999999999999,
+                            TotalPrice = 9.7699999999999996
+                        },
+                        new
+                        {
+                            Id = 797,
+                            CityId = 1103,
+                            Date = new DateTime(2015, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052699999999999997,
+                            FuelCardId = 25,
+                            Kilometers = 155914,
+                            Liters = 41.420000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 33.780000000000001
+                        },
+                        new
+                        {
+                            Id = 798,
+                            CityId = 985,
+                            Date = new DateTime(2015, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0574,
+                            FuelCardId = 19,
+                            Kilometers = 104190,
+                            Liters = 37.899999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 30.149999999999999
+                        },
+                        new
+                        {
+                            Id = 799,
+                            CityId = 175,
+                            Date = new DateTime(2015, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.081999999999999906,
+                            FuelCardId = 15,
+                            Kilometers = 62001,
+                            Liters = 54.210000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 43.130000000000003
+                        },
+                        new
+                        {
+                            Id = 800,
+                            CityId = 528,
+                            Date = new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.064399999999999999,
+                            FuelCardId = 14,
+                            Kilometers = 161632,
+                            Liters = 50.729999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 41.380000000000003
+                        },
+                        new
+                        {
+                            Id = 801,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.061100000000000002,
+                            FuelCardId = 14,
+                            Kilometers = 162351,
+                            Liters = 48.140000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.270000000000003
+                        },
+                        new
+                        {
+                            Id = 802,
+                            CityId = 232,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.098100000000000007,
+                            FuelCardId = 17,
+                            Kilometers = 147307,
+                            Liters = 64.879999999999995,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 52.909999999999997
+                        },
+                        new
+                        {
+                            Id = 803,
+                            CityId = 217,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.078799999999999995,
+                            FuelCardId = 8,
+                            Kilometers = 72539,
+                            Liters = 52.060000000000002,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 42.450000000000003
+                        },
+                        new
+                        {
+                            Id = 804,
+                            CityId = 1094,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053600000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 84156,
+                            Liters = 35.460000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 28.920000000000002
+                        },
+                        new
+                        {
+                            Id = 805,
+                            CityId = 271,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.050900000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 42677,
+                            Liters = 33.640000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 27.43
+                        },
+                        new
+                        {
+                            Id = 806,
+                            CityId = 1092,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.071900000000000006,
+                            FuelCardId = 25,
+                            Kilometers = 2296,
+                            Liters = 47.490000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 37.780000000000001
+                        },
+                        new
+                        {
+                            Id = 807,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055800000000000002,
+                            FuelCardId = 9,
+                            Kilometers = 18930,
+                            Liters = 43.859999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 35.770000000000003
+                        },
+                        new
+                        {
+                            Id = 808,
+                            CityId = 1091,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0691999999999999,
+                            FuelCardId = 16,
+                            Kilometers = 99735,
+                            Liters = 45.759999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 36.409999999999997
+                        },
+                        new
+                        {
+                            Id = 809,
+                            CityId = 645,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.098799999999999999,
+                            FuelCardId = 14,
+                            Kilometers = 73000,
+                            Liters = 65.310000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.969999999999999
+                        },
+                        new
+                        {
+                            Id = 810,
+                            CityId = 950,
+                            Date = new DateTime(2015, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052999999999999999,
+                            FuelCardId = 8,
+                            Kilometers = 94107,
+                            Liters = 35.009999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 27.850000000000001
+                        },
+                        new
+                        {
+                            Id = 811,
+                            CityId = 1085,
+                            Date = new DateTime(2015, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080600000000000005,
+                            FuelCardId = 11,
+                            Kilometers = 79994,
+                            Liters = 53.240000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.359999999999999
+                        },
+                        new
+                        {
+                            Id = 812,
+                            CityId = 985,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.068199999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 171911,
+                            Liters = 45.119999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 35.899999999999999
+                        },
+                        new
+                        {
+                            Id = 813,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.067699999999999996,
+                            FuelCardId = 13,
+                            Kilometers = 109305,
+                            Liters = 44.759999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 35.609999999999999
+                        },
+                        new
+                        {
+                            Id = 814,
+                            CityId = 235,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052399999999999898,
+                            FuelCardId = 18,
+                            Kilometers = 117146,
+                            Liters = 34.659999999999997,
+                            Price = 1.173001,
+                            TotalPrice = 29.27
+                        },
+                        new
+                        {
+                            Id = 815,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060499999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 59838,
+                            Liters = 40.030000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 33.240000000000002
+                        },
+                        new
+                        {
+                            Id = 816,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.071099999999999997,
+                            FuelCardId = 18,
+                            Kilometers = 169764,
+                            Liters = 46.979999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 39.009999999999998
+                        },
+                        new
+                        {
+                            Id = 817,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080399999999999902,
+                            FuelCardId = 10,
+                            Kilometers = 59471,
+                            Liters = 63.359999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 53.880000000000003
+                        },
+                        new
+                        {
+                            Id = 818,
+                            CityId = 1105,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0785,
+                            FuelCardId = 9,
+                            Kilometers = 50522,
+                            Liters = 51.939999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.130000000000003
+                        },
+                        new
+                        {
+                            Id = 819,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.077799999999999994,
+                            FuelCardId = 27,
+                            Kilometers = 720,
+                            Liters = 51.409999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 42.689999999999998
+                        },
+                        new
+                        {
+                            Id = 820,
+                            CityId = 1106,
+                            Date = new DateTime(2015, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.066500000000000004,
+                            FuelCardId = 17,
+                            Kilometers = 49441,
+                            Liters = 44.0,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 35.880000000000003
+                        },
+                        new
+                        {
+                            Id = 821,
+                            CityId = 1038,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.090899999999999995,
+                            FuelCardId = 22,
+                            Kilometers = 11480,
+                            Liters = 71.569999999999993,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 58.380000000000003
+                        },
+                        new
+                        {
+                            Id = 822,
+                            CityId = 232,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.1011,
+                            FuelCardId = 17,
+                            Kilometers = 149579,
+                            Liters = 66.849999999999994,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 53.189999999999998
+                        },
+                        new
+                        {
+                            Id = 823,
+                            CityId = 164,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.088699999999999904,
+                            FuelCardId = 8,
+                            Kilometers = 32495,
+                            Liters = 58.619999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 46.640000000000001
+                        },
+                        new
+                        {
+                            Id = 824,
+                            CityId = 1101,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080000000000000002,
+                            FuelCardId = 7,
+                            Kilometers = 122379,
+                            Liters = 52.880000000000003,
+                            Price = 1.173001,
+                            TotalPrice = 44.649999999999999
+                        },
+                        new
+                        {
+                            Id = 825,
+                            CityId = 985,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0557,
+                            FuelCardId = 19,
+                            Kilometers = 102899,
+                            Liters = 36.780000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 30.539999999999999
+                        },
+                        new
+                        {
+                            Id = 826,
+                            CityId = 351,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.071199999999999999,
+                            FuelCardId = 21,
+                            Kilometers = 17470,
+                            Liters = 47.0,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 39.020000000000003
+                        },
+                        new
+                        {
+                            Id = 827,
+                            CityId = 1074,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.095600000000000004,
+                            FuelCardId = 9,
+                            Kilometers = 49145,
+                            Liters = 63.159999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 52.439999999999998
+                        },
+                        new
+                        {
+                            Id = 828,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.049700000000000098,
+                            FuelCardId = 16,
+                            Kilometers = 98955,
+                            Liters = 32.850000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 26.789999999999999
+                        },
+                        new
+                        {
+                            Id = 829,
+                            CityId = 891,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.1002,
+                            FuelCardId = 17,
+                            Kilometers = 1002,
+                            Liters = 66.239999999999995,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 52.700000000000003
+                        },
+                        new
+                        {
+                            Id = 830,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.099499999999999894,
+                            FuelCardId = 14,
+                            Kilometers = 114996,
+                            Liters = 65.769999999999996,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 52.329999999999998
+                        },
+                        new
+                        {
+                            Id = 831,
+                            CityId = 583,
+                            Date = new DateTime(2015, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.083400000000000002,
+                            FuelCardId = 20,
+                            Kilometers = 125148,
+                            Liters = 65.579999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 53.490000000000002
+                        },
+                        new
+                        {
+                            Id = 832,
+                            CityId = 224,
+                            Date = new DateTime(2015, 12, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.053800000000000001,
+                            FuelCardId = 11,
+                            Kilometers = 172256,
+                            Liters = 35.520000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 28.260000000000002
+                        },
+                        new
+                        {
+                            Id = 833,
+                            CityId = 996,
+                            Date = new DateTime(2015, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.078499999999999903,
+                            FuelCardId = 25,
+                            Kilometers = 3131,
+                            Liters = 51.950000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 41.340000000000003
+                        },
+                        new
+                        {
+                            Id = 834,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.075800000000000006,
+                            FuelCardId = 11,
+                            Kilometers = 169994,
+                            Liters = 50.090000000000003,
+                            Price = 1.173001,
+                            TotalPrice = 42.299999999999997
+                        },
+                        new
+                        {
+                            Id = 835,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0395,
+                            FuelCardId = 15,
+                            Kilometers = 869,
+                            Liters = 26.109999999999999,
+                            Price = 1.173001,
+                            TotalPrice = 22.050000000000001
+                        },
+                        new
+                        {
+                            Id = 836,
+                            CityId = 1038,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.089599999999999902,
+                            FuelCardId = 22,
+                            Kilometers = 9151,
+                            Liters = 70.590000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 60.030000000000001
+                        },
+                        new
+                        {
+                            Id = 837,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.067799999999999999,
+                            FuelCardId = 16,
+                            Kilometers = 98430,
+                            Liters = 44.799999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 37.200000000000003
+                        },
+                        new
+                        {
+                            Id = 838,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.055800000000000002,
+                            FuelCardId = 15,
+                            Kilometers = 1472,
+                            Liters = 36.890000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 30.629999999999999
+                        },
+                        new
+                        {
+                            Id = 839,
+                            CityId = 271,
+                            Date = new DateTime(2015, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.094799999999999995,
+                            FuelCardId = 17,
+                            Kilometers = 32,
+                            Liters = 62.719999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 52.079999999999998
+                        },
+                        new
+                        {
+                            Id = 840,
+                            CityId = 1085,
+                            Date = new DateTime(2015, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0746,
+                            FuelCardId = 11,
+                            Kilometers = 79040,
+                            Liters = 49.32,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 40.219999999999999
+                        },
+                        new
+                        {
+                            Id = 841,
+                            CityId = 1038,
+                            Date = new DateTime(2015, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.084099999999999994,
+                            FuelCardId = 22,
+                            Kilometers = 10291,
+                            Liters = 66.150000000000006,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 55.259999999999998
+                        },
+                        new
+                        {
+                            Id = 842,
+                            CityId = 652,
+                            Date = new DateTime(2015, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076100000000000001,
+                            FuelCardId = 16,
+                            Kilometers = 735,
+                            Liters = 50.310000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 40.030000000000001
+                        },
+                        new
+                        {
+                            Id = 843,
+                            CityId = 271,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.054399999999999997,
+                            FuelCardId = 11,
+                            Kilometers = 43214,
+                            Liters = 35.93,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 28.59
+                        },
+                        new
+                        {
+                            Id = 844,
+                            CityId = 1081,
+                            Date = new DateTime(2015, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0969,
+                            FuelCardId = 18,
+                            Kilometers = 96174,
+                            Liters = 64.090000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.0
+                        },
+                        new
+                        {
+                            Id = 845,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074700000000000003,
+                            FuelCardId = 15,
+                            Kilometers = 3967,
+                            Liters = 49.380000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.289999999999999
+                        },
+                        new
+                        {
+                            Id = 846,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076600000000000001,
+                            FuelCardId = 17,
+                            Kilometers = 50256,
+                            Liters = 50.600000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 40.259999999999998
+                        },
+                        new
+                        {
+                            Id = 847,
+                            CityId = 1061,
+                            Date = new DateTime(2015, 12, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.096099999999999894,
+                            FuelCardId = 21,
+                            Kilometers = 108386,
+                            Liters = 63.509999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 50.530000000000001
+                        },
+                        new
+                        {
+                            Id = 848,
+                            CityId = 1095,
+                            Date = new DateTime(2015, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074899999999999897,
+                            FuelCardId = 11,
+                            Kilometers = 96979,
+                            Liters = 49.539999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.420000000000002
+                        },
+                        new
+                        {
+                            Id = 849,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.096099999999999894,
+                            FuelCardId = 21,
+                            Kilometers = 106153,
+                            Liters = 63.5,
+                            Price = 1.173001,
+                            TotalPrice = 53.619999999999997
+                        },
+                        new
+                        {
+                            Id = 850,
+                            CityId = 164,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.083400000000000002,
+                            FuelCardId = 8,
+                            Kilometers = 28207,
+                            Liters = 55.140000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 46.560000000000002
+                        },
+                        new
+                        {
+                            Id = 851,
+                            CityId = 605,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.085000000000000103,
+                            FuelCardId = 27,
+                            Kilometers = 126419,
+                            Liters = 56.240000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 46.700000000000003
+                        },
+                        new
+                        {
+                            Id = 852,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.079000000000000098,
+                            FuelCardId = 10,
+                            Kilometers = 147559,
+                            Liters = 52.200000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.340000000000003
+                        },
+                        new
+                        {
+                            Id = 853,
+                            CityId = 1095,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.067099999999999896,
+                            FuelCardId = 11,
+                            Kilometers = 95045,
+                            Liters = 44.350000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 36.829999999999998
+                        },
+                        new
+                        {
+                            Id = 854,
+                            CityId = 606,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.034099999999999998,
+                            FuelCardId = 22,
+                            Kilometers = 103881,
+                            Liters = 22.440000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 18.289999999999999
+                        },
+                        new
+                        {
+                            Id = 855,
+                            CityId = 351,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0691999999999999,
+                            FuelCardId = 21,
+                            Kilometers = 18154,
+                            Liters = 45.740000000000002,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 37.299999999999997
+                        },
+                        new
+                        {
+                            Id = 856,
+                            CityId = 606,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.078600000000000003,
+                            FuelCardId = 19,
+                            Kilometers = 160451,
+                            Liters = 51.990000000000002,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 42.399999999999999
+                        },
+                        new
+                        {
+                            Id = 857,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.073899999999999993,
+                            FuelCardId = 10,
+                            Kilometers = 29114,
+                            Liters = 48.869999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 38.880000000000003
+                        },
+                        new
+                        {
+                            Id = 858,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.045699999999999998,
+                            FuelCardId = 15,
+                            Kilometers = 60282,
+                            Liters = 30.260000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 24.079999999999998
+                        },
+                        new
+                        {
+                            Id = 859,
+                            CityId = 645,
+                            Date = new DateTime(2015, 12, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.043099999999999999,
+                            FuelCardId = 14,
+                            Kilometers = 0,
+                            Liters = 28.469999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 22.649999999999999
+                        },
+                        new
+                        {
+                            Id = 860,
+                            CityId = 340,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 9.9999999999980096E-05,
+                            FuelCardId = 14,
+                            Kilometers = 158130,
+                            Liters = 51.060000000000002,
+                            Price = 1.0429999999999999,
+                            TotalPrice = 44.009999999999998
+                        },
+                        new
+                        {
+                            Id = 861,
+                            CityId = 583,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035999999999999997,
+                            FuelCardId = 20,
+                            Kilometers = 123632,
+                            Liters = 28.239999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 24.010000000000002
+                        },
+                        new
+                        {
+                            Id = 862,
+                            CityId = 891,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.064799999999999996,
+                            FuelCardId = 17,
+                            Kilometers = 189838,
+                            Liters = 42.850000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 35.579999999999998
+                        },
+                        new
+                        {
+                            Id = 863,
+                            CityId = 1099,
+                            Date = new DateTime(2015, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.067699999999999996,
+                            FuelCardId = 20,
+                            Kilometers = 29437,
+                            Liters = 44.770000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 36.509999999999998
+                        },
+                        new
+                        {
+                            Id = 864,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.060699999999999997,
+                            FuelCardId = 14,
+                            Kilometers = 160196,
+                            Liters = 47.780000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 39.920000000000002
+                        },
+                        new
+                        {
+                            Id = 865,
+                            CityId = 164,
+                            Date = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.077100000000000002,
+                            FuelCardId = 8,
+                            Kilometers = 29875,
+                            Liters = 50.939999999999998,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 41.539999999999999
+                        },
+                        new
+                        {
+                            Id = 866,
+                            CityId = 1081,
+                            Date = new DateTime(2015, 12, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.094399999999999998,
+                            FuelCardId = 9,
+                            Kilometers = 50144,
+                            Liters = 62.390000000000001,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 50.880000000000003
+                        },
+                        new
+                        {
+                            Id = 867,
+                            CityId = 1097,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0843,
+                            FuelCardId = 20,
+                            Kilometers = 23146,
+                            Liters = 55.659999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 44.280000000000001
+                        },
+                        new
+                        {
+                            Id = 868,
+                            CityId = 642,
+                            Date = new DateTime(2015, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080199999999999994,
+                            FuelCardId = 11,
+                            Kilometers = 35564,
+                            Liters = 63.100000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.460000000000001
+                        },
+                        new
+                        {
+                            Id = 869,
+                            CityId = 606,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.035200000000000002,
+                            FuelCardId = 22,
+                            Kilometers = 104277,
+                            Liters = 23.370000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 18.600000000000001
+                        },
+                        new
+                        {
+                            Id = 870,
+                            CityId = 886,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080199999999999994,
+                            FuelCardId = 8,
+                            Kilometers = 193391,
+                            Liters = 53.030000000000001,
+                            Price = 1.173001,
+                            TotalPrice = 44.780000000000001
+                        },
+                        new
+                        {
+                            Id = 871,
+                            CityId = 645,
+                            Date = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.098500000000000101,
+                            FuelCardId = 14,
+                            Kilometers = 71000,
+                            Liters = 65.150000000000006,
+                            Price = 1.173001,
+                            TotalPrice = 55.020000000000003
+                        },
+                        new
+                        {
+                            Id = 872,
+                            CityId = 77,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.052299999999999999,
+                            FuelCardId = 27,
+                            Kilometers = 90375,
+                            Liters = 41.170000000000002,
+                            Price = 1.173001,
+                            TotalPrice = 35.590000000000003
+                        },
+                        new
+                        {
+                            Id = 873,
+                            CityId = 642,
+                            Date = new DateTime(2015, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080299999999999996,
+                            FuelCardId = 11,
+                            Kilometers = 33581,
+                            Liters = 63.259999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 53.799999999999997
+                        },
+                        new
+                        {
+                            Id = 874,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.070800000000000002,
+                            FuelCardId = 23,
+                            Kilometers = 113841,
+                            Liters = 46.780000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 38.840000000000003
+                        },
+                        new
+                        {
+                            Id = 875,
+                            CityId = 1086,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0516,
+                            FuelCardId = 21,
+                            Kilometers = 4276,
+                            Liters = 34.170000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 28.379999999999999
+                        },
+                        new
+                        {
+                            Id = 876,
+                            CityId = 1094,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076699999999999893,
+                            FuelCardId = 13,
+                            Kilometers = 107669,
+                            Liters = 50.740000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 42.140000000000001
+                        },
+                        new
+                        {
+                            Id = 877,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.076299999999999896,
+                            FuelCardId = 18,
+                            Kilometers = 170508,
+                            Liters = 50.43,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 41.880000000000003
+                        },
+                        new
+                        {
+                            Id = 878,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.058299999999999998,
+                            FuelCardId = 10,
+                            Kilometers = 28334,
+                            Liters = 38.450000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 31.350000000000001
+                        },
+                        new
+                        {
+                            Id = 879,
+                            CityId = 1081,
+                            Date = new DateTime(2015, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.082100000000000006,
+                            FuelCardId = 18,
+                            Kilometers = 45100,
+                            Liters = 54.200000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 44.189999999999998
+                        },
+                        new
+                        {
+                            Id = 880,
+                            CityId = 1086,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0975000000000001,
+                            FuelCardId = 20,
+                            Kilometers = 44599,
+                            Liters = 64.439999999999998,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.270000000000003
+                        },
+                        new
+                        {
+                            Id = 881,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.094700000000000006,
+                            FuelCardId = 18,
+                            Kilometers = 100103,
+                            Liters = 62.640000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 49.840000000000003
+                        },
+                        new
+                        {
+                            Id = 882,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.085800000000000001,
+                            FuelCardId = 10,
+                            Kilometers = 60677,
+                            Liters = 67.519999999999996,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 55.07
+                        },
+                        new
+                        {
+                            Id = 883,
+                            CityId = 1100,
+                            Date = new DateTime(2015, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.086300000000000002,
+                            FuelCardId = 8,
+                            Kilometers = 40862,
+                            Liters = 57.130000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 45.460000000000001
+                        },
+                        new
+                        {
+                            Id = 884,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.098300000000000096,
+                            FuelCardId = 20,
+                            Kilometers = 45567,
+                            Liters = 65.040000000000006,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 51.75
+                        },
+                        new
+                        {
+                            Id = 885,
+                            CityId = 1105,
+                            Date = new DateTime(2015, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.069199999999999998,
+                            FuelCardId = 9,
+                            Kilometers = 52333,
+                            Liters = 45.740000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 36.390000000000001
+                        },
+                        new
+                        {
+                            Id = 886,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.051200000000000002,
+                            FuelCardId = 13,
+                            Kilometers = 150756,
+                            Liters = 40.380000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 32.939999999999998
+                        },
+                        new
+                        {
+                            Id = 887,
+                            CityId = 1092,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.078799999999999995,
+                            FuelCardId = 19,
+                            Kilometers = 59019,
+                            Liters = 52.109999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.270000000000003
+                        },
+                        new
+                        {
+                            Id = 888,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.037900000000000003,
+                            FuelCardId = 9,
+                            Kilometers = 18980,
+                            Liters = 29.789999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 25.329999999999998
+                        },
+                        new
+                        {
+                            Id = 889,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.090499999999999997,
+                            FuelCardId = 22,
+                            Kilometers = 66350,
+                            Liters = 59.780000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 49.640000000000001
+                        },
+                        new
+                        {
+                            Id = 890,
+                            CityId = 1102,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.085800000000000001,
+                            FuelCardId = 18,
+                            Kilometers = 99038,
+                            Liters = 56.759999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 47.130000000000003
+                        },
+                        new
+                        {
+                            Id = 891,
+                            CityId = 1086,
+                            Date = new DateTime(2015, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.083799999999999999,
+                            FuelCardId = 25,
+                            Kilometers = 116300,
+                            Liters = 55.409999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 46.009999999999998
+                        },
+                        new
+                        {
+                            Id = 892,
+                            CityId = 983,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.089299999999999893,
+                            FuelCardId = 10,
+                            Kilometers = 47838,
+                            Liters = 59.030000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 49.020000000000003
+                        },
+                        new
+                        {
+                            Id = 893,
+                            CityId = 1094,
+                            Date = new DateTime(2015, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.074800000000000005,
+                            FuelCardId = 23,
+                            Kilometers = 50485,
+                            Liters = 49.43,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 41.039999999999999
+                        },
+                        new
+                        {
+                            Id = 894,
+                            CityId = 1104,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.085200000000000095,
+                            FuelCardId = 23,
+                            Kilometers = 78284,
+                            Liters = 67.079999999999998,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 56.049999999999997
+                        },
+                        new
+                        {
+                            Id = 895,
+                            CityId = 1094,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.081299999999999997,
+                            FuelCardId = 27,
+                            Kilometers = 1607,
+                            Liters = 53.729999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.75
+                        },
+                        new
+                        {
+                            Id = 896,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.081999999999999906,
+                            FuelCardId = 16,
+                            Kilometers = 10,
+                            Liters = 54.259999999999998,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 45.060000000000002
+                        },
+                        new
+                        {
+                            Id = 897,
+                            CityId = 605,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.079899999999999999,
+                            FuelCardId = 27,
+                            Kilometers = 127285,
+                            Liters = 52.770000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 43.810000000000002
+                        },
+                        new
+                        {
+                            Id = 898,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.078899999999999998,
+                            FuelCardId = 8,
+                            Kilometers = 93624,
+                            Liters = 52.119999999999997,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 42.5
+                        },
+                        new
+                        {
+                            Id = 899,
+                            CityId = 1085,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.075499999999999998,
+                            FuelCardId = 18,
+                            Kilometers = 171209,
+                            Liters = 49.920000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.719999999999999
+                        },
+                        new
+                        {
+                            Id = 900,
+                            CityId = 1040,
+                            Date = new DateTime(2015, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.075999999999999998,
+                            FuelCardId = 10,
+                            Kilometers = 127235,
+                            Liters = 50.219999999999999,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 39.960000000000001
+                        },
+                        new
+                        {
+                            Id = 901,
+                            CityId = 1088,
+                            Date = new DateTime(2015, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.044199999999999899,
+                            FuelCardId = 20,
+                            Kilometers = 78830,
+                            Liters = 29.190000000000001,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 23.219999999999999
+                        },
+                        new
+                        {
+                            Id = 902,
+                            CityId = 1099,
+                            Date = new DateTime(2015, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0246,
+                            FuelCardId = 20,
+                            Kilometers = 26728,
+                            Liters = 16.23,
+                            Price = 1.173001,
+                            TotalPrice = 13.699999999999999
+                        },
+                        new
+                        {
+                            Id = 903,
+                            CityId = 950,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0906,
+                            FuelCardId = 8,
+                            Kilometers = 92774,
+                            Liters = 59.909999999999997,
+                            Price = 1.173001,
+                            TotalPrice = 50.590000000000003
+                        },
+                        new
+                        {
+                            Id = 904,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.067099999999999896,
+                            FuelCardId = 23,
+                            Kilometers = 42166,
+                            Liters = 44.280000000000001,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 36.759999999999998
+                        },
+                        new
+                        {
+                            Id = 905,
+                            CityId = 1099,
+                            Date = new DateTime(2015, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.069900000000000004,
+                            FuelCardId = 18,
+                            Kilometers = 117832,
+                            Liters = 46.219999999999999,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 38.380000000000003
+                        },
+                        new
+                        {
+                            Id = 906,
+                            CityId = 1055,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.064399999999999999,
+                            FuelCardId = 8,
+                            Kilometers = 753,
+                            Liters = 42.549999999999997,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 35.329999999999998
+                        },
+                        new
+                        {
+                            Id = 907,
+                            CityId = 606,
+                            Date = new DateTime(2015, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.0608,
+                            FuelCardId = 22,
+                            Kilometers = 103072,
+                            Liters = 40.200000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 33.380000000000003
+                        },
+                        new
+                        {
+                            Id = 908,
+                            CityId = 597,
+                            Date = new DateTime(2015, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.069199999999999998,
+                            FuelCardId = 8,
+                            Kilometers = 1346,
+                            Liters = 45.770000000000003,
+                            Price = 1.1379999999999999,
+                            TotalPrice = 37.329999999999998
+                        },
+                        new
+                        {
+                            Id = 909,
+                            CityId = 1081,
+                            Date = new DateTime(2015, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.072300000000000003,
+                            FuelCardId = 24,
+                            Kilometers = 1349,
+                            Liters = 47.799999999999997,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 38.030000000000001
+                        },
+                        new
+                        {
+                            Id = 910,
+                            CityId = 187,
+                            Date = new DateTime(2015, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.093200000000000005,
+                            FuelCardId = 10,
+                            Kilometers = 123632,
+                            Liters = 61.560000000000002,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 48.979999999999997
+                        },
+                        new
+                        {
+                            Id = 911,
+                            CityId = 1105,
+                            Date = new DateTime(2015, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.080000000000000002,
+                            FuelCardId = 26,
+                            Kilometers = 122758,
+                            Liters = 52.880000000000003,
+                            Price = 1.1140000000000001,
+                            TotalPrice = 42.07
+                        },
+                        new
+                        {
+                            Id = 912,
+                            CityId = 153,
+                            Date = new DateTime(2015, 12, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.065500000000000003,
+                            FuelCardId = 11,
+                            Kilometers = 94579,
+                            Liters = 43.32,
+                            Price = 1.173001,
+                            TotalPrice = 36.579999999999998
+                        },
+                        new
+                        {
+                            Id = 913,
+                            CityId = 9,
+                            Date = new DateTime(2015, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.084399999999999906,
+                            FuelCardId = 13,
+                            Kilometers = 100900,
+                            Liters = 55.840000000000003,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 46.369999999999997
+                        },
+                        new
+                        {
+                            Id = 914,
+                            CityId = 1097,
+                            Date = new DateTime(2015, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0.077900000000000094,
+                            FuelCardId = 20,
+                            Kilometers = 22246,
+                            Liters = 51.490000000000002,
+                            Price = 1.1559999999999999,
+                            TotalPrice = 42.75
+                        });
+                });
+
             modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>
                 {
                     b.Property<int>("Id")
@@ -11433,6 +29965,15 @@ namespace eMenka.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("eMenka.Domain.Classes.City", b =>
+                {
+                    b.HasOne("eMenka.Domain.Classes.Country", "Country")
+                        .WithMany("Cities")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("eMenka.Domain.Classes.Corporation", b =>
                 {
                     b.HasOne("eMenka.Domain.Classes.Company", "Company")
@@ -11513,6 +30054,21 @@ namespace eMenka.Data.Migrations
                         .WithOne("Record")
                         .HasForeignKey("eMenka.Domain.Classes.Record", "FuelCardId")
                         .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("eMenka.Domain.Classes.Refill", b =>
+                {
+                    b.HasOne("eMenka.Domain.Classes.City", "City")
+                        .WithMany("Refills")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eMenka.Domain.Classes.FuelCard", "FuelCard")
+                        .WithMany("Refills")
+                        .HasForeignKey("FuelCardId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("eMenka.Domain.Classes.Series", b =>

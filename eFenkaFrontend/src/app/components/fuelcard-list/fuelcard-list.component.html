@@ -15,6 +15,7 @@
 </div>
 <div class="table-responsive">
   <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <caption>Lijst van alle tankkaarten</caption>
     <thead>
       <tr>
         <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="fuelCards" [sortBy]="headElements[i]" scope="col">
@@ -35,8 +36,3 @@
     </tbody>
   </table>
 </div>
-<!-- <pagination-controls class="pagination col-md-3" previousLabel="Prev" nextLabel="Next" responsive="true"
-                      (pageChange)="switchPage($event)"></pagination-controls>
-<select [(ngModel)]="selectedAmount" class="custom-select col-md-2">
-  <option *ngFor="let pageAmount of pageAmounts" [value]="pageAmount">{{pageAmount}} items per page</option>
-</select> -->

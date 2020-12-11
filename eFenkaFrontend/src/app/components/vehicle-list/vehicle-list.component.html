@@ -15,6 +15,7 @@
 </div>
 <div class="table-responsive">
   <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <caption>Lijst van alle voertuigen</caption>
     <thead class="sticky-top">
     <tr>
       <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="vehicles" [sortBy]="headElements[i]" scope="col">
@@ -45,12 +46,5 @@
         <td>{{vehicle.endDateDelivery| date:'dd/MM/yyyy'}}</td>
       </tr>
     </tbody>
-    <!-- <tfoot class="grey lighten-5 w-100">
-    <tr>
-      <td colspan="10">
-        <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="vehicles"></mdb-table-pagination>
-      </td>
-    </tr>
-    </tfoot> -->
   </table>
 </div>

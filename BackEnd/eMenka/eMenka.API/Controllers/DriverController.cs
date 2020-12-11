@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using eMenka.API.Mappers.FuelCardMappers;
+﻿using System;
+using System.Linq;
+using AutoMapper;
 using eMenka.API.Models.FuelCardModels;
 using eMenka.API.Models.FuelCardModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -13,28 +14,35 @@ namespace eMenka.API.Controllers
     {
         private readonly IPersonRepository _personRepository;
         private readonly IDriverRepository _driverRepository;
-        private readonly DriverMapper _driverMapper;
+        private readonly IMapper _mapper;
 
-        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository) : base(
-            driverRepository, new DriverMapper())
+        public DriverController(IDriverRepository driverRepository, IPersonRepository personRepository, IMapper mapper) : base(
+            driverRepository, mapper)
         {
             _personRepository = personRepository;
             _driverRepository = driverRepository;
-            _driverMapper = new DriverMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("available")]
         public IActionResult GetAllAvailableDrivers()
         {
-            var entities = _driverRepository.GetAllAvailableDrivers();
-            var models = entities.Select(driver=>_driverMapper.MapEntityToReturnModel(driver));
-            return Ok(models);
+            var drivers = _driverRepository.GetAllAvailableDrivers();
+            return Ok(drivers.Select(_mapper.Map<DriverReturnModel>).ToList());
+        }
+
+        [HttpGet("enddate/{range}")]
+        public IActionResult GetDriverByEndDate(int range)
+        {
+            var drivers = _driverRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
+
+            return Ok(drivers.Select(_mapper.Map<DriverReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(DriverModel model)
         {
             if (_personRepository.GetById((int)model.PersonId) == null)
-                return NotFound($"Person with id {model.PersonId} not found");
+                return NotFound($"Persoon met id {model.PersonId} niet gevonden");
 
             return base.PostEntity(model);
         }
@@ -42,7 +50,7 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(DriverModel model, int id)
         {
             if (_personRepository.GetById((int)model.PersonId) == null)
-                return NotFound($"Person with id {model.PersonId} not found");
+                return NotFound($"Persoon met id {model.PersonId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }

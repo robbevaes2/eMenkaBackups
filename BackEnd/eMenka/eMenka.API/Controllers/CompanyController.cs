@@ -1,4 +1,4 @@
-﻿using eMenka.API.Mappers.RecordMappers;
+﻿using AutoMapper;
 using eMenka.API.Models.RecordModels;
 using eMenka.API.Models.RecordModels.ReturnModels;
 using eMenka.Data.IRepositories;
@@ -10,7 +10,7 @@ namespace eMenka.API.Controllers
     [Route("api/[controller]")]
     public class CompanyController : GenericController<Company, CompanyModel, CompanyReturnModel>
     {
-        public CompanyController(ICompanyRepository companyRepository) : base(companyRepository, new CompanyMapper())
+        public CompanyController(ICompanyRepository companyRepository, IMapper mapper) : base(companyRepository, mapper)
         {
         }
     }

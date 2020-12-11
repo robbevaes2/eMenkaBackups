@@ -7,7 +7,7 @@ import {Driver} from '../../models/driver/driver';
 import {Company} from '../../models/company/company';
 import {ApiService} from '../../services/api.service';
 import {DatePipe} from '@angular/common';
-import { fromToDate } from 'src/app/services/from-to-date.validator';
+import {fromToDate} from 'src/app/services/from-to-date.validator';
 
 @Component({
   selector: 'app-fuelcard-details',
@@ -22,9 +22,6 @@ export class FuelcardDetailsComponent implements OnInit {
   startDate: Date;
   endDate: Date;
   isBlocked: boolean;
-  blockingReason: string;
-  blockingDate: Date;
-  isActive: boolean;
   isEditable: boolean;
   selectedFuelCard: FuelCard;
 
@@ -39,8 +36,9 @@ export class FuelcardDetailsComponent implements OnInit {
     this.apiService.getFuelCardById(fuelCardId).subscribe(fc => {
       this.selectedFuelCard = fc;
       this.isBlocked = this.selectedFuelCard.isBlocked;
-      this.apiService.getAllDrivers().subscribe(drivers => {
+      this.apiService.getAllAvailableDrivers().subscribe(drivers => {
         this.drivers = drivers;
+        this.drivers.push(this.selectedFuelCard.driver);
         this.apiService.getAllCompanies().subscribe(companies => {
           this.companies = companies;
           this.fillForm();
@@ -48,9 +46,6 @@ export class FuelcardDetailsComponent implements OnInit {
         });
       });
     });
-
-
-    // this.setAllDropDownsByBrand(this.selectedVehicle.brand.id);
 
     this.form = new FormGroup({
       licensePlate: new FormControl(null, [Validators.required]),
@@ -90,15 +85,11 @@ export class FuelcardDetailsComponent implements OnInit {
     }
   }
 
-  /*
-
-    deleteFuelCard(): void {
-      if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
-        this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
-      }
+  deleteFuelCard(): void {
+    if (confirm('Bent u zeker dat u deze tankkaart wil verwijderen?')) {
+      this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => this.navigateToListComponent());
     }
-
-   */
+  }
 
   cancel(): void {
     this.fillForm();
@@ -172,11 +163,5 @@ export class FuelcardDetailsComponent implements OnInit {
 
   changeBlocked(): void {
     this.isBlocked = !this.isBlocked;
-  }
-
-  deleteFuelCard(): any {
-    this.apiService.deleteFuelCard(this.selectedFuelCard.id).subscribe(() => {
-      this.navigateToListComponent();
-    });
   }
 }

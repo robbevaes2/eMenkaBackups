@@ -1,10 +1,10 @@
-using eMenka.API.Mappers.VehicleMappers;
 using eMenka.API.Models.VehicleModels;
 using eMenka.API.Models.VehicleModels.ReturnModels;
 using eMenka.Data.IRepositories;
 using eMenka.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using AutoMapper;
 
 namespace eMenka.API.Controllers
 {
@@ -13,25 +13,25 @@ namespace eMenka.API.Controllers
     {
         private readonly IBrandRepository _brandRepository;
         private readonly ISerieRepository _serieRepository;
-        private readonly SerieMapper _serieMapper;
+        private readonly IMapper _mapper;
 
-        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository) : base(
-            serieRepository, new SerieMapper())
+        public SerieController(ISerieRepository serieRepository, IBrandRepository brandRepository, IMapper mapper) : base(
+            serieRepository, mapper)
         {
             _serieRepository = serieRepository;
             _brandRepository = brandRepository;
-            _serieMapper = new SerieMapper();
+            _mapper = mapper;
         }
 
         [HttpGet("brand/{brandId}")]
         public IActionResult GetSeriesByBrandId(int brandId)
         {
             if (_brandRepository.GetById(brandId) == null)
-                return NotFound($"No brand with id {brandId}");
+                return NotFound($"Merk met id {brandId} niet gevonden");
 
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
 
-            return Ok(series.Select(_serieMapper.MapEntityToReturnModel).ToList());
+            return Ok(series.Select(_mapper.Map<SerieReturnModel>).ToList());
         }
 
         [HttpGet("name/{serieName}")]
@@ -39,13 +39,13 @@ namespace eMenka.API.Controllers
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);
 
-            return Ok(series.Select(_serieMapper.MapEntityToReturnModel).ToList());
+            return Ok(series.Select(_mapper.Map<SerieReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(SerieModel model)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             return base.PostEntity(model);
         }
@@ -53,7 +53,7 @@ namespace eMenka.API.Controllers
         public override IActionResult UpdateEntity(SerieModel model, int id)
         {
             if (_brandRepository.GetById((int)model.BrandId) == null)
-                return NotFound($"No brand with id {model.BrandId}");
+                return NotFound($"Merk met id {model.BrandId} niet gevonden");
 
             return base.UpdateEntity(model, id);
         }

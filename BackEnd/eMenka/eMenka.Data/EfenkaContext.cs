@@ -1,10 +1,8 @@
 ﻿using eMenka.Domain.Classes;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
 using eMenka.Domain.Enums;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace eMenka.Data
 {
@@ -56,9 +54,50 @@ namespace eMenka.Data
 
             #endregion
 
-            #region Relations
+            #region OneToOne
+            //Vehicles - FuelCard
+            modelBuilder.Entity<Vehicle>()
+                .HasOne(v => v.FuelCard)
+                .WithOne(fc => fc.Vehicle)
+                .HasForeignKey<FuelCard>(fc => fc.VehicleId)
+                .OnDelete(DeleteBehavior.SetNull);
 
-            /********************** One To Many *************************/
+            modelBuilder.Entity<FuelCard>()
+                .HasOne(fc => fc.Vehicle)
+                .WithOne(v => v.FuelCard)
+                .HasForeignKey<Vehicle>(v => v.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //Driver - FuelCard
+            modelBuilder.Entity<FuelCard>()
+                .HasOne(fc => fc.Driver)
+                .WithOne(d => d.FuelCard)
+                .HasForeignKey<Driver>(d => d.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Driver>()
+                .HasOne(d => d.FuelCard)
+                .WithOne(fc => fc.Driver)
+                .HasForeignKey<FuelCard>(fc => fc.DriverId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //Record - FuelCard
+            modelBuilder.Entity<Record>()
+                .HasOne(r => r.FuelCard)
+                .WithOne(fc => fc.Record)
+                .HasForeignKey<FuelCard>(fc => fc.RecordId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+
+            modelBuilder.Entity<FuelCard>()
+                .HasOne(fc => fc.Record)
+                .WithOne(r => r.FuelCard)
+                .HasForeignKey<Record>(r => r.FuelCardId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            #endregion
+
+            #region OneToMany
             //1 brand -> x EngineTypes
             modelBuilder.Entity<Brand>()
                 .HasMany(b => b.EngineTypes)
@@ -107,88 +146,55 @@ namespace eMenka.Data
                 .WithOne(v => v.FuelType)
                 .HasForeignKey(v => v.FuelTypeId);
 
-            //1 Vehicles - x ExteriorColor
+            //1 ExteriorColor - x Vehicles
             modelBuilder.Entity<Vehicle>()
                 .HasOne(v => v.ExteriorColor)
                 .WithMany(ec => ec.Vehicles)
                 .HasForeignKey(v => v.ExteriorColorId);
 
 
-            //1 Vehicles - x InteriorColor
+            //1 InteriorColor - x Vehicles
             modelBuilder.Entity<Vehicle>()
                 .HasOne(v => v.InteriorColor)
                 .WithMany(ic => ic.Vehicles)
                 .HasForeignKey(v => v.InteriorColorId);
 
-            /***********************************************************/
+            //1 FuelCard - x Refills
+            modelBuilder.Entity<Refill>()
+                .HasOne(f => f.FuelCard)
+                .WithMany(f => f.Refills)
+                .HasForeignKey(r => r.FuelCardId);
 
-            /********************** One To One *************************/
-            //Vehicles - FuelCard
-            modelBuilder.Entity<Vehicle>()
-                .HasOne(v => v.FuelCard)
-                .WithOne(fc => fc.Vehicle)
-                .HasForeignKey<FuelCard>(fc => fc.VehicleId)
-                .OnDelete(DeleteBehavior.SetNull); ;
+            //1 City - x Refills
+            modelBuilder.Entity<Refill>()
+                .HasOne(r => r.City)
+                .WithMany(c => c.Refills)
+                .HasForeignKey(r => r.CityId);
 
-            modelBuilder.Entity<FuelCard>()
-                .HasOne(fc => fc.Vehicle)
-                .WithOne(v => v.FuelCard)
-                .HasForeignKey<Vehicle>(v => v.FuelCardId)
-                .OnDelete(DeleteBehavior.SetNull); ;
-
-            //Driver - FuelCard
-            modelBuilder.Entity<FuelCard>()
-                .HasOne(fc => fc.Driver)
-                .WithOne(d => d.FuelCard)
-                .HasForeignKey<Driver>(d => d.FuelCardId)
-                .OnDelete(DeleteBehavior.SetNull); ;
-
-            modelBuilder.Entity<Driver>()
-                .HasOne(d => d.FuelCard)
-                .WithOne(fc => fc.Driver)
-                .HasForeignKey<FuelCard>(fc => fc.DriverId)
-                .OnDelete(DeleteBehavior.SetNull); ;
-
-            //Record - FuelCard
-            modelBuilder.Entity<Record>()
-                .HasOne(r => r.FuelCard)
-                .WithOne(fc => fc.Record)
-                .HasForeignKey<FuelCard>(fc => fc.RecordId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-
-            modelBuilder.Entity<FuelCard>()
-                .HasOne(fc => fc.Record)
-                .WithOne(r => r.FuelCard)
-                .HasForeignKey<Record>(r => r.FuelCardId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-
-            /***********************************************************/
+            //1 Country - x Cities
+            modelBuilder.Entity<City>()
+                .HasOne(c => c.Country)
+                .WithMany(c => c.Cities)
+                .HasForeignKey(c => c.CountryId);
 
             #endregion
-            
+
+            #region config
             modelBuilder.Entity<Person>()
                 .HasIndex(p => p.DriversLicenseNumber)
                 .IsUnique();
 
             DataBaseSeeder.SeedData(modelBuilder);
 
-            //om een string bij te houden in database maar deze te splitsen op ',' bij het ophalen van data (dus string array): 
-            var valueComparer = new ValueComparer<string[]>(
-                (s1, s2) => s1.SequenceEqual(s2),
-                s => s.Aggregate(0, (a, v) => HashCode.Combine(a, v.GetHashCode())),
-                c => c.ToArray());
-
-            var convertor = new EnumToStringConverter<SupplierType>();
-
             modelBuilder.Entity<Supplier>()
                 .Property(s => s.Types)
                 .HasConversion(
                     v => string.Join(",", v.Select(a => a.ToString())),
                     v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                        .Select(a => (SupplierType) Enum.Parse(typeof(SupplierType), a)).ToArray()
-                ); //.Metadata.SetValueComparer(valueComparer);
+                        .Select(a => (SupplierType)Enum.Parse(typeof(SupplierType), a)).ToArray()
+                );
+            #endregion
+
         }
 
         /*

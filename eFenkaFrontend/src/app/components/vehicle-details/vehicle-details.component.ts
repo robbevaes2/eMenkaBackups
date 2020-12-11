@@ -1,5 +1,5 @@
 import { ExteriorColor } from './../../models/exterior-color/exterior-color';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brand } from 'src/app/models/brand/brand';
@@ -88,7 +88,7 @@ export class VehicleDetailsComponent implements OnInit {
   fillForm(): void {
     this.form.controls.brand.setValue(this.selectedVehicle.brand?.id);
     this.form.controls.model.setValue(this.selectedVehicle.model?.id);
-    this.form.controls.serie.setValue(this.selectedVehicle.serie?.id);
+    this.form.controls.serie.setValue(this.selectedVehicle.series?.id);
     this.form.controls.engineType.setValue(this.selectedVehicle.engineType?.id);
     this.form.controls.doorType.setValue(this.selectedVehicle.doorType?.id);
     this.form.controls.fuelType.setValue(this.selectedVehicle.fuelType?.id);

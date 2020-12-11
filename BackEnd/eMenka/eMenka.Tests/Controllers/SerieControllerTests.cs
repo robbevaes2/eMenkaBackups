@@ -9,23 +9,28 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace eMenka.Tests.Controllers
 {
     [TestFixture]
     public class SerieControllerTests
     {
+        private SerieController _sut;
+        private Mock<ISerieRepository> _serieRepositoryMock;
+        private Mock<IBrandRepository> _brandRepositoryMock;
+        private Mock<IMapper> _mapperMock;
+
         [SetUp]
         public void Init()
         {
             _serieRepositoryMock = new Mock<ISerieRepository>();
             _brandRepositoryMock = new Mock<IBrandRepository>();
-            _sut = new SerieController(_serieRepositoryMock.Object, _brandRepositoryMock.Object);
+            _mapperMock = new Mock<IMapper>();
+            _sut = new SerieController(_serieRepositoryMock.Object, _brandRepositoryMock.Object, _mapperMock.Object);
         }
 
-        private SerieController _sut;
-        private Mock<ISerieRepository> _serieRepositoryMock;
-        private Mock<IBrandRepository> _brandRepositoryMock;
+
 
         [Test]
         public void GetAllSeriesReturnsOkAndListOfAllSeriesWhenEverythingIsCorrect()
@@ -51,8 +56,10 @@ namespace eMenka.Tests.Controllers
 
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
+            _mapperMock.Setup(m => m.Map<SerieReturnModel>(It.IsAny<Series>()))
+                .Returns(new SerieReturnModel());
 
-            var result = _sut.GetEntityById(0) as NotFoundResult;
+            var result = _sut.GetEntityById(0) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
             _serieRepositoryMock.Verify(m => m.GetById(It.IsAny<int>()), Times.Once);
@@ -68,7 +75,8 @@ namespace eMenka.Tests.Controllers
 
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(serie);
-
+            _mapperMock.Setup(m => m.Map<SerieReturnModel>(It.IsAny<Series>()))
+                .Returns(new SerieReturnModel());
             var result = _sut.GetEntityById(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -103,7 +111,8 @@ namespace eMenka.Tests.Controllers
                 .Returns(brand);
             _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()))
                 .Returns(series);
-
+            _mapperMock.Setup(m => m.Map<SerieReturnModel>(It.IsAny<Series>()))
+                .Returns(new SerieReturnModel());
             var result = _sut.GetSeriesByBrandId(0) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -122,7 +131,8 @@ namespace eMenka.Tests.Controllers
 
             _serieRepositoryMock.Setup(m => m.Find(It.IsAny<Expression<Func<Series, bool>>>()))
                 .Returns(series);
-
+            _mapperMock.Setup(m => m.Map<SerieReturnModel>(It.IsAny<Series>()))
+                .Returns(new SerieReturnModel());
             var result = _sut.GetSeriesByName("name") as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -190,7 +200,10 @@ namespace eMenka.Tests.Controllers
 
             _brandRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(brand);
-
+            _mapperMock.Setup(m => m.Map<SerieReturnModel>(It.IsAny<Series>()))
+                .Returns(new SerieReturnModel());
+            _mapperMock.Setup(m => m.Map<Series>(It.IsAny<SerieModel>()))
+                .Returns(new Series());
             var result = _sut.PostEntity(validModel) as OkObjectResult;
 
             Assert.That(result, Is.Not.Null);
@@ -325,7 +338,7 @@ namespace eMenka.Tests.Controllers
             _serieRepositoryMock.Setup(m => m.GetById(It.IsAny<int>()))
                 .Returns(series);
 
-            var result = _sut.DeleteEntity(1) as NotFoundResult;
+            var result = _sut.DeleteEntity(1) as NotFoundObjectResult;
 
             Assert.That(result, Is.Not.Null);
 

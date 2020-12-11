@@ -16,6 +16,7 @@
 </div>
 <div class="table-responsive">
   <table mdbTable #tableEl="mdbTable" stickyHeader="true" hover="true" bordered="true">
+    <caption>Lijst van alle bestuurders</caption>
     <thead class="sticky-top">
     <tr>
       <th *ngFor="let head of headNames; let i = index" class="sortable" [mdbTableSort]="drivers" [sortBy]="headElements[i]" scope="col">
@@ -26,16 +27,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let driver of drivers; let i = index" (click)="navigateToDriverDetailsComponent(driver.id)">
-        <!-- <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.brand.name}}</th>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.model.name}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fuelType.name}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.engineType.name}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.doorType.name}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.volume}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.fiscalHP}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.power}}</td>
-        <td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{vehicle.endDateDelivery.toLocaleDateString()}}</td> -->
-        <th >{{driver.person.firstname}}</th>
+        <th scope="row">{{driver.person.firstname}}</th>
         <td >{{driver.person.lastname}}</td>
         <td >{{driver.person.driversLicenseType}}</td>
         <td >{{driver.person.driversLicenseNumber}}</td>
@@ -46,12 +38,5 @@
         </td>
       </tr>
     </tbody>
-    <!-- <tfoot class="grey lighten-5 w-100">
-    <tr>
-      <td colspan="10">
-        <mdb-table-pagination [tableEl]="tableEl" class="pagination" paginationAlign="" [searchDataSource]="vehicles"></mdb-table-pagination>
-      </td>
-    </tr>
-    </tfoot> -->
   </table>
 </div>
