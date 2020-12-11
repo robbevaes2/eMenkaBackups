@@ -35,7 +35,7 @@ namespace eMenka.API.Controllers
         {
             var records = _recordRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(records.Select(r=>_mapper.Map<RecordReturnModel>(r)).ToList());
+            return Ok(records.Select(_mapper.Map<RecordReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(RecordModel model)

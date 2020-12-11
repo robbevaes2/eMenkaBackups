@@ -28,7 +28,7 @@ namespace eMenka.API.Controllers
         public IActionResult GetAllAvailableDrivers()
         {
             var drivers = _driverRepository.GetAllAvailableDrivers();
-            return Ok(drivers.Select(d=>_mapper.Map<DriverReturnModel>(d)).ToList());
+            return Ok(drivers.Select(_mapper.Map<DriverReturnModel>).ToList());
         }
 
         [HttpGet("enddate/{range}")]
@@ -36,7 +36,7 @@ namespace eMenka.API.Controllers
         {
             var drivers = _driverRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(drivers.Select(d=>_mapper.Map<DriverReturnModel>(d)).ToList());
+            return Ok(drivers.Select(_mapper.Map<DriverReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(DriverModel model)

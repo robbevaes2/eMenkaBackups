@@ -26,7 +26,7 @@ namespace eMenka.API.Controllers
         {
             var categories = _categoryRepository.Find(category => category.Name == categoryName);
 
-            return Ok(categories.Select(c=>_mapper.Map<CategoryReturnModel>(c)).ToList());
+            return Ok(categories.Select(_mapper.Map<CategoryReturnModel>).ToList());
         }
     }
 }

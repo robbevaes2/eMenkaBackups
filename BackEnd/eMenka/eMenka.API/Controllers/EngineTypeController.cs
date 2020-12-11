@@ -31,7 +31,7 @@ namespace eMenka.API.Controllers
 
             var engineTypes = _engineTypeRepository.Find(motorType => motorType.Brand.Id == brandId).ToList();
 
-            return Ok(engineTypes.Select(e => _mapper.Map<EngineTypeReturnModel>(e)).ToList());
+            return Ok(engineTypes.Select(_mapper.Map<EngineTypeReturnModel>).ToList());
         }
 
         [HttpGet("{engineTypeName}")]
@@ -39,7 +39,7 @@ namespace eMenka.API.Controllers
         {
             var engineTypes = _engineTypeRepository.Find(engineType => engineType.Name == engineTypeName).ToList();
 
-            return Ok(engineTypes.Select(e => _mapper.Map<EngineTypeReturnModel>(e)).ToList());
+            return Ok(engineTypes.Select(_mapper.Map<EngineTypeReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(EngineTypeModel model)
