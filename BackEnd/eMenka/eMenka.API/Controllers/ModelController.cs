@@ -32,7 +32,7 @@ namespace eMenka.API.Controllers
 
             var models = _modelRepository.Find(model => model.Brand.Id == brandId);
 
-            return Ok(models.Select(m=>_mapper.Map<ModelReturnModel>(m)).ToList());
+            return Ok(models.Select(_mapper.Map<ModelReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(ModelModel model)

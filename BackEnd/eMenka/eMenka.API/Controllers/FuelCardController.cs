@@ -33,7 +33,7 @@ namespace eMenka.API.Controllers
         {
             var fuelcards = _fuelCardRepository.Find(v => v.EndDate >= DateTime.Now.Date && v.EndDate <= DateTime.Now.Date.AddDays(range));
 
-            return Ok(fuelcards.Select(fc=>_mapper.Map<FuelCardReturnModel>(fc)).ToList());
+            return Ok(fuelcards.Select(_mapper.Map<FuelCardReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(FuelCardModel model)

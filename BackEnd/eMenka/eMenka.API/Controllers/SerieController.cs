@@ -31,7 +31,7 @@ namespace eMenka.API.Controllers
 
             var series = _serieRepository.Find(serie => serie.Brand.Id == brandId);
 
-            return Ok(series.Select(s=>_mapper.Map<SerieReturnModel>(s)).ToList());
+            return Ok(series.Select(_mapper.Map<SerieReturnModel>).ToList());
         }
 
         [HttpGet("name/{serieName}")]
@@ -39,7 +39,7 @@ namespace eMenka.API.Controllers
         {
             var series = _serieRepository.Find(serie => serie.Name == serieName);
 
-            return Ok(series.Select(s=>_mapper.Map<SerieReturnModel>(s)).ToList());
+            return Ok(series.Select(_mapper.Map<SerieReturnModel>).ToList());
         }
 
         public override IActionResult PostEntity(SerieModel model)
