@@ -60,7 +60,6 @@ namespace eMenka.API.Controllers
         public virtual IActionResult UpdateEntity([FromBody] TModel model, int id)
         {
             if (!ModelState.IsValid) return BadRequest();
-
             if (id != model.Id)
                 return BadRequest("Id van model komt niet overeen met id van query parameter");
 
