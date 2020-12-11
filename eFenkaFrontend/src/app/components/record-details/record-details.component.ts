@@ -50,17 +50,11 @@ export class RecordDetailsComponent implements OnInit {
     this.costAllocations = await this.setCostAllocation();
     this.brands = await this.setBrand();
     this.fuelTypes = await this.setFuelType();
-    if (this.selectedRecord.fuelCard) {
-      this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
-      this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
-      this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
-      this.selectedVehicle = this.vehicles.find(v => v.id === this.selectedRecord.fuelCard.vehicle.id);
-    } else {
-      this.models = [];
-      this.vehicles = [];
-      this.selectedBrand = null;
-      this.selectedVehicle = null;
-    }
+    this.models = await this.setModels(this.selectedRecord.fuelCard.vehicle.brand.id);
+    this.vehicles = await this.setVehicle(this.selectedRecord.fuelCard.vehicle.brand.id);
+    this.selectedBrand = await this.setSelectedBrand(this.selectedRecord.fuelCard.vehicle.brand.id);
+    this.selectedVehicle = this.vehicles.find(v => v.id === this.selectedRecord.fuelCard.vehicle.id);
+    
     console.log(this.selectedRecord);
 
     this.form = new FormGroup({

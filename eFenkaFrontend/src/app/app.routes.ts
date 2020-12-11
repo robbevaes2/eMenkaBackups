@@ -11,7 +11,7 @@ import { DriverDetailsComponent } from './components/driver-details/driver-detai
 import { NewDriverItemComponent } from './components/new-driver-item/new-driver-item.component';
 import {FuelcardDetailsComponent} from './components/fuelcard-details/fuelcard-details.component';
 import {FuelcardListComponent} from './components/fuelcard-list/fuelcard-list.component';
-import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart/dashboard-model-chart.component';
+import { DashboardModelChartComponent } from './components/dashboard-model-chart/dashboard-model-chart.component';
 import {NewFuelcardItemComponent} from './components/new-fuelcard-item/new-fuelcard-item.component';
 import { SupplierListComponent } from './components/supplier-list/supplier-list.component';
 import { SupplierDetailsComponent } from './components/supplier-details/supplier-details.component';
