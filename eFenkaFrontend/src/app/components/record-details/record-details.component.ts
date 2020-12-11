@@ -225,7 +225,7 @@ export class RecordDetailsComponent implements OnInit {
       engineTypeId: this.selectedVehicle.engineType.id,
       doorTypeId: this.selectedVehicle.doorType.id,
       fuelCardId: this.selectedVehicle.fuelCard?.id,
-      seriesId: this.selectedVehicle.serie.id,
+      seriesId: this.selectedVehicle.series.id,
       volume: this.selectedVehicle.volume,
       fiscalHP: this.selectedVehicle.fiscalHP,
       emission: this.selectedVehicle.emission,
